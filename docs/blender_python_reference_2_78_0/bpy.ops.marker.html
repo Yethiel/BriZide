@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Marker Operators &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Operators (bpy.ops)" href="bpy.ops.html" />
+    <link rel="next" title="Mask Operators" href="bpy.ops.mask.html" />
+    <link rel="prev" title="Logic Operators" href="bpy.ops.logic.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.mask.html" title="Mask Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.logic.html" title="Logic Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.ops.marker">
+<span id="marker-operators"></span><h1>Marker Operators<a class="headerlink" href="#module-bpy.ops.marker" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bpy.ops.marker.add">
+<code class="descclassname">bpy.ops.marker.</code><code class="descname">add</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.marker.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new time marker</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.marker.camera_bind">
+<code class="descclassname">bpy.ops.marker.</code><code class="descname">camera_bind</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.marker.camera_bind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bind the active camera to selected marker(s)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.marker.delete">
+<code class="descclassname">bpy.ops.marker.</code><code class="descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.marker.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete selected time marker(s)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.marker.duplicate">
+<code class="descclassname">bpy.ops.marker.</code><code class="descname">duplicate</code><span class="sig-paren">(</span><em>frames=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.marker.duplicate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Duplicate selected time marker(s)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>frames</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Frames</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.marker.make_links_scene">
+<code class="descclassname">bpy.ops.marker.</code><code class="descname">make_links_scene</code><span class="sig-paren">(</span><em>scene=''</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.marker.make_links_scene" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy selected markers to another scene</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>scene</strong> (<em>enum in [], (optional)</em>) &#8211; Scene</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.marker.move">
+<code class="descclassname">bpy.ops.marker.</code><code class="descname">move</code><span class="sig-paren">(</span><em>frames=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.marker.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move selected time marker(s)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>frames</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Frames</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.marker.rename">
+<code class="descclassname">bpy.ops.marker.</code><code class="descname">rename</code><span class="sig-paren">(</span><em>name=&quot;RenamedMarker&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.marker.rename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rename first selected time marker</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>string, (optional, never None)</em>) &#8211; Name, New name for marker</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.marker.select">
+<code class="descclassname">bpy.ops.marker.</code><code class="descname">select</code><span class="sig-paren">(</span><em>extend=False</em>, <em>camera=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.marker.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select time marker(s)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>extend</strong> (<em>boolean, (optional)</em>) &#8211; Extend, Extend the selection</li>
+<li><strong>camera</strong> (<em>boolean, (optional)</em>) &#8211; Camera, Select the camera</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.marker.select_all">
+<code class="descclassname">bpy.ops.marker.</code><code class="descname">select_all</code><span class="sig-paren">(</span><em>action='TOGGLE'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.marker.select_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change selection of all time markers</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>action</strong> (<em>enum in ['TOGGLE', 'SELECT', 'DESELECT', 'INVERT'], (optional)</em>) &#8211; <p>Action, Selection action to execute</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TOGGLE</span></code> Toggle, Toggle selection for all elements.</li>
+<li><code class="docutils literal"><span class="pre">SELECT</span></code> Select, Select all elements.</li>
+<li><code class="docutils literal"><span class="pre">DESELECT</span></code> Deselect, Deselect all elements.</li>
+<li><code class="docutils literal"><span class="pre">INVERT</span></code> Invert, Invert selection of all elements.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.marker.select_border">
+<code class="descclassname">bpy.ops.marker.</code><code class="descname">select_border</code><span class="sig-paren">(</span><em>gesture_mode=0</em>, <em>xmin=0</em>, <em>xmax=0</em>, <em>ymin=0</em>, <em>ymax=0</em>, <em>extend=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.marker.select_border" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select all time markers using border selection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>gesture_mode</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Gesture Mode</li>
+<li><strong>xmin</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; X Min</li>
+<li><strong>xmax</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; X Max</li>
+<li><strong>ymin</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Y Min</li>
+<li><strong>ymax</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Y Max</li>
+<li><strong>extend</strong> (<em>boolean, (optional)</em>) &#8211; Extend, Extend selection instead of deselecting everything first</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.ops.logic.html"
+                        title="previous chapter">Logic Operators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.ops.mask.html"
+                        title="next chapter">Mask Operators</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.mask.html" title="Mask Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.logic.html" title="Logic Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

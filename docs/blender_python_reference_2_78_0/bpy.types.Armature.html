@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Armature(ID) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="ArmatureActuator(Actuator)" href="bpy.types.ArmatureActuator.html" />
+    <link rel="prev" title="AreaSpaces(bpy_struct)" href="bpy.types.AreaSpaces.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ArmatureActuator.html" title="ArmatureActuator(Actuator)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.AreaSpaces.html" title="AreaSpaces(bpy_struct)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="armature-id"></span><h1>Armature(ID)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base classes &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal"><span class="pre">ID</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.Armature">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">Armature</code><span class="sig-paren">(</span><em>ID</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Armature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Armature data-block containing a hierarchy of bones, usually used for rigging characters</p>
+<dl class="data">
+<dt id="bpy.types.Armature.animation_data">
+<code class="descname">animation_data</code><a class="headerlink" href="#bpy.types.Armature.animation_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Animation data for this data-block</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.AnimData.html#bpy.types.AnimData" title="bpy.types.AnimData"><code class="xref py py-class docutils literal"><span class="pre">AnimData</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Armature.bones">
+<code class="descname">bones</code><a class="headerlink" href="#bpy.types.Armature.bones" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.ArmatureBones.html#bpy.types.ArmatureBones" title="bpy.types.ArmatureBones"><code class="xref py py-class docutils literal"><span class="pre">ArmatureBones</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Bone.html#bpy.types.Bone" title="bpy.types.Bone"><code class="xref py py-class docutils literal"><span class="pre">Bone</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Armature.deform_method">
+<code class="descname">deform_method</code><a class="headerlink" href="#bpy.types.Armature.deform_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertex Deformer Method (Game Engine only)</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">BLENDER</span></code> Blender, Use Blender&#8217;s armature vertex deformation.</li>
+<li><code class="docutils literal"><span class="pre">BGE_CPU</span></code> BGE, Use vertex deformation code optimized for the BGE.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;BLENDER&#8217;, &#8216;BGE_CPU&#8217;], default &#8216;BLENDER&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Armature.draw_type">
+<code class="descname">draw_type</code><a class="headerlink" href="#bpy.types.Armature.draw_type" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><code class="docutils literal"><span class="pre">OCTAHEDRAL</span></code> Octahedral, Display bones as octahedral shape (default).</li>
+<li><code class="docutils literal"><span class="pre">STICK</span></code> Stick, Display bones as simple 2D lines with dots.</li>
+<li><code class="docutils literal"><span class="pre">BBONE</span></code> B-Bone, Display bones as boxes, showing subdivision and B-Splines.</li>
+<li><code class="docutils literal"><span class="pre">ENVELOPE</span></code> Envelope, Display bones as extruded spheres, showing deformation influence volume.</li>
+<li><code class="docutils literal"><span class="pre">WIRE</span></code> Wire, Display bones as thin wires, showing subdivision and B-Splines.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;OCTAHEDRAL&#8217;, &#8216;STICK&#8217;, &#8216;BBONE&#8217;, &#8216;ENVELOPE&#8217;, &#8216;WIRE&#8217;], default &#8216;OCTAHEDRAL&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Armature.edit_bones">
+<code class="descname">edit_bones</code><a class="headerlink" href="#bpy.types.Armature.edit_bones" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.ArmatureEditBones.html#bpy.types.ArmatureEditBones" title="bpy.types.ArmatureEditBones"><code class="xref py py-class docutils literal"><span class="pre">ArmatureEditBones</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.EditBone.html#bpy.types.EditBone" title="bpy.types.EditBone"><code class="xref py py-class docutils literal"><span class="pre">EditBone</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Armature.ghost_frame_end">
+<code class="descname">ghost_frame_end</code><a class="headerlink" href="#bpy.types.Armature.ghost_frame_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>End frame of range of Ghosts to display (not for &#8216;Around Current Frame&#8217; Onion-skinning method)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-inf, inf], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Armature.ghost_frame_start">
+<code class="descname">ghost_frame_start</code><a class="headerlink" href="#bpy.types.Armature.ghost_frame_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starting frame of range of Ghosts to display (not for &#8216;Around Current Frame&#8217; Onion-skinning method)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-inf, inf], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Armature.ghost_size">
+<code class="descname">ghost_size</code><a class="headerlink" href="#bpy.types.Armature.ghost_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Frame step for Ghosts (not for &#8216;On Keyframes&#8217; Onion-skinning method)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 20], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Armature.ghost_step">
+<code class="descname">ghost_step</code><a class="headerlink" href="#bpy.types.Armature.ghost_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of frame steps on either side of current frame to show as ghosts (only for &#8216;Around Current Frame&#8217; Onion-skinning method)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 30], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Armature.ghost_type">
+<code class="descname">ghost_type</code><a class="headerlink" href="#bpy.types.Armature.ghost_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method of Onion-skinning for active Action</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">CURRENT_FRAME</span></code> Around Frame, Display Ghosts of poses within a fixed number of frames around the current frame.</li>
+<li><code class="docutils literal"><span class="pre">RANGE</span></code> In Range, Display Ghosts of poses within specified range.</li>
+<li><code class="docutils literal"><span class="pre">KEYS</span></code> On Keyframes, Display Ghosts of poses on Keyframes.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;CURRENT_FRAME&#8217;, &#8216;RANGE&#8217;, &#8216;KEYS&#8217;], default &#8216;CURRENT_FRAME&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Armature.is_editmode">
+<code class="descname">is_editmode</code><a class="headerlink" href="#bpy.types.Armature.is_editmode" title="Permalink to this definition">¶</a></dt>
+<dd><p>True when used in editmode</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Armature.layers">
+<code class="descname">layers</code><a class="headerlink" href="#bpy.types.Armature.layers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Armature layer visibility</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean array of 32 items, default (False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Armature.layers_protected">
+<code class="descname">layers_protected</code><a class="headerlink" href="#bpy.types.Armature.layers_protected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Protected layers in Proxy Instances are restored to Proxy settings on file reload and undo</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean array of 32 items, default (False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Armature.pose_position">
+<code class="descname">pose_position</code><a class="headerlink" href="#bpy.types.Armature.pose_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show armature in binding pose or final posed state</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">POSE</span></code> Pose Position, Show armature in posed state.</li>
+<li><code class="docutils literal"><span class="pre">REST</span></code> Rest Position, Show Armature in binding pose state (no posing possible).</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;POSE&#8217;, &#8216;REST&#8217;], default &#8216;POSE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Armature.show_axes">
+<code class="descname">show_axes</code><a class="headerlink" href="#bpy.types.Armature.show_axes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw bone axes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Armature.show_bone_custom_shapes">
+<code class="descname">show_bone_custom_shapes</code><a class="headerlink" href="#bpy.types.Armature.show_bone_custom_shapes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw bones with their custom shapes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Armature.show_group_colors">
+<code class="descname">show_group_colors</code><a class="headerlink" href="#bpy.types.Armature.show_group_colors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw bone group colors</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Armature.show_names">
+<code class="descname">show_names</code><a class="headerlink" href="#bpy.types.Armature.show_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw bone names</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Armature.show_only_ghost_selected">
+<code class="descname">show_only_ghost_selected</code><a class="headerlink" href="#bpy.types.Armature.show_only_ghost_selected" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Armature.use_auto_ik">
+<code class="descname">use_auto_ik</code><a class="headerlink" href="#bpy.types.Armature.use_auto_ik" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add temporary IK constraints while grabbing bones in Pose Mode</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Armature.use_deform_delay">
+<code class="descname">use_deform_delay</code><a class="headerlink" href="#bpy.types.Armature.use_deform_delay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Don&#8217;t deform children when manipulating bones in Pose Mode</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Armature.use_mirror_x">
+<code class="descname">use_mirror_x</code><a class="headerlink" href="#bpy.types.Armature.use_mirror_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply changes to matching bone on opposite side of X-Axis</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Armature.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>matrix</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Armature.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform armature bones by a matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>matrix</strong> (<em>float array of 16 items in [-inf, inf]</em>) &#8211; Matrix</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.name" title="bpy.types.ID.name"><code class="xref py py-class docutils literal"><span class="pre">ID.name</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.users" title="bpy.types.ID.users"><code class="xref py py-class docutils literal"><span class="pre">ID.users</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.use_fake_user" title="bpy.types.ID.use_fake_user"><code class="xref py py-class docutils literal"><span class="pre">ID.use_fake_user</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.tag" title="bpy.types.ID.tag"><code class="xref py py-class docutils literal"><span class="pre">ID.tag</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_updated" title="bpy.types.ID.is_updated"><code class="xref py py-class docutils literal"><span class="pre">ID.is_updated</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_updated_data" title="bpy.types.ID.is_updated_data"><code class="xref py py-class docutils literal"><span class="pre">ID.is_updated_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_library_indirect" title="bpy.types.ID.is_library_indirect"><code class="xref py py-class docutils literal"><span class="pre">ID.is_library_indirect</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.library" title="bpy.types.ID.library"><code class="xref py py-class docutils literal"><span class="pre">ID.library</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.preview" title="bpy.types.ID.preview"><code class="xref py py-class docutils literal"><span class="pre">ID.preview</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.copy" title="bpy.types.ID.copy"><code class="xref py py-class docutils literal"><span class="pre">ID.copy</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_clear" title="bpy.types.ID.user_clear"><code class="xref py py-class docutils literal"><span class="pre">ID.user_clear</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_remap" title="bpy.types.ID.user_remap"><code class="xref py py-class docutils literal"><span class="pre">ID.user_remap</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_of_id" title="bpy.types.ID.user_of_id"><code class="xref py py-class docutils literal"><span class="pre">ID.user_of_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.animation_data_create" title="bpy.types.ID.animation_data_create"><code class="xref py py-class docutils literal"><span class="pre">ID.animation_data_create</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.animation_data_clear" title="bpy.types.ID.animation_data_clear"><code class="xref py py-class docutils literal"><span class="pre">ID.animation_data_clear</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.update_tag" title="bpy.types.ID.update_tag"><code class="xref py py-class docutils literal"><span class="pre">ID.update_tag</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.context.html#bpy.context.armature" title="bpy.context.armature"><code class="xref py py-mod docutils literal"><span class="pre">bpy.context.armature</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.BlendData.html#bpy.types.BlendData.armatures" title="bpy.types.BlendData.armatures"><code class="xref py py-class docutils literal"><span class="pre">BlendData.armatures</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.BlendDataArmatures.html#bpy.types.BlendDataArmatures.new" title="bpy.types.BlendDataArmatures.new"><code class="xref py py-class docutils literal"><span class="pre">BlendDataArmatures.new</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.BlendDataArmatures.html#bpy.types.BlendDataArmatures.remove" title="bpy.types.BlendDataArmatures.remove"><code class="xref py py-class docutils literal"><span class="pre">BlendDataArmatures.remove</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.AreaSpaces.html"
+                        title="previous chapter">AreaSpaces(bpy_struct)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.ArmatureActuator.html"
+                        title="next chapter">ArmatureActuator(Actuator)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ArmatureActuator.html" title="ArmatureActuator(Actuator)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.AreaSpaces.html" title="AreaSpaces(bpy_struct)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

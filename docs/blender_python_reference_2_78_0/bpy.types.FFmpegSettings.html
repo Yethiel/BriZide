@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>FFmpegSettings(bpy_struct) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="FILEBROWSER_UL_dir(UIList)" href="bpy.types.FILEBROWSER_UL_dir.html" />
+    <link rel="prev" title="FCurveSample(bpy_struct)" href="bpy.types.FCurveSample.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.FILEBROWSER_UL_dir.html" title="FILEBROWSER_UL_dir(UIList)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.FCurveSample.html" title="FCurveSample(bpy_struct)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="ffmpegsettings-bpy-struct"></span><h1>FFmpegSettings(bpy_struct)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.FFmpegSettings">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">FFmpegSettings</code><span class="sig-paren">(</span><em>bpy_struct</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.FFmpegSettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>FFmpeg related settings for the scene</p>
+<dl class="attribute">
+<dt id="bpy.types.FFmpegSettings.audio_bitrate">
+<code class="descname">audio_bitrate</code><a class="headerlink" href="#bpy.types.FFmpegSettings.audio_bitrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Audio bitrate (kb/s)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [32, 384], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FFmpegSettings.audio_channels">
+<code class="descname">audio_channels</code><a class="headerlink" href="#bpy.types.FFmpegSettings.audio_channels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Audio channel count</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">MONO</span></code> Mono, Set audio channels to mono.</li>
+<li><code class="docutils literal"><span class="pre">STEREO</span></code> Stereo, Set audio channels to stereo.</li>
+<li><code class="docutils literal"><span class="pre">SURROUND4</span></code> 4 Channels, Set audio channels to 4 channels.</li>
+<li><code class="docutils literal"><span class="pre">SURROUND51</span></code> 5.1 Surround, Set audio channels to 5.1 surround sound.</li>
+<li><code class="docutils literal"><span class="pre">SURROUND71</span></code> 7.1 Surround, Set audio channels to 7.1 surround sound.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;MONO&#8217;, &#8216;STEREO&#8217;, &#8216;SURROUND4&#8217;, &#8216;SURROUND51&#8217;, &#8216;SURROUND71&#8217;], default &#8216;MONO&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FFmpegSettings.audio_codec">
+<code class="descname">audio_codec</code><a class="headerlink" href="#bpy.types.FFmpegSettings.audio_codec" title="Permalink to this definition">¶</a></dt>
+<dd><p>FFmpeg audio codec to use</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;MP2&#8217;, &#8216;MP3&#8217;, &#8216;AC3&#8217;, &#8216;AAC&#8217;, &#8216;VORBIS&#8217;, &#8216;FLAC&#8217;, &#8216;PCM&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FFmpegSettings.audio_mixrate">
+<code class="descname">audio_mixrate</code><a class="headerlink" href="#bpy.types.FFmpegSettings.audio_mixrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Audio samplerate(samples/s)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [8000, 192000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FFmpegSettings.audio_volume">
+<code class="descname">audio_volume</code><a class="headerlink" href="#bpy.types.FFmpegSettings.audio_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Audio volume</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FFmpegSettings.buffersize">
+<code class="descname">buffersize</code><a class="headerlink" href="#bpy.types.FFmpegSettings.buffersize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate control: buffer size (kb)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 2000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FFmpegSettings.codec">
+<code class="descname">codec</code><a class="headerlink" href="#bpy.types.FFmpegSettings.codec" title="Permalink to this definition">¶</a></dt>
+<dd><p>FFmpeg codec to use</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;MPEG1&#8217;, &#8216;MPEG2&#8217;, &#8216;MPEG4&#8217;, &#8216;HUFFYUV&#8217;, &#8216;DV&#8217;, &#8216;H264&#8217;, &#8216;THEORA&#8217;, &#8216;FLASH&#8217;, &#8216;FFV1&#8217;, &#8216;QTRLE&#8217;, &#8216;DNXHD&#8217;, &#8216;PNG&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FFmpegSettings.format">
+<code class="descname">format</code><a class="headerlink" href="#bpy.types.FFmpegSettings.format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output file format</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;MPEG1&#8217;, &#8216;MPEG2&#8217;, &#8216;MPEG4&#8217;, &#8216;AVI&#8217;, &#8216;QUICKTIME&#8217;, &#8216;DV&#8217;, &#8216;H264&#8217;, &#8216;XVID&#8217;, &#8216;OGG&#8217;, &#8216;MKV&#8217;, &#8216;FLASH&#8217;], default &#8216;MPEG1&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FFmpegSettings.gopsize">
+<code class="descname">gopsize</code><a class="headerlink" href="#bpy.types.FFmpegSettings.gopsize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Distance between key frames</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 100], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FFmpegSettings.maxrate">
+<code class="descname">maxrate</code><a class="headerlink" href="#bpy.types.FFmpegSettings.maxrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate control: max rate (kb/s)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-inf, inf], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FFmpegSettings.minrate">
+<code class="descname">minrate</code><a class="headerlink" href="#bpy.types.FFmpegSettings.minrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate control: min rate (kb/s)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-inf, inf], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FFmpegSettings.muxrate">
+<code class="descname">muxrate</code><a class="headerlink" href="#bpy.types.FFmpegSettings.muxrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mux rate (bits/s(!))</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, inf], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FFmpegSettings.packetsize">
+<code class="descname">packetsize</code><a class="headerlink" href="#bpy.types.FFmpegSettings.packetsize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mux packet size (byte)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 16384], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FFmpegSettings.use_autosplit">
+<code class="descname">use_autosplit</code><a class="headerlink" href="#bpy.types.FFmpegSettings.use_autosplit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Autosplit output at 2GB boundary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FFmpegSettings.use_lossless_output">
+<code class="descname">use_lossless_output</code><a class="headerlink" href="#bpy.types.FFmpegSettings.use_lossless_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use lossless output for video streams</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FFmpegSettings.video_bitrate">
+<code class="descname">video_bitrate</code><a class="headerlink" href="#bpy.types.FFmpegSettings.video_bitrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Video bitrate (kb/s)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-inf, inf], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.RenderSettings.html#bpy.types.RenderSettings.ffmpeg" title="bpy.types.RenderSettings.ffmpeg"><code class="xref py py-class docutils literal"><span class="pre">RenderSettings.ffmpeg</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.FCurveSample.html"
+                        title="previous chapter">FCurveSample(bpy_struct)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.FILEBROWSER_UL_dir.html"
+                        title="next chapter">FILEBROWSER_UL_dir(UIList)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.FILEBROWSER_UL_dir.html" title="FILEBROWSER_UL_dir(UIList)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.FCurveSample.html" title="FCurveSample(bpy_struct)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

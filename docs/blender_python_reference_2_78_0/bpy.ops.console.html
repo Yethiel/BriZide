@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Console Operators &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Operators (bpy.ops)" href="bpy.ops.html" />
+    <link rel="next" title="Constraint Operators" href="bpy.ops.constraint.html" />
+    <link rel="prev" title="Cloth Operators" href="bpy.ops.cloth.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.constraint.html" title="Constraint Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.cloth.html" title="Cloth Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.ops.console">
+<span id="console-operators"></span><h1>Console Operators<a class="headerlink" href="#module-bpy.ops.console" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bpy.ops.console.autocomplete">
+<code class="descclassname">bpy.ops.console.</code><code class="descname">autocomplete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.console.autocomplete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the namespace up until the cursor and give a list of options or complete the name if there is only one</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">File:</th><td class="field-body"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/console.py">startup/bl_operators/console.py</a>:72</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.console.banner">
+<code class="descclassname">bpy.ops.console.</code><code class="descname">banner</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.console.banner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print a message when the terminal initializes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">File:</th><td class="field-body"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/console.py">startup/bl_operators/console.py</a>:117</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.console.clear">
+<code class="descclassname">bpy.ops.console.</code><code class="descname">clear</code><span class="sig-paren">(</span><em>scrollback=True</em>, <em>history=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.console.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear text by type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>scrollback</strong> (<em>boolean, (optional)</em>) &#8211; Scrollback, Clear the scrollback history</li>
+<li><strong>history</strong> (<em>boolean, (optional)</em>) &#8211; History, Clear the command history</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.console.clear_line">
+<code class="descclassname">bpy.ops.console.</code><code class="descname">clear_line</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.console.clear_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear the line and store in history</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.console.copy">
+<code class="descclassname">bpy.ops.console.</code><code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.console.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy selected text to clipboard</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.console.copy_as_script">
+<code class="descclassname">bpy.ops.console.</code><code class="descname">copy_as_script</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.console.copy_as_script" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy the console contents for use in a script</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">File:</th><td class="field-body"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/console.py">startup/bl_operators/console.py</a>:94</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.console.delete">
+<code class="descclassname">bpy.ops.console.</code><code class="descname">delete</code><span class="sig-paren">(</span><em>type='NEXT_CHARACTER'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.console.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete text by cursor position</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> (<em>enum in ['NEXT_CHARACTER', 'PREVIOUS_CHARACTER', 'NEXT_WORD', 'PREVIOUS_WORD'], (optional)</em>) &#8211; Type, Which part of the text to delete</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.console.execute">
+<code class="descclassname">bpy.ops.console.</code><code class="descname">execute</code><span class="sig-paren">(</span><em>interactive=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.console.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute the current console line as a python expression</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>interactive</strong> (<em>boolean, (optional)</em>) &#8211; interactive</td>
+</tr>
+<tr class="field-even field"><th class="field-name">File:</th><td class="field-body"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/console.py">startup/bl_operators/console.py</a>:48</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.console.history_append">
+<code class="descclassname">bpy.ops.console.</code><code class="descname">history_append</code><span class="sig-paren">(</span><em>text=&quot;&quot;</em>, <em>current_character=0</em>, <em>remove_duplicates=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.console.history_append" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append history at cursor position</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>text</strong> (<em>string, (optional, never None)</em>) &#8211; Text, Text to insert at the cursor position</li>
+<li><strong>current_character</strong> (<em>int in [0, inf], (optional)</em>) &#8211; Cursor, The index of the cursor</li>
+<li><strong>remove_duplicates</strong> (<em>boolean, (optional)</em>) &#8211; Remove Duplicates, Remove duplicate items in the history</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.console.history_cycle">
+<code class="descclassname">bpy.ops.console.</code><code class="descname">history_cycle</code><span class="sig-paren">(</span><em>reverse=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.console.history_cycle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycle through history</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reverse</strong> (<em>boolean, (optional)</em>) &#8211; Reverse, Reverse cycle history</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.console.indent">
+<code class="descclassname">bpy.ops.console.</code><code class="descname">indent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.console.indent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add 4 spaces at line beginning</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.console.insert">
+<code class="descclassname">bpy.ops.console.</code><code class="descname">insert</code><span class="sig-paren">(</span><em>text=&quot;&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.console.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert text at cursor position</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>text</strong> (<em>string, (optional, never None)</em>) &#8211; Text, Text to insert at the cursor position</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.console.language">
+<code class="descclassname">bpy.ops.console.</code><code class="descname">language</code><span class="sig-paren">(</span><em>language=&quot;&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.console.language" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the current language for this console</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>language</strong> (<em>string, (optional, never None)</em>) &#8211; Language</td>
+</tr>
+<tr class="field-even field"><th class="field-name">File:</th><td class="field-body"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/console.py">startup/bl_operators/console.py</a>:149</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.console.move">
+<code class="descclassname">bpy.ops.console.</code><code class="descname">move</code><span class="sig-paren">(</span><em>type='LINE_BEGIN'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.console.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move cursor position</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> (<em>enum in ['LINE_BEGIN', 'LINE_END', 'PREVIOUS_CHARACTER', 'NEXT_CHARACTER', 'PREVIOUS_WORD', 'NEXT_WORD'], (optional)</em>) &#8211; Type, Where to move cursor to</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.console.paste">
+<code class="descclassname">bpy.ops.console.</code><code class="descname">paste</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.console.paste" title="Permalink to this definition">¶</a></dt>
+<dd><p>Paste text from clipboard</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.console.scrollback_append">
+<code class="descclassname">bpy.ops.console.</code><code class="descname">scrollback_append</code><span class="sig-paren">(</span><em>text=&quot;&quot;</em>, <em>type='OUTPUT'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.console.scrollback_append" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append scrollback text by type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>text</strong> (<em>string, (optional, never None)</em>) &#8211; Text, Text to insert at the cursor position</li>
+<li><strong>type</strong> (<em>enum in ['OUTPUT', 'INPUT', 'INFO', 'ERROR'], (optional)</em>) &#8211; Type, Console output type</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.console.select_set">
+<code class="descclassname">bpy.ops.console.</code><code class="descname">select_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.console.select_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the console selection</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.console.select_word">
+<code class="descclassname">bpy.ops.console.</code><code class="descname">select_word</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.console.select_word" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select word at cursor position</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.console.unindent">
+<code class="descclassname">bpy.ops.console.</code><code class="descname">unindent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.console.unindent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete 4 spaces from line beginning</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.ops.cloth.html"
+                        title="previous chapter">Cloth Operators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.ops.constraint.html"
+                        title="next chapter">Constraint Operators</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.constraint.html" title="Constraint Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.cloth.html" title="Cloth Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

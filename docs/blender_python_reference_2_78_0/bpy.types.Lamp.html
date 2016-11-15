@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Lamp(ID) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="LampSkySettings(bpy_struct)" href="bpy.types.LampSkySettings.html" />
+    <link rel="prev" title="KinematicConstraint(Constraint)" href="bpy.types.KinematicConstraint.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.LampSkySettings.html" title="LampSkySettings(bpy_struct)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.KinematicConstraint.html" title="KinematicConstraint(Constraint)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="lamp-id"></span><h1>Lamp(ID)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base classes &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal"><span class="pre">ID</span></code></a></p>
+<p>subclasses &#8212;
+<a class="reference internal" href="bpy.types.AreaLamp.html#bpy.types.AreaLamp" title="bpy.types.AreaLamp"><code class="xref py py-class docutils literal"><span class="pre">AreaLamp</span></code></a>, <a class="reference internal" href="bpy.types.HemiLamp.html#bpy.types.HemiLamp" title="bpy.types.HemiLamp"><code class="xref py py-class docutils literal"><span class="pre">HemiLamp</span></code></a>, <a class="reference internal" href="bpy.types.PointLamp.html#bpy.types.PointLamp" title="bpy.types.PointLamp"><code class="xref py py-class docutils literal"><span class="pre">PointLamp</span></code></a>, <a class="reference internal" href="bpy.types.SpotLamp.html#bpy.types.SpotLamp" title="bpy.types.SpotLamp"><code class="xref py py-class docutils literal"><span class="pre">SpotLamp</span></code></a>, <a class="reference internal" href="bpy.types.SunLamp.html#bpy.types.SunLamp" title="bpy.types.SunLamp"><code class="xref py py-class docutils literal"><span class="pre">SunLamp</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.Lamp">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">Lamp</code><span class="sig-paren">(</span><em>ID</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Lamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lamp data-block for lighting a scene</p>
+<dl class="attribute">
+<dt id="bpy.types.Lamp.active_texture">
+<code class="descname">active_texture</code><a class="headerlink" href="#bpy.types.Lamp.active_texture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Active texture slot being displayed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Texture.html#bpy.types.Texture" title="bpy.types.Texture"><code class="xref py py-class docutils literal"><span class="pre">Texture</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Lamp.active_texture_index">
+<code class="descname">active_texture_index</code><a class="headerlink" href="#bpy.types.Lamp.active_texture_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Index of active texture slot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 17], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Lamp.animation_data">
+<code class="descname">animation_data</code><a class="headerlink" href="#bpy.types.Lamp.animation_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Animation data for this data-block</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.AnimData.html#bpy.types.AnimData" title="bpy.types.AnimData"><code class="xref py py-class docutils literal"><span class="pre">AnimData</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Lamp.color">
+<code class="descname">color</code><a class="headerlink" href="#bpy.types.Lamp.color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Light color</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 3 items in [0, inf], default (0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Lamp.cycles">
+<code class="descname">cycles</code><a class="headerlink" href="#bpy.types.Lamp.cycles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycles lamp settings</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.CyclesLampSettings.html#bpy.types.CyclesLampSettings" title="bpy.types.CyclesLampSettings"><code class="xref py py-class docutils literal"><span class="pre">CyclesLampSettings</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Lamp.distance">
+<code class="descname">distance</code><a class="headerlink" href="#bpy.types.Lamp.distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Falloff distance - the light is at half the original intensity at this point</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Lamp.energy">
+<code class="descname">energy</code><a class="headerlink" href="#bpy.types.Lamp.energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of light that the lamp emits</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Lamp.node_tree">
+<code class="descname">node_tree</code><a class="headerlink" href="#bpy.types.Lamp.node_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Node tree for node based lamps</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree" title="bpy.types.NodeTree"><code class="xref py py-class docutils literal"><span class="pre">NodeTree</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Lamp.texture_slots">
+<code class="descname">texture_slots</code><a class="headerlink" href="#bpy.types.Lamp.texture_slots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Texture slots defining the mapping and influence of textures</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.LampTextureSlots.html#bpy.types.LampTextureSlots" title="bpy.types.LampTextureSlots"><code class="xref py py-class docutils literal"><span class="pre">LampTextureSlots</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.LampTextureSlot.html#bpy.types.LampTextureSlot" title="bpy.types.LampTextureSlot"><code class="xref py py-class docutils literal"><span class="pre">LampTextureSlot</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Lamp.type">
+<code class="descname">type</code><a class="headerlink" href="#bpy.types.Lamp.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of Lamp</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">POINT</span></code> Point, Omnidirectional point light source.</li>
+<li><code class="docutils literal"><span class="pre">SUN</span></code> Sun, Constant direction parallel ray light source.</li>
+<li><code class="docutils literal"><span class="pre">SPOT</span></code> Spot, Directional cone light source.</li>
+<li><code class="docutils literal"><span class="pre">HEMI</span></code> Hemi, 180 degree constant light source.</li>
+<li><code class="docutils literal"><span class="pre">AREA</span></code> Area, Directional area light source.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;POINT&#8217;, &#8216;SUN&#8217;, &#8216;SPOT&#8217;, &#8216;HEMI&#8217;, &#8216;AREA&#8217;], default &#8216;POINT&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Lamp.use_diffuse">
+<code class="descname">use_diffuse</code><a class="headerlink" href="#bpy.types.Lamp.use_diffuse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do diffuse shading</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Lamp.use_negative">
+<code class="descname">use_negative</code><a class="headerlink" href="#bpy.types.Lamp.use_negative" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cast negative light</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Lamp.use_nodes">
+<code class="descname">use_nodes</code><a class="headerlink" href="#bpy.types.Lamp.use_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use shader nodes to render the lamp</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Lamp.use_own_layer">
+<code class="descname">use_own_layer</code><a class="headerlink" href="#bpy.types.Lamp.use_own_layer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Illuminate objects only on the same layers the lamp is on</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Lamp.use_specular">
+<code class="descname">use_specular</code><a class="headerlink" href="#bpy.types.Lamp.use_specular" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create specular highlights</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.name" title="bpy.types.ID.name"><code class="xref py py-class docutils literal"><span class="pre">ID.name</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.users" title="bpy.types.ID.users"><code class="xref py py-class docutils literal"><span class="pre">ID.users</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.use_fake_user" title="bpy.types.ID.use_fake_user"><code class="xref py py-class docutils literal"><span class="pre">ID.use_fake_user</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.tag" title="bpy.types.ID.tag"><code class="xref py py-class docutils literal"><span class="pre">ID.tag</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_updated" title="bpy.types.ID.is_updated"><code class="xref py py-class docutils literal"><span class="pre">ID.is_updated</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_updated_data" title="bpy.types.ID.is_updated_data"><code class="xref py py-class docutils literal"><span class="pre">ID.is_updated_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_library_indirect" title="bpy.types.ID.is_library_indirect"><code class="xref py py-class docutils literal"><span class="pre">ID.is_library_indirect</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.library" title="bpy.types.ID.library"><code class="xref py py-class docutils literal"><span class="pre">ID.library</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.preview" title="bpy.types.ID.preview"><code class="xref py py-class docutils literal"><span class="pre">ID.preview</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.copy" title="bpy.types.ID.copy"><code class="xref py py-class docutils literal"><span class="pre">ID.copy</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_clear" title="bpy.types.ID.user_clear"><code class="xref py py-class docutils literal"><span class="pre">ID.user_clear</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_remap" title="bpy.types.ID.user_remap"><code class="xref py py-class docutils literal"><span class="pre">ID.user_remap</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_of_id" title="bpy.types.ID.user_of_id"><code class="xref py py-class docutils literal"><span class="pre">ID.user_of_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.animation_data_create" title="bpy.types.ID.animation_data_create"><code class="xref py py-class docutils literal"><span class="pre">ID.animation_data_create</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.animation_data_clear" title="bpy.types.ID.animation_data_clear"><code class="xref py py-class docutils literal"><span class="pre">ID.animation_data_clear</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.update_tag" title="bpy.types.ID.update_tag"><code class="xref py py-class docutils literal"><span class="pre">ID.update_tag</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.context.html#bpy.context.lamp" title="bpy.context.lamp"><code class="xref py py-mod docutils literal"><span class="pre">bpy.context.lamp</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.BlendData.html#bpy.types.BlendData.lamps" title="bpy.types.BlendData.lamps"><code class="xref py py-class docutils literal"><span class="pre">BlendData.lamps</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.BlendDataLamps.html#bpy.types.BlendDataLamps.new" title="bpy.types.BlendDataLamps.new"><code class="xref py py-class docutils literal"><span class="pre">BlendDataLamps.new</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.BlendDataLamps.html#bpy.types.BlendDataLamps.remove" title="bpy.types.BlendDataLamps.remove"><code class="xref py py-class docutils literal"><span class="pre">BlendDataLamps.remove</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.KinematicConstraint.html"
+                        title="previous chapter">KinematicConstraint(Constraint)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.LampSkySettings.html"
+                        title="next chapter">LampSkySettings(bpy_struct)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.LampSkySettings.html" title="LampSkySettings(bpy_struct)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.KinematicConstraint.html" title="KinematicConstraint(Constraint)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

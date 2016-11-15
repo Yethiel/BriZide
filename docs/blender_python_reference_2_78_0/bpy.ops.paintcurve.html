@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Paintcurve Operators &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Operators (bpy.ops)" href="bpy.ops.html" />
+    <link rel="next" title="Palette Operators" href="bpy.ops.palette.html" />
+    <link rel="prev" title="Paint Operators" href="bpy.ops.paint.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.palette.html" title="Palette Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.paint.html" title="Paint Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.ops.paintcurve">
+<span id="paintcurve-operators"></span><h1>Paintcurve Operators<a class="headerlink" href="#module-bpy.ops.paintcurve" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bpy.ops.paintcurve.add_point">
+<code class="descclassname">bpy.ops.paintcurve.</code><code class="descname">add_point</code><span class="sig-paren">(</span><em>location=(0</em>, <em>0)</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.paintcurve.add_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add New Paint Curve Point</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>location</strong> (<em>int array of 2 items in [0, 32767], (optional)</em>) &#8211; Location, Location of vertex in area space</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.paintcurve.add_point_slide">
+<code class="descclassname">bpy.ops.paintcurve.</code><code class="descname">add_point_slide</code><span class="sig-paren">(</span><em>PAINTCURVE_OT_add_point=None</em>, <em>PAINTCURVE_OT_slide=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.paintcurve.add_point_slide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new curve point and slide it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>PAINTCURVE_OT_add_point</strong> (<code class="xref py py-class docutils literal"><span class="pre">PAINTCURVE_OT_add_point</span></code>, (optional)) &#8211; Add New Paint Curve Point, Add New Paint Curve Point</li>
+<li><strong>PAINTCURVE_OT_slide</strong> (<code class="xref py py-class docutils literal"><span class="pre">PAINTCURVE_OT_slide</span></code>, (optional)) &#8211; Slide Paint Curve Point, Select and slide paint curve point</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.paintcurve.cursor">
+<code class="descclassname">bpy.ops.paintcurve.</code><code class="descname">cursor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.paintcurve.cursor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Place cursor</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.paintcurve.delete_point">
+<code class="descclassname">bpy.ops.paintcurve.</code><code class="descname">delete_point</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.paintcurve.delete_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove Paint Curve Point</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.paintcurve.draw">
+<code class="descclassname">bpy.ops.paintcurve.</code><code class="descname">draw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.paintcurve.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw curve</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.paintcurve.new">
+<code class="descclassname">bpy.ops.paintcurve.</code><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.paintcurve.new" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new paint curve</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.paintcurve.select">
+<code class="descclassname">bpy.ops.paintcurve.</code><code class="descname">select</code><span class="sig-paren">(</span><em>location=(0</em>, <em>0)</em>, <em>toggle=False</em>, <em>extend=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.paintcurve.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select a paint curve point</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>location</strong> (<em>int array of 2 items in [0, 32767], (optional)</em>) &#8211; Location, Location of vertex in area space</li>
+<li><strong>toggle</strong> (<em>boolean, (optional)</em>) &#8211; Toggle, (De)select all</li>
+<li><strong>extend</strong> (<em>boolean, (optional)</em>) &#8211; Extend, Extend selection</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.paintcurve.slide">
+<code class="descclassname">bpy.ops.paintcurve.</code><code class="descname">slide</code><span class="sig-paren">(</span><em>align=False</em>, <em>select=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.paintcurve.slide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select and slide paint curve point</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>align</strong> (<em>boolean, (optional)</em>) &#8211; Align Handles, Aligns opposite point handle during transform</li>
+<li><strong>select</strong> (<em>boolean, (optional)</em>) &#8211; Select, Attempt to select a point handle before transform</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.ops.paint.html"
+                        title="previous chapter">Paint Operators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.ops.palette.html"
+                        title="next chapter">Palette Operators</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.palette.html" title="Palette Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.paint.html" title="Paint Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

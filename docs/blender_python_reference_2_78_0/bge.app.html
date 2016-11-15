@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Application Data (bge.app) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="next" title="Blender API Change Log" href="change_log.html" />
+    <link rel="prev" title="Physics Constraints (bge.constraints)" href="bge.constraints.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="change_log.html" title="Blender API Change Log"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bge.constraints.html" title="Physics Constraints (bge.constraints)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="application-data-bge-app">
+<h1>Application Data (bge.app)<a class="headerlink" href="#application-data-bge-app" title="Permalink to this headline">¶</a></h1>
+<p>Module to access application values that remain unchanged during runtime.</p>
+<span class="target" id="module-bge.app"></span><dl class="data">
+<dt id="bge.app.version">
+<code class="descclassname">bge.app.</code><code class="descname">version</code><a class="headerlink" href="#bge.app.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Blender/BGE version as a tuple of 3 ints, eg. (2, 75, 1).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Version tuples can be compared simply with (in)equality symbols;
+for example, <code class="docutils literal"><span class="pre">(2,</span> <span class="pre">74,</span> <span class="pre">5)</span> <span class="pre">&lt;=</span> <span class="pre">(2,</span> <span class="pre">75,</span> <span class="pre">0)</span></code> returns True (lexical order).</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">tuple of three ints</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bge.app.version_string">
+<code class="descclassname">bge.app.</code><code class="descname">version_string</code><a class="headerlink" href="#bge.app.version_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Blender/BGE version formatted as a string, eg. &#8220;2.75 (sub 1)&#8221;.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bge.app.version_char">
+<code class="descclassname">bge.app.</code><code class="descname">version_char</code><a class="headerlink" href="#bge.app.version_char" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Blender/BGE version character (for minor releases).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bge.app.has_texture_ffmpeg">
+<code class="descclassname">bge.app.</code><code class="descname">has_texture_ffmpeg</code><a class="headerlink" href="#bge.app.has_texture_ffmpeg" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the BGE has been built with FFmpeg support,
+enabling use of <a class="reference internal" href="bge.texture.html#bge.texture.ImageFFmpeg" title="bge.texture.ImageFFmpeg"><code class="xref py py-class docutils literal"><span class="pre">ImageFFmpeg</span></code></a> and <a class="reference internal" href="bge.texture.html#bge.texture.VideoFFmpeg" title="bge.texture.VideoFFmpeg"><code class="xref py py-class docutils literal"><span class="pre">VideoFFmpeg</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bge.app.has_joystick">
+<code class="descclassname">bge.app.</code><code class="descname">has_joystick</code><a class="headerlink" href="#bge.app.has_joystick" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the BGE has been built with joystick support.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bge.app.has_physics">
+<code class="descclassname">bge.app.</code><code class="descname">has_physics</code><a class="headerlink" href="#bge.app.has_physics" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the BGE has been built with physics support.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bge.constraints.html"
+                        title="previous chapter">Physics Constraints (bge.constraints)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="change_log.html"
+                        title="next chapter">Blender API Change Log</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="change_log.html" title="Blender API Change Log"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bge.constraints.html" title="Physics Constraints (bge.constraints)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

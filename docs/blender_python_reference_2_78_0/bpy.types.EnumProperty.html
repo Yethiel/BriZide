@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>EnumProperty(Property) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="EnumPropertyItem(bpy_struct)" href="bpy.types.EnumPropertyItem.html" />
+    <link rel="prev" title="EffectorWeights(bpy_struct)" href="bpy.types.EffectorWeights.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.EnumPropertyItem.html" title="EnumPropertyItem(bpy_struct)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.EffectorWeights.html" title="EffectorWeights(bpy_struct)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="enumproperty-property"></span><h1>EnumProperty(Property)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base classes &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Property.html#bpy.types.Property" title="bpy.types.Property"><code class="xref py py-class docutils literal"><span class="pre">Property</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.EnumProperty">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">EnumProperty</code><span class="sig-paren">(</span><em>Property</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.EnumProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>RNA enumeration property definition, to choose from a number of predefined options</p>
+<dl class="data">
+<dt id="bpy.types.EnumProperty.default">
+<code class="descname">default</code><a class="headerlink" href="#bpy.types.EnumProperty.default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default value for this enum</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;DUMMY&#8217;], default &#8216;DUMMY&#8217;, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.EnumProperty.default_flag">
+<code class="descname">default_flag</code><a class="headerlink" href="#bpy.types.EnumProperty.default_flag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default value for this enum</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum set in {&#8216;DUMMY&#8217;}, default {}, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.EnumProperty.enum_items">
+<code class="descname">enum_items</code><a class="headerlink" href="#bpy.types.EnumProperty.enum_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Possible values for the property</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.EnumPropertyItem.html#bpy.types.EnumPropertyItem" title="bpy.types.EnumPropertyItem"><code class="xref py py-class docutils literal"><span class="pre">EnumPropertyItem</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.EnumProperty.enum_items_static">
+<code class="descname">enum_items_static</code><a class="headerlink" href="#bpy.types.EnumProperty.enum_items_static" title="Permalink to this definition">¶</a></dt>
+<dd><p>Possible values for the property (never calls optional dynamic generation of those)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.EnumPropertyItem.html#bpy.types.EnumPropertyItem" title="bpy.types.EnumPropertyItem"><code class="xref py py-class docutils literal"><span class="pre">EnumPropertyItem</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Property.html#bpy.types.Property.name" title="bpy.types.Property.name"><code class="xref py py-class docutils literal"><span class="pre">Property.name</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Property.html#bpy.types.Property.identifier" title="bpy.types.Property.identifier"><code class="xref py py-class docutils literal"><span class="pre">Property.identifier</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Property.html#bpy.types.Property.description" title="bpy.types.Property.description"><code class="xref py py-class docutils literal"><span class="pre">Property.description</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Property.html#bpy.types.Property.translation_context" title="bpy.types.Property.translation_context"><code class="xref py py-class docutils literal"><span class="pre">Property.translation_context</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Property.html#bpy.types.Property.type" title="bpy.types.Property.type"><code class="xref py py-class docutils literal"><span class="pre">Property.type</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Property.html#bpy.types.Property.subtype" title="bpy.types.Property.subtype"><code class="xref py py-class docutils literal"><span class="pre">Property.subtype</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Property.html#bpy.types.Property.srna" title="bpy.types.Property.srna"><code class="xref py py-class docutils literal"><span class="pre">Property.srna</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Property.html#bpy.types.Property.unit" title="bpy.types.Property.unit"><code class="xref py py-class docutils literal"><span class="pre">Property.unit</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Property.html#bpy.types.Property.icon" title="bpy.types.Property.icon"><code class="xref py py-class docutils literal"><span class="pre">Property.icon</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Property.html#bpy.types.Property.is_readonly" title="bpy.types.Property.is_readonly"><code class="xref py py-class docutils literal"><span class="pre">Property.is_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Property.html#bpy.types.Property.is_animatable" title="bpy.types.Property.is_animatable"><code class="xref py py-class docutils literal"><span class="pre">Property.is_animatable</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.Property.html#bpy.types.Property.is_required" title="bpy.types.Property.is_required"><code class="xref py py-class docutils literal"><span class="pre">Property.is_required</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Property.html#bpy.types.Property.is_argument_optional" title="bpy.types.Property.is_argument_optional"><code class="xref py py-class docutils literal"><span class="pre">Property.is_argument_optional</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Property.html#bpy.types.Property.is_never_none" title="bpy.types.Property.is_never_none"><code class="xref py py-class docutils literal"><span class="pre">Property.is_never_none</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Property.html#bpy.types.Property.is_hidden" title="bpy.types.Property.is_hidden"><code class="xref py py-class docutils literal"><span class="pre">Property.is_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Property.html#bpy.types.Property.is_skip_save" title="bpy.types.Property.is_skip_save"><code class="xref py py-class docutils literal"><span class="pre">Property.is_skip_save</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Property.html#bpy.types.Property.is_output" title="bpy.types.Property.is_output"><code class="xref py py-class docutils literal"><span class="pre">Property.is_output</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Property.html#bpy.types.Property.is_registered" title="bpy.types.Property.is_registered"><code class="xref py py-class docutils literal"><span class="pre">Property.is_registered</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Property.html#bpy.types.Property.is_registered_optional" title="bpy.types.Property.is_registered_optional"><code class="xref py py-class docutils literal"><span class="pre">Property.is_registered_optional</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Property.html#bpy.types.Property.is_runtime" title="bpy.types.Property.is_runtime"><code class="xref py py-class docutils literal"><span class="pre">Property.is_runtime</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Property.html#bpy.types.Property.is_enum_flag" title="bpy.types.Property.is_enum_flag"><code class="xref py py-class docutils literal"><span class="pre">Property.is_enum_flag</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Property.html#bpy.types.Property.is_library_editable" title="bpy.types.Property.is_library_editable"><code class="xref py py-class docutils literal"><span class="pre">Property.is_library_editable</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.EffectorWeights.html"
+                        title="previous chapter">EffectorWeights(bpy_struct)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.EnumPropertyItem.html"
+                        title="next chapter">EnumPropertyItem(bpy_struct)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.EnumPropertyItem.html" title="EnumPropertyItem(bpy_struct)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.EffectorWeights.html" title="EffectorWeights(bpy_struct)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

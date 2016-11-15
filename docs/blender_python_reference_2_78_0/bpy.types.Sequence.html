@@ -1,0 +1,566 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Sequence(bpy_struct) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="SequenceColorBalance(SequenceColorBalanceData)" href="bpy.types.SequenceColorBalance.html" />
+    <link rel="prev" title="Sensor(bpy_struct)" href="bpy.types.Sensor.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SequenceColorBalance.html" title="SequenceColorBalance(SequenceColorBalanceData)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.Sensor.html" title="Sensor(bpy_struct)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="sequence-bpy-struct"></span><h1>Sequence(bpy_struct)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a></p>
+<p>subclasses &#8212;
+<a class="reference internal" href="bpy.types.EffectSequence.html#bpy.types.EffectSequence" title="bpy.types.EffectSequence"><code class="xref py py-class docutils literal"><span class="pre">EffectSequence</span></code></a>, <a class="reference internal" href="bpy.types.ImageSequence.html#bpy.types.ImageSequence" title="bpy.types.ImageSequence"><code class="xref py py-class docutils literal"><span class="pre">ImageSequence</span></code></a>, <a class="reference internal" href="bpy.types.MaskSequence.html#bpy.types.MaskSequence" title="bpy.types.MaskSequence"><code class="xref py py-class docutils literal"><span class="pre">MaskSequence</span></code></a>, <a class="reference internal" href="bpy.types.MetaSequence.html#bpy.types.MetaSequence" title="bpy.types.MetaSequence"><code class="xref py py-class docutils literal"><span class="pre">MetaSequence</span></code></a>, <a class="reference internal" href="bpy.types.MovieClipSequence.html#bpy.types.MovieClipSequence" title="bpy.types.MovieClipSequence"><code class="xref py py-class docutils literal"><span class="pre">MovieClipSequence</span></code></a>, <a class="reference internal" href="bpy.types.MovieSequence.html#bpy.types.MovieSequence" title="bpy.types.MovieSequence"><code class="xref py py-class docutils literal"><span class="pre">MovieSequence</span></code></a>, <a class="reference internal" href="bpy.types.SceneSequence.html#bpy.types.SceneSequence" title="bpy.types.SceneSequence"><code class="xref py py-class docutils literal"><span class="pre">SceneSequence</span></code></a>, <a class="reference internal" href="bpy.types.SoundSequence.html#bpy.types.SoundSequence" title="bpy.types.SoundSequence"><code class="xref py py-class docutils literal"><span class="pre">SoundSequence</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.Sequence">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">Sequence</code><span class="sig-paren">(</span><em>bpy_struct</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Sequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sequence strip in the sequence editor</p>
+<dl class="attribute">
+<dt id="bpy.types.Sequence.blend_alpha">
+<code class="descname">blend_alpha</code><a class="headerlink" href="#bpy.types.Sequence.blend_alpha" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Sequence.blend_type">
+<code class="descname">blend_type</code><a class="headerlink" href="#bpy.types.Sequence.blend_type" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;REPLACE&#8217;, &#8216;CROSS&#8217;, &#8216;ADD&#8217;, &#8216;SUBTRACT&#8217;, &#8216;ALPHA_OVER&#8217;, &#8216;ALPHA_UNDER&#8217;, &#8216;GAMMA_CROSS&#8217;, &#8216;MULTIPLY&#8217;, &#8216;OVER_DROP&#8217;], default &#8216;REPLACE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Sequence.channel">
+<code class="descname">channel</code><a class="headerlink" href="#bpy.types.Sequence.channel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Y position of the sequence strip</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 32], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Sequence.effect_fader">
+<code class="descname">effect_fader</code><a class="headerlink" href="#bpy.types.Sequence.effect_fader" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Sequence.frame_duration">
+<code class="descname">frame_duration</code><a class="headerlink" href="#bpy.types.Sequence.frame_duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>The length of the contents of this strip before the handles are applied</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 500000], default 0, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Sequence.frame_final_duration">
+<code class="descname">frame_final_duration</code><a class="headerlink" href="#bpy.types.Sequence.frame_final_duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>The length of the contents of this strip after the handles are applied</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 500000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Sequence.frame_final_end">
+<code class="descname">frame_final_end</code><a class="headerlink" href="#bpy.types.Sequence.frame_final_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>End frame displayed in the sequence editor after offsets are applied</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-inf, inf], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Sequence.frame_final_start">
+<code class="descname">frame_final_start</code><a class="headerlink" href="#bpy.types.Sequence.frame_final_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start frame displayed in the sequence editor after offsets are applied, setting this is equivalent to moving the handle, not the actual start frame</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-inf, inf], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Sequence.frame_offset_end">
+<code class="descname">frame_offset_end</code><a class="headerlink" href="#bpy.types.Sequence.frame_offset_end" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-inf, inf], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Sequence.frame_offset_start">
+<code class="descname">frame_offset_start</code><a class="headerlink" href="#bpy.types.Sequence.frame_offset_start" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-inf, inf], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Sequence.frame_start">
+<code class="descname">frame_start</code><a class="headerlink" href="#bpy.types.Sequence.frame_start" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-inf, inf], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Sequence.frame_still_end">
+<code class="descname">frame_still_end</code><a class="headerlink" href="#bpy.types.Sequence.frame_still_end" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 500000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Sequence.frame_still_start">
+<code class="descname">frame_still_start</code><a class="headerlink" href="#bpy.types.Sequence.frame_still_start" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 500000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Sequence.lock">
+<code class="descname">lock</code><a class="headerlink" href="#bpy.types.Sequence.lock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lock strip so that it can&#8217;t be transformed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Sequence.modifiers">
+<code class="descname">modifiers</code><a class="headerlink" href="#bpy.types.Sequence.modifiers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifiers affecting this strip</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.SequenceModifiers.html#bpy.types.SequenceModifiers" title="bpy.types.SequenceModifiers"><code class="xref py py-class docutils literal"><span class="pre">SequenceModifiers</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.SequenceModifier.html#bpy.types.SequenceModifier" title="bpy.types.SequenceModifier"><code class="xref py py-class docutils literal"><span class="pre">SequenceModifier</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Sequence.mute">
+<code class="descname">mute</code><a class="headerlink" href="#bpy.types.Sequence.mute" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Sequence.name">
+<code class="descname">name</code><a class="headerlink" href="#bpy.types.Sequence.name" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Sequence.select">
+<code class="descname">select</code><a class="headerlink" href="#bpy.types.Sequence.select" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Sequence.select_left_handle">
+<code class="descname">select_left_handle</code><a class="headerlink" href="#bpy.types.Sequence.select_left_handle" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Sequence.select_right_handle">
+<code class="descname">select_right_handle</code><a class="headerlink" href="#bpy.types.Sequence.select_right_handle" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Sequence.speed_factor">
+<code class="descname">speed_factor</code><a class="headerlink" href="#bpy.types.Sequence.speed_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiply the current speed of the sequence with this number or remap current frame to this frame</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Sequence.type">
+<code class="descname">type</code><a class="headerlink" href="#bpy.types.Sequence.type" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;IMAGE&#8217;, &#8216;META&#8217;, &#8216;SCENE&#8217;, &#8216;MOVIE&#8217;, &#8216;MOVIECLIP&#8217;, &#8216;MASK&#8217;, &#8216;SOUND&#8217;, &#8216;CROSS&#8217;, &#8216;ADD&#8217;, &#8216;SUBTRACT&#8217;, &#8216;ALPHA_OVER&#8217;, &#8216;ALPHA_UNDER&#8217;, &#8216;GAMMA_CROSS&#8217;, &#8216;MULTIPLY&#8217;, &#8216;OVER_DROP&#8217;, &#8216;WIPE&#8217;, &#8216;GLOW&#8217;, &#8216;TRANSFORM&#8217;, &#8216;COLOR&#8217;, &#8216;SPEED&#8217;, &#8216;MULTICAM&#8217;, &#8216;ADJUSTMENT&#8217;, &#8216;GAUSSIAN_BLUR&#8217;, &#8216;TEXT&#8217;], default &#8216;IMAGE&#8217;, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Sequence.use_default_fade">
+<code class="descname">use_default_fade</code><a class="headerlink" href="#bpy.types.Sequence.use_default_fade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fade effect using the built-in default (usually make transition as long as effect strip)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Sequence.use_linear_modifiers">
+<code class="descname">use_linear_modifiers</code><a class="headerlink" href="#bpy.types.Sequence.use_linear_modifiers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate modifiers in linear space instead of sequencer&#8217;s space</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Sequence.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>data=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Sequence.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the strip dimensions</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>boolean, (optional)</em>) &#8211; Data, Update strip data</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Sequence.strip_elem_from_frame">
+<code class="descname">strip_elem_from_frame</code><span class="sig-paren">(</span><em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Sequence.strip_elem_from_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the strip element from a given frame or None</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>frame</strong> (<em>int in [-500000, 500000]</em>) &#8211; Frame, The frame to get the strip element from</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">strip element of the current frame</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="bpy.types.SequenceElement.html#bpy.types.SequenceElement" title="bpy.types.SequenceElement"><code class="xref py py-class docutils literal"><span class="pre">SequenceElement</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Sequence.swap">
+<code class="descname">swap</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Sequence.swap" title="Permalink to this definition">¶</a></dt>
+<dd><p>swap</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<a class="reference internal" href="#bpy.types.Sequence" title="bpy.types.Sequence"><code class="xref py py-class docutils literal"><span class="pre">Sequence</span></code></a>, (never None)) &#8211; Other</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.context.html#bpy.context.selected_editable_sequences" title="bpy.context.selected_editable_sequences"><code class="xref py py-mod docutils literal"><span class="pre">bpy.context.selected_editable_sequences</span></code></a></li>
+<li><a class="reference internal" href="bpy.context.html#bpy.context.selected_sequences" title="bpy.context.selected_sequences"><code class="xref py py-mod docutils literal"><span class="pre">bpy.context.selected_sequences</span></code></a></li>
+<li><a class="reference internal" href="bpy.context.html#bpy.context.sequences" title="bpy.context.sequences"><code class="xref py py-mod docutils literal"><span class="pre">bpy.context.sequences</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.AddSequence.html#bpy.types.AddSequence.input_1" title="bpy.types.AddSequence.input_1"><code class="xref py py-class docutils literal"><span class="pre">AddSequence.input_1</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.AddSequence.html#bpy.types.AddSequence.input_2" title="bpy.types.AddSequence.input_2"><code class="xref py py-class docutils literal"><span class="pre">AddSequence.input_2</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.AlphaOverSequence.html#bpy.types.AlphaOverSequence.input_1" title="bpy.types.AlphaOverSequence.input_1"><code class="xref py py-class docutils literal"><span class="pre">AlphaOverSequence.input_1</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.AlphaOverSequence.html#bpy.types.AlphaOverSequence.input_2" title="bpy.types.AlphaOverSequence.input_2"><code class="xref py py-class docutils literal"><span class="pre">AlphaOverSequence.input_2</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.AlphaUnderSequence.html#bpy.types.AlphaUnderSequence.input_1" title="bpy.types.AlphaUnderSequence.input_1"><code class="xref py py-class docutils literal"><span class="pre">AlphaUnderSequence.input_1</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.AlphaUnderSequence.html#bpy.types.AlphaUnderSequence.input_2" title="bpy.types.AlphaUnderSequence.input_2"><code class="xref py py-class docutils literal"><span class="pre">AlphaUnderSequence.input_2</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.CrossSequence.html#bpy.types.CrossSequence.input_1" title="bpy.types.CrossSequence.input_1"><code class="xref py py-class docutils literal"><span class="pre">CrossSequence.input_1</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.CrossSequence.html#bpy.types.CrossSequence.input_2" title="bpy.types.CrossSequence.input_2"><code class="xref py py-class docutils literal"><span class="pre">CrossSequence.input_2</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.GammaCrossSequence.html#bpy.types.GammaCrossSequence.input_1" title="bpy.types.GammaCrossSequence.input_1"><code class="xref py py-class docutils literal"><span class="pre">GammaCrossSequence.input_1</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.GammaCrossSequence.html#bpy.types.GammaCrossSequence.input_2" title="bpy.types.GammaCrossSequence.input_2"><code class="xref py py-class docutils literal"><span class="pre">GammaCrossSequence.input_2</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.GaussianBlurSequence.html#bpy.types.GaussianBlurSequence.input_1" title="bpy.types.GaussianBlurSequence.input_1"><code class="xref py py-class docutils literal"><span class="pre">GaussianBlurSequence.input_1</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.GlowSequence.html#bpy.types.GlowSequence.input_1" title="bpy.types.GlowSequence.input_1"><code class="xref py py-class docutils literal"><span class="pre">GlowSequence.input_1</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.MetaSequence.html#bpy.types.MetaSequence.sequences" title="bpy.types.MetaSequence.sequences"><code class="xref py py-class docutils literal"><span class="pre">MetaSequence.sequences</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.MultiplySequence.html#bpy.types.MultiplySequence.input_1" title="bpy.types.MultiplySequence.input_1"><code class="xref py py-class docutils literal"><span class="pre">MultiplySequence.input_1</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.MultiplySequence.html#bpy.types.MultiplySequence.input_2" title="bpy.types.MultiplySequence.input_2"><code class="xref py py-class docutils literal"><span class="pre">MultiplySequence.input_2</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.OverDropSequence.html#bpy.types.OverDropSequence.input_1" title="bpy.types.OverDropSequence.input_1"><code class="xref py py-class docutils literal"><span class="pre">OverDropSequence.input_1</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.OverDropSequence.html#bpy.types.OverDropSequence.input_2" title="bpy.types.OverDropSequence.input_2"><code class="xref py py-class docutils literal"><span class="pre">OverDropSequence.input_2</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Sequence.swap" title="bpy.types.Sequence.swap"><code class="xref py py-class docutils literal"><span class="pre">Sequence.swap</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.SequenceEditor.html#bpy.types.SequenceEditor.active_strip" title="bpy.types.SequenceEditor.active_strip"><code class="xref py py-class docutils literal"><span class="pre">SequenceEditor.active_strip</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.SequenceEditor.html#bpy.types.SequenceEditor.meta_stack" title="bpy.types.SequenceEditor.meta_stack"><code class="xref py py-class docutils literal"><span class="pre">SequenceEditor.meta_stack</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.SequenceEditor.html#bpy.types.SequenceEditor.sequences" title="bpy.types.SequenceEditor.sequences"><code class="xref py py-class docutils literal"><span class="pre">SequenceEditor.sequences</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.SequenceEditor.html#bpy.types.SequenceEditor.sequences_all" title="bpy.types.SequenceEditor.sequences_all"><code class="xref py py-class docutils literal"><span class="pre">SequenceEditor.sequences_all</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.SequenceModifier.html#bpy.types.SequenceModifier.input_mask_strip" title="bpy.types.SequenceModifier.input_mask_strip"><code class="xref py py-class docutils literal"><span class="pre">SequenceModifier.input_mask_strip</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sequences.html#bpy.types.Sequences.new_clip" title="bpy.types.Sequences.new_clip"><code class="xref py py-class docutils literal"><span class="pre">Sequences.new_clip</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sequences.html#bpy.types.Sequences.new_effect" title="bpy.types.Sequences.new_effect"><code class="xref py py-class docutils literal"><span class="pre">Sequences.new_effect</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sequences.html#bpy.types.Sequences.new_effect" title="bpy.types.Sequences.new_effect"><code class="xref py py-class docutils literal"><span class="pre">Sequences.new_effect</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sequences.html#bpy.types.Sequences.new_effect" title="bpy.types.Sequences.new_effect"><code class="xref py py-class docutils literal"><span class="pre">Sequences.new_effect</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sequences.html#bpy.types.Sequences.new_effect" title="bpy.types.Sequences.new_effect"><code class="xref py py-class docutils literal"><span class="pre">Sequences.new_effect</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sequences.html#bpy.types.Sequences.new_image" title="bpy.types.Sequences.new_image"><code class="xref py py-class docutils literal"><span class="pre">Sequences.new_image</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sequences.html#bpy.types.Sequences.new_mask" title="bpy.types.Sequences.new_mask"><code class="xref py py-class docutils literal"><span class="pre">Sequences.new_mask</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sequences.html#bpy.types.Sequences.new_movie" title="bpy.types.Sequences.new_movie"><code class="xref py py-class docutils literal"><span class="pre">Sequences.new_movie</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sequences.html#bpy.types.Sequences.new_scene" title="bpy.types.Sequences.new_scene"><code class="xref py py-class docutils literal"><span class="pre">Sequences.new_scene</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sequences.html#bpy.types.Sequences.new_sound" title="bpy.types.Sequences.new_sound"><code class="xref py py-class docutils literal"><span class="pre">Sequences.new_sound</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sequences.html#bpy.types.Sequences.remove" title="bpy.types.Sequences.remove"><code class="xref py py-class docutils literal"><span class="pre">Sequences.remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.SpeedControlSequence.html#bpy.types.SpeedControlSequence.input_1" title="bpy.types.SpeedControlSequence.input_1"><code class="xref py py-class docutils literal"><span class="pre">SpeedControlSequence.input_1</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.SubtractSequence.html#bpy.types.SubtractSequence.input_1" title="bpy.types.SubtractSequence.input_1"><code class="xref py py-class docutils literal"><span class="pre">SubtractSequence.input_1</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.SubtractSequence.html#bpy.types.SubtractSequence.input_2" title="bpy.types.SubtractSequence.input_2"><code class="xref py py-class docutils literal"><span class="pre">SubtractSequence.input_2</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.TransformSequence.html#bpy.types.TransformSequence.input_1" title="bpy.types.TransformSequence.input_1"><code class="xref py py-class docutils literal"><span class="pre">TransformSequence.input_1</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.WipeSequence.html#bpy.types.WipeSequence.input_1" title="bpy.types.WipeSequence.input_1"><code class="xref py py-class docutils literal"><span class="pre">WipeSequence.input_1</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.WipeSequence.html#bpy.types.WipeSequence.input_2" title="bpy.types.WipeSequence.input_2"><code class="xref py py-class docutils literal"><span class="pre">WipeSequence.input_2</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.Sensor.html"
+                        title="previous chapter">Sensor(bpy_struct)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.SequenceColorBalance.html"
+                        title="next chapter">SequenceColorBalance(SequenceColorBalanceData)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SequenceColorBalance.html" title="SequenceColorBalance(SequenceColorBalanceData)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.Sensor.html" title="Sensor(bpy_struct)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

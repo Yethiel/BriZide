@@ -1,0 +1,1091 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>SpaceView3D(Space) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="Speaker(ID)" href="bpy.types.Speaker.html" />
+    <link rel="prev" title="SpaceUserPreferences(Space)" href="bpy.types.SpaceUserPreferences.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.Speaker.html" title="Speaker(ID)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SpaceUserPreferences.html" title="SpaceUserPreferences(Space)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="spaceview3d-space"></span><h1>SpaceView3D(Space)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base classes &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Space.html#bpy.types.Space" title="bpy.types.Space"><code class="xref py py-class docutils literal"><span class="pre">Space</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.SpaceView3D">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">SpaceView3D</code><span class="sig-paren">(</span><em>Space</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.SpaceView3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>3D View space data</p>
+<dl class="data">
+<dt id="bpy.types.SpaceView3D.background_images">
+<code class="descname">background_images</code><a class="headerlink" href="#bpy.types.SpaceView3D.background_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of background images</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BackgroundImages.html#bpy.types.BackgroundImages" title="bpy.types.BackgroundImages"><code class="xref py py-class docutils literal"><span class="pre">BackgroundImages</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.BackgroundImage.html#bpy.types.BackgroundImage" title="bpy.types.BackgroundImage"><code class="xref py py-class docutils literal"><span class="pre">BackgroundImage</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.camera">
+<code class="descname">camera</code><a class="headerlink" href="#bpy.types.SpaceView3D.camera" title="Permalink to this definition">¶</a></dt>
+<dd><p>Active camera used in this view (when unlocked from the scene&#8217;s active camera)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal"><span class="pre">Object</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.clip_end">
+<code class="descname">clip_end</code><a class="headerlink" href="#bpy.types.SpaceView3D.clip_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>3D View far clipping distance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [1e-06, inf], default 1000.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.clip_start">
+<code class="descname">clip_start</code><a class="headerlink" href="#bpy.types.SpaceView3D.clip_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>3D View near clipping distance (perspective view only)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [1e-06, inf], default 0.1</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SpaceView3D.current_orientation">
+<code class="descname">current_orientation</code><a class="headerlink" href="#bpy.types.SpaceView3D.current_orientation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current transformation orientation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.TransformOrientation.html#bpy.types.TransformOrientation" title="bpy.types.TransformOrientation"><code class="xref py py-class docutils literal"><span class="pre">TransformOrientation</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.cursor_location">
+<code class="descname">cursor_location</code><a class="headerlink" href="#bpy.types.SpaceView3D.cursor_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>3D cursor location for this view (dependent on local view setting)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 3 items in [-inf, inf], default (0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SpaceView3D.fx_settings">
+<code class="descname">fx_settings</code><a class="headerlink" href="#bpy.types.SpaceView3D.fx_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Options used for real time compositing</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.GPUFXSettings.html#bpy.types.GPUFXSettings" title="bpy.types.GPUFXSettings"><code class="xref py py-class docutils literal"><span class="pre">GPUFXSettings</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.grid_lines">
+<code class="descname">grid_lines</code><a class="headerlink" href="#bpy.types.SpaceView3D.grid_lines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of grid lines to display in perspective view</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 1024], default 16</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.grid_scale">
+<code class="descname">grid_scale</code><a class="headerlink" href="#bpy.types.SpaceView3D.grid_scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Distance between 3D View grid lines</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, inf], default 1.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SpaceView3D.grid_scale_unit">
+<code class="descname">grid_scale_unit</code><a class="headerlink" href="#bpy.types.SpaceView3D.grid_scale_unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grid cell size scaled by scene unit system settings</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.grid_subdivisions">
+<code class="descname">grid_subdivisions</code><a class="headerlink" href="#bpy.types.SpaceView3D.grid_subdivisions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of subdivisions between grid lines</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 1024], default 10</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.layers">
+<code class="descname">layers</code><a class="headerlink" href="#bpy.types.SpaceView3D.layers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layers visible in this 3D View</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean array of 20 items, default (False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SpaceView3D.layers_local_view">
+<code class="descname">layers_local_view</code><a class="headerlink" href="#bpy.types.SpaceView3D.layers_local_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Local view layers visible in this 3D View</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean array of 8 items, default (False, False, False, False, False, False, False, False), (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SpaceView3D.layers_used">
+<code class="descname">layers_used</code><a class="headerlink" href="#bpy.types.SpaceView3D.layers_used" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layers that contain something</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean array of 20 items, default (False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False), (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.lens">
+<code class="descname">lens</code><a class="headerlink" href="#bpy.types.SpaceView3D.lens" title="Permalink to this definition">¶</a></dt>
+<dd><p>Viewport lens angle</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [1, 250], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SpaceView3D.local_view">
+<code class="descname">local_view</code><a class="headerlink" href="#bpy.types.SpaceView3D.local_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display an isolated sub-set of objects, apart from the scene visibility</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#bpy.types.SpaceView3D" title="bpy.types.SpaceView3D"><code class="xref py py-class docutils literal"><span class="pre">SpaceView3D</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.lock_bone">
+<code class="descname">lock_bone</code><a class="headerlink" href="#bpy.types.SpaceView3D.lock_bone" title="Permalink to this definition">¶</a></dt>
+<dd><p>3D View center is locked to this bone&#8217;s position</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.lock_camera">
+<code class="descname">lock_camera</code><a class="headerlink" href="#bpy.types.SpaceView3D.lock_camera" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable view navigation within the camera view</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.lock_camera_and_layers">
+<code class="descname">lock_camera_and_layers</code><a class="headerlink" href="#bpy.types.SpaceView3D.lock_camera_and_layers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use the scene&#8217;s active camera and layers in this view, rather than local layers</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.lock_cursor">
+<code class="descname">lock_cursor</code><a class="headerlink" href="#bpy.types.SpaceView3D.lock_cursor" title="Permalink to this definition">¶</a></dt>
+<dd><p>3D View center is locked to the cursor&#8217;s position</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.lock_object">
+<code class="descname">lock_object</code><a class="headerlink" href="#bpy.types.SpaceView3D.lock_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>3D View center is locked to this object&#8217;s position</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal"><span class="pre">Object</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.matcap_icon">
+<code class="descname">matcap_icon</code><a class="headerlink" href="#bpy.types.SpaceView3D.matcap_icon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Image to use for Material Capture, active objects only</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;01&#8217;, &#8216;02&#8217;, &#8216;03&#8217;, &#8216;04&#8217;, &#8216;05&#8217;, &#8216;06&#8217;, &#8216;07&#8217;, &#8216;08&#8217;, &#8216;09&#8217;, &#8216;10&#8217;, &#8216;11&#8217;, &#8216;12&#8217;, &#8216;13&#8217;, &#8216;14&#8217;, &#8216;15&#8217;, &#8216;16&#8217;, &#8216;17&#8217;, &#8216;18&#8217;, &#8216;19&#8217;, &#8216;20&#8217;, &#8216;21&#8217;, &#8216;22&#8217;, &#8216;23&#8217;, &#8216;24&#8217;], default &#8216;01&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.pivot_point">
+<code class="descname">pivot_point</code><a class="headerlink" href="#bpy.types.SpaceView3D.pivot_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pivot center for rotation/scaling</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">BOUNDING_BOX_CENTER</span></code> Bounding Box Center, Pivot around bounding box center of selected object(s).</li>
+<li><code class="docutils literal"><span class="pre">CURSOR</span></code> 3D Cursor, Pivot around the 3D cursor.</li>
+<li><code class="docutils literal"><span class="pre">INDIVIDUAL_ORIGINS</span></code> Individual Origins, Pivot around each object&#8217;s own origin.</li>
+<li><code class="docutils literal"><span class="pre">MEDIAN_POINT</span></code> Median Point, Pivot around the median point of selected objects.</li>
+<li><code class="docutils literal"><span class="pre">ACTIVE_ELEMENT</span></code> Active Element, Pivot around active object.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;BOUNDING_BOX_CENTER&#8217;, &#8216;CURSOR&#8217;, &#8216;INDIVIDUAL_ORIGINS&#8217;, &#8216;MEDIAN_POINT&#8217;, &#8216;ACTIVE_ELEMENT&#8217;], default &#8216;BOUNDING_BOX_CENTER&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SpaceView3D.region_3d">
+<code class="descname">region_3d</code><a class="headerlink" href="#bpy.types.SpaceView3D.region_3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>3D region in this space, in case of quad view the camera region</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.RegionView3D.html#bpy.types.RegionView3D" title="bpy.types.RegionView3D"><code class="xref py py-class docutils literal"><span class="pre">RegionView3D</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SpaceView3D.region_quadviews">
+<code class="descname">region_quadviews</code><a class="headerlink" href="#bpy.types.SpaceView3D.region_quadviews" title="Permalink to this definition">¶</a></dt>
+<dd><p>3D regions (the third one defines quad view settings, the fourth one is same as &#8216;region_3d&#8217;)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.RegionView3D.html#bpy.types.RegionView3D" title="bpy.types.RegionView3D"><code class="xref py py-class docutils literal"><span class="pre">RegionView3D</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.render_border_max_x">
+<code class="descname">render_border_max_x</code><a class="headerlink" href="#bpy.types.SpaceView3D.render_border_max_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum X value for the render border</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.render_border_max_y">
+<code class="descname">render_border_max_y</code><a class="headerlink" href="#bpy.types.SpaceView3D.render_border_max_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum Y value for the render border</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.render_border_min_x">
+<code class="descname">render_border_min_x</code><a class="headerlink" href="#bpy.types.SpaceView3D.render_border_min_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimum X value for the render border</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.render_border_min_y">
+<code class="descname">render_border_min_y</code><a class="headerlink" href="#bpy.types.SpaceView3D.render_border_min_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimum Y value for the render border</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.show_all_objects_origin">
+<code class="descname">show_all_objects_origin</code><a class="headerlink" href="#bpy.types.SpaceView3D.show_all_objects_origin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show the object origin center dot for all (selected and unselected) objects</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.show_axis_x">
+<code class="descname">show_axis_x</code><a class="headerlink" href="#bpy.types.SpaceView3D.show_axis_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show the X axis line in perspective view</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.show_axis_y">
+<code class="descname">show_axis_y</code><a class="headerlink" href="#bpy.types.SpaceView3D.show_axis_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show the Y axis line in perspective view</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.show_axis_z">
+<code class="descname">show_axis_z</code><a class="headerlink" href="#bpy.types.SpaceView3D.show_axis_z" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show the Z axis line in perspective view</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.show_backface_culling">
+<code class="descname">show_backface_culling</code><a class="headerlink" href="#bpy.types.SpaceView3D.show_backface_culling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use back face culling to hide the back side of faces</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.show_background_images">
+<code class="descname">show_background_images</code><a class="headerlink" href="#bpy.types.SpaceView3D.show_background_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display reference images behind objects in the 3D View</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.show_bundle_names">
+<code class="descname">show_bundle_names</code><a class="headerlink" href="#bpy.types.SpaceView3D.show_bundle_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show names for reconstructed tracks objects</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.show_camera_path">
+<code class="descname">show_camera_path</code><a class="headerlink" href="#bpy.types.SpaceView3D.show_camera_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show reconstructed camera path</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.show_floor">
+<code class="descname">show_floor</code><a class="headerlink" href="#bpy.types.SpaceView3D.show_floor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show the ground plane grid in perspective view</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.show_grease_pencil">
+<code class="descname">show_grease_pencil</code><a class="headerlink" href="#bpy.types.SpaceView3D.show_grease_pencil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show grease pencil for this view</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.show_manipulator">
+<code class="descname">show_manipulator</code><a class="headerlink" href="#bpy.types.SpaceView3D.show_manipulator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use a 3D manipulator widget for controlling transforms</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.show_occlude_wire">
+<code class="descname">show_occlude_wire</code><a class="headerlink" href="#bpy.types.SpaceView3D.show_occlude_wire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use hidden wireframe display</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.show_only_render">
+<code class="descname">show_only_render</code><a class="headerlink" href="#bpy.types.SpaceView3D.show_only_render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display only objects which will be rendered</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.show_outline_selected">
+<code class="descname">show_outline_selected</code><a class="headerlink" href="#bpy.types.SpaceView3D.show_outline_selected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show an outline highlight around selected objects in non-wireframe views</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.show_reconstruction">
+<code class="descname">show_reconstruction</code><a class="headerlink" href="#bpy.types.SpaceView3D.show_reconstruction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display reconstruction data from active movie clip</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.show_relationship_lines">
+<code class="descname">show_relationship_lines</code><a class="headerlink" href="#bpy.types.SpaceView3D.show_relationship_lines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show dashed lines indicating parent or constraint relationships</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.show_stereo_3d_cameras">
+<code class="descname">show_stereo_3d_cameras</code><a class="headerlink" href="#bpy.types.SpaceView3D.show_stereo_3d_cameras" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show the left and right cameras</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.show_stereo_3d_convergence_plane">
+<code class="descname">show_stereo_3d_convergence_plane</code><a class="headerlink" href="#bpy.types.SpaceView3D.show_stereo_3d_convergence_plane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show the stereo 3d convergence plane</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.show_stereo_3d_volume">
+<code class="descname">show_stereo_3d_volume</code><a class="headerlink" href="#bpy.types.SpaceView3D.show_stereo_3d_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show the stereo 3d frustum volume</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.show_textured_shadeless">
+<code class="descname">show_textured_shadeless</code><a class="headerlink" href="#bpy.types.SpaceView3D.show_textured_shadeless" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show shadeless texture without lighting in textured draw mode</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.show_textured_solid">
+<code class="descname">show_textured_solid</code><a class="headerlink" href="#bpy.types.SpaceView3D.show_textured_solid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display face-assigned textures in solid view</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.show_world">
+<code class="descname">show_world</code><a class="headerlink" href="#bpy.types.SpaceView3D.show_world" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display world colors in the background</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.stereo_3d_camera">
+<code class="descname">stereo_3d_camera</code><a class="headerlink" href="#bpy.types.SpaceView3D.stereo_3d_camera" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;LEFT&#8217;, &#8216;RIGHT&#8217;, &#8216;S3D&#8217;], default &#8216;LEFT&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.stereo_3d_convergence_plane_alpha">
+<code class="descname">stereo_3d_convergence_plane_alpha</code><a class="headerlink" href="#bpy.types.SpaceView3D.stereo_3d_convergence_plane_alpha" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opacity (alpha) of the convergence plane</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SpaceView3D.stereo_3d_eye">
+<code class="descname">stereo_3d_eye</code><a class="headerlink" href="#bpy.types.SpaceView3D.stereo_3d_eye" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current stereo eye being drawn</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;LEFT_EYE&#8217;, &#8216;RIGHT_EYE&#8217;], default &#8216;LEFT_EYE&#8217;, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.stereo_3d_volume_alpha">
+<code class="descname">stereo_3d_volume_alpha</code><a class="headerlink" href="#bpy.types.SpaceView3D.stereo_3d_volume_alpha" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opacity (alpha) of the cameras&#8217; frustum volume</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.tracks_draw_size">
+<code class="descname">tracks_draw_size</code><a class="headerlink" href="#bpy.types.SpaceView3D.tracks_draw_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display size of tracks from reconstructed data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.tracks_draw_type">
+<code class="descname">tracks_draw_type</code><a class="headerlink" href="#bpy.types.SpaceView3D.tracks_draw_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Viewport display style for tracks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;PLAIN_AXES&#8217;, &#8216;ARROWS&#8217;, &#8216;SINGLE_ARROW&#8217;, &#8216;CIRCLE&#8217;, &#8216;CUBE&#8217;, &#8216;SPHERE&#8217;, &#8216;CONE&#8217;], default &#8216;PLAIN_AXES&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.transform_manipulators">
+<code class="descname">transform_manipulators</code><a class="headerlink" href="#bpy.types.SpaceView3D.transform_manipulators" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transformation manipulators</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TRANSLATE</span></code> Translate, Use the manipulator for movement transformations.</li>
+<li><code class="docutils literal"><span class="pre">ROTATE</span></code> Rotate, Use the manipulator for rotation transformations.</li>
+<li><code class="docutils literal"><span class="pre">SCALE</span></code> Scale, Use the manipulator for scale transformations.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum set in {&#8216;TRANSLATE&#8217;, &#8216;ROTATE&#8217;, &#8216;SCALE&#8217;}, default {&#8216;TRANSLATE&#8217;}</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.transform_orientation">
+<code class="descname">transform_orientation</code><a class="headerlink" href="#bpy.types.SpaceView3D.transform_orientation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transformation orientation</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">GLOBAL</span></code> Global, Align the transformation axes to world space.</li>
+<li><code class="docutils literal"><span class="pre">LOCAL</span></code> Local, Align the transformation axes to the selected objects&#8217; local space.</li>
+<li><code class="docutils literal"><span class="pre">NORMAL</span></code> Normal, Align the transformation axes to average normal of selected elements (bone Y axis for pose mode).</li>
+<li><code class="docutils literal"><span class="pre">GIMBAL</span></code> Gimbal, Align each axis to the Euler rotation axis as used for input.</li>
+<li><code class="docutils literal"><span class="pre">VIEW</span></code> View, Align the transformation axes to the window.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;GLOBAL&#8217;, &#8216;LOCAL&#8217;, &#8216;NORMAL&#8217;, &#8216;GIMBAL&#8217;, &#8216;VIEW&#8217;], default &#8216;GLOBAL&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.use_matcap">
+<code class="descname">use_matcap</code><a class="headerlink" href="#bpy.types.SpaceView3D.use_matcap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Active Objects draw images mapped on normals, enhancing Solid Draw Mode</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.use_occlude_geometry">
+<code class="descname">use_occlude_geometry</code><a class="headerlink" href="#bpy.types.SpaceView3D.use_occlude_geometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Limit selection to visible (clipped with depth buffer)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.use_pivot_point_align">
+<code class="descname">use_pivot_point_align</code><a class="headerlink" href="#bpy.types.SpaceView3D.use_pivot_point_align" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manipulate center points (object and pose mode only)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.use_render_border">
+<code class="descname">use_render_border</code><a class="headerlink" href="#bpy.types.SpaceView3D.use_render_border" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use a region within the frame size for rendered viewport (when not viewing through the camera)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceView3D.viewport_shade">
+<code class="descname">viewport_shade</code><a class="headerlink" href="#bpy.types.SpaceView3D.viewport_shade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to display/shade objects in the 3D View</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">BOUNDBOX</span></code> Bounding Box, Display the object&#8217;s local bounding boxes only.</li>
+<li><code class="docutils literal"><span class="pre">WIREFRAME</span></code> Wireframe, Display the object as wire edges.</li>
+<li><code class="docutils literal"><span class="pre">SOLID</span></code> Solid, Display the object solid, lit with default OpenGL lights.</li>
+<li><code class="docutils literal"><span class="pre">TEXTURED</span></code> Texture, Display the object solid, with a texture.</li>
+<li><code class="docutils literal"><span class="pre">MATERIAL</span></code> Material, Display objects solid, with GLSL material.</li>
+<li><code class="docutils literal"><span class="pre">RENDERED</span></code> Rendered, Display render preview.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;BOUNDBOX&#8217;, &#8216;WIREFRAME&#8217;, &#8216;SOLID&#8217;, &#8216;TEXTURED&#8217;, &#8216;MATERIAL&#8217;, &#8216;RENDERED&#8217;], default &#8216;BOUNDBOX&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.types.SpaceView3D.draw_handler_add">
+<code class="descname">draw_handler_add</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.SpaceView3D.draw_handler_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Undocumented</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.types.SpaceView3D.draw_handler_remove">
+<code class="descname">draw_handler_remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.SpaceView3D.draw_handler_remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Undocumented</p>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Space.html#bpy.types.Space.type" title="bpy.types.Space.type"><code class="xref py py-class docutils literal"><span class="pre">Space.type</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.Space.html#bpy.types.Space.show_locked_time" title="bpy.types.Space.show_locked_time"><code class="xref py py-class docutils literal"><span class="pre">Space.show_locked_time</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.ObjectBase.html#bpy.types.ObjectBase.layers_from_view" title="bpy.types.ObjectBase.layers_from_view"><code class="xref py py-class docutils literal"><span class="pre">ObjectBase.layers_from_view</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="#bpy.types.SpaceView3D.local_view" title="bpy.types.SpaceView3D.local_view"><code class="xref py py-class docutils literal"><span class="pre">SpaceView3D.local_view</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.SpaceUserPreferences.html"
+                        title="previous chapter">SpaceUserPreferences(Space)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.Speaker.html"
+                        title="next chapter">Speaker(ID)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.Speaker.html" title="Speaker(ID)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SpaceUserPreferences.html" title="SpaceUserPreferences(Space)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

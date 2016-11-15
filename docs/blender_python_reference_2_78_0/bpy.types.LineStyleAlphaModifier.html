@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>LineStyleAlphaModifier(LineStyleModifier) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="LineStyleAlphaModifier_AlongStroke(LineStyleAlphaModifier)" href="bpy.types.LineStyleAlphaModifier_AlongStroke.html" />
+    <link rel="prev" title="LimitScaleConstraint(Constraint)" href="bpy.types.LimitScaleConstraint.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.LineStyleAlphaModifier_AlongStroke.html" title="LineStyleAlphaModifier_AlongStroke(LineStyleAlphaModifier)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.LimitScaleConstraint.html" title="LimitScaleConstraint(Constraint)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="linestylealphamodifier-linestylemodifier"></span><h1>LineStyleAlphaModifier(LineStyleModifier)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base classes &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.LineStyleModifier.html#bpy.types.LineStyleModifier" title="bpy.types.LineStyleModifier"><code class="xref py py-class docutils literal"><span class="pre">LineStyleModifier</span></code></a></p>
+<p>subclasses &#8212;
+<a class="reference internal" href="bpy.types.LineStyleAlphaModifier_AlongStroke.html#bpy.types.LineStyleAlphaModifier_AlongStroke" title="bpy.types.LineStyleAlphaModifier_AlongStroke"><code class="xref py py-class docutils literal"><span class="pre">LineStyleAlphaModifier_AlongStroke</span></code></a>, <a class="reference internal" href="bpy.types.LineStyleAlphaModifier_CreaseAngle.html#bpy.types.LineStyleAlphaModifier_CreaseAngle" title="bpy.types.LineStyleAlphaModifier_CreaseAngle"><code class="xref py py-class docutils literal"><span class="pre">LineStyleAlphaModifier_CreaseAngle</span></code></a>, <a class="reference internal" href="bpy.types.LineStyleAlphaModifier_Curvature_3D.html#bpy.types.LineStyleAlphaModifier_Curvature_3D" title="bpy.types.LineStyleAlphaModifier_Curvature_3D"><code class="xref py py-class docutils literal"><span class="pre">LineStyleAlphaModifier_Curvature_3D</span></code></a>, <a class="reference internal" href="bpy.types.LineStyleAlphaModifier_DistanceFromCamera.html#bpy.types.LineStyleAlphaModifier_DistanceFromCamera" title="bpy.types.LineStyleAlphaModifier_DistanceFromCamera"><code class="xref py py-class docutils literal"><span class="pre">LineStyleAlphaModifier_DistanceFromCamera</span></code></a>, <a class="reference internal" href="bpy.types.LineStyleAlphaModifier_DistanceFromObject.html#bpy.types.LineStyleAlphaModifier_DistanceFromObject" title="bpy.types.LineStyleAlphaModifier_DistanceFromObject"><code class="xref py py-class docutils literal"><span class="pre">LineStyleAlphaModifier_DistanceFromObject</span></code></a>, <a class="reference internal" href="bpy.types.LineStyleAlphaModifier_Material.html#bpy.types.LineStyleAlphaModifier_Material" title="bpy.types.LineStyleAlphaModifier_Material"><code class="xref py py-class docutils literal"><span class="pre">LineStyleAlphaModifier_Material</span></code></a>, <a class="reference internal" href="bpy.types.LineStyleAlphaModifier_Noise.html#bpy.types.LineStyleAlphaModifier_Noise" title="bpy.types.LineStyleAlphaModifier_Noise"><code class="xref py py-class docutils literal"><span class="pre">LineStyleAlphaModifier_Noise</span></code></a>, <a class="reference internal" href="bpy.types.LineStyleAlphaModifier_Tangent.html#bpy.types.LineStyleAlphaModifier_Tangent" title="bpy.types.LineStyleAlphaModifier_Tangent"><code class="xref py py-class docutils literal"><span class="pre">LineStyleAlphaModifier_Tangent</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.LineStyleAlphaModifier">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">LineStyleAlphaModifier</code><span class="sig-paren">(</span><em>LineStyleModifier</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.LineStyleAlphaModifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base type to define alpha transparency modifiers</p>
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.FreestyleLineStyle.html#bpy.types.FreestyleLineStyle.alpha_modifiers" title="bpy.types.FreestyleLineStyle.alpha_modifiers"><code class="xref py py-class docutils literal"><span class="pre">FreestyleLineStyle.alpha_modifiers</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.LineStyleAlphaModifiers.html#bpy.types.LineStyleAlphaModifiers.new" title="bpy.types.LineStyleAlphaModifiers.new"><code class="xref py py-class docutils literal"><span class="pre">LineStyleAlphaModifiers.new</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.LineStyleAlphaModifiers.html#bpy.types.LineStyleAlphaModifiers.remove" title="bpy.types.LineStyleAlphaModifiers.remove"><code class="xref py py-class docutils literal"><span class="pre">LineStyleAlphaModifiers.remove</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.LimitScaleConstraint.html"
+                        title="previous chapter">LimitScaleConstraint(Constraint)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.LineStyleAlphaModifier_AlongStroke.html"
+                        title="next chapter">LineStyleAlphaModifier_AlongStroke(LineStyleAlphaModifier)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.LineStyleAlphaModifier_AlongStroke.html" title="LineStyleAlphaModifier_AlongStroke(LineStyleAlphaModifier)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.LimitScaleConstraint.html" title="LimitScaleConstraint(Constraint)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>SpaceSequenceEditor(Space) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="SpaceTextEditor(Space)" href="bpy.types.SpaceTextEditor.html" />
+    <link rel="prev" title="SpaceProperties(Space)" href="bpy.types.SpaceProperties.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SpaceTextEditor.html" title="SpaceTextEditor(Space)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SpaceProperties.html" title="SpaceProperties(Space)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="spacesequenceeditor-space"></span><h1>SpaceSequenceEditor(Space)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base classes &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Space.html#bpy.types.Space" title="bpy.types.Space"><code class="xref py py-class docutils literal"><span class="pre">Space</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.SpaceSequenceEditor">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">SpaceSequenceEditor</code><span class="sig-paren">(</span><em>Space</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.SpaceSequenceEditor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sequence editor space data</p>
+<dl class="attribute">
+<dt id="bpy.types.SpaceSequenceEditor.display_channel">
+<code class="descname">display_channel</code><a class="headerlink" href="#bpy.types.SpaceSequenceEditor.display_channel" title="Permalink to this definition">¶</a></dt>
+<dd><p>The channel number shown in the image preview. 0 is the result of all strips combined</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-5, 32], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceSequenceEditor.display_mode">
+<code class="descname">display_mode</code><a class="headerlink" href="#bpy.types.SpaceSequenceEditor.display_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>View mode to use for displaying sequencer output</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;IMAGE&#8217;, &#8216;WAVEFORM&#8217;, &#8216;VECTOR_SCOPE&#8217;, &#8216;HISTOGRAM&#8217;], default &#8216;IMAGE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceSequenceEditor.draw_overexposed">
+<code class="descname">draw_overexposed</code><a class="headerlink" href="#bpy.types.SpaceSequenceEditor.draw_overexposed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show overexposed areas with zebra stripes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 110], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceSequenceEditor.grease_pencil">
+<code class="descname">grease_pencil</code><a class="headerlink" href="#bpy.types.SpaceSequenceEditor.grease_pencil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grease pencil data for this space</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.GreasePencil.html#bpy.types.GreasePencil" title="bpy.types.GreasePencil"><code class="xref py py-class docutils literal"><span class="pre">GreasePencil</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceSequenceEditor.overlay_type">
+<code class="descname">overlay_type</code><a class="headerlink" href="#bpy.types.SpaceSequenceEditor.overlay_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overlay draw type</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">RECTANGLE</span></code> Rectangle, Show rectangle area overlay.</li>
+<li><code class="docutils literal"><span class="pre">REFERENCE</span></code> Reference, Show reference frame only.</li>
+<li><code class="docutils literal"><span class="pre">CURRENT</span></code> Current, Show current frame only.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;RECTANGLE&#8217;, &#8216;REFERENCE&#8217;, &#8216;CURRENT&#8217;], default &#8216;RECTANGLE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceSequenceEditor.preview_channels">
+<code class="descname">preview_channels</code><a class="headerlink" href="#bpy.types.SpaceSequenceEditor.preview_channels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Channels of the preview to draw</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">COLOR_ALPHA</span></code> Color and Alpha, Draw image with RGB colors and alpha transparency.</li>
+<li><code class="docutils literal"><span class="pre">COLOR</span></code> Color, Draw image with RGB colors.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;COLOR_ALPHA&#8217;, &#8216;COLOR&#8217;], default &#8216;COLOR&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceSequenceEditor.proxy_render_size">
+<code class="descname">proxy_render_size</code><a class="headerlink" href="#bpy.types.SpaceSequenceEditor.proxy_render_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw preview using full resolution or different proxy resolutions</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;SCENE&#8217;, &#8216;PROXY_25&#8217;, &#8216;PROXY_50&#8217;, &#8216;PROXY_75&#8217;, &#8216;PROXY_100&#8217;, &#8216;FULL&#8217;], default &#8216;SCENE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceSequenceEditor.show_backdrop">
+<code class="descname">show_backdrop</code><a class="headerlink" href="#bpy.types.SpaceSequenceEditor.show_backdrop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display result under strips</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceSequenceEditor.show_frame_indicator">
+<code class="descname">show_frame_indicator</code><a class="headerlink" href="#bpy.types.SpaceSequenceEditor.show_frame_indicator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show frame number beside the current frame indicator line</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceSequenceEditor.show_frames">
+<code class="descname">show_frames</code><a class="headerlink" href="#bpy.types.SpaceSequenceEditor.show_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw frames rather than seconds</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceSequenceEditor.show_grease_pencil">
+<code class="descname">show_grease_pencil</code><a class="headerlink" href="#bpy.types.SpaceSequenceEditor.show_grease_pencil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show grease pencil for this view</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceSequenceEditor.show_metadata">
+<code class="descname">show_metadata</code><a class="headerlink" href="#bpy.types.SpaceSequenceEditor.show_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show metadata of first visible strip</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceSequenceEditor.show_safe_areas">
+<code class="descname">show_safe_areas</code><a class="headerlink" href="#bpy.types.SpaceSequenceEditor.show_safe_areas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show TV title safe and action safe areas in preview</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceSequenceEditor.show_safe_center">
+<code class="descname">show_safe_center</code><a class="headerlink" href="#bpy.types.SpaceSequenceEditor.show_safe_center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show safe areas to fit content in a different aspect ratio</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceSequenceEditor.show_seconds">
+<code class="descname">show_seconds</code><a class="headerlink" href="#bpy.types.SpaceSequenceEditor.show_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show timing in seconds not frames</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceSequenceEditor.show_separate_color">
+<code class="descname">show_separate_color</code><a class="headerlink" href="#bpy.types.SpaceSequenceEditor.show_separate_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Separate color channels in preview</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceSequenceEditor.show_strip_offset">
+<code class="descname">show_strip_offset</code><a class="headerlink" href="#bpy.types.SpaceSequenceEditor.show_strip_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display strip in/out offsets</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceSequenceEditor.use_marker_sync">
+<code class="descname">use_marker_sync</code><a class="headerlink" href="#bpy.types.SpaceSequenceEditor.use_marker_sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform markers as well as strips</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceSequenceEditor.view_type">
+<code class="descname">view_type</code><a class="headerlink" href="#bpy.types.SpaceSequenceEditor.view_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of the Sequencer view (sequencer, preview or both)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;SEQUENCER&#8217;, &#8216;PREVIEW&#8217;, &#8216;SEQUENCER_PREVIEW&#8217;], default &#8216;SEQUENCER&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceSequenceEditor.waveform_draw_type">
+<code class="descname">waveform_draw_type</code><a class="headerlink" href="#bpy.types.SpaceSequenceEditor.waveform_draw_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>How Waveforms are drawn</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">NO_WAVEFORMS</span></code> Waveforms Off, No waveforms drawn for any sound strips.</li>
+<li><code class="docutils literal"><span class="pre">ALL_WAVEFORMS</span></code> Waveforms On, Waveforms drawn for all sound strips.</li>
+<li><code class="docutils literal"><span class="pre">DEFAULT_WAVEFORMS</span></code> Use Strip Option, Waveforms drawn according to strip setting.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NO_WAVEFORMS&#8217;, &#8216;ALL_WAVEFORMS&#8217;, &#8216;DEFAULT_WAVEFORMS&#8217;], default &#8216;DEFAULT_WAVEFORMS&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.types.SpaceSequenceEditor.draw_handler_add">
+<code class="descname">draw_handler_add</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.SpaceSequenceEditor.draw_handler_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Undocumented</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.types.SpaceSequenceEditor.draw_handler_remove">
+<code class="descname">draw_handler_remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.SpaceSequenceEditor.draw_handler_remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Undocumented</p>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Space.html#bpy.types.Space.type" title="bpy.types.Space.type"><code class="xref py py-class docutils literal"><span class="pre">Space.type</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.Space.html#bpy.types.Space.show_locked_time" title="bpy.types.Space.show_locked_time"><code class="xref py py-class docutils literal"><span class="pre">Space.show_locked_time</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.SpaceProperties.html"
+                        title="previous chapter">SpaceProperties(Space)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.SpaceTextEditor.html"
+                        title="next chapter">SpaceTextEditor(Space)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SpaceTextEditor.html" title="SpaceTextEditor(Space)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SpaceProperties.html" title="SpaceProperties(Space)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

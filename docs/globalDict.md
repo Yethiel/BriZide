@@ -1,0 +1,40 @@
+# globalDict Structure
+
+
+* globalDict
+  + input
+    - focus
+  + settings (settings loaded from config.ini)
+    - Game
+      * Name
+      * LevelDir
+      * ShipDir
+      * Version
+    - dev
+      * debug
+    - Controls_1 (list of available controls and their bindings)
+      * test
+  + current
+    - level
+      * name
+      * lap
+      * cube_size
+      * block_list (dicts of the blocks in use)
+        + [block{type, position, orientation}, ...]
+      * start_pos
+      * start_orientation
+      * checkpoint_count
+      * checkpoint_data
+      * checkpoint_count_registered
+      * race_complete bool
+        + {'name': 'Block_Checkpoint', 'reference': Block_Checkpoint, 'times': {}}
+    - ships
+    - block_list (available blocks)
+  + editor
+    - selected_block
+    - rotation
+      * axis
+  + content
+    - (list of) levels
+    - (list of) modes
+    - (list of) ships

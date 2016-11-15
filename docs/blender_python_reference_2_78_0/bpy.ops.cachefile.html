@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Cachefile Operators &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Operators (bpy.ops)" href="bpy.ops.html" />
+    <link rel="next" title="Camera Operators" href="bpy.ops.camera.html" />
+    <link rel="prev" title="Buttons Operators" href="bpy.ops.buttons.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.camera.html" title="Camera Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.buttons.html" title="Buttons Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.ops.cachefile">
+<span id="cachefile-operators"></span><h1>Cachefile Operators<a class="headerlink" href="#module-bpy.ops.cachefile" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bpy.ops.cachefile.open">
+<code class="descclassname">bpy.ops.cachefile.</code><code class="descname">open</code><span class="sig-paren">(</span><em>filepath=&quot;&quot;</em>, <em>check_existing=True</em>, <em>filter_blender=False</em>, <em>filter_backup=False</em>, <em>filter_image=False</em>, <em>filter_movie=False</em>, <em>filter_python=False</em>, <em>filter_font=False</em>, <em>filter_sound=False</em>, <em>filter_text=False</em>, <em>filter_btx=False</em>, <em>filter_collada=False</em>, <em>filter_alembic=True</em>, <em>filter_folder=True</em>, <em>filter_blenlib=False</em>, <em>filemode=8</em>, <em>display_type='DEFAULT'</em>, <em>sort_method='FILE_SORT_ALPHA'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.cachefile.open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a cache file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filepath</strong> (<em>string, (optional, never None)</em>) &#8211; File Path, Path to file</li>
+<li><strong>check_existing</strong> (<em>boolean, (optional)</em>) &#8211; Check Existing, Check and warn on overwriting existing files</li>
+<li><strong>filter_blender</strong> (<em>boolean, (optional)</em>) &#8211; Filter .blend files</li>
+<li><strong>filter_backup</strong> (<em>boolean, (optional)</em>) &#8211; Filter .blend files</li>
+<li><strong>filter_image</strong> (<em>boolean, (optional)</em>) &#8211; Filter image files</li>
+<li><strong>filter_movie</strong> (<em>boolean, (optional)</em>) &#8211; Filter movie files</li>
+<li><strong>filter_python</strong> (<em>boolean, (optional)</em>) &#8211; Filter python files</li>
+<li><strong>filter_font</strong> (<em>boolean, (optional)</em>) &#8211; Filter font files</li>
+<li><strong>filter_sound</strong> (<em>boolean, (optional)</em>) &#8211; Filter sound files</li>
+<li><strong>filter_text</strong> (<em>boolean, (optional)</em>) &#8211; Filter text files</li>
+<li><strong>filter_btx</strong> (<em>boolean, (optional)</em>) &#8211; Filter btx files</li>
+<li><strong>filter_collada</strong> (<em>boolean, (optional)</em>) &#8211; Filter COLLADA files</li>
+<li><strong>filter_alembic</strong> (<em>boolean, (optional)</em>) &#8211; Filter Alembic files</li>
+<li><strong>filter_folder</strong> (<em>boolean, (optional)</em>) &#8211; Filter folders</li>
+<li><strong>filter_blenlib</strong> (<em>boolean, (optional)</em>) &#8211; Filter Blender IDs</li>
+<li><strong>filemode</strong> (<em>int in [1, 9], (optional)</em>) &#8211; File Browser Mode, The setting for the file browser mode to load a .blend file, a library or a special file</li>
+<li><strong>display_type</strong> (<em>enum in ['DEFAULT', 'LIST_SHORT', 'LIST_LONG', 'THUMBNAIL'], (optional)</em>) &#8211; <p>Display Type</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">DEFAULT</span></code> Default, Automatically determine display type for files.</li>
+<li><code class="docutils literal"><span class="pre">LIST_SHORT</span></code> Short List, Display files as short list.</li>
+<li><code class="docutils literal"><span class="pre">LIST_LONG</span></code> Long List, Display files as a detailed list.</li>
+<li><code class="docutils literal"><span class="pre">THUMBNAIL</span></code> Thumbnails, Display files as thumbnails.</li>
+</ul>
+</li>
+<li><strong>sort_method</strong> (<em>enum in ['FILE_SORT_ALPHA', 'FILE_SORT_EXTENSION', 'FILE_SORT_TIME', 'FILE_SORT_SIZE'], (optional)</em>) &#8211; <p>File sorting mode</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_ALPHA</span></code> Sort alphabetically, Sort the file list alphabetically.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_EXTENSION</span></code> Sort by extension, Sort the file list by extension/type.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_TIME</span></code> Sort by time, Sort files by modification time.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_SIZE</span></code> Sort by size, Sort files by size.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.cachefile.reload">
+<code class="descclassname">bpy.ops.cachefile.</code><code class="descname">reload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.cachefile.reload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update objects paths list with new data from the archive</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.ops.buttons.html"
+                        title="previous chapter">Buttons Operators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.ops.camera.html"
+                        title="next chapter">Camera Operators</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.camera.html" title="Camera Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.buttons.html" title="Buttons Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

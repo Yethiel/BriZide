@@ -1,0 +1,666 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>UserPreferencesInput(bpy_struct) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="UserPreferencesSystem(bpy_struct)" href="bpy.types.UserPreferencesSystem.html" />
+    <link rel="prev" title="UserPreferencesFilePaths(bpy_struct)" href="bpy.types.UserPreferencesFilePaths.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.UserPreferencesSystem.html" title="UserPreferencesSystem(bpy_struct)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.UserPreferencesFilePaths.html" title="UserPreferencesFilePaths(bpy_struct)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="userpreferencesinput-bpy-struct"></span><h1>UserPreferencesInput(bpy_struct)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.UserPreferencesInput">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">UserPreferencesInput</code><span class="sig-paren">(</span><em>bpy_struct</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UserPreferencesInput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Settings for input devices</p>
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.active_keyconfig">
+<code class="descname">active_keyconfig</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.active_keyconfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the active key configuration</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.drag_threshold">
+<code class="descname">drag_threshold</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.drag_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of pixels you have to drag before dragging UI items happens</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [3, 40], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.invert_mouse_zoom">
+<code class="descname">invert_mouse_zoom</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.invert_mouse_zoom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invert the axis of mouse movement for zooming</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.invert_zoom_wheel">
+<code class="descname">invert_zoom_wheel</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.invert_zoom_wheel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Swap the Mouse Wheel zoom direction</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.mouse_double_click_time">
+<code class="descname">mouse_double_click_time</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.mouse_double_click_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time/delay (in ms) for a double click</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 1000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.navigation_mode">
+<code class="descname">navigation_mode</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.navigation_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Which method to use for viewport navigation</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">WALK</span></code> Walk, Interactively walk or free navigate around the scene.</li>
+<li><code class="docutils literal"><span class="pre">FLY</span></code> Fly, Use fly dynamics to navigate the scene.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;WALK&#8217;, &#8216;FLY&#8217;], default &#8216;WALK&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.ndof_deadzone">
+<code class="descname">ndof_deadzone</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.ndof_deadzone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deadzone of the 3D Mouse</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.ndof_fly_helicopter">
+<code class="descname">ndof_fly_helicopter</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.ndof_fly_helicopter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Device up/down directly controls your Z position</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.ndof_lock_horizon">
+<code class="descname">ndof_lock_horizon</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.ndof_lock_horizon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keep horizon level while flying with 3D Mouse</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.ndof_orbit_sensitivity">
+<code class="descname">ndof_orbit_sensitivity</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.ndof_orbit_sensitivity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overall sensitivity of the 3D Mouse for orbiting</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.01, 40], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.ndof_pan_yz_swap_axis">
+<code class="descname">ndof_pan_yz_swap_axis</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.ndof_pan_yz_swap_axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pan using up/down on the device (otherwise forward/backward)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.ndof_panx_invert_axis">
+<code class="descname">ndof_panx_invert_axis</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.ndof_panx_invert_axis" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.ndof_pany_invert_axis">
+<code class="descname">ndof_pany_invert_axis</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.ndof_pany_invert_axis" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.ndof_panz_invert_axis">
+<code class="descname">ndof_panz_invert_axis</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.ndof_panz_invert_axis" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.ndof_rotx_invert_axis">
+<code class="descname">ndof_rotx_invert_axis</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.ndof_rotx_invert_axis" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.ndof_roty_invert_axis">
+<code class="descname">ndof_roty_invert_axis</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.ndof_roty_invert_axis" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.ndof_rotz_invert_axis">
+<code class="descname">ndof_rotz_invert_axis</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.ndof_rotz_invert_axis" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.ndof_sensitivity">
+<code class="descname">ndof_sensitivity</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.ndof_sensitivity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overall sensitivity of the 3D Mouse for panning</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.01, 40], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.ndof_show_guide">
+<code class="descname">ndof_show_guide</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.ndof_show_guide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the center and axis during rotation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.ndof_view_navigate_method">
+<code class="descname">ndof_view_navigate_method</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.ndof_view_navigate_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigation style in the viewport</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">FREE</span></code> Free, Use full 6 degrees of freedom by default.</li>
+<li><code class="docutils literal"><span class="pre">ORBIT</span></code> Orbit, Orbit about the view center by default.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;FREE&#8217;, &#8216;ORBIT&#8217;], default &#8216;FREE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.ndof_view_rotate_method">
+<code class="descname">ndof_view_rotate_method</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.ndof_view_rotate_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotation style in the viewport</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TURNTABLE</span></code> Turntable, Use turntable style rotation in the viewport.</li>
+<li><code class="docutils literal"><span class="pre">TRACKBALL</span></code> Trackball, Use trackball style rotation in the viewport.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;TURNTABLE&#8217;, &#8216;TRACKBALL&#8217;], default &#8216;TRACKBALL&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.ndof_zoom_invert">
+<code class="descname">ndof_zoom_invert</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.ndof_zoom_invert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zoom using opposite direction</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.select_mouse">
+<code class="descname">select_mouse</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.select_mouse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mouse button used for selection</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">LEFT</span></code> Left, Use left Mouse Button for selection.</li>
+<li><code class="docutils literal"><span class="pre">RIGHT</span></code> Right, Use Right Mouse Button for selection.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;LEFT&#8217;, &#8216;RIGHT&#8217;], default &#8216;RIGHT&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.tweak_threshold">
+<code class="descname">tweak_threshold</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.tweak_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of pixels you have to drag before tweak event is triggered</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [3, 1024], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.use_emulate_numpad">
+<code class="descname">use_emulate_numpad</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.use_emulate_numpad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main 1 to 0 keys act as the numpad ones (useful for laptops)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.use_mouse_continuous">
+<code class="descname">use_mouse_continuous</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.use_mouse_continuous" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allow moving the mouse outside the view on some manipulations (transform, ui control drag)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.use_mouse_emulate_3_button">
+<code class="descname">use_mouse_emulate_3_button</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.use_mouse_emulate_3_button" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emulate Middle Mouse with Alt+Left Mouse (doesn&#8217;t work with Left Mouse Select option)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.use_mouse_mmb_paste">
+<code class="descname">use_mouse_mmb_paste</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.use_mouse_mmb_paste" title="Permalink to this definition">¶</a></dt>
+<dd><p>In text window, paste with middle mouse button instead of panning</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.UserPreferencesInput.use_ndof">
+<code class="descname">use_ndof</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.use_ndof" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default True, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.use_trackpad_natural">
+<code class="descname">use_trackpad_natural</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.use_trackpad_natural" title="Permalink to this definition">¶</a></dt>
+<dd><p>If your system uses &#8216;natural&#8217; scrolling, this option keeps consistent trackpad usage throughout the UI</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.view_rotate_method">
+<code class="descname">view_rotate_method</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.view_rotate_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotation style in the viewport</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TURNTABLE</span></code> Turntable, Use turntable style rotation in the viewport.</li>
+<li><code class="docutils literal"><span class="pre">TRACKBALL</span></code> Trackball, Use trackball style rotation in the viewport.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;TURNTABLE&#8217;, &#8216;TRACKBALL&#8217;], default &#8216;TURNTABLE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.view_zoom_axis">
+<code class="descname">view_zoom_axis</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.view_zoom_axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Axis of mouse movement to zoom in or out on</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">VERTICAL</span></code> Vertical, Zoom in and out based on vertical mouse movement.</li>
+<li><code class="docutils literal"><span class="pre">HORIZONTAL</span></code> Horizontal, Zoom in and out based on horizontal mouse movement.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;VERTICAL&#8217;, &#8216;HORIZONTAL&#8217;], default &#8216;VERTICAL&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.view_zoom_method">
+<code class="descname">view_zoom_method</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.view_zoom_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Which style to use for viewport scaling</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">CONTINUE</span></code> Continue, Old style zoom, continues while moving mouse up or down.</li>
+<li><code class="docutils literal"><span class="pre">DOLLY</span></code> Dolly, Zoom in and out based on vertical mouse movement.</li>
+<li><code class="docutils literal"><span class="pre">SCALE</span></code> Scale, Zoom in and out like scaling the view, mouse movements relative to center.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;CONTINUE&#8217;, &#8216;DOLLY&#8217;, &#8216;SCALE&#8217;], default &#8216;CONTINUE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.UserPreferencesInput.walk_navigation">
+<code class="descname">walk_navigation</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.walk_navigation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Settings for walk navigation mode</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.WalkNavigation.html#bpy.types.WalkNavigation" title="bpy.types.WalkNavigation"><code class="xref py py-class docutils literal"><span class="pre">WalkNavigation</span></code></a>, (readonly, never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesInput.wheel_scroll_lines">
+<code class="descname">wheel_scroll_lines</code><a class="headerlink" href="#bpy.types.UserPreferencesInput.wheel_scroll_lines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of lines scrolled at a time with the mouse wheel</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 32], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.UserPreferences.html#bpy.types.UserPreferences.inputs" title="bpy.types.UserPreferences.inputs"><code class="xref py py-class docutils literal"><span class="pre">UserPreferences.inputs</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.UserPreferencesFilePaths.html"
+                        title="previous chapter">UserPreferencesFilePaths(bpy_struct)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.UserPreferencesSystem.html"
+                        title="next chapter">UserPreferencesSystem(bpy_struct)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.UserPreferencesSystem.html" title="UserPreferencesSystem(bpy_struct)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.UserPreferencesFilePaths.html" title="UserPreferencesFilePaths(bpy_struct)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1045 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Transform Operators &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Operators (bpy.ops)" href="bpy.ops.html" />
+    <link rel="next" title="Ui Operators" href="bpy.ops.ui.html" />
+    <link rel="prev" title="Time Operators" href="bpy.ops.time.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.ui.html" title="Ui Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.time.html" title="Time Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.ops.transform">
+<span id="transform-operators"></span><h1>Transform Operators<a class="headerlink" href="#module-bpy.ops.transform" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bpy.ops.transform.bend">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">bend</code><span class="sig-paren">(</span><em>value=(0.0)</em>, <em>mirror=False</em>, <em>proportional='DISABLED'</em>, <em>proportional_edit_falloff='SMOOTH'</em>, <em>proportional_size=1.0</em>, <em>snap=False</em>, <em>snap_target='CLOSEST'</em>, <em>snap_point=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>snap_align=False</em>, <em>snap_normal=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>gpencil_strokes=False</em>, <em>release_confirm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.bend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bend selected items between the 3D cursor and the mouse</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> (<em>float array of 1 items in [-inf, inf], (optional)</em>) &#8211; Angle</li>
+<li><strong>mirror</strong> (<em>boolean, (optional)</em>) &#8211; Mirror Editing</li>
+<li><strong>proportional</strong> (<em>enum in ['DISABLED', 'ENABLED', 'PROJECTED', 'CONNECTED'], (optional)</em>) &#8211; <p>Proportional Editing</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">DISABLED</span></code> Disable, Proportional Editing disabled.</li>
+<li><code class="docutils literal"><span class="pre">ENABLED</span></code> Enable, Proportional Editing enabled.</li>
+<li><code class="docutils literal"><span class="pre">PROJECTED</span></code> Projected (2D), Proportional Editing using screen space locations.</li>
+<li><code class="docutils literal"><span class="pre">CONNECTED</span></code> Connected, Proportional Editing using connected geometry only.</li>
+</ul>
+</li>
+<li><strong>proportional_edit_falloff</strong> (<em>enum in ['SMOOTH', 'SPHERE', 'ROOT', 'INVERSE_SQUARE', 'SHARP', 'LINEAR', 'CONSTANT', 'RANDOM'], (optional)</em>) &#8211; <p>Proportional Editing Falloff, Falloff type for proportional editing mode</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">SMOOTH</span></code> Smooth, Smooth falloff.</li>
+<li><code class="docutils literal"><span class="pre">SPHERE</span></code> Sphere, Spherical falloff.</li>
+<li><code class="docutils literal"><span class="pre">ROOT</span></code> Root, Root falloff.</li>
+<li><code class="docutils literal"><span class="pre">INVERSE_SQUARE</span></code> Inverse Square, Inverse Square falloff.</li>
+<li><code class="docutils literal"><span class="pre">SHARP</span></code> Sharp, Sharp falloff.</li>
+<li><code class="docutils literal"><span class="pre">LINEAR</span></code> Linear, Linear falloff.</li>
+<li><code class="docutils literal"><span class="pre">CONSTANT</span></code> Constant, Constant falloff.</li>
+<li><code class="docutils literal"><span class="pre">RANDOM</span></code> Random, Random falloff.</li>
+</ul>
+</li>
+<li><strong>proportional_size</strong> (<em>float in [1e-06, inf], (optional)</em>) &#8211; Proportional Size</li>
+<li><strong>snap</strong> (<em>boolean, (optional)</em>) &#8211; Use Snapping Options</li>
+<li><strong>snap_target</strong> (<em>enum in ['CLOSEST', 'CENTER', 'MEDIAN', 'ACTIVE'], (optional)</em>) &#8211; <p>Target</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">CLOSEST</span></code> Closest, Snap closest point onto target.</li>
+<li><code class="docutils literal"><span class="pre">CENTER</span></code> Center, Snap center onto target.</li>
+<li><code class="docutils literal"><span class="pre">MEDIAN</span></code> Median, Snap median onto target.</li>
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active, Snap active onto target.</li>
+</ul>
+</li>
+<li><strong>snap_point</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Point</li>
+<li><strong>snap_align</strong> (<em>boolean, (optional)</em>) &#8211; Align with Point Normal</li>
+<li><strong>snap_normal</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Normal</li>
+<li><strong>gpencil_strokes</strong> (<em>boolean, (optional)</em>) &#8211; Edit Grease Pencil, Edit selected Grease Pencil strokes</li>
+<li><strong>release_confirm</strong> (<em>boolean, (optional)</em>) &#8211; Confirm on Release, Always confirm operation when releasing button</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.transform.create_orientation">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">create_orientation</code><span class="sig-paren">(</span><em>name=&quot;&quot;</em>, <em>use_view=False</em>, <em>use=False</em>, <em>overwrite=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.create_orientation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create transformation orientation from selection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<em>string, (optional, never None)</em>) &#8211; Name, Name of the new custom orientation</li>
+<li><strong>use_view</strong> (<em>boolean, (optional)</em>) &#8211; Use View, Use the current view instead of the active object to create the new orientation</li>
+<li><strong>use</strong> (<em>boolean, (optional)</em>) &#8211; Use after creation, Select orientation after its creation</li>
+<li><strong>overwrite</strong> (<em>boolean, (optional)</em>) &#8211; Overwrite previous, Overwrite previously created orientation with same name</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.transform.delete_orientation">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">delete_orientation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.delete_orientation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete transformation orientation</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.transform.edge_bevelweight">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">edge_bevelweight</code><span class="sig-paren">(</span><em>value=0.0</em>, <em>snap=False</em>, <em>snap_target='CLOSEST'</em>, <em>snap_point=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>snap_align=False</em>, <em>snap_normal=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>release_confirm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.edge_bevelweight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the bevel weight of edges</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> (<em>float in [-1, 1], (optional)</em>) &#8211; Factor</li>
+<li><strong>snap</strong> (<em>boolean, (optional)</em>) &#8211; Use Snapping Options</li>
+<li><strong>snap_target</strong> (<em>enum in ['CLOSEST', 'CENTER', 'MEDIAN', 'ACTIVE'], (optional)</em>) &#8211; <p>Target</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">CLOSEST</span></code> Closest, Snap closest point onto target.</li>
+<li><code class="docutils literal"><span class="pre">CENTER</span></code> Center, Snap center onto target.</li>
+<li><code class="docutils literal"><span class="pre">MEDIAN</span></code> Median, Snap median onto target.</li>
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active, Snap active onto target.</li>
+</ul>
+</li>
+<li><strong>snap_point</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Point</li>
+<li><strong>snap_align</strong> (<em>boolean, (optional)</em>) &#8211; Align with Point Normal</li>
+<li><strong>snap_normal</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Normal</li>
+<li><strong>release_confirm</strong> (<em>boolean, (optional)</em>) &#8211; Confirm on Release, Always confirm operation when releasing button</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.transform.edge_crease">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">edge_crease</code><span class="sig-paren">(</span><em>value=0.0</em>, <em>snap=False</em>, <em>snap_target='CLOSEST'</em>, <em>snap_point=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>snap_align=False</em>, <em>snap_normal=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>release_confirm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.edge_crease" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the crease of edges</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> (<em>float in [-1, 1], (optional)</em>) &#8211; Factor</li>
+<li><strong>snap</strong> (<em>boolean, (optional)</em>) &#8211; Use Snapping Options</li>
+<li><strong>snap_target</strong> (<em>enum in ['CLOSEST', 'CENTER', 'MEDIAN', 'ACTIVE'], (optional)</em>) &#8211; <p>Target</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">CLOSEST</span></code> Closest, Snap closest point onto target.</li>
+<li><code class="docutils literal"><span class="pre">CENTER</span></code> Center, Snap center onto target.</li>
+<li><code class="docutils literal"><span class="pre">MEDIAN</span></code> Median, Snap median onto target.</li>
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active, Snap active onto target.</li>
+</ul>
+</li>
+<li><strong>snap_point</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Point</li>
+<li><strong>snap_align</strong> (<em>boolean, (optional)</em>) &#8211; Align with Point Normal</li>
+<li><strong>snap_normal</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Normal</li>
+<li><strong>release_confirm</strong> (<em>boolean, (optional)</em>) &#8211; Confirm on Release, Always confirm operation when releasing button</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.transform.edge_slide">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">edge_slide</code><span class="sig-paren">(</span><em>value=0.0</em>, <em>single_side=False</em>, <em>use_even=False</em>, <em>flipped=False</em>, <em>use_clamp=True</em>, <em>mirror=False</em>, <em>snap=False</em>, <em>snap_target='CLOSEST'</em>, <em>snap_point=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>snap_align=False</em>, <em>snap_normal=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>correct_uv=False</em>, <em>release_confirm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.edge_slide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Slide an edge loop along a mesh</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> (<em>float in [-10, 10], (optional)</em>) &#8211; Factor</li>
+<li><strong>single_side</strong> (<em>boolean, (optional)</em>) &#8211; Single Side</li>
+<li><strong>use_even</strong> (<em>boolean, (optional)</em>) &#8211; Even, Make the edge loop match the shape of the adjacent edge loop</li>
+<li><strong>flipped</strong> (<em>boolean, (optional)</em>) &#8211; Flipped, When Even mode is active, flips between the two adjacent edge loops</li>
+<li><strong>use_clamp</strong> (<em>boolean, (optional)</em>) &#8211; Clamp, Clamp within the edge extents</li>
+<li><strong>mirror</strong> (<em>boolean, (optional)</em>) &#8211; Mirror Editing</li>
+<li><strong>snap</strong> (<em>boolean, (optional)</em>) &#8211; Use Snapping Options</li>
+<li><strong>snap_target</strong> (<em>enum in ['CLOSEST', 'CENTER', 'MEDIAN', 'ACTIVE'], (optional)</em>) &#8211; <p>Target</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">CLOSEST</span></code> Closest, Snap closest point onto target.</li>
+<li><code class="docutils literal"><span class="pre">CENTER</span></code> Center, Snap center onto target.</li>
+<li><code class="docutils literal"><span class="pre">MEDIAN</span></code> Median, Snap median onto target.</li>
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active, Snap active onto target.</li>
+</ul>
+</li>
+<li><strong>snap_point</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Point</li>
+<li><strong>snap_align</strong> (<em>boolean, (optional)</em>) &#8211; Align with Point Normal</li>
+<li><strong>snap_normal</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Normal</li>
+<li><strong>correct_uv</strong> (<em>boolean, (optional)</em>) &#8211; Correct UVs, Correct UV coordinates when transforming</li>
+<li><strong>release_confirm</strong> (<em>boolean, (optional)</em>) &#8211; Confirm on Release, Always confirm operation when releasing button</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.transform.mirror">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">mirror</code><span class="sig-paren">(</span><em>constraint_axis=(False</em>, <em>False</em>, <em>False)</em>, <em>constraint_orientation='GLOBAL'</em>, <em>proportional='DISABLED'</em>, <em>proportional_edit_falloff='SMOOTH'</em>, <em>proportional_size=1.0</em>, <em>gpencil_strokes=False</em>, <em>release_confirm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.mirror" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mirror selected items around one or more axes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>constraint_axis</strong> (<em>boolean array of 3 items, (optional)</em>) &#8211; Constraint Axis</li>
+<li><strong>constraint_orientation</strong> (<em>enum in [], (optional)</em>) &#8211; Orientation, Transformation orientation</li>
+<li><strong>proportional</strong> (<em>enum in ['DISABLED', 'ENABLED', 'PROJECTED', 'CONNECTED'], (optional)</em>) &#8211; <p>Proportional Editing</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">DISABLED</span></code> Disable, Proportional Editing disabled.</li>
+<li><code class="docutils literal"><span class="pre">ENABLED</span></code> Enable, Proportional Editing enabled.</li>
+<li><code class="docutils literal"><span class="pre">PROJECTED</span></code> Projected (2D), Proportional Editing using screen space locations.</li>
+<li><code class="docutils literal"><span class="pre">CONNECTED</span></code> Connected, Proportional Editing using connected geometry only.</li>
+</ul>
+</li>
+<li><strong>proportional_edit_falloff</strong> (<em>enum in ['SMOOTH', 'SPHERE', 'ROOT', 'INVERSE_SQUARE', 'SHARP', 'LINEAR', 'CONSTANT', 'RANDOM'], (optional)</em>) &#8211; <p>Proportional Editing Falloff, Falloff type for proportional editing mode</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">SMOOTH</span></code> Smooth, Smooth falloff.</li>
+<li><code class="docutils literal"><span class="pre">SPHERE</span></code> Sphere, Spherical falloff.</li>
+<li><code class="docutils literal"><span class="pre">ROOT</span></code> Root, Root falloff.</li>
+<li><code class="docutils literal"><span class="pre">INVERSE_SQUARE</span></code> Inverse Square, Inverse Square falloff.</li>
+<li><code class="docutils literal"><span class="pre">SHARP</span></code> Sharp, Sharp falloff.</li>
+<li><code class="docutils literal"><span class="pre">LINEAR</span></code> Linear, Linear falloff.</li>
+<li><code class="docutils literal"><span class="pre">CONSTANT</span></code> Constant, Constant falloff.</li>
+<li><code class="docutils literal"><span class="pre">RANDOM</span></code> Random, Random falloff.</li>
+</ul>
+</li>
+<li><strong>proportional_size</strong> (<em>float in [1e-06, inf], (optional)</em>) &#8211; Proportional Size</li>
+<li><strong>gpencil_strokes</strong> (<em>boolean, (optional)</em>) &#8211; Edit Grease Pencil, Edit selected Grease Pencil strokes</li>
+<li><strong>release_confirm</strong> (<em>boolean, (optional)</em>) &#8211; Confirm on Release, Always confirm operation when releasing button</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.transform.push_pull">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">push_pull</code><span class="sig-paren">(</span><em>value=0.0</em>, <em>mirror=False</em>, <em>proportional='DISABLED'</em>, <em>proportional_edit_falloff='SMOOTH'</em>, <em>proportional_size=1.0</em>, <em>snap=False</em>, <em>snap_target='CLOSEST'</em>, <em>snap_point=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>snap_align=False</em>, <em>snap_normal=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>release_confirm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.push_pull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Push/Pull selected items</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> (<em>float in [-inf, inf], (optional)</em>) &#8211; Distance</li>
+<li><strong>mirror</strong> (<em>boolean, (optional)</em>) &#8211; Mirror Editing</li>
+<li><strong>proportional</strong> (<em>enum in ['DISABLED', 'ENABLED', 'PROJECTED', 'CONNECTED'], (optional)</em>) &#8211; <p>Proportional Editing</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">DISABLED</span></code> Disable, Proportional Editing disabled.</li>
+<li><code class="docutils literal"><span class="pre">ENABLED</span></code> Enable, Proportional Editing enabled.</li>
+<li><code class="docutils literal"><span class="pre">PROJECTED</span></code> Projected (2D), Proportional Editing using screen space locations.</li>
+<li><code class="docutils literal"><span class="pre">CONNECTED</span></code> Connected, Proportional Editing using connected geometry only.</li>
+</ul>
+</li>
+<li><strong>proportional_edit_falloff</strong> (<em>enum in ['SMOOTH', 'SPHERE', 'ROOT', 'INVERSE_SQUARE', 'SHARP', 'LINEAR', 'CONSTANT', 'RANDOM'], (optional)</em>) &#8211; <p>Proportional Editing Falloff, Falloff type for proportional editing mode</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">SMOOTH</span></code> Smooth, Smooth falloff.</li>
+<li><code class="docutils literal"><span class="pre">SPHERE</span></code> Sphere, Spherical falloff.</li>
+<li><code class="docutils literal"><span class="pre">ROOT</span></code> Root, Root falloff.</li>
+<li><code class="docutils literal"><span class="pre">INVERSE_SQUARE</span></code> Inverse Square, Inverse Square falloff.</li>
+<li><code class="docutils literal"><span class="pre">SHARP</span></code> Sharp, Sharp falloff.</li>
+<li><code class="docutils literal"><span class="pre">LINEAR</span></code> Linear, Linear falloff.</li>
+<li><code class="docutils literal"><span class="pre">CONSTANT</span></code> Constant, Constant falloff.</li>
+<li><code class="docutils literal"><span class="pre">RANDOM</span></code> Random, Random falloff.</li>
+</ul>
+</li>
+<li><strong>proportional_size</strong> (<em>float in [1e-06, inf], (optional)</em>) &#8211; Proportional Size</li>
+<li><strong>snap</strong> (<em>boolean, (optional)</em>) &#8211; Use Snapping Options</li>
+<li><strong>snap_target</strong> (<em>enum in ['CLOSEST', 'CENTER', 'MEDIAN', 'ACTIVE'], (optional)</em>) &#8211; <p>Target</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">CLOSEST</span></code> Closest, Snap closest point onto target.</li>
+<li><code class="docutils literal"><span class="pre">CENTER</span></code> Center, Snap center onto target.</li>
+<li><code class="docutils literal"><span class="pre">MEDIAN</span></code> Median, Snap median onto target.</li>
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active, Snap active onto target.</li>
+</ul>
+</li>
+<li><strong>snap_point</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Point</li>
+<li><strong>snap_align</strong> (<em>boolean, (optional)</em>) &#8211; Align with Point Normal</li>
+<li><strong>snap_normal</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Normal</li>
+<li><strong>release_confirm</strong> (<em>boolean, (optional)</em>) &#8211; Confirm on Release, Always confirm operation when releasing button</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.transform.resize">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">resize</code><span class="sig-paren">(</span><em>value=(1.0</em>, <em>1.0</em>, <em>1.0)</em>, <em>constraint_axis=(False</em>, <em>False</em>, <em>False)</em>, <em>constraint_orientation='GLOBAL'</em>, <em>mirror=False</em>, <em>proportional='DISABLED'</em>, <em>proportional_edit_falloff='SMOOTH'</em>, <em>proportional_size=1.0</em>, <em>snap=False</em>, <em>snap_target='CLOSEST'</em>, <em>snap_point=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>snap_align=False</em>, <em>snap_normal=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>gpencil_strokes=False</em>, <em>texture_space=False</em>, <em>remove_on_cancel=False</em>, <em>release_confirm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale (resize) selected items</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Vector</li>
+<li><strong>constraint_axis</strong> (<em>boolean array of 3 items, (optional)</em>) &#8211; Constraint Axis</li>
+<li><strong>constraint_orientation</strong> (<em>enum in [], (optional)</em>) &#8211; Orientation, Transformation orientation</li>
+<li><strong>mirror</strong> (<em>boolean, (optional)</em>) &#8211; Mirror Editing</li>
+<li><strong>proportional</strong> (<em>enum in ['DISABLED', 'ENABLED', 'PROJECTED', 'CONNECTED'], (optional)</em>) &#8211; <p>Proportional Editing</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">DISABLED</span></code> Disable, Proportional Editing disabled.</li>
+<li><code class="docutils literal"><span class="pre">ENABLED</span></code> Enable, Proportional Editing enabled.</li>
+<li><code class="docutils literal"><span class="pre">PROJECTED</span></code> Projected (2D), Proportional Editing using screen space locations.</li>
+<li><code class="docutils literal"><span class="pre">CONNECTED</span></code> Connected, Proportional Editing using connected geometry only.</li>
+</ul>
+</li>
+<li><strong>proportional_edit_falloff</strong> (<em>enum in ['SMOOTH', 'SPHERE', 'ROOT', 'INVERSE_SQUARE', 'SHARP', 'LINEAR', 'CONSTANT', 'RANDOM'], (optional)</em>) &#8211; <p>Proportional Editing Falloff, Falloff type for proportional editing mode</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">SMOOTH</span></code> Smooth, Smooth falloff.</li>
+<li><code class="docutils literal"><span class="pre">SPHERE</span></code> Sphere, Spherical falloff.</li>
+<li><code class="docutils literal"><span class="pre">ROOT</span></code> Root, Root falloff.</li>
+<li><code class="docutils literal"><span class="pre">INVERSE_SQUARE</span></code> Inverse Square, Inverse Square falloff.</li>
+<li><code class="docutils literal"><span class="pre">SHARP</span></code> Sharp, Sharp falloff.</li>
+<li><code class="docutils literal"><span class="pre">LINEAR</span></code> Linear, Linear falloff.</li>
+<li><code class="docutils literal"><span class="pre">CONSTANT</span></code> Constant, Constant falloff.</li>
+<li><code class="docutils literal"><span class="pre">RANDOM</span></code> Random, Random falloff.</li>
+</ul>
+</li>
+<li><strong>proportional_size</strong> (<em>float in [1e-06, inf], (optional)</em>) &#8211; Proportional Size</li>
+<li><strong>snap</strong> (<em>boolean, (optional)</em>) &#8211; Use Snapping Options</li>
+<li><strong>snap_target</strong> (<em>enum in ['CLOSEST', 'CENTER', 'MEDIAN', 'ACTIVE'], (optional)</em>) &#8211; <p>Target</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">CLOSEST</span></code> Closest, Snap closest point onto target.</li>
+<li><code class="docutils literal"><span class="pre">CENTER</span></code> Center, Snap center onto target.</li>
+<li><code class="docutils literal"><span class="pre">MEDIAN</span></code> Median, Snap median onto target.</li>
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active, Snap active onto target.</li>
+</ul>
+</li>
+<li><strong>snap_point</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Point</li>
+<li><strong>snap_align</strong> (<em>boolean, (optional)</em>) &#8211; Align with Point Normal</li>
+<li><strong>snap_normal</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Normal</li>
+<li><strong>gpencil_strokes</strong> (<em>boolean, (optional)</em>) &#8211; Edit Grease Pencil, Edit selected Grease Pencil strokes</li>
+<li><strong>texture_space</strong> (<em>boolean, (optional)</em>) &#8211; Edit Texture Space, Edit Object data texture space</li>
+<li><strong>remove_on_cancel</strong> (<em>boolean, (optional)</em>) &#8211; Remove on Cancel, Remove elements on cancel</li>
+<li><strong>release_confirm</strong> (<em>boolean, (optional)</em>) &#8211; Confirm on Release, Always confirm operation when releasing button</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.transform.rotate">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">rotate</code><span class="sig-paren">(</span><em>value=0.0</em>, <em>axis=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>constraint_axis=(False</em>, <em>False</em>, <em>False)</em>, <em>constraint_orientation='GLOBAL'</em>, <em>mirror=False</em>, <em>proportional='DISABLED'</em>, <em>proportional_edit_falloff='SMOOTH'</em>, <em>proportional_size=1.0</em>, <em>snap=False</em>, <em>snap_target='CLOSEST'</em>, <em>snap_point=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>snap_align=False</em>, <em>snap_normal=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>gpencil_strokes=False</em>, <em>release_confirm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.rotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate selected items</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> (<em>float in [-inf, inf], (optional)</em>) &#8211; Angle</li>
+<li><strong>axis</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Axis, The axis around which the transformation occurs</li>
+<li><strong>constraint_axis</strong> (<em>boolean array of 3 items, (optional)</em>) &#8211; Constraint Axis</li>
+<li><strong>constraint_orientation</strong> (<em>enum in [], (optional)</em>) &#8211; Orientation, Transformation orientation</li>
+<li><strong>mirror</strong> (<em>boolean, (optional)</em>) &#8211; Mirror Editing</li>
+<li><strong>proportional</strong> (<em>enum in ['DISABLED', 'ENABLED', 'PROJECTED', 'CONNECTED'], (optional)</em>) &#8211; <p>Proportional Editing</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">DISABLED</span></code> Disable, Proportional Editing disabled.</li>
+<li><code class="docutils literal"><span class="pre">ENABLED</span></code> Enable, Proportional Editing enabled.</li>
+<li><code class="docutils literal"><span class="pre">PROJECTED</span></code> Projected (2D), Proportional Editing using screen space locations.</li>
+<li><code class="docutils literal"><span class="pre">CONNECTED</span></code> Connected, Proportional Editing using connected geometry only.</li>
+</ul>
+</li>
+<li><strong>proportional_edit_falloff</strong> (<em>enum in ['SMOOTH', 'SPHERE', 'ROOT', 'INVERSE_SQUARE', 'SHARP', 'LINEAR', 'CONSTANT', 'RANDOM'], (optional)</em>) &#8211; <p>Proportional Editing Falloff, Falloff type for proportional editing mode</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">SMOOTH</span></code> Smooth, Smooth falloff.</li>
+<li><code class="docutils literal"><span class="pre">SPHERE</span></code> Sphere, Spherical falloff.</li>
+<li><code class="docutils literal"><span class="pre">ROOT</span></code> Root, Root falloff.</li>
+<li><code class="docutils literal"><span class="pre">INVERSE_SQUARE</span></code> Inverse Square, Inverse Square falloff.</li>
+<li><code class="docutils literal"><span class="pre">SHARP</span></code> Sharp, Sharp falloff.</li>
+<li><code class="docutils literal"><span class="pre">LINEAR</span></code> Linear, Linear falloff.</li>
+<li><code class="docutils literal"><span class="pre">CONSTANT</span></code> Constant, Constant falloff.</li>
+<li><code class="docutils literal"><span class="pre">RANDOM</span></code> Random, Random falloff.</li>
+</ul>
+</li>
+<li><strong>proportional_size</strong> (<em>float in [1e-06, inf], (optional)</em>) &#8211; Proportional Size</li>
+<li><strong>snap</strong> (<em>boolean, (optional)</em>) &#8211; Use Snapping Options</li>
+<li><strong>snap_target</strong> (<em>enum in ['CLOSEST', 'CENTER', 'MEDIAN', 'ACTIVE'], (optional)</em>) &#8211; <p>Target</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">CLOSEST</span></code> Closest, Snap closest point onto target.</li>
+<li><code class="docutils literal"><span class="pre">CENTER</span></code> Center, Snap center onto target.</li>
+<li><code class="docutils literal"><span class="pre">MEDIAN</span></code> Median, Snap median onto target.</li>
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active, Snap active onto target.</li>
+</ul>
+</li>
+<li><strong>snap_point</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Point</li>
+<li><strong>snap_align</strong> (<em>boolean, (optional)</em>) &#8211; Align with Point Normal</li>
+<li><strong>snap_normal</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Normal</li>
+<li><strong>gpencil_strokes</strong> (<em>boolean, (optional)</em>) &#8211; Edit Grease Pencil, Edit selected Grease Pencil strokes</li>
+<li><strong>release_confirm</strong> (<em>boolean, (optional)</em>) &#8211; Confirm on Release, Always confirm operation when releasing button</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.transform.select_orientation">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">select_orientation</code><span class="sig-paren">(</span><em>orientation='GLOBAL'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.select_orientation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select transformation orientation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>orientation</strong> (<em>enum in [], (optional)</em>) &#8211; Orientation, Transformation orientation</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.transform.seq_slide">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">seq_slide</code><span class="sig-paren">(</span><em>value=(0.0</em>, <em>0.0)</em>, <em>snap=False</em>, <em>snap_target='CLOSEST'</em>, <em>snap_point=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>snap_align=False</em>, <em>snap_normal=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>release_confirm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.seq_slide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Slide a sequence strip in time</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> (<em>float array of 2 items in [-inf, inf], (optional)</em>) &#8211; Vector</li>
+<li><strong>snap</strong> (<em>boolean, (optional)</em>) &#8211; Use Snapping Options</li>
+<li><strong>snap_target</strong> (<em>enum in ['CLOSEST', 'CENTER', 'MEDIAN', 'ACTIVE'], (optional)</em>) &#8211; <p>Target</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">CLOSEST</span></code> Closest, Snap closest point onto target.</li>
+<li><code class="docutils literal"><span class="pre">CENTER</span></code> Center, Snap center onto target.</li>
+<li><code class="docutils literal"><span class="pre">MEDIAN</span></code> Median, Snap median onto target.</li>
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active, Snap active onto target.</li>
+</ul>
+</li>
+<li><strong>snap_point</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Point</li>
+<li><strong>snap_align</strong> (<em>boolean, (optional)</em>) &#8211; Align with Point Normal</li>
+<li><strong>snap_normal</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Normal</li>
+<li><strong>release_confirm</strong> (<em>boolean, (optional)</em>) &#8211; Confirm on Release, Always confirm operation when releasing button</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.transform.shear">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">shear</code><span class="sig-paren">(</span><em>value=0.0</em>, <em>mirror=False</em>, <em>proportional='DISABLED'</em>, <em>proportional_edit_falloff='SMOOTH'</em>, <em>proportional_size=1.0</em>, <em>snap=False</em>, <em>snap_target='CLOSEST'</em>, <em>snap_point=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>snap_align=False</em>, <em>snap_normal=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>gpencil_strokes=False</em>, <em>release_confirm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.shear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shear selected items along the horizontal screen axis</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> (<em>float in [-inf, inf], (optional)</em>) &#8211; Offset</li>
+<li><strong>mirror</strong> (<em>boolean, (optional)</em>) &#8211; Mirror Editing</li>
+<li><strong>proportional</strong> (<em>enum in ['DISABLED', 'ENABLED', 'PROJECTED', 'CONNECTED'], (optional)</em>) &#8211; <p>Proportional Editing</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">DISABLED</span></code> Disable, Proportional Editing disabled.</li>
+<li><code class="docutils literal"><span class="pre">ENABLED</span></code> Enable, Proportional Editing enabled.</li>
+<li><code class="docutils literal"><span class="pre">PROJECTED</span></code> Projected (2D), Proportional Editing using screen space locations.</li>
+<li><code class="docutils literal"><span class="pre">CONNECTED</span></code> Connected, Proportional Editing using connected geometry only.</li>
+</ul>
+</li>
+<li><strong>proportional_edit_falloff</strong> (<em>enum in ['SMOOTH', 'SPHERE', 'ROOT', 'INVERSE_SQUARE', 'SHARP', 'LINEAR', 'CONSTANT', 'RANDOM'], (optional)</em>) &#8211; <p>Proportional Editing Falloff, Falloff type for proportional editing mode</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">SMOOTH</span></code> Smooth, Smooth falloff.</li>
+<li><code class="docutils literal"><span class="pre">SPHERE</span></code> Sphere, Spherical falloff.</li>
+<li><code class="docutils literal"><span class="pre">ROOT</span></code> Root, Root falloff.</li>
+<li><code class="docutils literal"><span class="pre">INVERSE_SQUARE</span></code> Inverse Square, Inverse Square falloff.</li>
+<li><code class="docutils literal"><span class="pre">SHARP</span></code> Sharp, Sharp falloff.</li>
+<li><code class="docutils literal"><span class="pre">LINEAR</span></code> Linear, Linear falloff.</li>
+<li><code class="docutils literal"><span class="pre">CONSTANT</span></code> Constant, Constant falloff.</li>
+<li><code class="docutils literal"><span class="pre">RANDOM</span></code> Random, Random falloff.</li>
+</ul>
+</li>
+<li><strong>proportional_size</strong> (<em>float in [1e-06, inf], (optional)</em>) &#8211; Proportional Size</li>
+<li><strong>snap</strong> (<em>boolean, (optional)</em>) &#8211; Use Snapping Options</li>
+<li><strong>snap_target</strong> (<em>enum in ['CLOSEST', 'CENTER', 'MEDIAN', 'ACTIVE'], (optional)</em>) &#8211; <p>Target</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">CLOSEST</span></code> Closest, Snap closest point onto target.</li>
+<li><code class="docutils literal"><span class="pre">CENTER</span></code> Center, Snap center onto target.</li>
+<li><code class="docutils literal"><span class="pre">MEDIAN</span></code> Median, Snap median onto target.</li>
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active, Snap active onto target.</li>
+</ul>
+</li>
+<li><strong>snap_point</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Point</li>
+<li><strong>snap_align</strong> (<em>boolean, (optional)</em>) &#8211; Align with Point Normal</li>
+<li><strong>snap_normal</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Normal</li>
+<li><strong>gpencil_strokes</strong> (<em>boolean, (optional)</em>) &#8211; Edit Grease Pencil, Edit selected Grease Pencil strokes</li>
+<li><strong>release_confirm</strong> (<em>boolean, (optional)</em>) &#8211; Confirm on Release, Always confirm operation when releasing button</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.transform.shrink_fatten">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">shrink_fatten</code><span class="sig-paren">(</span><em>value=0.0</em>, <em>use_even_offset=True</em>, <em>mirror=False</em>, <em>proportional='DISABLED'</em>, <em>proportional_edit_falloff='SMOOTH'</em>, <em>proportional_size=1.0</em>, <em>snap=False</em>, <em>snap_target='CLOSEST'</em>, <em>snap_point=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>snap_align=False</em>, <em>snap_normal=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>release_confirm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.shrink_fatten" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shrink/fatten selected vertices along normals</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> (<em>float in [-inf, inf], (optional)</em>) &#8211; Offset</li>
+<li><strong>use_even_offset</strong> (<em>boolean, (optional)</em>) &#8211; Offset Even, Scale the offset to give more even thickness</li>
+<li><strong>mirror</strong> (<em>boolean, (optional)</em>) &#8211; Mirror Editing</li>
+<li><strong>proportional</strong> (<em>enum in ['DISABLED', 'ENABLED', 'PROJECTED', 'CONNECTED'], (optional)</em>) &#8211; <p>Proportional Editing</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">DISABLED</span></code> Disable, Proportional Editing disabled.</li>
+<li><code class="docutils literal"><span class="pre">ENABLED</span></code> Enable, Proportional Editing enabled.</li>
+<li><code class="docutils literal"><span class="pre">PROJECTED</span></code> Projected (2D), Proportional Editing using screen space locations.</li>
+<li><code class="docutils literal"><span class="pre">CONNECTED</span></code> Connected, Proportional Editing using connected geometry only.</li>
+</ul>
+</li>
+<li><strong>proportional_edit_falloff</strong> (<em>enum in ['SMOOTH', 'SPHERE', 'ROOT', 'INVERSE_SQUARE', 'SHARP', 'LINEAR', 'CONSTANT', 'RANDOM'], (optional)</em>) &#8211; <p>Proportional Editing Falloff, Falloff type for proportional editing mode</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">SMOOTH</span></code> Smooth, Smooth falloff.</li>
+<li><code class="docutils literal"><span class="pre">SPHERE</span></code> Sphere, Spherical falloff.</li>
+<li><code class="docutils literal"><span class="pre">ROOT</span></code> Root, Root falloff.</li>
+<li><code class="docutils literal"><span class="pre">INVERSE_SQUARE</span></code> Inverse Square, Inverse Square falloff.</li>
+<li><code class="docutils literal"><span class="pre">SHARP</span></code> Sharp, Sharp falloff.</li>
+<li><code class="docutils literal"><span class="pre">LINEAR</span></code> Linear, Linear falloff.</li>
+<li><code class="docutils literal"><span class="pre">CONSTANT</span></code> Constant, Constant falloff.</li>
+<li><code class="docutils literal"><span class="pre">RANDOM</span></code> Random, Random falloff.</li>
+</ul>
+</li>
+<li><strong>proportional_size</strong> (<em>float in [1e-06, inf], (optional)</em>) &#8211; Proportional Size</li>
+<li><strong>snap</strong> (<em>boolean, (optional)</em>) &#8211; Use Snapping Options</li>
+<li><strong>snap_target</strong> (<em>enum in ['CLOSEST', 'CENTER', 'MEDIAN', 'ACTIVE'], (optional)</em>) &#8211; <p>Target</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">CLOSEST</span></code> Closest, Snap closest point onto target.</li>
+<li><code class="docutils literal"><span class="pre">CENTER</span></code> Center, Snap center onto target.</li>
+<li><code class="docutils literal"><span class="pre">MEDIAN</span></code> Median, Snap median onto target.</li>
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active, Snap active onto target.</li>
+</ul>
+</li>
+<li><strong>snap_point</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Point</li>
+<li><strong>snap_align</strong> (<em>boolean, (optional)</em>) &#8211; Align with Point Normal</li>
+<li><strong>snap_normal</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Normal</li>
+<li><strong>release_confirm</strong> (<em>boolean, (optional)</em>) &#8211; Confirm on Release, Always confirm operation when releasing button</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.transform.skin_resize">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">skin_resize</code><span class="sig-paren">(</span><em>value=(1.0</em>, <em>1.0</em>, <em>1.0)</em>, <em>constraint_axis=(False</em>, <em>False</em>, <em>False)</em>, <em>constraint_orientation='GLOBAL'</em>, <em>mirror=False</em>, <em>proportional='DISABLED'</em>, <em>proportional_edit_falloff='SMOOTH'</em>, <em>proportional_size=1.0</em>, <em>snap=False</em>, <em>snap_target='CLOSEST'</em>, <em>snap_point=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>snap_align=False</em>, <em>snap_normal=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>release_confirm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.skin_resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale selected vertices&#8217; skin radii</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Vector</li>
+<li><strong>constraint_axis</strong> (<em>boolean array of 3 items, (optional)</em>) &#8211; Constraint Axis</li>
+<li><strong>constraint_orientation</strong> (<em>enum in [], (optional)</em>) &#8211; Orientation, Transformation orientation</li>
+<li><strong>mirror</strong> (<em>boolean, (optional)</em>) &#8211; Mirror Editing</li>
+<li><strong>proportional</strong> (<em>enum in ['DISABLED', 'ENABLED', 'PROJECTED', 'CONNECTED'], (optional)</em>) &#8211; <p>Proportional Editing</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">DISABLED</span></code> Disable, Proportional Editing disabled.</li>
+<li><code class="docutils literal"><span class="pre">ENABLED</span></code> Enable, Proportional Editing enabled.</li>
+<li><code class="docutils literal"><span class="pre">PROJECTED</span></code> Projected (2D), Proportional Editing using screen space locations.</li>
+<li><code class="docutils literal"><span class="pre">CONNECTED</span></code> Connected, Proportional Editing using connected geometry only.</li>
+</ul>
+</li>
+<li><strong>proportional_edit_falloff</strong> (<em>enum in ['SMOOTH', 'SPHERE', 'ROOT', 'INVERSE_SQUARE', 'SHARP', 'LINEAR', 'CONSTANT', 'RANDOM'], (optional)</em>) &#8211; <p>Proportional Editing Falloff, Falloff type for proportional editing mode</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">SMOOTH</span></code> Smooth, Smooth falloff.</li>
+<li><code class="docutils literal"><span class="pre">SPHERE</span></code> Sphere, Spherical falloff.</li>
+<li><code class="docutils literal"><span class="pre">ROOT</span></code> Root, Root falloff.</li>
+<li><code class="docutils literal"><span class="pre">INVERSE_SQUARE</span></code> Inverse Square, Inverse Square falloff.</li>
+<li><code class="docutils literal"><span class="pre">SHARP</span></code> Sharp, Sharp falloff.</li>
+<li><code class="docutils literal"><span class="pre">LINEAR</span></code> Linear, Linear falloff.</li>
+<li><code class="docutils literal"><span class="pre">CONSTANT</span></code> Constant, Constant falloff.</li>
+<li><code class="docutils literal"><span class="pre">RANDOM</span></code> Random, Random falloff.</li>
+</ul>
+</li>
+<li><strong>proportional_size</strong> (<em>float in [1e-06, inf], (optional)</em>) &#8211; Proportional Size</li>
+<li><strong>snap</strong> (<em>boolean, (optional)</em>) &#8211; Use Snapping Options</li>
+<li><strong>snap_target</strong> (<em>enum in ['CLOSEST', 'CENTER', 'MEDIAN', 'ACTIVE'], (optional)</em>) &#8211; <p>Target</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">CLOSEST</span></code> Closest, Snap closest point onto target.</li>
+<li><code class="docutils literal"><span class="pre">CENTER</span></code> Center, Snap center onto target.</li>
+<li><code class="docutils literal"><span class="pre">MEDIAN</span></code> Median, Snap median onto target.</li>
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active, Snap active onto target.</li>
+</ul>
+</li>
+<li><strong>snap_point</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Point</li>
+<li><strong>snap_align</strong> (<em>boolean, (optional)</em>) &#8211; Align with Point Normal</li>
+<li><strong>snap_normal</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Normal</li>
+<li><strong>release_confirm</strong> (<em>boolean, (optional)</em>) &#8211; Confirm on Release, Always confirm operation when releasing button</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.transform.tilt">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">tilt</code><span class="sig-paren">(</span><em>value=0.0</em>, <em>mirror=False</em>, <em>proportional='DISABLED'</em>, <em>proportional_edit_falloff='SMOOTH'</em>, <em>proportional_size=1.0</em>, <em>snap=False</em>, <em>snap_target='CLOSEST'</em>, <em>snap_point=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>snap_align=False</em>, <em>snap_normal=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>release_confirm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.tilt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tilt selected control vertices of 3D curve</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> (<em>float in [-inf, inf], (optional)</em>) &#8211; Angle</li>
+<li><strong>mirror</strong> (<em>boolean, (optional)</em>) &#8211; Mirror Editing</li>
+<li><strong>proportional</strong> (<em>enum in ['DISABLED', 'ENABLED', 'PROJECTED', 'CONNECTED'], (optional)</em>) &#8211; <p>Proportional Editing</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">DISABLED</span></code> Disable, Proportional Editing disabled.</li>
+<li><code class="docutils literal"><span class="pre">ENABLED</span></code> Enable, Proportional Editing enabled.</li>
+<li><code class="docutils literal"><span class="pre">PROJECTED</span></code> Projected (2D), Proportional Editing using screen space locations.</li>
+<li><code class="docutils literal"><span class="pre">CONNECTED</span></code> Connected, Proportional Editing using connected geometry only.</li>
+</ul>
+</li>
+<li><strong>proportional_edit_falloff</strong> (<em>enum in ['SMOOTH', 'SPHERE', 'ROOT', 'INVERSE_SQUARE', 'SHARP', 'LINEAR', 'CONSTANT', 'RANDOM'], (optional)</em>) &#8211; <p>Proportional Editing Falloff, Falloff type for proportional editing mode</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">SMOOTH</span></code> Smooth, Smooth falloff.</li>
+<li><code class="docutils literal"><span class="pre">SPHERE</span></code> Sphere, Spherical falloff.</li>
+<li><code class="docutils literal"><span class="pre">ROOT</span></code> Root, Root falloff.</li>
+<li><code class="docutils literal"><span class="pre">INVERSE_SQUARE</span></code> Inverse Square, Inverse Square falloff.</li>
+<li><code class="docutils literal"><span class="pre">SHARP</span></code> Sharp, Sharp falloff.</li>
+<li><code class="docutils literal"><span class="pre">LINEAR</span></code> Linear, Linear falloff.</li>
+<li><code class="docutils literal"><span class="pre">CONSTANT</span></code> Constant, Constant falloff.</li>
+<li><code class="docutils literal"><span class="pre">RANDOM</span></code> Random, Random falloff.</li>
+</ul>
+</li>
+<li><strong>proportional_size</strong> (<em>float in [1e-06, inf], (optional)</em>) &#8211; Proportional Size</li>
+<li><strong>snap</strong> (<em>boolean, (optional)</em>) &#8211; Use Snapping Options</li>
+<li><strong>snap_target</strong> (<em>enum in ['CLOSEST', 'CENTER', 'MEDIAN', 'ACTIVE'], (optional)</em>) &#8211; <p>Target</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">CLOSEST</span></code> Closest, Snap closest point onto target.</li>
+<li><code class="docutils literal"><span class="pre">CENTER</span></code> Center, Snap center onto target.</li>
+<li><code class="docutils literal"><span class="pre">MEDIAN</span></code> Median, Snap median onto target.</li>
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active, Snap active onto target.</li>
+</ul>
+</li>
+<li><strong>snap_point</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Point</li>
+<li><strong>snap_align</strong> (<em>boolean, (optional)</em>) &#8211; Align with Point Normal</li>
+<li><strong>snap_normal</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Normal</li>
+<li><strong>release_confirm</strong> (<em>boolean, (optional)</em>) &#8211; Confirm on Release, Always confirm operation when releasing button</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.transform.tosphere">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">tosphere</code><span class="sig-paren">(</span><em>value=0.0</em>, <em>mirror=False</em>, <em>proportional='DISABLED'</em>, <em>proportional_edit_falloff='SMOOTH'</em>, <em>proportional_size=1.0</em>, <em>snap=False</em>, <em>snap_target='CLOSEST'</em>, <em>snap_point=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>snap_align=False</em>, <em>snap_normal=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>gpencil_strokes=False</em>, <em>release_confirm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.tosphere" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move selected vertices outward in a spherical shape around mesh center</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> (<em>float in [0, 1], (optional)</em>) &#8211; Factor</li>
+<li><strong>mirror</strong> (<em>boolean, (optional)</em>) &#8211; Mirror Editing</li>
+<li><strong>proportional</strong> (<em>enum in ['DISABLED', 'ENABLED', 'PROJECTED', 'CONNECTED'], (optional)</em>) &#8211; <p>Proportional Editing</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">DISABLED</span></code> Disable, Proportional Editing disabled.</li>
+<li><code class="docutils literal"><span class="pre">ENABLED</span></code> Enable, Proportional Editing enabled.</li>
+<li><code class="docutils literal"><span class="pre">PROJECTED</span></code> Projected (2D), Proportional Editing using screen space locations.</li>
+<li><code class="docutils literal"><span class="pre">CONNECTED</span></code> Connected, Proportional Editing using connected geometry only.</li>
+</ul>
+</li>
+<li><strong>proportional_edit_falloff</strong> (<em>enum in ['SMOOTH', 'SPHERE', 'ROOT', 'INVERSE_SQUARE', 'SHARP', 'LINEAR', 'CONSTANT', 'RANDOM'], (optional)</em>) &#8211; <p>Proportional Editing Falloff, Falloff type for proportional editing mode</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">SMOOTH</span></code> Smooth, Smooth falloff.</li>
+<li><code class="docutils literal"><span class="pre">SPHERE</span></code> Sphere, Spherical falloff.</li>
+<li><code class="docutils literal"><span class="pre">ROOT</span></code> Root, Root falloff.</li>
+<li><code class="docutils literal"><span class="pre">INVERSE_SQUARE</span></code> Inverse Square, Inverse Square falloff.</li>
+<li><code class="docutils literal"><span class="pre">SHARP</span></code> Sharp, Sharp falloff.</li>
+<li><code class="docutils literal"><span class="pre">LINEAR</span></code> Linear, Linear falloff.</li>
+<li><code class="docutils literal"><span class="pre">CONSTANT</span></code> Constant, Constant falloff.</li>
+<li><code class="docutils literal"><span class="pre">RANDOM</span></code> Random, Random falloff.</li>
+</ul>
+</li>
+<li><strong>proportional_size</strong> (<em>float in [1e-06, inf], (optional)</em>) &#8211; Proportional Size</li>
+<li><strong>snap</strong> (<em>boolean, (optional)</em>) &#8211; Use Snapping Options</li>
+<li><strong>snap_target</strong> (<em>enum in ['CLOSEST', 'CENTER', 'MEDIAN', 'ACTIVE'], (optional)</em>) &#8211; <p>Target</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">CLOSEST</span></code> Closest, Snap closest point onto target.</li>
+<li><code class="docutils literal"><span class="pre">CENTER</span></code> Center, Snap center onto target.</li>
+<li><code class="docutils literal"><span class="pre">MEDIAN</span></code> Median, Snap median onto target.</li>
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active, Snap active onto target.</li>
+</ul>
+</li>
+<li><strong>snap_point</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Point</li>
+<li><strong>snap_align</strong> (<em>boolean, (optional)</em>) &#8211; Align with Point Normal</li>
+<li><strong>snap_normal</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Normal</li>
+<li><strong>gpencil_strokes</strong> (<em>boolean, (optional)</em>) &#8211; Edit Grease Pencil, Edit selected Grease Pencil strokes</li>
+<li><strong>release_confirm</strong> (<em>boolean, (optional)</em>) &#8211; Confirm on Release, Always confirm operation when releasing button</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.transform.trackball">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">trackball</code><span class="sig-paren">(</span><em>value=(0.0</em>, <em>0.0)</em>, <em>mirror=False</em>, <em>proportional='DISABLED'</em>, <em>proportional_edit_falloff='SMOOTH'</em>, <em>proportional_size=1.0</em>, <em>snap=False</em>, <em>snap_target='CLOSEST'</em>, <em>snap_point=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>snap_align=False</em>, <em>snap_normal=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>gpencil_strokes=False</em>, <em>release_confirm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.trackball" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trackball style rotation of selected items</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> (<em>float array of 2 items in [-inf, inf], (optional)</em>) &#8211; Angle</li>
+<li><strong>mirror</strong> (<em>boolean, (optional)</em>) &#8211; Mirror Editing</li>
+<li><strong>proportional</strong> (<em>enum in ['DISABLED', 'ENABLED', 'PROJECTED', 'CONNECTED'], (optional)</em>) &#8211; <p>Proportional Editing</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">DISABLED</span></code> Disable, Proportional Editing disabled.</li>
+<li><code class="docutils literal"><span class="pre">ENABLED</span></code> Enable, Proportional Editing enabled.</li>
+<li><code class="docutils literal"><span class="pre">PROJECTED</span></code> Projected (2D), Proportional Editing using screen space locations.</li>
+<li><code class="docutils literal"><span class="pre">CONNECTED</span></code> Connected, Proportional Editing using connected geometry only.</li>
+</ul>
+</li>
+<li><strong>proportional_edit_falloff</strong> (<em>enum in ['SMOOTH', 'SPHERE', 'ROOT', 'INVERSE_SQUARE', 'SHARP', 'LINEAR', 'CONSTANT', 'RANDOM'], (optional)</em>) &#8211; <p>Proportional Editing Falloff, Falloff type for proportional editing mode</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">SMOOTH</span></code> Smooth, Smooth falloff.</li>
+<li><code class="docutils literal"><span class="pre">SPHERE</span></code> Sphere, Spherical falloff.</li>
+<li><code class="docutils literal"><span class="pre">ROOT</span></code> Root, Root falloff.</li>
+<li><code class="docutils literal"><span class="pre">INVERSE_SQUARE</span></code> Inverse Square, Inverse Square falloff.</li>
+<li><code class="docutils literal"><span class="pre">SHARP</span></code> Sharp, Sharp falloff.</li>
+<li><code class="docutils literal"><span class="pre">LINEAR</span></code> Linear, Linear falloff.</li>
+<li><code class="docutils literal"><span class="pre">CONSTANT</span></code> Constant, Constant falloff.</li>
+<li><code class="docutils literal"><span class="pre">RANDOM</span></code> Random, Random falloff.</li>
+</ul>
+</li>
+<li><strong>proportional_size</strong> (<em>float in [1e-06, inf], (optional)</em>) &#8211; Proportional Size</li>
+<li><strong>snap</strong> (<em>boolean, (optional)</em>) &#8211; Use Snapping Options</li>
+<li><strong>snap_target</strong> (<em>enum in ['CLOSEST', 'CENTER', 'MEDIAN', 'ACTIVE'], (optional)</em>) &#8211; <p>Target</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">CLOSEST</span></code> Closest, Snap closest point onto target.</li>
+<li><code class="docutils literal"><span class="pre">CENTER</span></code> Center, Snap center onto target.</li>
+<li><code class="docutils literal"><span class="pre">MEDIAN</span></code> Median, Snap median onto target.</li>
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active, Snap active onto target.</li>
+</ul>
+</li>
+<li><strong>snap_point</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Point</li>
+<li><strong>snap_align</strong> (<em>boolean, (optional)</em>) &#8211; Align with Point Normal</li>
+<li><strong>snap_normal</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Normal</li>
+<li><strong>gpencil_strokes</strong> (<em>boolean, (optional)</em>) &#8211; Edit Grease Pencil, Edit selected Grease Pencil strokes</li>
+<li><strong>release_confirm</strong> (<em>boolean, (optional)</em>) &#8211; Confirm on Release, Always confirm operation when releasing button</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.transform.transform">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">transform</code><span class="sig-paren">(</span><em>mode='TRANSLATION'</em>, <em>value=(0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>axis=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>constraint_axis=(False</em>, <em>False</em>, <em>False)</em>, <em>constraint_orientation='GLOBAL'</em>, <em>mirror=False</em>, <em>proportional='DISABLED'</em>, <em>proportional_edit_falloff='SMOOTH'</em>, <em>proportional_size=1.0</em>, <em>snap=False</em>, <em>snap_target='CLOSEST'</em>, <em>snap_point=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>snap_align=False</em>, <em>snap_normal=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>gpencil_strokes=False</em>, <em>release_confirm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform selected items by mode type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mode</strong> (<em>enum in ['INIT', 'DUMMY', 'TRANSLATION', 'ROTATION', 'RESIZE', 'SKIN_RESIZE', 'TOSPHERE', 'SHEAR', 'BEND', 'SHRINKFATTEN', 'TILT', 'TRACKBALL', 'PUSHPULL', 'CREASE', 'MIRROR', 'BONE_SIZE', 'BONE_ENVELOPE', 'BONE_ENVELOPE_DIST', 'CURVE_SHRINKFATTEN', 'MASK_SHRINKFATTEN', 'GPENCIL_SHRINKFATTEN', 'BONE_ROLL', 'TIME_TRANSLATE', 'TIME_SLIDE', 'TIME_SCALE', 'TIME_EXTEND', 'BAKE_TIME', 'BWEIGHT', 'ALIGN', 'EDGESLIDE', 'SEQSLIDE'], (optional)</em>) &#8211; Mode</li>
+<li><strong>value</strong> (<em>float array of 4 items in [-inf, inf], (optional)</em>) &#8211; Values</li>
+<li><strong>axis</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Axis, The axis around which the transformation occurs</li>
+<li><strong>constraint_axis</strong> (<em>boolean array of 3 items, (optional)</em>) &#8211; Constraint Axis</li>
+<li><strong>constraint_orientation</strong> (<em>enum in [], (optional)</em>) &#8211; Orientation, Transformation orientation</li>
+<li><strong>mirror</strong> (<em>boolean, (optional)</em>) &#8211; Mirror Editing</li>
+<li><strong>proportional</strong> (<em>enum in ['DISABLED', 'ENABLED', 'PROJECTED', 'CONNECTED'], (optional)</em>) &#8211; <p>Proportional Editing</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">DISABLED</span></code> Disable, Proportional Editing disabled.</li>
+<li><code class="docutils literal"><span class="pre">ENABLED</span></code> Enable, Proportional Editing enabled.</li>
+<li><code class="docutils literal"><span class="pre">PROJECTED</span></code> Projected (2D), Proportional Editing using screen space locations.</li>
+<li><code class="docutils literal"><span class="pre">CONNECTED</span></code> Connected, Proportional Editing using connected geometry only.</li>
+</ul>
+</li>
+<li><strong>proportional_edit_falloff</strong> (<em>enum in ['SMOOTH', 'SPHERE', 'ROOT', 'INVERSE_SQUARE', 'SHARP', 'LINEAR', 'CONSTANT', 'RANDOM'], (optional)</em>) &#8211; <p>Proportional Editing Falloff, Falloff type for proportional editing mode</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">SMOOTH</span></code> Smooth, Smooth falloff.</li>
+<li><code class="docutils literal"><span class="pre">SPHERE</span></code> Sphere, Spherical falloff.</li>
+<li><code class="docutils literal"><span class="pre">ROOT</span></code> Root, Root falloff.</li>
+<li><code class="docutils literal"><span class="pre">INVERSE_SQUARE</span></code> Inverse Square, Inverse Square falloff.</li>
+<li><code class="docutils literal"><span class="pre">SHARP</span></code> Sharp, Sharp falloff.</li>
+<li><code class="docutils literal"><span class="pre">LINEAR</span></code> Linear, Linear falloff.</li>
+<li><code class="docutils literal"><span class="pre">CONSTANT</span></code> Constant, Constant falloff.</li>
+<li><code class="docutils literal"><span class="pre">RANDOM</span></code> Random, Random falloff.</li>
+</ul>
+</li>
+<li><strong>proportional_size</strong> (<em>float in [1e-06, inf], (optional)</em>) &#8211; Proportional Size</li>
+<li><strong>snap</strong> (<em>boolean, (optional)</em>) &#8211; Use Snapping Options</li>
+<li><strong>snap_target</strong> (<em>enum in ['CLOSEST', 'CENTER', 'MEDIAN', 'ACTIVE'], (optional)</em>) &#8211; <p>Target</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">CLOSEST</span></code> Closest, Snap closest point onto target.</li>
+<li><code class="docutils literal"><span class="pre">CENTER</span></code> Center, Snap center onto target.</li>
+<li><code class="docutils literal"><span class="pre">MEDIAN</span></code> Median, Snap median onto target.</li>
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active, Snap active onto target.</li>
+</ul>
+</li>
+<li><strong>snap_point</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Point</li>
+<li><strong>snap_align</strong> (<em>boolean, (optional)</em>) &#8211; Align with Point Normal</li>
+<li><strong>snap_normal</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Normal</li>
+<li><strong>gpencil_strokes</strong> (<em>boolean, (optional)</em>) &#8211; Edit Grease Pencil, Edit selected Grease Pencil strokes</li>
+<li><strong>release_confirm</strong> (<em>boolean, (optional)</em>) &#8211; Confirm on Release, Always confirm operation when releasing button</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.transform.translate">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">translate</code><span class="sig-paren">(</span><em>value=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>constraint_axis=(False</em>, <em>False</em>, <em>False)</em>, <em>constraint_orientation='GLOBAL'</em>, <em>mirror=False</em>, <em>proportional='DISABLED'</em>, <em>proportional_edit_falloff='SMOOTH'</em>, <em>proportional_size=1.0</em>, <em>snap=False</em>, <em>snap_target='CLOSEST'</em>, <em>snap_point=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>snap_align=False</em>, <em>snap_normal=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>gpencil_strokes=False</em>, <em>texture_space=False</em>, <em>remove_on_cancel=False</em>, <em>release_confirm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.translate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate (move) selected items</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Vector</li>
+<li><strong>constraint_axis</strong> (<em>boolean array of 3 items, (optional)</em>) &#8211; Constraint Axis</li>
+<li><strong>constraint_orientation</strong> (<em>enum in [], (optional)</em>) &#8211; Orientation, Transformation orientation</li>
+<li><strong>mirror</strong> (<em>boolean, (optional)</em>) &#8211; Mirror Editing</li>
+<li><strong>proportional</strong> (<em>enum in ['DISABLED', 'ENABLED', 'PROJECTED', 'CONNECTED'], (optional)</em>) &#8211; <p>Proportional Editing</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">DISABLED</span></code> Disable, Proportional Editing disabled.</li>
+<li><code class="docutils literal"><span class="pre">ENABLED</span></code> Enable, Proportional Editing enabled.</li>
+<li><code class="docutils literal"><span class="pre">PROJECTED</span></code> Projected (2D), Proportional Editing using screen space locations.</li>
+<li><code class="docutils literal"><span class="pre">CONNECTED</span></code> Connected, Proportional Editing using connected geometry only.</li>
+</ul>
+</li>
+<li><strong>proportional_edit_falloff</strong> (<em>enum in ['SMOOTH', 'SPHERE', 'ROOT', 'INVERSE_SQUARE', 'SHARP', 'LINEAR', 'CONSTANT', 'RANDOM'], (optional)</em>) &#8211; <p>Proportional Editing Falloff, Falloff type for proportional editing mode</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">SMOOTH</span></code> Smooth, Smooth falloff.</li>
+<li><code class="docutils literal"><span class="pre">SPHERE</span></code> Sphere, Spherical falloff.</li>
+<li><code class="docutils literal"><span class="pre">ROOT</span></code> Root, Root falloff.</li>
+<li><code class="docutils literal"><span class="pre">INVERSE_SQUARE</span></code> Inverse Square, Inverse Square falloff.</li>
+<li><code class="docutils literal"><span class="pre">SHARP</span></code> Sharp, Sharp falloff.</li>
+<li><code class="docutils literal"><span class="pre">LINEAR</span></code> Linear, Linear falloff.</li>
+<li><code class="docutils literal"><span class="pre">CONSTANT</span></code> Constant, Constant falloff.</li>
+<li><code class="docutils literal"><span class="pre">RANDOM</span></code> Random, Random falloff.</li>
+</ul>
+</li>
+<li><strong>proportional_size</strong> (<em>float in [1e-06, inf], (optional)</em>) &#8211; Proportional Size</li>
+<li><strong>snap</strong> (<em>boolean, (optional)</em>) &#8211; Use Snapping Options</li>
+<li><strong>snap_target</strong> (<em>enum in ['CLOSEST', 'CENTER', 'MEDIAN', 'ACTIVE'], (optional)</em>) &#8211; <p>Target</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">CLOSEST</span></code> Closest, Snap closest point onto target.</li>
+<li><code class="docutils literal"><span class="pre">CENTER</span></code> Center, Snap center onto target.</li>
+<li><code class="docutils literal"><span class="pre">MEDIAN</span></code> Median, Snap median onto target.</li>
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active, Snap active onto target.</li>
+</ul>
+</li>
+<li><strong>snap_point</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Point</li>
+<li><strong>snap_align</strong> (<em>boolean, (optional)</em>) &#8211; Align with Point Normal</li>
+<li><strong>snap_normal</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Normal</li>
+<li><strong>gpencil_strokes</strong> (<em>boolean, (optional)</em>) &#8211; Edit Grease Pencil, Edit selected Grease Pencil strokes</li>
+<li><strong>texture_space</strong> (<em>boolean, (optional)</em>) &#8211; Edit Texture Space, Edit Object data texture space</li>
+<li><strong>remove_on_cancel</strong> (<em>boolean, (optional)</em>) &#8211; Remove on Cancel, Remove elements on cancel</li>
+<li><strong>release_confirm</strong> (<em>boolean, (optional)</em>) &#8211; Confirm on Release, Always confirm operation when releasing button</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.transform.vert_slide">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">vert_slide</code><span class="sig-paren">(</span><em>value=0.0</em>, <em>use_even=False</em>, <em>flipped=False</em>, <em>use_clamp=True</em>, <em>mirror=False</em>, <em>snap=False</em>, <em>snap_target='CLOSEST'</em>, <em>snap_point=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>snap_align=False</em>, <em>snap_normal=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>correct_uv=False</em>, <em>release_confirm=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.vert_slide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Slide a vertex along a mesh</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> (<em>float in [-10, 10], (optional)</em>) &#8211; Factor</li>
+<li><strong>use_even</strong> (<em>boolean, (optional)</em>) &#8211; Even, Make the edge loop match the shape of the adjacent edge loop</li>
+<li><strong>flipped</strong> (<em>boolean, (optional)</em>) &#8211; Flipped, When Even mode is active, flips between the two adjacent edge loops</li>
+<li><strong>use_clamp</strong> (<em>boolean, (optional)</em>) &#8211; Clamp, Clamp within the edge extents</li>
+<li><strong>mirror</strong> (<em>boolean, (optional)</em>) &#8211; Mirror Editing</li>
+<li><strong>snap</strong> (<em>boolean, (optional)</em>) &#8211; Use Snapping Options</li>
+<li><strong>snap_target</strong> (<em>enum in ['CLOSEST', 'CENTER', 'MEDIAN', 'ACTIVE'], (optional)</em>) &#8211; <p>Target</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">CLOSEST</span></code> Closest, Snap closest point onto target.</li>
+<li><code class="docutils literal"><span class="pre">CENTER</span></code> Center, Snap center onto target.</li>
+<li><code class="docutils literal"><span class="pre">MEDIAN</span></code> Median, Snap median onto target.</li>
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active, Snap active onto target.</li>
+</ul>
+</li>
+<li><strong>snap_point</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Point</li>
+<li><strong>snap_align</strong> (<em>boolean, (optional)</em>) &#8211; Align with Point Normal</li>
+<li><strong>snap_normal</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Normal</li>
+<li><strong>correct_uv</strong> (<em>boolean, (optional)</em>) &#8211; Correct UVs, Correct UV coordinates when transforming</li>
+<li><strong>release_confirm</strong> (<em>boolean, (optional)</em>) &#8211; Confirm on Release, Always confirm operation when releasing button</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.transform.vertex_random">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">vertex_random</code><span class="sig-paren">(</span><em>offset=0.1</em>, <em>uniform=0.0</em>, <em>normal=0.0</em>, <em>seed=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.vertex_random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Randomize vertices</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>offset</strong> (<em>float in [-inf, inf], (optional)</em>) &#8211; Amount, Distance to offset</li>
+<li><strong>uniform</strong> (<em>float in [0, 1], (optional)</em>) &#8211; Uniform, Increase for uniform offset distance</li>
+<li><strong>normal</strong> (<em>float in [0, 1], (optional)</em>) &#8211; normal, Align offset direction to normals</li>
+<li><strong>seed</strong> (<em>int in [0, 10000], (optional)</em>) &#8211; Random Seed, Seed for the random number generator</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.transform.vertex_warp">
+<code class="descclassname">bpy.ops.transform.</code><code class="descname">vertex_warp</code><span class="sig-paren">(</span><em>warp_angle=6.28319</em>, <em>offset_angle=0.0</em>, <em>min=-1</em>, <em>max=1.0</em>, <em>viewmat=(0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>center=(0.0</em>, <em>0.0</em>, <em>0.0)</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.transform.vertex_warp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Warp vertices around the cursor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>warp_angle</strong> (<em>float in [-inf, inf], (optional)</em>) &#8211; Warp Angle, Amount to warp about the cursor</li>
+<li><strong>offset_angle</strong> (<em>float in [-inf, inf], (optional)</em>) &#8211; Offset Angle, Angle to use as the basis for warping</li>
+<li><strong>min</strong> (<em>float in [-inf, inf], (optional)</em>) &#8211; Min</li>
+<li><strong>max</strong> (<em>float in [-inf, inf], (optional)</em>) &#8211; Max</li>
+<li><strong>viewmat</strong> (<em>float array of 16 items in [-inf, inf], (optional)</em>) &#8211; Matrix</li>
+<li><strong>center</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Center</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.ops.time.html"
+                        title="previous chapter">Time Operators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.ops.ui.html"
+                        title="next chapter">Ui Operators</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.ui.html" title="Ui Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.time.html" title="Time Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

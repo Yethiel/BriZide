@@ -1,0 +1,781 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>SoftBodySettings(bpy_struct) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="SolidifyModifier(Modifier)" href="bpy.types.SolidifyModifier.html" />
+    <link rel="prev" title="SoftBodyModifier(Modifier)" href="bpy.types.SoftBodyModifier.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SolidifyModifier.html" title="SolidifyModifier(Modifier)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SoftBodyModifier.html" title="SoftBodyModifier(Modifier)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="softbodysettings-bpy-struct"></span><h1>SoftBodySettings(bpy_struct)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.SoftBodySettings">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">SoftBodySettings</code><span class="sig-paren">(</span><em>bpy_struct</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.SoftBodySettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Soft body simulation settings for an object</p>
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.aero">
+<code class="descname">aero</code><a class="headerlink" href="#bpy.types.SoftBodySettings.aero" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make edges &#8216;sail&#8217;</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 30000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.aerodynamics_type">
+<code class="descname">aerodynamics_type</code><a class="headerlink" href="#bpy.types.SoftBodySettings.aerodynamics_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method of calculating aerodynamic interaction</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">SIMPLE</span></code> Simple, Edges receive a drag force from surrounding media.</li>
+<li><code class="docutils literal"><span class="pre">LIFT_FORCE</span></code> Lift Force, Edges receive a lift force when passing through surrounding media.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;SIMPLE&#8217;, &#8216;LIFT_FORCE&#8217;], default &#8216;SIMPLE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.ball_damp">
+<code class="descname">ball_damp</code><a class="headerlink" href="#bpy.types.SoftBodySettings.ball_damp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Blending to inelastic collision</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.001, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.ball_size">
+<code class="descname">ball_size</code><a class="headerlink" href="#bpy.types.SoftBodySettings.ball_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Absolute ball size or factor if not manually adjusted</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-10, 10], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.ball_stiff">
+<code class="descname">ball_stiff</code><a class="headerlink" href="#bpy.types.SoftBodySettings.ball_stiff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ball inflating pressure</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.001, 100], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.bend">
+<code class="descname">bend</code><a class="headerlink" href="#bpy.types.SoftBodySettings.bend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bending Stiffness</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 10], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.choke">
+<code class="descname">choke</code><a class="headerlink" href="#bpy.types.SoftBodySettings.choke" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#8216;Viscosity&#8217; inside collision target</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 100], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.collision_group">
+<code class="descname">collision_group</code><a class="headerlink" href="#bpy.types.SoftBodySettings.collision_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Limit colliders to this Group</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Group.html#bpy.types.Group" title="bpy.types.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.collision_type">
+<code class="descname">collision_type</code><a class="headerlink" href="#bpy.types.SoftBodySettings.collision_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Choose Collision Type</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">MANUAL</span></code> Manual, Manual adjust.</li>
+<li><code class="docutils literal"><span class="pre">AVERAGE</span></code> Average, Average Spring length * Ball Size.</li>
+<li><code class="docutils literal"><span class="pre">MINIMAL</span></code> Minimal, Minimal Spring length * Ball Size.</li>
+<li><code class="docutils literal"><span class="pre">MAXIMAL</span></code> Maximal, Maximal Spring length * Ball Size.</li>
+<li><code class="docutils literal"><span class="pre">MINMAX</span></code> AvMinMax, (Min+Max)/2 * Ball Size.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;MANUAL&#8217;, &#8216;AVERAGE&#8217;, &#8216;MINIMAL&#8217;, &#8216;MAXIMAL&#8217;, &#8216;MINMAX&#8217;], default &#8216;MANUAL&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.damping">
+<code class="descname">damping</code><a class="headerlink" href="#bpy.types.SoftBodySettings.damping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edge spring friction</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 50], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SoftBodySettings.effector_weights">
+<code class="descname">effector_weights</code><a class="headerlink" href="#bpy.types.SoftBodySettings.effector_weights" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.EffectorWeights.html#bpy.types.EffectorWeights" title="bpy.types.EffectorWeights"><code class="xref py py-class docutils literal"><span class="pre">EffectorWeights</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.error_threshold">
+<code class="descname">error_threshold</code><a class="headerlink" href="#bpy.types.SoftBodySettings.error_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Runge-Kutta ODE solver error limit, low value gives more precision, high values speed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.001, 10], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.friction">
+<code class="descname">friction</code><a class="headerlink" href="#bpy.types.SoftBodySettings.friction" title="Permalink to this definition">¶</a></dt>
+<dd><p>General media friction for point movements</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 50], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.fuzzy">
+<code class="descname">fuzzy</code><a class="headerlink" href="#bpy.types.SoftBodySettings.fuzzy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fuzziness while on collision, high values make collision handling faster but less stable</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 100], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.goal_default">
+<code class="descname">goal_default</code><a class="headerlink" href="#bpy.types.SoftBodySettings.goal_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default Goal (vertex target position) value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.goal_friction">
+<code class="descname">goal_friction</code><a class="headerlink" href="#bpy.types.SoftBodySettings.goal_friction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Goal (vertex target position) friction</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 50], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.goal_max">
+<code class="descname">goal_max</code><a class="headerlink" href="#bpy.types.SoftBodySettings.goal_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Goal maximum, vertex weights are scaled to match this range</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.goal_min">
+<code class="descname">goal_min</code><a class="headerlink" href="#bpy.types.SoftBodySettings.goal_min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Goal minimum, vertex weights are scaled to match this range</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.goal_spring">
+<code class="descname">goal_spring</code><a class="headerlink" href="#bpy.types.SoftBodySettings.goal_spring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Goal (vertex target position) spring stiffness</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 0.999], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.gravity">
+<code class="descname">gravity</code><a class="headerlink" href="#bpy.types.SoftBodySettings.gravity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply gravitation to point movement</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-10, 10], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.location_mass_center">
+<code class="descname">location_mass_center</code><a class="headerlink" href="#bpy.types.SoftBodySettings.location_mass_center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Location of Center of mass</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 3 items in [-inf, inf], default (0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.mass">
+<code class="descname">mass</code><a class="headerlink" href="#bpy.types.SoftBodySettings.mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>General Mass value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 50000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.plastic">
+<code class="descname">plastic</code><a class="headerlink" href="#bpy.types.SoftBodySettings.plastic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Permanent deform</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 100], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.pull">
+<code class="descname">pull</code><a class="headerlink" href="#bpy.types.SoftBodySettings.pull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edge spring stiffness when longer than rest length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 0.999], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.push">
+<code class="descname">push</code><a class="headerlink" href="#bpy.types.SoftBodySettings.push" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edge spring stiffness when shorter than rest length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 0.999], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.rotation_estimate">
+<code class="descname">rotation_estimate</code><a class="headerlink" href="#bpy.types.SoftBodySettings.rotation_estimate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimated rotation matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 9 items in [-inf, inf], default (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.scale_estimate">
+<code class="descname">scale_estimate</code><a class="headerlink" href="#bpy.types.SoftBodySettings.scale_estimate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimated scale matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 9 items in [-inf, inf], default (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.shear">
+<code class="descname">shear</code><a class="headerlink" href="#bpy.types.SoftBodySettings.shear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shear Stiffness</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.speed">
+<code class="descname">speed</code><a class="headerlink" href="#bpy.types.SoftBodySettings.speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tweak timing for physics to control frequency and speed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.01, 100], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.spring_length">
+<code class="descname">spring_length</code><a class="headerlink" href="#bpy.types.SoftBodySettings.spring_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alter spring length to shrink/blow up (unit %) 0 to disable</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 200], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.step_max">
+<code class="descname">step_max</code><a class="headerlink" href="#bpy.types.SoftBodySettings.step_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximal # solver steps/frame</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 30000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.step_min">
+<code class="descname">step_min</code><a class="headerlink" href="#bpy.types.SoftBodySettings.step_min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimal # solver steps/frame</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 30000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.use_auto_step">
+<code class="descname">use_auto_step</code><a class="headerlink" href="#bpy.types.SoftBodySettings.use_auto_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use velocities for automagic step sizes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.use_diagnose">
+<code class="descname">use_diagnose</code><a class="headerlink" href="#bpy.types.SoftBodySettings.use_diagnose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn on SB diagnose console prints</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.use_edge_collision">
+<code class="descname">use_edge_collision</code><a class="headerlink" href="#bpy.types.SoftBodySettings.use_edge_collision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edges collide too</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.use_edges">
+<code class="descname">use_edges</code><a class="headerlink" href="#bpy.types.SoftBodySettings.use_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use Edges as springs</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.use_estimate_matrix">
+<code class="descname">use_estimate_matrix</code><a class="headerlink" href="#bpy.types.SoftBodySettings.use_estimate_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimate matrix... split to COM, ROT, SCALE</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.use_face_collision">
+<code class="descname">use_face_collision</code><a class="headerlink" href="#bpy.types.SoftBodySettings.use_face_collision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Faces collide too, can be very slow</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.use_goal">
+<code class="descname">use_goal</code><a class="headerlink" href="#bpy.types.SoftBodySettings.use_goal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define forces for vertices to stick to animated position</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.use_self_collision">
+<code class="descname">use_self_collision</code><a class="headerlink" href="#bpy.types.SoftBodySettings.use_self_collision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable naive vertex ball self collision</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.use_stiff_quads">
+<code class="descname">use_stiff_quads</code><a class="headerlink" href="#bpy.types.SoftBodySettings.use_stiff_quads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add diagonal springs on 4-gons</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.vertex_group_goal">
+<code class="descname">vertex_group_goal</code><a class="headerlink" href="#bpy.types.SoftBodySettings.vertex_group_goal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Control point weight values</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.vertex_group_mass">
+<code class="descname">vertex_group_mass</code><a class="headerlink" href="#bpy.types.SoftBodySettings.vertex_group_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Control point mass values</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SoftBodySettings.vertex_group_spring">
+<code class="descname">vertex_group_spring</code><a class="headerlink" href="#bpy.types.SoftBodySettings.vertex_group_spring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Control point spring strength values</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.Object.html#bpy.types.Object.soft_body" title="bpy.types.Object.soft_body"><code class="xref py py-class docutils literal"><span class="pre">Object.soft_body</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.SoftBodyModifier.html#bpy.types.SoftBodyModifier.settings" title="bpy.types.SoftBodyModifier.settings"><code class="xref py py-class docutils literal"><span class="pre">SoftBodyModifier.settings</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.SoftBodyModifier.html"
+                        title="previous chapter">SoftBodyModifier(Modifier)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.SolidifyModifier.html"
+                        title="next chapter">SolidifyModifier(Modifier)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SolidifyModifier.html" title="SolidifyModifier(Modifier)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SoftBodyModifier.html" title="SoftBodyModifier(Modifier)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

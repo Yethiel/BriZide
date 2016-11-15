@@ -1,0 +1,2116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Object(ID) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="ObjectActuator(Actuator)" href="bpy.types.ObjectActuator.html" />
+    <link rel="prev" title="NormalEditModifier(Modifier)" href="bpy.types.NormalEditModifier.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ObjectActuator.html" title="ObjectActuator(Actuator)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.NormalEditModifier.html" title="NormalEditModifier(Modifier)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="object-id"></span><h1>Object(ID)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-object-operations-example">
+<h2>Basic Object Operations Example<a class="headerlink" href="#basic-object-operations-example" title="Permalink to this headline">¶</a></h2>
+<p>This script demonstrates basic operations on object like creating new
+object, placing it into scene, selecting it and making it active.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>
+<span class="kn">import</span> <span class="nn">bpy</span>
+<span class="kn">from</span> <span class="nn">mathutils</span> <span class="k">import</span> <span class="n">Matrix</span>
+
+<span class="n">scene</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span>
+
+<span class="c1"># Create new lamp datablock</span>
+<span class="n">lamp_data</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">lamps</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;New Lamp&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;POINT&#39;</span><span class="p">)</span>
+
+<span class="c1"># Create new object with our lamp datablock</span>
+<span class="n">lamp_object</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;New Lamp&quot;</span><span class="p">,</span> <span class="n">object_data</span><span class="o">=</span><span class="n">lamp_data</span><span class="p">)</span>
+
+<span class="c1"># Link lamp object to the scene so it&#39;ll appear in this scene</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="n">lamp_object</span><span class="p">)</span>
+
+<span class="c1"># Place lamp to a specified location</span>
+<span class="n">lamp_object</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="p">(</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">)</span>
+
+<span class="c1"># And finally select it make active</span>
+<span class="n">lamp_object</span><span class="o">.</span><span class="n">select</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="n">lamp_object</span>
+</pre></div>
+</div>
+<p>base classes &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal"><span class="pre">ID</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.Object">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">Object</code><span class="sig-paren">(</span><em>ID</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object data-block defining an object in a scene</p>
+<dl class="attribute">
+<dt id="bpy.types.Object.active_material">
+<code class="descname">active_material</code><a class="headerlink" href="#bpy.types.Object.active_material" title="Permalink to this definition">¶</a></dt>
+<dd><p>Active material being displayed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Material.html#bpy.types.Material" title="bpy.types.Material"><code class="xref py py-class docutils literal"><span class="pre">Material</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.active_material_index">
+<code class="descname">active_material_index</code><a class="headerlink" href="#bpy.types.Object.active_material_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Index of active material slot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, inf], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.active_shape_key">
+<code class="descname">active_shape_key</code><a class="headerlink" href="#bpy.types.Object.active_shape_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current shape key</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.ShapeKey.html#bpy.types.ShapeKey" title="bpy.types.ShapeKey"><code class="xref py py-class docutils literal"><span class="pre">ShapeKey</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.active_shape_key_index">
+<code class="descname">active_shape_key_index</code><a class="headerlink" href="#bpy.types.Object.active_shape_key_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current shape key index</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-32768, 32767], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.animation_data">
+<code class="descname">animation_data</code><a class="headerlink" href="#bpy.types.Object.animation_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Animation data for this data-block</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.AnimData.html#bpy.types.AnimData" title="bpy.types.AnimData"><code class="xref py py-class docutils literal"><span class="pre">AnimData</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.animation_visualization">
+<code class="descname">animation_visualization</code><a class="headerlink" href="#bpy.types.Object.animation_visualization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Animation data for this data-block</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.AnimViz.html#bpy.types.AnimViz" title="bpy.types.AnimViz"><code class="xref py py-class docutils literal"><span class="pre">AnimViz</span></code></a>, (readonly, never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.bound_box">
+<code class="descname">bound_box</code><a class="headerlink" href="#bpy.types.Object.bound_box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object&#8217;s bounding box in object-space coordinates, all values are -1.0 when not available</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 24 items in [-inf, inf], default (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0), (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.collision">
+<code class="descname">collision</code><a class="headerlink" href="#bpy.types.Object.collision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Settings for using the object as a collider in physics simulation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.CollisionSettings.html#bpy.types.CollisionSettings" title="bpy.types.CollisionSettings"><code class="xref py py-class docutils literal"><span class="pre">CollisionSettings</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.color">
+<code class="descname">color</code><a class="headerlink" href="#bpy.types.Object.color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object color and alpha, used when faces have the ObColor mode enabled</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 4 items in [0, inf], default (0.0, 0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.constraints">
+<code class="descname">constraints</code><a class="headerlink" href="#bpy.types.Object.constraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constraints affecting the transformation of the object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.ObjectConstraints.html#bpy.types.ObjectConstraints" title="bpy.types.ObjectConstraints"><code class="xref py py-class docutils literal"><span class="pre">ObjectConstraints</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Constraint.html#bpy.types.Constraint" title="bpy.types.Constraint"><code class="xref py py-class docutils literal"><span class="pre">Constraint</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.cycles">
+<code class="descname">cycles</code><a class="headerlink" href="#bpy.types.Object.cycles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycles object settings</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.CyclesObjectSettings.html#bpy.types.CyclesObjectSettings" title="bpy.types.CyclesObjectSettings"><code class="xref py py-class docutils literal"><span class="pre">CyclesObjectSettings</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.cycles_visibility">
+<code class="descname">cycles_visibility</code><a class="headerlink" href="#bpy.types.Object.cycles_visibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycles visibility settings</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.CyclesVisibilitySettings.html#bpy.types.CyclesVisibilitySettings" title="bpy.types.CyclesVisibilitySettings"><code class="xref py py-class docutils literal"><span class="pre">CyclesVisibilitySettings</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.data">
+<code class="descname">data</code><a class="headerlink" href="#bpy.types.Object.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal"><span class="pre">ID</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.delta_location">
+<code class="descname">delta_location</code><a class="headerlink" href="#bpy.types.Object.delta_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extra translation added to the location of the object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 3 items in [-inf, inf], default (0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.delta_rotation_euler">
+<code class="descname">delta_rotation_euler</code><a class="headerlink" href="#bpy.types.Object.delta_rotation_euler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extra rotation added to the rotation of the object (when using Euler rotations)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 3 items in [-inf, inf], default (0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.delta_rotation_quaternion">
+<code class="descname">delta_rotation_quaternion</code><a class="headerlink" href="#bpy.types.Object.delta_rotation_quaternion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extra rotation added to the rotation of the object (when using Quaternion rotations)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 4 items in [-inf, inf], default (1.0, 0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.delta_scale">
+<code class="descname">delta_scale</code><a class="headerlink" href="#bpy.types.Object.delta_scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extra scaling added to the scale of the object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 3 items in [-inf, inf], default (1.0, 1.0, 1.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.dimensions">
+<code class="descname">dimensions</code><a class="headerlink" href="#bpy.types.Object.dimensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Absolute bounding box dimensions of the object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 3 items in [-inf, inf], default (0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.draw_bounds_type">
+<code class="descname">draw_bounds_type</code><a class="headerlink" href="#bpy.types.Object.draw_bounds_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object boundary display type</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">BOX</span></code> Box, Draw bounds as box.</li>
+<li><code class="docutils literal"><span class="pre">SPHERE</span></code> Sphere, Draw bounds as sphere.</li>
+<li><code class="docutils literal"><span class="pre">CYLINDER</span></code> Cylinder, Draw bounds as cylinder.</li>
+<li><code class="docutils literal"><span class="pre">CONE</span></code> Cone, Draw bounds as cone.</li>
+<li><code class="docutils literal"><span class="pre">CAPSULE</span></code> Capsule, Draw bounds as capsule.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;BOX&#8217;, &#8216;SPHERE&#8217;, &#8216;CYLINDER&#8217;, &#8216;CONE&#8217;, &#8216;CAPSULE&#8217;], default &#8216;BOX&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.draw_type">
+<code class="descname">draw_type</code><a class="headerlink" href="#bpy.types.Object.draw_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum draw type to display object with in viewport</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">BOUNDS</span></code> Bounds, Draw the bounds of the object.</li>
+<li><code class="docutils literal"><span class="pre">WIRE</span></code> Wire, Draw the object as a wireframe.</li>
+<li><code class="docutils literal"><span class="pre">SOLID</span></code> Solid, Draw the object as a solid (if solid drawing is enabled in the viewport).</li>
+<li><code class="docutils literal"><span class="pre">TEXTURED</span></code> Textured, Draw the object with textures (if textures are enabled in the viewport).</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;BOUNDS&#8217;, &#8216;WIRE&#8217;, &#8216;SOLID&#8217;, &#8216;TEXTURED&#8217;], default &#8216;BOUNDS&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.dupli_faces_scale">
+<code class="descname">dupli_faces_scale</code><a class="headerlink" href="#bpy.types.Object.dupli_faces_scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale the DupliFace objects</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.001, 10000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.dupli_frames_end">
+<code class="descname">dupli_frames_end</code><a class="headerlink" href="#bpy.types.Object.dupli_frames_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>End frame for DupliFrames</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-500000, 500000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.dupli_frames_off">
+<code class="descname">dupli_frames_off</code><a class="headerlink" href="#bpy.types.Object.dupli_frames_off" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recurring frames to exclude from the Dupliframes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 500000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.dupli_frames_on">
+<code class="descname">dupli_frames_on</code><a class="headerlink" href="#bpy.types.Object.dupli_frames_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of frames to use between DupOff frames</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 500000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.dupli_frames_start">
+<code class="descname">dupli_frames_start</code><a class="headerlink" href="#bpy.types.Object.dupli_frames_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start frame for DupliFrames</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-500000, 500000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.dupli_group">
+<code class="descname">dupli_group</code><a class="headerlink" href="#bpy.types.Object.dupli_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instance an existing group</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Group.html#bpy.types.Group" title="bpy.types.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.dupli_list">
+<code class="descname">dupli_list</code><a class="headerlink" href="#bpy.types.Object.dupli_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object duplis</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.DupliObject.html#bpy.types.DupliObject" title="bpy.types.DupliObject"><code class="xref py py-class docutils literal"><span class="pre">DupliObject</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.dupli_type">
+<code class="descname">dupli_type</code><a class="headerlink" href="#bpy.types.Object.dupli_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>If not None, object duplication method to use</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">NONE</span></code> None.</li>
+<li><code class="docutils literal"><span class="pre">FRAMES</span></code> Frames, Make copy of object for every frame.</li>
+<li><code class="docutils literal"><span class="pre">VERTS</span></code> Verts, Duplicate child objects on all vertices.</li>
+<li><code class="docutils literal"><span class="pre">FACES</span></code> Faces, Duplicate child objects on all faces.</li>
+<li><code class="docutils literal"><span class="pre">GROUP</span></code> Group, Enable group instancing.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;FRAMES&#8217;, &#8216;VERTS&#8217;, &#8216;FACES&#8217;, &#8216;GROUP&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.empty_draw_size">
+<code class="descname">empty_draw_size</code><a class="headerlink" href="#bpy.types.Object.empty_draw_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of display for empties in the viewport</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.0001, 1000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.empty_draw_type">
+<code class="descname">empty_draw_type</code><a class="headerlink" href="#bpy.types.Object.empty_draw_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Viewport display style for empties</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;PLAIN_AXES&#8217;, &#8216;ARROWS&#8217;, &#8216;SINGLE_ARROW&#8217;, &#8216;CIRCLE&#8217;, &#8216;CUBE&#8217;, &#8216;SPHERE&#8217;, &#8216;CONE&#8217;, &#8216;IMAGE&#8217;], default &#8216;PLAIN_AXES&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.empty_image_offset">
+<code class="descname">empty_image_offset</code><a class="headerlink" href="#bpy.types.Object.empty_image_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Origin offset distance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 2 items in [-inf, inf], default (0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.field">
+<code class="descname">field</code><a class="headerlink" href="#bpy.types.Object.field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Settings for using the object as a field in physics simulation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.FieldSettings.html#bpy.types.FieldSettings" title="bpy.types.FieldSettings"><code class="xref py py-class docutils literal"><span class="pre">FieldSettings</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.game">
+<code class="descname">game</code><a class="headerlink" href="#bpy.types.Object.game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Game engine related settings for the object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.GameObjectSettings.html#bpy.types.GameObjectSettings" title="bpy.types.GameObjectSettings"><code class="xref py py-class docutils literal"><span class="pre">GameObjectSettings</span></code></a>, (readonly, never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.grease_pencil">
+<code class="descname">grease_pencil</code><a class="headerlink" href="#bpy.types.Object.grease_pencil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grease Pencil data-block</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.GreasePencil.html#bpy.types.GreasePencil" title="bpy.types.GreasePencil"><code class="xref py py-class docutils literal"><span class="pre">GreasePencil</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.hide">
+<code class="descname">hide</code><a class="headerlink" href="#bpy.types.Object.hide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restrict visibility in the viewport</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.hide_render">
+<code class="descname">hide_render</code><a class="headerlink" href="#bpy.types.Object.hide_render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restrict renderability</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.hide_select">
+<code class="descname">hide_select</code><a class="headerlink" href="#bpy.types.Object.hide_select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restrict selection in the viewport</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.image_user">
+<code class="descname">image_user</code><a class="headerlink" href="#bpy.types.Object.image_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parameters defining which layer, pass and frame of the image is displayed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.ImageUser.html#bpy.types.ImageUser" title="bpy.types.ImageUser"><code class="xref py py-class docutils literal"><span class="pre">ImageUser</span></code></a>, (readonly, never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.is_duplicator">
+<code class="descname">is_duplicator</code><a class="headerlink" href="#bpy.types.Object.is_duplicator" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.layers">
+<code class="descname">layers</code><a class="headerlink" href="#bpy.types.Object.layers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layers the object is on</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean array of 20 items, default (False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.layers_local_view">
+<code class="descname">layers_local_view</code><a class="headerlink" href="#bpy.types.Object.layers_local_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>3D local view layers the object is on</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean array of 8 items, default (False, False, False, False, False, False, False, False), (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.location">
+<code class="descname">location</code><a class="headerlink" href="#bpy.types.Object.location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Location of the object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 3 items in [-inf, inf], default (0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.lock_location">
+<code class="descname">lock_location</code><a class="headerlink" href="#bpy.types.Object.lock_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lock editing of location in the interface</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean array of 3 items, default (False, False, False)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.lock_rotation">
+<code class="descname">lock_rotation</code><a class="headerlink" href="#bpy.types.Object.lock_rotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lock editing of rotation in the interface</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean array of 3 items, default (False, False, False)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.lock_rotation_w">
+<code class="descname">lock_rotation_w</code><a class="headerlink" href="#bpy.types.Object.lock_rotation_w" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lock editing of &#8216;angle&#8217; component of four-component rotations in the interface</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.lock_rotations_4d">
+<code class="descname">lock_rotations_4d</code><a class="headerlink" href="#bpy.types.Object.lock_rotations_4d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lock editing of four component rotations by components (instead of as Eulers)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.lock_scale">
+<code class="descname">lock_scale</code><a class="headerlink" href="#bpy.types.Object.lock_scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lock editing of scale in the interface</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean array of 3 items, default (False, False, False)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.lod_levels">
+<code class="descname">lod_levels</code><a class="headerlink" href="#bpy.types.Object.lod_levels" title="Permalink to this definition">¶</a></dt>
+<dd><p>A collection of detail levels to automatically switch between</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.LodLevel.html#bpy.types.LodLevel" title="bpy.types.LodLevel"><code class="xref py py-class docutils literal"><span class="pre">LodLevel</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.material_slots">
+<code class="descname">material_slots</code><a class="headerlink" href="#bpy.types.Object.material_slots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Material slots in the object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.MaterialSlot.html#bpy.types.MaterialSlot" title="bpy.types.MaterialSlot"><code class="xref py py-class docutils literal"><span class="pre">MaterialSlot</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.matrix_basis">
+<code class="descname">matrix_basis</code><a class="headerlink" href="#bpy.types.Object.matrix_basis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Matrix access to location, rotation and scale (including deltas), before constraints and parenting are applied</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 16 items in [-inf, inf], default (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.matrix_local">
+<code class="descname">matrix_local</code><a class="headerlink" href="#bpy.types.Object.matrix_local" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parent relative transformation matrix - WARNING: Only takes into account &#8216;Object&#8217; parenting, so e.g. in case of bone parenting you get a matrix relative to the Armature object, not to the actual parent bone</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 16 items in [-inf, inf], default (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.matrix_parent_inverse">
+<code class="descname">matrix_parent_inverse</code><a class="headerlink" href="#bpy.types.Object.matrix_parent_inverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inverse of object&#8217;s parent matrix at time of parenting</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 16 items in [-inf, inf], default (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.matrix_world">
+<code class="descname">matrix_world</code><a class="headerlink" href="#bpy.types.Object.matrix_world" title="Permalink to this definition">¶</a></dt>
+<dd><p>Worldspace transformation matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 16 items in [-inf, inf], default (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.mode">
+<code class="descname">mode</code><a class="headerlink" href="#bpy.types.Object.mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object interaction mode</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">OBJECT</span></code> Object Mode.</li>
+<li><code class="docutils literal"><span class="pre">EDIT</span></code> Edit Mode.</li>
+<li><code class="docutils literal"><span class="pre">POSE</span></code> Pose Mode.</li>
+<li><code class="docutils literal"><span class="pre">SCULPT</span></code> Sculpt Mode.</li>
+<li><code class="docutils literal"><span class="pre">VERTEX_PAINT</span></code> Vertex Paint.</li>
+<li><code class="docutils literal"><span class="pre">WEIGHT_PAINT</span></code> Weight Paint.</li>
+<li><code class="docutils literal"><span class="pre">TEXTURE_PAINT</span></code> Texture Paint.</li>
+<li><code class="docutils literal"><span class="pre">PARTICLE_EDIT</span></code> Particle Edit.</li>
+<li><code class="docutils literal"><span class="pre">GPENCIL_EDIT</span></code> Edit Strokes, Edit Grease Pencil Strokes.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;OBJECT&#8217;, &#8216;EDIT&#8217;, &#8216;POSE&#8217;, &#8216;SCULPT&#8217;, &#8216;VERTEX_PAINT&#8217;, &#8216;WEIGHT_PAINT&#8217;, &#8216;TEXTURE_PAINT&#8217;, &#8216;PARTICLE_EDIT&#8217;, &#8216;GPENCIL_EDIT&#8217;], default &#8216;OBJECT&#8217;, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.modifiers">
+<code class="descname">modifiers</code><a class="headerlink" href="#bpy.types.Object.modifiers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifiers affecting the geometric data of the object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.ObjectModifiers.html#bpy.types.ObjectModifiers" title="bpy.types.ObjectModifiers"><code class="xref py py-class docutils literal"><span class="pre">ObjectModifiers</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Modifier.html#bpy.types.Modifier" title="bpy.types.Modifier"><code class="xref py py-class docutils literal"><span class="pre">Modifier</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.motion_path">
+<code class="descname">motion_path</code><a class="headerlink" href="#bpy.types.Object.motion_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Motion Path for this element</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.MotionPath.html#bpy.types.MotionPath" title="bpy.types.MotionPath"><code class="xref py py-class docutils literal"><span class="pre">MotionPath</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.parent">
+<code class="descname">parent</code><a class="headerlink" href="#bpy.types.Object.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parent Object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal"><span class="pre">Object</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.parent_bone">
+<code class="descname">parent_bone</code><a class="headerlink" href="#bpy.types.Object.parent_bone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of parent bone in case of a bone parenting relation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.parent_type">
+<code class="descname">parent_type</code><a class="headerlink" href="#bpy.types.Object.parent_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of parent relation</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">OBJECT</span></code> Object, The object is parented to an object.</li>
+<li><code class="docutils literal"><span class="pre">ARMATURE</span></code> Armature.</li>
+<li><code class="docutils literal"><span class="pre">LATTICE</span></code> Lattice, The object is parented to a lattice.</li>
+<li><code class="docutils literal"><span class="pre">VERTEX</span></code> Vertex, The object is parented to a vertex.</li>
+<li><code class="docutils literal"><span class="pre">VERTEX_3</span></code> 3 Vertices.</li>
+<li><code class="docutils literal"><span class="pre">BONE</span></code> Bone, The object is parented to a bone.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;OBJECT&#8217;, &#8216;ARMATURE&#8217;, &#8216;LATTICE&#8217;, &#8216;VERTEX&#8217;, &#8216;VERTEX_3&#8217;, &#8216;BONE&#8217;], default &#8216;OBJECT&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.parent_vertices">
+<code class="descname">parent_vertices</code><a class="headerlink" href="#bpy.types.Object.parent_vertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indices of vertices in case of a vertex parenting relation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int array of 3 items in [0, inf], default (0, 0, 0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.particle_systems">
+<code class="descname">particle_systems</code><a class="headerlink" href="#bpy.types.Object.particle_systems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Particle systems emitted from the object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.ParticleSystems.html#bpy.types.ParticleSystems" title="bpy.types.ParticleSystems"><code class="xref py py-class docutils literal"><span class="pre">ParticleSystems</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.ParticleSystem.html#bpy.types.ParticleSystem" title="bpy.types.ParticleSystem"><code class="xref py py-class docutils literal"><span class="pre">ParticleSystem</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.pass_index">
+<code class="descname">pass_index</code><a class="headerlink" href="#bpy.types.Object.pass_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Index number for the &#8220;Object Index&#8221; render pass</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 32767], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.pose">
+<code class="descname">pose</code><a class="headerlink" href="#bpy.types.Object.pose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current pose for armatures</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Pose.html#bpy.types.Pose" title="bpy.types.Pose"><code class="xref py py-class docutils literal"><span class="pre">Pose</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.pose_library">
+<code class="descname">pose_library</code><a class="headerlink" href="#bpy.types.Object.pose_library" title="Permalink to this definition">¶</a></dt>
+<dd><p>Action used as a pose library for armatures</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Action.html#bpy.types.Action" title="bpy.types.Action"><code class="xref py py-class docutils literal"><span class="pre">Action</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.proxy">
+<code class="descname">proxy</code><a class="headerlink" href="#bpy.types.Object.proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Library object this proxy object controls</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal"><span class="pre">Object</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.proxy_group">
+<code class="descname">proxy_group</code><a class="headerlink" href="#bpy.types.Object.proxy_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Library group duplicator object this proxy object controls</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal"><span class="pre">Object</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.rigid_body">
+<code class="descname">rigid_body</code><a class="headerlink" href="#bpy.types.Object.rigid_body" title="Permalink to this definition">¶</a></dt>
+<dd><p>Settings for rigid body simulation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.RigidBodyObject.html#bpy.types.RigidBodyObject" title="bpy.types.RigidBodyObject"><code class="xref py py-class docutils literal"><span class="pre">RigidBodyObject</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.rigid_body_constraint">
+<code class="descname">rigid_body_constraint</code><a class="headerlink" href="#bpy.types.Object.rigid_body_constraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constraint constraining rigid bodies</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.RigidBodyConstraint.html#bpy.types.RigidBodyConstraint" title="bpy.types.RigidBodyConstraint"><code class="xref py py-class docutils literal"><span class="pre">RigidBodyConstraint</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.rotation_axis_angle">
+<code class="descname">rotation_axis_angle</code><a class="headerlink" href="#bpy.types.Object.rotation_axis_angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Angle of Rotation for Axis-Angle rotation representation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 4 items in [-inf, inf], default (0.0, 0.0, 1.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.rotation_euler">
+<code class="descname">rotation_euler</code><a class="headerlink" href="#bpy.types.Object.rotation_euler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotation in Eulers</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 3 items in [-inf, inf], default (0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.rotation_mode">
+<code class="descname">rotation_mode</code><a class="headerlink" href="#bpy.types.Object.rotation_mode" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><code class="docutils literal"><span class="pre">QUATERNION</span></code> Quaternion (WXYZ), No Gimbal Lock.</li>
+<li><code class="docutils literal"><span class="pre">XYZ</span></code> XYZ Euler, XYZ Rotation Order - prone to Gimbal Lock (default).</li>
+<li><code class="docutils literal"><span class="pre">XZY</span></code> XZY Euler, XZY Rotation Order - prone to Gimbal Lock.</li>
+<li><code class="docutils literal"><span class="pre">YXZ</span></code> YXZ Euler, YXZ Rotation Order - prone to Gimbal Lock.</li>
+<li><code class="docutils literal"><span class="pre">YZX</span></code> YZX Euler, YZX Rotation Order - prone to Gimbal Lock.</li>
+<li><code class="docutils literal"><span class="pre">ZXY</span></code> ZXY Euler, ZXY Rotation Order - prone to Gimbal Lock.</li>
+<li><code class="docutils literal"><span class="pre">ZYX</span></code> ZYX Euler, ZYX Rotation Order - prone to Gimbal Lock.</li>
+<li><code class="docutils literal"><span class="pre">AXIS_ANGLE</span></code> Axis Angle, Axis Angle (W+XYZ), defines a rotation around some axis defined by 3D-Vector.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;QUATERNION&#8217;, &#8216;XYZ&#8217;, &#8216;XZY&#8217;, &#8216;YXZ&#8217;, &#8216;YZX&#8217;, &#8216;ZXY&#8217;, &#8216;ZYX&#8217;, &#8216;AXIS_ANGLE&#8217;], default &#8216;QUATERNION&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.rotation_quaternion">
+<code class="descname">rotation_quaternion</code><a class="headerlink" href="#bpy.types.Object.rotation_quaternion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotation in Quaternions</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 4 items in [-inf, inf], default (1.0, 0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.scale">
+<code class="descname">scale</code><a class="headerlink" href="#bpy.types.Object.scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scaling of the object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 3 items in [-inf, inf], default (1.0, 1.0, 1.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.select">
+<code class="descname">select</code><a class="headerlink" href="#bpy.types.Object.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object selection state</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.show_all_edges">
+<code class="descname">show_all_edges</code><a class="headerlink" href="#bpy.types.Object.show_all_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display all edges for mesh objects</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.show_axis">
+<code class="descname">show_axis</code><a class="headerlink" href="#bpy.types.Object.show_axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the object&#8217;s origin and axes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.show_bounds">
+<code class="descname">show_bounds</code><a class="headerlink" href="#bpy.types.Object.show_bounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the object&#8217;s bounds</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.show_name">
+<code class="descname">show_name</code><a class="headerlink" href="#bpy.types.Object.show_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the object&#8217;s name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.show_only_shape_key">
+<code class="descname">show_only_shape_key</code><a class="headerlink" href="#bpy.types.Object.show_only_shape_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Always show the current Shape for this Object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.show_texture_space">
+<code class="descname">show_texture_space</code><a class="headerlink" href="#bpy.types.Object.show_texture_space" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the object&#8217;s texture space</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.show_transparent">
+<code class="descname">show_transparent</code><a class="headerlink" href="#bpy.types.Object.show_transparent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display material transparency in the object (unsupported for duplicator drawing)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.show_wire">
+<code class="descname">show_wire</code><a class="headerlink" href="#bpy.types.Object.show_wire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the object&#8217;s wireframe over solid drawing</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.show_x_ray">
+<code class="descname">show_x_ray</code><a class="headerlink" href="#bpy.types.Object.show_x_ray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make the object draw in front of others (unsupported for duplicator drawing)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.slow_parent_offset">
+<code class="descname">slow_parent_offset</code><a class="headerlink" href="#bpy.types.Object.slow_parent_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delay in the parent relationship</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-500000, 500000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.soft_body">
+<code class="descname">soft_body</code><a class="headerlink" href="#bpy.types.Object.soft_body" title="Permalink to this definition">¶</a></dt>
+<dd><p>Settings for soft body simulation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.SoftBodySettings.html#bpy.types.SoftBodySettings" title="bpy.types.SoftBodySettings"><code class="xref py py-class docutils literal"><span class="pre">SoftBodySettings</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.track_axis">
+<code class="descname">track_axis</code><a class="headerlink" href="#bpy.types.Object.track_axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Axis that points in &#8216;forward&#8217; direction (applies to DupliFrame when parent &#8216;Follow&#8217; is enabled)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;POS_X&#8217;, &#8216;POS_Y&#8217;, &#8216;POS_Z&#8217;, &#8216;NEG_X&#8217;, &#8216;NEG_Y&#8217;, &#8216;NEG_Z&#8217;], default &#8216;POS_X&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.type">
+<code class="descname">type</code><a class="headerlink" href="#bpy.types.Object.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of Object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;MESH&#8217;, &#8216;CURVE&#8217;, &#8216;SURFACE&#8217;, &#8216;META&#8217;, &#8216;FONT&#8217;, &#8216;ARMATURE&#8217;, &#8216;LATTICE&#8217;, &#8216;EMPTY&#8217;, &#8216;CAMERA&#8217;, &#8216;LAMP&#8217;, &#8216;SPEAKER&#8217;], default &#8216;EMPTY&#8217;, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.up_axis">
+<code class="descname">up_axis</code><a class="headerlink" href="#bpy.types.Object.up_axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Axis that points in the upward direction (applies to DupliFrame when parent &#8216;Follow&#8217; is enabled)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;X&#8217;, &#8216;Y&#8217;, &#8216;Z&#8217;], default &#8216;X&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.use_dupli_faces_scale">
+<code class="descname">use_dupli_faces_scale</code><a class="headerlink" href="#bpy.types.Object.use_dupli_faces_scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale dupli based on face size</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.use_dupli_frames_speed">
+<code class="descname">use_dupli_frames_speed</code><a class="headerlink" href="#bpy.types.Object.use_dupli_frames_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set dupliframes to use the current frame instead of parent curve&#8217;s evaluation time</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.use_dupli_vertices_rotation">
+<code class="descname">use_dupli_vertices_rotation</code><a class="headerlink" href="#bpy.types.Object.use_dupli_vertices_rotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate dupli according to vertex normal</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.use_dynamic_topology_sculpting">
+<code class="descname">use_dynamic_topology_sculpting</code><a class="headerlink" href="#bpy.types.Object.use_dynamic_topology_sculpting" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.use_extra_recalc_data">
+<code class="descname">use_extra_recalc_data</code><a class="headerlink" href="#bpy.types.Object.use_extra_recalc_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Refresh this object&#8217;s data again on frame changes, dependency graph hack</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.use_extra_recalc_object">
+<code class="descname">use_extra_recalc_object</code><a class="headerlink" href="#bpy.types.Object.use_extra_recalc_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Refresh this object again on frame changes, dependency graph hack</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.use_shape_key_edit_mode">
+<code class="descname">use_shape_key_edit_mode</code><a class="headerlink" href="#bpy.types.Object.use_shape_key_edit_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply shape keys in edit mode (for Meshes only)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Object.use_slow_parent">
+<code class="descname">use_slow_parent</code><a class="headerlink" href="#bpy.types.Object.use_slow_parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a delay in the parent relationship (beware: this isn&#8217;t renderfarm safe and may be invalid after jumping around the timeline)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.vertex_groups">
+<code class="descname">vertex_groups</code><a class="headerlink" href="#bpy.types.Object.vertex_groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertex groups of the object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.VertexGroups.html#bpy.types.VertexGroups" title="bpy.types.VertexGroups"><code class="xref py py-class docutils literal"><span class="pre">VertexGroups</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.VertexGroup.html#bpy.types.VertexGroup" title="bpy.types.VertexGroup"><code class="xref py py-class docutils literal"><span class="pre">VertexGroup</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.children">
+<code class="descname">children</code><a class="headerlink" href="#bpy.types.Object.children" title="Permalink to this definition">¶</a></dt>
+<dd><p>All the children of this object
+(readonly)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.users_group">
+<code class="descname">users_group</code><a class="headerlink" href="#bpy.types.Object.users_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>The groups this object is in
+(readonly)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Object.users_scene">
+<code class="descname">users_scene</code><a class="headerlink" href="#bpy.types.Object.users_scene" title="Permalink to this definition">¶</a></dt>
+<dd><p>The scenes this object is in
+(readonly)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Object.convert_space">
+<code class="descname">convert_space</code><span class="sig-paren">(</span><em>pose_bone=None</em>, <em>matrix=(0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>from_space='WORLD'</em>, <em>to_space='WORLD'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Object.convert_space" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert (transform) the given matrix from one space to another</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pose_bone</strong> (<a class="reference internal" href="bpy.types.PoseBone.html#bpy.types.PoseBone" title="bpy.types.PoseBone"><code class="xref py py-class docutils literal"><span class="pre">PoseBone</span></code></a>, (optional)) &#8211; Bone to use to define spaces (may be None, in which case only the two &#8216;WORLD&#8217; and &#8216;LOCAL&#8217; spaces are usable)</li>
+<li><strong>matrix</strong> (<em>float array of 16 items in [-inf, inf], (optional)</em>) &#8211; The matrix to transform</li>
+<li><strong>from_space</strong> (<em>enum in ['WORLD', 'POSE', 'LOCAL_WITH_PARENT', 'LOCAL'], (optional)</em>) &#8211; <p>The space in which &#8216;matrix&#8217; is currently</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">WORLD</span></code> World Space, The most gobal space in Blender.</li>
+<li><code class="docutils literal"><span class="pre">POSE</span></code> Pose Space, The pose space of a bone (its armature&#8217;s object space).</li>
+<li><code class="docutils literal"><span class="pre">LOCAL_WITH_PARENT</span></code> Local With Parent, The local space of a bone&#8217;s parent bone.</li>
+<li><code class="docutils literal"><span class="pre">LOCAL</span></code> Local Space, The local space of an object/bone.</li>
+</ul>
+</li>
+<li><strong>to_space</strong> (<em>enum in ['WORLD', 'POSE', 'LOCAL_WITH_PARENT', 'LOCAL'], (optional)</em>) &#8211; <p>The space to which you want to transform &#8216;matrix&#8217;</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">WORLD</span></code> World Space, The most gobal space in Blender.</li>
+<li><code class="docutils literal"><span class="pre">POSE</span></code> Pose Space, The pose space of a bone (its armature&#8217;s object space).</li>
+<li><code class="docutils literal"><span class="pre">LOCAL_WITH_PARENT</span></code> Local With Parent, The local space of a bone&#8217;s parent bone.</li>
+<li><code class="docutils literal"><span class="pre">LOCAL</span></code> Local Space, The local space of an object/bone.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The transformed matrix</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float array of 16 items in [-inf, inf]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Object.calc_matrix_camera">
+<code class="descname">calc_matrix_camera</code><span class="sig-paren">(</span><em>x=1</em>, <em>y=1</em>, <em>scale_x=1.0</em>, <em>scale_y=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Object.calc_matrix_camera" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate the camera projection matrix of this object (mostly useful for Camera and Lamp types)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>int in [0, inf], (optional)</em>) &#8211; Width of the render area</li>
+<li><strong>y</strong> (<em>int in [0, inf], (optional)</em>) &#8211; Height of the render area</li>
+<li><strong>scale_x</strong> (<em>float in [1e-06, inf], (optional)</em>) &#8211; Width scaling factor</li>
+<li><strong>scale_y</strong> (<em>float in [1e-06, inf], (optional)</em>) &#8211; height scaling factor</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The camera projection matrix</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float array of 16 items in [-inf, inf]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Object.camera_fit_coords">
+<code class="descname">camera_fit_coords</code><span class="sig-paren">(</span><em>scene</em>, <em>coordinates</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Object.camera_fit_coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the coordinate (and scale for ortho cameras) given object should be to &#8216;see&#8217; all given coordinates</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>scene</strong> (<a class="reference internal" href="bpy.types.Scene.html#bpy.types.Scene" title="bpy.types.Scene"><code class="xref py py-class docutils literal"><span class="pre">Scene</span></code></a>) &#8211; Scene to get render size information from, if available</li>
+<li><strong>coordinates</strong> (<em>float array of 1 items in [-inf, inf], (never None)</em>) &#8211; Coordinates to fit in</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Return (co_return, scale_return):</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first"><cite>co_return</cite>, The location to aim to be able to see all given points, float array of 3 items in [-inf, inf]</p>
+<p class="last"><cite>scale_return</cite>, The ortho scale to aim to be able to see all given points (if relevant), float in [-inf, inf]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Object.to_mesh">
+<code class="descname">to_mesh</code><span class="sig-paren">(</span><em>scene</em>, <em>apply_modifiers</em>, <em>settings</em>, <em>calc_tessface=True</em>, <em>calc_undeformed=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Object.to_mesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Mesh data-block with modifiers applied</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>scene</strong> (<a class="reference internal" href="bpy.types.Scene.html#bpy.types.Scene" title="bpy.types.Scene"><code class="xref py py-class docutils literal"><span class="pre">Scene</span></code></a>, (never None)) &#8211; Scene within which to evaluate modifiers</li>
+<li><strong>apply_modifiers</strong> (<em>boolean</em>) &#8211; Apply modifiers</li>
+<li><strong>settings</strong> (<em>enum in ['PREVIEW', 'RENDER']</em>) &#8211; <p>Modifier settings to apply</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">PREVIEW</span></code> Preview, Apply modifier preview settings.</li>
+<li><code class="docutils literal"><span class="pre">RENDER</span></code> Render, Apply modifier render settings.</li>
+</ul>
+</li>
+<li><strong>calc_tessface</strong> (<em>boolean, (optional)</em>) &#8211; Calculate Tessellation, Calculate tessellation faces</li>
+<li><strong>calc_undeformed</strong> (<em>boolean, (optional)</em>) &#8211; Calculate Undeformed, Calculate undeformed vertex coordinates</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Mesh created from object, remove it if it is only used for export</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="bpy.types.Mesh.html#bpy.types.Mesh" title="bpy.types.Mesh"><code class="xref py py-class docutils literal"><span class="pre">Mesh</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Object.dupli_list_create">
+<code class="descname">dupli_list_create</code><span class="sig-paren">(</span><em>scene</em>, <em>settings='VIEWPORT'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Object.dupli_list_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a list of dupli objects for this object, needs to be freed manually with free_dupli_list to restore the objects real matrix and layers</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>scene</strong> (<a class="reference internal" href="bpy.types.Scene.html#bpy.types.Scene" title="bpy.types.Scene"><code class="xref py py-class docutils literal"><span class="pre">Scene</span></code></a>, (never None)) &#8211; Scene within which to evaluate duplis</li>
+<li><strong>settings</strong> (<em>enum in ['VIEWPORT', 'PREVIEW', 'RENDER'], (optional)</em>) &#8211; <p>Generate texture coordinates for rendering</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">VIEWPORT</span></code> Viewport, Generate duplis using viewport settings.</li>
+<li><code class="docutils literal"><span class="pre">PREVIEW</span></code> Preview, Generate duplis using preview settings.</li>
+<li><code class="docutils literal"><span class="pre">RENDER</span></code> Render, Generate duplis using render settings.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Object.dupli_list_clear">
+<code class="descname">dupli_list_clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Object.dupli_list_clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Free the list of dupli objects</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Object.find_armature">
+<code class="descname">find_armature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Object.find_armature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find armature influencing this object as a parent or via a modifier</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Armature object influencing this object or NULL</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal"><span class="pre">Object</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Object.shape_key_add">
+<code class="descname">shape_key_add</code><span class="sig-paren">(</span><em>name=&quot;Key&quot;</em>, <em>from_mix=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Object.shape_key_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add shape key to this object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string, (optional, never None)</em>) &#8211; Unique name for the new keyblock</li>
+<li><strong>from_mix</strong> (<em>boolean, (optional)</em>) &#8211; Create new shape from existing mix of shapes</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">New shape keyblock</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="bpy.types.ShapeKey.html#bpy.types.ShapeKey" title="bpy.types.ShapeKey"><code class="xref py py-class docutils literal"><span class="pre">ShapeKey</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Object.shape_key_remove">
+<code class="descname">shape_key_remove</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Object.shape_key_remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a Shape Key from this object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> (<a class="reference internal" href="bpy.types.ShapeKey.html#bpy.types.ShapeKey" title="bpy.types.ShapeKey"><code class="xref py py-class docutils literal"><span class="pre">ShapeKey</span></code></a>, (never None)) &#8211; Keyblock to be removed</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Object.ray_cast">
+<code class="descname">ray_cast</code><span class="sig-paren">(</span><em>origin</em>, <em>direction</em>, <em>distance=1.70141e+38</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Object.ray_cast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cast a ray onto in object space</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>distance</strong> (<em>float in [0, inf], (optional)</em>) &#8211; Maximum distance</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Return (result, location, normal, index):</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first"><cite>result</cite>, boolean</p>
+<p><cite>location</cite>, The hit location of this ray cast, float array of 3 items in [-inf, inf]</p>
+<p><cite>normal</cite>, The face normal at the ray cast hit location, float array of 3 items in [-inf, inf]</p>
+<p class="last"><cite>index</cite>, The face index, -1 when original data isn&#8217;t available, int in [-inf, inf]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Object.closest_point_on_mesh">
+<code class="descname">closest_point_on_mesh</code><span class="sig-paren">(</span><em>origin</em>, <em>distance=1.84467e+19</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Object.closest_point_on_mesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the nearest point in object space</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>distance</strong> (<em>float in [0, inf], (optional)</em>) &#8211; Maximum distance</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Return (result, location, normal, index):</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first"><cite>result</cite>, boolean</p>
+<p><cite>location</cite>, The location on the object closest to the point, float array of 3 items in [-inf, inf]</p>
+<p><cite>normal</cite>, The face normal at the closest point, float array of 3 items in [-inf, inf]</p>
+<p class="last"><cite>index</cite>, The face index, -1 when original data isn&#8217;t available, int in [-inf, inf]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Object.is_visible">
+<code class="descname">is_visible</code><span class="sig-paren">(</span><em>scene</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Object.is_visible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if object is visible in a given scene</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Object visibility</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Object.is_modified">
+<code class="descname">is_modified</code><span class="sig-paren">(</span><em>scene</em>, <em>settings</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Object.is_modified" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if this object is modified from the base mesh data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>settings</strong> (<em>enum in ['PREVIEW', 'RENDER']</em>) &#8211; <p>Modifier settings to apply</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">PREVIEW</span></code> Preview, Apply modifier preview settings.</li>
+<li><code class="docutils literal"><span class="pre">RENDER</span></code> Render, Apply modifier render settings.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Object visibility</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Object.is_deform_modified">
+<code class="descname">is_deform_modified</code><span class="sig-paren">(</span><em>scene</em>, <em>settings</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Object.is_deform_modified" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if this object is modified by a deformation from the base mesh data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>settings</strong> (<em>enum in ['PREVIEW', 'RENDER']</em>) &#8211; <p>Modifier settings to apply</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">PREVIEW</span></code> Preview, Apply modifier preview settings.</li>
+<li><code class="docutils literal"><span class="pre">RENDER</span></code> Render, Apply modifier render settings.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Object visibility</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Object.update_from_editmode">
+<code class="descname">update_from_editmode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Object.update_from_editmode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the objects edit-mode data into the object data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Success</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Object.cache_release">
+<code class="descname">cache_release</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Object.cache_release" title="Permalink to this definition">¶</a></dt>
+<dd><p>Release memory used by caches associated with this object. Intended to be used by render engines only</p>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.name" title="bpy.types.ID.name"><code class="xref py py-class docutils literal"><span class="pre">ID.name</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.users" title="bpy.types.ID.users"><code class="xref py py-class docutils literal"><span class="pre">ID.users</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.use_fake_user" title="bpy.types.ID.use_fake_user"><code class="xref py py-class docutils literal"><span class="pre">ID.use_fake_user</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.tag" title="bpy.types.ID.tag"><code class="xref py py-class docutils literal"><span class="pre">ID.tag</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_updated" title="bpy.types.ID.is_updated"><code class="xref py py-class docutils literal"><span class="pre">ID.is_updated</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_updated_data" title="bpy.types.ID.is_updated_data"><code class="xref py py-class docutils literal"><span class="pre">ID.is_updated_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_library_indirect" title="bpy.types.ID.is_library_indirect"><code class="xref py py-class docutils literal"><span class="pre">ID.is_library_indirect</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.library" title="bpy.types.ID.library"><code class="xref py py-class docutils literal"><span class="pre">ID.library</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.preview" title="bpy.types.ID.preview"><code class="xref py py-class docutils literal"><span class="pre">ID.preview</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.copy" title="bpy.types.ID.copy"><code class="xref py py-class docutils literal"><span class="pre">ID.copy</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_clear" title="bpy.types.ID.user_clear"><code class="xref py py-class docutils literal"><span class="pre">ID.user_clear</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_remap" title="bpy.types.ID.user_remap"><code class="xref py py-class docutils literal"><span class="pre">ID.user_remap</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_of_id" title="bpy.types.ID.user_of_id"><code class="xref py py-class docutils literal"><span class="pre">ID.user_of_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.animation_data_create" title="bpy.types.ID.animation_data_create"><code class="xref py py-class docutils literal"><span class="pre">ID.animation_data_create</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.animation_data_clear" title="bpy.types.ID.animation_data_clear"><code class="xref py py-class docutils literal"><span class="pre">ID.animation_data_clear</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.update_tag" title="bpy.types.ID.update_tag"><code class="xref py py-class docutils literal"><span class="pre">ID.update_tag</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.context.html#bpy.context.active_object" title="bpy.context.active_object"><code class="xref py py-mod docutils literal"><span class="pre">bpy.context.active_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.context.html#bpy.context.edit_object" title="bpy.context.edit_object"><code class="xref py py-mod docutils literal"><span class="pre">bpy.context.edit_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.context.html#bpy.context.editable_objects" title="bpy.context.editable_objects"><code class="xref py py-mod docutils literal"><span class="pre">bpy.context.editable_objects</span></code></a></li>
+<li><a class="reference internal" href="bpy.context.html#bpy.context.image_paint_object" title="bpy.context.image_paint_object"><code class="xref py py-mod docutils literal"><span class="pre">bpy.context.image_paint_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.context.html#bpy.context.object" title="bpy.context.object"><code class="xref py py-mod docutils literal"><span class="pre">bpy.context.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.context.html#bpy.context.particle_edit_object" title="bpy.context.particle_edit_object"><code class="xref py py-mod docutils literal"><span class="pre">bpy.context.particle_edit_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.context.html#bpy.context.sculpt_object" title="bpy.context.sculpt_object"><code class="xref py py-mod docutils literal"><span class="pre">bpy.context.sculpt_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.context.html#bpy.context.selectable_objects" title="bpy.context.selectable_objects"><code class="xref py py-mod docutils literal"><span class="pre">bpy.context.selectable_objects</span></code></a></li>
+<li><a class="reference internal" href="bpy.context.html#bpy.context.selected_editable_objects" title="bpy.context.selected_editable_objects"><code class="xref py py-mod docutils literal"><span class="pre">bpy.context.selected_editable_objects</span></code></a></li>
+<li><a class="reference internal" href="bpy.context.html#bpy.context.selected_objects" title="bpy.context.selected_objects"><code class="xref py py-mod docutils literal"><span class="pre">bpy.context.selected_objects</span></code></a></li>
+<li><a class="reference internal" href="bpy.context.html#bpy.context.vertex_paint_object" title="bpy.context.vertex_paint_object"><code class="xref py py-mod docutils literal"><span class="pre">bpy.context.vertex_paint_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.context.html#bpy.context.visible_objects" title="bpy.context.visible_objects"><code class="xref py py-mod docutils literal"><span class="pre">bpy.context.visible_objects</span></code></a></li>
+<li><a class="reference internal" href="bpy.context.html#bpy.context.weight_paint_object" title="bpy.context.weight_paint_object"><code class="xref py py-mod docutils literal"><span class="pre">bpy.context.weight_paint_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ActionConstraint.html#bpy.types.ActionConstraint.target" title="bpy.types.ActionConstraint.target"><code class="xref py py-class docutils literal"><span class="pre">ActionConstraint.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ArmatureActuator.html#bpy.types.ArmatureActuator.secondary_target" title="bpy.types.ArmatureActuator.secondary_target"><code class="xref py py-class docutils literal"><span class="pre">ArmatureActuator.secondary_target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ArmatureActuator.html#bpy.types.ArmatureActuator.target" title="bpy.types.ArmatureActuator.target"><code class="xref py py-class docutils literal"><span class="pre">ArmatureActuator.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ArmatureModifier.html#bpy.types.ArmatureModifier.object" title="bpy.types.ArmatureModifier.object"><code class="xref py py-class docutils literal"><span class="pre">ArmatureModifier.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ArrayModifier.html#bpy.types.ArrayModifier.curve" title="bpy.types.ArrayModifier.curve"><code class="xref py py-class docutils literal"><span class="pre">ArrayModifier.curve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ArrayModifier.html#bpy.types.ArrayModifier.end_cap" title="bpy.types.ArrayModifier.end_cap"><code class="xref py py-class docutils literal"><span class="pre">ArrayModifier.end_cap</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ArrayModifier.html#bpy.types.ArrayModifier.offset_object" title="bpy.types.ArrayModifier.offset_object"><code class="xref py py-class docutils literal"><span class="pre">ArrayModifier.offset_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ArrayModifier.html#bpy.types.ArrayModifier.start_cap" title="bpy.types.ArrayModifier.start_cap"><code class="xref py py-class docutils literal"><span class="pre">ArrayModifier.start_cap</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.BlendData.html#bpy.types.BlendData.objects" title="bpy.types.BlendData.objects"><code class="xref py py-class docutils literal"><span class="pre">BlendData.objects</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.BlendDataMeshes.html#bpy.types.BlendDataMeshes.new_from_object" title="bpy.types.BlendDataMeshes.new_from_object"><code class="xref py py-class docutils literal"><span class="pre">BlendDataMeshes.new_from_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.BlendDataObjects.html#bpy.types.BlendDataObjects.new" title="bpy.types.BlendDataObjects.new"><code class="xref py py-class docutils literal"><span class="pre">BlendDataObjects.new</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.BlendDataObjects.html#bpy.types.BlendDataObjects.remove" title="bpy.types.BlendDataObjects.remove"><code class="xref py py-class docutils literal"><span class="pre">BlendDataObjects.remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.BoidRuleAvoid.html#bpy.types.BoidRuleAvoid.object" title="bpy.types.BoidRuleAvoid.object"><code class="xref py py-class docutils literal"><span class="pre">BoidRuleAvoid.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.BoidRuleFollowLeader.html#bpy.types.BoidRuleFollowLeader.object" title="bpy.types.BoidRuleFollowLeader.object"><code class="xref py py-class docutils literal"><span class="pre">BoidRuleFollowLeader.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.BoidRuleGoal.html#bpy.types.BoidRuleGoal.object" title="bpy.types.BoidRuleGoal.object"><code class="xref py py-class docutils literal"><span class="pre">BoidRuleGoal.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.object" title="bpy.types.BooleanModifier.object"><code class="xref py py-class docutils literal"><span class="pre">BooleanModifier.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Camera.html#bpy.types.Camera.dof_object" title="bpy.types.Camera.dof_object"><code class="xref py py-class docutils literal"><span class="pre">Camera.dof_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.CameraActuator.html#bpy.types.CameraActuator.object" title="bpy.types.CameraActuator.object"><code class="xref py py-class docutils literal"><span class="pre">CameraActuator.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.CastModifier.html#bpy.types.CastModifier.object" title="bpy.types.CastModifier.object"><code class="xref py py-class docutils literal"><span class="pre">CastModifier.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ChildOfConstraint.html#bpy.types.ChildOfConstraint.target" title="bpy.types.ChildOfConstraint.target"><code class="xref py py-class docutils literal"><span class="pre">ChildOfConstraint.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ClampToConstraint.html#bpy.types.ClampToConstraint.target" title="bpy.types.ClampToConstraint.target"><code class="xref py py-class docutils literal"><span class="pre">ClampToConstraint.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ConstraintTarget.html#bpy.types.ConstraintTarget.target" title="bpy.types.ConstraintTarget.target"><code class="xref py py-class docutils literal"><span class="pre">ConstraintTarget.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.CopyLocationConstraint.html#bpy.types.CopyLocationConstraint.target" title="bpy.types.CopyLocationConstraint.target"><code class="xref py py-class docutils literal"><span class="pre">CopyLocationConstraint.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.CopyRotationConstraint.html#bpy.types.CopyRotationConstraint.target" title="bpy.types.CopyRotationConstraint.target"><code class="xref py py-class docutils literal"><span class="pre">CopyRotationConstraint.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.CopyScaleConstraint.html#bpy.types.CopyScaleConstraint.target" title="bpy.types.CopyScaleConstraint.target"><code class="xref py py-class docutils literal"><span class="pre">CopyScaleConstraint.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.CopyTransformsConstraint.html#bpy.types.CopyTransformsConstraint.target" title="bpy.types.CopyTransformsConstraint.target"><code class="xref py py-class docutils literal"><span class="pre">CopyTransformsConstraint.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Curve.html#bpy.types.Curve.bevel_object" title="bpy.types.Curve.bevel_object"><code class="xref py py-class docutils literal"><span class="pre">Curve.bevel_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Curve.html#bpy.types.Curve.taper_object" title="bpy.types.Curve.taper_object"><code class="xref py py-class docutils literal"><span class="pre">Curve.taper_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.CurveModifier.html#bpy.types.CurveModifier.object" title="bpy.types.CurveModifier.object"><code class="xref py py-class docutils literal"><span class="pre">CurveModifier.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.DampedTrackConstraint.html#bpy.types.DampedTrackConstraint.target" title="bpy.types.DampedTrackConstraint.target"><code class="xref py py-class docutils literal"><span class="pre">DampedTrackConstraint.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.DataTransferModifier.html#bpy.types.DataTransferModifier.object" title="bpy.types.DataTransferModifier.object"><code class="xref py py-class docutils literal"><span class="pre">DataTransferModifier.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.DisplaceModifier.html#bpy.types.DisplaceModifier.texture_coords_object" title="bpy.types.DisplaceModifier.texture_coords_object"><code class="xref py py-class docutils literal"><span class="pre">DisplaceModifier.texture_coords_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.DupliObject.html#bpy.types.DupliObject.object" title="bpy.types.DupliObject.object"><code class="xref py py-class docutils literal"><span class="pre">DupliObject.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.DynamicPaintSurface.html#bpy.types.DynamicPaintSurface.output_exists" title="bpy.types.DynamicPaintSurface.output_exists"><code class="xref py py-class docutils literal"><span class="pre">DynamicPaintSurface.output_exists</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.EditObjectActuator.html#bpy.types.EditObjectActuator.object" title="bpy.types.EditObjectActuator.object"><code class="xref py py-class docutils literal"><span class="pre">EditObjectActuator.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.EditObjectActuator.html#bpy.types.EditObjectActuator.track_object" title="bpy.types.EditObjectActuator.track_object"><code class="xref py py-class docutils literal"><span class="pre">EditObjectActuator.track_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.EnvironmentMap.html#bpy.types.EnvironmentMap.viewpoint_object" title="bpy.types.EnvironmentMap.viewpoint_object"><code class="xref py py-class docutils literal"><span class="pre">EnvironmentMap.viewpoint_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.FieldSettings.html#bpy.types.FieldSettings.source_object" title="bpy.types.FieldSettings.source_object"><code class="xref py py-class docutils literal"><span class="pre">FieldSettings.source_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.FloorConstraint.html#bpy.types.FloorConstraint.target" title="bpy.types.FloorConstraint.target"><code class="xref py py-class docutils literal"><span class="pre">FloorConstraint.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.FollowPathConstraint.html#bpy.types.FollowPathConstraint.target" title="bpy.types.FollowPathConstraint.target"><code class="xref py py-class docutils literal"><span class="pre">FollowPathConstraint.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.FollowTrackConstraint.html#bpy.types.FollowTrackConstraint.camera" title="bpy.types.FollowTrackConstraint.camera"><code class="xref py py-class docutils literal"><span class="pre">FollowTrackConstraint.camera</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.FollowTrackConstraint.html#bpy.types.FollowTrackConstraint.depth_object" title="bpy.types.FollowTrackConstraint.depth_object"><code class="xref py py-class docutils literal"><span class="pre">FollowTrackConstraint.depth_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.GPencilLayer.html#bpy.types.GPencilLayer.parent" title="bpy.types.GPencilLayer.parent"><code class="xref py py-class docutils literal"><span class="pre">GPencilLayer.parent</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Group.html#bpy.types.Group.objects" title="bpy.types.Group.objects"><code class="xref py py-class docutils literal"><span class="pre">Group.objects</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.GroupObjects.html#bpy.types.GroupObjects.link" title="bpy.types.GroupObjects.link"><code class="xref py py-class docutils literal"><span class="pre">GroupObjects.link</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.GroupObjects.html#bpy.types.GroupObjects.unlink" title="bpy.types.GroupObjects.unlink"><code class="xref py py-class docutils literal"><span class="pre">GroupObjects.unlink</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.HookModifier.html#bpy.types.HookModifier.object" title="bpy.types.HookModifier.object"><code class="xref py py-class docutils literal"><span class="pre">HookModifier.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.KinematicConstraint.html#bpy.types.KinematicConstraint.pole_target" title="bpy.types.KinematicConstraint.pole_target"><code class="xref py py-class docutils literal"><span class="pre">KinematicConstraint.pole_target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.KinematicConstraint.html#bpy.types.KinematicConstraint.target" title="bpy.types.KinematicConstraint.target"><code class="xref py py-class docutils literal"><span class="pre">KinematicConstraint.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.LampTextureSlot.html#bpy.types.LampTextureSlot.object" title="bpy.types.LampTextureSlot.object"><code class="xref py py-class docutils literal"><span class="pre">LampTextureSlot.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.LatticeModifier.html#bpy.types.LatticeModifier.object" title="bpy.types.LatticeModifier.object"><code class="xref py py-class docutils literal"><span class="pre">LatticeModifier.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.LimitDistanceConstraint.html#bpy.types.LimitDistanceConstraint.target" title="bpy.types.LimitDistanceConstraint.target"><code class="xref py py-class docutils literal"><span class="pre">LimitDistanceConstraint.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.LineStyleAlphaModifier_DistanceFromObject.html#bpy.types.LineStyleAlphaModifier_DistanceFromObject.target" title="bpy.types.LineStyleAlphaModifier_DistanceFromObject.target"><code class="xref py py-class docutils literal"><span class="pre">LineStyleAlphaModifier_DistanceFromObject.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.LineStyleColorModifier_DistanceFromObject.html#bpy.types.LineStyleColorModifier_DistanceFromObject.target" title="bpy.types.LineStyleColorModifier_DistanceFromObject.target"><code class="xref py py-class docutils literal"><span class="pre">LineStyleColorModifier_DistanceFromObject.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.LineStyleThicknessModifier_DistanceFromObject.html#bpy.types.LineStyleThicknessModifier_DistanceFromObject.target" title="bpy.types.LineStyleThicknessModifier_DistanceFromObject.target"><code class="xref py py-class docutils literal"><span class="pre">LineStyleThicknessModifier_DistanceFromObject.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.LockedTrackConstraint.html#bpy.types.LockedTrackConstraint.target" title="bpy.types.LockedTrackConstraint.target"><code class="xref py py-class docutils literal"><span class="pre">LockedTrackConstraint.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.LodLevel.html#bpy.types.LodLevel.object" title="bpy.types.LodLevel.object"><code class="xref py py-class docutils literal"><span class="pre">LodLevel.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.MaskModifier.html#bpy.types.MaskModifier.armature" title="bpy.types.MaskModifier.armature"><code class="xref py py-class docutils literal"><span class="pre">MaskModifier.armature</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.MaterialTextureSlot.html#bpy.types.MaterialTextureSlot.object" title="bpy.types.MaterialTextureSlot.object"><code class="xref py py-class docutils literal"><span class="pre">MaterialTextureSlot.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.MeshDeformModifier.html#bpy.types.MeshDeformModifier.object" title="bpy.types.MeshDeformModifier.object"><code class="xref py py-class docutils literal"><span class="pre">MeshDeformModifier.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.MirrorModifier.html#bpy.types.MirrorModifier.mirror_object" title="bpy.types.MirrorModifier.mirror_object"><code class="xref py py-class docutils literal"><span class="pre">MirrorModifier.mirror_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NormalEditModifier.html#bpy.types.NormalEditModifier.target" title="bpy.types.NormalEditModifier.target"><code class="xref py py-class docutils literal"><span class="pre">NormalEditModifier.target</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Object.find_armature" title="bpy.types.Object.find_armature"><code class="xref py py-class docutils literal"><span class="pre">Object.find_armature</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Object.parent" title="bpy.types.Object.parent"><code class="xref py py-class docutils literal"><span class="pre">Object.parent</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="#bpy.types.Object.proxy" title="bpy.types.Object.proxy"><code class="xref py py-class docutils literal"><span class="pre">Object.proxy</span></code></a></li>
+<li><a class="reference internal" href="#bpy.types.Object.proxy_group" title="bpy.types.Object.proxy_group"><code class="xref py py-class docutils literal"><span class="pre">Object.proxy_group</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ObjectActuator.html#bpy.types.ObjectActuator.reference_object" title="bpy.types.ObjectActuator.reference_object"><code class="xref py py-class docutils literal"><span class="pre">ObjectActuator.reference_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ObjectBase.html#bpy.types.ObjectBase.object" title="bpy.types.ObjectBase.object"><code class="xref py py-class docutils literal"><span class="pre">ObjectBase.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ObjectSolverConstraint.html#bpy.types.ObjectSolverConstraint.camera" title="bpy.types.ObjectSolverConstraint.camera"><code class="xref py py-class docutils literal"><span class="pre">ObjectSolverConstraint.camera</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.OceanTexData.html#bpy.types.OceanTexData.ocean_object" title="bpy.types.OceanTexData.ocean_object"><code class="xref py py-class docutils literal"><span class="pre">OceanTexData.ocean_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ParentActuator.html#bpy.types.ParentActuator.object" title="bpy.types.ParentActuator.object"><code class="xref py py-class docutils literal"><span class="pre">ParentActuator.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ParticleEdit.html#bpy.types.ParticleEdit.object" title="bpy.types.ParticleEdit.object"><code class="xref py py-class docutils literal"><span class="pre">ParticleEdit.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ParticleEdit.html#bpy.types.ParticleEdit.shape_object" title="bpy.types.ParticleEdit.shape_object"><code class="xref py py-class docutils literal"><span class="pre">ParticleEdit.shape_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ParticleHairKey.html#bpy.types.ParticleHairKey.co_object" title="bpy.types.ParticleHairKey.co_object"><code class="xref py py-class docutils literal"><span class="pre">ParticleHairKey.co_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ParticleInstanceModifier.html#bpy.types.ParticleInstanceModifier.object" title="bpy.types.ParticleInstanceModifier.object"><code class="xref py py-class docutils literal"><span class="pre">ParticleInstanceModifier.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ParticleSettings.html#bpy.types.ParticleSettings.billboard_object" title="bpy.types.ParticleSettings.billboard_object"><code class="xref py py-class docutils literal"><span class="pre">ParticleSettings.billboard_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ParticleSettings.html#bpy.types.ParticleSettings.dupli_object" title="bpy.types.ParticleSettings.dupli_object"><code class="xref py py-class docutils literal"><span class="pre">ParticleSettings.dupli_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ParticleSettingsTextureSlot.html#bpy.types.ParticleSettingsTextureSlot.object" title="bpy.types.ParticleSettingsTextureSlot.object"><code class="xref py py-class docutils literal"><span class="pre">ParticleSettingsTextureSlot.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ParticleSystem.html#bpy.types.ParticleSystem.co_hair" title="bpy.types.ParticleSystem.co_hair"><code class="xref py py-class docutils literal"><span class="pre">ParticleSystem.co_hair</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ParticleSystem.html#bpy.types.ParticleSystem.parent" title="bpy.types.ParticleSystem.parent"><code class="xref py py-class docutils literal"><span class="pre">ParticleSystem.parent</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ParticleSystem.html#bpy.types.ParticleSystem.reactor_target_object" title="bpy.types.ParticleSystem.reactor_target_object"><code class="xref py py-class docutils literal"><span class="pre">ParticleSystem.reactor_target_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ParticleSystem.html#bpy.types.ParticleSystem.set_resolution" title="bpy.types.ParticleSystem.set_resolution"><code class="xref py py-class docutils literal"><span class="pre">ParticleSystem.set_resolution</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ParticleTarget.html#bpy.types.ParticleTarget.object" title="bpy.types.ParticleTarget.object"><code class="xref py py-class docutils literal"><span class="pre">ParticleTarget.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.PivotConstraint.html#bpy.types.PivotConstraint.target" title="bpy.types.PivotConstraint.target"><code class="xref py py-class docutils literal"><span class="pre">PivotConstraint.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.PointDensity.html#bpy.types.PointDensity.object" title="bpy.types.PointDensity.object"><code class="xref py py-class docutils literal"><span class="pre">PointDensity.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.PoseBone.html#bpy.types.PoseBone.custom_shape" title="bpy.types.PoseBone.custom_shape"><code class="xref py py-class docutils literal"><span class="pre">PoseBone.custom_shape</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.PropertyActuator.html#bpy.types.PropertyActuator.object" title="bpy.types.PropertyActuator.object"><code class="xref py py-class docutils literal"><span class="pre">PropertyActuator.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.RenderEngine.html#bpy.types.RenderEngine.bake" title="bpy.types.RenderEngine.bake"><code class="xref py py-class docutils literal"><span class="pre">RenderEngine.bake</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.RenderEngine.html#bpy.types.RenderEngine.camera_model_matrix" title="bpy.types.RenderEngine.camera_model_matrix"><code class="xref py py-class docutils literal"><span class="pre">RenderEngine.camera_model_matrix</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.RenderEngine.html#bpy.types.RenderEngine.camera_override" title="bpy.types.RenderEngine.camera_override"><code class="xref py py-class docutils literal"><span class="pre">RenderEngine.camera_override</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.RenderEngine.html#bpy.types.RenderEngine.camera_shift_x" title="bpy.types.RenderEngine.camera_shift_x"><code class="xref py py-class docutils literal"><span class="pre">RenderEngine.camera_shift_x</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.RenderEngine.html#bpy.types.RenderEngine.use_spherical_stereo" title="bpy.types.RenderEngine.use_spherical_stereo"><code class="xref py py-class docutils literal"><span class="pre">RenderEngine.use_spherical_stereo</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.RigidBodyConstraint.html#bpy.types.RigidBodyConstraint.object1" title="bpy.types.RigidBodyConstraint.object1"><code class="xref py py-class docutils literal"><span class="pre">RigidBodyConstraint.object1</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.RigidBodyConstraint.html#bpy.types.RigidBodyConstraint.object2" title="bpy.types.RigidBodyConstraint.object2"><code class="xref py py-class docutils literal"><span class="pre">RigidBodyConstraint.object2</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.RigidBodyJointConstraint.html#bpy.types.RigidBodyJointConstraint.child" title="bpy.types.RigidBodyJointConstraint.child"><code class="xref py py-class docutils literal"><span class="pre">RigidBodyJointConstraint.child</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.RigidBodyJointConstraint.html#bpy.types.RigidBodyJointConstraint.target" title="bpy.types.RigidBodyJointConstraint.target"><code class="xref py py-class docutils literal"><span class="pre">RigidBodyJointConstraint.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.RigidBodyWorld.html#bpy.types.RigidBodyWorld.convex_sweep_test" title="bpy.types.RigidBodyWorld.convex_sweep_test"><code class="xref py py-class docutils literal"><span class="pre">RigidBodyWorld.convex_sweep_test</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Scene.html#bpy.types.Scene.camera" title="bpy.types.Scene.camera"><code class="xref py py-class docutils literal"><span class="pre">Scene.camera</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Scene.html#bpy.types.Scene.objects" title="bpy.types.Scene.objects"><code class="xref py py-class docutils literal"><span class="pre">Scene.objects</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Scene.html#bpy.types.Scene.ray_cast" title="bpy.types.Scene.ray_cast"><code class="xref py py-class docutils literal"><span class="pre">Scene.ray_cast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Scene.html#bpy.types.Scene.uvedit_aspect" title="bpy.types.Scene.uvedit_aspect"><code class="xref py py-class docutils literal"><span class="pre">Scene.uvedit_aspect</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.SceneActuator.html#bpy.types.SceneActuator.camera" title="bpy.types.SceneActuator.camera"><code class="xref py py-class docutils literal"><span class="pre">SceneActuator.camera</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.SceneObjects.html#bpy.types.SceneObjects.active" title="bpy.types.SceneObjects.active"><code class="xref py py-class docutils literal"><span class="pre">SceneObjects.active</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.SceneObjects.html#bpy.types.SceneObjects.link" title="bpy.types.SceneObjects.link"><code class="xref py py-class docutils literal"><span class="pre">SceneObjects.link</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.SceneObjects.html#bpy.types.SceneObjects.unlink" title="bpy.types.SceneObjects.unlink"><code class="xref py py-class docutils literal"><span class="pre">SceneObjects.unlink</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.SceneSequence.html#bpy.types.SceneSequence.scene_camera" title="bpy.types.SceneSequence.scene_camera"><code class="xref py py-class docutils literal"><span class="pre">SceneSequence.scene_camera</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ScrewModifier.html#bpy.types.ScrewModifier.object" title="bpy.types.ScrewModifier.object"><code class="xref py py-class docutils literal"><span class="pre">ScrewModifier.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sculpt.html#bpy.types.Sculpt.gravity_object" title="bpy.types.Sculpt.gravity_object"><code class="xref py py-class docutils literal"><span class="pre">Sculpt.gravity_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ShaderNodeLampData.html#bpy.types.ShaderNodeLampData.lamp_object" title="bpy.types.ShaderNodeLampData.lamp_object"><code class="xref py py-class docutils literal"><span class="pre">ShaderNodeLampData.lamp_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ShaderNodeTexCoord.html#bpy.types.ShaderNodeTexCoord.object" title="bpy.types.ShaderNodeTexCoord.object"><code class="xref py py-class docutils literal"><span class="pre">ShaderNodeTexCoord.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ShaderNodeTexPointDensity.html#bpy.types.ShaderNodeTexPointDensity.object" title="bpy.types.ShaderNodeTexPointDensity.object"><code class="xref py py-class docutils literal"><span class="pre">ShaderNodeTexPointDensity.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ShrinkwrapConstraint.html#bpy.types.ShrinkwrapConstraint.target" title="bpy.types.ShrinkwrapConstraint.target"><code class="xref py py-class docutils literal"><span class="pre">ShrinkwrapConstraint.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ShrinkwrapModifier.html#bpy.types.ShrinkwrapModifier.auxiliary_target" title="bpy.types.ShrinkwrapModifier.auxiliary_target"><code class="xref py py-class docutils literal"><span class="pre">ShrinkwrapModifier.auxiliary_target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ShrinkwrapModifier.html#bpy.types.ShrinkwrapModifier.target" title="bpy.types.ShrinkwrapModifier.target"><code class="xref py py-class docutils literal"><span class="pre">ShrinkwrapModifier.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.SimpleDeformModifier.html#bpy.types.SimpleDeformModifier.origin" title="bpy.types.SimpleDeformModifier.origin"><code class="xref py py-class docutils literal"><span class="pre">SimpleDeformModifier.origin</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.SpaceView3D.html#bpy.types.SpaceView3D.camera" title="bpy.types.SpaceView3D.camera"><code class="xref py py-class docutils literal"><span class="pre">SpaceView3D.camera</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.SpaceView3D.html#bpy.types.SpaceView3D.lock_object" title="bpy.types.SpaceView3D.lock_object"><code class="xref py py-class docutils literal"><span class="pre">SpaceView3D.lock_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.SplineIKConstraint.html#bpy.types.SplineIKConstraint.target" title="bpy.types.SplineIKConstraint.target"><code class="xref py py-class docutils literal"><span class="pre">SplineIKConstraint.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.SteeringActuator.html#bpy.types.SteeringActuator.navmesh" title="bpy.types.SteeringActuator.navmesh"><code class="xref py py-class docutils literal"><span class="pre">SteeringActuator.navmesh</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.SteeringActuator.html#bpy.types.SteeringActuator.target" title="bpy.types.SteeringActuator.target"><code class="xref py py-class docutils literal"><span class="pre">SteeringActuator.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.StretchToConstraint.html#bpy.types.StretchToConstraint.target" title="bpy.types.StretchToConstraint.target"><code class="xref py py-class docutils literal"><span class="pre">StretchToConstraint.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.TextCurve.html#bpy.types.TextCurve.follow_curve" title="bpy.types.TextCurve.follow_curve"><code class="xref py py-class docutils literal"><span class="pre">TextCurve.follow_curve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.TimelineMarker.html#bpy.types.TimelineMarker.camera" title="bpy.types.TimelineMarker.camera"><code class="xref py py-class docutils literal"><span class="pre">TimelineMarker.camera</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ToolSettings.html#bpy.types.ToolSettings.etch_template" title="bpy.types.ToolSettings.etch_template"><code class="xref py py-class docutils literal"><span class="pre">ToolSettings.etch_template</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.TrackToConstraint.html#bpy.types.TrackToConstraint.target" title="bpy.types.TrackToConstraint.target"><code class="xref py py-class docutils literal"><span class="pre">TrackToConstraint.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.TransformConstraint.html#bpy.types.TransformConstraint.target" title="bpy.types.TransformConstraint.target"><code class="xref py py-class docutils literal"><span class="pre">TransformConstraint.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.UVProjector.html#bpy.types.UVProjector.object" title="bpy.types.UVProjector.object"><code class="xref py py-class docutils literal"><span class="pre">UVProjector.object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.UVWarpModifier.html#bpy.types.UVWarpModifier.object_from" title="bpy.types.UVWarpModifier.object_from"><code class="xref py py-class docutils literal"><span class="pre">UVWarpModifier.object_from</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.UVWarpModifier.html#bpy.types.UVWarpModifier.object_to" title="bpy.types.UVWarpModifier.object_to"><code class="xref py py-class docutils literal"><span class="pre">UVWarpModifier.object_to</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.VertexWeightEditModifier.html#bpy.types.VertexWeightEditModifier.mask_tex_map_object" title="bpy.types.VertexWeightEditModifier.mask_tex_map_object"><code class="xref py py-class docutils literal"><span class="pre">VertexWeightEditModifier.mask_tex_map_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.VertexWeightMixModifier.html#bpy.types.VertexWeightMixModifier.mask_tex_map_object" title="bpy.types.VertexWeightMixModifier.mask_tex_map_object"><code class="xref py py-class docutils literal"><span class="pre">VertexWeightMixModifier.mask_tex_map_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.VertexWeightProximityModifier.html#bpy.types.VertexWeightProximityModifier.mask_tex_map_object" title="bpy.types.VertexWeightProximityModifier.mask_tex_map_object"><code class="xref py py-class docutils literal"><span class="pre">VertexWeightProximityModifier.mask_tex_map_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.VertexWeightProximityModifier.html#bpy.types.VertexWeightProximityModifier.target" title="bpy.types.VertexWeightProximityModifier.target"><code class="xref py py-class docutils literal"><span class="pre">VertexWeightProximityModifier.target</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.VoxelData.html#bpy.types.VoxelData.domain_object" title="bpy.types.VoxelData.domain_object"><code class="xref py py-class docutils literal"><span class="pre">VoxelData.domain_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.WarpModifier.html#bpy.types.WarpModifier.object_from" title="bpy.types.WarpModifier.object_from"><code class="xref py py-class docutils literal"><span class="pre">WarpModifier.object_from</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.WarpModifier.html#bpy.types.WarpModifier.object_to" title="bpy.types.WarpModifier.object_to"><code class="xref py py-class docutils literal"><span class="pre">WarpModifier.object_to</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.WarpModifier.html#bpy.types.WarpModifier.texture_coords_object" title="bpy.types.WarpModifier.texture_coords_object"><code class="xref py py-class docutils literal"><span class="pre">WarpModifier.texture_coords_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.WaveModifier.html#bpy.types.WaveModifier.start_position_object" title="bpy.types.WaveModifier.start_position_object"><code class="xref py py-class docutils literal"><span class="pre">WaveModifier.start_position_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.WaveModifier.html#bpy.types.WaveModifier.texture_coords_object" title="bpy.types.WaveModifier.texture_coords_object"><code class="xref py py-class docutils literal"><span class="pre">WaveModifier.texture_coords_object</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.WorldTextureSlot.html#bpy.types.WorldTextureSlot.object" title="bpy.types.WorldTextureSlot.object"><code class="xref py py-class docutils literal"><span class="pre">WorldTextureSlot.object</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Object(ID)</a><ul>
+<li><a class="reference internal" href="#basic-object-operations-example">Basic Object Operations Example</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.NormalEditModifier.html"
+                        title="previous chapter">NormalEditModifier(Modifier)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.ObjectActuator.html"
+                        title="next chapter">ObjectActuator(Actuator)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ObjectActuator.html" title="ObjectActuator(Actuator)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.NormalEditModifier.html" title="NormalEditModifier(Modifier)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

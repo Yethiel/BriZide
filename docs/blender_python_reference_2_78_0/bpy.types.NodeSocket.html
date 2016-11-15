@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>NodeSocket(bpy_struct) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="NodeSocketBool(NodeSocketStandard)" href="bpy.types.NodeSocketBool.html" />
+    <link rel="prev" title="NodeSetting(PropertyGroup)" href="bpy.types.NodeSetting.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.NodeSocketBool.html" title="NodeSocketBool(NodeSocketStandard)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.NodeSetting.html" title="NodeSetting(PropertyGroup)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="nodesocket-bpy-struct"></span><h1>NodeSocket(bpy_struct)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a></p>
+<p>subclasses &#8212;
+<a class="reference internal" href="bpy.types.NodeSocketStandard.html#bpy.types.NodeSocketStandard" title="bpy.types.NodeSocketStandard"><code class="xref py py-class docutils literal"><span class="pre">NodeSocketStandard</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.NodeSocket">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">NodeSocket</code><span class="sig-paren">(</span><em>bpy_struct</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.NodeSocket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input or output socket of a node</p>
+<dl class="attribute">
+<dt id="bpy.types.NodeSocket.bl_idname">
+<code class="descname">bl_idname</code><a class="headerlink" href="#bpy.types.NodeSocket.bl_idname" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.NodeSocket.enabled">
+<code class="descname">enabled</code><a class="headerlink" href="#bpy.types.NodeSocket.enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable the socket</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.NodeSocket.hide">
+<code class="descname">hide</code><a class="headerlink" href="#bpy.types.NodeSocket.hide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hide the socket</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.NodeSocket.hide_value">
+<code class="descname">hide_value</code><a class="headerlink" href="#bpy.types.NodeSocket.hide_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hide the socket input value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.NodeSocket.identifier">
+<code class="descname">identifier</code><a class="headerlink" href="#bpy.types.NodeSocket.identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unique identifier for mapping sockets</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (readonly, never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.NodeSocket.is_linked">
+<code class="descname">is_linked</code><a class="headerlink" href="#bpy.types.NodeSocket.is_linked" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the socket is connected</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.NodeSocket.is_output">
+<code class="descname">is_output</code><a class="headerlink" href="#bpy.types.NodeSocket.is_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the socket is an output, otherwise input</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.NodeSocket.link_limit">
+<code class="descname">link_limit</code><a class="headerlink" href="#bpy.types.NodeSocket.link_limit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Max number of links allowed for this socket</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 4095], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.NodeSocket.name">
+<code class="descname">name</code><a class="headerlink" href="#bpy.types.NodeSocket.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Socket name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.NodeSocket.node">
+<code class="descname">node</code><a class="headerlink" href="#bpy.types.NodeSocket.node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Node owning this socket</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node" title="bpy.types.Node"><code class="xref py py-class docutils literal"><span class="pre">Node</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.NodeSocket.show_expanded">
+<code class="descname">show_expanded</code><a class="headerlink" href="#bpy.types.NodeSocket.show_expanded" title="Permalink to this definition">¶</a></dt>
+<dd><p>Socket links are expanded in the user interface</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.NodeSocket.type">
+<code class="descname">type</code><a class="headerlink" href="#bpy.types.NodeSocket.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;CUSTOM&#8217;, &#8216;VALUE&#8217;, &#8216;INT&#8217;, &#8216;BOOLEAN&#8217;, &#8216;VECTOR&#8217;, &#8216;STRING&#8217;, &#8216;RGBA&#8217;, &#8216;SHADER&#8217;], default &#8216;VALUE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.NodeSocket.links">
+<code class="descname">links</code><a class="headerlink" href="#bpy.types.NodeSocket.links" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of node links from or to this socket
+(readonly)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.NodeSocket.draw">
+<code class="descname">draw</code><span class="sig-paren">(</span><em>context</em>, <em>layout</em>, <em>node</em>, <em>text</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.NodeSocket.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw socket</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>layout</strong> (<a class="reference internal" href="bpy.types.UILayout.html#bpy.types.UILayout" title="bpy.types.UILayout"><code class="xref py py-class docutils literal"><span class="pre">UILayout</span></code></a>, (never None)) &#8211; Layout, Layout in the UI</li>
+<li><strong>node</strong> (<a class="reference internal" href="bpy.types.Node.html#bpy.types.Node" title="bpy.types.Node"><code class="xref py py-class docutils literal"><span class="pre">Node</span></code></a>, (never None)) &#8211; Node, Node the socket belongs to</li>
+<li><strong>text</strong> (<em>string, (never None)</em>) &#8211; Text, Text label to draw alongside properties</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.NodeSocket.draw_color">
+<code class="descname">draw_color</code><span class="sig-paren">(</span><em>context</em>, <em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.NodeSocket.draw_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Color of the socket icon</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> (<a class="reference internal" href="bpy.types.Node.html#bpy.types.Node" title="bpy.types.Node"><code class="xref py py-class docutils literal"><span class="pre">Node</span></code></a>, (never None)) &#8211; Node, Node the socket belongs to</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Color</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float array of 4 items in [0, 1]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.CompositorNodeOutputFileFileSlots.html#bpy.types.CompositorNodeOutputFileFileSlots.new" title="bpy.types.CompositorNodeOutputFileFileSlots.new"><code class="xref py py-class docutils literal"><span class="pre">CompositorNodeOutputFileFileSlots.new</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.CompositorNodeOutputFileFileSlots.html#bpy.types.CompositorNodeOutputFileFileSlots.remove" title="bpy.types.CompositorNodeOutputFileFileSlots.remove"><code class="xref py py-class docutils literal"><span class="pre">CompositorNodeOutputFileFileSlots.remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.CompositorNodeOutputFileLayerSlots.html#bpy.types.CompositorNodeOutputFileLayerSlots.new" title="bpy.types.CompositorNodeOutputFileLayerSlots.new"><code class="xref py py-class docutils literal"><span class="pre">CompositorNodeOutputFileLayerSlots.new</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.CompositorNodeOutputFileLayerSlots.html#bpy.types.CompositorNodeOutputFileLayerSlots.remove" title="bpy.types.CompositorNodeOutputFileLayerSlots.remove"><code class="xref py py-class docutils literal"><span class="pre">CompositorNodeOutputFileLayerSlots.remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.inputs" title="bpy.types.Node.inputs"><code class="xref py py-class docutils literal"><span class="pre">Node.inputs</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Node.html#bpy.types.Node.outputs" title="bpy.types.Node.outputs"><code class="xref py py-class docutils literal"><span class="pre">Node.outputs</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeInputs.html#bpy.types.NodeInputs.new" title="bpy.types.NodeInputs.new"><code class="xref py py-class docutils literal"><span class="pre">NodeInputs.new</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeInputs.html#bpy.types.NodeInputs.remove" title="bpy.types.NodeInputs.remove"><code class="xref py py-class docutils literal"><span class="pre">NodeInputs.remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeLink.html#bpy.types.NodeLink.from_socket" title="bpy.types.NodeLink.from_socket"><code class="xref py py-class docutils literal"><span class="pre">NodeLink.from_socket</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.NodeLink.html#bpy.types.NodeLink.to_socket" title="bpy.types.NodeLink.to_socket"><code class="xref py py-class docutils literal"><span class="pre">NodeLink.to_socket</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeLinks.html#bpy.types.NodeLinks.new" title="bpy.types.NodeLinks.new"><code class="xref py py-class docutils literal"><span class="pre">NodeLinks.new</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeLinks.html#bpy.types.NodeLinks.new" title="bpy.types.NodeLinks.new"><code class="xref py py-class docutils literal"><span class="pre">NodeLinks.new</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeOutputs.html#bpy.types.NodeOutputs.new" title="bpy.types.NodeOutputs.new"><code class="xref py py-class docutils literal"><span class="pre">NodeOutputs.new</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeOutputs.html#bpy.types.NodeOutputs.remove" title="bpy.types.NodeOutputs.remove"><code class="xref py py-class docutils literal"><span class="pre">NodeOutputs.remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeSocketInterface.html#bpy.types.NodeSocketInterface.from_socket" title="bpy.types.NodeSocketInterface.from_socket"><code class="xref py py-class docutils literal"><span class="pre">NodeSocketInterface.from_socket</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeSocketInterface.html#bpy.types.NodeSocketInterface.init_socket" title="bpy.types.NodeSocketInterface.init_socket"><code class="xref py py-class docutils literal"><span class="pre">NodeSocketInterface.init_socket</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.UILayout.html#bpy.types.UILayout.template_node_link" title="bpy.types.UILayout.template_node_link"><code class="xref py py-class docutils literal"><span class="pre">UILayout.template_node_link</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.UILayout.html#bpy.types.UILayout.template_node_view" title="bpy.types.UILayout.template_node_view"><code class="xref py py-class docutils literal"><span class="pre">UILayout.template_node_view</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.NodeSetting.html"
+                        title="previous chapter">NodeSetting(PropertyGroup)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.NodeSocketBool.html"
+                        title="next chapter">NodeSocketBool(NodeSocketStandard)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.NodeSocketBool.html" title="NodeSocketBool(NodeSocketStandard)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.NodeSetting.html" title="NodeSetting(PropertyGroup)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

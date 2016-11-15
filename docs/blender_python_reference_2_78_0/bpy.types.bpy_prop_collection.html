@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>bpy_prop_collection &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="bpy_struct" href="bpy.types.bpy_struct.html" />
+    <link rel="prev" title="XorController(Controller)" href="bpy.types.XorController.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.bpy_struct.html" title="bpy_struct"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.XorController.html" title="XorController(Controller)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="bpy-prop-collection"></span><h1>bpy_prop_collection<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="bpy.types.bpy_prop_collection">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">bpy_prop_collection</code><a class="headerlink" href="#bpy.types.bpy_prop_collection" title="Permalink to this definition">¶</a></dt>
+<dd><p>built-in class used for all collections.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Note that bpy.types.bpy_prop_collection is not actually available from within Blender,
+it only exists for the purpose of documentation.</p>
+</div>
+<dl class="method">
+<dt id="bpy.types.bpy_prop_collection.find">
+<code class="descname">find</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.bpy_prop_collection.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the index of a key in a collection or -1 when not found
+(matches pythons string find function of the same name).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; The identifier for the collection member.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">index of the key.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.bpy_prop_collection.foreach_get">
+<code class="descname">foreach_get</code><span class="sig-paren">(</span><em>attr</em>, <em>seq</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.bpy_prop_collection.foreach_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a function to give fast access to attributes within a collection.</p>
+<p>Only works for &#8216;basic type&#8217; properties (bool, int and float)!
+Multi-dimensional arrays (like array of vectors) will be flattened into seq.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>
+<span class="n">collection</span><span class="o">.</span><span class="n">foreach_get</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">some_seq</span><span class="p">)</span>
+
+<span class="c1"># Python equivalent</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)):</span>
+    <span class="n">some_seq</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">collection</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">attr</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.bpy_prop_collection.foreach_set">
+<code class="descname">foreach_set</code><span class="sig-paren">(</span><em>attr</em>, <em>seq</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.bpy_prop_collection.foreach_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a function to give fast access to attributes within a collection.</p>
+<p>Only works for &#8216;basic type&#8217; properties (bool, int and float)!
+seq must be uni-dimensional, multi-dimensional arrays (like array of vectors) will be re-created from it.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>
+<span class="n">collection</span><span class="o">.</span><span class="n">foreach_set</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">some_seq</span><span class="p">)</span>
+
+<span class="c1"># Python equivalent</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">some_seq</span><span class="p">)):</span>
+    <span class="nb">setattr</span><span class="p">(</span><span class="n">collection</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">attr</span><span class="p">,</span> <span class="n">some_seq</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.bpy_prop_collection.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>key</em>, <em>default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.bpy_prop_collection.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value of the item assigned to key or default when not found
+(matches pythons dictionary function of the same name).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; The identifier for the collection member.</li>
+<li><strong>default</strong> (<em>Undefined</em>) &#8211; Optional argument for the value to return if
+<em>key</em> is not found.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.bpy_prop_collection.items">
+<code class="descname">items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.bpy_prop_collection.items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the identifiers of collection members
+(matching pythons dict.items() functionality).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">(key, value) pairs for each member of this collection.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list of tuples</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.bpy_prop_collection.keys">
+<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.bpy_prop_collection.keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the identifiers of collection members
+(matching pythons dict.keys() functionality).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the identifiers for each member of this collection.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list of strings</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.bpy_prop_collection.values">
+<code class="descname">values</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.bpy_prop_collection.values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the values of collection
+(matching pythons dict.values() functionality).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the members of this collection.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="bpy.types.ThemeSpaceListGeneric.html#bpy.types.ThemeSpaceListGeneric.list" title="bpy.types.ThemeSpaceListGeneric.list">list</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.XorController.html"
+                        title="previous chapter">XorController(Controller)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.bpy_struct.html"
+                        title="next chapter">bpy_struct</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.bpy_struct.html" title="bpy_struct"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.XorController.html" title="XorController(Controller)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

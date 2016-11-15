@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Surface Operators &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Operators (bpy.ops)" href="bpy.ops.html" />
+    <link rel="next" title="Text Operators" href="bpy.ops.text.html" />
+    <link rel="prev" title="Sound Operators" href="bpy.ops.sound.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.text.html" title="Text Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.sound.html" title="Sound Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.ops.surface">
+<span id="surface-operators"></span><h1>Surface Operators<a class="headerlink" href="#module-bpy.ops.surface" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bpy.ops.surface.primitive_nurbs_surface_circle_add">
+<code class="descclassname">bpy.ops.surface.</code><code class="descname">primitive_nurbs_surface_circle_add</code><span class="sig-paren">(</span><em>radius=1.0</em>, <em>view_align=False</em>, <em>enter_editmode=False</em>, <em>location=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>rotation=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>layers=(False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False)</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.surface.primitive_nurbs_surface_circle_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a Nurbs surface Circle</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>radius</strong> (<em>float in [0, inf], (optional)</em>) &#8211; Radius</li>
+<li><strong>view_align</strong> (<em>boolean, (optional)</em>) &#8211; Align to View, Align the new object to the view</li>
+<li><strong>enter_editmode</strong> (<em>boolean, (optional)</em>) &#8211; Enter Editmode, Enter editmode when adding this object</li>
+<li><strong>location</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Location, Location for the newly added object</li>
+<li><strong>rotation</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Rotation, Rotation for the newly added object</li>
+<li><strong>layers</strong> (<em>boolean array of 20 items, (optional)</em>) &#8211; Layer</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.surface.primitive_nurbs_surface_curve_add">
+<code class="descclassname">bpy.ops.surface.</code><code class="descname">primitive_nurbs_surface_curve_add</code><span class="sig-paren">(</span><em>radius=1.0</em>, <em>view_align=False</em>, <em>enter_editmode=False</em>, <em>location=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>rotation=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>layers=(False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False)</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.surface.primitive_nurbs_surface_curve_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a Nurbs surface Curve</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>radius</strong> (<em>float in [0, inf], (optional)</em>) &#8211; Radius</li>
+<li><strong>view_align</strong> (<em>boolean, (optional)</em>) &#8211; Align to View, Align the new object to the view</li>
+<li><strong>enter_editmode</strong> (<em>boolean, (optional)</em>) &#8211; Enter Editmode, Enter editmode when adding this object</li>
+<li><strong>location</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Location, Location for the newly added object</li>
+<li><strong>rotation</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Rotation, Rotation for the newly added object</li>
+<li><strong>layers</strong> (<em>boolean array of 20 items, (optional)</em>) &#8211; Layer</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.surface.primitive_nurbs_surface_cylinder_add">
+<code class="descclassname">bpy.ops.surface.</code><code class="descname">primitive_nurbs_surface_cylinder_add</code><span class="sig-paren">(</span><em>radius=1.0</em>, <em>view_align=False</em>, <em>enter_editmode=False</em>, <em>location=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>rotation=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>layers=(False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False)</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.surface.primitive_nurbs_surface_cylinder_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a Nurbs surface Cylinder</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>radius</strong> (<em>float in [0, inf], (optional)</em>) &#8211; Radius</li>
+<li><strong>view_align</strong> (<em>boolean, (optional)</em>) &#8211; Align to View, Align the new object to the view</li>
+<li><strong>enter_editmode</strong> (<em>boolean, (optional)</em>) &#8211; Enter Editmode, Enter editmode when adding this object</li>
+<li><strong>location</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Location, Location for the newly added object</li>
+<li><strong>rotation</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Rotation, Rotation for the newly added object</li>
+<li><strong>layers</strong> (<em>boolean array of 20 items, (optional)</em>) &#8211; Layer</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.surface.primitive_nurbs_surface_sphere_add">
+<code class="descclassname">bpy.ops.surface.</code><code class="descname">primitive_nurbs_surface_sphere_add</code><span class="sig-paren">(</span><em>radius=1.0</em>, <em>view_align=False</em>, <em>enter_editmode=False</em>, <em>location=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>rotation=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>layers=(False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False)</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.surface.primitive_nurbs_surface_sphere_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a Nurbs surface Sphere</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>radius</strong> (<em>float in [0, inf], (optional)</em>) &#8211; Radius</li>
+<li><strong>view_align</strong> (<em>boolean, (optional)</em>) &#8211; Align to View, Align the new object to the view</li>
+<li><strong>enter_editmode</strong> (<em>boolean, (optional)</em>) &#8211; Enter Editmode, Enter editmode when adding this object</li>
+<li><strong>location</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Location, Location for the newly added object</li>
+<li><strong>rotation</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Rotation, Rotation for the newly added object</li>
+<li><strong>layers</strong> (<em>boolean array of 20 items, (optional)</em>) &#8211; Layer</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.surface.primitive_nurbs_surface_surface_add">
+<code class="descclassname">bpy.ops.surface.</code><code class="descname">primitive_nurbs_surface_surface_add</code><span class="sig-paren">(</span><em>radius=1.0</em>, <em>view_align=False</em>, <em>enter_editmode=False</em>, <em>location=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>rotation=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>layers=(False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False)</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.surface.primitive_nurbs_surface_surface_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a Nurbs surface Patch</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>radius</strong> (<em>float in [0, inf], (optional)</em>) &#8211; Radius</li>
+<li><strong>view_align</strong> (<em>boolean, (optional)</em>) &#8211; Align to View, Align the new object to the view</li>
+<li><strong>enter_editmode</strong> (<em>boolean, (optional)</em>) &#8211; Enter Editmode, Enter editmode when adding this object</li>
+<li><strong>location</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Location, Location for the newly added object</li>
+<li><strong>rotation</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Rotation, Rotation for the newly added object</li>
+<li><strong>layers</strong> (<em>boolean array of 20 items, (optional)</em>) &#8211; Layer</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.surface.primitive_nurbs_surface_torus_add">
+<code class="descclassname">bpy.ops.surface.</code><code class="descname">primitive_nurbs_surface_torus_add</code><span class="sig-paren">(</span><em>radius=1.0</em>, <em>view_align=False</em>, <em>enter_editmode=False</em>, <em>location=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>rotation=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>layers=(False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False</em>, <em>False)</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.surface.primitive_nurbs_surface_torus_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a Nurbs surface Torus</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>radius</strong> (<em>float in [0, inf], (optional)</em>) &#8211; Radius</li>
+<li><strong>view_align</strong> (<em>boolean, (optional)</em>) &#8211; Align to View, Align the new object to the view</li>
+<li><strong>enter_editmode</strong> (<em>boolean, (optional)</em>) &#8211; Enter Editmode, Enter editmode when adding this object</li>
+<li><strong>location</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Location, Location for the newly added object</li>
+<li><strong>rotation</strong> (<em>float array of 3 items in [-inf, inf], (optional)</em>) &#8211; Rotation, Rotation for the newly added object</li>
+<li><strong>layers</strong> (<em>boolean array of 20 items, (optional)</em>) &#8211; Layer</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.ops.sound.html"
+                        title="previous chapter">Sound Operators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.ops.text.html"
+                        title="next chapter">Text Operators</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.text.html" title="Text Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.sound.html" title="Sound Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

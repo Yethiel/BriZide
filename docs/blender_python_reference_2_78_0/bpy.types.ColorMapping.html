@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ColorMapping(bpy_struct) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="ColorRamp(bpy_struct)" href="bpy.types.ColorRamp.html" />
+    <link rel="prev" title="ColorManagedViewSettings(bpy_struct)" href="bpy.types.ColorManagedViewSettings.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ColorRamp.html" title="ColorRamp(bpy_struct)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ColorManagedViewSettings.html" title="ColorManagedViewSettings(bpy_struct)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="colormapping-bpy-struct"></span><h1>ColorMapping(bpy_struct)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.ColorMapping">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">ColorMapping</code><span class="sig-paren">(</span><em>bpy_struct</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ColorMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Color mapping settings</p>
+<dl class="attribute">
+<dt id="bpy.types.ColorMapping.blend_color">
+<code class="descname">blend_color</code><a class="headerlink" href="#bpy.types.ColorMapping.blend_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Blend color to mix with texture output color</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 3 items in [0, inf], default (0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ColorMapping.blend_factor">
+<code class="descname">blend_factor</code><a class="headerlink" href="#bpy.types.ColorMapping.blend_factor" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ColorMapping.blend_type">
+<code class="descname">blend_type</code><a class="headerlink" href="#bpy.types.ColorMapping.blend_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mode used to mix with texture output color</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;MIX&#8217;, &#8216;ADD&#8217;, &#8216;SUBTRACT&#8217;, &#8216;MULTIPLY&#8217;, &#8216;SCREEN&#8217;, &#8216;OVERLAY&#8217;, &#8216;DIFFERENCE&#8217;, &#8216;DIVIDE&#8217;, &#8216;DARKEN&#8217;, &#8216;LIGHTEN&#8217;, &#8216;HUE&#8217;, &#8216;SATURATION&#8217;, &#8216;VALUE&#8217;, &#8216;COLOR&#8217;, &#8216;SOFT_LIGHT&#8217;, &#8216;LINEAR_LIGHT&#8217;], default &#8216;MIX&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ColorMapping.brightness">
+<code class="descname">brightness</code><a class="headerlink" href="#bpy.types.ColorMapping.brightness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjust the brightness of the texture</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 2], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.ColorMapping.color_ramp">
+<code class="descname">color_ramp</code><a class="headerlink" href="#bpy.types.ColorMapping.color_ramp" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.ColorRamp.html#bpy.types.ColorRamp" title="bpy.types.ColorRamp"><code class="xref py py-class docutils literal"><span class="pre">ColorRamp</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ColorMapping.contrast">
+<code class="descname">contrast</code><a class="headerlink" href="#bpy.types.ColorMapping.contrast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjust the contrast of the texture</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 5], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ColorMapping.saturation">
+<code class="descname">saturation</code><a class="headerlink" href="#bpy.types.ColorMapping.saturation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjust the saturation of colors in the texture</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 2], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ColorMapping.use_color_ramp">
+<code class="descname">use_color_ramp</code><a class="headerlink" href="#bpy.types.ColorMapping.use_color_ramp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle color ramp operations</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.ShaderNodeTexBrick.html#bpy.types.ShaderNodeTexBrick.color_mapping" title="bpy.types.ShaderNodeTexBrick.color_mapping"><code class="xref py py-class docutils literal"><span class="pre">ShaderNodeTexBrick.color_mapping</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ShaderNodeTexChecker.html#bpy.types.ShaderNodeTexChecker.color_mapping" title="bpy.types.ShaderNodeTexChecker.color_mapping"><code class="xref py py-class docutils literal"><span class="pre">ShaderNodeTexChecker.color_mapping</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ShaderNodeTexEnvironment.html#bpy.types.ShaderNodeTexEnvironment.color_mapping" title="bpy.types.ShaderNodeTexEnvironment.color_mapping"><code class="xref py py-class docutils literal"><span class="pre">ShaderNodeTexEnvironment.color_mapping</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ShaderNodeTexGradient.html#bpy.types.ShaderNodeTexGradient.color_mapping" title="bpy.types.ShaderNodeTexGradient.color_mapping"><code class="xref py py-class docutils literal"><span class="pre">ShaderNodeTexGradient.color_mapping</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ShaderNodeTexImage.html#bpy.types.ShaderNodeTexImage.color_mapping" title="bpy.types.ShaderNodeTexImage.color_mapping"><code class="xref py py-class docutils literal"><span class="pre">ShaderNodeTexImage.color_mapping</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ShaderNodeTexMagic.html#bpy.types.ShaderNodeTexMagic.color_mapping" title="bpy.types.ShaderNodeTexMagic.color_mapping"><code class="xref py py-class docutils literal"><span class="pre">ShaderNodeTexMagic.color_mapping</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.ShaderNodeTexMusgrave.html#bpy.types.ShaderNodeTexMusgrave.color_mapping" title="bpy.types.ShaderNodeTexMusgrave.color_mapping"><code class="xref py py-class docutils literal"><span class="pre">ShaderNodeTexMusgrave.color_mapping</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ShaderNodeTexNoise.html#bpy.types.ShaderNodeTexNoise.color_mapping" title="bpy.types.ShaderNodeTexNoise.color_mapping"><code class="xref py py-class docutils literal"><span class="pre">ShaderNodeTexNoise.color_mapping</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ShaderNodeTexSky.html#bpy.types.ShaderNodeTexSky.color_mapping" title="bpy.types.ShaderNodeTexSky.color_mapping"><code class="xref py py-class docutils literal"><span class="pre">ShaderNodeTexSky.color_mapping</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ShaderNodeTexVoronoi.html#bpy.types.ShaderNodeTexVoronoi.color_mapping" title="bpy.types.ShaderNodeTexVoronoi.color_mapping"><code class="xref py py-class docutils literal"><span class="pre">ShaderNodeTexVoronoi.color_mapping</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ShaderNodeTexWave.html#bpy.types.ShaderNodeTexWave.color_mapping" title="bpy.types.ShaderNodeTexWave.color_mapping"><code class="xref py py-class docutils literal"><span class="pre">ShaderNodeTexWave.color_mapping</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.ColorManagedViewSettings.html"
+                        title="previous chapter">ColorManagedViewSettings(bpy_struct)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.ColorRamp.html"
+                        title="next chapter">ColorRamp(bpy_struct)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ColorRamp.html" title="ColorRamp(bpy_struct)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ColorManagedViewSettings.html" title="ColorManagedViewSettings(bpy_struct)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

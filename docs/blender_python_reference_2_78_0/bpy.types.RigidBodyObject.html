@@ -1,0 +1,424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>RigidBodyObject(bpy_struct) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="RigidBodyWorld(bpy_struct)" href="bpy.types.RigidBodyWorld.html" />
+    <link rel="prev" title="RigidBodyJointConstraint(Constraint)" href="bpy.types.RigidBodyJointConstraint.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.RigidBodyWorld.html" title="RigidBodyWorld(bpy_struct)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.RigidBodyJointConstraint.html" title="RigidBodyJointConstraint(Constraint)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="rigidbodyobject-bpy-struct"></span><h1>RigidBodyObject(bpy_struct)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.RigidBodyObject">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">RigidBodyObject</code><span class="sig-paren">(</span><em>bpy_struct</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.RigidBodyObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Settings for object participating in Rigid Body Simulation</p>
+<dl class="attribute">
+<dt id="bpy.types.RigidBodyObject.angular_damping">
+<code class="descname">angular_damping</code><a class="headerlink" href="#bpy.types.RigidBodyObject.angular_damping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of angular velocity that is lost over time</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.1</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.RigidBodyObject.collision_groups">
+<code class="descname">collision_groups</code><a class="headerlink" href="#bpy.types.RigidBodyObject.collision_groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collision Groups Rigid Body belongs to</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean array of 20 items, default (False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.RigidBodyObject.collision_margin">
+<code class="descname">collision_margin</code><a class="headerlink" href="#bpy.types.RigidBodyObject.collision_margin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Threshold of distance near surface where collisions are still considered (best results when non-zero)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.04</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.RigidBodyObject.collision_shape">
+<code class="descname">collision_shape</code><a class="headerlink" href="#bpy.types.RigidBodyObject.collision_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collision Shape of object in Rigid Body Simulations</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">BOX</span></code> Box, Box-like shapes (i.e. cubes), including planes (i.e. ground planes).</li>
+<li><code class="docutils literal"><span class="pre">SPHERE</span></code> Sphere.</li>
+<li><code class="docutils literal"><span class="pre">CAPSULE</span></code> Capsule.</li>
+<li><code class="docutils literal"><span class="pre">CYLINDER</span></code> Cylinder.</li>
+<li><code class="docutils literal"><span class="pre">CONE</span></code> Cone.</li>
+<li><code class="docutils literal"><span class="pre">CONVEX_HULL</span></code> Convex Hull, A mesh-like surface encompassing (i.e. shrinkwrap over) all vertices (best results with fewer vertices).</li>
+<li><code class="docutils literal"><span class="pre">MESH</span></code> Mesh, Mesh consisting of triangles only, allowing for more detailed interactions than convex hulls.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;BOX&#8217;, &#8216;SPHERE&#8217;, &#8216;CAPSULE&#8217;, &#8216;CYLINDER&#8217;, &#8216;CONE&#8217;, &#8216;CONVEX_HULL&#8217;, &#8216;MESH&#8217;], default &#8216;BOX&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.RigidBodyObject.deactivate_angular_velocity">
+<code class="descname">deactivate_angular_velocity</code><a class="headerlink" href="#bpy.types.RigidBodyObject.deactivate_angular_velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Angular Velocity below which simulation stops simulating object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, inf], default 0.5</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.RigidBodyObject.deactivate_linear_velocity">
+<code class="descname">deactivate_linear_velocity</code><a class="headerlink" href="#bpy.types.RigidBodyObject.deactivate_linear_velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Linear Velocity below which simulation stops simulating object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, inf], default 0.4</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.RigidBodyObject.enabled">
+<code class="descname">enabled</code><a class="headerlink" href="#bpy.types.RigidBodyObject.enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rigid Body actively participates to the simulation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.RigidBodyObject.friction">
+<code class="descname">friction</code><a class="headerlink" href="#bpy.types.RigidBodyObject.friction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resistance of object to movement</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, inf], default 0.5</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.RigidBodyObject.kinematic">
+<code class="descname">kinematic</code><a class="headerlink" href="#bpy.types.RigidBodyObject.kinematic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allow rigid body to be controlled by the animation system</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.RigidBodyObject.linear_damping">
+<code class="descname">linear_damping</code><a class="headerlink" href="#bpy.types.RigidBodyObject.linear_damping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of linear velocity that is lost over time</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.04</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.RigidBodyObject.mass">
+<code class="descname">mass</code><a class="headerlink" href="#bpy.types.RigidBodyObject.mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>How much the object &#8216;weighs&#8217; irrespective of gravity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.001, inf], default 1.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.RigidBodyObject.mesh_source">
+<code class="descname">mesh_source</code><a class="headerlink" href="#bpy.types.RigidBodyObject.mesh_source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Source of the mesh used to create collision shape</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">BASE</span></code> Base, Base mesh.</li>
+<li><code class="docutils literal"><span class="pre">DEFORM</span></code> Deform, Deformations (shape keys, deform modifiers).</li>
+<li><code class="docutils literal"><span class="pre">FINAL</span></code> Final, All modifiers.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;BASE&#8217;, &#8216;DEFORM&#8217;, &#8216;FINAL&#8217;], default &#8216;BASE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.RigidBodyObject.restitution">
+<code class="descname">restitution</code><a class="headerlink" href="#bpy.types.RigidBodyObject.restitution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tendency of object to bounce after colliding with another (0 = stays still, 1 = perfectly elastic)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.RigidBodyObject.type">
+<code class="descname">type</code><a class="headerlink" href="#bpy.types.RigidBodyObject.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Role of object in Rigid Body Simulations</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active, Object is directly controlled by simulation results.</li>
+<li><code class="docutils literal"><span class="pre">PASSIVE</span></code> Passive, Object is directly controlled by animation system.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;ACTIVE&#8217;, &#8216;PASSIVE&#8217;], default &#8216;ACTIVE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.RigidBodyObject.use_deactivation">
+<code class="descname">use_deactivation</code><a class="headerlink" href="#bpy.types.RigidBodyObject.use_deactivation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable deactivation of resting rigid bodies (increases performance and stability but can cause glitches)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default True</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.RigidBodyObject.use_deform">
+<code class="descname">use_deform</code><a class="headerlink" href="#bpy.types.RigidBodyObject.use_deform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rigid body deforms during simulation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.RigidBodyObject.use_margin">
+<code class="descname">use_margin</code><a class="headerlink" href="#bpy.types.RigidBodyObject.use_margin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use custom collision margin (some shapes will have a visible gap around them)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.RigidBodyObject.use_start_deactivated">
+<code class="descname">use_start_deactivated</code><a class="headerlink" href="#bpy.types.RigidBodyObject.use_start_deactivated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deactivate rigid body at the start of the simulation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.Object.html#bpy.types.Object.rigid_body" title="bpy.types.Object.rigid_body"><code class="xref py py-class docutils literal"><span class="pre">Object.rigid_body</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.RigidBodyJointConstraint.html"
+                        title="previous chapter">RigidBodyJointConstraint(Constraint)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.RigidBodyWorld.html"
+                        title="next chapter">RigidBodyWorld(bpy_struct)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.RigidBodyWorld.html" title="RigidBodyWorld(bpy_struct)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.RigidBodyJointConstraint.html" title="RigidBodyJointConstraint(Constraint)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

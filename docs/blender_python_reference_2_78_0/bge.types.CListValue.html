@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>CListValue(CPropValue) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Game Types (bge.types)" href="bge.types.html" />
+    <link rel="next" title="CPropValue(CValue)" href="bge.types.CPropValue.html" />
+    <link rel="prev" title="BL_ShapeActionActuator(SCA_IActuator)" href="bge.types.BL_ShapeActionActuator.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.CPropValue.html" title="CPropValue(CValue)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.BL_ShapeActionActuator.html" title="BL_ShapeActionActuator(SCA_IActuator)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" accesskey="U">Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bge.types">
+<span id="clistvalue-cpropvalue"></span><h1>CListValue(CPropValue)<a class="headerlink" href="#module-bge.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bge.types.CPropValue.html#bge.types.CPropValue" title="bge.types.CPropValue"><code class="xref py py-class docutils literal"><span class="pre">CPropValue</span></code></a></p>
+<dl class="class">
+<dt id="bge.types.CListValue">
+<em class="property">class </em><code class="descclassname">bge.types.</code><code class="descname">CListValue</code><span class="sig-paren">(</span><em>CPropValue</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.CListValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a list like object used in the game engine internally that behaves similar to a python list in most ways.</p>
+<p>As well as the normal index lookup (<code class="docutils literal"><span class="pre">val=</span> <span class="pre">clist[i]</span></code>), CListValue supports string lookups (<code class="docutils literal"><span class="pre">val=</span> <span class="pre">scene.objects[&quot;Cube&quot;]</span></code>)</p>
+<p>Other operations such as <code class="docutils literal"><span class="pre">len(clist)</span></code>, <code class="docutils literal"><span class="pre">list(clist)</span></code>, <code class="docutils literal"><span class="pre">clist[0:10]</span></code> are also supported.</p>
+<dl class="method">
+<dt id="bge.types.CListValue.append">
+<code class="descname">append</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.CListValue.append" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an item to the list (like pythons append)</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Appending values to the list can cause crashes when the list is used internally by the game engine.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.CListValue.count">
+<code class="descname">count</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.CListValue.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count the number of instances of a value in the list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">number of instances</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">integer</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.CListValue.index">
+<code class="descname">index</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.CListValue.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the index of a value in the list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The index of the value in the list.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">integer</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.CListValue.reverse">
+<code class="descname">reverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.CListValue.reverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reverse the order of the list.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.CListValue.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>key</em>, <em>default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.CListValue.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value matching key, or the default value if its not found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The key value or a default.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.CListValue.from_id">
+<code class="descname">from_id</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.CListValue.from_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a funtion especially for the game engine to return a value with a spesific id.</p>
+<p>Since object names are not always unique, the id of an object can be used to get an object from the CValueList.</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myObID</span><span class="o">=</span><span class="nb">id</span><span class="p">(</span><span class="n">gameObject</span><span class="p">)</span>
+<span class="n">ob</span><span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">from_id</span><span class="p">(</span><span class="n">myObID</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal"><span class="pre">myObID</span></code> is an int or long from the id function.</p>
+<p>This has the advantage that you can store the id in places you could not store a gameObject.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The id is derived from a memory location and will be different each time the game engine starts.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The id can&#8217;t be stored as an integer in game object properties, as those only have a limited range that the id may not be contained in. Instead an id can be stored as a string game property and converted back to an integer for use in from_id lookups.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bge.types.BL_ShapeActionActuator.html"
+                        title="previous chapter">BL_ShapeActionActuator(SCA_IActuator)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bge.types.CPropValue.html"
+                        title="next chapter">CPropValue(CValue)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.CPropValue.html" title="CPropValue(CValue)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.BL_ShapeActionActuator.html" title="BL_ShapeActionActuator(SCA_IActuator)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" >Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

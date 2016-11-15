@@ -1,0 +1,644 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Addon Tutorial &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="next" title="Reference API Usage" href="info_api_reference.html" />
+    <link rel="prev" title="Python API Overview" href="info_overview.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="info_api_reference.html" title="Reference API Usage"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="info_overview.html" title="Python API Overview"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="addon-tutorial">
+<h1>Addon Tutorial<a class="headerlink" href="#addon-tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="intended-audience">
+<h3>Intended Audience<a class="headerlink" href="#intended-audience" title="Permalink to this headline">¶</a></h3>
+<p>This tutorial is designed to help technical artists or developers learn to extend Blender.
+An understanding of the basics of Python is expected for those working through this tutorial.</p>
+<div class="section" id="prerequisites">
+<h4>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h4>
+<p>Before going through the tutorial you should...</p>
+<ul class="simple">
+<li>Familiarity with the basics of working in Blender.</li>
+<li>Know how to run a script in Blender&#8217;s text editor (as documented in the quick-start)</li>
+<li>Have an understanding of Python primitive types (int, boolean, string, list, tuple, dictionary, and set).</li>
+<li>Be familiar with the concept of Python modules.</li>
+<li>Basic understanding of classes (object orientation) in Python.</li>
+</ul>
+<p>Suggested reading before starting this tutorial.</p>
+<ul class="simple">
+<li><a class="reference external" href="http://getpython3.com/diveintopython3/index.html">Dive Into Python</a> sections (1, 2, 3, 4, and 7).</li>
+<li><a class="reference internal" href="info_quickstart.html#info-quickstart"><span class="std std-ref">Blender API Quickstart</span></a>
+to help become familiar with Blender/Python basics.</li>
+</ul>
+<p>To best troubleshoot any error message Python prints while writing scripts you run blender with from a terminal,
+see <a class="reference internal" href="info_tips_and_tricks.html#use-the-terminal"><span class="std std-ref">Use The Terminal</span></a>.</p>
+</div>
+</div>
+<div class="section" id="documentation-links">
+<h3>Documentation Links<a class="headerlink" href="#documentation-links" title="Permalink to this headline">¶</a></h3>
+<p>While going through the tutorial you may want to look into our reference documentation.</p>
+<ul class="simple">
+<li><a class="reference internal" href="info_overview.html#info-overview"><span class="std std-ref">Blender API Overview</span></a>. -
+<em>This document is rather detailed but helpful if you want to know more on a topic.</em></li>
+<li><a class="reference internal" href="bpy.context.html#module-bpy.context" title="bpy.context"><code class="xref py py-mod docutils literal"><span class="pre">bpy.context</span></code></a> api reference. -
+<em>Handy to have a list of available items your script may operate on.</em></li>
+<li><a class="reference internal" href="bpy.types.Operator.html#bpy.types.Operator" title="bpy.types.Operator"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Operator</span></code></a>. -
+<em>The following addons define operators, these docs give details and more examples of operators.</em></li>
+</ul>
+</div>
+</div>
+<div class="section" id="addons">
+<h2>Addons<a class="headerlink" href="#addons" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-is-an-addon">
+<h3>What is an Addon?<a class="headerlink" href="#what-is-an-addon" title="Permalink to this headline">¶</a></h3>
+<p>An addon is simply a Python module with some additional requirements so Blender can display it in a list with useful
+information.</p>
+<p>To give an example, here is the simplest possible addon.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">bl_info</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;My Test Addon&quot;</span><span class="p">,</span> <span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;Object&quot;</span><span class="p">}</span>
+<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Goodbye World&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">bl_info</span></code> is a dictionary containing addon meta-data such as the title, version and author to be displayed in the
+user preferences addon list.</li>
+<li><code class="docutils literal"><span class="pre">register</span></code> is a function which only runs when enabling the addon, this means the module can be loaded without
+activating the addon.</li>
+<li><code class="docutils literal"><span class="pre">unregister</span></code> is a function to unload anything setup by <code class="docutils literal"><span class="pre">register</span></code>, this is called when the addon is disabled.</li>
+</ul>
+<p>Notice this addon does not do anything related to Blender, (the <a class="reference internal" href="bpy.data.html#module-bpy" title="bpy"><code class="xref py py-mod docutils literal"><span class="pre">bpy</span></code></a> module is not imported for example).</p>
+<p>This is a contrived example of an addon that serves to illustrate the point
+that the base requirements of an addon are simple.</p>
+<p>An addon will typically register operators, panels, menu items etc, but its worth noting that _any_ script can do this,
+when executed from the text editor or even the interactive console - there is nothing inherently different about an
+addon that allows it to integrate with Blender, such functionality is just provided by the <a class="reference internal" href="bpy.data.html#module-bpy" title="bpy"><code class="xref py py-mod docutils literal"><span class="pre">bpy</span></code></a> module for any
+script to access.</p>
+<p>So an addon is just a way to encapsulate a Python module in a way a user can easily utilize.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Running this script within the text editor won&#8217;t print anything,
+to see the output it must be installed through the user preferences.
+Messages will be printed when enabling and disabling.</p>
+</div>
+</div>
+<div class="section" id="your-first-addon">
+<h3>Your First Addon<a class="headerlink" href="#your-first-addon" title="Permalink to this headline">¶</a></h3>
+<p>The simplest possible addon above was useful as an example but not much else.
+This next addon is simple but shows how to integrate a script into Blender using an <code class="docutils literal"><span class="pre">Operator</span></code>
+which is the typical way to define a tool accessed from menus, buttons and keyboard shortcuts.</p>
+<p>For the first example we&#8217;ll make a script that simply moves all objects in a scene.</p>
+<div class="section" id="write-the-script">
+<h4>Write The Script<a class="headerlink" href="#write-the-script" title="Permalink to this headline">¶</a></h4>
+<p>Add the following script to the text editor in Blender.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+
+<span class="n">scene</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span>
+<span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="p">:</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/run_script.png"><img alt="Run Script button" class="align-center" src="_images/run_script.png" style="width: 924px; height: 574px;" /></a>
+<p>Click the Run Script button, all objects in the active scene are moved by 1.0 Blender unit.
+Next we&#8217;ll make this script into an addon.</p>
+</div>
+<div class="section" id="write-the-addon-simple">
+<h4>Write the Addon (Simple)<a class="headerlink" href="#write-the-addon-simple" title="Permalink to this headline">¶</a></h4>
+<p>This addon takes the body of the script above, and adds them to an operator&#8217;s <code class="docutils literal"><span class="pre">execute()</span></code> function.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">bl_info</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Move X Axis&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;Object&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="kn">import</span> <span class="nn">bpy</span>
+
+
+<span class="k">class</span> <span class="nc">ObjectMoveX</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;My Object Moving Script&quot;&quot;&quot;</span>      <span class="c1"># blender will use this as a tooltip for menu items and buttons.</span>
+    <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;object.move_x&quot;</span>        <span class="c1"># unique identifier for buttons and menu items to reference.</span>
+    <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Move X by One&quot;</span>         <span class="c1"># display name in the interface.</span>
+    <span class="n">bl_options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;REGISTER&#39;</span><span class="p">,</span> <span class="s1">&#39;UNDO&#39;</span><span class="p">}</span>  <span class="c1"># enable undo for the operator.</span>
+
+    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>        <span class="c1"># execute() is called by blender when running the operator.</span>
+
+        <span class="c1"># The original script</span>
+        <span class="n">scene</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">scene</span>
+        <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="p">:</span>
+            <span class="n">obj</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mf">1.0</span>
+
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>            <span class="c1"># this lets blender know the operator finished successfully.</span>
+
+<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">ObjectMoveX</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">ObjectMoveX</span><span class="p">)</span>
+
+
+<span class="c1"># This allows you to run the script directly from blenders text editor</span>
+<span class="c1"># to test the addon without having to install it.</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">register</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><code class="docutils literal"><span class="pre">bl_info</span></code> is split across multiple lines, this is just a style convention used to more easily add items.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Rather than using <code class="docutils literal"><span class="pre">bpy.context.scene</span></code>, we use the <code class="docutils literal"><span class="pre">context.scene</span></code> argument passed to <code class="docutils literal"><span class="pre">execute()</span></code>.
+In most cases these will be the same however in some cases operators will be passed a custom context
+so script authors should prefer the <code class="docutils literal"><span class="pre">context</span></code> argument passed to operators.</p>
+</div>
+<p>To test the script you can copy and paste this into Blender text editor and run it, this will execute the script
+directly and call register immediately.</p>
+<p>However running the script wont move any objects, for this you need to execute the newly registered operator.</p>
+<a class="reference internal image-reference" href="_images/spacebar.png"><img alt="Spacebar" class="align-center" src="_images/spacebar.png" style="width: 924px; height: 574px;" /></a>
+<p>Do this by pressing <code class="kbd docutils literal"><span class="pre">Spacebar</span></code> to bring up the operator search dialog and type in
+&#8220;Move X by One&#8221; (the <code class="docutils literal"><span class="pre">bl_label</span></code>), then <code class="kbd docutils literal"><span class="pre">Enter</span></code>.</p>
+<p>The objects should move as before.</p>
+<p><em>Keep this addon open in Blender for the next step - Installing.</em></p>
+</div>
+<div class="section" id="install-the-addon">
+<h4>Install The Addon<a class="headerlink" href="#install-the-addon" title="Permalink to this headline">¶</a></h4>
+<p>Once you have your addon within in Blender&#8217;s text editor,
+you will want to be able to install it so it can be enabled in the user preferences to load on startup.</p>
+<p>Even though the addon above is a test, lets go through the steps anyway so you know how to do it for later.</p>
+<p>To install the Blender text as an addon you will first have to save it to disk, take care to obey the naming
+restrictions that apply to Python modules and end with a <code class="docutils literal"><span class="pre">.py</span></code> extension.</p>
+<p>Once the file is on disk, you can install it as you would for an addon downloaded online.</p>
+<p>Open the user <span class="menuselection">File -&gt; User Preferences</span>,
+Select the <em>Addon</em> section, press <em>Install Addon...</em> and select the file.</p>
+<p>Now the addon will be listed and you can enable it by pressing the check-box,
+if you want it to be enabled on restart, press <em>Save as Default</em>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The destination of the addon depends on your Blender configuration.
+When installing an addon the source and destination path are printed in the console.
+You can also find addon path locations by running this in the Python console.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">addon_utils</span>
+<span class="k">print</span><span class="p">(</span><span class="n">addon_utils</span><span class="o">.</span><span class="n">paths</span><span class="p">())</span>
+</pre></div>
+</div>
+<p class="last">More is written on this topic here:
+<a class="reference external" href="https://www.blender.org/manual/getting_started/installing_blender/directorylayout.html">Directory Layout</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="your-second-addon">
+<h3>Your Second Addon<a class="headerlink" href="#your-second-addon" title="Permalink to this headline">¶</a></h3>
+<p>For our second addon, we will focus on object instancing - this is - to make linked copies of an object in a
+similar way to what you may have seen with the array modifier.</p>
+<div class="section" id="id1">
+<h4>Write The Script<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>As before, first we will start with a script, develop it, then convert into an addon.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<span class="kn">from</span> <span class="nn">bpy</span> <span class="kn">import</span> <span class="n">context</span>
+
+<span class="c1"># Get the current scene</span>
+<span class="n">scene</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">scene</span>
+
+<span class="c1"># Get the 3D cursor</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">cursor_location</span>
+
+<span class="c1"># Get the active object (assume we have one)</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">active</span>
+
+<span class="c1"># Now make a copy of the object</span>
+<span class="n">obj_new</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># The object won&#39;t automatically get into a new scene</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="n">obj_new</span><span class="p">)</span>
+
+<span class="c1"># Now we can place the object</span>
+<span class="n">obj_new</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="n">cursor</span>
+</pre></div>
+</div>
+<p>Now try copy this script into Blender and run it on the default cube.
+Make sure you click to move the 3D cursor before running as the duplicate will appear at the cursor&#8217;s location.</p>
+<p>... go off and test ...</p>
+<p>After running, notice that when you go into edit-mode to change the cube - all of the copies change,
+in Blender this is known as <em>Linked-Duplicates</em>.</p>
+<p>Next, we&#8217;re going to do this in a loop, to make an array of objects between the active object and the cursor.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<span class="kn">from</span> <span class="nn">bpy</span> <span class="kn">import</span> <span class="n">context</span>
+
+<span class="n">scene</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">scene</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">cursor_location</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">active</span>
+
+<span class="c1"># Use a fixed value for now, eventually make this user adjustable</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># Add &#39;total&#39; objects into the scene</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">total</span><span class="p">):</span>
+    <span class="n">obj_new</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="n">obj_new</span><span class="p">)</span>
+
+    <span class="c1"># Now place the object in between the cursor</span>
+    <span class="c1"># and the active object based on &#39;i&#39;</span>
+    <span class="n">factor</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="n">total</span>
+    <span class="n">obj_new</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">location</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">cursor</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">factor</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Try run this script with with the active object and the cursor spaced apart to see the result.</p>
+<p>With this script you&#8217;ll notice we&#8217;re doing some math with the object location and cursor, this works because both are
+3D <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Vector</span></code></a> instances, a convenient class provided by the <a class="reference internal" href="mathutils.html#module-mathutils" title="mathutils"><code class="xref py py-mod docutils literal"><span class="pre">mathutils</span></code></a> module and
+allows vectors to be multiplied by numbers and matrices.</p>
+<p>If you are interested in this area, read into <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Vector</span></code></a> - there are many handy utility functions
+such as getting the angle between vectors, cross product, dot products
+as well as more advanced functions in <a class="reference internal" href="mathutils.geometry.html#module-mathutils.geometry" title="mathutils.geometry"><code class="xref py py-mod docutils literal"><span class="pre">mathutils.geometry</span></code></a> such as bezier spline interpolation and
+ray-triangle intersection.</p>
+<p>For now we&#8217;ll focus on making this script an addon, but its good to know that this 3D math module is available and
+can help you with more advanced functionality later on.</p>
+</div>
+<div class="section" id="write-the-addon">
+<h4>Write the Addon<a class="headerlink" href="#write-the-addon" title="Permalink to this headline">¶</a></h4>
+<p>The first step is to convert the script as-is into an addon.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">bl_info</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Cursor Array&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;Object&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="kn">import</span> <span class="nn">bpy</span>
+
+
+<span class="k">class</span> <span class="nc">ObjectCursorArray</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Object Cursor Array&quot;&quot;&quot;</span>
+    <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;object.cursor_array&quot;</span>
+    <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Cursor Array&quot;</span>
+    <span class="n">bl_options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;REGISTER&#39;</span><span class="p">,</span> <span class="s1">&#39;UNDO&#39;</span><span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">scene</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">scene</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">cursor_location</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">active</span>
+
+        <span class="n">total</span> <span class="o">=</span> <span class="mi">10</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">total</span><span class="p">):</span>
+            <span class="n">obj_new</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="n">obj_new</span><span class="p">)</span>
+
+            <span class="n">factor</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="n">total</span>
+            <span class="n">obj_new</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">location</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">cursor</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">factor</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">ObjectCursorArray</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">ObjectCursorArray</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">register</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Everything here has been covered in the previous steps, you may want to try run the addon still
+and consider what could be done to make it more useful.</p>
+<p>... go off and test ...</p>
+<p>The two of the most obvious missing things are - having the total fixed at 10, and having to access the operator from
+space-bar is not very convenient.</p>
+<p>Both these additions are explained next, with the final script afterwards.</p>
+<div class="section" id="operator-property">
+<h5>Operator Property<a class="headerlink" href="#operator-property" title="Permalink to this headline">¶</a></h5>
+<p>There are a variety of property types that are used for tool settings, common property types include:
+int, float, vector, color, boolean and string.</p>
+<p>These properties are handled differently to typical Python class attributes
+because Blender needs to be display them in the interface,
+store their settings in key-maps and keep settings for re-use.</p>
+<p>While this is handled in a fairly Pythonic way, be mindful that you are in fact defining tool settings that
+are loaded into Blender and accessed by other parts of Blender, outside of Python.</p>
+<p>To get rid of the literal 10 for <cite>total</cite>, we&#8217;ll us an operator property.
+Operator properties are defined via bpy.props module, this is added to the class body.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># moved assignment from execute() to the body of the class...</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">IntProperty</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Steps&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># and this is accessed on the class</span>
+<span class="c1"># instance within the execute() function as...</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">total</span>
+</pre></div>
+</div>
+<p>These properties from <a class="reference internal" href="bpy.props.html#module-bpy.props" title="bpy.props"><code class="xref py py-mod docutils literal"><span class="pre">bpy.props</span></code></a> are handled specially by Blender when the class is registered
+so they display as buttons in the user interface.
+There are many arguments you can pass to properties to set limits, change the default and display a tooltip.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="bpy.props.html#bpy.props.IntProperty" title="bpy.props.IntProperty"><code class="xref py py-mod docutils literal"><span class="pre">bpy.props.IntProperty</span></code></a></p>
+</div>
+<p>This document doesn&#8217;t go into details about using other property types,
+however the link above includes examples of more advanced property usage.</p>
+</div>
+<div class="section" id="menu-item">
+<h5>Menu Item<a class="headerlink" href="#menu-item" title="Permalink to this headline">¶</a></h5>
+<p>Addons can add to the user interface of existing panels, headers and menus defined in Python.</p>
+<p>For this example we&#8217;ll add to an existing menu.</p>
+<a class="reference internal image-reference" href="_images/menu_id.png"><img alt="Menu Identifier" class="align-center" src="_images/menu_id.png" style="width: 334px; height: 128px;" /></a>
+<p>To find the identifier of a menu you can hover your mouse over the menu item and the identifier is displayed.</p>
+<p>The method used for adding a menu item is to append a draw function into an existing class.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">menu_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">ObjectCursorArray</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">VIEW3D_MT_object</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">menu_func</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For docs on extending menus see: <a class="reference internal" href="bpy.types.Menu.html"><span class="doc">Menu(bpy_struct)</span></a>.</p>
+</div>
+<div class="section" id="keymap">
+<h5>Keymap<a class="headerlink" href="#keymap" title="Permalink to this headline">¶</a></h5>
+<p>In Blender addons have their own key-maps so as not to interfere with Blenders built in key-maps.</p>
+<p>In the example below, a new object-mode <a class="reference internal" href="bpy.types.KeyMap.html#bpy.types.KeyMap" title="bpy.types.KeyMap"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.KeyMap</span></code></a> is added,
+then a <a class="reference internal" href="bpy.types.KeyMapItem.html#bpy.types.KeyMapItem" title="bpy.types.KeyMapItem"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.KeyMapItem</span></code></a> is added to the key-map which references our newly added operator,
+using <code class="kbd docutils literal"><span class="pre">Ctrl-Shift-Space</span></code> as the key shortcut to activate it.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># store keymaps here to access after registration</span>
+<span class="n">addon_keymaps</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+
+    <span class="c1"># handle the keymap</span>
+    <span class="n">wm</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">window_manager</span>
+    <span class="n">km</span> <span class="o">=</span> <span class="n">wm</span><span class="o">.</span><span class="n">keyconfigs</span><span class="o">.</span><span class="n">addon</span><span class="o">.</span><span class="n">keymaps</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Object Mode&#39;</span><span class="p">,</span> <span class="n">space_type</span><span class="o">=</span><span class="s1">&#39;EMPTY&#39;</span><span class="p">)</span>
+
+    <span class="n">kmi</span> <span class="o">=</span> <span class="n">km</span><span class="o">.</span><span class="n">keymap_items</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">ObjectCursorArray</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">,</span> <span class="s1">&#39;SPACE&#39;</span><span class="p">,</span> <span class="s1">&#39;PRESS&#39;</span><span class="p">,</span> <span class="n">ctrl</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">kmi</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">total</span> <span class="o">=</span> <span class="mi">4</span>
+
+    <span class="n">addon_keymaps</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">km</span><span class="p">,</span> <span class="n">kmi</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+
+    <span class="c1"># handle the keymap</span>
+    <span class="k">for</span> <span class="n">km</span><span class="p">,</span> <span class="n">kmi</span> <span class="ow">in</span> <span class="n">addon_keymaps</span><span class="p">:</span>
+        <span class="n">km</span><span class="o">.</span><span class="n">keymap_items</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">kmi</span><span class="p">)</span>
+    <span class="n">addon_keymaps</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Notice how the key-map item can have a different <code class="docutils literal"><span class="pre">total</span></code> setting then the default set by the operator,
+this allows you to have multiple keys accessing the same operator with different settings.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">While <code class="kbd docutils literal"><span class="pre">Ctrl-Shift-Space</span></code> isn&#8217;t a default Blender key shortcut, its hard to make sure addons won&#8217;t
+overwrite each others keymaps, At least take care when assigning keys that they don&#8217;t
+conflict with important functionality within Blender.</p>
+</div>
+<p>For API documentation on the functions listed above, see:
+<a class="reference internal" href="bpy.types.KeyMaps.html#bpy.types.KeyMaps.new" title="bpy.types.KeyMaps.new"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.KeyMaps.new</span></code></a>,
+<a class="reference internal" href="bpy.types.KeyMap.html#bpy.types.KeyMap" title="bpy.types.KeyMap"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.KeyMap</span></code></a>,
+<a class="reference internal" href="bpy.types.KeyMapItems.html#bpy.types.KeyMapItems.new" title="bpy.types.KeyMapItems.new"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.KeyMapItems.new</span></code></a>,
+<a class="reference internal" href="bpy.types.KeyMapItem.html#bpy.types.KeyMapItem" title="bpy.types.KeyMapItem"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.KeyMapItem</span></code></a>.</p>
+</div>
+<div class="section" id="bringing-it-all-together">
+<h5>Bringing it all together<a class="headerlink" href="#bringing-it-all-together" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">bl_info</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Cursor Array&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;Object&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="kn">import</span> <span class="nn">bpy</span>
+
+
+<span class="k">class</span> <span class="nc">ObjectCursorArray</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Object Cursor Array&quot;&quot;&quot;</span>
+    <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;object.cursor_array&quot;</span>
+    <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Cursor Array&quot;</span>
+    <span class="n">bl_options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;REGISTER&#39;</span><span class="p">,</span> <span class="s1">&#39;UNDO&#39;</span><span class="p">}</span>
+
+    <span class="n">total</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">IntProperty</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Steps&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">scene</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">scene</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">cursor_location</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">active</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">total</span><span class="p">):</span>
+            <span class="n">obj_new</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="n">obj_new</span><span class="p">)</span>
+
+            <span class="n">factor</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">total</span>
+            <span class="n">obj_new</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">location</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">cursor</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">factor</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">menu_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">ObjectCursorArray</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">)</span>
+
+<span class="c1"># store keymaps here to access after registration</span>
+<span class="n">addon_keymaps</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">ObjectCursorArray</span><span class="p">)</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">VIEW3D_MT_object</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">menu_func</span><span class="p">)</span>
+
+    <span class="c1"># handle the keymap</span>
+    <span class="n">wm</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">window_manager</span>
+    <span class="c1"># Note that in background mode (no GUI available), keyconfigs are not available either, so we have to check this</span>
+    <span class="c1"># to avoid nasty errors in background case.</span>
+    <span class="n">kc</span> <span class="o">=</span> <span class="n">wm</span><span class="o">.</span><span class="n">keyconfigs</span><span class="o">.</span><span class="n">addon</span>
+    <span class="k">if</span> <span class="n">kc</span><span class="p">:</span>
+        <span class="n">km</span> <span class="o">=</span> <span class="n">wm</span><span class="o">.</span><span class="n">keyconfigs</span><span class="o">.</span><span class="n">addon</span><span class="o">.</span><span class="n">keymaps</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Object Mode&#39;</span><span class="p">,</span> <span class="n">space_type</span><span class="o">=</span><span class="s1">&#39;EMPTY&#39;</span><span class="p">)</span>
+        <span class="n">kmi</span> <span class="o">=</span> <span class="n">km</span><span class="o">.</span><span class="n">keymap_items</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">ObjectCursorArray</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">,</span> <span class="s1">&#39;SPACE&#39;</span><span class="p">,</span> <span class="s1">&#39;PRESS&#39;</span><span class="p">,</span> <span class="n">ctrl</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">kmi</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">total</span> <span class="o">=</span> <span class="mi">4</span>
+        <span class="n">addon_keymaps</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">km</span><span class="p">,</span> <span class="n">kmi</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+    <span class="c1"># Note: when unregistering, it&#39;s usually good practice to do it in reverse order you registered.</span>
+    <span class="c1"># Can avoid strange issues like keymap still referring to operators already unregistered...</span>
+    <span class="c1"># handle the keymap</span>
+    <span class="k">for</span> <span class="n">km</span><span class="p">,</span> <span class="n">kmi</span> <span class="ow">in</span> <span class="n">addon_keymaps</span><span class="p">:</span>
+        <span class="n">km</span><span class="o">.</span><span class="n">keymap_items</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">kmi</span><span class="p">)</span>
+    <span class="n">addon_keymaps</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">ObjectCursorArray</span><span class="p">)</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">VIEW3D_MT_object</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">menu_func</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">register</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/in_menu.png"><img alt="In the menu" class="align-center" src="_images/in_menu.png" style="width: 591px; height: 649px;" /></a>
+<p>Run the script (or save it and add it through the Preferences like before) and it will appear in the menu.</p>
+<a class="reference internal image-reference" href="_images/op_prop.png"><img alt="Operator Property" class="align-center" src="_images/op_prop.png" style="width: 669px; height: 644px;" /></a>
+<p>After selecting it from the menu, you can choose how many instance of the cube you want created.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Directly executing the script multiple times will add the menu each time too.
+While not useful behavior, theres nothing to worry about since addons won&#8217;t register them selves multiple
+times when enabled through the user preferences.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conclusions">
+<h3>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h3>
+<p>Addons can encapsulate certain functionality neatly for writing tools to improve your work-flow or for writing utilities
+for others to use.</p>
+<p>While there are limits to what Python can do within Blender, there is certainly a lot that can be achieved without
+having to dive into Blender&#8217;s C/C++ code.</p>
+<p>The example given in the tutorial is limited, but shows the Blender API used for common tasks that you can expand on
+to write your own tools.</p>
+<div class="section" id="further-reading">
+<h4>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h4>
+<p>Blender comes commented templates which are accessible from the text editor header, if you have specific areas
+you want to see example code for, this is a good place to start.</p>
+<p>Here are some sites you might like to check on after completing this tutorial.</p>
+<ul class="simple">
+<li><a class="reference internal" href="info_overview.html#info-overview"><span class="std std-ref">Blender/Python API Overview</span></a> -
+<em>For more background details on Blender/Python integration.</em></li>
+<li><a class="reference external" href="http://interactivepython.org/courselib/static/thinkcspy/index.html">How to Think Like a Computer Scientist</a> -
+<em>Great info for those who are still learning Python.</em></li>
+<li><a class="reference external" href="http://wiki.blender.org/index.php/Dev:Contents">Blender Development (Wiki)</a> -
+<em>Blender Development, general information and helpful links.</em></li>
+<li><a class="reference external" href="http://blenderartists.org/forum/forumdisplay.php?47-Coding">Blender Artists (Coding Section)</a> -
+<em>forum where people ask Python development questions</em></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Addon Tutorial</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li><a class="reference internal" href="#intended-audience">Intended Audience</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#documentation-links">Documentation Links</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#addons">Addons</a><ul>
+<li><a class="reference internal" href="#what-is-an-addon">What is an Addon?</a></li>
+<li><a class="reference internal" href="#your-first-addon">Your First Addon</a><ul>
+<li><a class="reference internal" href="#write-the-script">Write The Script</a></li>
+<li><a class="reference internal" href="#write-the-addon-simple">Write the Addon (Simple)</a></li>
+<li><a class="reference internal" href="#install-the-addon">Install The Addon</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#your-second-addon">Your Second Addon</a><ul>
+<li><a class="reference internal" href="#id1">Write The Script</a></li>
+<li><a class="reference internal" href="#write-the-addon">Write the Addon</a><ul>
+<li><a class="reference internal" href="#operator-property">Operator Property</a></li>
+<li><a class="reference internal" href="#menu-item">Menu Item</a></li>
+<li><a class="reference internal" href="#keymap">Keymap</a></li>
+<li><a class="reference internal" href="#bringing-it-all-together">Bringing it all together</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#conclusions">Conclusions</a><ul>
+<li><a class="reference internal" href="#further-reading">Further Reading</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="info_overview.html"
+                        title="previous chapter">Python API Overview</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="info_api_reference.html"
+                        title="next chapter">Reference API Usage</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="info_api_reference.html" title="Reference API Usage"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="info_overview.html" title="Python API Overview"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

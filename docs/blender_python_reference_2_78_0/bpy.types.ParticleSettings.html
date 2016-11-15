@@ -1,0 +1,2669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ParticleSettings(ID) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="ParticleSettingsTextureSlot(TextureSlot)" href="bpy.types.ParticleSettingsTextureSlot.html" />
+    <link rel="prev" title="ParticleKey(bpy_struct)" href="bpy.types.ParticleKey.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ParticleSettingsTextureSlot.html" title="ParticleSettingsTextureSlot(TextureSlot)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ParticleKey.html" title="ParticleKey(bpy_struct)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="particlesettings-id"></span><h1>ParticleSettings(ID)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base classes &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal"><span class="pre">ID</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.ParticleSettings">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">ParticleSettings</code><span class="sig-paren">(</span><em>ID</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ParticleSettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Particle settings, reusable by multiple particle systems</p>
+<dl class="data">
+<dt id="bpy.types.ParticleSettings.active_dupliweight">
+<code class="descname">active_dupliweight</code><a class="headerlink" href="#bpy.types.ParticleSettings.active_dupliweight" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.ParticleDupliWeight.html#bpy.types.ParticleDupliWeight" title="bpy.types.ParticleDupliWeight"><code class="xref py py-class docutils literal"><span class="pre">ParticleDupliWeight</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.active_dupliweight_index">
+<code class="descname">active_dupliweight_index</code><a class="headerlink" href="#bpy.types.ParticleSettings.active_dupliweight_index" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, inf], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.active_texture">
+<code class="descname">active_texture</code><a class="headerlink" href="#bpy.types.ParticleSettings.active_texture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Active texture slot being displayed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Texture.html#bpy.types.Texture" title="bpy.types.Texture"><code class="xref py py-class docutils literal"><span class="pre">Texture</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.active_texture_index">
+<code class="descname">active_texture_index</code><a class="headerlink" href="#bpy.types.ParticleSettings.active_texture_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Index of active texture slot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 17], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.adaptive_angle">
+<code class="descname">adaptive_angle</code><a class="headerlink" href="#bpy.types.ParticleSettings.adaptive_angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>How many degrees path has to curve to make another render segment</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 45], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.adaptive_pixel">
+<code class="descname">adaptive_pixel</code><a class="headerlink" href="#bpy.types.ParticleSettings.adaptive_pixel" title="Permalink to this definition">¶</a></dt>
+<dd><p>How many pixels path has to cover to make another render segment</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 50], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.angular_velocity_factor">
+<code class="descname">angular_velocity_factor</code><a class="headerlink" href="#bpy.types.ParticleSettings.angular_velocity_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Angular velocity amount (in radians per second)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-200, 200], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.angular_velocity_mode">
+<code class="descname">angular_velocity_mode</code><a class="headerlink" href="#bpy.types.ParticleSettings.angular_velocity_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>What axis is used to change particle rotation with time</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;VELOCITY&#8217;, &#8216;HORIZONTAL&#8217;, &#8216;VERTICAL&#8217;, &#8216;GLOBAL_X&#8217;, &#8216;GLOBAL_Y&#8217;, &#8216;GLOBAL_Z&#8217;, &#8216;RAND&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.ParticleSettings.animation_data">
+<code class="descname">animation_data</code><a class="headerlink" href="#bpy.types.ParticleSettings.animation_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Animation data for this data-block</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.AnimData.html#bpy.types.AnimData" title="bpy.types.AnimData"><code class="xref py py-class docutils literal"><span class="pre">AnimData</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.apply_effector_to_children">
+<code class="descname">apply_effector_to_children</code><a class="headerlink" href="#bpy.types.ParticleSettings.apply_effector_to_children" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply effectors to children</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.apply_guide_to_children">
+<code class="descname">apply_guide_to_children</code><a class="headerlink" href="#bpy.types.ParticleSettings.apply_guide_to_children" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.bending_random">
+<code class="descname">bending_random</code><a class="headerlink" href="#bpy.types.ParticleSettings.bending_random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Random stiffness of hairs</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.billboard_align">
+<code class="descname">billboard_align</code><a class="headerlink" href="#bpy.types.ParticleSettings.billboard_align" title="Permalink to this definition">¶</a></dt>
+<dd><p>In respect to what the billboards are aligned</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;X&#8217;, &#8216;Y&#8217;, &#8216;Z&#8217;, &#8216;VIEW&#8217;, &#8216;VEL&#8217;], default &#8216;X&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.billboard_animation">
+<code class="descname">billboard_animation</code><a class="headerlink" href="#bpy.types.ParticleSettings.billboard_animation" title="Permalink to this definition">¶</a></dt>
+<dd><p>How to animate billboard textures</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;AGE&#8217;, &#8216;FRAME&#8217;, &#8216;ANGLE&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.billboard_object">
+<code class="descname">billboard_object</code><a class="headerlink" href="#bpy.types.ParticleSettings.billboard_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Billboards face this object (default is active camera)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal"><span class="pre">Object</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.billboard_offset">
+<code class="descname">billboard_offset</code><a class="headerlink" href="#bpy.types.ParticleSettings.billboard_offset" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 2 items in [-100, 100], default (0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.billboard_offset_split">
+<code class="descname">billboard_offset_split</code><a class="headerlink" href="#bpy.types.ParticleSettings.billboard_offset_split" title="Permalink to this definition">¶</a></dt>
+<dd><p>How to offset billboard textures</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;LINEAR&#8217;, &#8216;RANDOM&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.billboard_size">
+<code class="descname">billboard_size</code><a class="headerlink" href="#bpy.types.ParticleSettings.billboard_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale billboards relative to particle size</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 2 items in [0.001, 10], default (0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.billboard_tilt">
+<code class="descname">billboard_tilt</code><a class="headerlink" href="#bpy.types.ParticleSettings.billboard_tilt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tilt of the billboards</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-1, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.billboard_tilt_random">
+<code class="descname">billboard_tilt_random</code><a class="headerlink" href="#bpy.types.ParticleSettings.billboard_tilt_random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Random tilt of the billboards</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.billboard_uv_split">
+<code class="descname">billboard_uv_split</code><a class="headerlink" href="#bpy.types.ParticleSettings.billboard_uv_split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of rows/columns to split UV coordinates for billboards</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 100], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.billboard_velocity_head">
+<code class="descname">billboard_velocity_head</code><a class="headerlink" href="#bpy.types.ParticleSettings.billboard_velocity_head" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale billboards by velocity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 10], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.billboard_velocity_tail">
+<code class="descname">billboard_velocity_tail</code><a class="headerlink" href="#bpy.types.ParticleSettings.billboard_velocity_tail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale billboards by velocity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 10], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.ParticleSettings.boids">
+<code class="descname">boids</code><a class="headerlink" href="#bpy.types.ParticleSettings.boids" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BoidSettings.html#bpy.types.BoidSettings" title="bpy.types.BoidSettings"><code class="xref py py-class docutils literal"><span class="pre">BoidSettings</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.branch_threshold">
+<code class="descname">branch_threshold</code><a class="headerlink" href="#bpy.types.ParticleSettings.branch_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Threshold of branching</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.brownian_factor">
+<code class="descname">brownian_factor</code><a class="headerlink" href="#bpy.types.ParticleSettings.brownian_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of random, erratic particle movement</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 200], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.child_length">
+<code class="descname">child_length</code><a class="headerlink" href="#bpy.types.ParticleSettings.child_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Length of child paths</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.child_length_threshold">
+<code class="descname">child_length_threshold</code><a class="headerlink" href="#bpy.types.ParticleSettings.child_length_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of particles left untouched by child path length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.child_nbr">
+<code class="descname">child_nbr</code><a class="headerlink" href="#bpy.types.ParticleSettings.child_nbr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of children/parent</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 100000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.child_parting_factor">
+<code class="descname">child_parting_factor</code><a class="headerlink" href="#bpy.types.ParticleSettings.child_parting_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create parting in the children based on parent strands</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.child_parting_max">
+<code class="descname">child_parting_max</code><a class="headerlink" href="#bpy.types.ParticleSettings.child_parting_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum root to tip angle (tip distance/root distance for long hair)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 180], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.child_parting_min">
+<code class="descname">child_parting_min</code><a class="headerlink" href="#bpy.types.ParticleSettings.child_parting_min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimum root to tip angle (tip distance/root distance for long hair)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 180], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.child_radius">
+<code class="descname">child_radius</code><a class="headerlink" href="#bpy.types.ParticleSettings.child_radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Radius of children around parent</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 10], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.child_roundness">
+<code class="descname">child_roundness</code><a class="headerlink" href="#bpy.types.ParticleSettings.child_roundness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Roundness of children around parent</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.child_size">
+<code class="descname">child_size</code><a class="headerlink" href="#bpy.types.ParticleSettings.child_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>A multiplier for the child particle size</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.001, 100000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.child_size_random">
+<code class="descname">child_size_random</code><a class="headerlink" href="#bpy.types.ParticleSettings.child_size_random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Random variation to the size of the child particles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.child_type">
+<code class="descname">child_type</code><a class="headerlink" href="#bpy.types.ParticleSettings.child_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create child particles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;SIMPLE&#8217;, &#8216;INTERPOLATED&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.ParticleSettings.clump_curve">
+<code class="descname">clump_curve</code><a class="headerlink" href="#bpy.types.ParticleSettings.clump_curve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Curve defining clump tapering</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.CurveMapping.html#bpy.types.CurveMapping" title="bpy.types.CurveMapping"><code class="xref py py-class docutils literal"><span class="pre">CurveMapping</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.clump_factor">
+<code class="descname">clump_factor</code><a class="headerlink" href="#bpy.types.ParticleSettings.clump_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of clumping</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-1, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.clump_noise_size">
+<code class="descname">clump_noise_size</code><a class="headerlink" href="#bpy.types.ParticleSettings.clump_noise_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of clump noise</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [1e-05, 100000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.clump_shape">
+<code class="descname">clump_shape</code><a class="headerlink" href="#bpy.types.ParticleSettings.clump_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shape of clumping</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-0.999, 0.999], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.collision_group">
+<code class="descname">collision_group</code><a class="headerlink" href="#bpy.types.ParticleSettings.collision_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Limit colliders to this Group</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Group.html#bpy.types.Group" title="bpy.types.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.color_maximum">
+<code class="descname">color_maximum</code><a class="headerlink" href="#bpy.types.ParticleSettings.color_maximum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum length of the particle color vector</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.01, 100], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.count">
+<code class="descname">count</code><a class="headerlink" href="#bpy.types.ParticleSettings.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of particles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 10000000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.courant_target">
+<code class="descname">courant_target</code><a class="headerlink" href="#bpy.types.ParticleSettings.courant_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>The relative distance a particle can move before requiring more subframes (target Courant number); 0.01-0.3 is the recommended range</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.0001, 10], default 0.1</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.create_long_hair_children">
+<code class="descname">create_long_hair_children</code><a class="headerlink" href="#bpy.types.ParticleSettings.create_long_hair_children" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate children that suit long hair well</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.ParticleSettings.cycles">
+<code class="descname">cycles</code><a class="headerlink" href="#bpy.types.ParticleSettings.cycles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycles hair settings</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.CyclesCurveSettings.html#bpy.types.CyclesCurveSettings" title="bpy.types.CyclesCurveSettings"><code class="xref py py-class docutils literal"><span class="pre">CyclesCurveSettings</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.damping">
+<code class="descname">damping</code><a class="headerlink" href="#bpy.types.ParticleSettings.damping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of damping</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.distribution">
+<code class="descname">distribution</code><a class="headerlink" href="#bpy.types.ParticleSettings.distribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>How to distribute particles on selected element</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;JIT&#8217;, &#8216;RAND&#8217;, &#8216;GRID&#8217;], default &#8216;JIT&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.drag_factor">
+<code class="descname">drag_factor</code><a class="headerlink" href="#bpy.types.ParticleSettings.drag_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of air-drag</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.draw_color">
+<code class="descname">draw_color</code><a class="headerlink" href="#bpy.types.ParticleSettings.draw_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw additional particle data as a color</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;MATERIAL&#8217;, &#8216;VELOCITY&#8217;, &#8216;ACCELERATION&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.draw_method">
+<code class="descname">draw_method</code><a class="headerlink" href="#bpy.types.ParticleSettings.draw_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>How particles are drawn in viewport</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;RENDER&#8217;, &#8216;DOT&#8217;, &#8216;CIRC&#8217;, &#8216;CROSS&#8217;, &#8216;AXIS&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.draw_percentage">
+<code class="descname">draw_percentage</code><a class="headerlink" href="#bpy.types.ParticleSettings.draw_percentage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Percentage of particles to display in 3D view</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 100], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.draw_size">
+<code class="descname">draw_size</code><a class="headerlink" href="#bpy.types.ParticleSettings.draw_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of particles on viewport in pixels (0=default)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 1000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.draw_step">
+<code class="descname">draw_step</code><a class="headerlink" href="#bpy.types.ParticleSettings.draw_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>How many steps paths are drawn with (power of 2)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 10], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.dupli_group">
+<code class="descname">dupli_group</code><a class="headerlink" href="#bpy.types.ParticleSettings.dupli_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show Objects in this Group in place of particles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Group.html#bpy.types.Group" title="bpy.types.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.dupli_object">
+<code class="descname">dupli_object</code><a class="headerlink" href="#bpy.types.ParticleSettings.dupli_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show this Object in place of particles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal"><span class="pre">Object</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.ParticleSettings.dupli_weights">
+<code class="descname">dupli_weights</code><a class="headerlink" href="#bpy.types.ParticleSettings.dupli_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Weights for all of the objects in the dupli group</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.ParticleDupliWeight.html#bpy.types.ParticleDupliWeight" title="bpy.types.ParticleDupliWeight"><code class="xref py py-class docutils literal"><span class="pre">ParticleDupliWeight</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.effect_hair">
+<code class="descname">effect_hair</code><a class="headerlink" href="#bpy.types.ParticleSettings.effect_hair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hair stiffness for effectors</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.effector_amount">
+<code class="descname">effector_amount</code><a class="headerlink" href="#bpy.types.ParticleSettings.effector_amount" title="Permalink to this definition">¶</a></dt>
+<dd><p>How many particles are effectors (0 is all particles)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 10000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.ParticleSettings.effector_weights">
+<code class="descname">effector_weights</code><a class="headerlink" href="#bpy.types.ParticleSettings.effector_weights" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.EffectorWeights.html#bpy.types.EffectorWeights" title="bpy.types.EffectorWeights"><code class="xref py py-class docutils literal"><span class="pre">EffectorWeights</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.emit_from">
+<code class="descname">emit_from</code><a class="headerlink" href="#bpy.types.ParticleSettings.emit_from" title="Permalink to this definition">¶</a></dt>
+<dd><p>Where to emit particles from</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;VERT&#8217;, &#8216;FACE&#8217;, &#8216;VOLUME&#8217;], default &#8216;VERT&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.factor_random">
+<code class="descname">factor_random</code><a class="headerlink" href="#bpy.types.ParticleSettings.factor_random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give the starting velocity a random variation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 200], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.ParticleSettings.fluid">
+<code class="descname">fluid</code><a class="headerlink" href="#bpy.types.ParticleSettings.fluid" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.SPHFluidSettings.html#bpy.types.SPHFluidSettings" title="bpy.types.SPHFluidSettings"><code class="xref py py-class docutils literal"><span class="pre">SPHFluidSettings</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.ParticleSettings.force_field_1">
+<code class="descname">force_field_1</code><a class="headerlink" href="#bpy.types.ParticleSettings.force_field_1" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.FieldSettings.html#bpy.types.FieldSettings" title="bpy.types.FieldSettings"><code class="xref py py-class docutils literal"><span class="pre">FieldSettings</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.ParticleSettings.force_field_2">
+<code class="descname">force_field_2</code><a class="headerlink" href="#bpy.types.ParticleSettings.force_field_2" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.FieldSettings.html#bpy.types.FieldSettings" title="bpy.types.FieldSettings"><code class="xref py py-class docutils literal"><span class="pre">FieldSettings</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.frame_end">
+<code class="descname">frame_end</code><a class="headerlink" href="#bpy.types.ParticleSettings.frame_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Frame number to stop emitting particles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-500000, 500000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.frame_start">
+<code class="descname">frame_start</code><a class="headerlink" href="#bpy.types.ParticleSettings.frame_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Frame number to start emitting particles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-500000, 500000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.grid_random">
+<code class="descname">grid_random</code><a class="headerlink" href="#bpy.types.ParticleSettings.grid_random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add random offset to the grid locations</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.grid_resolution">
+<code class="descname">grid_resolution</code><a class="headerlink" href="#bpy.types.ParticleSettings.grid_resolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>The resolution of the particle grid</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 250], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.hair_length">
+<code class="descname">hair_length</code><a class="headerlink" href="#bpy.types.ParticleSettings.hair_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Length of the hair</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.hair_step">
+<code class="descname">hair_step</code><a class="headerlink" href="#bpy.types.ParticleSettings.hair_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of hair segments</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [2, 50], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.hexagonal_grid">
+<code class="descname">hexagonal_grid</code><a class="headerlink" href="#bpy.types.ParticleSettings.hexagonal_grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the grid in a hexagonal pattern</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.integrator">
+<code class="descname">integrator</code><a class="headerlink" href="#bpy.types.ParticleSettings.integrator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Algorithm used to calculate physics, from the fastest to the most stable/accurate: Midpoint, Euler, Verlet, RK4 (Old)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;EULER&#8217;, &#8216;VERLET&#8217;, &#8216;MIDPOINT&#8217;, &#8216;RK4&#8217;], default &#8216;EULER&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.invert_grid">
+<code class="descname">invert_grid</code><a class="headerlink" href="#bpy.types.ParticleSettings.invert_grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invert what is considered object and what is not</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.ParticleSettings.is_fluid">
+<code class="descname">is_fluid</code><a class="headerlink" href="#bpy.types.ParticleSettings.is_fluid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Particles were created by a fluid simulation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.jitter_factor">
+<code class="descname">jitter_factor</code><a class="headerlink" href="#bpy.types.ParticleSettings.jitter_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of jitter applied to the sampling</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 2], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.keyed_loops">
+<code class="descname">keyed_loops</code><a class="headerlink" href="#bpy.types.ParticleSettings.keyed_loops" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of times the keys are looped</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 10000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.keys_step">
+<code class="descname">keys_step</code><a class="headerlink" href="#bpy.types.ParticleSettings.keys_step" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 32767], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.kink">
+<code class="descname">kink</code><a class="headerlink" href="#bpy.types.ParticleSettings.kink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of periodic offset on the path</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NO&#8217;, &#8216;CURL&#8217;, &#8216;RADIAL&#8217;, &#8216;WAVE&#8217;, &#8216;BRAID&#8217;, &#8216;SPIRAL&#8217;], default &#8216;NO&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.kink_amplitude">
+<code class="descname">kink_amplitude</code><a class="headerlink" href="#bpy.types.ParticleSettings.kink_amplitude" title="Permalink to this definition">¶</a></dt>
+<dd><p>The amplitude of the offset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-100000, 100000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.kink_amplitude_clump">
+<code class="descname">kink_amplitude_clump</code><a class="headerlink" href="#bpy.types.ParticleSettings.kink_amplitude_clump" title="Permalink to this definition">¶</a></dt>
+<dd><p>How much clump affects kink amplitude</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.kink_amplitude_random">
+<code class="descname">kink_amplitude_random</code><a class="headerlink" href="#bpy.types.ParticleSettings.kink_amplitude_random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Random variation of the amplitude</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.kink_axis">
+<code class="descname">kink_axis</code><a class="headerlink" href="#bpy.types.ParticleSettings.kink_axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Which axis to use for offset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;X&#8217;, &#8216;Y&#8217;, &#8216;Z&#8217;], default &#8216;X&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.kink_axis_random">
+<code class="descname">kink_axis_random</code><a class="headerlink" href="#bpy.types.ParticleSettings.kink_axis_random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Random variation of the orientation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.kink_extra_steps">
+<code class="descname">kink_extra_steps</code><a class="headerlink" href="#bpy.types.ParticleSettings.kink_extra_steps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extra steps for resolution of special kink features</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, inf], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.kink_flat">
+<code class="descname">kink_flat</code><a class="headerlink" href="#bpy.types.ParticleSettings.kink_flat" title="Permalink to this definition">¶</a></dt>
+<dd><p>How flat the hairs are</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.kink_frequency">
+<code class="descname">kink_frequency</code><a class="headerlink" href="#bpy.types.ParticleSettings.kink_frequency" title="Permalink to this definition">¶</a></dt>
+<dd><p>The frequency of the offset (1/total length)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-100000, 100000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.kink_shape">
+<code class="descname">kink_shape</code><a class="headerlink" href="#bpy.types.ParticleSettings.kink_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjust the offset to the beginning/end</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-0.999, 0.999], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.length_random">
+<code class="descname">length_random</code><a class="headerlink" href="#bpy.types.ParticleSettings.length_random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give path length a random variation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.lifetime">
+<code class="descname">lifetime</code><a class="headerlink" href="#bpy.types.ParticleSettings.lifetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Life span of the particles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [1, 500000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.lifetime_random">
+<code class="descname">lifetime_random</code><a class="headerlink" href="#bpy.types.ParticleSettings.lifetime_random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give the particle life a random variation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.line_length_head">
+<code class="descname">line_length_head</code><a class="headerlink" href="#bpy.types.ParticleSettings.line_length_head" title="Permalink to this definition">¶</a></dt>
+<dd><p>Length of the line&#8217;s head</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 100000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.line_length_tail">
+<code class="descname">line_length_tail</code><a class="headerlink" href="#bpy.types.ParticleSettings.line_length_tail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Length of the line&#8217;s tail</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 100000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.lock_billboard">
+<code class="descname">lock_billboard</code><a class="headerlink" href="#bpy.types.ParticleSettings.lock_billboard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lock the billboards align axis</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.lock_boids_to_surface">
+<code class="descname">lock_boids_to_surface</code><a class="headerlink" href="#bpy.types.ParticleSettings.lock_boids_to_surface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constrain boids to a surface</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.mass">
+<code class="descname">mass</code><a class="headerlink" href="#bpy.types.ParticleSettings.mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mass of the particles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [1e-08, 100000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.material">
+<code class="descname">material</code><a class="headerlink" href="#bpy.types.ParticleSettings.material" title="Permalink to this definition">¶</a></dt>
+<dd><p>Index of material slot used for rendering particles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 32767], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.material_slot">
+<code class="descname">material_slot</code><a class="headerlink" href="#bpy.types.ParticleSettings.material_slot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Material slot used for rendering particles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;DUMMY&#8217;], default &#8216;DUMMY&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.normal_factor">
+<code class="descname">normal_factor</code><a class="headerlink" href="#bpy.types.ParticleSettings.normal_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Let the surface normal give the particle a starting velocity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-1000, 1000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.object_align_factor">
+<code class="descname">object_align_factor</code><a class="headerlink" href="#bpy.types.ParticleSettings.object_align_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Let the emitter object orientation give the particle a starting velocity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 3 items in [-200, 200], default (0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.object_factor">
+<code class="descname">object_factor</code><a class="headerlink" href="#bpy.types.ParticleSettings.object_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Let the object give the particle a starting velocity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-200, 200], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.particle_factor">
+<code class="descname">particle_factor</code><a class="headerlink" href="#bpy.types.ParticleSettings.particle_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Let the target particle give the particle a starting velocity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-200, 200], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.particle_size">
+<code class="descname">particle_size</code><a class="headerlink" href="#bpy.types.ParticleSettings.particle_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of the particles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.001, 100000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.path_end">
+<code class="descname">path_end</code><a class="headerlink" href="#bpy.types.ParticleSettings.path_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>End time of drawn path</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.path_start">
+<code class="descname">path_start</code><a class="headerlink" href="#bpy.types.ParticleSettings.path_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starting time of drawn path</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.phase_factor">
+<code class="descname">phase_factor</code><a class="headerlink" href="#bpy.types.ParticleSettings.phase_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotation around the chosen orientation axis</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-1, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.phase_factor_random">
+<code class="descname">phase_factor_random</code><a class="headerlink" href="#bpy.types.ParticleSettings.phase_factor_random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Randomize rotation around the chosen orientation axis</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 2], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.physics_type">
+<code class="descname">physics_type</code><a class="headerlink" href="#bpy.types.ParticleSettings.physics_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Particle physics type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NO&#8217;, &#8216;NEWTON&#8217;, &#8216;KEYED&#8217;, &#8216;BOIDS&#8217;, &#8216;FLUID&#8217;], default &#8216;NO&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.react_event">
+<code class="descname">react_event</code><a class="headerlink" href="#bpy.types.ParticleSettings.react_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>The event of target particles to react on</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;DEATH&#8217;, &#8216;COLLIDE&#8217;, &#8216;NEAR&#8217;], default &#8216;DEATH&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.reactor_factor">
+<code class="descname">reactor_factor</code><a class="headerlink" href="#bpy.types.ParticleSettings.reactor_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Let the vector away from the target particle&#8217;s location give the particle a starting velocity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-10, 10], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.regrow_hair">
+<code class="descname">regrow_hair</code><a class="headerlink" href="#bpy.types.ParticleSettings.regrow_hair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Regrow hair for each frame</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.render_step">
+<code class="descname">render_step</code><a class="headerlink" href="#bpy.types.ParticleSettings.render_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>How many steps paths are rendered with (power of 2)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 20], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.render_type">
+<code class="descname">render_type</code><a class="headerlink" href="#bpy.types.ParticleSettings.render_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>How particles are rendered</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;HALO&#8217;, &#8216;LINE&#8217;, &#8216;PATH&#8217;, &#8216;OBJECT&#8217;, &#8216;GROUP&#8217;, &#8216;BILLBOARD&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.rendered_child_count">
+<code class="descname">rendered_child_count</code><a class="headerlink" href="#bpy.types.ParticleSettings.rendered_child_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of children/parent for rendering</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 100000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.rotation_factor_random">
+<code class="descname">rotation_factor_random</code><a class="headerlink" href="#bpy.types.ParticleSettings.rotation_factor_random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Randomize particle orientation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.rotation_mode">
+<code class="descname">rotation_mode</code><a class="headerlink" href="#bpy.types.ParticleSettings.rotation_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Particle orientation axis (does not affect Explode modifier&#8217;s results)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;NOR&#8217;, &#8216;NOR_TAN&#8217;, &#8216;VEL&#8217;, &#8216;GLOB_X&#8217;, &#8216;GLOB_Y&#8217;, &#8216;GLOB_Z&#8217;, &#8216;OB_X&#8217;, &#8216;OB_Y&#8217;, &#8216;OB_Z&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.roughness_1">
+<code class="descname">roughness_1</code><a class="headerlink" href="#bpy.types.ParticleSettings.roughness_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of location dependent rough</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 100000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.roughness_1_size">
+<code class="descname">roughness_1_size</code><a class="headerlink" href="#bpy.types.ParticleSettings.roughness_1_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of location dependent rough</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.01, 100000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.roughness_2">
+<code class="descname">roughness_2</code><a class="headerlink" href="#bpy.types.ParticleSettings.roughness_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of random rough</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 100000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.roughness_2_size">
+<code class="descname">roughness_2_size</code><a class="headerlink" href="#bpy.types.ParticleSettings.roughness_2_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of random rough</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.01, 100000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.roughness_2_threshold">
+<code class="descname">roughness_2_threshold</code><a class="headerlink" href="#bpy.types.ParticleSettings.roughness_2_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of particles left untouched by random rough</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.ParticleSettings.roughness_curve">
+<code class="descname">roughness_curve</code><a class="headerlink" href="#bpy.types.ParticleSettings.roughness_curve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Curve defining roughness</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.CurveMapping.html#bpy.types.CurveMapping" title="bpy.types.CurveMapping"><code class="xref py py-class docutils literal"><span class="pre">CurveMapping</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.roughness_end_shape">
+<code class="descname">roughness_end_shape</code><a class="headerlink" href="#bpy.types.ParticleSettings.roughness_end_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shape of end point rough</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 10], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.roughness_endpoint">
+<code class="descname">roughness_endpoint</code><a class="headerlink" href="#bpy.types.ParticleSettings.roughness_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of end point rough</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 100000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.show_guide_hairs">
+<code class="descname">show_guide_hairs</code><a class="headerlink" href="#bpy.types.ParticleSettings.show_guide_hairs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show guide hairs</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.show_hair_grid">
+<code class="descname">show_hair_grid</code><a class="headerlink" href="#bpy.types.ParticleSettings.show_hair_grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show hair simulation grid</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.show_health">
+<code class="descname">show_health</code><a class="headerlink" href="#bpy.types.ParticleSettings.show_health" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw boid health</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.show_number">
+<code class="descname">show_number</code><a class="headerlink" href="#bpy.types.ParticleSettings.show_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show particle number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.show_size">
+<code class="descname">show_size</code><a class="headerlink" href="#bpy.types.ParticleSettings.show_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show particle size</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.show_unborn">
+<code class="descname">show_unborn</code><a class="headerlink" href="#bpy.types.ParticleSettings.show_unborn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show particles before they are emitted</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.show_velocity">
+<code class="descname">show_velocity</code><a class="headerlink" href="#bpy.types.ParticleSettings.show_velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show particle velocity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.simplify_rate">
+<code class="descname">simplify_rate</code><a class="headerlink" href="#bpy.types.ParticleSettings.simplify_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Speed of simplification</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.simplify_refsize">
+<code class="descname">simplify_refsize</code><a class="headerlink" href="#bpy.types.ParticleSettings.simplify_refsize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference size in pixels, after which simplification begins</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 32767], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.simplify_transition">
+<code class="descname">simplify_transition</code><a class="headerlink" href="#bpy.types.ParticleSettings.simplify_transition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transition period for fading out strands</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.simplify_viewport">
+<code class="descname">simplify_viewport</code><a class="headerlink" href="#bpy.types.ParticleSettings.simplify_viewport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Speed of Simplification</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 0.999], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.size_random">
+<code class="descname">size_random</code><a class="headerlink" href="#bpy.types.ParticleSettings.size_random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give the particle size a random variation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.subframes">
+<code class="descname">subframes</code><a class="headerlink" href="#bpy.types.ParticleSettings.subframes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subframes to simulate for improved stability and finer granularity simulations (dt = timestep / (subframes + 1))</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 1000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.tangent_factor">
+<code class="descname">tangent_factor</code><a class="headerlink" href="#bpy.types.ParticleSettings.tangent_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Let the surface tangent give the particle a starting velocity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-1000, 1000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.tangent_phase">
+<code class="descname">tangent_phase</code><a class="headerlink" href="#bpy.types.ParticleSettings.tangent_phase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate the surface tangent</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-1, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.ParticleSettings.texture_slots">
+<code class="descname">texture_slots</code><a class="headerlink" href="#bpy.types.ParticleSettings.texture_slots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Texture slots defining the mapping and influence of textures</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.ParticleSettingsTextureSlots.html#bpy.types.ParticleSettingsTextureSlots" title="bpy.types.ParticleSettingsTextureSlots"><code class="xref py py-class docutils literal"><span class="pre">ParticleSettingsTextureSlots</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.ParticleSettingsTextureSlot.html#bpy.types.ParticleSettingsTextureSlot" title="bpy.types.ParticleSettingsTextureSlot"><code class="xref py py-class docutils literal"><span class="pre">ParticleSettingsTextureSlot</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.time_tweak">
+<code class="descname">time_tweak</code><a class="headerlink" href="#bpy.types.ParticleSettings.time_tweak" title="Permalink to this definition">¶</a></dt>
+<dd><p>A multiplier for physics timestep (1.0 means one frame = 1/25 seconds)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 100], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.timestep">
+<code class="descname">timestep</code><a class="headerlink" href="#bpy.types.ParticleSettings.timestep" title="Permalink to this definition">¶</a></dt>
+<dd><p>The simulation timestep per frame (seconds per frame)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.0001, 100], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.trail_count">
+<code class="descname">trail_count</code><a class="headerlink" href="#bpy.types.ParticleSettings.trail_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of trail particles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 100000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.type">
+<code class="descname">type</code><a class="headerlink" href="#bpy.types.ParticleSettings.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Particle Type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;EMITTER&#8217;, &#8216;HAIR&#8217;], default &#8216;EMITTER&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_absolute_path_time">
+<code class="descname">use_absolute_path_time</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_absolute_path_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path timing is in absolute frames</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_adaptive_subframes">
+<code class="descname">use_adaptive_subframes</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_adaptive_subframes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatically set the number of subframes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_advanced_hair">
+<code class="descname">use_advanced_hair</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_advanced_hair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use full physics calculations for growing hair</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_clump_curve">
+<code class="descname">use_clump_curve</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_clump_curve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use a curve to define clump tapering</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_clump_noise">
+<code class="descname">use_clump_noise</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_clump_noise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create random clumps around the parent</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_dead">
+<code class="descname">use_dead</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_dead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show particles after they have died</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_die_on_collision">
+<code class="descname">use_die_on_collision</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_die_on_collision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Particles die when they collide with a deflector object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_dynamic_rotation">
+<code class="descname">use_dynamic_rotation</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_dynamic_rotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Particle rotations are affected by collisions and effectors</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_emit_random">
+<code class="descname">use_emit_random</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_emit_random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit in random order of elements</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_even_distribution">
+<code class="descname">use_even_distribution</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_even_distribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use even distribution from faces based on face areas or edge lengths</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_global_dupli">
+<code class="descname">use_global_dupli</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_global_dupli" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use object&#8217;s global coordinates for duplication</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_group_count">
+<code class="descname">use_group_count</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_group_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use object multiple times in the same group</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_group_pick_random">
+<code class="descname">use_group_pick_random</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_group_pick_random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pick objects from group randomly</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_hair_bspline">
+<code class="descname">use_hair_bspline</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_hair_bspline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolate hair using B-Splines</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_modifier_stack">
+<code class="descname">use_modifier_stack</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_modifier_stack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit particles from mesh with modifiers applied (must use same subsurf level for viewport and render for correct results)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_multiply_size_mass">
+<code class="descname">use_multiply_size_mass</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_multiply_size_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiply mass by particle size</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_parent_particles">
+<code class="descname">use_parent_particles</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_parent_particles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render parent particles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_react_multiple">
+<code class="descname">use_react_multiple</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_react_multiple" title="Permalink to this definition">¶</a></dt>
+<dd><p>React multiple times</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_react_start_end">
+<code class="descname">use_react_start_end</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_react_start_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give birth to unreacted particles eventually</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_render_adaptive">
+<code class="descname">use_render_adaptive</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_render_adaptive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw steps of the particle path</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_render_emitter">
+<code class="descname">use_render_emitter</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_render_emitter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render emitter Object also</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_rotation_dupli">
+<code class="descname">use_rotation_dupli</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_rotation_dupli" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use object&#8217;s rotation for duplication (global x-axis is aligned particle rotation axis)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_rotations">
+<code class="descname">use_rotations</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_rotations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate particle rotations</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_roughness_curve">
+<code class="descname">use_roughness_curve</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_roughness_curve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use a curve to define roughness</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_scale_dupli">
+<code class="descname">use_scale_dupli</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_scale_dupli" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use object&#8217;s scale for duplication</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_self_effect">
+<code class="descname">use_self_effect</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_self_effect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Particle effectors affect themselves</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_simplify">
+<code class="descname">use_simplify</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_simplify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove child strands as the object becomes smaller on the screen</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_simplify_viewport">
+<code class="descname">use_simplify_viewport</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_simplify_viewport" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_size_deflect">
+<code class="descname">use_size_deflect</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_size_deflect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use particle&#8217;s size in deflection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_strand_primitive">
+<code class="descname">use_strand_primitive</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_strand_primitive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use the strand primitive for rendering</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_velocity_length">
+<code class="descname">use_velocity_length</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_velocity_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiply line length by particle speed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.use_whole_group">
+<code class="descname">use_whole_group</code><a class="headerlink" href="#bpy.types.ParticleSettings.use_whole_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use whole group at once</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.userjit">
+<code class="descname">userjit</code><a class="headerlink" href="#bpy.types.ParticleSettings.userjit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emission locations / face (0 = automatic)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 1000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ParticleSettings.virtual_parents">
+<code class="descname">virtual_parents</code><a class="headerlink" href="#bpy.types.ParticleSettings.virtual_parents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Relative amount of virtual parents</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.name" title="bpy.types.ID.name"><code class="xref py py-class docutils literal"><span class="pre">ID.name</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.users" title="bpy.types.ID.users"><code class="xref py py-class docutils literal"><span class="pre">ID.users</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.use_fake_user" title="bpy.types.ID.use_fake_user"><code class="xref py py-class docutils literal"><span class="pre">ID.use_fake_user</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.tag" title="bpy.types.ID.tag"><code class="xref py py-class docutils literal"><span class="pre">ID.tag</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_updated" title="bpy.types.ID.is_updated"><code class="xref py py-class docutils literal"><span class="pre">ID.is_updated</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_updated_data" title="bpy.types.ID.is_updated_data"><code class="xref py py-class docutils literal"><span class="pre">ID.is_updated_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_library_indirect" title="bpy.types.ID.is_library_indirect"><code class="xref py py-class docutils literal"><span class="pre">ID.is_library_indirect</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.library" title="bpy.types.ID.library"><code class="xref py py-class docutils literal"><span class="pre">ID.library</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.preview" title="bpy.types.ID.preview"><code class="xref py py-class docutils literal"><span class="pre">ID.preview</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.copy" title="bpy.types.ID.copy"><code class="xref py py-class docutils literal"><span class="pre">ID.copy</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_clear" title="bpy.types.ID.user_clear"><code class="xref py py-class docutils literal"><span class="pre">ID.user_clear</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_remap" title="bpy.types.ID.user_remap"><code class="xref py py-class docutils literal"><span class="pre">ID.user_remap</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_of_id" title="bpy.types.ID.user_of_id"><code class="xref py py-class docutils literal"><span class="pre">ID.user_of_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.animation_data_create" title="bpy.types.ID.animation_data_create"><code class="xref py py-class docutils literal"><span class="pre">ID.animation_data_create</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.animation_data_clear" title="bpy.types.ID.animation_data_clear"><code class="xref py py-class docutils literal"><span class="pre">ID.animation_data_clear</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.update_tag" title="bpy.types.ID.update_tag"><code class="xref py py-class docutils literal"><span class="pre">ID.update_tag</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.context.html#bpy.context.particle_settings" title="bpy.context.particle_settings"><code class="xref py py-mod docutils literal"><span class="pre">bpy.context.particle_settings</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.BlendData.html#bpy.types.BlendData.particles" title="bpy.types.BlendData.particles"><code class="xref py py-class docutils literal"><span class="pre">BlendData.particles</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.BlendDataParticles.html#bpy.types.BlendDataParticles.new" title="bpy.types.BlendDataParticles.new"><code class="xref py py-class docutils literal"><span class="pre">BlendDataParticles.new</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.BlendDataParticles.html#bpy.types.BlendDataParticles.remove" title="bpy.types.BlendDataParticles.remove"><code class="xref py py-class docutils literal"><span class="pre">BlendDataParticles.remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ParticleSystem.html#bpy.types.ParticleSystem.settings" title="bpy.types.ParticleSystem.settings"><code class="xref py py-class docutils literal"><span class="pre">ParticleSystem.settings</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.ParticleKey.html"
+                        title="previous chapter">ParticleKey(bpy_struct)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.ParticleSettingsTextureSlot.html"
+                        title="next chapter">ParticleSettingsTextureSlot(TextureSlot)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ParticleSettingsTextureSlot.html" title="ParticleSettingsTextureSlot(TextureSlot)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ParticleKey.html" title="ParticleKey(bpy_struct)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ImageUser(bpy_struct) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="ImapaintToolCapabilities(bpy_struct)" href="bpy.types.ImapaintToolCapabilities.html" />
+    <link rel="prev" title="ImageTexture(Texture)" href="bpy.types.ImageTexture.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ImapaintToolCapabilities.html" title="ImapaintToolCapabilities(bpy_struct)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ImageTexture.html" title="ImageTexture(Texture)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="imageuser-bpy-struct"></span><h1>ImageUser(bpy_struct)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.ImageUser">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">ImageUser</code><span class="sig-paren">(</span><em>bpy_struct</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ImageUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parameters defining how an Image data-block is used by another data-block</p>
+<dl class="attribute">
+<dt id="bpy.types.ImageUser.fields_per_frame">
+<code class="descname">fields_per_frame</code><a class="headerlink" href="#bpy.types.ImageUser.fields_per_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of fields per rendered frame (2 fields is 1 image)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 200], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ImageUser.frame_current">
+<code class="descname">frame_current</code><a class="headerlink" href="#bpy.types.ImageUser.frame_current" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current frame number in image sequence or movie</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-500000, 500000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ImageUser.frame_duration">
+<code class="descname">frame_duration</code><a class="headerlink" href="#bpy.types.ImageUser.frame_duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of images of a movie to use</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 500000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ImageUser.frame_offset">
+<code class="descname">frame_offset</code><a class="headerlink" href="#bpy.types.ImageUser.frame_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Offset the number of the frame to use in the animation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-inf, inf], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ImageUser.frame_start">
+<code class="descname">frame_start</code><a class="headerlink" href="#bpy.types.ImageUser.frame_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Global starting frame of the movie/sequence, assuming first picture has a #1</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-500000, 500000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.ImageUser.multilayer_layer">
+<code class="descname">multilayer_layer</code><a class="headerlink" href="#bpy.types.ImageUser.multilayer_layer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer in multilayer image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 32767], default 0, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.ImageUser.multilayer_pass">
+<code class="descname">multilayer_pass</code><a class="headerlink" href="#bpy.types.ImageUser.multilayer_pass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pass in multilayer image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 32767], default 0, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.ImageUser.multilayer_view">
+<code class="descname">multilayer_view</code><a class="headerlink" href="#bpy.types.ImageUser.multilayer_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>View in multilayer image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 32767], default 0, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ImageUser.use_auto_refresh">
+<code class="descname">use_auto_refresh</code><a class="headerlink" href="#bpy.types.ImageUser.use_auto_refresh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Always refresh image on frame changes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ImageUser.use_cyclic">
+<code class="descname">use_cyclic</code><a class="headerlink" href="#bpy.types.ImageUser.use_cyclic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycle the images in the movie</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.BackgroundImage.html#bpy.types.BackgroundImage.image_user" title="bpy.types.BackgroundImage.image_user"><code class="xref py py-class docutils literal"><span class="pre">BackgroundImage.image_user</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.EnvironmentMapTexture.html#bpy.types.EnvironmentMapTexture.image_user" title="bpy.types.EnvironmentMapTexture.image_user"><code class="xref py py-class docutils literal"><span class="pre">EnvironmentMapTexture.image_user</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Image.html#bpy.types.Image.filepath_from_user" title="bpy.types.Image.filepath_from_user"><code class="xref py py-class docutils literal"><span class="pre">Image.filepath_from_user</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ImageTexture.html#bpy.types.ImageTexture.image_user" title="bpy.types.ImageTexture.image_user"><code class="xref py py-class docutils literal"><span class="pre">ImageTexture.image_user</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Object.html#bpy.types.Object.image_user" title="bpy.types.Object.image_user"><code class="xref py py-class docutils literal"><span class="pre">Object.image_user</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ShaderNodeTexEnvironment.html#bpy.types.ShaderNodeTexEnvironment.image_user" title="bpy.types.ShaderNodeTexEnvironment.image_user"><code class="xref py py-class docutils literal"><span class="pre">ShaderNodeTexEnvironment.image_user</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.ShaderNodeTexImage.html#bpy.types.ShaderNodeTexImage.image_user" title="bpy.types.ShaderNodeTexImage.image_user"><code class="xref py py-class docutils literal"><span class="pre">ShaderNodeTexImage.image_user</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.SpaceImageEditor.html#bpy.types.SpaceImageEditor.image_user" title="bpy.types.SpaceImageEditor.image_user"><code class="xref py py-class docutils literal"><span class="pre">SpaceImageEditor.image_user</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.TextureNodeImage.html#bpy.types.TextureNodeImage.image_user" title="bpy.types.TextureNodeImage.image_user"><code class="xref py py-class docutils literal"><span class="pre">TextureNodeImage.image_user</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.UILayout.html#bpy.types.UILayout.template_image" title="bpy.types.UILayout.template_image"><code class="xref py py-class docutils literal"><span class="pre">UILayout.template_image</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.UILayout.html#bpy.types.UILayout.template_image_layers" title="bpy.types.UILayout.template_image_layers"><code class="xref py py-class docutils literal"><span class="pre">UILayout.template_image_layers</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.VoxelDataTexture.html#bpy.types.VoxelDataTexture.image_user" title="bpy.types.VoxelDataTexture.image_user"><code class="xref py py-class docutils literal"><span class="pre">VoxelDataTexture.image_user</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.ImageTexture.html"
+                        title="previous chapter">ImageTexture(Texture)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.ImapaintToolCapabilities.html"
+                        title="next chapter">ImapaintToolCapabilities(bpy_struct)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ImapaintToolCapabilities.html" title="ImapaintToolCapabilities(bpy_struct)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ImageTexture.html" title="ImageTexture(Texture)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

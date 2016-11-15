@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>KX_SCA_DynamicActuator(SCA_IActuator) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Game Types (bge.types)" href="bge.types.html" />
+    <link rel="next" title="KX_SCA_EndObjectActuator(SCA_IActuator)" href="bge.types.KX_SCA_EndObjectActuator.html" />
+    <link rel="prev" title="KX_SCA_AddObjectActuator(SCA_IActuator)" href="bge.types.KX_SCA_AddObjectActuator.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_SCA_EndObjectActuator.html" title="KX_SCA_EndObjectActuator(SCA_IActuator)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_SCA_AddObjectActuator.html" title="KX_SCA_AddObjectActuator(SCA_IActuator)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" accesskey="U">Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bge.types">
+<span id="kx-sca-dynamicactuator-sca-iactuator"></span><h1>KX_SCA_DynamicActuator(SCA_IActuator)<a class="headerlink" href="#module-bge.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bge.types.SCA_IActuator.html#bge.types.SCA_IActuator" title="bge.types.SCA_IActuator"><code class="xref py py-class docutils literal"><span class="pre">SCA_IActuator</span></code></a></p>
+<dl class="class">
+<dt id="bge.types.KX_SCA_DynamicActuator">
+<em class="property">class </em><code class="descclassname">bge.types.</code><code class="descname">KX_SCA_DynamicActuator</code><span class="sig-paren">(</span><em>SCA_IActuator</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_SCA_DynamicActuator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dynamic Actuator.</p>
+<dl class="attribute">
+<dt id="bge.types.KX_SCA_DynamicActuator.mode">
+<code class="descname">mode</code><a class="headerlink" href="#bge.types.KX_SCA_DynamicActuator.mode" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">integer</td>
+</tr>
+</tbody>
+</table>
+<p>the type of operation of the actuator, 0-4</p>
+<ul class="simple">
+<li>KX_DYN_RESTORE_DYNAMICS(0)</li>
+<li>KX_DYN_DISABLE_DYNAMICS(1)</li>
+<li>KX_DYN_ENABLE_RIGID_BODY(2)</li>
+<li>KX_DYN_DISABLE_RIGID_BODY(3)</li>
+<li>KX_DYN_SET_MASS(4)</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_SCA_DynamicActuator.mass">
+<code class="descname">mass</code><a class="headerlink" href="#bge.types.KX_SCA_DynamicActuator.mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>the mass value for the KX_DYN_SET_MASS operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bge.types.KX_SCA_AddObjectActuator.html"
+                        title="previous chapter">KX_SCA_AddObjectActuator(SCA_IActuator)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bge.types.KX_SCA_EndObjectActuator.html"
+                        title="next chapter">KX_SCA_EndObjectActuator(SCA_IActuator)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_SCA_EndObjectActuator.html" title="KX_SCA_EndObjectActuator(SCA_IActuator)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_SCA_AddObjectActuator.html" title="KX_SCA_AddObjectActuator(SCA_IActuator)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" >Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>KX_TouchSensor(SCA_ISensor) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Game Types (bge.types)" href="bge.types.html" />
+    <link rel="next" title="KX_TrackToActuator(SCA_IActuator)" href="bge.types.KX_TrackToActuator.html" />
+    <link rel="prev" title="KX_SteeringActuator(SCA_IActuator)" href="bge.types.KX_SteeringActuator.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_TrackToActuator.html" title="KX_TrackToActuator(SCA_IActuator)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_SteeringActuator.html" title="KX_SteeringActuator(SCA_IActuator)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" accesskey="U">Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bge.types">
+<span id="kx-touchsensor-sca-isensor"></span><h1>KX_TouchSensor(SCA_ISensor)<a class="headerlink" href="#module-bge.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bge.types.SCA_ISensor.html#bge.types.SCA_ISensor" title="bge.types.SCA_ISensor"><code class="xref py py-class docutils literal"><span class="pre">SCA_ISensor</span></code></a></p>
+<dl class="class">
+<dt id="bge.types.KX_TouchSensor">
+<em class="property">class </em><code class="descclassname">bge.types.</code><code class="descname">KX_TouchSensor</code><span class="sig-paren">(</span><em>SCA_ISensor</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_TouchSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Touch sensor detects collisions between objects.</p>
+<dl class="attribute">
+<dt id="bge.types.KX_TouchSensor.propName">
+<code class="descname">propName</code><a class="headerlink" href="#bge.types.KX_TouchSensor.propName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The property or material to collide with.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_TouchSensor.useMaterial">
+<code class="descname">useMaterial</code><a class="headerlink" href="#bge.types.KX_TouchSensor.useMaterial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines if the sensor is looking for a property or material. KX_True = Find material; KX_False = Find property.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_TouchSensor.usePulseCollision">
+<code class="descname">usePulseCollision</code><a class="headerlink" href="#bge.types.KX_TouchSensor.usePulseCollision" title="Permalink to this definition">¶</a></dt>
+<dd><p>When enabled, changes to the set of colliding objects generate a pulse.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_TouchSensor.hitObject">
+<code class="descname">hitObject</code><a class="headerlink" href="#bge.types.KX_TouchSensor.hitObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>The last collided object. (read-only).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bge.types.KX_GameObject.html#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a> or None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_TouchSensor.hitObjectList">
+<code class="descname">hitObjectList</code><a class="headerlink" href="#bge.types.KX_TouchSensor.hitObjectList" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of colliding objects. (read-only).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bge.types.CListValue.html#bge.types.CListValue" title="bge.types.CListValue"><code class="xref py py-class docutils literal"><span class="pre">CListValue</span></code></a> of <a class="reference internal" href="bge.types.KX_GameObject.html#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_TouchSensor.hitMaterial">
+<code class="descname">hitMaterial</code><a class="headerlink" href="#bge.types.KX_TouchSensor.hitMaterial" title="Permalink to this definition">¶</a></dt>
+<dd><p>The material of the object in the face hit by the ray. (read-only).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bge.types.KX_SteeringActuator.html"
+                        title="previous chapter">KX_SteeringActuator(SCA_IActuator)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bge.types.KX_TrackToActuator.html"
+                        title="next chapter">KX_TrackToActuator(SCA_IActuator)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_TrackToActuator.html" title="KX_TrackToActuator(SCA_IActuator)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_SteeringActuator.html" title="KX_SteeringActuator(SCA_IActuator)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" >Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>PoseBoneConstraints(bpy_struct) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="Property(bpy_struct)" href="bpy.types.Property.html" />
+    <link rel="prev" title="PoseBone(bpy_struct)" href="bpy.types.PoseBone.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.Property.html" title="Property(bpy_struct)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.PoseBone.html" title="PoseBone(bpy_struct)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="poseboneconstraints-bpy-struct"></span><h1>PoseBoneConstraints(bpy_struct)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.PoseBoneConstraints">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">PoseBoneConstraints</code><span class="sig-paren">(</span><em>bpy_struct</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.PoseBoneConstraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collection of pose bone constraints</p>
+<dl class="attribute">
+<dt id="bpy.types.PoseBoneConstraints.active">
+<code class="descname">active</code><a class="headerlink" href="#bpy.types.PoseBoneConstraints.active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Active PoseChannel constraint</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Constraint.html#bpy.types.Constraint" title="bpy.types.Constraint"><code class="xref py py-class docutils literal"><span class="pre">Constraint</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.PoseBoneConstraints.new">
+<code class="descname">new</code><span class="sig-paren">(</span><em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.PoseBoneConstraints.new" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a constraint to this object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> (<em>enum in ['CAMERA_SOLVER', 'FOLLOW_TRACK', 'OBJECT_SOLVER', 'COPY_LOCATION', 'COPY_ROTATION', 'COPY_SCALE', 'COPY_TRANSFORMS', 'LIMIT_DISTANCE', 'LIMIT_LOCATION', 'LIMIT_ROTATION', 'LIMIT_SCALE', 'MAINTAIN_VOLUME', 'TRANSFORM', 'TRANSFORM_CACHE', 'CLAMP_TO', 'DAMPED_TRACK', 'IK', 'LOCKED_TRACK', 'SPLINE_IK', 'STRETCH_TO', 'TRACK_TO', 'ACTION', 'CHILD_OF', 'FLOOR', 'FOLLOW_PATH', 'PIVOT', 'RIGID_BODY_JOINT', 'SHRINKWRAP']</em>) &#8211; <p>Constraint type to add</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">CAMERA_SOLVER</span></code> Camera Solver.</li>
+<li><code class="docutils literal"><span class="pre">FOLLOW_TRACK</span></code> Follow Track.</li>
+<li><code class="docutils literal"><span class="pre">OBJECT_SOLVER</span></code> Object Solver.</li>
+<li><code class="docutils literal"><span class="pre">COPY_LOCATION</span></code> Copy Location, Copy the location of a target (with an optional offset), so that they move together.</li>
+<li><code class="docutils literal"><span class="pre">COPY_ROTATION</span></code> Copy Rotation, Copy the rotation of a target (with an optional offset), so that they rotate together.</li>
+<li><code class="docutils literal"><span class="pre">COPY_SCALE</span></code> Copy Scale, Copy the scale factors of a target (with an optional offset), so that they are scaled by the same amount.</li>
+<li><code class="docutils literal"><span class="pre">COPY_TRANSFORMS</span></code> Copy Transforms, Copy all the transformations of a target, so that they move together.</li>
+<li><code class="docutils literal"><span class="pre">LIMIT_DISTANCE</span></code> Limit Distance, Restrict movements to within a certain distance of a target (at the time of constraint evaluation only).</li>
+<li><code class="docutils literal"><span class="pre">LIMIT_LOCATION</span></code> Limit Location, Restrict movement along each axis within given ranges.</li>
+<li><code class="docutils literal"><span class="pre">LIMIT_ROTATION</span></code> Limit Rotation, Restrict rotation along each axis within given ranges.</li>
+<li><code class="docutils literal"><span class="pre">LIMIT_SCALE</span></code> Limit Scale, Restrict scaling along each axis with given ranges.</li>
+<li><code class="docutils literal"><span class="pre">MAINTAIN_VOLUME</span></code> Maintain Volume, Compensate for scaling one axis by applying suitable scaling to the other two axes.</li>
+<li><code class="docutils literal"><span class="pre">TRANSFORM</span></code> Transformation, Use one transform property from target to control another (or same) property on owner.</li>
+<li><code class="docutils literal"><span class="pre">TRANSFORM_CACHE</span></code> Transform Cache, Look up the transformation matrix from an external file.</li>
+<li><code class="docutils literal"><span class="pre">CLAMP_TO</span></code> Clamp To, Restrict movements to lie along a curve by remapping location along curve&#8217;s longest axis.</li>
+<li><code class="docutils literal"><span class="pre">DAMPED_TRACK</span></code> Damped Track, Point towards a target by performing the smallest rotation necessary.</li>
+<li><code class="docutils literal"><span class="pre">IK</span></code> Inverse Kinematics, Control a chain of bones by specifying the endpoint target (Bones only).</li>
+<li><code class="docutils literal"><span class="pre">LOCKED_TRACK</span></code> Locked Track, Rotate around the specified (&#8216;locked&#8217;) axis to point towards a target.</li>
+<li><code class="docutils literal"><span class="pre">SPLINE_IK</span></code> Spline IK, Align chain of bones along a curve (Bones only).</li>
+<li><code class="docutils literal"><span class="pre">STRETCH_TO</span></code> Stretch To, Stretch along Y-Axis to point towards a target.</li>
+<li><code class="docutils literal"><span class="pre">TRACK_TO</span></code> Track To, Legacy tracking constraint prone to twisting artifacts.</li>
+<li><code class="docutils literal"><span class="pre">ACTION</span></code> Action, Use transform property of target to look up pose for owner from an Action.</li>
+<li><code class="docutils literal"><span class="pre">CHILD_OF</span></code> Child Of, Make target the &#8216;detachable&#8217; parent of owner.</li>
+<li><code class="docutils literal"><span class="pre">FLOOR</span></code> Floor, Use position (and optionally rotation) of target to define a &#8216;wall&#8217; or &#8216;floor&#8217; that the owner can not cross.</li>
+<li><code class="docutils literal"><span class="pre">FOLLOW_PATH</span></code> Follow Path, Use to animate an object/bone following a path.</li>
+<li><code class="docutils literal"><span class="pre">PIVOT</span></code> Pivot, Change pivot point for transforms (buggy).</li>
+<li><code class="docutils literal"><span class="pre">RIGID_BODY_JOINT</span></code> Rigid Body Joint, Use to define a Rigid Body Constraint (for Game Engine use only).</li>
+<li><code class="docutils literal"><span class="pre">SHRINKWRAP</span></code> Shrinkwrap, Restrict movements to surface of target mesh.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">New constraint</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Constraint.html#bpy.types.Constraint" title="bpy.types.Constraint"><code class="xref py py-class docutils literal"><span class="pre">Constraint</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.PoseBoneConstraints.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>constraint</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.PoseBoneConstraints.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a constraint from this object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>constraint</strong> (<a class="reference internal" href="bpy.types.Constraint.html#bpy.types.Constraint" title="bpy.types.Constraint"><code class="xref py py-class docutils literal"><span class="pre">Constraint</span></code></a>, (never None)) &#8211; Removed constraint</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.PoseBone.html#bpy.types.PoseBone.constraints" title="bpy.types.PoseBone.constraints"><code class="xref py py-class docutils literal"><span class="pre">PoseBone.constraints</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.PoseBone.html"
+                        title="previous chapter">PoseBone(bpy_struct)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.Property.html"
+                        title="next chapter">Property(bpy_struct)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.Property.html" title="Property(bpy_struct)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.PoseBone.html" title="PoseBone(bpy_struct)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

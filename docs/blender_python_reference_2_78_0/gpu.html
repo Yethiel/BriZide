@@ -1,0 +1,1168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>GPU functions (gpu) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="next" title="GPU Off-Screen Buffer (gpu.offscreen)" href="gpu.offscreen.html" />
+    <link rel="prev" title="Font Drawing (blf)" href="blf.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="gpu.offscreen.html" title="GPU Off-Screen Buffer (gpu.offscreen)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="blf.html" title="Font Drawing (blf)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-gpu">
+<span id="gpu-functions-gpu"></span><h1>GPU functions (gpu)<a class="headerlink" href="#module-gpu" title="Permalink to this headline">¶</a></h1>
+<p>This module provides access to materials GLSL shaders.</p>
+<div class="section" id="intro">
+<h2>Intro<a class="headerlink" href="#intro" title="Permalink to this headline">¶</a></h2>
+<p>Module to provide functions concerning the GPU implementation in Blender, in particular
+the GLSL shaders that blender generates automatically to render materials in the 3D view
+and in the game engine.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The API provided by this module is subject to change.
+The data exposed by the API are are closely related to Blender&#8217;s internal GLSL code
+and may change if the GLSL code is modified (e.g. new uniform type).</p>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="glsl-data-type">
+<h3>GLSL Data Type<a class="headerlink" href="#glsl-data-type" title="Permalink to this headline">¶</a></h3>
+<p id="data-type">Type of GLSL data.
+For shader uniforms, the data type determines which <code class="docutils literal"><span class="pre">glUniform</span></code> function
+variant to use to send the uniform value to the GPU.
+For vertex attributes, the data type determines which <code class="docutils literal"><span class="pre">glVertexAttrib</span></code> function
+variant to use to send the vertex attribute to the GPU.</p>
+<p>See <a class="reference internal" href="#export-shader">export_shader</a></p>
+<dl class="data">
+<dt id="gpu.GPU_DATA_1I">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DATA_1I</code><a class="headerlink" href="#gpu.GPU_DATA_1I" title="Permalink to this definition">¶</a></dt>
+<dd><p>one integer</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DATA_1F">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DATA_1F</code><a class="headerlink" href="#gpu.GPU_DATA_1F" title="Permalink to this definition">¶</a></dt>
+<dd><p>one float</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DATA_2F">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DATA_2F</code><a class="headerlink" href="#gpu.GPU_DATA_2F" title="Permalink to this definition">¶</a></dt>
+<dd><p>two floats</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DATA_3F">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DATA_3F</code><a class="headerlink" href="#gpu.GPU_DATA_3F" title="Permalink to this definition">¶</a></dt>
+<dd><p>three floats</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DATA_4F">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DATA_4F</code><a class="headerlink" href="#gpu.GPU_DATA_4F" title="Permalink to this definition">¶</a></dt>
+<dd><p>four floats</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DATA_9F">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DATA_9F</code><a class="headerlink" href="#gpu.GPU_DATA_9F" title="Permalink to this definition">¶</a></dt>
+<dd><p>matrix 3x3 in column-major order</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DATA_16F">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DATA_16F</code><a class="headerlink" href="#gpu.GPU_DATA_16F" title="Permalink to this definition">¶</a></dt>
+<dd><p>matrix 4x4 in column-major order</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DATA_4UB">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DATA_4UB</code><a class="headerlink" href="#gpu.GPU_DATA_4UB" title="Permalink to this definition">¶</a></dt>
+<dd><p>four unsigned byte</p>
+</dd></dl>
+
+</div>
+<div class="section" id="glsl-uniform-types">
+<h3>GLSL Uniform Types<a class="headerlink" href="#glsl-uniform-types" title="Permalink to this headline">¶</a></h3>
+<p id="uniform-type">Constants that specify the type of uniform used in a GLSL shader.
+The uniform type determines the data type, origin and method
+of calculation used by Blender to compute the uniform value.</p>
+<p>The calculation of some of the uniforms is based on matrices available in the scene:</p>
+<blockquote>
+<div><dl class="docutils" id="mat4-world-to-cam">
+<span id="mat4-cam-to-world"></span><dt><code class="docutils literal"><span class="pre">mat4_cam_to_world</span></code></dt>
+<dd><p class="first">Model matrix of the camera. OpenGL 4x4 matrix that converts
+camera local coordinates to world coordinates. In blender this is obtained from the
+&#8216;matrix_world&#8217; attribute of the camera object.</p>
+<p class="last">Some uniform will need the <em>mat4_world_to_cam</em>
+matrix computed as the inverse of this matrix.</p>
+</dd>
+</dl>
+<dl class="docutils" id="mat4-world-to-object">
+<span id="mat4-object-to-world"></span><dt><code class="docutils literal"><span class="pre">mat4_object_to_world</span></code></dt>
+<dd><p class="first">Model matrix of the object that is being rendered. OpenGL 4x4 matric that converts
+object local coordinates to world coordinates. In blender this is obtained from the
+&#8216;matrix_world&#8217; attribute of the object.</p>
+<p class="last">Some uniform will need the <em>mat4_world_to_object</em> matrix, computed as the inverse of this matrix.</p>
+</dd>
+</dl>
+<dl class="docutils" id="mat4-world-to-lamp">
+<span id="mat4-lamp-to-world"></span><dt><code class="docutils literal"><span class="pre">mat4_lamp_to_world</span></code></dt>
+<dd><p class="first">Model matrix of the lamp lighting the object. OpenGL 4x4 matrix that converts lamp
+local coordinates to world coordinates. In blender this is obtained from the
+&#8216;matrix_world&#8217; attribute of the lamp object.</p>
+<p class="last">Some uniform will need the <em>mat4_world_to_lamp</em> matrix
+computed as the inverse of this matrix.</p>
+</dd>
+</dl>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Any uniforms used for view projections or transformations (object, lamp matrices for eg),
+can only be set once per frame.</p>
+</div>
+<div class="section" id="glsl-object-uniforms">
+<h4>GLSL Object Uniforms<a class="headerlink" href="#glsl-object-uniforms" title="Permalink to this headline">¶</a></h4>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Object transformations and color must be set before drawing the object.</li>
+<li>There is at most one uniform of these types per shader.</li>
+</ul>
+</div>
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_OBJECT_VIEWMAT">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_OBJECT_VIEWMAT</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_OBJECT_VIEWMAT" title="Permalink to this definition">¶</a></dt>
+<dd><p>A matrix that converts world coordinates to camera coordinates (see <a class="reference internal" href="#mat4-world-to-cam">mat4_world_to_cam</a>).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">matrix4x4</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_OBJECT_MAT">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_OBJECT_MAT</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_OBJECT_MAT" title="Permalink to this definition">¶</a></dt>
+<dd><p>A matrix that converts object coordinates to world coordinates (see <a class="reference internal" href="#mat4-object-to-world">mat4_object_to_world</a>).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">matrix4x4</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_OBJECT_VIEWIMAT">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_OBJECT_VIEWIMAT</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_OBJECT_VIEWIMAT" title="Permalink to this definition">¶</a></dt>
+<dd><p>The uniform is a 4x4 GL matrix that converts coordinates
+in camera space to world coordinates (see <a class="reference internal" href="#mat4-cam-to-world">mat4_cam_to_world</a>).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">matrix4x4</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_OBJECT_IMAT">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_OBJECT_IMAT</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_OBJECT_IMAT" title="Permalink to this definition">¶</a></dt>
+<dd><p>The uniform is a 4x4 GL matrix that converts world coodinates
+to object coordinates (see <a class="reference internal" href="#mat4-world-to-object">mat4_world_to_object</a>).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">matrix4x4</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_OBJECT_COLOR">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_OBJECT_COLOR</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_OBJECT_COLOR" title="Permalink to this definition">¶</a></dt>
+<dd><p>An RGB color + alpha defined at object level.
+Each values between 0.0 and 1.0.</p>
+<p>See <a class="reference internal" href="bpy.types.Object.html#bpy.types.Object.color" title="bpy.types.Object.color"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Object.color</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float4</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_OBJECT_AUTOBUMPSCALE">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_OBJECT_AUTOBUMPSCALE</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_OBJECT_AUTOBUMPSCALE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiplier for bump-map scaling.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="glsl-lamp-uniforms">
+<h4>GLSL Lamp Uniforms<a class="headerlink" href="#glsl-lamp-uniforms" title="Permalink to this headline">¶</a></h4>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There is one uniform of that type per lamp lighting the material.</p>
+</div>
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_LAMP_DYNVEC">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_LAMP_DYNVEC</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_LAMP_DYNVEC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents the direction of light in camera space.</p>
+<dl class="docutils">
+<dt>Computed as:</dt>
+<dd><a class="reference internal" href="#mat4-world-to-cam">mat4_world_to_cam</a> * (-vec3_lamp_Z_axis)</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>The lamp Z axis points to the opposite direction of light.</li>
+<li>The norm of the vector should be unit length.</li>
+</ul>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float3</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_LAMP_DYNCO">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_LAMP_DYNCO</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_LAMP_DYNCO" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents the position of the light in camera space.</p>
+<dl class="docutils">
+<dt>Computed as:</dt>
+<dd><a class="reference internal" href="#mat4-world-to-cam">mat4_world_to_cam</a> * vec3_lamp_pos</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float3</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_LAMP_DYNIMAT">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_LAMP_DYNIMAT</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_LAMP_DYNIMAT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Matrix that converts vector in camera space to lamp space.</p>
+<dl class="docutils">
+<dt>Computed as:</dt>
+<dd><a class="reference internal" href="#mat4-world-to-lamp">mat4_world_to_lamp</a> * <a class="reference internal" href="#mat4-cam-to-world">mat4_cam_to_world</a></dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">matrix4x4</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_LAMP_DYNPERSMAT">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_LAMP_DYNPERSMAT</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_LAMP_DYNPERSMAT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Matrix that converts a vector in camera space to shadow buffer depth space.</p>
+<dl class="docutils">
+<dt>Computed as:</dt>
+<dd><a class="reference internal" href="#mat4-perspective-to-depth">mat4_perspective_to_depth</a> * <a class="reference internal" href="#mat4-lamp-to-perspective">mat4_lamp_to_perspective</a> * <a class="reference internal" href="#mat4-world-to-lamp">mat4_world_to_lamp</a> * <a class="reference internal" href="#mat4-cam-to-world">mat4_cam_to_world</a>.</dd>
+</dl>
+<p id="mat4-perspective-to-depth"><code class="docutils literal"><span class="pre">mat4_perspective_to_depth</span></code> is a fixed matrix defined as follow:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mf">0.5</span> <span class="mf">0.0</span> <span class="mf">0.0</span> <span class="mf">0.5</span>
+<span class="mf">0.0</span> <span class="mf">0.5</span> <span class="mf">0.0</span> <span class="mf">0.5</span>
+<span class="mf">0.0</span> <span class="mf">0.0</span> <span class="mf">0.5</span> <span class="mf">0.5</span>
+<span class="mf">0.0</span> <span class="mf">0.0</span> <span class="mf">0.0</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>There is one uniform of that type per lamp casting shadow in the scene.</li>
+</ul>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">matrix4x4</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_LAMP_DYNENERGY">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_LAMP_DYNENERGY</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_LAMP_DYNENERGY" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="bpy.types.Lamp.html#bpy.types.Lamp.energy" title="bpy.types.Lamp.energy"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Lamp.energy</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_LAMP_DYNCOL">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_LAMP_DYNCOL</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_LAMP_DYNCOL" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="bpy.types.Lamp.html#bpy.types.Lamp.color" title="bpy.types.Lamp.color"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Lamp.color</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float3</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_LAMP_DISTANCE">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_LAMP_DISTANCE</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_LAMP_DISTANCE" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="bpy.types.Lamp.html#bpy.types.Lamp.distance" title="bpy.types.Lamp.distance"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Lamp.distance</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_LAMP_ATT1">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_LAMP_ATT1</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_LAMP_ATT1" title="Permalink to this definition">¶</a></dt>
+<dd><p>See
+<a class="reference internal" href="bpy.types.PointLamp.html#bpy.types.PointLamp.linear_attenuation" title="bpy.types.PointLamp.linear_attenuation"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.PointLamp.linear_attenuation</span></code></a>,
+<a class="reference internal" href="bpy.types.SpotLamp.html#bpy.types.SpotLamp.linear_attenuation" title="bpy.types.SpotLamp.linear_attenuation"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.SpotLamp.linear_attenuation</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_LAMP_ATT2">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_LAMP_ATT2</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_LAMP_ATT2" title="Permalink to this definition">¶</a></dt>
+<dd><p>See
+<a class="reference internal" href="bpy.types.PointLamp.html#bpy.types.PointLamp.quadratic_attenuation" title="bpy.types.PointLamp.quadratic_attenuation"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.PointLamp.quadratic_attenuation</span></code></a>,
+<a class="reference internal" href="bpy.types.SpotLamp.html#bpy.types.SpotLamp.quadratic_attenuation" title="bpy.types.SpotLamp.quadratic_attenuation"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.SpotLamp.quadratic_attenuation</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_LAMP_SPOTSIZE">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_LAMP_SPOTSIZE</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_LAMP_SPOTSIZE" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="bpy.types.SpotLamp.html#bpy.types.SpotLamp.spot_size" title="bpy.types.SpotLamp.spot_size"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.SpotLamp.spot_size</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_LAMP_SPOTBLEND">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_LAMP_SPOTBLEND</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_LAMP_SPOTBLEND" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="bpy.types.SpotLamp.html#bpy.types.SpotLamp.spot_blend" title="bpy.types.SpotLamp.spot_blend"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.SpotLamp.spot_blend</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_LAMP_SPOTSCALE">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_LAMP_SPOTSCALE</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_LAMP_SPOTSCALE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents the SpotLamp local scale.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float2</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="glsl-sampler-uniforms">
+<h4>GLSL Sampler Uniforms<a class="headerlink" href="#glsl-sampler-uniforms" title="Permalink to this headline">¶</a></h4>
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_SAMPLER_2DBUFFER">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_SAMPLER_2DBUFFER</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_SAMPLER_2DBUFFER" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents an internal texture used for certain effect
+(color band, etc).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">integer</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_SAMPLER_2DIMAGE">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_SAMPLER_2DIMAGE</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_SAMPLER_2DIMAGE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a texture loaded from an image file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">integer</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_SAMPLER_2DSHADOW">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_SAMPLER_2DSHADOW</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_SAMPLER_2DSHADOW" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a texture loaded from a shadow buffer file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">integer</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="glsl-mist-uniforms">
+<h4>GLSL Mist Uniforms<a class="headerlink" href="#glsl-mist-uniforms" title="Permalink to this headline">¶</a></h4>
+<dl class="data">
+<dt>
+<code class="descname">GPU_DYNAMIC_MIST_ENABLE:</code></dt>
+<dd><p>See <a class="reference internal" href="bpy.types.WorldMistSettings.html#bpy.types.WorldMistSettings.use_mist" title="bpy.types.WorldMistSettings.use_mist"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.WorldMistSettings.use_mist</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float (0 or 1)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_MIST_START">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_MIST_START</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_MIST_START" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="bpy.types.WorldMistSettings.html#bpy.types.WorldMistSettings.start" title="bpy.types.WorldMistSettings.start"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.WorldMistSettings.start</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+<p>See <a class="reference internal" href="bpy.types.WorldMistSettings.html#bpy.types.WorldMistSettings.depth" title="bpy.types.WorldMistSettings.depth"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.WorldMistSettings.depth</span></code></a>.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_MIST_DISTANCE">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_MIST_DISTANCE</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_MIST_DISTANCE" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+<p>See <a class="reference internal" href="bpy.types.WorldMistSettings.html#bpy.types.WorldMistSettings.intensity" title="bpy.types.WorldMistSettings.intensity"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.WorldMistSettings.intensity</span></code></a>.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_MIST_INTENSITY">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_MIST_INTENSITY</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_MIST_INTENSITY" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_MIST_TYPE">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_MIST_TYPE</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_MIST_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="bpy.types.WorldMistSettings.html#bpy.types.WorldMistSettings.falloff" title="bpy.types.WorldMistSettings.falloff"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.WorldMistSettings.falloff</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float (used as an index into the type)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_MIST_COLOR">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_MIST_COLOR</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_MIST_COLOR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="glsl-world-uniforms">
+<h4>GLSL World Uniforms<a class="headerlink" href="#glsl-world-uniforms" title="Permalink to this headline">¶</a></h4>
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_HORIZON_COLOR">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_HORIZON_COLOR</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_HORIZON_COLOR" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="bpy.types.World.html#bpy.types.World.horizon_color" title="bpy.types.World.horizon_color"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.World.horizon_color</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float3</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_AMBIENT_COLOR">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_AMBIENT_COLOR</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_AMBIENT_COLOR" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="bpy.types.World.html#bpy.types.World.ambient_color" title="bpy.types.World.ambient_color"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.World.ambient_color</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float3</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="glsl-material-uniforms">
+<h4>GLSL Material Uniforms<a class="headerlink" href="#glsl-material-uniforms" title="Permalink to this headline">¶</a></h4>
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_MAT_DIFFRGB">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_MAT_DIFFRGB</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_MAT_DIFFRGB" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="bpy.types.Material.html#bpy.types.Material.diffuse_color" title="bpy.types.Material.diffuse_color"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Material.diffuse_color</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float3</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_MAT_REF">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_MAT_REF</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_MAT_REF" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="bpy.types.Material.html#bpy.types.Material.diffuse_intensity" title="bpy.types.Material.diffuse_intensity"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Material.diffuse_intensity</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_MAT_SPECRGB">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_MAT_SPECRGB</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_MAT_SPECRGB" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="bpy.types.Material.html#bpy.types.Material.specular_color" title="bpy.types.Material.specular_color"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Material.specular_color</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float3</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_MAT_SPEC">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_MAT_SPEC</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_MAT_SPEC" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="bpy.types.Material.html#bpy.types.Material.specular_intensity" title="bpy.types.Material.specular_intensity"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Material.specular_intensity</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_MAT_HARD">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_MAT_HARD</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_MAT_HARD" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="bpy.types.Material.html#bpy.types.Material.specular_hardness" title="bpy.types.Material.specular_hardness"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Material.specular_hardness</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_MAT_EMIT">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_MAT_EMIT</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_MAT_EMIT" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="bpy.types.Material.html#bpy.types.Material.emit" title="bpy.types.Material.emit"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Material.emit</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_MAT_AMB">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_MAT_AMB</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_MAT_AMB" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="bpy.types.Material.html#bpy.types.Material.ambient" title="bpy.types.Material.ambient"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Material.ambient</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.GPU_DYNAMIC_MAT_ALPHA">
+<code class="descclassname">gpu.</code><code class="descname">GPU_DYNAMIC_MAT_ALPHA</code><a class="headerlink" href="#gpu.GPU_DYNAMIC_MAT_ALPHA" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="bpy.types.Material.html#bpy.types.Material.alpha" title="bpy.types.Material.alpha"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Material.alpha</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="glsl-attribute-type">
+<h3>GLSL Attribute Type<a class="headerlink" href="#glsl-attribute-type" title="Permalink to this headline">¶</a></h3>
+<p id="attribute-type">Type of the vertex attribute used in the GLSL shader. Determines the mesh custom data
+layer that contains the vertex attribute.</p>
+<dl class="data">
+<dt id="gpu.CD_MTFACE">
+<code class="descclassname">gpu.</code><code class="descname">CD_MTFACE</code><a class="headerlink" href="#gpu.CD_MTFACE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertex attribute is a UV Map. Data type is vector of 2 float.</p>
+<p>There can be more than one attribute of that type, they are differenciated by name.
+In blender, you can retrieve the attribute data with:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">mesh</span><span class="o">.</span><span class="n">uv_layers</span><span class="p">[</span><span class="n">attribute</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.CD_MCOL">
+<code class="descclassname">gpu.</code><code class="descname">CD_MCOL</code><a class="headerlink" href="#gpu.CD_MCOL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertex attribute is color layer. Data type is vector 4 unsigned byte (RGBA).</p>
+<p>There can be more than one attribute of that type, they are differenciated by name.
+In blender you can retrieve the attribute data with:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">mesh</span><span class="o">.</span><span class="n">vertex_colors</span><span class="p">[</span><span class="n">attribute</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.CD_ORCO">
+<code class="descclassname">gpu.</code><code class="descname">CD_ORCO</code><a class="headerlink" href="#gpu.CD_ORCO" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertex attribute is original coordinates. Data type is vector 3 float.</p>
+<p>There can be only 1 attribute of that type per shader.
+In blender you can retrieve the attribute data with:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="data">
+<dt id="gpu.CD_TANGENT">
+<code class="descclassname">gpu.</code><code class="descname">CD_TANGENT</code><a class="headerlink" href="#gpu.CD_TANGENT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertex attribute is the tangent vector. Data type is vector 4 float.</p>
+<p>There can be only 1 attribute of that type per shader.
+There is currently no way to retrieve this attribute data via the RNA API but a standalone
+C function to compute the tangent layer from the other layers can be obtained from
+blender.org.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="export-shader"></span><dl class="function">
+<dt id="gpu.export_shader">
+<code class="descclassname">gpu.</code><code class="descname">export_shader</code><span class="sig-paren">(</span><em>scene</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#gpu.export_shader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts the GLSL shader producing the visual effect of material in scene for the purpose of
+reusing the shader in an external engine.</p>
+<p>This function is meant to be used in material exporter
+so that the GLSL shader can be exported entirely.</p>
+<p>The return value is a dictionary containing the
+shader source code and all associated data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>scene</strong> (<a class="reference internal" href="bpy.types.Scene.html#bpy.types.Scene" title="bpy.types.Scene"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Scene</span></code></a>) &#8211; the scene in which the material in rendered.</li>
+<li><strong>material</strong> (<a class="reference internal" href="bpy.types.Material.html#bpy.types.Material" title="bpy.types.Material"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Material</span></code></a>) &#8211; the material that you want to export the GLSL shader</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the shader source code and all associated data in a dictionary</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dictionary</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The dictionary contains the following elements:</p>
+<ul>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">[&quot;fragment&quot;]</span></code>: string</dt>
+<dd><p class="first last">fragment shader source code.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">[&quot;vertex&quot;]</span></code>: string</dt>
+<dd><p class="first last">vertex shader source code.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">[&quot;uniforms&quot;]</span></code>: sequence</dt>
+<dd><p class="first">list of uniforms used in fragment shader, can be empty list. Each element of the
+sequence is a dictionary with the following elements:</p>
+<ul class="last">
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">[&quot;varname&quot;]</span></code>: string</dt>
+<dd><p class="first last">name of the uniform in the fragment shader. Always of the form &#8216;unf&lt;number&gt;&#8217;.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">[&quot;datatype&quot;]</span></code>: integer</dt>
+<dd><p class="first">data type of the uniform variable. Can be one of the following:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="#gpu.GPU_DATA_1I" title="gpu.GPU_DATA_1I"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DATA_1I</span></code></a> : use <code class="docutils literal"><span class="pre">glUniform1i</span></code></li>
+<li><a class="reference internal" href="#gpu.GPU_DATA_1F" title="gpu.GPU_DATA_1F"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DATA_1F</span></code></a> : use <code class="docutils literal"><span class="pre">glUniform1fv</span></code></li>
+<li><a class="reference internal" href="#gpu.GPU_DATA_2F" title="gpu.GPU_DATA_2F"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DATA_2F</span></code></a> : use <code class="docutils literal"><span class="pre">glUniform2fv</span></code></li>
+<li><a class="reference internal" href="#gpu.GPU_DATA_3F" title="gpu.GPU_DATA_3F"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DATA_3F</span></code></a> : use <code class="docutils literal"><span class="pre">glUniform3fv</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="#gpu.GPU_DATA_4F" title="gpu.GPU_DATA_4F"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DATA_4F</span></code></a> : use <code class="docutils literal"><span class="pre">glUniform4fv</span></code></li>
+<li><a class="reference internal" href="#gpu.GPU_DATA_9F" title="gpu.GPU_DATA_9F"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DATA_9F</span></code></a> : use <code class="docutils literal"><span class="pre">glUniformMatrix3fv</span></code></li>
+<li><a class="reference internal" href="#gpu.GPU_DATA_16F" title="gpu.GPU_DATA_16F"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DATA_16F</span></code></a> : use <code class="docutils literal"><span class="pre">glUniformMatrix4fv</span></code></li>
+</ul>
+</td></tr></table>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">[&quot;type&quot;]</span></code>: integer</dt>
+<dd><p class="first last">type of uniform, determines the origin and method of calculation. See <a class="reference internal" href="#uniform-type">uniform-type</a>.
+Depending on the type, more elements will be be present.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">[&quot;lamp&quot;]</span></code>: <a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Object</span></code></a></dt>
+<dd><p class="first">Reference to the lamp object from which the uniforms value are extracted.
+Set for the following uniforms types:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="#gpu.GPU_DYNAMIC_LAMP_DYNVEC" title="gpu.GPU_DYNAMIC_LAMP_DYNVEC"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DYNAMIC_LAMP_DYNVEC</span></code></a></li>
+<li><a class="reference internal" href="#gpu.GPU_DYNAMIC_LAMP_DYNCO" title="gpu.GPU_DYNAMIC_LAMP_DYNCO"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DYNAMIC_LAMP_DYNCO</span></code></a></li>
+<li><a class="reference internal" href="#gpu.GPU_DYNAMIC_LAMP_DYNIMAT" title="gpu.GPU_DYNAMIC_LAMP_DYNIMAT"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DYNAMIC_LAMP_DYNIMAT</span></code></a></li>
+<li><a class="reference internal" href="#gpu.GPU_DYNAMIC_LAMP_DYNPERSMAT" title="gpu.GPU_DYNAMIC_LAMP_DYNPERSMAT"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DYNAMIC_LAMP_DYNPERSMAT</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="#gpu.GPU_DYNAMIC_LAMP_DYNENERGY" title="gpu.GPU_DYNAMIC_LAMP_DYNENERGY"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DYNAMIC_LAMP_DYNENERGY</span></code></a></li>
+<li><a class="reference internal" href="#gpu.GPU_DYNAMIC_LAMP_DYNCOL" title="gpu.GPU_DYNAMIC_LAMP_DYNCOL"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DYNAMIC_LAMP_DYNCOL</span></code></a></li>
+<li><a class="reference internal" href="#gpu.GPU_DYNAMIC_SAMPLER_2DSHADOW" title="gpu.GPU_DYNAMIC_SAMPLER_2DSHADOW"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DYNAMIC_SAMPLER_2DSHADOW</span></code></a></li>
+</ul>
+</td></tr></table>
+<p>Notes:</p>
+<ul class="last">
+<li><p class="first">The uniforms
+<a class="reference internal" href="#gpu.GPU_DYNAMIC_LAMP_DYNVEC" title="gpu.GPU_DYNAMIC_LAMP_DYNVEC"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DYNAMIC_LAMP_DYNVEC</span></code></a>,
+<a class="reference internal" href="#gpu.GPU_DYNAMIC_LAMP_DYNCO" title="gpu.GPU_DYNAMIC_LAMP_DYNCO"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DYNAMIC_LAMP_DYNCO</span></code></a>,
+<a class="reference internal" href="#gpu.GPU_DYNAMIC_LAMP_DYNIMAT" title="gpu.GPU_DYNAMIC_LAMP_DYNIMAT"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DYNAMIC_LAMP_DYNIMAT</span></code></a> and
+<a class="reference internal" href="#gpu.GPU_DYNAMIC_LAMP_DYNPERSMAT" title="gpu.GPU_DYNAMIC_LAMP_DYNPERSMAT"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DYNAMIC_LAMP_DYNPERSMAT</span></code></a>
+refer to the lamp object position and orientation,
+both of can be derived from the object world matrix:</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">obmat</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">[</span><span class="s2">&quot;lamp&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">matrix_world</span>
+</pre></div>
+</div>
+<p>where obmat is the <a class="reference internal" href="#mat4-lamp-to-world">mat4_lamp_to_world</a> matrix of the lamp as a 2 dimensional array,
+the lamp world location location is in <code class="docutils literal"><span class="pre">obmat[3]</span></code>.</p>
+</div></blockquote>
+</li>
+<li><p class="first">The uniform types
+<a class="reference internal" href="#gpu.GPU_DYNAMIC_LAMP_DYNENERGY" title="gpu.GPU_DYNAMIC_LAMP_DYNENERGY"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DYNAMIC_LAMP_DYNENERGY</span></code></a> and
+<a class="reference internal" href="#gpu.GPU_DYNAMIC_LAMP_DYNCOL" title="gpu.GPU_DYNAMIC_LAMP_DYNCOL"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DYNAMIC_LAMP_DYNCOL</span></code></a>
+refer to the lamp data bloc that you get from:</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">la</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">[</span><span class="s2">&quot;lamp&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+<p>from which you get <code class="docutils literal"><span class="pre">lamp.energy</span></code> and <code class="docutils literal"><span class="pre">lamp.color</span></code></p>
+</div></blockquote>
+</li>
+<li><dl class="first docutils">
+<dt>Lamp duplication is not supported: if you have duplicated lamps in your scene</dt>
+<dd><p class="first last">(i.e. lamp that are instantiated by dupligroup, etc), this element will only
+give you a reference to the orignal lamp and you will not know which instance
+of the lamp it is refering too. You can still handle that case in the exporter
+by distributing the uniforms amongst the duplicated lamps.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">[&quot;image&quot;]</span></code>: <a class="reference internal" href="bpy.types.Image.html#bpy.types.Image" title="bpy.types.Image"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Image</span></code></a></dt>
+<dd><p class="first">Reference to the image databloc.
+Set for uniform type
+<a class="reference internal" href="#gpu.GPU_DYNAMIC_SAMPLER_2DIMAGE" title="gpu.GPU_DYNAMIC_SAMPLER_2DIMAGE"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DYNAMIC_SAMPLER_2DIMAGE</span></code></a>.
+You can get the image data from:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span></span><span class="c1"># full path to image file</span>
+<span class="n">uniform</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">filepath</span>
+<span class="c1"># image size as a 2-dimensional array of int</span>
+<span class="n">uniform</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">[&quot;texnumber&quot;]</span></code>: integer</dt>
+<dd><p class="first">Channel number to which the texture is bound when drawing the object.
+Set for uniform types
+<a class="reference internal" href="#gpu.GPU_DYNAMIC_SAMPLER_2DBUFFER" title="gpu.GPU_DYNAMIC_SAMPLER_2DBUFFER"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DYNAMIC_SAMPLER_2DBUFFER</span></code></a>,
+<a class="reference internal" href="#gpu.GPU_DYNAMIC_SAMPLER_2DIMAGE" title="gpu.GPU_DYNAMIC_SAMPLER_2DIMAGE"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DYNAMIC_SAMPLER_2DIMAGE</span></code></a> and
+<a class="reference internal" href="#gpu.GPU_DYNAMIC_SAMPLER_2DSHADOW" title="gpu.GPU_DYNAMIC_SAMPLER_2DSHADOW"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DYNAMIC_SAMPLER_2DSHADOW</span></code></a>.</p>
+<p class="last">This is provided for information only: when reusing the shader outside blencer,
+you are free to assign the textures to the channel of your choice and to pass
+that number channel to the GPU in the uniform.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">[&quot;texpixels&quot;]</span></code>: byte array</dt>
+<dd><p class="first last">texture data for uniform type <a class="reference internal" href="#gpu.GPU_DYNAMIC_SAMPLER_2DBUFFER" title="gpu.GPU_DYNAMIC_SAMPLER_2DBUFFER"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DYNAMIC_SAMPLER_2DBUFFER</span></code></a>.
+Although the corresponding uniform is a 2D sampler,
+the texture is always a 1D texture of n x 1 pixel.
+The texture size n is provided in [&#8220;texsize&#8221;] element.
+These texture are only used for computer generated texture (colorband, etc).
+The texture data is provided so that you can make a real image out of it in the exporter.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">[&quot;texsize&quot;]</span></code>: integer</dt>
+<dd><p class="first last">horizontal size of texture for uniform type <a class="reference internal" href="#gpu.GPU_DYNAMIC_SAMPLER_2DBUFFER" title="gpu.GPU_DYNAMIC_SAMPLER_2DBUFFER"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DYNAMIC_SAMPLER_2DBUFFER</span></code></a>.
+The texture data is in [&#8220;texpixels&#8221;].</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">[&quot;attributes&quot;]</span></code>: sequence</dt>
+<dd><p class="first">list of attributes used in vertex shader, can be empty. Blender doesn&#8217;t use
+standard attributes except for vertex position and normal. All other vertex
+attributes must be passed using the generic <code class="docutils literal"><span class="pre">glVertexAttrib</span></code> functions.
+The attribute data can be found in the derived mesh custom data using RNA.
+Each element of the sequence is a dictionary containing the following elements:</p>
+<ul class="last">
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">[&quot;varname&quot;]</span></code>: string</dt>
+<dd><p class="first last">name of the uniform in the vertex shader. Always of the form &#8216;att&lt;number&gt;&#8217;.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">[&quot;datatype&quot;]</span></code>: integer</dt>
+<dd><p class="first">data type of vertex attribute, can be one of the following:</p>
+<ul class="last simple">
+<li><a class="reference internal" href="#gpu.GPU_DATA_2F" title="gpu.GPU_DATA_2F"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DATA_2F</span></code></a>: use <code class="docutils literal"><span class="pre">glVertexAttrib2fv</span></code></li>
+<li><a class="reference internal" href="#gpu.GPU_DATA_3F" title="gpu.GPU_DATA_3F"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DATA_3F</span></code></a>: use <code class="docutils literal"><span class="pre">glVertexAttrib3fv</span></code></li>
+<li><a class="reference internal" href="#gpu.GPU_DATA_4F" title="gpu.GPU_DATA_4F"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DATA_4F</span></code></a>: use <code class="docutils literal"><span class="pre">glVertexAttrib4fv</span></code></li>
+<li><a class="reference internal" href="#gpu.GPU_DATA_4UB" title="gpu.GPU_DATA_4UB"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DATA_4UB</span></code></a>: use <code class="docutils literal"><span class="pre">glVertexAttrib4ubv</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">[&quot;number&quot;]</span></code>: integer</dt>
+<dd><p class="first">Generic attribute number. This is provided for information only.
+Blender doesn&#8217;t use <code class="docutils literal"><span class="pre">glBindAttribLocation</span></code> to place generic attributes at specific location,
+it lets the shader compiler place the attributes automatically and query the
+placement with <code class="docutils literal"><span class="pre">glGetAttribLocation</span></code>.
+The result of this placement is returned in this element.</p>
+<p class="last">When using this shader in a render engine, you should either use
+<code class="docutils literal"><span class="pre">glBindAttribLocation</span></code> to force the attribute at this location or use
+<code class="docutils literal"><span class="pre">glGetAttribLocation</span></code> to get the placement chosen by the compiler of your GPU.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">[&quot;type&quot;]</span></code>: integer</dt>
+<dd><p class="first last">type of the mesh custom data from which the vertex attribute is loaded.
+See <a class="reference internal" href="#attribute-type">attribute-type</a>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">[&quot;name&quot;]</span></code>: string or integer</dt>
+<dd><p class="first last">custom data layer name, used for attribute type <a class="reference internal" href="#gpu.CD_MTFACE" title="gpu.CD_MTFACE"><code class="xref py py-data docutils literal"><span class="pre">gpu.CD_MTFACE</span></code></a> and <a class="reference internal" href="#gpu.CD_MCOL" title="gpu.CD_MCOL"><code class="xref py py-data docutils literal"><span class="pre">gpu.CD_MCOL</span></code></a>.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gpu</span>
+<span class="c1"># get GLSL shader of material Mat.001 in scene Scene.001</span>
+<span class="n">scene</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">scenes</span><span class="p">[</span><span class="s2">&quot;Scene.001&quot;</span><span class="p">]</span>
+<span class="n">material</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">materials</span><span class="p">[</span><span class="s2">&quot;Mat.001&quot;</span><span class="p">]</span>
+<span class="n">shader</span> <span class="o">=</span> <span class="n">gpu</span><span class="o">.</span><span class="n">export_shader</span><span class="p">(</span><span class="n">scene</span><span class="p">,</span><span class="n">material</span><span class="p">)</span>
+<span class="c1"># scan the uniform list and find the images used in the shader</span>
+<span class="k">for</span> <span class="n">uniform</span> <span class="ow">in</span> <span class="n">shader</span><span class="p">[</span><span class="s2">&quot;uniforms&quot;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">uniform</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">gpu</span><span class="o">.</span><span class="n">GPU_DYNAMIC_SAMPLER_2DIMAGE</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;uniform {0} is using image {1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">uniform</span><span class="p">[</span><span class="s2">&quot;varname&quot;</span><span class="p">],</span> <span class="n">uniform</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">filepath</span><span class="p">))</span>
+<span class="c1"># scan the attribute list and find the UV Map used in the shader</span>
+<span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">shader</span><span class="p">[</span><span class="s2">&quot;attributes&quot;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">attribute</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">gpu</span><span class="o">.</span><span class="n">CD_MTFACE</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;attribute {0} is using UV Map {1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">attribute</span><span class="p">[</span><span class="s2">&quot;varname&quot;</span><span class="p">],</span> <span class="n">attribute</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic" id="mat4-lamp-to-perspective">
+<li><p class="first">Calculation of the <code class="docutils literal"><span class="pre">mat4_lamp_to_perspective</span></code> matrix for a spot lamp.</p>
+<p>The following pseudo code shows how the <code class="docutils literal"><span class="pre">mat4_lamp_to_perspective</span></code> matrix is computed
+in blender for uniforms of <a class="reference internal" href="#gpu.GPU_DYNAMIC_LAMP_DYNPERSMAT" title="gpu.GPU_DYNAMIC_LAMP_DYNPERSMAT"><code class="xref py py-data docutils literal"><span class="pre">gpu.GPU_DYNAMIC_LAMP_DYNPERSMAT</span></code></a> type:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Get the lamp datablock with:</span>
+<span class="n">lamp</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="n">uniform</span><span class="p">[</span><span class="s2">&quot;lamp&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">data</span>
+
+<span class="c1"># Compute the projection matrix:</span>
+<span class="c1">#  You will need these lamp attributes:</span>
+<span class="c1">#  lamp.clipsta : near clip plane in world unit</span>
+<span class="c1">#  lamp.clipend : far clip plane in world unit</span>
+<span class="c1">#  lamp.spotsize : angle in degree of the spot light</span>
+
+<span class="c1"># The size of the projection plane is computed with the usual formula:</span>
+<span class="n">wsize</span> <span class="o">=</span> <span class="n">lamp</span><span class="o">.</span><span class="n">clista</span> <span class="o">*</span> <span class="n">tan</span><span class="p">(</span><span class="n">lamp</span><span class="o">.</span><span class="n">spotsize</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># And the projection matrix:</span>
+<span class="n">mat4_lamp_to_perspective</span> <span class="o">=</span> <span class="n">glFrustum</span><span class="p">(</span><span class="o">-</span><span class="n">wsize</span><span class="p">,</span> <span class="n">wsize</span><span class="p">,</span> <span class="o">-</span><span class="n">wsize</span><span class="p">,</span> <span class="n">wsize</span><span class="p">,</span> <span class="n">lamp</span><span class="o">.</span><span class="n">clista</span><span class="p">,</span> <span class="n">lamp</span><span class="o">.</span><span class="n">clipend</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Creation of the shadow map for a spot lamp.</p>
+<p>The shadow map is the depth buffer of a render performed by placing the camera at the
+spot light position. The size of the shadow map is given by the attribute <code class="docutils literal"><span class="pre">lamp.bufsize</span></code>:
+shadow map size in pixel, same size in both dimensions.</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">GPU functions (gpu)</a><ul>
+<li><a class="reference internal" href="#intro">Intro</a></li>
+<li><a class="reference internal" href="#constants">Constants</a><ul>
+<li><a class="reference internal" href="#glsl-data-type">GLSL Data Type</a></li>
+<li><a class="reference internal" href="#glsl-uniform-types">GLSL Uniform Types</a><ul>
+<li><a class="reference internal" href="#glsl-object-uniforms">GLSL Object Uniforms</a></li>
+<li><a class="reference internal" href="#glsl-lamp-uniforms">GLSL Lamp Uniforms</a></li>
+<li><a class="reference internal" href="#glsl-sampler-uniforms">GLSL Sampler Uniforms</a></li>
+<li><a class="reference internal" href="#glsl-mist-uniforms">GLSL Mist Uniforms</a></li>
+<li><a class="reference internal" href="#glsl-world-uniforms">GLSL World Uniforms</a></li>
+<li><a class="reference internal" href="#glsl-material-uniforms">GLSL Material Uniforms</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#glsl-attribute-type">GLSL Attribute Type</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="blf.html"
+                        title="previous chapter">Font Drawing (blf)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gpu.offscreen.html"
+                        title="next chapter">GPU Off-Screen Buffer (gpu.offscreen)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="gpu.offscreen.html" title="GPU Off-Screen Buffer (gpu.offscreen)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="blf.html" title="Font Drawing (blf)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

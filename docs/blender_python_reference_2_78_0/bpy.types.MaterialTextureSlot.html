@@ -1,0 +1,972 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>MaterialTextureSlot(TextureSlot) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="MaterialTextureSlots(bpy_struct)" href="bpy.types.MaterialTextureSlots.html" />
+    <link rel="prev" title="MaterialSubsurfaceScattering(bpy_struct)" href="bpy.types.MaterialSubsurfaceScattering.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.MaterialTextureSlots.html" title="MaterialTextureSlots(bpy_struct)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.MaterialSubsurfaceScattering.html" title="MaterialSubsurfaceScattering(bpy_struct)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="materialtextureslot-textureslot"></span><h1>MaterialTextureSlot(TextureSlot)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base classes &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.TextureSlot.html#bpy.types.TextureSlot" title="bpy.types.TextureSlot"><code class="xref py py-class docutils literal"><span class="pre">TextureSlot</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.MaterialTextureSlot">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">MaterialTextureSlot</code><span class="sig-paren">(</span><em>TextureSlot</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.MaterialTextureSlot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Texture slot for textures in a Material data-block</p>
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.alpha_factor">
+<code class="descname">alpha_factor</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.alpha_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount texture affects alpha</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.ambient_factor">
+<code class="descname">ambient_factor</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.ambient_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount texture affects ambient</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.bump_method">
+<code class="descname">bump_method</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.bump_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to use for bump mapping</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">BUMP_ORIGINAL</span></code> Original.</li>
+<li><code class="docutils literal"><span class="pre">BUMP_COMPATIBLE</span></code> Compatible.</li>
+<li><code class="docutils literal"><span class="pre">BUMP_LOW_QUALITY</span></code> Low Quality, Use 3 tap filtering.</li>
+<li><code class="docutils literal"><span class="pre">BUMP_MEDIUM_QUALITY</span></code> Medium Quality, Use 5 tap filtering.</li>
+<li><code class="docutils literal"><span class="pre">BUMP_BEST_QUALITY</span></code> Best Quality, Use bicubic filtering (requires OpenGL 3.0+, it will fall back on medium setting for other systems).</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;BUMP_ORIGINAL&#8217;, &#8216;BUMP_COMPATIBLE&#8217;, &#8216;BUMP_LOW_QUALITY&#8217;, &#8216;BUMP_MEDIUM_QUALITY&#8217;, &#8216;BUMP_BEST_QUALITY&#8217;], default &#8216;BUMP_ORIGINAL&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.bump_objectspace">
+<code class="descname">bump_objectspace</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.bump_objectspace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Space to apply bump mapping in</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;BUMP_VIEWSPACE&#8217;, &#8216;BUMP_OBJECTSPACE&#8217;, &#8216;BUMP_TEXTURESPACE&#8217;], default &#8216;BUMP_VIEWSPACE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.density_factor">
+<code class="descname">density_factor</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.density_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount texture affects density</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.diffuse_color_factor">
+<code class="descname">diffuse_color_factor</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.diffuse_color_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount texture affects diffuse color</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.diffuse_factor">
+<code class="descname">diffuse_factor</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.diffuse_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount texture affects diffuse reflectivity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.displacement_factor">
+<code class="descname">displacement_factor</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.displacement_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount texture displaces the surface</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.emission_color_factor">
+<code class="descname">emission_color_factor</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.emission_color_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount texture affects emission color</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.emission_factor">
+<code class="descname">emission_factor</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.emission_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount texture affects emission</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.emit_factor">
+<code class="descname">emit_factor</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.emit_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount texture affects emission</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.hardness_factor">
+<code class="descname">hardness_factor</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.hardness_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount texture affects hardness</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.mapping">
+<code class="descname">mapping</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.mapping" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><code class="docutils literal"><span class="pre">FLAT</span></code> Flat, Map X and Y coordinates directly.</li>
+<li><code class="docutils literal"><span class="pre">CUBE</span></code> Cube, Map using the normal vector.</li>
+<li><code class="docutils literal"><span class="pre">TUBE</span></code> Tube, Map with Z as central axis.</li>
+<li><code class="docutils literal"><span class="pre">SPHERE</span></code> Sphere, Map with Z as central axis.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;FLAT&#8217;, &#8216;CUBE&#8217;, &#8216;TUBE&#8217;, &#8216;SPHERE&#8217;], default &#8216;FLAT&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.mapping_x">
+<code class="descname">mapping_x</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.mapping_x" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;X&#8217;, &#8216;Y&#8217;, &#8216;Z&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.mapping_y">
+<code class="descname">mapping_y</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.mapping_y" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;X&#8217;, &#8216;Y&#8217;, &#8216;Z&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.mapping_z">
+<code class="descname">mapping_z</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.mapping_z" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;X&#8217;, &#8216;Y&#8217;, &#8216;Z&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.mirror_factor">
+<code class="descname">mirror_factor</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.mirror_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount texture affects mirror color</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.normal_factor">
+<code class="descname">normal_factor</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.normal_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount texture affects normal values</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.normal_map_space">
+<code class="descname">normal_map_space</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.normal_map_space" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set space of normal map image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;CAMERA&#8217;, &#8216;WORLD&#8217;, &#8216;OBJECT&#8217;, &#8216;TANGENT&#8217;], default &#8216;CAMERA&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.object">
+<code class="descname">object</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object to use for mapping with Object texture coordinates</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal"><span class="pre">Object</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.raymir_factor">
+<code class="descname">raymir_factor</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.raymir_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount texture affects ray mirror</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.reflection_color_factor">
+<code class="descname">reflection_color_factor</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.reflection_color_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount texture affects color of out-scattered light</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.reflection_factor">
+<code class="descname">reflection_factor</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.reflection_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount texture affects brightness of out-scattered light</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.scattering_factor">
+<code class="descname">scattering_factor</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.scattering_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount texture affects scattering</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.specular_color_factor">
+<code class="descname">specular_color_factor</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.specular_color_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount texture affects specular color</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.specular_factor">
+<code class="descname">specular_factor</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.specular_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount texture affects specular reflectivity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.texture_coords">
+<code class="descname">texture_coords</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.texture_coords" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><code class="docutils literal"><span class="pre">GLOBAL</span></code> Global, Use global coordinates for the texture coordinates.</li>
+<li><code class="docutils literal"><span class="pre">OBJECT</span></code> Object, Use linked object&#8217;s coordinates for texture coordinates.</li>
+<li><code class="docutils literal"><span class="pre">UV</span></code> UV, Use UV coordinates for texture coordinates.</li>
+<li><code class="docutils literal"><span class="pre">ORCO</span></code> Generated, Use the original undeformed coordinates of the object.</li>
+<li><code class="docutils literal"><span class="pre">STRAND</span></code> Strand / Particle, Use normalized strand texture coordinate (1D) or particle age (X) and trail position (Y).</li>
+<li><code class="docutils literal"><span class="pre">WINDOW</span></code> Window, Use screen coordinates as texture coordinates.</li>
+<li><code class="docutils literal"><span class="pre">NORMAL</span></code> Normal, Use normal vector as texture coordinates.</li>
+<li><code class="docutils literal"><span class="pre">REFLECTION</span></code> Reflection, Use reflection vector as texture coordinates.</li>
+<li><code class="docutils literal"><span class="pre">STRESS</span></code> Stress, Use the difference of edge lengths compared to original coordinates of the mesh.</li>
+<li><code class="docutils literal"><span class="pre">TANGENT</span></code> Tangent, Use the optional tangent vector as texture coordinates.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;GLOBAL&#8217;, &#8216;OBJECT&#8217;, &#8216;UV&#8217;, &#8216;ORCO&#8217;, &#8216;STRAND&#8217;, &#8216;WINDOW&#8217;, &#8216;NORMAL&#8217;, &#8216;REFLECTION&#8217;, &#8216;STRESS&#8217;, &#8216;TANGENT&#8217;], default &#8216;GLOBAL&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.translucency_factor">
+<code class="descname">translucency_factor</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.translucency_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount texture affects translucency</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.transmission_color_factor">
+<code class="descname">transmission_color_factor</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.transmission_color_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount texture affects result color after light has been scattered/absorbed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use">
+<code class="descname">use</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable this material texture slot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_from_dupli">
+<code class="descname">use_from_dupli</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_from_dupli" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dupli&#8217;s instanced from verts, faces or particles, inherit texture coordinate from their parent</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_from_original">
+<code class="descname">use_from_original</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_from_original" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dupli&#8217;s derive their object coordinates from the original object&#8217;s transformation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_map_alpha">
+<code class="descname">use_map_alpha</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_map_alpha" title="Permalink to this definition">¶</a></dt>
+<dd><p>The texture affects the alpha value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_map_ambient">
+<code class="descname">use_map_ambient</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_map_ambient" title="Permalink to this definition">¶</a></dt>
+<dd><p>The texture affects the value of ambient</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_map_color_diffuse">
+<code class="descname">use_map_color_diffuse</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_map_color_diffuse" title="Permalink to this definition">¶</a></dt>
+<dd><p>The texture affects basic color of the material</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_map_color_emission">
+<code class="descname">use_map_color_emission</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_map_color_emission" title="Permalink to this definition">¶</a></dt>
+<dd><p>The texture affects the color of emission</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_map_color_reflection">
+<code class="descname">use_map_color_reflection</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_map_color_reflection" title="Permalink to this definition">¶</a></dt>
+<dd><p>The texture affects the color of scattered light</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_map_color_spec">
+<code class="descname">use_map_color_spec</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_map_color_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>The texture affects the specularity color</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_map_color_transmission">
+<code class="descname">use_map_color_transmission</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_map_color_transmission" title="Permalink to this definition">¶</a></dt>
+<dd><p>The texture affects the result color after other light has been scattered/absorbed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_map_density">
+<code class="descname">use_map_density</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_map_density" title="Permalink to this definition">¶</a></dt>
+<dd><p>The texture affects the volume&#8217;s density</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_map_diffuse">
+<code class="descname">use_map_diffuse</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_map_diffuse" title="Permalink to this definition">¶</a></dt>
+<dd><p>The texture affects the value of diffuse reflectivity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_map_displacement">
+<code class="descname">use_map_displacement</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_map_displacement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Let the texture displace the surface</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_map_emission">
+<code class="descname">use_map_emission</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_map_emission" title="Permalink to this definition">¶</a></dt>
+<dd><p>The texture affects the volume&#8217;s emission</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_map_emit">
+<code class="descname">use_map_emit</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_map_emit" title="Permalink to this definition">¶</a></dt>
+<dd><p>The texture affects the emit value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_map_hardness">
+<code class="descname">use_map_hardness</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_map_hardness" title="Permalink to this definition">¶</a></dt>
+<dd><p>The texture affects the hardness value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_map_mirror">
+<code class="descname">use_map_mirror</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_map_mirror" title="Permalink to this definition">¶</a></dt>
+<dd><p>The texture affects the mirror color</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_map_normal">
+<code class="descname">use_map_normal</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_map_normal" title="Permalink to this definition">¶</a></dt>
+<dd><p>The texture affects the rendered normal</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_map_raymir">
+<code class="descname">use_map_raymir</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_map_raymir" title="Permalink to this definition">¶</a></dt>
+<dd><p>The texture affects the ray-mirror value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_map_reflect">
+<code class="descname">use_map_reflect</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_map_reflect" title="Permalink to this definition">¶</a></dt>
+<dd><p>The texture affects the reflected light&#8217;s brightness</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_map_scatter">
+<code class="descname">use_map_scatter</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_map_scatter" title="Permalink to this definition">¶</a></dt>
+<dd><p>The texture affects the volume&#8217;s scattering</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_map_specular">
+<code class="descname">use_map_specular</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_map_specular" title="Permalink to this definition">¶</a></dt>
+<dd><p>The texture affects the value of specular reflectivity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_map_to_bounds">
+<code class="descname">use_map_to_bounds</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_map_to_bounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map coordinates in object bounds</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_map_translucency">
+<code class="descname">use_map_translucency</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_map_translucency" title="Permalink to this definition">¶</a></dt>
+<dd><p>The texture affects the translucency value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.use_map_warp">
+<code class="descname">use_map_warp</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.use_map_warp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Let the texture warp texture coordinates of next channels</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.uv_layer">
+<code class="descname">uv_layer</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.uv_layer" title="Permalink to this definition">¶</a></dt>
+<dd><p>UV map to use for mapping with UV texture coordinates</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.MaterialTextureSlot.warp_factor">
+<code class="descname">warp_factor</code><a class="headerlink" href="#bpy.types.MaterialTextureSlot.warp_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount texture affects texture coordinates of next channels</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.TextureSlot.html#bpy.types.TextureSlot.texture" title="bpy.types.TextureSlot.texture"><code class="xref py py-class docutils literal"><span class="pre">TextureSlot.texture</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.TextureSlot.html#bpy.types.TextureSlot.name" title="bpy.types.TextureSlot.name"><code class="xref py py-class docutils literal"><span class="pre">TextureSlot.name</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.TextureSlot.html#bpy.types.TextureSlot.offset" title="bpy.types.TextureSlot.offset"><code class="xref py py-class docutils literal"><span class="pre">TextureSlot.offset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.TextureSlot.html#bpy.types.TextureSlot.scale" title="bpy.types.TextureSlot.scale"><code class="xref py py-class docutils literal"><span class="pre">TextureSlot.scale</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.TextureSlot.html#bpy.types.TextureSlot.color" title="bpy.types.TextureSlot.color"><code class="xref py py-class docutils literal"><span class="pre">TextureSlot.color</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.TextureSlot.html#bpy.types.TextureSlot.blend_type" title="bpy.types.TextureSlot.blend_type"><code class="xref py py-class docutils literal"><span class="pre">TextureSlot.blend_type</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.TextureSlot.html#bpy.types.TextureSlot.use_stencil" title="bpy.types.TextureSlot.use_stencil"><code class="xref py py-class docutils literal"><span class="pre">TextureSlot.use_stencil</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.TextureSlot.html#bpy.types.TextureSlot.invert" title="bpy.types.TextureSlot.invert"><code class="xref py py-class docutils literal"><span class="pre">TextureSlot.invert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.TextureSlot.html#bpy.types.TextureSlot.use_rgb_to_intensity" title="bpy.types.TextureSlot.use_rgb_to_intensity"><code class="xref py py-class docutils literal"><span class="pre">TextureSlot.use_rgb_to_intensity</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.TextureSlot.html#bpy.types.TextureSlot.default_value" title="bpy.types.TextureSlot.default_value"><code class="xref py py-class docutils literal"><span class="pre">TextureSlot.default_value</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.TextureSlot.html#bpy.types.TextureSlot.output_node" title="bpy.types.TextureSlot.output_node"><code class="xref py py-class docutils literal"><span class="pre">TextureSlot.output_node</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.context.html#bpy.context.texture_slot" title="bpy.context.texture_slot"><code class="xref py py-mod docutils literal"><span class="pre">bpy.context.texture_slot</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Material.html#bpy.types.Material.texture_slots" title="bpy.types.Material.texture_slots"><code class="xref py py-class docutils literal"><span class="pre">Material.texture_slots</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.MaterialTextureSlots.html#bpy.types.MaterialTextureSlots.add" title="bpy.types.MaterialTextureSlots.add"><code class="xref py py-class docutils literal"><span class="pre">MaterialTextureSlots.add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.MaterialTextureSlots.html#bpy.types.MaterialTextureSlots.create" title="bpy.types.MaterialTextureSlots.create"><code class="xref py py-class docutils literal"><span class="pre">MaterialTextureSlots.create</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.MaterialSubsurfaceScattering.html"
+                        title="previous chapter">MaterialSubsurfaceScattering(bpy_struct)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.MaterialTextureSlots.html"
+                        title="next chapter">MaterialTextureSlots(bpy_struct)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.MaterialTextureSlots.html" title="MaterialTextureSlots(bpy_struct)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.MaterialSubsurfaceScattering.html" title="MaterialSubsurfaceScattering(bpy_struct)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Rigidbody Operators &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Operators (bpy.ops)" href="bpy.ops.html" />
+    <link rel="next" title="Safe Areas Operators" href="bpy.ops.safe_areas.html" />
+    <link rel="prev" title="Render Operators" href="bpy.ops.render.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.safe_areas.html" title="Safe Areas Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.render.html" title="Render Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.ops.rigidbody">
+<span id="rigidbody-operators"></span><h1>Rigidbody Operators<a class="headerlink" href="#module-bpy.ops.rigidbody" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bpy.ops.rigidbody.bake_to_keyframes">
+<code class="descclassname">bpy.ops.rigidbody.</code><code class="descname">bake_to_keyframes</code><span class="sig-paren">(</span><em>frame_start=1</em>, <em>frame_end=250</em>, <em>step=1</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.rigidbody.bake_to_keyframes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bake rigid body transformations of selected objects to keyframes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>frame_start</strong> (<em>int in [0, 300000], (optional)</em>) &#8211; Start Frame, Start frame for baking</li>
+<li><strong>frame_end</strong> (<em>int in [1, 300000], (optional)</em>) &#8211; End Frame, End frame for baking</li>
+<li><strong>step</strong> (<em>int in [1, 120], (optional)</em>) &#8211; Frame Step, Frame Step</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">File:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/rigidbody.py">startup/bl_operators/rigidbody.py</a>:117</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.rigidbody.connect">
+<code class="descclassname">bpy.ops.rigidbody.</code><code class="descname">connect</code><span class="sig-paren">(</span><em>con_type='FIXED'</em>, <em>pivot_type='CENTER'</em>, <em>connection_pattern='SELECTED_TO_ACTIVE'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.rigidbody.connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create rigid body constraints between selected rigid bodies</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>con_type</strong> (<em>enum in ['FIXED', 'POINT', 'HINGE', 'SLIDER', 'PISTON', 'GENERIC', 'GENERIC_SPRING', 'MOTOR'], (optional)</em>) &#8211; <p>Type, Type of generated constraint</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">FIXED</span></code> Fixed, Glue rigid bodies together.</li>
+<li><code class="docutils literal"><span class="pre">POINT</span></code> Point, Constrain rigid bodies to move around common pivot point.</li>
+<li><code class="docutils literal"><span class="pre">HINGE</span></code> Hinge, Restrict rigid body rotation to one axis.</li>
+<li><code class="docutils literal"><span class="pre">SLIDER</span></code> Slider, Restrict rigid body translation to one axis.</li>
+<li><code class="docutils literal"><span class="pre">PISTON</span></code> Piston, Restrict rigid body translation and rotation to one axis.</li>
+<li><code class="docutils literal"><span class="pre">GENERIC</span></code> Generic, Restrict translation and rotation to specified axes.</li>
+<li><code class="docutils literal"><span class="pre">GENERIC_SPRING</span></code> Generic Spring, Restrict translation and rotation to specified axes with springs.</li>
+<li><code class="docutils literal"><span class="pre">MOTOR</span></code> Motor, Drive rigid body around or along an axis.</li>
+</ul>
+</li>
+<li><strong>pivot_type</strong> (<em>enum in ['CENTER', 'ACTIVE', 'SELECTED'], (optional)</em>) &#8211; <p>Location, Constraint pivot location</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">CENTER</span></code> Center, Pivot location is between the constrained rigid bodies.</li>
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active, Pivot location is at the active object position.</li>
+<li><code class="docutils literal"><span class="pre">SELECTED</span></code> Selected, Pivot location is at the selected object position.</li>
+</ul>
+</li>
+<li><strong>connection_pattern</strong> (<em>enum in ['SELECTED_TO_ACTIVE', 'CHAIN_DISTANCE'], (optional)</em>) &#8211; <p>Connection Pattern, Pattern used to connect objects</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">SELECTED_TO_ACTIVE</span></code> Selected to Active, Connect selected objects to the active object.</li>
+<li><code class="docutils literal"><span class="pre">CHAIN_DISTANCE</span></code> Chain by Distance, Connect objects as a chain based on distance, starting at the active object.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">File:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/rigidbody.py">startup/bl_operators/rigidbody.py</a>:272</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.rigidbody.constraint_add">
+<code class="descclassname">bpy.ops.rigidbody.</code><code class="descname">constraint_add</code><span class="sig-paren">(</span><em>type='FIXED'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.rigidbody.constraint_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add Rigid Body Constraint to active object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> (<em>enum in ['FIXED', 'POINT', 'HINGE', 'SLIDER', 'PISTON', 'GENERIC', 'GENERIC_SPRING', 'MOTOR'], (optional)</em>) &#8211; <p>Rigid Body Constraint Type</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">FIXED</span></code> Fixed, Glue rigid bodies together.</li>
+<li><code class="docutils literal"><span class="pre">POINT</span></code> Point, Constrain rigid bodies to move around common pivot point.</li>
+<li><code class="docutils literal"><span class="pre">HINGE</span></code> Hinge, Restrict rigid body rotation to one axis.</li>
+<li><code class="docutils literal"><span class="pre">SLIDER</span></code> Slider, Restrict rigid body translation to one axis.</li>
+<li><code class="docutils literal"><span class="pre">PISTON</span></code> Piston, Restrict rigid body translation and rotation to one axis.</li>
+<li><code class="docutils literal"><span class="pre">GENERIC</span></code> Generic, Restrict translation and rotation to specified axes.</li>
+<li><code class="docutils literal"><span class="pre">GENERIC_SPRING</span></code> Generic Spring, Restrict translation and rotation to specified axes with springs.</li>
+<li><code class="docutils literal"><span class="pre">MOTOR</span></code> Motor, Drive rigid body around or along an axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.rigidbody.constraint_remove">
+<code class="descclassname">bpy.ops.rigidbody.</code><code class="descname">constraint_remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.rigidbody.constraint_remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove Rigid Body Constraint from Object</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.rigidbody.mass_calculate">
+<code class="descclassname">bpy.ops.rigidbody.</code><code class="descname">mass_calculate</code><span class="sig-paren">(</span><em>material='DEFAULT'</em>, <em>density=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.rigidbody.mass_calculate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatically calculate mass values for Rigid Body Objects based on volume</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>material</strong> (<em>enum in ['DEFAULT'], (optional)</em>) &#8211; Material Preset, Type of material that objects are made of (determines material density)</li>
+<li><strong>density</strong> (<em>float in [1.17549e-38, inf], (optional)</em>) &#8211; Density, Custom density value (kg/m^3) to use instead of material preset</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.rigidbody.object_add">
+<code class="descclassname">bpy.ops.rigidbody.</code><code class="descname">object_add</code><span class="sig-paren">(</span><em>type='ACTIVE'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.rigidbody.object_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add active object as Rigid Body</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> (<em>enum in ['ACTIVE', 'PASSIVE'], (optional)</em>) &#8211; <p>Rigid Body Type</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active, Object is directly controlled by simulation results.</li>
+<li><code class="docutils literal"><span class="pre">PASSIVE</span></code> Passive, Object is directly controlled by animation system.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.rigidbody.object_remove">
+<code class="descclassname">bpy.ops.rigidbody.</code><code class="descname">object_remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.rigidbody.object_remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove Rigid Body settings from Object</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.rigidbody.object_settings_copy">
+<code class="descclassname">bpy.ops.rigidbody.</code><code class="descname">object_settings_copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.rigidbody.object_settings_copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy Rigid Body settings from active object to selected</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">File:</th><td class="field-body"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/rigidbody.py">startup/bl_operators/rigidbody.py</a>:59</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.rigidbody.objects_add">
+<code class="descclassname">bpy.ops.rigidbody.</code><code class="descname">objects_add</code><span class="sig-paren">(</span><em>type='ACTIVE'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.rigidbody.objects_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add selected objects as Rigid Bodies</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> (<em>enum in ['ACTIVE', 'PASSIVE'], (optional)</em>) &#8211; <p>Rigid Body Type</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active, Object is directly controlled by simulation results.</li>
+<li><code class="docutils literal"><span class="pre">PASSIVE</span></code> Passive, Object is directly controlled by animation system.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.rigidbody.objects_remove">
+<code class="descclassname">bpy.ops.rigidbody.</code><code class="descname">objects_remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.rigidbody.objects_remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove selected objects from Rigid Body simulation</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.rigidbody.shape_change">
+<code class="descclassname">bpy.ops.rigidbody.</code><code class="descname">shape_change</code><span class="sig-paren">(</span><em>type='MESH'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.rigidbody.shape_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change collision shapes for selected Rigid Body Objects</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> (<em>enum in ['BOX', 'SPHERE', 'CAPSULE', 'CYLINDER', 'CONE', 'CONVEX_HULL', 'MESH'], (optional)</em>) &#8211; <p>Rigid Body Shape</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">BOX</span></code> Box, Box-like shapes (i.e. cubes), including planes (i.e. ground planes).</li>
+<li><code class="docutils literal"><span class="pre">SPHERE</span></code> Sphere.</li>
+<li><code class="docutils literal"><span class="pre">CAPSULE</span></code> Capsule.</li>
+<li><code class="docutils literal"><span class="pre">CYLINDER</span></code> Cylinder.</li>
+<li><code class="docutils literal"><span class="pre">CONE</span></code> Cone.</li>
+<li><code class="docutils literal"><span class="pre">CONVEX_HULL</span></code> Convex Hull, A mesh-like surface encompassing (i.e. shrinkwrap over) all vertices (best results with fewer vertices).</li>
+<li><code class="docutils literal"><span class="pre">MESH</span></code> Mesh, Mesh consisting of triangles only, allowing for more detailed interactions than convex hulls.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.rigidbody.world_add">
+<code class="descclassname">bpy.ops.rigidbody.</code><code class="descname">world_add</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.rigidbody.world_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add Rigid Body simulation world to the current scene</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.rigidbody.world_remove">
+<code class="descclassname">bpy.ops.rigidbody.</code><code class="descname">world_remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.rigidbody.world_remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove Rigid Body simulation world from the current scene</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.ops.render.html"
+                        title="previous chapter">Render Operators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.ops.safe_areas.html"
+                        title="next chapter">Safe Areas Operators</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.safe_areas.html" title="Safe Areas Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.render.html" title="Render Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

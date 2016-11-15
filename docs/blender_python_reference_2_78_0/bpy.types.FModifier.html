@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>FModifier(bpy_struct) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="FModifierCycles(FModifier)" href="bpy.types.FModifierCycles.html" />
+    <link rel="prev" title="FILEBROWSER_UL_dir(UIList)" href="bpy.types.FILEBROWSER_UL_dir.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.FModifierCycles.html" title="FModifierCycles(FModifier)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.FILEBROWSER_UL_dir.html" title="FILEBROWSER_UL_dir(UIList)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="fmodifier-bpy-struct"></span><h1>FModifier(bpy_struct)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a></p>
+<p>subclasses &#8212;
+<a class="reference internal" href="bpy.types.FModifierCycles.html#bpy.types.FModifierCycles" title="bpy.types.FModifierCycles"><code class="xref py py-class docutils literal"><span class="pre">FModifierCycles</span></code></a>, <a class="reference internal" href="bpy.types.FModifierEnvelope.html#bpy.types.FModifierEnvelope" title="bpy.types.FModifierEnvelope"><code class="xref py py-class docutils literal"><span class="pre">FModifierEnvelope</span></code></a>, <a class="reference internal" href="bpy.types.FModifierFunctionGenerator.html#bpy.types.FModifierFunctionGenerator" title="bpy.types.FModifierFunctionGenerator"><code class="xref py py-class docutils literal"><span class="pre">FModifierFunctionGenerator</span></code></a>, <a class="reference internal" href="bpy.types.FModifierGenerator.html#bpy.types.FModifierGenerator" title="bpy.types.FModifierGenerator"><code class="xref py py-class docutils literal"><span class="pre">FModifierGenerator</span></code></a>, <a class="reference internal" href="bpy.types.FModifierLimits.html#bpy.types.FModifierLimits" title="bpy.types.FModifierLimits"><code class="xref py py-class docutils literal"><span class="pre">FModifierLimits</span></code></a>, <a class="reference internal" href="bpy.types.FModifierNoise.html#bpy.types.FModifierNoise" title="bpy.types.FModifierNoise"><code class="xref py py-class docutils literal"><span class="pre">FModifierNoise</span></code></a>, <a class="reference internal" href="bpy.types.FModifierPython.html#bpy.types.FModifierPython" title="bpy.types.FModifierPython"><code class="xref py py-class docutils literal"><span class="pre">FModifierPython</span></code></a>, <a class="reference internal" href="bpy.types.FModifierStepped.html#bpy.types.FModifierStepped" title="bpy.types.FModifierStepped"><code class="xref py py-class docutils literal"><span class="pre">FModifierStepped</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.FModifier">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">FModifier</code><span class="sig-paren">(</span><em>bpy_struct</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.FModifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifier for values of F-Curve</p>
+<dl class="attribute">
+<dt id="bpy.types.FModifier.active">
+<code class="descname">active</code><a class="headerlink" href="#bpy.types.FModifier.active" title="Permalink to this definition">¶</a></dt>
+<dd><p>F-Curve Modifier is the one being edited</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FModifier.blend_in">
+<code class="descname">blend_in</code><a class="headerlink" href="#bpy.types.FModifier.blend_in" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of frames from start frame for influence to take effect</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FModifier.blend_out">
+<code class="descname">blend_out</code><a class="headerlink" href="#bpy.types.FModifier.blend_out" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of frames from end frame for influence to fade out</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FModifier.frame_end">
+<code class="descname">frame_end</code><a class="headerlink" href="#bpy.types.FModifier.frame_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Frame that modifier&#8217;s influence ends (if Restrict Frame Range is in use)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FModifier.frame_start">
+<code class="descname">frame_start</code><a class="headerlink" href="#bpy.types.FModifier.frame_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Frame that modifier&#8217;s influence starts (if Restrict Frame Range is in use)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FModifier.influence">
+<code class="descname">influence</code><a class="headerlink" href="#bpy.types.FModifier.influence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of influence F-Curve Modifier will have when not fading in/out</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 1.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.FModifier.is_valid">
+<code class="descname">is_valid</code><a class="headerlink" href="#bpy.types.FModifier.is_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>F-Curve Modifier has invalid settings and will not be evaluated</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FModifier.mute">
+<code class="descname">mute</code><a class="headerlink" href="#bpy.types.FModifier.mute" title="Permalink to this definition">¶</a></dt>
+<dd><p>F-Curve Modifier will not be evaluated</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FModifier.show_expanded">
+<code class="descname">show_expanded</code><a class="headerlink" href="#bpy.types.FModifier.show_expanded" title="Permalink to this definition">¶</a></dt>
+<dd><p>F-Curve Modifier&#8217;s panel is expanded in UI</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.FModifier.type">
+<code class="descname">type</code><a class="headerlink" href="#bpy.types.FModifier.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>F-Curve Modifier Type</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">NULL</span></code> Invalid.</li>
+<li><code class="docutils literal"><span class="pre">GENERATOR</span></code> Generator, Generate a curve using a factorized or expanded polynomial.</li>
+<li><code class="docutils literal"><span class="pre">FNGENERATOR</span></code> Built-In Function, Generate a curve using standard math functions such as sin and cos.</li>
+<li><code class="docutils literal"><span class="pre">ENVELOPE</span></code> Envelope, Reshape F-Curve values - e.g. change amplitude of movements.</li>
+<li><code class="docutils literal"><span class="pre">CYCLES</span></code> Cycles, Cyclic extend/repeat keyframe sequence.</li>
+<li><code class="docutils literal"><span class="pre">NOISE</span></code> Noise, Add pseudo-random noise on top of F-Curves.</li>
+<li><code class="docutils literal"><span class="pre">LIMITS</span></code> Limits, Restrict maximum and minimum values of F-Curve.</li>
+<li><code class="docutils literal"><span class="pre">STEPPED</span></code> Stepped Interpolation, Snap values to nearest grid-step - e.g. for a stop-motion look.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NULL&#8217;, &#8216;GENERATOR&#8217;, &#8216;FNGENERATOR&#8217;, &#8216;ENVELOPE&#8217;, &#8216;CYCLES&#8217;, &#8216;NOISE&#8217;, &#8216;LIMITS&#8217;, &#8216;STEPPED&#8217;], default &#8216;NULL&#8217;, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FModifier.use_influence">
+<code class="descname">use_influence</code><a class="headerlink" href="#bpy.types.FModifier.use_influence" title="Permalink to this definition">¶</a></dt>
+<dd><p>F-Curve Modifier&#8217;s effects will be tempered by a default factor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FModifier.use_restricted_range">
+<code class="descname">use_restricted_range</code><a class="headerlink" href="#bpy.types.FModifier.use_restricted_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>F-Curve Modifier is only applied for the specified frame range to help mask off effects in order to chain them</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.FCurve.html#bpy.types.FCurve.modifiers" title="bpy.types.FCurve.modifiers"><code class="xref py py-class docutils literal"><span class="pre">FCurve.modifiers</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.FCurveModifiers.html#bpy.types.FCurveModifiers.active" title="bpy.types.FCurveModifiers.active"><code class="xref py py-class docutils literal"><span class="pre">FCurveModifiers.active</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.FCurveModifiers.html#bpy.types.FCurveModifiers.new" title="bpy.types.FCurveModifiers.new"><code class="xref py py-class docutils literal"><span class="pre">FCurveModifiers.new</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.FCurveModifiers.html#bpy.types.FCurveModifiers.remove" title="bpy.types.FCurveModifiers.remove"><code class="xref py py-class docutils literal"><span class="pre">FCurveModifiers.remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NlaStrip.html#bpy.types.NlaStrip.modifiers" title="bpy.types.NlaStrip.modifiers"><code class="xref py py-class docutils literal"><span class="pre">NlaStrip.modifiers</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.FILEBROWSER_UL_dir.html"
+                        title="previous chapter">FILEBROWSER_UL_dir(UIList)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.FModifierCycles.html"
+                        title="next chapter">FModifierCycles(FModifier)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.FModifierCycles.html" title="FModifierCycles(FModifier)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.FILEBROWSER_UL_dir.html" title="FILEBROWSER_UL_dir(UIList)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

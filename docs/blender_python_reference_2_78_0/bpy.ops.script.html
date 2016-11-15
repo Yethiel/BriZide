@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Script Operators &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Operators (bpy.ops)" href="bpy.ops.html" />
+    <link rel="next" title="Sculpt Operators" href="bpy.ops.sculpt.html" />
+    <link rel="prev" title="Screen Operators" href="bpy.ops.screen.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.sculpt.html" title="Sculpt Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.screen.html" title="Screen Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.ops.script">
+<span id="script-operators"></span><h1>Script Operators<a class="headerlink" href="#module-bpy.ops.script" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bpy.ops.script.autoexec_warn_clear">
+<code class="descclassname">bpy.ops.script.</code><code class="descname">autoexec_warn_clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.script.autoexec_warn_clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ignore autoexec warning</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.script.execute_preset">
+<code class="descclassname">bpy.ops.script.</code><code class="descname">execute_preset</code><span class="sig-paren">(</span><em>filepath=&quot;&quot;</em>, <em>menu_idname=&quot;&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.script.execute_preset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute a preset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filepath</strong> (<em>string, (optional, never None)</em>) &#8211; filepath</li>
+<li><strong>menu_idname</strong> (<em>string, (optional, never None)</em>) &#8211; Menu ID Name, ID name of the menu this was called from</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">File:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/presets.py">startup/bl_operators/presets.py</a>:217</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.script.python_file_run">
+<code class="descclassname">bpy.ops.script.</code><code class="descname">python_file_run</code><span class="sig-paren">(</span><em>filepath=&quot;&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.script.python_file_run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run Python file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filepath</strong> (<em>string, (optional, never None)</em>) &#8211; Path</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.script.reload">
+<code class="descclassname">bpy.ops.script.</code><code class="descname">reload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.script.reload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reload Scripts</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.ops.screen.html"
+                        title="previous chapter">Screen Operators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.ops.sculpt.html"
+                        title="next chapter">Sculpt Operators</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.sculpt.html" title="Sculpt Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.screen.html" title="Screen Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

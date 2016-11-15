@@ -1,0 +1,418 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>KX_LightObject(KX_GameObject) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Game Types (bge.types)" href="bge.types.html" />
+    <link rel="next" title="KX_MeshProxy(SCA_IObject)" href="bge.types.KX_MeshProxy.html" />
+    <link rel="prev" title="KX_LibLoadStatus(PyObjectPlus)" href="bge.types.KX_LibLoadStatus.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_MeshProxy.html" title="KX_MeshProxy(SCA_IObject)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_LibLoadStatus.html" title="KX_LibLoadStatus(PyObjectPlus)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" accesskey="U">Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bge.types">
+<span id="kx-lightobject-kx-gameobject"></span><h1>KX_LightObject(KX_GameObject)<a class="headerlink" href="#module-bge.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bge.types.KX_GameObject.html#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a></p>
+<dl class="class">
+<dt id="bge.types.KX_LightObject">
+<em class="property">class </em><code class="descclassname">bge.types.</code><code class="descname">KX_LightObject</code><span class="sig-paren">(</span><em>KX_GameObject</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_LightObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Light object.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Turn on a red alert light.</span>
+<span class="kn">import</span> <span class="nn">bge</span>
+
+<span class="n">co</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">logic</span><span class="o">.</span><span class="n">getCurrentController</span><span class="p">()</span>
+<span class="n">light</span> <span class="o">=</span> <span class="n">co</span><span class="o">.</span><span class="n">owner</span>
+
+<span class="n">light</span><span class="o">.</span><span class="n">energy</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">light</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+</pre></div>
+</div>
+<dl class="data">
+<dt id="bge.types.KX_LightObject.SPOT">
+<code class="descname">SPOT</code><a class="headerlink" href="#bge.types.KX_LightObject.SPOT" title="Permalink to this definition">¶</a></dt>
+<dd><p>A spot light source. See attribute <a class="reference internal" href="#bge.types.KX_LightObject.type" title="bge.types.KX_LightObject.type"><code class="xref py py-data docutils literal"><span class="pre">type</span></code></a></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="bge.types.KX_LightObject.SUN">
+<code class="descname">SUN</code><a class="headerlink" href="#bge.types.KX_LightObject.SUN" title="Permalink to this definition">¶</a></dt>
+<dd><p>A point light source with no attenuation. See attribute <a class="reference internal" href="#bge.types.KX_LightObject.type" title="bge.types.KX_LightObject.type"><code class="xref py py-data docutils literal"><span class="pre">type</span></code></a></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="bge.types.KX_LightObject.NORMAL">
+<code class="descname">NORMAL</code><a class="headerlink" href="#bge.types.KX_LightObject.NORMAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>A point light source. See attribute <a class="reference internal" href="#bge.types.KX_LightObject.type" title="bge.types.KX_LightObject.type"><code class="xref py py-data docutils literal"><span class="pre">type</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_LightObject.type">
+<code class="descname">type</code><a class="headerlink" href="#bge.types.KX_LightObject.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of light - must be SPOT, SUN or NORMAL</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_LightObject.layer">
+<code class="descname">layer</code><a class="headerlink" href="#bge.types.KX_LightObject.layer" title="Permalink to this definition">¶</a></dt>
+<dd><p>The layer mask that this light affects object on.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">bitfield</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_LightObject.energy">
+<code class="descname">energy</code><a class="headerlink" href="#bge.types.KX_LightObject.energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>The brightness of this light.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_LightObject.shadowClipStart">
+<code class="descname">shadowClipStart</code><a class="headerlink" href="#bge.types.KX_LightObject.shadowClipStart" title="Permalink to this definition">¶</a></dt>
+<dd><p>The shadowmap clip start, below which objects will not generate shadows.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float (read only)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_LightObject.shadowClipEnd">
+<code class="descname">shadowClipEnd</code><a class="headerlink" href="#bge.types.KX_LightObject.shadowClipEnd" title="Permalink to this definition">¶</a></dt>
+<dd><p>The shadowmap clip end, beyond which objects will not generate shadows.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float (read only)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_LightObject.shadowFrustumSize">
+<code class="descname">shadowFrustumSize</code><a class="headerlink" href="#bge.types.KX_LightObject.shadowFrustumSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of the frustum used for creating the shadowmap.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float (read only)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_LightObject.shadowBindId">
+<code class="descname">shadowBindId</code><a class="headerlink" href="#bge.types.KX_LightObject.shadowBindId" title="Permalink to this definition">¶</a></dt>
+<dd><p>The OpenGL shadow texture bind number/id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int (read only)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_LightObject.shadowMapType">
+<code class="descname">shadowMapType</code><a class="headerlink" href="#bge.types.KX_LightObject.shadowMapType" title="Permalink to this definition">¶</a></dt>
+<dd><p>The shadow shadow map type (0 -&gt; Simple; 1 -&gt; Variance)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int (read only)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_LightObject.shadowBias">
+<code class="descname">shadowBias</code><a class="headerlink" href="#bge.types.KX_LightObject.shadowBias" title="Permalink to this definition">¶</a></dt>
+<dd><p>The shadow buffer sampling bias.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float (read only)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_LightObject.shadowBleedBias">
+<code class="descname">shadowBleedBias</code><a class="headerlink" href="#bge.types.KX_LightObject.shadowBleedBias" title="Permalink to this definition">¶</a></dt>
+<dd><p>The bias for reducing light-bleed on variance shadow maps.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float (read only)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_LightObject.useShadow">
+<code class="descname">useShadow</code><a class="headerlink" href="#bge.types.KX_LightObject.useShadow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if the light has Shadow option activated, else returns False.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean (read only)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_LightObject.shadowColor">
+<code class="descname">shadowColor</code><a class="headerlink" href="#bge.types.KX_LightObject.shadowColor" title="Permalink to this definition">¶</a></dt>
+<dd><p>The color of this light shadows. Black = (0.0, 0.0, 0.0), White = (1.0, 1.0, 1.0).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="mathutils.html#mathutils.Color" title="mathutils.Color"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Color</span></code></a> (read only)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_LightObject.shadowMatrix">
+<code class="descname">shadowMatrix</code><a class="headerlink" href="#bge.types.KX_LightObject.shadowMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Matrix that converts a vector in camera space to shadow buffer depth space.</p>
+<dl class="docutils">
+<dt>Computed as:</dt>
+<dd>mat4_perspective_to_depth * mat4_lamp_to_perspective * mat4_world_to_lamp * mat4_cam_to_world.</dd>
+</dl>
+<p>mat4_perspective_to_depth is a fixed matrix defined as follow:</p>
+<blockquote>
+<div>0.5 0.0 0.0 0.5
+0.0 0.5 0.0 0.5
+0.0 0.0 0.5 0.5
+0.0 0.0 0.0 1.0</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">Matrix4x4 (read only)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_LightObject.distance">
+<code class="descname">distance</code><a class="headerlink" href="#bge.types.KX_LightObject.distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum distance this light can illuminate. (SPOT and NORMAL lights only).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_LightObject.color">
+<code class="descname">color</code><a class="headerlink" href="#bge.types.KX_LightObject.color" title="Permalink to this definition">¶</a></dt>
+<dd><p>The color of this light. Black = [0.0, 0.0, 0.0], White = [1.0, 1.0, 1.0].</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list [r, g, b]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_LightObject.lin_attenuation">
+<code class="descname">lin_attenuation</code><a class="headerlink" href="#bge.types.KX_LightObject.lin_attenuation" title="Permalink to this definition">¶</a></dt>
+<dd><p>The linear component of this light&#8217;s attenuation. (SPOT and NORMAL lights only).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_LightObject.quad_attenuation">
+<code class="descname">quad_attenuation</code><a class="headerlink" href="#bge.types.KX_LightObject.quad_attenuation" title="Permalink to this definition">¶</a></dt>
+<dd><p>The quadratic component of this light&#8217;s attenuation (SPOT and NORMAL lights only).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_LightObject.spotsize">
+<code class="descname">spotsize</code><a class="headerlink" href="#bge.types.KX_LightObject.spotsize" title="Permalink to this definition">¶</a></dt>
+<dd><p>The cone angle of the spot light, in degrees (SPOT lights only).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0 - 180].</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_LightObject.spotblend">
+<code class="descname">spotblend</code><a class="headerlink" href="#bge.types.KX_LightObject.spotblend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies the intensity distribution of the spot light (SPOT lights only).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0 - 1]</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Higher values result in a more focused light source.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bge.types.KX_LibLoadStatus.html"
+                        title="previous chapter">KX_LibLoadStatus(PyObjectPlus)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bge.types.KX_MeshProxy.html"
+                        title="next chapter">KX_MeshProxy(SCA_IObject)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_MeshProxy.html" title="KX_MeshProxy(SCA_IObject)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_LibLoadStatus.html" title="KX_LibLoadStatus(PyObjectPlus)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" >Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

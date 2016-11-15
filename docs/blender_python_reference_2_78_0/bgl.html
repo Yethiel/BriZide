@@ -1,0 +1,3423 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>OpenGL Wrapper (bgl) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="next" title="Font Drawing (blf)" href="blf.html" />
+    <link rel="prev" title="Freestyle Module (freestyle)" href="freestyle.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="blf.html" title="Font Drawing (blf)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="freestyle.html" title="Freestyle Module (freestyle)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bgl">
+<span id="opengl-wrapper-bgl"></span><h1>OpenGL Wrapper (bgl)<a class="headerlink" href="#module-bgl" title="Permalink to this headline">¶</a></h1>
+<p>This module wraps OpenGL constants and functions, making them available from
+within Blender Python.</p>
+<p>The complete list can be retrieved from the module itself, by listing its
+contents: dir(bgl).  A simple search on the web can point to more
+than enough material to teach OpenGL programming, from books to many
+collections of tutorials.</p>
+<p>Here is a comprehensive <a class="reference external" href="http://www.opengl.org/documentation/books/">list of books</a> (non free).
+The <a class="reference external" href="http://www.arcsynthesis.org/gltut/">arcsynthesis tutorials</a>
+is one of the best resources to learn modern OpenGL and
+<a class="reference external" href="http://www.g-truc.net/post-tech-content-sample.html">g-truc</a>
+offers a set of extensive examples, including advanced features.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can use the <code class="xref py py-class docutils literal"><span class="pre">Image</span></code> type to load and set textures.
+See <code class="xref py py-class docutils literal"><span class="pre">Image.gl_load</span></code> and <code class="xref py py-class docutils literal"><span class="pre">Image.gl_load</span></code>,
+for example.</p>
+</div>
+<dl class="function">
+<dt>
+<code class="descname">glAccum(op, value):</code></dt>
+<dd><p>Operate on the accumulation buffer.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glAccum.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>op</strong> (<em>Enumerated constant</em>) &#8211; The accumulation buffer operation.</li>
+<li><strong>value</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; a value used in the accumulation buffer operation.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glAlphaFunc(func, ref):</code></dt>
+<dd><p>Specify the alpha test function.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glAlphaFunc.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>func</strong> (<em>Enumerated constant</em>) &#8211; Specifies the alpha comparison function.</li>
+<li><strong>ref</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; The reference value that incoming alpha values are compared to.
+Clamped between 0 and 1.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glAreTexturesResident(n, textures, residences):</code></dt>
+<dd><p>Determine if textures are loaded in texture memory</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glAreTexturesResident.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>n</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the number of textures to be queried.</li>
+<li><strong>textures</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object I{type GL_INT}) &#8211; Specifies an array containing the names of the textures to be queried</li>
+<li><strong>residences</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object I{type GL_INT}(boolean)) &#8211; An array in which the texture residence status in returned.
+The residence status of a texture named by an element of textures is
+returned in the corresponding element of residences.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glBegin(mode):</code></dt>
+<dd><p>Delimit the vertices of a primitive or a group of like primatives</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glBegin.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<em>Enumerated constant</em>) &#8211; Specifies the primitive that will be create from vertices between
+glBegin and glEnd.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glBindTexture(target, texture):</code></dt>
+<dd><p>Bind a named texture to a texturing target</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glBindTexture.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>target</strong> (<em>Enumerated constant</em>) &#8211; Specifies the target to which the texture is bound.</li>
+<li><strong>texture</strong> (<em>unsigned int</em>) &#8211; Specifies the name of a texture.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glBitmap(width, height, xorig, yorig, xmove, ymove, bitmap):</code></dt>
+<dd><p>Draw a bitmap</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glBitmap.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>height</strong> (<em>width,</em>) &#8211; Specify the pixel width and height of the bitmap image.</li>
+<li><strong>yorig</strong> (<em>xorig,</em>) &#8211; Specify the location of the origin in the bitmap image. The origin is measured
+from the lower left corner of the bitmap, with right and up being the positive axes.</li>
+<li><strong>ymove</strong> (<em>xmove,</em>) &#8211; Specify the x and y offsets to be added to the current raster position after
+the bitmap is drawn.</li>
+<li><strong>bitmap</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object I{type GL_BYTE}) &#8211; Specifies the address of the bitmap image.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glBlendFunc(sfactor, dfactor):</code></dt>
+<dd><p>Specify pixel arithmetic</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glBlendFunc.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sfactor</strong> (<em>Enumerated constant</em>) &#8211; Specifies how the red, green, blue, and alpha source blending factors are
+computed.</li>
+<li><strong>dfactor</strong> (<em>Enumerated constant</em>) &#8211; Specifies how the red, green, blue, and alpha destination
+blending factors are computed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glCallList(list):</code></dt>
+<dd><p>Execute a display list</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glCallList.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>list</strong> (<em>unsigned int</em>) &#8211; Specifies the integer name of the display list to be executed.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glCallLists(n, type, lists):</code></dt>
+<dd><p>Execute a list of display lists</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glCallLists.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>n</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the number of display lists to be executed.</li>
+<li><strong>type</strong> (<em>Enumerated constant</em>) &#8211; Specifies the type of values in lists.</li>
+<li><strong>lists</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object) &#8211; Specifies the address of an array of name offsets in the display list.
+The pointer type is void because the offsets can be bytes, shorts, ints, or floats,
+depending on the value of type.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glClear(mask):</code></dt>
+<dd><p>Clear buffers to preset values</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glClear.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mask</strong> (<em>Enumerated constant(s)</em>) &#8211; Bitwise OR of masks that indicate the buffers to be cleared.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glClearAccum(red, green, blue, alpha):</code></dt>
+<dd><p>Specify clear values for the accumulation buffer</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glClearAccum.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>green, blue, alpha</strong> (<em>red,</em>) &#8211; Specify the red, green, blue, and alpha values used when the
+accumulation buffer is cleared. The initial values are all 0.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glClearColor(red, green, blue, alpha):</code></dt>
+<dd><p>Specify clear values for the color buffers</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glClearColor.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>green, blue, alpha</strong> (<em>red,</em>) &#8211; Specify the red, green, blue, and alpha values used when the
+color buffers are cleared. The initial values are all 0.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glClearDepth(depth):</code></dt>
+<dd><p>Specify the clear value for the depth buffer</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glClearDepth.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>depth</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the depth value used when the depth buffer is cleared.
+The initial value is 1.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glClearIndex(c):</code></dt>
+<dd><p>Specify the clear value for the color index buffers</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glClearIndex.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>c</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; Specifies the index used when the color index buffers are cleared.
+The initial value is 0.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glClearStencil(s):</code></dt>
+<dd><p>Specify the clear value for the stencil buffer</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glClearStencil.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>s</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the index used when the stencil buffer is cleared. The initial value is 0.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glClipPlane (plane, equation):</code></dt>
+<dd><p>Specify a plane against which all geometry is clipped</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glClipPlane.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>plane</strong> (<em>Enumerated constant</em>) &#8211; Specifies which clipping plane is being positioned.</li>
+<li><strong>equation</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object I{type GL_FLOAT}(double)) &#8211; Specifies the address of an array of four double- precision
+floating-point values. These values are interpreted as a plane equation.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glColor (red, green, blue, alpha):</code></dt>
+<dd><p>B{glColor3b, glColor3d, glColor3f, glColor3i, glColor3s, glColor3ub, glColor3ui, glColor3us,
+glColor4b, glColor4d, glColor4f, glColor4i, glColor4s, glColor4ub, glColor4ui, glColor4us,
+glColor3bv, glColor3dv, glColor3fv, glColor3iv, glColor3sv, glColor3ubv, glColor3uiv,
+glColor3usv, glColor4bv, glColor4dv, glColor4fv, glColor4iv, glColor4sv, glColor4ubv,
+glColor4uiv, glColor4usv}</p>
+<p>Set a new color.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>green, blue</strong> (<em>red,</em>) &#8211; Specify new red, green, and blue values for the current color.</li>
+<li><strong>alpha</strong> &#8211; Specifies a new alpha value for the current color. Included only in the
+four-argument glColor4 commands. (With &#8216;4&#8217; colors only)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glColorMask(red, green, blue, alpha):</code></dt>
+<dd><p>Enable and disable writing of frame buffer color components</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glColorMask.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>green, blue, alpha</strong> (<em>red,</em>) &#8211; Specify whether red, green, blue, and alpha can or cannot be
+written into the frame buffer. The initial values are all GL_TRUE, indicating that the
+color components can be written.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glColorMaterial(face, mode):</code></dt>
+<dd><p>Cause a material color to track the current color</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glColorMaterial.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>face</strong> (<em>Enumerated constant</em>) &#8211; Specifies whether front, back, or both front and back material parameters should
+track the current color.</li>
+<li><strong>mode</strong> (<em>Enumerated constant</em>) &#8211; Specifies which of several material parameters track the current color.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glCopyPixels(x, y, width, height, type):</code></dt>
+<dd><p>Copy pixels in the frame buffer</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glCopyPixels.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>y</strong> (<em>x,</em>) &#8211; Specify the window coordinates of the lower left corner of the rectangular
+region of pixels to be copied.</li>
+<li><strong>width,height</strong> &#8211; Specify the dimensions of the rectangular region of pixels to be copied.
+Both must be non-negative.</li>
+<li><strong>type</strong> (<em>Enumerated constant</em>) &#8211; Specifies whether color values, depth values, or stencil values are to be copied.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>def glCopyTexImage2D(target, level, internalformat, x, y, width, height, border):</p>
+<p>Copy pixels into a 2D texture image</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glCopyTexImage2D.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>target</strong> (<em>Enumerated constant</em>) &#8211; Specifies the target texture.</li>
+<li><strong>level</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the level-of-detail number. Level 0 is the base image level.
+Level n is the nth mipmap reduction image.</li>
+<li><strong>internalformat</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the number of color components in the texture.</li>
+<li><strong>y</strong> (<em>x,</em>) &#8211; Specify the window coordinates of the first pixel that is copied
+from the frame buffer. This location is the lower left corner of a rectangular
+block of pixels.</li>
+<li><strong>width</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the width of the texture image. Must be 2n+2(border) for
+some integer n. All implementations support texture images that are at least 64
+texels wide.</li>
+<li><strong>height</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the height of the texture image. Must be 2m+2(border) for
+some integer m. All implementations support texture images that are at least 64
+texels high.</li>
+<li><strong>border</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the width of the border. Must be either 0 or 1.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glCullFace(mode):</code></dt>
+<dd><p>Specify whether front- or back-facing facets can be culled</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glCullFace.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<em>Enumerated constant</em>) &#8211; Specifies whether front- or back-facing facets are candidates for culling.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glDeleteLists(list, range):</code></dt>
+<dd><p>Delete a contiguous group of display lists</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glDeleteLists.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>list</strong> (<em>unsigned int</em>) &#8211; Specifies the integer name of the first display list to delete</li>
+<li><strong>range</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the number of display lists to delete</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glDeleteTextures(n, textures):</code></dt>
+<dd><p>Delete named textures</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glDeleteTextures.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>n</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the number of textures to be deleted</li>
+<li><strong>textures</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> I{GL_INT}) &#8211; Specifies an array of textures to be deleted</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glDepthFunc(func):</code></dt>
+<dd><p>Specify the value used for depth buffer comparisons</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glDepthFunc.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>func</strong> (<em>Enumerated constant</em>) &#8211; Specifies the depth comparison function.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glDepthMask(flag):</code></dt>
+<dd><p>Enable or disable writing into the depth buffer</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glDepthMask.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flag</strong> (<em>int (boolean)</em>) &#8211; Specifies whether the depth buffer is enabled for writing. If flag is GL_FALSE,
+depth buffer writing is disabled. Otherwise, it is enabled. Initially, depth buffer
+writing is enabled.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glDepthRange(zNear, zFar):</code></dt>
+<dd><p>Specify mapping of depth values from normalized device coordinates to window coordinates</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glDepthRange.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>zNear</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the mapping of the near clipping plane to window coordinates.
+The initial value is 0.</li>
+<li><strong>zFar</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the mapping of the far clipping plane to window coordinates.
+The initial value is 1.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glDisable(cap):</code></dt>
+<dd><p>Disable server-side GL capabilities</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glEnable.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cap</strong> (<em>Enumerated constant</em>) &#8211; Specifies a symbolic constant indicating a GL capability.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glDrawBuffer(mode):</code></dt>
+<dd><p>Specify which color buffers are to be drawn into</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glDrawBuffer.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<em>Enumerated constant</em>) &#8211; Specifies up to four color buffers to be drawn into.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glDrawPixels(width, height, format, type, pixels):</code></dt>
+<dd><p>Write a block of pixels to the frame buffer</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glDrawPixels.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>height</strong> (<em>width,</em>) &#8211; Specify the dimensions of the pixel rectangle to be
+written into the frame buffer.</li>
+<li><strong>format</strong> (<em>Enumerated constant</em>) &#8211; Specifies the format of the pixel data.</li>
+<li><strong>type</strong> (<em>Enumerated constant</em>) &#8211; Specifies the data type for pixels.</li>
+<li><strong>pixels</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object) &#8211; Specifies a pointer to the pixel data.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glEdgeFlag (flag):</code></dt>
+<dd><p>B{glEdgeFlag, glEdgeFlagv}</p>
+<p>Flag edges as either boundary or non-boundary</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glEdgeFlag.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flag</strong> (<em>Depends of function prototype</em>) &#8211; Specifies the current edge flag value.The initial value is GL_TRUE.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glEnable(cap):</code></dt>
+<dd><p>Enable server-side GL capabilities</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glEnable.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cap</strong> (<em>Enumerated constant</em>) &#8211; Specifies a symbolic constant indicating a GL capability.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glEnd():</code></dt>
+<dd><p>Delimit the vertices of a primitive or group of like primitives</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glBegin.xml">OpenGL Docs</a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glEndList():</code></dt>
+<dd><p>Create or replace a display list</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glNewList.xml">OpenGL Docs</a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glEvalCoord (u,v):</code></dt>
+<dd><p>B{glEvalCoord1d, glEvalCoord1f, glEvalCoord2d, glEvalCoord2f, glEvalCoord1dv, glEvalCoord1fv,
+glEvalCoord2dv, glEvalCoord2fv}</p>
+<p>Evaluate enabled one- and two-dimensional maps</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalCoord.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>u</strong> (<em>Depends on function prototype.</em>) &#8211; Specifies a value that is the domain coordinate u to the basis function defined
+in a previous glMap1 or glMap2 command. If the function prototype ends in &#8216;v&#8217; then
+u specifies a pointer to an array containing either one or two domain coordinates. The first
+coordinate is u. The second coordinate is v, which is present only in glEvalCoord2 versions.</li>
+<li><strong>v</strong> (<em>Depends on function prototype. (only with '2' prototypes)</em>) &#8211; Specifies a value that is the domain coordinate v to the basis function defined
+in a previous glMap2 command. This argument is not present in a glEvalCoord1 command.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glEvalMesh (mode, i1, i2):</code></dt>
+<dd><p>B{glEvalMesh1 or glEvalMesh2}</p>
+<p>Compute a one- or two-dimensional grid of points or lines</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalMesh.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mode</strong> (<em>Enumerated constant</em>) &#8211; In glEvalMesh1, specifies whether to compute a one-dimensional
+mesh of points or lines.</li>
+<li><strong>i2</strong> (<em>i1,</em>) &#8211; Specify the first and last integer values for the grid domain variable i.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glEvalPoint (i, j):</code></dt>
+<dd><p>B{glEvalPoint1 and glEvalPoint2}</p>
+<p>Generate and evaluate a single point in a mesh</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalPoint.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>i</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the integer value for grid domain variable i.</li>
+<li><strong>j</strong> (<em>int (only with '2' prototypes)</em>) &#8211; Specifies the integer value for grid domain variable j (glEvalPoint2 only).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glFeedbackBuffer (size, type, buffer):</code></dt>
+<dd><p>Controls feedback mode</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glFeedbackBuffer.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>size</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the maximum number of values that can be written into buffer.</li>
+<li><strong>type</strong> (<em>Enumerated constant</em>) &#8211; Specifies a symbolic constant that describes the information that
+will be returned for each vertex.</li>
+<li><strong>buffer</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object I{GL_FLOAT}) &#8211; Returns the feedback data.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glFinish():</code></dt>
+<dd><p>Block until all GL execution is complete</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glFinish.xml">OpenGL Docs</a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glFlush():</code></dt>
+<dd><p>Force Execution of GL commands in finite time</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glFlush.xml">OpenGL Docs</a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glFog (pname, param):</code></dt>
+<dd><p>B{glFogf, glFogi, glFogfv, glFogiv}</p>
+<p>Specify fog parameters</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glFog.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pname</strong> (<em>Enumerated constant</em>) &#8211; Specifies a single-valued fog parameter. If the function prototype
+ends in &#8216;v&#8217; specifies a fog parameter.</li>
+<li><strong>param</strong> (<em>Depends on function prototype.</em>) &#8211; Specifies the value or values to be assigned to pname. GL_FOG_COLOR
+requires an array of four values. All other parameters accept an array containing
+only a single value.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glFrontFace(mode):</code></dt>
+<dd><p>Define front- and back-facing polygons</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glFrontFace.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<em>Enumerated constant</em>) &#8211; Specifies the orientation of front-facing polygons.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glFrustum(left, right, bottom, top, zNear, zFar):</code></dt>
+<dd><p>Multiply the current matrix by a perspective matrix</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glFrustum.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>right</strong> (<em>left,</em>) &#8211; Specify the coordinates for the left and right vertical
+clipping planes.</li>
+<li><strong>bottom</strong> (<em>top,</em>) &#8211; Specify the coordinates for the bottom and top horizontal
+clipping planes.</li>
+<li><strong>zFar</strong> (<em>zNear,</em>) &#8211; Specify the distances to the near and far depth clipping planes.
+Both distances must be positive.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glGenLists(range):</code></dt>
+<dd><p>Generate a contiguous set of empty display lists</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glGenLists.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>range</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the number of contiguous empty display lists to be generated.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glGenTextures(n, textures):</code></dt>
+<dd><p>Generate texture names</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glGenTextures.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>n</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the number of textures name to be generated.</li>
+<li><strong>textures</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object I{type GL_INT}) &#8211; Specifies an array in which the generated textures names are stored.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glGet (pname, param):</code></dt>
+<dd><p>B{glGetBooleanv, glGetfloatv, glGetFloatv, glGetIntegerv}</p>
+<p>Return the value or values of a selected parameter</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glGet.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pname</strong> (<em>Enumerated constant</em>) &#8211; Specifies the parameter value to be returned.</li>
+<li><strong>param</strong> (<em>Depends on function prototype.</em>) &#8211; Returns the value or values of the specified parameter.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glGetClipPlane(plane, equation):</code></dt>
+<dd><p>Return the coefficients of the specified clipping plane</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetClipPlane.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>plane</strong> (<em>Enumerated constant</em>) &#8211; Specifies a clipping plane. The number of clipping planes depends on the
+implementation, but at least six clipping planes are supported. They are identified by
+symbolic names of the form GL_CLIP_PLANEi where 0 &lt; i &lt; GL_MAX_CLIP_PLANES.</li>
+<li><strong>equation</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object I{type GL_FLOAT}) &#8211; Returns four float (double)-precision values that are the coefficients of the
+plane equation of plane in eye coordinates. The initial value is (0, 0, 0, 0).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glGetError():</code></dt>
+<dd><p>Return error information</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetError.xml">OpenGL Docs</a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glGetLight (light, pname, params):</code></dt>
+<dd><p>B{glGetLightfv and glGetLightiv}</p>
+<p>Return light source parameter values</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetLight.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>light</strong> (<em>Enumerated constant</em>) &#8211; Specifies a light source. The number of possible lights depends on the
+implementation, but at least eight lights are supported. They are identified by symbolic
+names of the form GL_LIGHTi where 0 &lt; i &lt; GL_MAX_LIGHTS.</li>
+<li><strong>pname</strong> (<em>Enumerated constant</em>) &#8211; Specifies a light source parameter for light.</li>
+<li><strong>params</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. Depends on function prototype.) &#8211; Returns the requested data.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glGetMap (target, query, v):</code></dt>
+<dd><p>B{glGetMapdv, glGetMapfv, glGetMapiv}</p>
+<p>Return evaluator parameters</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetMap.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>target</strong> (<em>Enumerated constant</em>) &#8211; Specifies the symbolic name of a map.</li>
+<li><strong>query</strong> (<em>Enumerated constant</em>) &#8211; Specifies which parameter to return.</li>
+<li><strong>v</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. Depends on function prototype.) &#8211; Returns the requested data.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glGetMaterial (face, pname, params):</code></dt>
+<dd><p>B{glGetMaterialfv, glGetMaterialiv}</p>
+<p>Return material parameters</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetMaterial.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>face</strong> (<em>Enumerated constant</em>) &#8211; Specifies which of the two materials is being queried.
+representing the front and back materials, respectively.</li>
+<li><strong>pname</strong> (<em>Enumerated constant</em>) &#8211; Specifies the material parameter to return.</li>
+<li><strong>params</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. Depends on function prototype.) &#8211; Returns the requested data.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glGetPixelMap (map, values):</code></dt>
+<dd><p>B{glGetPixelMapfv, glGetPixelMapuiv, glGetPixelMapusv}</p>
+<p>Return the specified pixel map</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetPixelMap.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>map</strong> (<em>Enumerated constant</em>) &#8211; Specifies the name of the pixel map to return.</li>
+<li><strong>values</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. Depends on function prototype.) &#8211; Returns the pixel map contents.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glGetPolygonStipple(mask):</code></dt>
+<dd><p>Return the polygon stipple pattern</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetPolygonStipple.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mask</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object I{type GL_BYTE}) &#8211; Returns the stipple pattern. The initial value is all 1&#8217;s.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glGetString(name):</code></dt>
+<dd><p>Return a string describing the current GL connection</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetString.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>Enumerated constant</em>) &#8211; Specifies a symbolic constant.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glGetTexEnv (target, pname, params):</code></dt>
+<dd><p>B{glGetTexEnvfv, glGetTexEnviv}</p>
+<p>Return texture environment parameters</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetTexEnv.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>target</strong> (<em>Enumerated constant</em>) &#8211; Specifies a texture environment. Must be GL_TEXTURE_ENV.</li>
+<li><strong>pname</strong> (<em>Enumerated constant</em>) &#8211; Specifies the symbolic name of a texture environment parameter.</li>
+<li><strong>params</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. Depends on function prototype.) &#8211; Returns the requested data.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glGetTexGen (coord, pname, params):</code></dt>
+<dd><p>B{glGetTexGendv, glGetTexGenfv, glGetTexGeniv}</p>
+<p>Return texture coordinate generation parameters</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetTexGen.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>coord</strong> (<em>Enumerated constant</em>) &#8211; Specifies a texture coordinate.</li>
+<li><strong>pname</strong> (<em>Enumerated constant</em>) &#8211; Specifies the symbolic name of the value(s) to be returned.</li>
+<li><strong>params</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. Depends on function prototype.) &#8211; Returns the requested data.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glGetTexImage(target, level, format, type, pixels):</code></dt>
+<dd><p>Return a texture image</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetTexImage.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>target</strong> (<em>Enumerated constant</em>) &#8211; Specifies which texture is to be obtained.</li>
+<li><strong>level</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the level-of-detail number of the desired image.
+Level 0 is the base image level. Level n is the nth mipmap reduction image.</li>
+<li><strong>format</strong> (<em>Enumerated constant</em>) &#8211; Specifies a pixel format for the returned data.</li>
+<li><strong>type</strong> (<em>Enumerated constant</em>) &#8211; Specifies a pixel type for the returned data.</li>
+<li><strong>pixels</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object.) &#8211; Returns the texture image. Should be a pointer to an array of the
+type specified by type</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glGetTexLevelParameter (target, level, pname, params):</code></dt>
+<dd><p>B{glGetTexLevelParameterfv, glGetTexLevelParameteriv}</p>
+<p>return texture parameter values for a specific level of detail</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetTexLevelParameter.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>target</strong> (<em>Enumerated constant</em>) &#8211; Specifies the symbolic name of the target texture.</li>
+<li><strong>level</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the level-of-detail number of the desired image.
+Level 0 is the base image level. Level n is the nth mipmap reduction image.</li>
+<li><strong>pname</strong> (<em>Enumerated constant</em>) &#8211; Specifies the symbolic name of a texture parameter.</li>
+<li><strong>params</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. Depends on function prototype.) &#8211; Returns the requested data.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glGetTexParameter (target, pname, params):</code></dt>
+<dd><p>B{glGetTexParameterfv, glGetTexParameteriv}</p>
+<p>Return texture parameter values</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetTexParameter.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>target</strong> (<em>Enumerated constant</em>) &#8211; Specifies the symbolic name of the target texture.</li>
+<li><strong>pname</strong> (<em>Enumerated constant</em>) &#8211; Specifies the symbolic name the target texture.</li>
+<li><strong>params</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. Depends on function prototype.) &#8211; Returns the texture parameters.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glHint(target, mode):</code></dt>
+<dd><p>Specify implementation-specific hints</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glHint.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>target</strong> (<em>Enumerated constant</em>) &#8211; Specifies a symbolic constant indicating the behavior to be
+controlled.</li>
+<li><strong>mode</strong> (<em>Enumerated constant</em>) &#8211; Specifies a symbolic constant indicating the desired behavior.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glIndex(c):</code></dt>
+<dd><p>B{glIndexd, glIndexf, glIndexi, glIndexs,  glIndexdv, glIndexfv, glIndexiv, glIndexsv}</p>
+<p>Set the current color index</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glIndex.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>c</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. Depends on function prototype.) &#8211; Specifies a pointer to a one element array that contains the new value for
+the current color index.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glIndexMask(mask):</code></dt>
+<dd><p>Control the writing of individual bits in the color index buffers</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glIndexMask.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mask</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies a bit mask to enable and disable the writing of individual bits
+in the color index buffers.
+Initially, the mask is all 1&#8217;s.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glInitNames():</code></dt>
+<dd><p>Initialize the name stack</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glInitNames.xml">OpenGL Docs</a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glIsEnabled(cap):</code></dt>
+<dd><p>Test whether a capability is enabled</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glIsEnabled.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cap</strong> (<em>Enumerated constant</em>) &#8211; Specifies a constant representing a GL capability.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glIsList(list):</code></dt>
+<dd><p>Determine if a name corresponds to a display-list</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glIsList.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>list</strong> (<em>unsigned int</em>) &#8211; Specifies a potential display-list name.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glIsTexture(texture):</code></dt>
+<dd><p>Determine if a name corresponds to a texture</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glIsTexture.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>texture</strong> (<em>unsigned int</em>) &#8211; Specifies a value that may be the name of a texture.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glLight (light, pname, param):</code></dt>
+<dd><p>B{glLightf,glLighti, glLightfv, glLightiv}</p>
+<p>Set the light source parameters</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glLight.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>light</strong> (<em>Enumerated constant</em>) &#8211; Specifies a light. The number of lights depends on the implementation,
+but at least eight lights are supported. They are identified by symbolic names of the
+form GL_LIGHTi where 0 &lt; i &lt; GL_MAX_LIGHTS.</li>
+<li><strong>pname</strong> (<em>Enumerated constant</em>) &#8211; Specifies a single-valued light source parameter for light.</li>
+<li><strong>param</strong> (<em>Depends on function prototype.</em>) &#8211; Specifies the value that parameter pname of light source light will be set to.
+If function prototype ends in &#8216;v&#8217; specifies a pointer to the value or values that
+parameter pname of light source light will be set to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glLightModel (pname, param):</code></dt>
+<dd><p>B{glLightModelf, glLightModeli, glLightModelfv, glLightModeliv}</p>
+<p>Set the lighting model parameters</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glLightModel.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pname</strong> (<em>Enumerated constant</em>) &#8211; Specifies a single-value light model parameter.</li>
+<li><strong>param</strong> (<em>Depends on function prototype.</em>) &#8211; Specifies the value that param will be set to. If function prototype ends in &#8216;v&#8217;
+specifies a pointer to the value or values that param will be set to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glLineStipple(factor, pattern):</code></dt>
+<dd><p>Specify the line stipple pattern</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glLineStipple.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>factor</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies a multiplier for each bit in the line stipple pattern.
+If factor is 3, for example, each bit in the pattern is used three times before
+the next bit in the pattern is used. factor is clamped to the range [1, 256] and
+defaults to 1.</li>
+<li><strong>pattern</strong> (<em>unsigned short int</em>) &#8211; Specifies a 16-bit integer whose bit pattern determines which fragments
+of a line will be drawn when the line is rasterized. Bit zero is used first; the default
+pattern is all 1&#8217;s.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glLineWidth(width):</code></dt>
+<dd><p>Specify the width of rasterized lines.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glLineWidth.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>width</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; Specifies the width of rasterized lines. The initial value is 1.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glListBase(base):</code></dt>
+<dd><p>Set the display-list base for glCallLists</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glListBase.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>base</strong> (<em>unsigned int</em>) &#8211; Specifies an integer offset that will be added to glCallLists
+offsets to generate display-list names. The initial value is 0.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glLoadIdentity():</code></dt>
+<dd><p>Replace the current matrix with the identity matrix</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glLoadIdentity.xml">OpenGL Docs</a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glLoadMatrix (m):</code></dt>
+<dd><p>B{glLoadMatrixd, glLoadMatixf}</p>
+<p>Replace the current matrix with the specified matrix</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glLoadMatrix.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. Depends on function prototype.) &#8211; Specifies a pointer to 16 consecutive values, which are used as the elements
+of a 4x4 column-major matrix.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glLoadName(name):</code></dt>
+<dd><p>Load a name onto the name stack.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glLoadName.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>unsigned int</em>) &#8211; Specifies a name that will replace the top value on the name stack.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glLogicOp(opcode):</code></dt>
+<dd><p>Specify a logical pixel operation for color index rendering</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glLogicOp.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>opcode</strong> (<em>Enumerated constant</em>) &#8211; Specifies a symbolic constant that selects a logical operation.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glMap1 (target, u1, u2, stride, order, points):</code></dt>
+<dd><p>B{glMap1d, glMap1f}</p>
+<p>Define a one-dimensional evaluator</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glMap1.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>target</strong> (<em>Enumerated constant</em>) &#8211; Specifies the kind of values that are generated by the evaluator.</li>
+<li><strong>u1,u2</strong> &#8211; Specify a linear mapping of u, as presented to glEvalCoord1, to ^, t
+he variable that is evaluated by the equations specified by this command.</li>
+<li><strong>stride</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the number of floats or float (double)s between the beginning
+of one control point and the beginning of the next one in the data structure
+referenced in points. This allows control points to be embedded in arbitrary data
+structures. The only constraint is that the values for a particular control point must
+occupy contiguous memory locations.</li>
+<li><strong>order</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the number of control points. Must be positive.</li>
+<li><strong>points</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. Depends on function prototype.) &#8211; Specifies a pointer to the array of control points.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glMap2 (target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points):</code></dt>
+<dd><p>B{glMap2d, glMap2f}</p>
+<p>Define a two-dimensional evaluator</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glMap2.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>target</strong> (<em>Enumerated constant</em>) &#8211; Specifies the kind of values that are generated by the evaluator.</li>
+<li><strong>u1,u2</strong> &#8211; Specify a linear mapping of u, as presented to glEvalCoord2, to ^, t
+he variable that is evaluated by the equations specified by this command. Initially
+u1 is 0 and u2 is 1.</li>
+<li><strong>ustride</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the number of floats or float (double)s between the beginning
+of control point R and the beginning of control point R ij, where i and j are the u
+and v control point indices, respectively. This allows control points to be embedded
+in arbitrary data structures. The only constraint is that the values for a particular
+control point must occupy contiguous memory locations. The initial value of ustride is 0.</li>
+<li><strong>uorder</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the dimension of the control point array in the u axis.
+Must be positive. The initial value is 1.</li>
+<li><strong>v2</strong> (<em>v1,</em>) &#8211; Specify a linear mapping of v, as presented to glEvalCoord2,
+to ^, one of the two variables that are evaluated by the equations
+specified by this command. Initially, v1 is 0 and v2 is 1.</li>
+<li><strong>vstride</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the number of floats or float (double)s between the
+beginning of control point R and the beginning of control point R ij,
+where i and j are the u and v control point(indices, respectively.
+This allows control points to be embedded in arbitrary data structures.
+The only constraint is that the values for a particular control point must
+occupy contiguous memory locations. The initial value of vstride is 0.</li>
+<li><strong>vorder</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the dimension of the control point array in the v axis.
+Must be positive. The initial value is 1.</li>
+<li><strong>points</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. Depends on function prototype.) &#8211; Specifies a pointer to the array of control points.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glMapGrid (un, u1,u2 ,vn, v1, v2):</code></dt>
+<dd><p>B{glMapGrid1d, glMapGrid1f, glMapGrid2d, glMapGrid2f}</p>
+<p>Define a one- or two-dimensional mesh</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glMapGrid.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>un</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the number of partitions in the grid range interval
+[u1, u2]. Must be positive.</li>
+<li><strong>u2</strong> (<em>u1,</em>) &#8211; Specify the mappings for integer grid domain values i=0 and i=un.</li>
+<li><strong>vn</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the number of partitions in the grid range interval
+[v1, v2] (glMapGrid2 only).</li>
+<li><strong>v2</strong> (<em>v1,</em>) &#8211; Specify the mappings for integer grid domain values j=0 and j=vn
+(glMapGrid2 only).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glMaterial (face, pname, params):</code></dt>
+<dd><p>Specify material parameters for the lighting model.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glMaterial.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>face</strong> (<em>Enumerated constant</em>) &#8211; Specifies which face or faces are being updated. Must be one of:</li>
+<li><strong>pname</strong> (<em>Enumerated constant</em>) &#8211; Specifies the single-valued material parameter of the face
+or faces that is being updated. Must be GL_SHININESS.</li>
+<li><strong>params</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the value that parameter GL_SHININESS will be set to.
+If function prototype ends in &#8216;v&#8217; specifies a pointer to the value or values that
+pname will be set to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glMatrixMode(mode):</code></dt>
+<dd><p>Specify which matrix is the current matrix.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glMatrixMode.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<em>Enumerated constant</em>) &#8211; Specifies which matrix stack is the target for subsequent matrix operations.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glMultMatrix (m):</code></dt>
+<dd><p>B{glMultMatrixd, glMultMatrixf}</p>
+<p>Multiply the current matrix with the specified matrix</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultMatrix.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. Depends on function prototype.) &#8211; Points to 16 consecutive values that are used as the elements of a 4x4 column
+major matrix.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glNewList(list, mode):</code></dt>
+<dd><p>Create or replace a display list</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glNewList.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>list</strong> (<em>unsigned int</em>) &#8211; Specifies the display list name</li>
+<li><strong>mode</strong> (<em>Enumerated constant</em>) &#8211; Specifies the compilation mode.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glNormal3 (nx, ny, nz, v):</code></dt>
+<dd><p>B{Normal3b, Normal3bv, Normal3d, Normal3dv, Normal3f, Normal3fv, Normal3i, Normal3iv,
+Normal3s, Normal3sv}</p>
+<p>Set the current normal vector</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ny, nz</strong> (<em>nx,</em>) &#8211; Specify the x, y, and z coordinates of the new current normal.
+The initial value of the current normal is the unit vector, (0, 0, 1).</li>
+<li><strong>v</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. Depends on function prototype. (&#8216;v&#8217; prototypes)) &#8211; Specifies a pointer to an array of three elements: the x, y, and z coordinates
+of the new current normal.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glOrtho(left, right, bottom, top, zNear, zFar):</code></dt>
+<dd><p>Multiply the current matrix with an orthographic matrix</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glOrtho.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>right</strong> (<em>left,</em>) &#8211; Specify the coordinates for the left and
+right vertical clipping planes.</li>
+<li><strong>top</strong> (<em>bottom,</em>) &#8211; Specify the coordinates for the bottom and top
+horizontal clipping planes.</li>
+<li><strong>zFar</strong> (<em>zNear,</em>) &#8211; Specify the distances to the nearer and farther
+depth clipping planes. These values are negative if the plane is to be behind the viewer.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glPassThrough(token):</code></dt>
+<dd><p>Place a marker in the feedback buffer</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glPassThrough.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>token</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; Specifies a marker value to be placed in the feedback
+buffer following a GL_PASS_THROUGH_TOKEN.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glPixelMap (map, mapsize, values):</code></dt>
+<dd><p>B{glPixelMapfv, glPixelMapuiv, glPixelMapusv}</p>
+<p>Set up pixel transfer maps</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glPixelMap.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>map</strong> (<em>Enumerated constant</em>) &#8211; Specifies a symbolic map name.</li>
+<li><strong>mapsize</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the size of the map being defined.</li>
+<li><strong>values</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. Depends on function prototype.) &#8211; Specifies an array of mapsize values.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glPixelStore (pname, param):</code></dt>
+<dd><p>B{glPixelStoref, glPixelStorei}</p>
+<p>Set pixel storage modes</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glPixelStore.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pname</strong> (<em>Enumerated constant</em>) &#8211; Specifies the symbolic name of the parameter to be set.
+Six values affect the packing of pixel data into memory.
+Six more affect the unpacking of pixel data from memory.</li>
+<li><strong>param</strong> (<em>Depends on function prototype.</em>) &#8211; Specifies the value that pname is set to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glPixelTransfer (pname, param):</code></dt>
+<dd><p>B{glPixelTransferf, glPixelTransferi}</p>
+<p>Set pixel transfer modes</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glPixelTransfer.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pname</strong> (<em>Enumerated constant</em>) &#8211; Specifies the symbolic name of the pixel transfer parameter to be set.</li>
+<li><strong>param</strong> (<em>Depends on function prototype.</em>) &#8211; Specifies the value that pname is set to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glPixelZoom(xfactor, yfactor):</code></dt>
+<dd><p>Specify the pixel zoom factors</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glPixelZoom.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>yfactor</strong> (<em>xfactor,</em>) &#8211; Specify the x and y zoom factors for pixel write operations.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glPointSize(size):</code></dt>
+<dd><p>Specify the diameter of rasterized points</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glPointSize.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>size</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; Specifies the diameter of rasterized points. The initial value is 1.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glPolygonMode(face, mode):</code></dt>
+<dd><p>Select a polygon rasterization mode</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glPolygonMode.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>face</strong> (<em>Enumerated constant</em>) &#8211; Specifies the polygons that mode applies to.
+Must be GL_FRONT for front-facing polygons, GL_BACK for back- facing
+polygons, or GL_FRONT_AND_BACK for front- and back-facing polygons.</li>
+<li><strong>mode</strong> (<em>Enumerated constant</em>) &#8211; Specifies how polygons will be rasterized.
+The initial value is GL_FILL for both front- and back- facing polygons.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glPolygonOffset(factor, units):</code></dt>
+<dd><p>Set the scale and units used to calculate depth values</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glPolygonOffset.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>factor</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; Specifies a scale factor that is used to create a variable depth
+offset for each polygon. The initial value is 0.</li>
+<li><strong>units</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; Is multiplied by an implementation-specific value to create a
+constant depth offset. The initial value is 0.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glPolygonStipple(mask):</code></dt>
+<dd><p>Set the polygon stippling pattern</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glPolygonStipple.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mask</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object I{type GL_BYTE}) &#8211; Specifies a pointer to a 32x32 stipple pattern that will be unpacked
+from memory in the same way that glDrawPixels unpacks pixels.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glPopAttrib():</code></dt>
+<dd><p>Pop the server attribute stack</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glPopAttrib.xml">OpenGL Docs</a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glPopClientAttrib():</code></dt>
+<dd><p>Pop the client attribute stack</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glPopClientAttrib.xml">OpenGL Docs</a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glPopMatrix():</code></dt>
+<dd><p>Pop the current matrix stack</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glPopMatrix.xml">OpenGL Docs</a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glPopName():</code></dt>
+<dd><p>Pop the name stack</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glPopName.xml">OpenGL Docs</a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glPrioritizeTextures(n, textures, priorities):</code></dt>
+<dd><p>Set texture residence priority</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glPrioritizeTextures.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>n</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the number of textures to be prioritized.</li>
+<li><strong>textures</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> I{type GL_INT}) &#8211; Specifies an array containing the names of the textures to be prioritized.</li>
+<li><strong>priorities</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> I{type GL_FLOAT}) &#8211; Specifies an array containing the texture priorities.
+A priority given in an element of priorities applies to the texture named
+by the corresponding element of textures.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glPushAttrib(mask):</code></dt>
+<dd><p>Push the server attribute stack</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glPushAttrib.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mask</strong> (<em>Enumerated constant(s)</em>) &#8211; Specifies a mask that indicates which attributes to save.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glPushClientAttrib(mask):</code></dt>
+<dd><p>Push the client attribute stack</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glPushClientAttrib.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mask</strong> (<em>Enumerated constant(s)</em>) &#8211; Specifies a mask that indicates which attributes to save.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glPushMatrix():</code></dt>
+<dd><p>Push the current matrix stack</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glPushMatrix.xml">OpenGL Docs</a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glPushName(name):</code></dt>
+<dd><p>Push the name stack</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glPushName.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>unsigned int</em>) &#8211; Specifies a name that will be pushed onto the name stack.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glRasterPos (x,y,z,w):</code></dt>
+<dd><p>B{glRasterPos2d, glRasterPos2f, glRasterPos2i, glRasterPos2s, glRasterPos3d,
+glRasterPos3f, glRasterPos3i, glRasterPos3s, glRasterPos4d, glRasterPos4f,
+glRasterPos4i, glRasterPos4s, glRasterPos2dv, glRasterPos2fv, glRasterPos2iv,
+glRasterPos2sv, glRasterPos3dv, glRasterPos3fv, glRasterPos3iv, glRasterPos3sv,
+glRasterPos4dv, glRasterPos4fv, glRasterPos4iv, glRasterPos4sv}</p>
+<p>Specify the raster position for pixel operations</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>y, z, w</strong> (<em>x,</em>) &#8211; Specify the x,y,z, and w object coordinates (if present) for the
+raster position.  If function prototype ends in &#8216;v&#8217; specifies a pointer to an array of two,
+three, or four elements, specifying x, y, z, and w coordinates, respectively.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you are drawing to the 3d view with a Scriptlink of a space handler
+the zoom level of the panels will scale the glRasterPos by the view matrix.
+so a X of 10 will not always offset 10 pixels as you would expect.</p>
+<p>To work around this get the scale value of the view matrix and use it to scale your pixel values.</p>
+<div class="last highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bgl</span>
+<span class="n">xval</span><span class="p">,</span> <span class="n">yval</span><span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">40</span>
+<span class="c1"># Get the scale of the view matrix</span>
+<span class="n">view_matrix</span> <span class="o">=</span> <span class="n">bgl</span><span class="o">.</span><span class="n">Buffer</span><span class="p">(</span><span class="n">bgl</span><span class="o">.</span><span class="n">GL_FLOAT</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">bgl</span><span class="o">.</span><span class="n">glGetFloatv</span><span class="p">(</span><span class="n">bgl</span><span class="o">.</span><span class="n">GL_MODELVIEW_MATRIX</span><span class="p">,</span> <span class="n">view_matrix</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">view_matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Instead of the usual glRasterPos2i(xval, yval)</span>
+<span class="n">bgl</span><span class="o">.</span><span class="n">glRasterPos2f</span><span class="p">(</span><span class="n">xval</span> <span class="o">*</span> <span class="n">f</span><span class="p">,</span> <span class="n">yval</span> <span class="o">*</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glReadBuffer(mode):</code></dt>
+<dd><p>Select a color buffer source for pixels.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glReadBuffer.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<em>Enumerated constant</em>) &#8211; Specifies a color buffer.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glReadPixels(x, y, width, height, format, type, pixels):</code></dt>
+<dd><p>Read a block of pixels from the frame buffer</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glReadPixels.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>y</strong> (<em>x,</em>) &#8211; Specify the window coordinates of the first pixel that is read
+from the frame buffer. This location is the lower left corner of a rectangular
+block of pixels.</li>
+<li><strong>height</strong> (<em>width,</em>) &#8211; Specify the dimensions of the pixel rectangle. width and
+height of one correspond to a single pixel.</li>
+<li><strong>format</strong> (<em>Enumerated constant</em>) &#8211; Specifies the format of the pixel data.</li>
+<li><strong>type</strong> (<em>Enumerated constant</em>) &#8211; Specifies the data type of the pixel data.</li>
+<li><strong>pixels</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object) &#8211; Returns the pixel data.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glRect (x1,y1,x2,y2,v1,v2):</code></dt>
+<dd><p>B{glRectd, glRectf, glRecti, glRects, glRectdv, glRectfv, glRectiv, glRectsv}</p>
+<p>Draw a rectangle</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glRect.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>y1</strong> (<em>x1,</em>) &#8211; Specify one vertex of a rectangle</li>
+<li><strong>y2</strong> (<em>x2,</em>) &#8211; Specify the opposite vertex of the rectangle</li>
+<li><strong>v2</strong> (<em>v1,</em>) &#8211; Specifies a pointer to one vertex of a rectangle and the pointer
+to the opposite vertex of the rectangle</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glRenderMode(mode):</code></dt>
+<dd><p>Set rasterization mode</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glRenderMode.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<em>Enumerated constant</em>) &#8211; Specifies the rasterization mode.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glRotate (angle, x, y, z):</code></dt>
+<dd><p>B{glRotated, glRotatef}</p>
+<p>Multiply the current matrix by a rotation matrix</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glRotate.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>angle</strong> (<em>Depends on function prototype.</em>) &#8211; Specifies the angle of rotation in degrees.</li>
+<li><strong>y, z</strong> (<em>x,</em>) &#8211; Specify the x, y, and z coordinates of a vector respectively.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glScale (x,y,z):</code></dt>
+<dd><p>B{glScaled, glScalef}</p>
+<p>Multiply the current matrix by a general scaling matrix</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glScale.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>y, z</strong> (<em>x,</em>) &#8211; Specify scale factors along the x, y, and z axes, respectively.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glScissor(x,y,width,height):</code></dt>
+<dd><p>Define the scissor box</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glScissor.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>y</strong> (<em>x,</em>) &#8211; Specify the lower left corner of the scissor box. Initially (0, 0).</li>
+<li><strong>height</strong> (<a class="reference internal" href="bpy.types.BakeSettings.html#bpy.types.BakeSettings.width" title="bpy.types.BakeSettings.width"><em>width</em></a>) &#8211; Specify the width and height of the scissor box. When a
+GL context is first attached to a window, width and height are set to the
+dimensions of that window.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glSelectBuffer(size, buffer):</code></dt>
+<dd><p>Establish a buffer for selection mode values</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glSelectBuffer.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>size</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the size of buffer</li>
+<li><strong>buffer</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> I{type GL_INT}) &#8211; Returns the selection data</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glShadeModel(mode):</code></dt>
+<dd><p>Select flat or smooth shading</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glShadeModel.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<em>Enumerated constant</em>) &#8211; Specifies a symbolic value representing a shading technique.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glStencilFunc(func, ref, mask):</code></dt>
+<dd><p>Set function and reference value for stencil testing</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glStencilFuc.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>func</strong> (<em>Enumerated constant</em>) &#8211; Specifies the test function.</li>
+<li><strong>ref</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the reference value for the stencil test. ref is clamped
+to the range [0,2n-1], where n is the number of bitplanes in the stencil
+buffer. The initial value is 0.</li>
+<li><strong>mask</strong> (<em>unsigned int</em>) &#8211; Specifies a mask that is ANDed with both the reference value and
+the stored stencil value when the test is done. The initial value is all 1&#8217;s.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glStencilMask(mask):</code></dt>
+<dd><p>Control the writing of individual bits in the stencil planes</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glStencilMask.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mask</strong> (<em>unsigned int</em>) &#8211; Specifies a bit mask to enable and disable writing of individual bits
+in the stencil planes. Initially, the mask is all 1&#8217;s.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glStencilOp(fail, zfail, zpass):</code></dt>
+<dd><p>Set stencil test actions</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glStencilOp.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fail</strong> (<em>Enumerated constant</em>) &#8211; Specifies the action to take when the stencil test fails.
+The initial value is GL_KEEP.</li>
+<li><strong>zfail</strong> (<em>Enumerated constant</em>) &#8211; Specifies the stencil action when the stencil test passes, but the
+depth test fails. zfail accepts the same symbolic constants as fail.
+The initial value is GL_KEEP.</li>
+<li><strong>zpass</strong> (<em>Enumerated constant</em>) &#8211; Specifies the stencil action when both the stencil test and the
+depth test pass, or when the stencil test passes and either there is no
+depth buffer or depth testing is not enabled. zpass accepts the same
+symbolic constants
+as fail. The initial value is GL_KEEP.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glTexCoord (s,t,r,q,v):</code></dt>
+<dd><p>B{glTexCoord1d, glTexCoord1f, glTexCoord1i, glTexCoord1s, glTexCoord2d, glTexCoord2f,
+glTexCoord2i, glTexCoord2s, glTexCoord3d, glTexCoord3f, glTexCoord3i, glTexCoord3s,
+glTexCoord4d, glTexCoord4f, glTexCoord4i, glTexCoord4s, glTexCoord1dv, glTexCoord1fv,
+glTexCoord1iv, glTexCoord1sv, glTexCoord2dv, glTexCoord2fv, glTexCoord2iv,
+glTexCoord2sv, glTexCoord3dv, glTexCoord3fv, glTexCoord3iv, glTexCoord3sv,
+glTexCoord4dv, glTexCoord4fv, glTexCoord4iv, glTexCoord4sv}</p>
+<p>Set the current texture coordinates</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>t, r, q</strong> (<em>s,</em>) &#8211; Specify s, t, r, and q texture coordinates. Not all parameters are
+present in all forms of the command.</li>
+<li><strong>v</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. Depends on function prototype. (for &#8216;v&#8217; prototypes only)) &#8211; Specifies a pointer to an array of one, two, three, or four elements,
+which in turn specify the s, t, r, and q texture coordinates.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glTexEnv  (target, pname, param):</code></dt>
+<dd><p>B{glTextEnvf, glTextEnvi, glTextEnvfv, glTextEnviv}</p>
+<p>Set texture environment parameters</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexEnv.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>target</strong> (<em>Enumerated constant</em>) &#8211; Specifies a texture environment. Must be GL_TEXTURE_ENV.</li>
+<li><strong>pname</strong> (<em>Enumerated constant</em>) &#8211; Specifies the symbolic name of a single-valued texture environment
+parameter. Must be GL_TEXTURE_ENV_MODE.</li>
+<li><strong>param</strong> (<em>Depends on function prototype.</em>) &#8211; Specifies a single symbolic constant. If function prototype ends in &#8216;v&#8217;
+specifies a pointer to a parameter array that contains either a single
+symbolic constant or an RGBA color</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glTexGen (coord, pname, param):</code></dt>
+<dd><p>B{glTexGend, glTexGenf, glTexGeni, glTexGendv, glTexGenfv, glTexGeniv}</p>
+<p>Control the generation of texture coordinates</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexGen.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>coord</strong> (<em>Enumerated constant</em>) &#8211; Specifies a texture coordinate.</li>
+<li><strong>pname</strong> (<em>Enumerated constant</em>) &#8211; Specifies the symbolic name of the texture- coordinate generation function.</li>
+<li><strong>param</strong> (<em>Depends on function prototype.</em>) &#8211; Specifies a single-valued texture generation parameter.
+If function prototype ends in &#8216;v&#8217; specifies a pointer to an array of texture
+generation parameters. If pname is GL_TEXTURE_GEN_MODE, then the array must
+contain a single symbolic constant. Otherwise, params holds the coefficients
+for the texture-coordinate generation function specified by pname.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glTexImage1D(target, level, internalformat, width, border, format, type, pixels):</code></dt>
+<dd><p>Specify a one-dimensional texture image</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexImage1D.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>target</strong> (<em>Enumerated constant</em>) &#8211; Specifies the target texture.</li>
+<li><strong>level</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the level-of-detail number. Level 0 is the base image level.
+Level n is the nth mipmap reduction image.</li>
+<li><strong>internalformat</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the number of color components in the texture.</li>
+<li><strong>width</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the width of the texture image. Must be 2n+2(border)
+for some integer n. All implementations support texture images that are
+at least 64 texels wide. The height of the 1D texture image is 1.</li>
+<li><strong>border</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the width of the border. Must be either 0 or 1.</li>
+<li><strong>format</strong> (<em>Enumerated constant</em>) &#8211; Specifies the format of the pixel data.</li>
+<li><strong>type</strong> (<em>Enumerated constant</em>) &#8211; Specifies the data type of the pixel data.</li>
+<li><strong>pixels</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object.) &#8211; Specifies a pointer to the image data in memory.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glTexImage2D(target, level, internalformat, width, height, border, format, type, pixels):</code></dt>
+<dd><p>Specify a two-dimensional texture image</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexImage2D.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>target</strong> (<em>Enumerated constant</em>) &#8211; Specifies the target texture.</li>
+<li><strong>level</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the level-of-detail number. Level 0 is the base image level.
+Level n is the nth mipmap reduction image.</li>
+<li><strong>internalformat</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the number of color components in the texture.</li>
+<li><strong>width</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the width of the texture image. Must be 2n+2(border)
+for some integer n. All implementations support texture images that are at
+least 64 texels wide.</li>
+<li><strong>height</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the height of the texture image. Must be 2m+2(border) for
+some integer m. All implementations support texture images that are at
+least 64 texels high.</li>
+<li><strong>border</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the width of the border. Must be either 0 or 1.</li>
+<li><strong>format</strong> (<em>Enumerated constant</em>) &#8211; Specifies the format of the pixel data.</li>
+<li><strong>type</strong> (<em>Enumerated constant</em>) &#8211; Specifies the data type of the pixel data.</li>
+<li><strong>pixels</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object.) &#8211; Specifies a pointer to the image data in memory.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glTexParameter (target, pname, param):</code></dt>
+<dd><p>B{glTexParameterf, glTexParameteri, glTexParameterfv, glTexParameteriv}</p>
+<p>Set texture parameters</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexParameter.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>target</strong> (<em>Enumerated constant</em>) &#8211; Specifies the target texture.</li>
+<li><strong>pname</strong> (<em>Enumerated constant</em>) &#8211; Specifies the symbolic name of a single-valued texture parameter.</li>
+<li><strong>param</strong> (<em>Depends on function prototype.</em>) &#8211; Specifies the value of pname. If function prototype ends in &#8216;v&#8217; specifies
+a pointer to an array where the value or values of pname are stored.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glTranslate (x, y, z):</code></dt>
+<dd><p>B{glTranslatef, glTranslated}</p>
+<p>Multiply the current matrix by a translation matrix</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glTranslate.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>y, z</strong> (<em>x,</em>) &#8211; Specify the x, y, and z coordinates of a translation vector.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glVertex (x,y,z,w,v):</code></dt>
+<dd><p>B{glVertex2d, glVertex2f, glVertex2i, glVertex2s, glVertex3d, glVertex3f, glVertex3i,
+glVertex3s, glVertex4d, glVertex4f, glVertex4i, glVertex4s, glVertex2dv, glVertex2fv,
+glVertex2iv, glVertex2sv, glVertex3dv, glVertex3fv, glVertex3iv, glVertex3sv, glVertex4dv,
+glVertex4fv, glVertex4iv, glVertex4sv}</p>
+<p>Specify a vertex</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>y, z, w</strong> (<em>x,</em>) &#8211; Specify x, y, z, and w coordinates of a vertex. Not all parameters
+are present in all forms of the command.</li>
+<li><strong>v</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. Depends of function prototype (for &#8216;v&#8217;
+prototypes only)) &#8211; Specifies a pointer to an array of two, three, or four elements. The
+elements of a two-element array are x and y; of a three-element array,
+x, y, and z; and of a four-element array, x, y, z, and w.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glViewport(x,y,width,height):</code></dt>
+<dd><p>Set the viewport</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glViewport.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>y</strong> (<em>x,</em>) &#8211; Specify the lower left corner of the viewport rectangle,
+in pixels. The initial value is (0,0).</li>
+<li><strong>height</strong> (<em>width,</em>) &#8211; Specify the width and height of the viewport. When a GL
+context is first attached to a window, width and height are set to the
+dimensions of that window.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">gluPerspective(fovY, aspect, zNear, zFar):</code></dt>
+<dd><p>Set up a perspective projection matrix.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">U{<a class="reference external" href="http://biology.ncsa.uiuc.edu/cgi-bin/infosrch.cgi?cmd=getdoc&amp;coll=0650&amp;db=bks&amp;fname=/SGI_Developer/OpenGL_RM/ch06.html#id5577288">http://biology.ncsa.uiuc.edu/cgi-bin/infosrch.cgi?cmd=getdoc&amp;coll=0650&amp;db=bks&amp;fname=/SGI_Developer/OpenGL_RM/ch06.html#id5577288</a>}</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fovY</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.double" title="bpy.types.PropertyGroupItem.double"><em>double</em></a>) &#8211; Specifies the field of view angle, in degrees, in the y direction.</li>
+<li><strong>aspect</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.double" title="bpy.types.PropertyGroupItem.double"><em>double</em></a>) &#8211; Specifies the aspect ratio that determines the field of view in the x direction.
+The aspect ratio is the ratio of x (width) to y (height).</li>
+<li><strong>zNear</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.double" title="bpy.types.PropertyGroupItem.double"><em>double</em></a>) &#8211; Specifies the distance from the viewer to the near clipping plane (always positive).</li>
+<li><strong>zFar</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.double" title="bpy.types.PropertyGroupItem.double"><em>double</em></a>) &#8211; Specifies the distance from the viewer to the far clipping plane (always positive).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">gluLookAt(eyex, eyey, eyez, centerx, centery, centerz, upx, upy, upz):</code></dt>
+<dd><p>Define a viewing transformation.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">U{<a class="reference external" href="http://biology.ncsa.uiuc.edu/cgi-bin/infosrch.cgi?cmd=getdoc&amp;coll=0650&amp;db=bks&amp;fname=/SGI_Developer/OpenGL_RM/ch06.html#id5573042">http://biology.ncsa.uiuc.edu/cgi-bin/infosrch.cgi?cmd=getdoc&amp;coll=0650&amp;db=bks&amp;fname=/SGI_Developer/OpenGL_RM/ch06.html#id5573042</a>}</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>eyey, eyez</strong> (<em>eyex,</em>) &#8211; Specifies the position of the eye point.</li>
+<li><strong>centery, centerz</strong> (<em>centerx,</em>) &#8211; Specifies the position of the reference point.</li>
+<li><strong>upy, upz</strong> (<em>upx,</em>) &#8211; Specifies the direction of the up vector.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">gluOrtho2D(left, right, bottom, top):</code></dt>
+<dd><p>Define a 2-D orthographic projection matrix.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">U{<a class="reference external" href="http://biology.ncsa.uiuc.edu/cgi-bin/infosrch.cgi?cmd=getdoc&amp;coll=0650&amp;db=bks&amp;fname=/SGI_Developer/OpenGL_RM/ch06.html#id5578074">http://biology.ncsa.uiuc.edu/cgi-bin/infosrch.cgi?cmd=getdoc&amp;coll=0650&amp;db=bks&amp;fname=/SGI_Developer/OpenGL_RM/ch06.html#id5578074</a>}</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>right</strong> (<em>left,</em>) &#8211; Specify the coordinates for the left and right vertical clipping planes.</li>
+<li><strong>top</strong> (<em>bottom,</em>) &#8211; Specify the coordinates for the bottom and top horizontal clipping planes.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">gluPickMatrix(x, y, width, height, viewport):</code></dt>
+<dd><p>Define a picking region.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">U{<a class="reference external" href="http://biology.ncsa.uiuc.edu/cgi-bin/infosrch.cgi?cmd=getdoc&amp;coll=0650&amp;db=bks&amp;fname=/SGI_Developer/OpenGL_RM/ch06.html#id5578074">http://biology.ncsa.uiuc.edu/cgi-bin/infosrch.cgi?cmd=getdoc&amp;coll=0650&amp;db=bks&amp;fname=/SGI_Developer/OpenGL_RM/ch06.html#id5578074</a>}</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>y</strong> (<em>x,</em>) &#8211; Specify the center of a picking region in window coordinates.</li>
+<li><strong>height</strong> (<em>width,</em>) &#8211; Specify the width and height, respectively, of the picking region in window coordinates.</li>
+<li><strong>viewport</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. [int]) &#8211; Specifies the current viewport.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">gluProject(objx, objy, objz, modelMatrix, projMatrix, viewport, winx, winy, winz):</code></dt>
+<dd><p>Map object coordinates to window coordinates.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">U{<a class="reference external" href="http://biology.ncsa.uiuc.edu/cgi-bin/infosrch.cgi?cmd=getdoc&amp;coll=0650&amp;db=bks&amp;fname=/SGI_Developer/OpenGL_RM/ch06.html#id5578074">http://biology.ncsa.uiuc.edu/cgi-bin/infosrch.cgi?cmd=getdoc&amp;coll=0650&amp;db=bks&amp;fname=/SGI_Developer/OpenGL_RM/ch06.html#id5578074</a>}</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>objy, objz</strong> (<em>objx,</em>) &#8211; Specify the object coordinates.</li>
+<li><strong>modelMatrix</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. [double]) &#8211; Specifies the current modelview matrix (as from a glGetDoublev call).</li>
+<li><strong>projMatrix</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. [double]) &#8211; Specifies the current projection matrix (as from a glGetDoublev call).</li>
+<li><strong>viewport</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. [int]) &#8211; Specifies the current viewport (as from a glGetIntegerv call).</li>
+<li><strong>winy, winz</strong> (<em>winx,</em>) &#8211; Return the computed window coordinates.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">gluUnProject(winx, winy, winz, modelMatrix, projMatrix, viewport, objx, objy, objz):</code></dt>
+<dd><p>Map object coordinates to window coordinates.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">U{<a class="reference external" href="http://biology.ncsa.uiuc.edu/cgi-bin/infosrch.cgi?cmd=getdoc&amp;coll=0650&amp;db=bks&amp;fname=/SGI_Developer/OpenGL_RM/ch06.html#id5582204">http://biology.ncsa.uiuc.edu/cgi-bin/infosrch.cgi?cmd=getdoc&amp;coll=0650&amp;db=bks&amp;fname=/SGI_Developer/OpenGL_RM/ch06.html#id5582204</a>}</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>winy, winz</strong> (<em>winx,</em>) &#8211; Specify the window coordinates to be mapped.</li>
+<li><strong>modelMatrix</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. [double]) &#8211; Specifies the current modelview matrix (as from a glGetDoublev call).</li>
+<li><strong>projMatrix</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. [double]) &#8211; Specifies the current projection matrix (as from a glGetDoublev call).</li>
+<li><strong>viewport</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> object. [int]) &#8211; Specifies the current viewport (as from a glGetIntegerv call).</li>
+<li><strong>objy, objz</strong> (<em>objx,</em>) &#8211; Return the computed object coordinates.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glUseProgram(program):</code></dt>
+<dd><p>Installs a program object as part of current rendering state</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glUseProgram.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>program</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the handle of the program object whose executables are to be used as part of current rendering state.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glValidateProgram(program):</code></dt>
+<dd><p>Validates a program object</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glValidateProgram.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>program</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the handle of the program object to be validated.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glLinkProgram(program):</code></dt>
+<dd><p>Links a program object.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glLinkProgram.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>program</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the handle of the program object to be linked.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glActiveTexture(texture):</code></dt>
+<dd><p>Select active texture unit.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glActiveTexture.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>texture</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Constant in <code class="docutils literal"><span class="pre">GL_TEXTURE0</span></code> 0 - 8</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glAttachShader(program, shader):</code></dt>
+<dd><p>Attaches a shader object to a program object.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glAttachShader.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>program</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the program object to which a shader object will be attached.</li>
+<li><strong>shader</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the shader object that is to be attached.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glCompileShader(shader):</code></dt>
+<dd><p>Compiles a shader object.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glCompileShader.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>shader</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the shader object to be compiled.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glCreateProgram():</code></dt>
+<dd><p>Creates a program object</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glCreateProgram.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int">int</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The new program or zero if an error occurs.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glCreateShader(shaderType):</code></dt>
+<dd><p>Creates a shader object.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glCreateShader.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>shaderType</strong> (Specifies the type of shader to be created.
+Must be one of <code class="docutils literal"><span class="pre">GL_VERTEX_SHADER</span></code>,
+<code class="docutils literal"><span class="pre">GL_TESS_CONTROL_SHADER</span></code>,
+<code class="docutils literal"><span class="pre">GL_TESS_EVALUATION_SHADER</span></code>,
+<code class="docutils literal"><span class="pre">GL_GEOMETRY_SHADER</span></code>,
+or <code class="docutils literal"><span class="pre">GL_FRAGMENT_SHADER</span></code>.) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int">int</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">0 if an error occurs.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glDeleteProgram(program):</code></dt>
+<dd><p>Deletes a program object.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glDeleteProgram.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>program</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the program object to be deleted.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glDeleteShader(shader):</code></dt>
+<dd><p>Deletes a shader object.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glDeleteShader.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>shader</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the shader object to be deleted.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glDetachShader(program, shader):</code></dt>
+<dd><p>Detaches a shader object from a program object to which it is attached.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glDetachShader.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>program</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the program object from which to detach the shader object.</li>
+<li><strong>shader</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; pecifies the program object from which to detach the shader object.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glGetAttachedShaders(program, maxCount, count, shaders):</code></dt>
+<dd><p>Returns the handles of the shader objects attached to a program object.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetAttachedShaders.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>program</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the program object to be queried.</li>
+<li><strong>maxCount</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the size of the array for storing the returned object names.</li>
+<li><strong>count</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> int buffer.) &#8211; Returns the number of names actually returned in objects.</li>
+<li><strong>shaders</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> int buffer.) &#8211; Specifies an array that is used to return the names of attached shader objects.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glGetProgramInfoLog(program, maxLength, length, infoLog):</code></dt>
+<dd><p>Returns the information log for a program object.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetProgramInfoLog.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>program</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the program object whose information log is to be queried.</li>
+<li><strong>maxLength</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the size of the character buffer for storing the returned information log.</li>
+<li><strong>length</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> int buffer.) &#8211; Returns the length of the string returned in <strong>infoLog</strong> (excluding the null terminator).</li>
+<li><strong>infoLog</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> char buffer.) &#8211; Specifies an array of characters that is used to return the information log.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glGetShaderInfoLog(program, maxLength, length, infoLog):</code></dt>
+<dd><p>Returns the information log for a shader object.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetShaderInfoLog.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>shader</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the shader object whose information log is to be queried.</li>
+<li><strong>maxLength</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the size of the character buffer for storing the returned information log.</li>
+<li><strong>length</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> int buffer.) &#8211; Returns the length of the string returned in <strong>infoLog</strong> (excluding the null terminator).</li>
+<li><strong>infoLog</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> char buffer.) &#8211; Specifies an array of characters that is used to return the information log.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glGetProgramiv(program, pname, params):</code></dt>
+<dd><p>Returns a parameter from a program object.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetProgram.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>program</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the program object to be queried.</li>
+<li><strong>pname</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the object parameter.</li>
+<li><strong>params</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> int buffer.) &#8211; Returns the requested object parameter.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glIsShader(shader):</code></dt>
+<dd><p>Determines if a name corresponds to a shader object.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glIsShader.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>shader</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies a potential shader object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glIsProgram(program):</code></dt>
+<dd><p>Determines if a name corresponds to a program object</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glIsProgram.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>program</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies a potential program object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glGetShaderSource(shader, bufSize, length, source):</code></dt>
+<dd><p>Returns the source code string from a shader object</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetShaderSource.xml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>shader</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the shader object to be queried.</li>
+<li><strong>bufSize</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the size of the character buffer for storing the returned source code string.</li>
+<li><strong>length</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> int buffer.) &#8211; Returns the length of the string returned in source (excluding the null terminator).</li>
+<li><strong>source</strong> (<a class="reference internal" href="#bgl.Buffer" title="bgl.Buffer"><code class="xref py py-class docutils literal"><span class="pre">bgl.Buffer</span></code></a> char.) &#8211; Specifies an array of characters that is used to return the source code string.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">glShaderSource(shader, shader_string):</code></dt>
+<dd><p>Replaces the source code in a shader object.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.opengl.org/sdk/docs/man/html/glShaderSource.xhtml">OpenGL Docs</a></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>shader</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Specifies the handle of the shader object whose source code is to be replaced.</li>
+<li><strong>shader_string</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; The shader string.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="bgl.Buffer">
+<em class="property">class </em><code class="descclassname">bgl.</code><code class="descname">Buffer</code><a class="headerlink" href="#bgl.Buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Buffer object is simply a block of memory that is delineated and initialized by the
+user. Many OpenGL functions return data to a C-style pointer, however, because this
+is not possible in python the Buffer object can be used to this end. Wherever pointer
+notation is used in the OpenGL functions the Buffer object can be used in it&#8217;s bgl
+wrapper. In some instances the Buffer object will need to be initialized with the template
+parameter, while in other instances the user will want to create just a blank buffer
+which will be zeroed by default.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bgl</span>
+
+<span class="n">myByteBuffer</span> <span class="o">=</span> <span class="n">bgl</span><span class="o">.</span><span class="n">Buffer</span><span class="p">(</span><span class="n">bgl</span><span class="o">.</span><span class="n">GL_BYTE</span><span class="p">,</span> <span class="p">[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">])</span>
+<span class="n">bgl</span><span class="o">.</span><span class="n">glGetPolygonStipple</span><span class="p">(</span><span class="n">myByteBuffer</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">myByteBuffer</span><span class="o">.</span><span class="n">dimensions</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">myByteBuffer</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
+
+<span class="n">sliceBuffer</span> <span class="o">=</span> <span class="n">myByteBuffer</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sliceBuffer</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="bgl.Buffer.dimensions">
+<code class="descname">dimensions</code><a class="headerlink" href="#bgl.Buffer.dimensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of dimensions of the Buffer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bgl.Buffer.to_list">
+<code class="descname">to_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bgl.Buffer.to_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>The contents of the Buffer as a python list.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">__init__(type, dimensions, template = None):</code></dt>
+<dd><p>This will create a new Buffer object for use with other bgl OpenGL commands.
+Only the type of argument to store in the buffer and the dimensions of the buffer
+are necessary. Buffers are zeroed by default unless a template is supplied, in
+which case the buffer is initialized to the template.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>type</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; The format to store data in. The type should be one of
+GL_BYTE, GL_SHORT, GL_INT, or GL_FLOAT.</li>
+<li><strong>dimensions</strong> (<em>An int or sequence object specifying the dimensions of the buffer.</em>) &#8211; If the dimensions are specified as an int a linear array will
+be created for the buffer. If a sequence is passed for the dimensions, the buffer
+becomes n-Dimensional, where n is equal to the number of parameters passed in the
+sequence. Example: [256,2] is a two- dimensional buffer while [256,256,4] creates
+a three- dimensional buffer. You can think of each additional dimension as a sub-item
+of the dimension to the left. i.e. [10,2] is a 10 element array each with 2 sub-items.
+[(0,0), (0,1), (1,0), (1,1), (2,0), ...] etc.</li>
+<li><strong>template</strong> (<em>A python sequence object (optional)</em>) &#8211; A sequence of matching dimensions which will be used to initialize
+the Buffer. If a template is not passed in all fields will be initialized to 0.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">Buffer object</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The newly created buffer as a PyObject.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="freestyle.html"
+                        title="previous chapter">Freestyle Module (freestyle)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="blf.html"
+                        title="next chapter">Font Drawing (blf)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="blf.html" title="Font Drawing (blf)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="freestyle.html" title="Freestyle Module (freestyle)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

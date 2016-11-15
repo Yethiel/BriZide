@@ -1,0 +1,485 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>File Operators &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Operators (bpy.ops)" href="bpy.ops.html" />
+    <link rel="next" title="Fluid Operators" href="bpy.ops.fluid.html" />
+    <link rel="prev" title="Export Scene Operators" href="bpy.ops.export_scene.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.fluid.html" title="Fluid Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.export_scene.html" title="Export Scene Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.ops.file">
+<span id="file-operators"></span><h1>File Operators<a class="headerlink" href="#module-bpy.ops.file" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bpy.ops.file.autopack_toggle">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">autopack_toggle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.autopack_toggle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatically pack all external files into the .blend file</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.bookmark_add">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">bookmark_add</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.bookmark_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a bookmark for the selected/active directory</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.bookmark_cleanup">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">bookmark_cleanup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.bookmark_cleanup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete all invalid bookmarks</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.bookmark_delete">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">bookmark_delete</code><span class="sig-paren">(</span><em>index=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.bookmark_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete selected bookmark</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>int in [-1, 20000], (optional)</em>) &#8211; Index</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.bookmark_move">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">bookmark_move</code><span class="sig-paren">(</span><em>direction='TOP'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.bookmark_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the active bookmark up/down in the list</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>direction</strong> (<em>enum in ['TOP', 'UP', 'DOWN', 'BOTTOM'], (optional)</em>) &#8211; <p>Direction, Direction to move, UP or DOWN</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TOP</span></code> Top, Top of the list.</li>
+<li><code class="docutils literal"><span class="pre">UP</span></code> Up.</li>
+<li><code class="docutils literal"><span class="pre">DOWN</span></code> Down.</li>
+<li><code class="docutils literal"><span class="pre">BOTTOM</span></code> Bottom, Bottom of the list.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.bookmark_toggle">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">bookmark_toggle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.bookmark_toggle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle bookmarks display</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.cancel">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">cancel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.cancel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel loading of selected file</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.delete">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete selected files</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.directory_new">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">directory_new</code><span class="sig-paren">(</span><em>directory=&quot;&quot;</em>, <em>open=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.directory_new" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new directory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>directory</strong> (<em>string, (optional, never None)</em>) &#8211; Directory, Name of new directory</li>
+<li><strong>open</strong> (<em>boolean, (optional)</em>) &#8211; Open, Open new directory</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.execute">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">execute</code><span class="sig-paren">(</span><em>need_active=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute selected file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>need_active</strong> (<em>boolean, (optional)</em>) &#8211; Need Active, Only execute if there&#8217;s an active selected file in the file list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.filenum">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">filenum</code><span class="sig-paren">(</span><em>increment=1</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.filenum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Increment number in filename</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>increment</strong> (<em>int in [-100, 100], (optional)</em>) &#8211; Increment</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.filepath_drop">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">filepath_drop</code><span class="sig-paren">(</span><em>filepath=&quot;Path&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.filepath_drop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Undocumented</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.find_missing_files">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">find_missing_files</code><span class="sig-paren">(</span><em>find_all=False</em>, <em>directory=&quot;&quot;</em>, <em>filter_blender=False</em>, <em>filter_backup=False</em>, <em>filter_image=False</em>, <em>filter_movie=False</em>, <em>filter_python=False</em>, <em>filter_font=False</em>, <em>filter_sound=False</em>, <em>filter_text=False</em>, <em>filter_btx=False</em>, <em>filter_collada=False</em>, <em>filter_alembic=False</em>, <em>filter_folder=False</em>, <em>filter_blenlib=False</em>, <em>filemode=9</em>, <em>display_type='DEFAULT'</em>, <em>sort_method='FILE_SORT_ALPHA'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.find_missing_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to find missing external files</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>find_all</strong> (<em>boolean, (optional)</em>) &#8211; Find All, Find all files in the search path (not just missing)</li>
+<li><strong>directory</strong> (<em>string, (optional, never None)</em>) &#8211; Directory, Directory of the file</li>
+<li><strong>filter_blender</strong> (<em>boolean, (optional)</em>) &#8211; Filter .blend files</li>
+<li><strong>filter_backup</strong> (<em>boolean, (optional)</em>) &#8211; Filter .blend files</li>
+<li><strong>filter_image</strong> (<em>boolean, (optional)</em>) &#8211; Filter image files</li>
+<li><strong>filter_movie</strong> (<em>boolean, (optional)</em>) &#8211; Filter movie files</li>
+<li><strong>filter_python</strong> (<em>boolean, (optional)</em>) &#8211; Filter python files</li>
+<li><strong>filter_font</strong> (<em>boolean, (optional)</em>) &#8211; Filter font files</li>
+<li><strong>filter_sound</strong> (<em>boolean, (optional)</em>) &#8211; Filter sound files</li>
+<li><strong>filter_text</strong> (<em>boolean, (optional)</em>) &#8211; Filter text files</li>
+<li><strong>filter_btx</strong> (<em>boolean, (optional)</em>) &#8211; Filter btx files</li>
+<li><strong>filter_collada</strong> (<em>boolean, (optional)</em>) &#8211; Filter COLLADA files</li>
+<li><strong>filter_alembic</strong> (<em>boolean, (optional)</em>) &#8211; Filter Alembic files</li>
+<li><strong>filter_folder</strong> (<em>boolean, (optional)</em>) &#8211; Filter folders</li>
+<li><strong>filter_blenlib</strong> (<em>boolean, (optional)</em>) &#8211; Filter Blender IDs</li>
+<li><strong>filemode</strong> (<em>int in [1, 9], (optional)</em>) &#8211; File Browser Mode, The setting for the file browser mode to load a .blend file, a library or a special file</li>
+<li><strong>display_type</strong> (<em>enum in ['DEFAULT', 'LIST_SHORT', 'LIST_LONG', 'THUMBNAIL'], (optional)</em>) &#8211; <p>Display Type</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">DEFAULT</span></code> Default, Automatically determine display type for files.</li>
+<li><code class="docutils literal"><span class="pre">LIST_SHORT</span></code> Short List, Display files as short list.</li>
+<li><code class="docutils literal"><span class="pre">LIST_LONG</span></code> Long List, Display files as a detailed list.</li>
+<li><code class="docutils literal"><span class="pre">THUMBNAIL</span></code> Thumbnails, Display files as thumbnails.</li>
+</ul>
+</li>
+<li><strong>sort_method</strong> (<em>enum in ['FILE_SORT_ALPHA', 'FILE_SORT_EXTENSION', 'FILE_SORT_TIME', 'FILE_SORT_SIZE'], (optional)</em>) &#8211; <p>File sorting mode</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_ALPHA</span></code> Sort alphabetically, Sort the file list alphabetically.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_EXTENSION</span></code> Sort by extension, Sort the file list by extension/type.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_TIME</span></code> Sort by time, Sort files by modification time.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_SIZE</span></code> Sort by size, Sort files by size.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.highlight">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">highlight</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.highlight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Highlight selected file(s)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.make_paths_absolute">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">make_paths_absolute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.make_paths_absolute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make all paths to external files absolute</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.make_paths_relative">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">make_paths_relative</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.make_paths_relative" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make all paths to external files relative to current .blend</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.next">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move to next folder</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.pack_all">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">pack_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.pack_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pack all used external files into the .blend</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.pack_libraries">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">pack_libraries</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.pack_libraries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pack all used Blender library files into the current .blend</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.parent">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">parent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move to parent directory</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.previous">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">previous</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.previous" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move to previous folder</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.refresh">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">refresh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.refresh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Refresh the file list</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.rename">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">rename</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.rename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rename file or file directory</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.report_missing_files">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">report_missing_files</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.report_missing_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Report all missing external files</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.reset_recent">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">reset_recent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.reset_recent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset Recent files</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.select">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">select</code><span class="sig-paren">(</span><em>extend=False</em>, <em>fill=False</em>, <em>open=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activate/select file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>extend</strong> (<em>boolean, (optional)</em>) &#8211; Extend, Extend selection instead of deselecting everything first</li>
+<li><strong>fill</strong> (<em>boolean, (optional)</em>) &#8211; Fill, Select everything beginning with the last selection</li>
+<li><strong>open</strong> (<em>boolean, (optional)</em>) &#8211; Open, Open a directory when selecting it</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.select_all_toggle">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">select_all_toggle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.select_all_toggle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select or deselect all files</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.select_bookmark">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">select_bookmark</code><span class="sig-paren">(</span><em>dir=&quot;&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.select_bookmark" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select a bookmarked directory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dir</strong> (<em>string, (optional, never None)</em>) &#8211; Dir</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.select_border">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">select_border</code><span class="sig-paren">(</span><em>gesture_mode=0</em>, <em>xmin=0</em>, <em>xmax=0</em>, <em>ymin=0</em>, <em>ymax=0</em>, <em>extend=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.select_border" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activate/select the file(s) contained in the border</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>gesture_mode</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Gesture Mode</li>
+<li><strong>xmin</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; X Min</li>
+<li><strong>xmax</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; X Max</li>
+<li><strong>ymin</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Y Min</li>
+<li><strong>ymax</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Y Max</li>
+<li><strong>extend</strong> (<em>boolean, (optional)</em>) &#8211; Extend, Extend selection instead of deselecting everything first</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.select_walk">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">select_walk</code><span class="sig-paren">(</span><em>direction='UP'</em>, <em>extend=False</em>, <em>fill=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.select_walk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select/Deselect files by walking through them</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>direction</strong> (<em>enum in ['UP', 'DOWN', 'LEFT', 'RIGHT'], (optional)</em>) &#8211; Walk Direction, Select/Deselect file in this direction</li>
+<li><strong>extend</strong> (<em>boolean, (optional)</em>) &#8211; Extend, Extend selection instead of deselecting everything first</li>
+<li><strong>fill</strong> (<em>boolean, (optional)</em>) &#8211; Fill, Select everything beginning with the last selection</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.smoothscroll">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">smoothscroll</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.smoothscroll" title="Permalink to this definition">¶</a></dt>
+<dd><p>Smooth scroll to make editable file visible</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.unpack_all">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">unpack_all</code><span class="sig-paren">(</span><em>method='USE_LOCAL'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.unpack_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpack all files packed into this .blend to external ones</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>method</strong> (<em>enum in ['USE_LOCAL', 'WRITE_LOCAL', 'USE_ORIGINAL', 'WRITE_ORIGINAL', 'KEEP'], (optional)</em>) &#8211; Method, How to unpack</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.unpack_item">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">unpack_item</code><span class="sig-paren">(</span><em>method='USE_LOCAL'</em>, <em>id_name=&quot;&quot;</em>, <em>id_type=19785</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.unpack_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpack this file to an external file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>method</strong> (<em>enum in ['USE_LOCAL', 'WRITE_LOCAL', 'USE_ORIGINAL', 'WRITE_ORIGINAL'], (optional)</em>) &#8211; Method, How to unpack</li>
+<li><strong>id_name</strong> (<em>string, (optional, never None)</em>) &#8211; ID name, Name of ID block to unpack</li>
+<li><strong>id_type</strong> (<em>int in [0, inf], (optional)</em>) &#8211; ID Type, Identifier type of ID block</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.file.unpack_libraries">
+<code class="descclassname">bpy.ops.file.</code><code class="descname">unpack_libraries</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.file.unpack_libraries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpack all used Blender library files from this .blend file</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.ops.export_scene.html"
+                        title="previous chapter">Export Scene Operators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.ops.fluid.html"
+                        title="next chapter">Fluid Operators</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.fluid.html" title="Fluid Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.export_scene.html" title="Export Scene Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>SpaceGraphEditor(Space) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="SpaceImageEditor(Space)" href="bpy.types.SpaceImageEditor.html" />
+    <link rel="prev" title="SpaceFileBrowser(Space)" href="bpy.types.SpaceFileBrowser.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SpaceImageEditor.html" title="SpaceImageEditor(Space)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SpaceFileBrowser.html" title="SpaceFileBrowser(Space)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="spacegrapheditor-space"></span><h1>SpaceGraphEditor(Space)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base classes &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Space.html#bpy.types.Space" title="bpy.types.Space"><code class="xref py py-class docutils literal"><span class="pre">Space</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.SpaceGraphEditor">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">SpaceGraphEditor</code><span class="sig-paren">(</span><em>Space</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.SpaceGraphEditor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Graph Editor space data</p>
+<dl class="attribute">
+<dt id="bpy.types.SpaceGraphEditor.auto_snap">
+<code class="descname">auto_snap</code><a class="headerlink" href="#bpy.types.SpaceGraphEditor.auto_snap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatic time snapping settings for transformations</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">NONE</span></code> No Auto-Snap.</li>
+<li><code class="docutils literal"><span class="pre">STEP</span></code> Frame Step, Snap to 1.0 frame intervals.</li>
+<li><code class="docutils literal"><span class="pre">TIME_STEP</span></code> Second Step, Snap to 1.0 second intervals.</li>
+<li><code class="docutils literal"><span class="pre">FRAME</span></code> Nearest Frame, Snap to actual frames (nla-action time).</li>
+<li><code class="docutils literal"><span class="pre">SECOND</span></code> Nearest Second, Snap to actual seconds (nla-action time).</li>
+<li><code class="docutils literal"><span class="pre">MARKER</span></code> Nearest Marker, Snap to nearest marker.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;STEP&#8217;, &#8216;TIME_STEP&#8217;, &#8216;FRAME&#8217;, &#8216;SECOND&#8217;, &#8216;MARKER&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceGraphEditor.cursor_position_x">
+<code class="descname">cursor_position_x</code><a class="headerlink" href="#bpy.types.SpaceGraphEditor.cursor_position_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Graph Editor 2D-Value cursor - X-Value component</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceGraphEditor.cursor_position_y">
+<code class="descname">cursor_position_y</code><a class="headerlink" href="#bpy.types.SpaceGraphEditor.cursor_position_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Graph Editor 2D-Value cursor - Y-Value component</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SpaceGraphEditor.dopesheet">
+<code class="descname">dopesheet</code><a class="headerlink" href="#bpy.types.SpaceGraphEditor.dopesheet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Settings for filtering animation data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.DopeSheet.html#bpy.types.DopeSheet" title="bpy.types.DopeSheet"><code class="xref py py-class docutils literal"><span class="pre">DopeSheet</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SpaceGraphEditor.has_ghost_curves">
+<code class="descname">has_ghost_curves</code><a class="headerlink" href="#bpy.types.SpaceGraphEditor.has_ghost_curves" title="Permalink to this definition">¶</a></dt>
+<dd><p>Graph Editor instance has some ghost curves stored</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceGraphEditor.mode">
+<code class="descname">mode</code><a class="headerlink" href="#bpy.types.SpaceGraphEditor.mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Editing context being displayed</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">FCURVES</span></code> F-Curve, Edit animation/keyframes displayed as 2D curves.</li>
+<li><code class="docutils literal"><span class="pre">DRIVERS</span></code> Drivers, Edit drivers.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;FCURVES&#8217;, &#8216;DRIVERS&#8217;], default &#8216;FCURVES&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceGraphEditor.pivot_point">
+<code class="descname">pivot_point</code><a class="headerlink" href="#bpy.types.SpaceGraphEditor.pivot_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pivot center for rotation/scaling</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;BOUNDING_BOX_CENTER&#8217;, &#8216;CURSOR&#8217;, &#8216;INDIVIDUAL_ORIGINS&#8217;], default &#8216;BOUNDING_BOX_CENTER&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceGraphEditor.show_cursor">
+<code class="descname">show_cursor</code><a class="headerlink" href="#bpy.types.SpaceGraphEditor.show_cursor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show 2D cursor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceGraphEditor.show_frame_indicator">
+<code class="descname">show_frame_indicator</code><a class="headerlink" href="#bpy.types.SpaceGraphEditor.show_frame_indicator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show frame number beside the current frame indicator line</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceGraphEditor.show_group_colors">
+<code class="descname">show_group_colors</code><a class="headerlink" href="#bpy.types.SpaceGraphEditor.show_group_colors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw groups and channels with colors matching their corresponding groups</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceGraphEditor.show_handles">
+<code class="descname">show_handles</code><a class="headerlink" href="#bpy.types.SpaceGraphEditor.show_handles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show handles of Bezier control points</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceGraphEditor.show_seconds">
+<code class="descname">show_seconds</code><a class="headerlink" href="#bpy.types.SpaceGraphEditor.show_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show timing in seconds not frames</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceGraphEditor.show_sliders">
+<code class="descname">show_sliders</code><a class="headerlink" href="#bpy.types.SpaceGraphEditor.show_sliders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show sliders beside F-Curve channels</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceGraphEditor.use_auto_merge_keyframes">
+<code class="descname">use_auto_merge_keyframes</code><a class="headerlink" href="#bpy.types.SpaceGraphEditor.use_auto_merge_keyframes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatically merge nearby keyframes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceGraphEditor.use_auto_normalization">
+<code class="descname">use_auto_normalization</code><a class="headerlink" href="#bpy.types.SpaceGraphEditor.use_auto_normalization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatically recalculate curve normalization on every curve edit</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceGraphEditor.use_beauty_drawing">
+<code class="descname">use_beauty_drawing</code><a class="headerlink" href="#bpy.types.SpaceGraphEditor.use_beauty_drawing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw F-Curves using Anti-Aliasing and other fancy effects (disable for better performance)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceGraphEditor.use_normalization">
+<code class="descname">use_normalization</code><a class="headerlink" href="#bpy.types.SpaceGraphEditor.use_normalization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display curves in normalized to -1..1 range, for easier editing of multiple curves with different ranges</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceGraphEditor.use_only_selected_curves_handles">
+<code class="descname">use_only_selected_curves_handles</code><a class="headerlink" href="#bpy.types.SpaceGraphEditor.use_only_selected_curves_handles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Only keyframes of selected F-Curves are visible and editable</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceGraphEditor.use_only_selected_keyframe_handles">
+<code class="descname">use_only_selected_keyframe_handles</code><a class="headerlink" href="#bpy.types.SpaceGraphEditor.use_only_selected_keyframe_handles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Only show and edit handles of selected keyframes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceGraphEditor.use_realtime_update">
+<code class="descname">use_realtime_update</code><a class="headerlink" href="#bpy.types.SpaceGraphEditor.use_realtime_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>When transforming keyframes, changes to the animation data are flushed to other views</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.types.SpaceGraphEditor.draw_handler_add">
+<code class="descname">draw_handler_add</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.SpaceGraphEditor.draw_handler_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Undocumented</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.types.SpaceGraphEditor.draw_handler_remove">
+<code class="descname">draw_handler_remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.SpaceGraphEditor.draw_handler_remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Undocumented</p>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Space.html#bpy.types.Space.type" title="bpy.types.Space.type"><code class="xref py py-class docutils literal"><span class="pre">Space.type</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.Space.html#bpy.types.Space.show_locked_time" title="bpy.types.Space.show_locked_time"><code class="xref py py-class docutils literal"><span class="pre">Space.show_locked_time</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.SpaceFileBrowser.html"
+                        title="previous chapter">SpaceFileBrowser(Space)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.SpaceImageEditor.html"
+                        title="next chapter">SpaceImageEditor(Space)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SpaceImageEditor.html" title="SpaceImageEditor(Space)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SpaceFileBrowser.html" title="SpaceFileBrowser(Space)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

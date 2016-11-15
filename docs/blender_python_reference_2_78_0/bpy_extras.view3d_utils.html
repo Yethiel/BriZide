@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>bpy_extras submodule (bpy_extras.view3d_utils) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Extra Utilities (bpy_extras)" href="bpy_extras.html" />
+    <link rel="next" title="ID Property Access (idprop.types)" href="idprop.types.html" />
+    <link rel="prev" title="bpy_extras submodule (bpy_extras.mesh_utils)" href="bpy_extras.mesh_utils.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="idprop.types.html" title="ID Property Access (idprop.types)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy_extras.mesh_utils.html" title="bpy_extras submodule (bpy_extras.mesh_utils)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy_extras.html" accesskey="U">Extra Utilities (bpy_extras)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy_extras.view3d_utils">
+<span id="bpy-extras-submodule-bpy-extras-view3d-utils"></span><h1>bpy_extras submodule (bpy_extras.view3d_utils)<a class="headerlink" href="#module-bpy_extras.view3d_utils" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bpy_extras.view3d_utils.region_2d_to_vector_3d">
+<code class="descclassname">bpy_extras.view3d_utils.</code><code class="descname">region_2d_to_vector_3d</code><span class="sig-paren">(</span><em>region</em>, <em>rv3d</em>, <em>coord</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.view3d_utils.region_2d_to_vector_3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a direction vector from the viewport at the specific 2d region
+coordinate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>region</strong> (<a class="reference internal" href="bpy.types.Region.html#bpy.types.Region" title="bpy.types.Region"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Region</span></code></a>) &#8211; region of the 3D viewport, typically bpy.context.region.</li>
+<li><strong>rv3d</strong> (<a class="reference internal" href="bpy.types.RegionView3D.html#bpy.types.RegionView3D" title="bpy.types.RegionView3D"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.RegionView3D</span></code></a>) &#8211; 3D region data, typically bpy.context.space_data.region_3d.</li>
+<li><strong>coord</strong> (<em>2d vector</em>) &#8211; 2d coordinates relative to the region:
+(event.mouse_region_x, event.mouse_region_y) for example.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">normalized 3d vector.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Vector</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy_extras.view3d_utils.region_2d_to_origin_3d">
+<code class="descclassname">bpy_extras.view3d_utils.</code><code class="descname">region_2d_to_origin_3d</code><span class="sig-paren">(</span><em>region</em>, <em>rv3d</em>, <em>coord</em>, <em>clamp=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.view3d_utils.region_2d_to_origin_3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the 3d view origin from the region relative 2d coords.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Orthographic views have a less obvious origin,
+the far clip is used to define the viewport near/far extents.
+Since far clip can be a very large value,
+the result may give with numeric precision issues.</p>
+<p class="last">To avoid this problem, you can optionally clamp the far clip to a
+smaller value based on the data you&#8217;re operating on.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>region</strong> (<a class="reference internal" href="bpy.types.Region.html#bpy.types.Region" title="bpy.types.Region"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Region</span></code></a>) &#8211; region of the 3D viewport, typically bpy.context.region.</li>
+<li><strong>rv3d</strong> (<a class="reference internal" href="bpy.types.RegionView3D.html#bpy.types.RegionView3D" title="bpy.types.RegionView3D"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.RegionView3D</span></code></a>) &#8211; 3D region data, typically bpy.context.space_data.region_3d.</li>
+<li><strong>coord</strong> (<em>2d vector</em>) &#8211; 2d coordinates relative to the region;
+(event.mouse_region_x, event.mouse_region_y) for example.</li>
+<li><strong>clamp</strong> (<em>float or None</em>) &#8211; Clamp the maximum far-clip value used.
+(negative value will move the offset away from the view_location)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The origin of the viewpoint in 3d space.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Vector</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy_extras.view3d_utils.region_2d_to_location_3d">
+<code class="descclassname">bpy_extras.view3d_utils.</code><code class="descname">region_2d_to_location_3d</code><span class="sig-paren">(</span><em>region</em>, <em>rv3d</em>, <em>coord</em>, <em>depth_location</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.view3d_utils.region_2d_to_location_3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a 3d location from the region relative 2d coords, aligned with
+<em>depth_location</em>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>region</strong> (<a class="reference internal" href="bpy.types.Region.html#bpy.types.Region" title="bpy.types.Region"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Region</span></code></a>) &#8211; region of the 3D viewport, typically bpy.context.region.</li>
+<li><strong>rv3d</strong> (<a class="reference internal" href="bpy.types.RegionView3D.html#bpy.types.RegionView3D" title="bpy.types.RegionView3D"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.RegionView3D</span></code></a>) &#8211; 3D region data, typically bpy.context.space_data.region_3d.</li>
+<li><strong>coord</strong> (<em>2d vector</em>) &#8211; 2d coordinates relative to the region;
+(event.mouse_region_x, event.mouse_region_y) for example.</li>
+<li><strong>depth_location</strong> (<em>3d vector</em>) &#8211; the returned vectors depth is aligned with this since
+there is no defined depth with a 2d region input.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">normalized 3d vector.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Vector</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy_extras.view3d_utils.location_3d_to_region_2d">
+<code class="descclassname">bpy_extras.view3d_utils.</code><code class="descname">location_3d_to_region_2d</code><span class="sig-paren">(</span><em>region</em>, <em>rv3d</em>, <em>coord</em>, <em>default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy_extras.view3d_utils.location_3d_to_region_2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the <em>region</em> relative 2d location of a 3d position.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>region</strong> (<a class="reference internal" href="bpy.types.Region.html#bpy.types.Region" title="bpy.types.Region"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Region</span></code></a>) &#8211; region of the 3D viewport, typically bpy.context.region.</li>
+<li><strong>rv3d</strong> (<a class="reference internal" href="bpy.types.RegionView3D.html#bpy.types.RegionView3D" title="bpy.types.RegionView3D"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.RegionView3D</span></code></a>) &#8211; 3D region data, typically bpy.context.space_data.region_3d.</li>
+<li><strong>coord</strong> (<em>3d vector</em>) &#8211; 3d worldspace location.</li>
+<li><strong>default</strong> &#8211; Return this value if <code class="docutils literal"><span class="pre">coord</span></code>
+is behind the origin of a perspective view.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">2d location</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Vector</span></code></a> or <code class="docutils literal"><span class="pre">default</span></code> argument.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy_extras.mesh_utils.html"
+                        title="previous chapter">bpy_extras submodule (bpy_extras.mesh_utils)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="idprop.types.html"
+                        title="next chapter">ID Property Access (idprop.types)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="idprop.types.html" title="ID Property Access (idprop.types)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy_extras.mesh_utils.html" title="bpy_extras submodule (bpy_extras.mesh_utils)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy_extras.html" >Extra Utilities (bpy_extras)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

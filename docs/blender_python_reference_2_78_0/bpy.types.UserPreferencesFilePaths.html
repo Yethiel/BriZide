@@ -1,0 +1,512 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>UserPreferencesFilePaths(bpy_struct) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="UserPreferencesInput(bpy_struct)" href="bpy.types.UserPreferencesInput.html" />
+    <link rel="prev" title="UserPreferencesEdit(bpy_struct)" href="bpy.types.UserPreferencesEdit.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.UserPreferencesInput.html" title="UserPreferencesInput(bpy_struct)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.UserPreferencesEdit.html" title="UserPreferencesEdit(bpy_struct)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="userpreferencesfilepaths-bpy-struct"></span><h1>UserPreferencesFilePaths(bpy_struct)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.UserPreferencesFilePaths">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">UserPreferencesFilePaths</code><span class="sig-paren">(</span><em>bpy_struct</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default paths for external files</p>
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.animation_player">
+<code class="descname">animation_player</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.animation_player" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to a custom animation/frame sequence player</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.animation_player_preset">
+<code class="descname">animation_player_preset</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.animation_player_preset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Preset configs for external animation players</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">INTERNAL</span></code> Internal, Built-in animation player.</li>
+<li><code class="docutils literal"><span class="pre">DJV</span></code> Djv, Open source frame player: <a class="reference external" href="http://djv.sourceforge.net">http://djv.sourceforge.net</a>.</li>
+<li><code class="docutils literal"><span class="pre">FRAMECYCLER</span></code> FrameCycler, Frame player from IRIDAS.</li>
+<li><code class="docutils literal"><span class="pre">RV</span></code> rv, Frame player from Tweak Software.</li>
+<li><code class="docutils literal"><span class="pre">MPLAYER</span></code> MPlayer, Media player for video &amp; png/jpeg/sgi image sequences.</li>
+<li><code class="docutils literal"><span class="pre">CUSTOM</span></code> Custom, Custom animation player executable path.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;INTERNAL&#8217;, &#8216;DJV&#8217;, &#8216;FRAMECYCLER&#8217;, &#8216;RV&#8217;, &#8216;MPLAYER&#8217;, &#8216;CUSTOM&#8217;], default &#8216;INTERNAL&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.auto_save_time">
+<code class="descname">auto_save_time</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.auto_save_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>The time (in minutes) to wait between automatic temporary saves</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 60], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.font_directory">
+<code class="descname">font_directory</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.font_directory" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default directory to search for loading fonts</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.hide_recent_locations">
+<code class="descname">hide_recent_locations</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.hide_recent_locations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hide recent locations in the file selector</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.hide_system_bookmarks">
+<code class="descname">hide_system_bookmarks</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.hide_system_bookmarks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hide system bookmarks in the file selector</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.i18n_branches_directory">
+<code class="descname">i18n_branches_directory</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.i18n_branches_directory" title="Permalink to this definition">¶</a></dt>
+<dd><p>The path to the &#8216;/branches&#8217; directory of your local svn-translation copy, to allow translating from the UI</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.image_editor">
+<code class="descname">image_editor</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.image_editor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to an image editor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.recent_files">
+<code class="descname">recent_files</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.recent_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum number of recently opened files to remember</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 30], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.render_cache_directory">
+<code class="descname">render_cache_directory</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.render_cache_directory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Where to cache raw render results</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.render_output_directory">
+<code class="descname">render_output_directory</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.render_output_directory" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default directory for rendering output, for new scenes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.save_version">
+<code class="descname">save_version</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.save_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of old versions to maintain in the current directory, when manually saving</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 32], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.script_directory">
+<code class="descname">script_directory</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.script_directory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alternate script path, matching the default layout with subdirs: startup, add-ons &amp; modules (requires restart)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.show_hidden_files_datablocks">
+<code class="descname">show_hidden_files_datablocks</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.show_hidden_files_datablocks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hide files/data-blocks that start with a dot (.*)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.show_thumbnails">
+<code class="descname">show_thumbnails</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.show_thumbnails" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open in thumbnail view for images and movies</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.sound_directory">
+<code class="descname">sound_directory</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.sound_directory" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default directory to search for sounds</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.temporary_directory">
+<code class="descname">temporary_directory</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.temporary_directory" title="Permalink to this definition">¶</a></dt>
+<dd><p>The directory for storing temporary save files</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.texture_directory">
+<code class="descname">texture_directory</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.texture_directory" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default directory to search for textures</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.use_auto_save_temporary_files">
+<code class="descname">use_auto_save_temporary_files</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.use_auto_save_temporary_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatic saving of temporary files in temp directory, uses process ID (Sculpt or edit mode data won&#8217;t be saved!&#8217;)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.use_file_compression">
+<code class="descname">use_file_compression</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.use_file_compression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable file compression when saving .blend files</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.use_filter_files">
+<code class="descname">use_filter_files</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.use_filter_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display only files with extensions in the image select window</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.use_keep_session">
+<code class="descname">use_keep_session</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.use_keep_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Always load session recovery and save it after quitting Blender</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.use_load_ui">
+<code class="descname">use_load_ui</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.use_load_ui" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load user interface setup when loading .blend files</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.use_relative_paths">
+<code class="descname">use_relative_paths</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.use_relative_paths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default relative path option for the file selector</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.UserPreferencesFilePaths.use_save_preview_images">
+<code class="descname">use_save_preview_images</code><a class="headerlink" href="#bpy.types.UserPreferencesFilePaths.use_save_preview_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables automatic saving of preview images in the .blend file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.UserPreferences.html#bpy.types.UserPreferences.filepaths" title="bpy.types.UserPreferences.filepaths"><code class="xref py py-class docutils literal"><span class="pre">UserPreferences.filepaths</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.UserPreferencesEdit.html"
+                        title="previous chapter">UserPreferencesEdit(bpy_struct)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.UserPreferencesInput.html"
+                        title="next chapter">UserPreferencesInput(bpy_struct)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.UserPreferencesInput.html" title="UserPreferencesInput(bpy_struct)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.UserPreferencesEdit.html" title="UserPreferencesEdit(bpy_struct)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

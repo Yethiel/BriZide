@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ShrinkwrapConstraint(Constraint) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="ShrinkwrapModifier(Modifier)" href="bpy.types.ShrinkwrapModifier.html" />
+    <link rel="prev" title="ShapeKeyPoint(bpy_struct)" href="bpy.types.ShapeKeyPoint.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ShrinkwrapModifier.html" title="ShrinkwrapModifier(Modifier)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ShapeKeyPoint.html" title="ShapeKeyPoint(bpy_struct)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="shrinkwrapconstraint-constraint"></span><h1>ShrinkwrapConstraint(Constraint)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base classes &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Constraint.html#bpy.types.Constraint" title="bpy.types.Constraint"><code class="xref py py-class docutils literal"><span class="pre">Constraint</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.ShrinkwrapConstraint">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">ShrinkwrapConstraint</code><span class="sig-paren">(</span><em>Constraint</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ShrinkwrapConstraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create constraint-based shrinkwrap relationship</p>
+<dl class="attribute">
+<dt id="bpy.types.ShrinkwrapConstraint.distance">
+<code class="descname">distance</code><a class="headerlink" href="#bpy.types.ShrinkwrapConstraint.distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Distance to Target</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ShrinkwrapConstraint.project_axis">
+<code class="descname">project_axis</code><a class="headerlink" href="#bpy.types.ShrinkwrapConstraint.project_axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Axis constrain to</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;POS_X&#8217;, &#8216;POS_Y&#8217;, &#8216;POS_Z&#8217;, &#8216;NEG_X&#8217;, &#8216;NEG_Y&#8217;, &#8216;NEG_Z&#8217;], default &#8216;POS_X&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ShrinkwrapConstraint.project_axis_space">
+<code class="descname">project_axis_space</code><a class="headerlink" href="#bpy.types.ShrinkwrapConstraint.project_axis_space" title="Permalink to this definition">¶</a></dt>
+<dd><p>Space for the projection axis</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">WORLD</span></code> World Space, The constraint is applied relative to the world coordinate system.</li>
+<li><code class="docutils literal"><span class="pre">POSE</span></code> Pose Space, The constraint is applied in Pose Space, the object transformation is ignored.</li>
+<li><code class="docutils literal"><span class="pre">LOCAL_WITH_PARENT</span></code> Local With Parent, The constraint is applied relative to the local coordinate system of the object, with the parent transformation added.</li>
+<li><code class="docutils literal"><span class="pre">LOCAL</span></code> Local Space, The constraint is applied relative to the local coordinate system of the object.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;WORLD&#8217;, &#8216;POSE&#8217;, &#8216;LOCAL_WITH_PARENT&#8217;, &#8216;LOCAL&#8217;], default &#8216;WORLD&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ShrinkwrapConstraint.project_limit">
+<code class="descname">project_limit</code><a class="headerlink" href="#bpy.types.ShrinkwrapConstraint.project_limit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Limit the distance used for projection (zero disables)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ShrinkwrapConstraint.shrinkwrap_type">
+<code class="descname">shrinkwrap_type</code><a class="headerlink" href="#bpy.types.ShrinkwrapConstraint.shrinkwrap_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select type of shrinkwrap algorithm for target position</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">NEAREST_SURFACE</span></code> Nearest Surface Point, Shrink the location to the nearest target surface.</li>
+<li><code class="docutils literal"><span class="pre">PROJECT</span></code> Project, Shrink the location to the nearest target surface along a given axis.</li>
+<li><code class="docutils literal"><span class="pre">NEAREST_VERTEX</span></code> Nearest Vertex, Shrink the location to the nearest target vertex.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NEAREST_SURFACE&#8217;, &#8216;PROJECT&#8217;, &#8216;NEAREST_VERTEX&#8217;], default &#8216;NEAREST_SURFACE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ShrinkwrapConstraint.target">
+<code class="descname">target</code><a class="headerlink" href="#bpy.types.ShrinkwrapConstraint.target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Target Object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal"><span class="pre">Object</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Constraint.html#bpy.types.Constraint.name" title="bpy.types.Constraint.name"><code class="xref py py-class docutils literal"><span class="pre">Constraint.name</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Constraint.html#bpy.types.Constraint.type" title="bpy.types.Constraint.type"><code class="xref py py-class docutils literal"><span class="pre">Constraint.type</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Constraint.html#bpy.types.Constraint.owner_space" title="bpy.types.Constraint.owner_space"><code class="xref py py-class docutils literal"><span class="pre">Constraint.owner_space</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Constraint.html#bpy.types.Constraint.target_space" title="bpy.types.Constraint.target_space"><code class="xref py py-class docutils literal"><span class="pre">Constraint.target_space</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Constraint.html#bpy.types.Constraint.mute" title="bpy.types.Constraint.mute"><code class="xref py py-class docutils literal"><span class="pre">Constraint.mute</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Constraint.html#bpy.types.Constraint.show_expanded" title="bpy.types.Constraint.show_expanded"><code class="xref py py-class docutils literal"><span class="pre">Constraint.show_expanded</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.Constraint.html#bpy.types.Constraint.is_valid" title="bpy.types.Constraint.is_valid"><code class="xref py py-class docutils literal"><span class="pre">Constraint.is_valid</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Constraint.html#bpy.types.Constraint.active" title="bpy.types.Constraint.active"><code class="xref py py-class docutils literal"><span class="pre">Constraint.active</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Constraint.html#bpy.types.Constraint.is_proxy_local" title="bpy.types.Constraint.is_proxy_local"><code class="xref py py-class docutils literal"><span class="pre">Constraint.is_proxy_local</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Constraint.html#bpy.types.Constraint.influence" title="bpy.types.Constraint.influence"><code class="xref py py-class docutils literal"><span class="pre">Constraint.influence</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Constraint.html#bpy.types.Constraint.error_location" title="bpy.types.Constraint.error_location"><code class="xref py py-class docutils literal"><span class="pre">Constraint.error_location</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Constraint.html#bpy.types.Constraint.error_rotation" title="bpy.types.Constraint.error_rotation"><code class="xref py py-class docutils literal"><span class="pre">Constraint.error_rotation</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.ShapeKeyPoint.html"
+                        title="previous chapter">ShapeKeyPoint(bpy_struct)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.ShrinkwrapModifier.html"
+                        title="next chapter">ShrinkwrapModifier(Modifier)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ShrinkwrapModifier.html" title="ShrinkwrapModifier(Modifier)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ShapeKeyPoint.html" title="ShapeKeyPoint(bpy_struct)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

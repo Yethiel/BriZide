@@ -1,0 +1,475 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Python API Overview &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="next" title="Addon Tutorial" href="info_tutorial_addon.html" />
+    <link rel="prev" title="Quickstart Introduction" href="info_quickstart.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="info_tutorial_addon.html" title="Addon Tutorial"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="info_quickstart.html" title="Quickstart Introduction"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="python-api-overview">
+<span id="info-overview"></span><h1>Python API Overview<a class="headerlink" href="#python-api-overview" title="Permalink to this headline">¶</a></h1>
+<p>This document is to give an understanding of how Python and Blender fit together,
+covering some of the functionality that isn&#8217;t obvious from reading the API reference and example scripts.</p>
+<div class="section" id="python-in-blender">
+<h2>Python in Blender<a class="headerlink" href="#python-in-blender" title="Permalink to this headline">¶</a></h2>
+<p>Blender embeds a Python interpreter which is started with Blender and stays active.
+This interpreter runs scripts to draw the user interface and is used for some of Blender&#8217;s internal tools too.</p>
+<p>This is a typical Python environment so tutorials on how to write Python scripts
+will work running the scripts in Blender too.
+Blender provides the <a class="reference internal" href="bpy.data.html#module-bpy" title="bpy"><code class="xref py py-mod docutils literal"><span class="pre">bpy</span></code></a> module to the Python interpreter.
+This module can be imported in a script and gives access to Blender data, classes, and functions.
+Scripts that deal with Blender data will need to import this module.</p>
+<p>Here is a simple example of moving a vertex of the object named <strong>Cube</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Cube&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">co</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+<p>This modifies Blender&#8217;s internal data directly.
+When you run this in the interactive console you will see the 3D viewport update.</p>
+</div>
+<div class="section" id="the-default-environment">
+<h2>The Default Environment<a class="headerlink" href="#the-default-environment" title="Permalink to this headline">¶</a></h2>
+<p>When developing your own scripts it may help to understand how Blender sets up its Python environment.
+Many Python scripts come bundled with Blender and can be used as a reference
+because they use the same API that script authors write tools in.
+Typical usage for scripts include: user interface, import/export,
+scene manipulation, automation, defining your own toolset and customization.</p>
+<p>On startup Blender scans the <code class="docutils literal"><span class="pre">scripts/startup/</span></code> directory for Python modules and imports them.
+The exact location of this directory depends on your installation.
+<a class="reference external" href="https://www.blender.org/manual/getting_started/installing_blender/directorylayout.html">See the directory layout docs</a></p>
+</div>
+<div class="section" id="script-loading">
+<h2>Script Loading<a class="headerlink" href="#script-loading" title="Permalink to this headline">¶</a></h2>
+<p>This may seem obvious but it&#8217;s important to note the difference
+between executing a script directly or importing it as a module.</p>
+<p>Scripts that extend Blender - define classes that exist beyond the scripts execution,
+this makes future access to these classes (to unregister for example)
+more difficult than importing as a module where class instance is kept
+in the module and can be accessed by importing that module later on.</p>
+<p>For this reason it&#8217;s preferable to only use directly execute scripts that don&#8217;t extend Blender by registering classes.</p>
+<p>Here are some ways to run scripts directly in Blender.</p>
+<ul>
+<li><p class="first">Loaded in the text editor and press <strong>Run Script</strong>.</p>
+</li>
+<li><p class="first">Typed or pasted into the interactive console.</p>
+</li>
+<li><p class="first">Execute a Python file from the command line with Blender, eg:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>blender --python /home/me/my_script.py
+</pre></div>
+</div>
+</li>
+</ul>
+<p>To run as modules:</p>
+<ul class="simple">
+<li>The obvious way, <code class="docutils literal"><span class="pre">import</span> <span class="pre">some_module</span></code> command from the text window or interactive console.</li>
+<li>Open as a text block and tick &#8220;Register&#8221; option, this will load with the blend file.</li>
+<li>copy into one of the directories <code class="docutils literal"><span class="pre">scripts/startup</span></code>, where they will be automatically imported on startup.</li>
+<li>define as an addon, enabling the addon will load it as a Python module.</li>
+</ul>
+<div class="section" id="addons">
+<h3>Addons<a class="headerlink" href="#addons" title="Permalink to this headline">¶</a></h3>
+<p>Some of Blenders functionality is best kept optional,
+alongside scripts loaded at startup we have addons which are kept in their own directory <code class="docutils literal"><span class="pre">scripts/addons</span></code>,
+and only load on startup if selected from the user preferences.</p>
+<p>The only difference between addons and built-in Python modules is that addons must contain a <code class="docutils literal"><span class="pre">bl_info</span></code>
+variable which Blender uses to read metadata such as name, author, category and URL.</p>
+<p>The user preferences addon listing uses <strong>bl_info</strong> to display information about each addon.</p>
+<p><a class="reference external" href="http://wiki.blender.org/index.php/Dev:2.5/Py/Scripts/Guidelines/Addons">See Addons</a>
+for details on the <code class="docutils literal"><span class="pre">bl_info</span></code> dictionary.</p>
+</div>
+</div>
+<div class="section" id="integration-through-classes">
+<h2>Integration through Classes<a class="headerlink" href="#integration-through-classes" title="Permalink to this headline">¶</a></h2>
+<p>Running Python scripts in the text editor is useful for testing but you&#8217;ll
+want to extend Blender to make tools accessible like other built-in functionality.</p>
+<p>The Blender Python api allows integration for:</p>
+<ul class="simple">
+<li><a class="reference internal" href="bpy.types.Panel.html#bpy.types.Panel" title="bpy.types.Panel"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Panel</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Menu.html#bpy.types.Menu" title="bpy.types.Menu"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Menu</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Operator.html#bpy.types.Operator" title="bpy.types.Operator"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.Operator</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.PropertyGroup.html#bpy.types.PropertyGroup" title="bpy.types.PropertyGroup"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.PropertyGroup</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.KeyingSet.html#bpy.types.KeyingSet" title="bpy.types.KeyingSet"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.KeyingSet</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.RenderEngine.html#bpy.types.RenderEngine" title="bpy.types.RenderEngine"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.RenderEngine</span></code></a></li>
+</ul>
+<p>This is intentionally limited. Currently, for more advanced features such as mesh modifiers,
+object types, or shader nodes, C/C++ must be used.</p>
+<p>For Python integration Blender defines methods which are common to all types.
+This works by creating a Python subclass of a Blender class which contains variables and functions
+specified by the parent class which are pre-defined to interface with Blender.</p>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<span class="k">class</span> <span class="nc">SimpleOperator</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
+    <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;object.simple_operator&quot;</span>
+    <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Tool Name&quot;</span>
+
+    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
+
+<span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">SimpleOperator</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>First note that we subclass a member of <a class="reference internal" href="bpy.types.bpy_struct.html#module-bpy.types" title="bpy.types"><code class="xref py py-mod docutils literal"><span class="pre">bpy.types</span></code></a>,
+this is common for all classes which can be integrated with Blender and
+used so we know if this is an Operator and not a Panel when registering.</p>
+<p>Both class properties start with a <code class="docutils literal"><span class="pre">bl_</span></code> prefix.
+This is a convention used to distinguish Blender properties from those you add yourself.</p>
+<p>Next see the execute function, which takes an instance of the operator and the current context.
+A common prefix is not used for functions.</p>
+<p>Lastly the register function is called, this takes the class and loads it into Blender. See <a class="reference internal" href="#class-registration">Class Registration</a>.</p>
+<p>Regarding inheritance, Blender doesn&#8217;t impose restrictions on the kinds of class inheritance used,
+the registration checks will use attributes and functions defined in parent classes.</p>
+<p>class mix-in example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<span class="k">class</span> <span class="nc">BaseOperator</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello World BaseClass&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">SimpleOperator</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">,</span> <span class="n">BaseOperator</span><span class="p">):</span>
+    <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;object.simple_operator&quot;</span>
+    <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Tool Name&quot;</span>
+
+<span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">SimpleOperator</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Notice these classes don&#8217;t define an <code class="docutils literal"><span class="pre">__init__(self)</span></code> function.
+While <code class="docutils literal"><span class="pre">__init__()</span></code> and <code class="docutils literal"><span class="pre">__del__()</span></code> will be called if defined,
+the class instances lifetime only spans the execution.
+So a panel for example will have a new instance for every redraw,
+for this reason there is rarely a cause to store variables in the panel instance.
+Instead, persistent variables should be stored in Blenders
+ata so that the state can be restored when Blender is restarted.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Modal operators are an exception, keeping their instance variable as Blender runs, see modal operator template.</p>
+</div>
+<p>So once the class is registered with Blender, instancing the class and calling the functions is left up to Blender.
+In fact you cannot instance these classes from the script as you would expect with most Python API&#8217;s.</p>
+<p>To run operators you can call them through the operator api, eg:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">simple_operator</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>User interface classes are given a context in which to draw, buttons window, file header, toolbar etc,
+then they are drawn when that area is displayed so they are never called by Python scripts directly.</p>
+</div>
+<div class="section" id="registration">
+<h2>Registration<a class="headerlink" href="#registration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-registration">
+<h3>Module Registration<a class="headerlink" href="#module-registration" title="Permalink to this headline">¶</a></h3>
+<p>Blender modules loaded at startup require <code class="docutils literal"><span class="pre">register()</span></code> and <code class="docutils literal"><span class="pre">unregister()</span></code> functions.
+These are the <em>only</em> functions that Blender calls from your code, which is otherwise a regular Python module.</p>
+<p>A simple Blender/Python module can look like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+
+<span class="k">class</span> <span class="nc">SimpleOperator</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; See example above &quot;&quot;&quot;</span>
+
+<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">SimpleOperator</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">SimpleOperator</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">register</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>These functions usually appear at the bottom of the script containing class registration sometimes adding menu items.
+You can also use them for internal purposes setting up data for your own tools but take care
+since register won&#8217;t re-run when a new blend file is loaded.</p>
+<p>The register/unregister calls are used so it&#8217;s possible to toggle addons and reload scripts while Blender runs.
+If the register calls were placed in the body of the script, registration would be called on import,
+meaning there would be no distinction between importing a module or loading its classes into Blender.</p>
+<p>This becomes problematic when a script imports classes from another module
+making it difficult to manage which classes are being loaded and when.</p>
+<p>The last 2 lines are only for testing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">register</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This allows the script to be run directly in the text editor to test changes.
+This <code class="docutils literal"><span class="pre">register()</span></code> call won&#8217;t run when the script is imported as a module
+since <code class="docutils literal"><span class="pre">__main__</span></code> is reserved for direct execution.</p>
+</div>
+<div class="section" id="class-registration">
+<h3>Class Registration<a class="headerlink" href="#class-registration" title="Permalink to this headline">¶</a></h3>
+<p>Registering a class with Blender results in the class definition being loaded into Blender,
+where it becomes available alongside existing functionality.</p>
+<p>Once this class is loaded you can access it from <a class="reference internal" href="bpy.types.bpy_struct.html#module-bpy.types" title="bpy.types"><code class="xref py py-mod docutils literal"><span class="pre">bpy.types</span></code></a>,
+using the bl_idname rather than the classes original name.</p>
+<p>When loading a class, Blender performs sanity checks making sure all required properties and functions are found,
+that properties have the correct type, and that functions have the right number of arguments.</p>
+<p>Mostly you will not need concern yourself with this but if there is a problem
+with the class definition it will be raised on registering:</p>
+<p>Using the function arguments <code class="docutils literal"><span class="pre">def</span> <span class="pre">execute(self,</span> <span class="pre">context,</span> <span class="pre">spam)</span></code>, will raise an exception:</p>
+<p><code class="docutils literal"><span class="pre">ValueError:</span> <span class="pre">expected</span> <span class="pre">Operator,</span> <span class="pre">SimpleOperator</span> <span class="pre">class</span> <span class="pre">&quot;execute&quot;</span> <span class="pre">function</span> <span class="pre">to</span> <span class="pre">have</span> <span class="pre">2</span> <span class="pre">args,</span> <span class="pre">found</span> <span class="pre">3</span></code></p>
+<p>Using <code class="docutils literal"><span class="pre">bl_idname</span> <span class="pre">=</span> <span class="pre">1</span></code> will raise.</p>
+<p><code class="docutils literal"><span class="pre">TypeError:</span> <span class="pre">validating</span> <span class="pre">class</span> <span class="pre">error:</span> <span class="pre">Operator.bl_idname</span> <span class="pre">expected</span> <span class="pre">a</span> <span class="pre">string</span> <span class="pre">type,</span> <span class="pre">not</span> <span class="pre">int</span></code></p>
+<div class="section" id="multiple-classes">
+<h4>Multiple-Classes<a class="headerlink" href="#multiple-classes" title="Permalink to this headline">¶</a></h4>
+<p>Loading classes into Blender is described above,
+for simple cases calling <a class="reference internal" href="bpy.utils.html#bpy.utils.register_class" title="bpy.utils.register_class"><code class="xref py py-mod docutils literal"><span class="pre">bpy.utils.register_class</span></code></a> (SomeClass) is sufficient,
+but when there are many classes or a packages submodule has its own
+classes it can be tedious to list them all for registration.</p>
+<p>For more convenient loading/unloading <a class="reference internal" href="bpy.utils.html#bpy.utils.register_module" title="bpy.utils.register_module"><code class="xref py py-mod docutils literal"><span class="pre">bpy.utils.register_module</span></code></a> (module)
+and <a class="reference internal" href="bpy.utils.html#bpy.utils.unregister_module" title="bpy.utils.unregister_module"><code class="xref py py-mod docutils literal"><span class="pre">bpy.utils.unregister_module</span></code></a> (module) functions exist.</p>
+<p>A script which defines many of its own operators, panels menus etc. you only need to write:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_module</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_module</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Internally Blender collects subclasses on registrable types, storing them by the module in which they are defined.
+By passing the module name to <a class="reference internal" href="bpy.utils.html#bpy.utils.register_module" title="bpy.utils.register_module"><code class="xref py py-mod docutils literal"><span class="pre">bpy.utils.register_module</span></code></a>
+Blender can register all classes created by this module and its submodules.</p>
+</div>
+<div class="section" id="inter-classes-dependencies">
+<h4>Inter Classes Dependencies<a class="headerlink" href="#inter-classes-dependencies" title="Permalink to this headline">¶</a></h4>
+<p>When customizing Blender you may want to group your own settings together,
+after all, they will likely have to co-exist with other scripts.
+To group these properties classes need to be defined,
+for groups within groups or collections within groups
+you can find yourself having to deal with order of registration/unregistration.</p>
+<p>Custom properties groups are themselves classes which need to be registered.</p>
+<p>Say you want to store material settings for a custom engine.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Create new property</span>
+<span class="c1"># bpy.data.materials[0].my_custom_props.my_float</span>
+<span class="kn">import</span> <span class="nn">bpy</span>
+
+<span class="k">class</span> <span class="nc">MyMaterialProps</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
+    <span class="n">my_float</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">FloatProperty</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">MyMaterialProps</span><span class="p">)</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">my_custom_props</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">PointerProperty</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">MyMaterialProps</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+    <span class="k">del</span> <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">my_custom_props</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">MyMaterialProps</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">register</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><em>The class must be registered before being used in a property, failing to do so will raise an error:</em></p>
+<p class="last"><code class="docutils literal"><span class="pre">ValueError:</span> <span class="pre">bpy_struct</span> <span class="pre">&quot;Material&quot;</span> <span class="pre">registration</span> <span class="pre">error:</span> <span class="pre">my_custom_props</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">register</span></code></p>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Create new property group with a sub property</span>
+<span class="c1"># bpy.data.materials[0].my_custom_props.sub_group.my_float</span>
+<span class="kn">import</span> <span class="nn">bpy</span>
+
+<span class="k">class</span> <span class="nc">MyMaterialSubProps</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
+    <span class="n">my_float</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">FloatProperty</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">MyMaterialGroupProps</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
+    <span class="n">sub_group</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">PointerProperty</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">MyMaterialSubProps</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">MyMaterialSubProps</span><span class="p">)</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">MyMaterialGroupProps</span><span class="p">)</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">my_custom_props</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">PointerProperty</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">MyMaterialGroupProps</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+    <span class="k">del</span> <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">my_custom_props</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">MyMaterialGroupProps</span><span class="p">)</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">MyMaterialSubProps</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">register</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><em>The lower most class needs to be registered first and that unregister() is a mirror of register()</em></p>
+</div>
+</div>
+<div class="section" id="manipulating-classes">
+<h4>Manipulating Classes<a class="headerlink" href="#manipulating-classes" title="Permalink to this headline">¶</a></h4>
+<p>Properties can be added and removed as Blender runs,
+normally happens on register or unregister but for some
+special cases it may be useful to modify types as the script runs.</p>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># add a new property to an existing type</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Object</span><span class="o">.</span><span class="n">my_float</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">FloatProperty</span><span class="p">()</span>
+<span class="c1"># remove</span>
+<span class="k">del</span> <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Object</span><span class="o">.</span><span class="n">my_float</span>
+</pre></div>
+</div>
+<p>This works just as well for PropertyGroup subclasses you define yourself.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyPropGroup</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
+    <span class="k">pass</span>
+<span class="n">MyPropGroup</span><span class="o">.</span><span class="n">my_float</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">FloatProperty</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>...this is equivalent to:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyPropGroup</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
+    <span class="n">my_float</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">FloatProperty</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dynamic-defined-classes-advanced">
+<h4>Dynamic Defined-Classes (Advanced)<a class="headerlink" href="#dynamic-defined-classes-advanced" title="Permalink to this headline">¶</a></h4>
+<p>In some cases the specifier for data may not be in Blender,
+renderman shader definitions for example and it may be useful to define types and remove them on the fly.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">idname</span> <span class="o">=</span> <span class="s2">&quot;object.operator_</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">i</span>
+
+    <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
+
+    <span class="n">opclass</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s2">&quot;DynOp</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">,</span>
+                   <span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">,</span> <span class="p">),</span>
+                   <span class="p">{</span><span class="s2">&quot;bl_idname&quot;</span><span class="p">:</span> <span class="n">idname</span><span class="p">,</span> <span class="s2">&quot;bl_label&quot;</span><span class="p">:</span> <span class="s2">&quot;Test&quot;</span><span class="p">,</span> <span class="s2">&quot;execute&quot;</span><span class="p">:</span> <span class="n">func</span><span class="p">},</span>
+                   <span class="p">)</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">opclass</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><code class="docutils literal"><span class="pre">type()</span></code> is called to define the class.
+This is an alternative syntax for class creation in Python, better suited to constructing classes dynamically.</p>
+</div>
+<p>Calling these operators:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">operator_1</span><span class="p">()</span>
+<span class="go">Hello World OBJECT_OT_operator_1</span>
+<span class="go">{&#39;FINISHED&#39;}</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">operator_2</span><span class="p">()</span>
+<span class="go">Hello World OBJECT_OT_operator_2</span>
+<span class="go">{&#39;FINISHED&#39;}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Python API Overview</a><ul>
+<li><a class="reference internal" href="#python-in-blender">Python in Blender</a></li>
+<li><a class="reference internal" href="#the-default-environment">The Default Environment</a></li>
+<li><a class="reference internal" href="#script-loading">Script Loading</a><ul>
+<li><a class="reference internal" href="#addons">Addons</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#integration-through-classes">Integration through Classes</a></li>
+<li><a class="reference internal" href="#registration">Registration</a><ul>
+<li><a class="reference internal" href="#module-registration">Module Registration</a></li>
+<li><a class="reference internal" href="#class-registration">Class Registration</a><ul>
+<li><a class="reference internal" href="#multiple-classes">Multiple-Classes</a></li>
+<li><a class="reference internal" href="#inter-classes-dependencies">Inter Classes Dependencies</a></li>
+<li><a class="reference internal" href="#manipulating-classes">Manipulating Classes</a></li>
+<li><a class="reference internal" href="#dynamic-defined-classes-advanced">Dynamic Defined-Classes (Advanced)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="info_quickstart.html"
+                        title="previous chapter">Quickstart Introduction</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="info_tutorial_addon.html"
+                        title="next chapter">Addon Tutorial</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="info_tutorial_addon.html" title="Addon Tutorial"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="info_quickstart.html" title="Quickstart Introduction"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

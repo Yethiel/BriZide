@@ -1,0 +1,569 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Text Operators &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Operators (bpy.ops)" href="bpy.ops.html" />
+    <link rel="next" title="Texture Operators" href="bpy.ops.texture.html" />
+    <link rel="prev" title="Surface Operators" href="bpy.ops.surface.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.texture.html" title="Texture Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.surface.html" title="Surface Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.ops.text">
+<span id="text-operators"></span><h1>Text Operators<a class="headerlink" href="#module-bpy.ops.text" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bpy.ops.text.autocomplete">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">autocomplete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.autocomplete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show a list of used text in the open document</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.comment">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">comment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.comment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert selected text to comment</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.convert_whitespace">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">convert_whitespace</code><span class="sig-paren">(</span><em>type='SPACES'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.convert_whitespace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert whitespaces by type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> (<em>enum in ['SPACES', 'TABS'], (optional)</em>) &#8211; Type, Type of whitespace to convert to</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.copy">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy selected text to clipboard</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.cursor_set">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">cursor_set</code><span class="sig-paren">(</span><em>x=0</em>, <em>y=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.cursor_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set cursor position</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; X</li>
+<li><strong>y</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Y</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.cut">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">cut</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.cut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cut selected text to clipboard</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.delete">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">delete</code><span class="sig-paren">(</span><em>type='NEXT_CHARACTER'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete text by cursor position</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> (<em>enum in ['NEXT_CHARACTER', 'PREVIOUS_CHARACTER', 'NEXT_WORD', 'PREVIOUS_WORD'], (optional)</em>) &#8211; Type, Which part of the text to delete</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.duplicate_line">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">duplicate_line</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.duplicate_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Duplicate the current line</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.find">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">find</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find specified text</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.find_set_selected">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">find_set_selected</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.find_set_selected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find specified text and set as selected</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.indent">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">indent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.indent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indent selected text</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.insert">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">insert</code><span class="sig-paren">(</span><em>text=&quot;&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert text at cursor position</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>text</strong> (<em>string, (optional, never None)</em>) &#8211; Text, Text to insert at the cursor position</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.jump">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">jump</code><span class="sig-paren">(</span><em>line=1</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.jump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Jump cursor to line</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>line</strong> (<em>int in [1, inf], (optional)</em>) &#8211; Line, Line number to jump to</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.line_break">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">line_break</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.line_break" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert line break at cursor position</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.line_number">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">line_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.line_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>The current line number</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.make_internal">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">make_internal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.make_internal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make active text file internal</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.move">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">move</code><span class="sig-paren">(</span><em>type='LINE_BEGIN'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move cursor to position type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> (<em>enum in ['LINE_BEGIN', 'LINE_END', 'FILE_TOP', 'FILE_BOTTOM', 'PREVIOUS_CHARACTER', 'NEXT_CHARACTER', 'PREVIOUS_WORD', 'NEXT_WORD', 'PREVIOUS_LINE', 'NEXT_LINE', 'PREVIOUS_PAGE', 'NEXT_PAGE'], (optional)</em>) &#8211; Type, Where to move cursor to</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.move_lines">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">move_lines</code><span class="sig-paren">(</span><em>direction='DOWN'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.move_lines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the currently selected line(s) up/down</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>direction</strong> (<em>enum in ['UP', 'DOWN'], (optional)</em>) &#8211; Direction</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.move_select">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">move_select</code><span class="sig-paren">(</span><em>type='LINE_BEGIN'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.move_select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the cursor while selecting</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> (<em>enum in ['LINE_BEGIN', 'LINE_END', 'FILE_TOP', 'FILE_BOTTOM', 'PREVIOUS_CHARACTER', 'NEXT_CHARACTER', 'PREVIOUS_WORD', 'NEXT_WORD', 'PREVIOUS_LINE', 'NEXT_LINE', 'PREVIOUS_PAGE', 'NEXT_PAGE'], (optional)</em>) &#8211; Type, Where to move cursor to, to make a selection</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.new">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.new" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new text data block</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.open">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">open</code><span class="sig-paren">(</span><em>filepath=&quot;&quot;</em>, <em>filter_blender=False</em>, <em>filter_backup=False</em>, <em>filter_image=False</em>, <em>filter_movie=False</em>, <em>filter_python=True</em>, <em>filter_font=False</em>, <em>filter_sound=False</em>, <em>filter_text=True</em>, <em>filter_btx=False</em>, <em>filter_collada=False</em>, <em>filter_alembic=False</em>, <em>filter_folder=True</em>, <em>filter_blenlib=False</em>, <em>filemode=9</em>, <em>display_type='DEFAULT'</em>, <em>sort_method='FILE_SORT_ALPHA'</em>, <em>internal=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a new text data block</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filepath</strong> (<em>string, (optional, never None)</em>) &#8211; File Path, Path to file</li>
+<li><strong>filter_blender</strong> (<em>boolean, (optional)</em>) &#8211; Filter .blend files</li>
+<li><strong>filter_backup</strong> (<em>boolean, (optional)</em>) &#8211; Filter .blend files</li>
+<li><strong>filter_image</strong> (<em>boolean, (optional)</em>) &#8211; Filter image files</li>
+<li><strong>filter_movie</strong> (<em>boolean, (optional)</em>) &#8211; Filter movie files</li>
+<li><strong>filter_python</strong> (<em>boolean, (optional)</em>) &#8211; Filter python files</li>
+<li><strong>filter_font</strong> (<em>boolean, (optional)</em>) &#8211; Filter font files</li>
+<li><strong>filter_sound</strong> (<em>boolean, (optional)</em>) &#8211; Filter sound files</li>
+<li><strong>filter_text</strong> (<em>boolean, (optional)</em>) &#8211; Filter text files</li>
+<li><strong>filter_btx</strong> (<em>boolean, (optional)</em>) &#8211; Filter btx files</li>
+<li><strong>filter_collada</strong> (<em>boolean, (optional)</em>) &#8211; Filter COLLADA files</li>
+<li><strong>filter_alembic</strong> (<em>boolean, (optional)</em>) &#8211; Filter Alembic files</li>
+<li><strong>filter_folder</strong> (<em>boolean, (optional)</em>) &#8211; Filter folders</li>
+<li><strong>filter_blenlib</strong> (<em>boolean, (optional)</em>) &#8211; Filter Blender IDs</li>
+<li><strong>filemode</strong> (<em>int in [1, 9], (optional)</em>) &#8211; File Browser Mode, The setting for the file browser mode to load a .blend file, a library or a special file</li>
+<li><strong>display_type</strong> (<em>enum in ['DEFAULT', 'LIST_SHORT', 'LIST_LONG', 'THUMBNAIL'], (optional)</em>) &#8211; <p>Display Type</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">DEFAULT</span></code> Default, Automatically determine display type for files.</li>
+<li><code class="docutils literal"><span class="pre">LIST_SHORT</span></code> Short List, Display files as short list.</li>
+<li><code class="docutils literal"><span class="pre">LIST_LONG</span></code> Long List, Display files as a detailed list.</li>
+<li><code class="docutils literal"><span class="pre">THUMBNAIL</span></code> Thumbnails, Display files as thumbnails.</li>
+</ul>
+</li>
+<li><strong>sort_method</strong> (<em>enum in ['FILE_SORT_ALPHA', 'FILE_SORT_EXTENSION', 'FILE_SORT_TIME', 'FILE_SORT_SIZE'], (optional)</em>) &#8211; <p>File sorting mode</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_ALPHA</span></code> Sort alphabetically, Sort the file list alphabetically.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_EXTENSION</span></code> Sort by extension, Sort the file list by extension/type.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_TIME</span></code> Sort by time, Sort files by modification time.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_SIZE</span></code> Sort by size, Sort files by size.</li>
+</ul>
+</li>
+<li><strong>internal</strong> (<em>boolean, (optional)</em>) &#8211; Make internal, Make text file internal after loading</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.overwrite_toggle">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">overwrite_toggle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.overwrite_toggle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle overwrite while typing</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.paste">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">paste</code><span class="sig-paren">(</span><em>selection=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.paste" title="Permalink to this definition">¶</a></dt>
+<dd><p>Paste text from clipboard</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selection</strong> (<em>boolean, (optional)</em>) &#8211; Selection, Paste text selected elsewhere rather than copied (X11 only)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.properties">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">properties</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle the properties region visibility</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.refresh_pyconstraints">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">refresh_pyconstraints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.refresh_pyconstraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Refresh all pyconstraints</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.reload">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">reload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.reload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reload active text data block from its file</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.replace">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">replace</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace text with the specified text</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.replace_set_selected">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">replace_set_selected</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.replace_set_selected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace text with specified text and set as selected</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.resolve_conflict">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">resolve_conflict</code><span class="sig-paren">(</span><em>resolution='IGNORE'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.resolve_conflict" title="Permalink to this definition">¶</a></dt>
+<dd><p>When external text is out of sync, resolve the conflict</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resolution</strong> (<em>enum in ['IGNORE', 'RELOAD', 'SAVE', 'MAKE_INTERNAL'], (optional)</em>) &#8211; Resolution, How to solve conflict due to differences in internal and external text</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.run_script">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">run_script</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.run_script" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run active script</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.save">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save active text data block</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.save_as">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">save_as</code><span class="sig-paren">(</span><em>filepath=&quot;&quot;</em>, <em>check_existing=True</em>, <em>filter_blender=False</em>, <em>filter_backup=False</em>, <em>filter_image=False</em>, <em>filter_movie=False</em>, <em>filter_python=True</em>, <em>filter_font=False</em>, <em>filter_sound=False</em>, <em>filter_text=True</em>, <em>filter_btx=False</em>, <em>filter_collada=False</em>, <em>filter_alembic=False</em>, <em>filter_folder=True</em>, <em>filter_blenlib=False</em>, <em>filemode=9</em>, <em>display_type='DEFAULT'</em>, <em>sort_method='FILE_SORT_ALPHA'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.save_as" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save active text file with options</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filepath</strong> (<em>string, (optional, never None)</em>) &#8211; File Path, Path to file</li>
+<li><strong>check_existing</strong> (<em>boolean, (optional)</em>) &#8211; Check Existing, Check and warn on overwriting existing files</li>
+<li><strong>filter_blender</strong> (<em>boolean, (optional)</em>) &#8211; Filter .blend files</li>
+<li><strong>filter_backup</strong> (<em>boolean, (optional)</em>) &#8211; Filter .blend files</li>
+<li><strong>filter_image</strong> (<em>boolean, (optional)</em>) &#8211; Filter image files</li>
+<li><strong>filter_movie</strong> (<em>boolean, (optional)</em>) &#8211; Filter movie files</li>
+<li><strong>filter_python</strong> (<em>boolean, (optional)</em>) &#8211; Filter python files</li>
+<li><strong>filter_font</strong> (<em>boolean, (optional)</em>) &#8211; Filter font files</li>
+<li><strong>filter_sound</strong> (<em>boolean, (optional)</em>) &#8211; Filter sound files</li>
+<li><strong>filter_text</strong> (<em>boolean, (optional)</em>) &#8211; Filter text files</li>
+<li><strong>filter_btx</strong> (<em>boolean, (optional)</em>) &#8211; Filter btx files</li>
+<li><strong>filter_collada</strong> (<em>boolean, (optional)</em>) &#8211; Filter COLLADA files</li>
+<li><strong>filter_alembic</strong> (<em>boolean, (optional)</em>) &#8211; Filter Alembic files</li>
+<li><strong>filter_folder</strong> (<em>boolean, (optional)</em>) &#8211; Filter folders</li>
+<li><strong>filter_blenlib</strong> (<em>boolean, (optional)</em>) &#8211; Filter Blender IDs</li>
+<li><strong>filemode</strong> (<em>int in [1, 9], (optional)</em>) &#8211; File Browser Mode, The setting for the file browser mode to load a .blend file, a library or a special file</li>
+<li><strong>display_type</strong> (<em>enum in ['DEFAULT', 'LIST_SHORT', 'LIST_LONG', 'THUMBNAIL'], (optional)</em>) &#8211; <p>Display Type</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">DEFAULT</span></code> Default, Automatically determine display type for files.</li>
+<li><code class="docutils literal"><span class="pre">LIST_SHORT</span></code> Short List, Display files as short list.</li>
+<li><code class="docutils literal"><span class="pre">LIST_LONG</span></code> Long List, Display files as a detailed list.</li>
+<li><code class="docutils literal"><span class="pre">THUMBNAIL</span></code> Thumbnails, Display files as thumbnails.</li>
+</ul>
+</li>
+<li><strong>sort_method</strong> (<em>enum in ['FILE_SORT_ALPHA', 'FILE_SORT_EXTENSION', 'FILE_SORT_TIME', 'FILE_SORT_SIZE'], (optional)</em>) &#8211; <p>File sorting mode</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_ALPHA</span></code> Sort alphabetically, Sort the file list alphabetically.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_EXTENSION</span></code> Sort by extension, Sort the file list by extension/type.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_TIME</span></code> Sort by time, Sort files by modification time.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_SIZE</span></code> Sort by size, Sort files by size.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.scroll">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">scroll</code><span class="sig-paren">(</span><em>lines=1</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.scroll" title="Permalink to this definition">¶</a></dt>
+<dd><p>Undocumented</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lines</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Lines, Number of lines to scroll</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.scroll_bar">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">scroll_bar</code><span class="sig-paren">(</span><em>lines=1</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.scroll_bar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Undocumented</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lines</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Lines, Number of lines to scroll</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.select_all">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">select_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.select_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select all text</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.select_line">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">select_line</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.select_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select text by line</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.select_word">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">select_word</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.select_word" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select word under cursor</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.selection_set">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">selection_set</code><span class="sig-paren">(</span><em>select=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.selection_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set cursor selection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>select</strong> (<em>boolean, (optional)</em>) &#8211; Select, Set selection end rather than cursor</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.start_find">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">start_find</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.start_find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start searching text</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.to_3d_object">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">to_3d_object</code><span class="sig-paren">(</span><em>split_lines=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.to_3d_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create 3D text object from active text data block</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>split_lines</strong> (<em>boolean, (optional)</em>) &#8211; Split Lines, Create one object per line in the text</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.uncomment">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">uncomment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.uncomment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert selected comment to text</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.unindent">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">unindent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.unindent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unindent selected text</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.text.unlink">
+<code class="descclassname">bpy.ops.text.</code><code class="descname">unlink</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.text.unlink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unlink active text data block</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.ops.surface.html"
+                        title="previous chapter">Surface Operators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.ops.texture.html"
+                        title="next chapter">Texture Operators</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.texture.html" title="Texture Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.surface.html" title="Surface Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

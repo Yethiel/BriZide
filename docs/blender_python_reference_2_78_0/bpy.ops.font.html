@@ -1,0 +1,402 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Font Operators &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Operators (bpy.ops)" href="bpy.ops.html" />
+    <link rel="next" title="Gpencil Operators" href="bpy.ops.gpencil.html" />
+    <link rel="prev" title="Fluid Operators" href="bpy.ops.fluid.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.gpencil.html" title="Gpencil Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.fluid.html" title="Fluid Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.ops.font">
+<span id="font-operators"></span><h1>Font Operators<a class="headerlink" href="#module-bpy.ops.font" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bpy.ops.font.case_set">
+<code class="descclassname">bpy.ops.font.</code><code class="descname">case_set</code><span class="sig-paren">(</span><em>case='LOWER'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.font.case_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set font case</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>case</strong> (<em>enum in ['LOWER', 'UPPER'], (optional)</em>) &#8211; Case, Lower or upper case</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.font.case_toggle">
+<code class="descclassname">bpy.ops.font.</code><code class="descname">case_toggle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.font.case_toggle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle font case</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.font.change_character">
+<code class="descclassname">bpy.ops.font.</code><code class="descname">change_character</code><span class="sig-paren">(</span><em>delta=1</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.font.change_character" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change font character code</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>delta</strong> (<em>int in [-255, 255], (optional)</em>) &#8211; Delta, Number to increase or decrease character code with</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.font.change_spacing">
+<code class="descclassname">bpy.ops.font.</code><code class="descname">change_spacing</code><span class="sig-paren">(</span><em>delta=1</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.font.change_spacing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change font spacing</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>delta</strong> (<em>int in [-20, 20], (optional)</em>) &#8211; Delta, Amount to decrease or increase character spacing with</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.font.delete">
+<code class="descclassname">bpy.ops.font.</code><code class="descname">delete</code><span class="sig-paren">(</span><em>type='ALL'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.font.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete text by cursor position</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> (<em>enum in ['ALL', 'NEXT_CHARACTER', 'PREVIOUS_CHARACTER', 'SELECTION', 'NEXT_OR_SELECTION', 'PREVIOUS_OR_SELECTION'], (optional)</em>) &#8211; Type, Which part of the text to delete</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.font.line_break">
+<code class="descclassname">bpy.ops.font.</code><code class="descname">line_break</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.font.line_break" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert line break at cursor position</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.font.move">
+<code class="descclassname">bpy.ops.font.</code><code class="descname">move</code><span class="sig-paren">(</span><em>type='LINE_BEGIN'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.font.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move cursor to position type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> (<em>enum in ['LINE_BEGIN', 'LINE_END', 'PREVIOUS_CHARACTER', 'NEXT_CHARACTER', 'PREVIOUS_WORD', 'NEXT_WORD', 'PREVIOUS_LINE', 'NEXT_LINE', 'PREVIOUS_PAGE', 'NEXT_PAGE'], (optional)</em>) &#8211; Type, Where to move cursor to</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.font.move_select">
+<code class="descclassname">bpy.ops.font.</code><code class="descname">move_select</code><span class="sig-paren">(</span><em>type='LINE_BEGIN'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.font.move_select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the cursor while selecting</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> (<em>enum in ['LINE_BEGIN', 'LINE_END', 'PREVIOUS_CHARACTER', 'NEXT_CHARACTER', 'PREVIOUS_WORD', 'NEXT_WORD', 'PREVIOUS_LINE', 'NEXT_LINE', 'PREVIOUS_PAGE', 'NEXT_PAGE'], (optional)</em>) &#8211; Type, Where to move cursor to, to make a selection</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.font.open">
+<code class="descclassname">bpy.ops.font.</code><code class="descname">open</code><span class="sig-paren">(</span><em>filepath=&quot;&quot;</em>, <em>filter_blender=False</em>, <em>filter_backup=False</em>, <em>filter_image=False</em>, <em>filter_movie=False</em>, <em>filter_python=False</em>, <em>filter_font=True</em>, <em>filter_sound=False</em>, <em>filter_text=False</em>, <em>filter_btx=False</em>, <em>filter_collada=False</em>, <em>filter_alembic=False</em>, <em>filter_folder=True</em>, <em>filter_blenlib=False</em>, <em>filemode=9</em>, <em>relative_path=True</em>, <em>display_type='DEFAULT'</em>, <em>sort_method='FILE_SORT_ALPHA'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.font.open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a new font from a file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filepath</strong> (<em>string, (optional, never None)</em>) &#8211; File Path, Path to file</li>
+<li><strong>filter_blender</strong> (<em>boolean, (optional)</em>) &#8211; Filter .blend files</li>
+<li><strong>filter_backup</strong> (<em>boolean, (optional)</em>) &#8211; Filter .blend files</li>
+<li><strong>filter_image</strong> (<em>boolean, (optional)</em>) &#8211; Filter image files</li>
+<li><strong>filter_movie</strong> (<em>boolean, (optional)</em>) &#8211; Filter movie files</li>
+<li><strong>filter_python</strong> (<em>boolean, (optional)</em>) &#8211; Filter python files</li>
+<li><strong>filter_font</strong> (<em>boolean, (optional)</em>) &#8211; Filter font files</li>
+<li><strong>filter_sound</strong> (<em>boolean, (optional)</em>) &#8211; Filter sound files</li>
+<li><strong>filter_text</strong> (<em>boolean, (optional)</em>) &#8211; Filter text files</li>
+<li><strong>filter_btx</strong> (<em>boolean, (optional)</em>) &#8211; Filter btx files</li>
+<li><strong>filter_collada</strong> (<em>boolean, (optional)</em>) &#8211; Filter COLLADA files</li>
+<li><strong>filter_alembic</strong> (<em>boolean, (optional)</em>) &#8211; Filter Alembic files</li>
+<li><strong>filter_folder</strong> (<em>boolean, (optional)</em>) &#8211; Filter folders</li>
+<li><strong>filter_blenlib</strong> (<em>boolean, (optional)</em>) &#8211; Filter Blender IDs</li>
+<li><strong>filemode</strong> (<em>int in [1, 9], (optional)</em>) &#8211; File Browser Mode, The setting for the file browser mode to load a .blend file, a library or a special file</li>
+<li><strong>relative_path</strong> (<em>boolean, (optional)</em>) &#8211; Relative Path, Select the file relative to the blend file</li>
+<li><strong>display_type</strong> (<em>enum in ['DEFAULT', 'LIST_SHORT', 'LIST_LONG', 'THUMBNAIL'], (optional)</em>) &#8211; <p>Display Type</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">DEFAULT</span></code> Default, Automatically determine display type for files.</li>
+<li><code class="docutils literal"><span class="pre">LIST_SHORT</span></code> Short List, Display files as short list.</li>
+<li><code class="docutils literal"><span class="pre">LIST_LONG</span></code> Long List, Display files as a detailed list.</li>
+<li><code class="docutils literal"><span class="pre">THUMBNAIL</span></code> Thumbnails, Display files as thumbnails.</li>
+</ul>
+</li>
+<li><strong>sort_method</strong> (<em>enum in ['FILE_SORT_ALPHA', 'FILE_SORT_EXTENSION', 'FILE_SORT_TIME', 'FILE_SORT_SIZE'], (optional)</em>) &#8211; <p>File sorting mode</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_ALPHA</span></code> Sort alphabetically, Sort the file list alphabetically.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_EXTENSION</span></code> Sort by extension, Sort the file list by extension/type.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_TIME</span></code> Sort by time, Sort files by modification time.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_SIZE</span></code> Sort by size, Sort files by size.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.font.select_all">
+<code class="descclassname">bpy.ops.font.</code><code class="descname">select_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.font.select_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select all text</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.font.style_set">
+<code class="descclassname">bpy.ops.font.</code><code class="descname">style_set</code><span class="sig-paren">(</span><em>style='BOLD'</em>, <em>clear=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.font.style_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set font style</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>style</strong> (<em>enum in ['BOLD', 'ITALIC', 'UNDERLINE', 'SMALL_CAPS'], (optional)</em>) &#8211; Style, Style to set selection to</li>
+<li><strong>clear</strong> (<em>boolean, (optional)</em>) &#8211; Clear, Clear style rather than setting it</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.font.style_toggle">
+<code class="descclassname">bpy.ops.font.</code><code class="descname">style_toggle</code><span class="sig-paren">(</span><em>style='BOLD'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.font.style_toggle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle font style</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>style</strong> (<em>enum in ['BOLD', 'ITALIC', 'UNDERLINE', 'SMALL_CAPS'], (optional)</em>) &#8211; Style, Style to set selection to</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.font.text_copy">
+<code class="descclassname">bpy.ops.font.</code><code class="descname">text_copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.font.text_copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy selected text to clipboard</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.font.text_cut">
+<code class="descclassname">bpy.ops.font.</code><code class="descname">text_cut</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.font.text_cut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cut selected text to clipboard</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.font.text_insert">
+<code class="descclassname">bpy.ops.font.</code><code class="descname">text_insert</code><span class="sig-paren">(</span><em>text=&quot;&quot;</em>, <em>accent=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.font.text_insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert text at cursor position</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>text</strong> (<em>string, (optional, never None)</em>) &#8211; Text, Text to insert at the cursor position</li>
+<li><strong>accent</strong> (<em>boolean, (optional)</em>) &#8211; Accent mode, Next typed character will strike through previous, for special character input</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.font.text_paste">
+<code class="descclassname">bpy.ops.font.</code><code class="descname">text_paste</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.font.text_paste" title="Permalink to this definition">¶</a></dt>
+<dd><p>Paste text from clipboard</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.font.text_paste_from_file">
+<code class="descclassname">bpy.ops.font.</code><code class="descname">text_paste_from_file</code><span class="sig-paren">(</span><em>filepath=&quot;&quot;</em>, <em>filter_blender=False</em>, <em>filter_backup=False</em>, <em>filter_image=False</em>, <em>filter_movie=False</em>, <em>filter_python=False</em>, <em>filter_font=False</em>, <em>filter_sound=False</em>, <em>filter_text=True</em>, <em>filter_btx=False</em>, <em>filter_collada=False</em>, <em>filter_alembic=False</em>, <em>filter_folder=True</em>, <em>filter_blenlib=False</em>, <em>filemode=9</em>, <em>display_type='DEFAULT'</em>, <em>sort_method='FILE_SORT_ALPHA'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.font.text_paste_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Paste contents from file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filepath</strong> (<em>string, (optional, never None)</em>) &#8211; File Path, Path to file</li>
+<li><strong>filter_blender</strong> (<em>boolean, (optional)</em>) &#8211; Filter .blend files</li>
+<li><strong>filter_backup</strong> (<em>boolean, (optional)</em>) &#8211; Filter .blend files</li>
+<li><strong>filter_image</strong> (<em>boolean, (optional)</em>) &#8211; Filter image files</li>
+<li><strong>filter_movie</strong> (<em>boolean, (optional)</em>) &#8211; Filter movie files</li>
+<li><strong>filter_python</strong> (<em>boolean, (optional)</em>) &#8211; Filter python files</li>
+<li><strong>filter_font</strong> (<em>boolean, (optional)</em>) &#8211; Filter font files</li>
+<li><strong>filter_sound</strong> (<em>boolean, (optional)</em>) &#8211; Filter sound files</li>
+<li><strong>filter_text</strong> (<em>boolean, (optional)</em>) &#8211; Filter text files</li>
+<li><strong>filter_btx</strong> (<em>boolean, (optional)</em>) &#8211; Filter btx files</li>
+<li><strong>filter_collada</strong> (<em>boolean, (optional)</em>) &#8211; Filter COLLADA files</li>
+<li><strong>filter_alembic</strong> (<em>boolean, (optional)</em>) &#8211; Filter Alembic files</li>
+<li><strong>filter_folder</strong> (<em>boolean, (optional)</em>) &#8211; Filter folders</li>
+<li><strong>filter_blenlib</strong> (<em>boolean, (optional)</em>) &#8211; Filter Blender IDs</li>
+<li><strong>filemode</strong> (<em>int in [1, 9], (optional)</em>) &#8211; File Browser Mode, The setting for the file browser mode to load a .blend file, a library or a special file</li>
+<li><strong>display_type</strong> (<em>enum in ['DEFAULT', 'LIST_SHORT', 'LIST_LONG', 'THUMBNAIL'], (optional)</em>) &#8211; <p>Display Type</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">DEFAULT</span></code> Default, Automatically determine display type for files.</li>
+<li><code class="docutils literal"><span class="pre">LIST_SHORT</span></code> Short List, Display files as short list.</li>
+<li><code class="docutils literal"><span class="pre">LIST_LONG</span></code> Long List, Display files as a detailed list.</li>
+<li><code class="docutils literal"><span class="pre">THUMBNAIL</span></code> Thumbnails, Display files as thumbnails.</li>
+</ul>
+</li>
+<li><strong>sort_method</strong> (<em>enum in ['FILE_SORT_ALPHA', 'FILE_SORT_EXTENSION', 'FILE_SORT_TIME', 'FILE_SORT_SIZE'], (optional)</em>) &#8211; <p>File sorting mode</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_ALPHA</span></code> Sort alphabetically, Sort the file list alphabetically.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_EXTENSION</span></code> Sort by extension, Sort the file list by extension/type.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_TIME</span></code> Sort by time, Sort files by modification time.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_SIZE</span></code> Sort by size, Sort files by size.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.font.textbox_add">
+<code class="descclassname">bpy.ops.font.</code><code class="descname">textbox_add</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.font.textbox_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new text box</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.font.textbox_remove">
+<code class="descclassname">bpy.ops.font.</code><code class="descname">textbox_remove</code><span class="sig-paren">(</span><em>index=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.font.textbox_remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the textbox</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>int in [0, inf], (optional)</em>) &#8211; Index, The current text box</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.font.unlink">
+<code class="descclassname">bpy.ops.font.</code><code class="descname">unlink</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.font.unlink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unlink active font data block</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.ops.fluid.html"
+                        title="previous chapter">Fluid Operators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.ops.gpencil.html"
+                        title="next chapter">Gpencil Operators</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.gpencil.html" title="Gpencil Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.fluid.html" title="Fluid Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

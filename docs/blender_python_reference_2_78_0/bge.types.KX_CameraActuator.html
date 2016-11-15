@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>KX_CameraActuator(SCA_IActuator) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Game Types (bge.types)" href="bge.types.html" />
+    <link rel="next" title="KX_CharacterWrapper(PyObjectPlus)" href="bge.types.KX_CharacterWrapper.html" />
+    <link rel="prev" title="KX_Camera(KX_GameObject)" href="bge.types.KX_Camera.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_CharacterWrapper.html" title="KX_CharacterWrapper(PyObjectPlus)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_Camera.html" title="KX_Camera(KX_GameObject)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" accesskey="U">Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bge.types">
+<span id="kx-cameraactuator-sca-iactuator"></span><h1>KX_CameraActuator(SCA_IActuator)<a class="headerlink" href="#module-bge.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bge.types.SCA_IActuator.html#bge.types.SCA_IActuator" title="bge.types.SCA_IActuator"><code class="xref py py-class docutils literal"><span class="pre">SCA_IActuator</span></code></a></p>
+<dl class="class">
+<dt id="bge.types.KX_CameraActuator">
+<em class="property">class </em><code class="descclassname">bge.types.</code><code class="descname">KX_CameraActuator</code><span class="sig-paren">(</span><em>SCA_IActuator</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_CameraActuator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies changes to a camera.</p>
+<dl class="attribute">
+<dt id="bge.types.KX_CameraActuator.damping">
+<code class="descname">damping</code><a class="headerlink" href="#bge.types.KX_CameraActuator.damping" title="Permalink to this definition">¶</a></dt>
+<dd><p>strength of of the camera following movement.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_CameraActuator.axis">
+<code class="descname">axis</code><a class="headerlink" href="#bge.types.KX_CameraActuator.axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>The camera axis (0, 1, 2) for positive <code class="docutils literal"><span class="pre">XYZ</span></code>, (3, 4, 5) for negative <code class="docutils literal"><span class="pre">XYZ</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_CameraActuator.min">
+<code class="descname">min</code><a class="headerlink" href="#bge.types.KX_CameraActuator.min" title="Permalink to this definition">¶</a></dt>
+<dd><p>minimum distance to the target object maintained by the actuator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_CameraActuator.max">
+<code class="descname">max</code><a class="headerlink" href="#bge.types.KX_CameraActuator.max" title="Permalink to this definition">¶</a></dt>
+<dd><p>maximum distance to stay from the target object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_CameraActuator.height">
+<code class="descname">height</code><a class="headerlink" href="#bge.types.KX_CameraActuator.height" title="Permalink to this definition">¶</a></dt>
+<dd><p>height to stay above the target object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_CameraActuator.object">
+<code class="descname">object</code><a class="headerlink" href="#bge.types.KX_CameraActuator.object" title="Permalink to this definition">¶</a></dt>
+<dd><p>the object this actuator tracks.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bge.types.KX_GameObject.html#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a> or None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bge.types.KX_Camera.html"
+                        title="previous chapter">KX_Camera(KX_GameObject)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bge.types.KX_CharacterWrapper.html"
+                        title="next chapter">KX_CharacterWrapper(PyObjectPlus)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_CharacterWrapper.html" title="KX_CharacterWrapper(PyObjectPlus)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_Camera.html" title="KX_Camera(KX_GameObject)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" >Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

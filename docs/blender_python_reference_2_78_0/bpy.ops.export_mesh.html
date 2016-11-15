@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Export Mesh Operators &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Operators (bpy.ops)" href="bpy.ops.html" />
+    <link rel="next" title="Export Scene Operators" href="bpy.ops.export_scene.html" />
+    <link rel="prev" title="Export Anim Operators" href="bpy.ops.export_anim.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.export_scene.html" title="Export Scene Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.export_anim.html" title="Export Anim Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.ops.export_mesh">
+<span id="export-mesh-operators"></span><h1>Export Mesh Operators<a class="headerlink" href="#module-bpy.ops.export_mesh" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bpy.ops.export_mesh.ply">
+<code class="descclassname">bpy.ops.export_mesh.</code><code class="descname">ply</code><span class="sig-paren">(</span><em>filepath=&quot;&quot;</em>, <em>check_existing=True</em>, <em>axis_forward='Y'</em>, <em>axis_up='Z'</em>, <em>filter_glob=&quot;*.ply&quot;</em>, <em>use_mesh_modifiers=True</em>, <em>use_normals=True</em>, <em>use_uv_coords=True</em>, <em>use_colors=True</em>, <em>global_scale=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.export_mesh.ply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export a single object as a Stanford PLY with normals, colors and texture coordinates</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filepath</strong> (<em>string, (optional, never None)</em>) &#8211; File Path, Filepath used for exporting the file</li>
+<li><strong>check_existing</strong> (<em>boolean, (optional)</em>) &#8211; Check Existing, Check and warn on overwriting existing files</li>
+<li><strong>axis_forward</strong> (<em>enum in ['X', 'Y', 'Z', '-X', '-Y', '-Z'], (optional)</em>) &#8211; Forward</li>
+<li><strong>axis_up</strong> (<em>enum in ['X', 'Y', 'Z', '-X', '-Y', '-Z'], (optional)</em>) &#8211; Up</li>
+<li><strong>filter_glob</strong> (<em>string, (optional, never None)</em>) &#8211; filter_glob</li>
+<li><strong>use_mesh_modifiers</strong> (<em>boolean, (optional)</em>) &#8211; Apply Modifiers, Apply Modifiers to the exported mesh</li>
+<li><strong>use_normals</strong> (<em>boolean, (optional)</em>) &#8211; Normals, Export Normals for smooth and hard shaded faces (hard shaded faces will be exported as individual faces)</li>
+<li><strong>use_uv_coords</strong> (<em>boolean, (optional)</em>) &#8211; UVs, Export the active UV layer</li>
+<li><strong>use_colors</strong> (<em>boolean, (optional)</em>) &#8211; Vertex Colors, Export the active vertex color layer</li>
+<li><strong>global_scale</strong> (<em>float in [0.01, 1000], (optional)</em>) &#8211; Scale</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">File:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://svn.blender.org/svnroot/bf-extensions/trunk/py/scripts/addons/io_mesh_ply/__init__.py">addons/io_mesh_ply/__init__.py</a>:139</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.export_mesh.stl">
+<code class="descclassname">bpy.ops.export_mesh.</code><code class="descname">stl</code><span class="sig-paren">(</span><em>filepath=&quot;&quot;</em>, <em>check_existing=True</em>, <em>axis_forward='Y'</em>, <em>axis_up='Z'</em>, <em>filter_glob=&quot;*.stl&quot;</em>, <em>use_selection=False</em>, <em>global_scale=1.0</em>, <em>use_scene_unit=False</em>, <em>ascii=False</em>, <em>use_mesh_modifiers=True</em>, <em>batch_mode='OFF'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.export_mesh.stl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save STL triangle mesh data from the active object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filepath</strong> (<em>string, (optional, never None)</em>) &#8211; File Path, Filepath used for exporting the file</li>
+<li><strong>check_existing</strong> (<em>boolean, (optional)</em>) &#8211; Check Existing, Check and warn on overwriting existing files</li>
+<li><strong>axis_forward</strong> (<em>enum in ['X', 'Y', 'Z', '-X', '-Y', '-Z'], (optional)</em>) &#8211; Forward</li>
+<li><strong>axis_up</strong> (<em>enum in ['X', 'Y', 'Z', '-X', '-Y', '-Z'], (optional)</em>) &#8211; Up</li>
+<li><strong>filter_glob</strong> (<em>string, (optional, never None)</em>) &#8211; filter_glob</li>
+<li><strong>use_selection</strong> (<em>boolean, (optional)</em>) &#8211; Selection Only, Export selected objects only</li>
+<li><strong>global_scale</strong> (<em>float in [0.01, 1000], (optional)</em>) &#8211; Scale</li>
+<li><strong>use_scene_unit</strong> (<em>boolean, (optional)</em>) &#8211; Scene Unit, Apply current scene&#8217;s unit (as defined by unit scale) to exported data</li>
+<li><strong>ascii</strong> (<em>boolean, (optional)</em>) &#8211; Ascii, Save the file in ASCII file format</li>
+<li><strong>use_mesh_modifiers</strong> (<em>boolean, (optional)</em>) &#8211; Apply Modifiers, Apply the modifiers before saving</li>
+<li><strong>batch_mode</strong> (<em>enum in ['OFF', 'OBJECT'], (optional)</em>) &#8211; <p>Batch Mode</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">OFF</span></code> Off, All data in one file.</li>
+<li><code class="docutils literal"><span class="pre">OBJECT</span></code> Object, Each object as a file.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">File:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://svn.blender.org/svnroot/bf-extensions/trunk/py/scripts/addons/io_mesh_stl/__init__.py">addons/io_mesh_stl/__init__.py</a>:202</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.ops.export_anim.html"
+                        title="previous chapter">Export Anim Operators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.ops.export_scene.html"
+                        title="next chapter">Export Scene Operators</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.export_scene.html" title="Export Scene Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.export_anim.html" title="Export Anim Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

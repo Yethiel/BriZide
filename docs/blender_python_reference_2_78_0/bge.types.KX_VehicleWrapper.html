@@ -1,0 +1,389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>KX_VehicleWrapper(PyObjectPlus) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Game Types (bge.types)" href="bge.types.html" />
+    <link rel="next" title="KX_VertexProxy(SCA_IObject)" href="bge.types.KX_VertexProxy.html" />
+    <link rel="prev" title="KX_TrackToActuator(SCA_IActuator)" href="bge.types.KX_TrackToActuator.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_VertexProxy.html" title="KX_VertexProxy(SCA_IObject)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_TrackToActuator.html" title="KX_TrackToActuator(SCA_IActuator)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" accesskey="U">Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bge.types">
+<span id="kx-vehiclewrapper-pyobjectplus"></span><h1>KX_VehicleWrapper(PyObjectPlus)<a class="headerlink" href="#module-bge.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bge.types.PyObjectPlus.html#bge.types.PyObjectPlus" title="bge.types.PyObjectPlus"><code class="xref py py-class docutils literal"><span class="pre">PyObjectPlus</span></code></a></p>
+<dl class="class">
+<dt id="bge.types.KX_VehicleWrapper">
+<em class="property">class </em><code class="descclassname">bge.types.</code><code class="descname">KX_VehicleWrapper</code><span class="sig-paren">(</span><em>PyObjectPlus</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_VehicleWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>KX_VehicleWrapper</p>
+<p>TODO - description</p>
+<dl class="method">
+<dt id="bge.types.KX_VehicleWrapper.addWheel">
+<code class="descname">addWheel</code><span class="sig-paren">(</span><em>wheel</em>, <em>attachPos</em>, <em>downDir</em>, <em>axleDir</em>, <em>suspensionRestLength</em>, <em>wheelRadius</em>, <em>hasSteering</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_VehicleWrapper.addWheel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a wheel to the vehicle</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>wheel</strong> (<a class="reference internal" href="bge.types.KX_GameObject.html#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a> or a <a class="reference internal" href="bge.types.KX_GameObject.html#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a> name) &#8211; The object to use as a wheel.</li>
+<li><strong>attachPos</strong> (<em>vector of 3 floats</em>) &#8211; The position to attach the wheel, relative to the chassis object center.</li>
+<li><strong>downDir</strong> (<em>vector of 3 floats</em>) &#8211; The direction vector pointing down to where the vehicle should collide with the floor.</li>
+<li><strong>axleDir</strong> (<em>vector of 3 floats</em>) &#8211; The axis the wheel rotates around, relative to the chassis.</li>
+<li><strong>suspensionRestLength</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; The length of the suspension when no forces are being applied.</li>
+<li><strong>wheelRadius</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; The radius of the wheel (half the diameter).</li>
+<li><strong>hasSteering</strong> (<em>boolean</em>) &#8211; True if the wheel should turn with steering, typically used in front wheels.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_VehicleWrapper.applyBraking">
+<code class="descname">applyBraking</code><span class="sig-paren">(</span><em>force</em>, <em>wheelIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_VehicleWrapper.applyBraking" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply a braking force to the specified wheel</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>force</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; the brake force</li>
+<li><strong>wheelIndex</strong> (<em>integer</em>) &#8211; index of the wheel where the force needs to be applied</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_VehicleWrapper.applyEngineForce">
+<code class="descname">applyEngineForce</code><span class="sig-paren">(</span><em>force</em>, <em>wheelIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_VehicleWrapper.applyEngineForce" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply an engine force to the specified wheel</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>force</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; the engine force</li>
+<li><strong>wheelIndex</strong> (<em>integer</em>) &#8211; index of the wheel where the force needs to be applied</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_VehicleWrapper.getConstraintId">
+<code class="descname">getConstraintId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_VehicleWrapper.getConstraintId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the constraint ID</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the constraint id</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">integer</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_VehicleWrapper.getConstraintType">
+<code class="descname">getConstraintType</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_VehicleWrapper.getConstraintType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the constraint type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">constraint type</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">integer</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_VehicleWrapper.getNumWheels">
+<code class="descname">getNumWheels</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_VehicleWrapper.getNumWheels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of wheels.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of wheels for this vehicle</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">integer</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_VehicleWrapper.getWheelOrientationQuaternion">
+<code class="descname">getWheelOrientationQuaternion</code><span class="sig-paren">(</span><em>wheelIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_VehicleWrapper.getWheelOrientationQuaternion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the wheel orientation as a quaternion.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>wheelIndex</strong> (<em>integer</em>) &#8211; the wheel index</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">TODO Description</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">TODO - type should be quat as per method name but from the code it looks like a matrix</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_VehicleWrapper.getWheelPosition">
+<code class="descname">getWheelPosition</code><span class="sig-paren">(</span><em>wheelIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_VehicleWrapper.getWheelPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the position of the specified wheel</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>wheelIndex</strong> (<em>integer</em>) &#8211; the wheel index</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">position vector</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list[x, y, z]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_VehicleWrapper.getWheelRotation">
+<code class="descname">getWheelRotation</code><span class="sig-paren">(</span><em>wheelIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_VehicleWrapper.getWheelRotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the rotation of the specified wheel</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>wheelIndex</strong> (<em>integer</em>) &#8211; the wheel index</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the wheel rotation</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float">float</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_VehicleWrapper.setRollInfluence">
+<code class="descname">setRollInfluence</code><span class="sig-paren">(</span><em>rollInfluece</em>, <em>wheelIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_VehicleWrapper.setRollInfluence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the specified wheel&#8217;s roll influence.
+The higher the roll influence the more the vehicle will tend to roll over in corners.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>rollInfluece</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; the wheel roll influence</li>
+<li><strong>wheelIndex</strong> (<em>integer</em>) &#8211; the wheel index</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_VehicleWrapper.setSteeringValue">
+<code class="descname">setSteeringValue</code><span class="sig-paren">(</span><em>steering</em>, <em>wheelIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_VehicleWrapper.setSteeringValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the specified wheel&#8217;s steering</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>steering</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; the wheel steering</li>
+<li><strong>wheelIndex</strong> (<em>integer</em>) &#8211; the wheel index</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_VehicleWrapper.setSuspensionCompression">
+<code class="descname">setSuspensionCompression</code><span class="sig-paren">(</span><em>compression</em>, <em>wheelIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_VehicleWrapper.setSuspensionCompression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the specified wheel&#8217;s compression</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>compression</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; the wheel compression</li>
+<li><strong>wheelIndex</strong> (<em>integer</em>) &#8211; the wheel index</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_VehicleWrapper.setSuspensionDamping">
+<code class="descname">setSuspensionDamping</code><span class="sig-paren">(</span><em>damping</em>, <em>wheelIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_VehicleWrapper.setSuspensionDamping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the specified wheel&#8217;s damping</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>damping</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; the wheel damping</li>
+<li><strong>wheelIndex</strong> (<em>integer</em>) &#8211; the wheel index</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_VehicleWrapper.setSuspensionStiffness">
+<code class="descname">setSuspensionStiffness</code><span class="sig-paren">(</span><em>stiffness</em>, <em>wheelIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_VehicleWrapper.setSuspensionStiffness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the specified wheel&#8217;s stiffness</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>stiffness</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; the wheel stiffness</li>
+<li><strong>wheelIndex</strong> (<em>integer</em>) &#8211; the wheel index</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_VehicleWrapper.setTyreFriction">
+<code class="descname">setTyreFriction</code><span class="sig-paren">(</span><em>friction</em>, <em>wheelIndex</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_VehicleWrapper.setTyreFriction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the specified wheel&#8217;s tyre friction</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>friction</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; the tyre friction</li>
+<li><strong>wheelIndex</strong> (<em>integer</em>) &#8211; the wheel index</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bge.types.KX_TrackToActuator.html"
+                        title="previous chapter">KX_TrackToActuator(SCA_IActuator)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bge.types.KX_VertexProxy.html"
+                        title="next chapter">KX_VertexProxy(SCA_IObject)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_VertexProxy.html" title="KX_VertexProxy(SCA_IObject)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_TrackToActuator.html" title="KX_TrackToActuator(SCA_IActuator)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" >Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

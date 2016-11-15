@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>FluidSettings(bpy_struct) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="FluidSimulationModifier(Modifier)" href="bpy.types.FluidSimulationModifier.html" />
+    <link rel="prev" title="FluidFluidSettings(FluidSettings)" href="bpy.types.FluidFluidSettings.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.FluidSimulationModifier.html" title="FluidSimulationModifier(Modifier)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.FluidFluidSettings.html" title="FluidFluidSettings(FluidSettings)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="fluidsettings-bpy-struct"></span><h1>FluidSettings(bpy_struct)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a></p>
+<p>subclasses &#8212;
+<a class="reference internal" href="bpy.types.ControlFluidSettings.html#bpy.types.ControlFluidSettings" title="bpy.types.ControlFluidSettings"><code class="xref py py-class docutils literal"><span class="pre">ControlFluidSettings</span></code></a>, <a class="reference internal" href="bpy.types.DomainFluidSettings.html#bpy.types.DomainFluidSettings" title="bpy.types.DomainFluidSettings"><code class="xref py py-class docutils literal"><span class="pre">DomainFluidSettings</span></code></a>, <a class="reference internal" href="bpy.types.FluidFluidSettings.html#bpy.types.FluidFluidSettings" title="bpy.types.FluidFluidSettings"><code class="xref py py-class docutils literal"><span class="pre">FluidFluidSettings</span></code></a>, <a class="reference internal" href="bpy.types.InflowFluidSettings.html#bpy.types.InflowFluidSettings" title="bpy.types.InflowFluidSettings"><code class="xref py py-class docutils literal"><span class="pre">InflowFluidSettings</span></code></a>, <a class="reference internal" href="bpy.types.ObstacleFluidSettings.html#bpy.types.ObstacleFluidSettings" title="bpy.types.ObstacleFluidSettings"><code class="xref py py-class docutils literal"><span class="pre">ObstacleFluidSettings</span></code></a>, <a class="reference internal" href="bpy.types.OutflowFluidSettings.html#bpy.types.OutflowFluidSettings" title="bpy.types.OutflowFluidSettings"><code class="xref py py-class docutils literal"><span class="pre">OutflowFluidSettings</span></code></a>, <a class="reference internal" href="bpy.types.ParticleFluidSettings.html#bpy.types.ParticleFluidSettings" title="bpy.types.ParticleFluidSettings"><code class="xref py py-class docutils literal"><span class="pre">ParticleFluidSettings</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.FluidSettings">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">FluidSettings</code><span class="sig-paren">(</span><em>bpy_struct</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.FluidSettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fluid simulation settings for an object taking part in the simulation</p>
+<dl class="attribute">
+<dt id="bpy.types.FluidSettings.type">
+<code class="descname">type</code><a class="headerlink" href="#bpy.types.FluidSettings.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of participation in the fluid simulation</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">NONE</span></code> None.</li>
+<li><code class="docutils literal"><span class="pre">DOMAIN</span></code> Domain, Bounding box of this object represents the computational domain of the fluid simulation.</li>
+<li><code class="docutils literal"><span class="pre">FLUID</span></code> Fluid, Object represents a volume of fluid in the simulation.</li>
+<li><code class="docutils literal"><span class="pre">OBSTACLE</span></code> Obstacle, Object is a fixed obstacle.</li>
+<li><code class="docutils literal"><span class="pre">INFLOW</span></code> Inflow, Object adds fluid to the simulation.</li>
+<li><code class="docutils literal"><span class="pre">OUTFLOW</span></code> Outflow, Object removes fluid from the simulation.</li>
+<li><code class="docutils literal"><span class="pre">PARTICLE</span></code> Particle, Object is made a particle system to display particles generated by a fluidsim domain object.</li>
+<li><code class="docutils literal"><span class="pre">CONTROL</span></code> Control, Object is made a fluid control mesh, which influences the fluid.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;DOMAIN&#8217;, &#8216;FLUID&#8217;, &#8216;OBSTACLE&#8217;, &#8216;INFLOW&#8217;, &#8216;OUTFLOW&#8217;, &#8216;PARTICLE&#8217;, &#8216;CONTROL&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.FluidSimulationModifier.html#bpy.types.FluidSimulationModifier.settings" title="bpy.types.FluidSimulationModifier.settings"><code class="xref py py-class docutils literal"><span class="pre">FluidSimulationModifier.settings</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.FluidFluidSettings.html"
+                        title="previous chapter">FluidFluidSettings(FluidSettings)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.FluidSimulationModifier.html"
+                        title="next chapter">FluidSimulationModifier(Modifier)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.FluidSimulationModifier.html" title="FluidSimulationModifier(Modifier)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.FluidFluidSettings.html" title="FluidFluidSettings(FluidSettings)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

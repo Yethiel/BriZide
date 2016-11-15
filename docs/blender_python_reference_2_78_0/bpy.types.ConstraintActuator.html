@@ -1,0 +1,529 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ConstraintActuator(Actuator) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="ConstraintTarget(bpy_struct)" href="bpy.types.ConstraintTarget.html" />
+    <link rel="prev" title="Constraint(bpy_struct)" href="bpy.types.Constraint.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ConstraintTarget.html" title="ConstraintTarget(bpy_struct)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.Constraint.html" title="Constraint(bpy_struct)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="constraintactuator-actuator"></span><h1>ConstraintActuator(Actuator)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base classes &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Actuator.html#bpy.types.Actuator" title="bpy.types.Actuator"><code class="xref py py-class docutils literal"><span class="pre">Actuator</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.ConstraintActuator">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">ConstraintActuator</code><span class="sig-paren">(</span><em>Actuator</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ConstraintActuator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Actuator to handle Constraints</p>
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.angle_max">
+<code class="descname">angle_max</code><a class="headerlink" href="#bpy.types.ConstraintActuator.angle_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum angle allowed with target direction (no correction is done if angle with target direction is between min and max)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 3.14159], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.angle_min">
+<code class="descname">angle_min</code><a class="headerlink" href="#bpy.types.ConstraintActuator.angle_min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimum angle to maintain with target direction (no correction is done if angle with target direction is between min and max)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 3.14159], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.damping">
+<code class="descname">damping</code><a class="headerlink" href="#bpy.types.ConstraintActuator.damping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Damping factor: time constant (in frame) of low pass filter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-32768, 32767], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.damping_rotation">
+<code class="descname">damping_rotation</code><a class="headerlink" href="#bpy.types.ConstraintActuator.damping_rotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use a different damping for orientation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-32768, 32767], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.direction">
+<code class="descname">direction</code><a class="headerlink" href="#bpy.types.ConstraintActuator.direction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Direction of the ray</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;DIRPX&#8217;, &#8216;DIRPY&#8217;, &#8216;DIRPZ&#8217;, &#8216;DIRNX&#8217;, &#8216;DIRNY&#8217;, &#8216;DIRNZ&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.direction_axis">
+<code class="descname">direction_axis</code><a class="headerlink" href="#bpy.types.ConstraintActuator.direction_axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select the axis to be aligned along the reference direction</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;DIRPX&#8217;, &#8216;DIRPY&#8217;, &#8216;DIRPZ&#8217;, &#8216;DIRNX&#8217;, &#8216;DIRNY&#8217;, &#8216;DIRNZ&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.direction_axis_pos">
+<code class="descname">direction_axis_pos</code><a class="headerlink" href="#bpy.types.ConstraintActuator.direction_axis_pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select the axis to be aligned along the reference direction</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;DIRPX&#8217;, &#8216;DIRPY&#8217;, &#8216;DIRPZ&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.distance">
+<code class="descname">distance</code><a class="headerlink" href="#bpy.types.ConstraintActuator.distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keep this distance to target</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.fh_damping">
+<code class="descname">fh_damping</code><a class="headerlink" href="#bpy.types.ConstraintActuator.fh_damping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Damping factor of the force field spring</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.fh_force">
+<code class="descname">fh_force</code><a class="headerlink" href="#bpy.types.ConstraintActuator.fh_force" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spring force within the force field area</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.fh_height">
+<code class="descname">fh_height</code><a class="headerlink" href="#bpy.types.ConstraintActuator.fh_height" title="Permalink to this definition">¶</a></dt>
+<dd><p>Height of the force field area</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.limit">
+<code class="descname">limit</code><a class="headerlink" href="#bpy.types.ConstraintActuator.limit" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;LOCX&#8217;, &#8216;LOCY&#8217;, &#8216;LOCZ&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.limit_max">
+<code class="descname">limit_max</code><a class="headerlink" href="#bpy.types.ConstraintActuator.limit_max" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.limit_min">
+<code class="descname">limit_min</code><a class="headerlink" href="#bpy.types.ConstraintActuator.limit_min" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.material">
+<code class="descname">material</code><a class="headerlink" href="#bpy.types.ConstraintActuator.material" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ray detects only Objects with this material</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.mode">
+<code class="descname">mode</code><a class="headerlink" href="#bpy.types.ConstraintActuator.mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of the constraint</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;LOC&#8217;, &#8216;DIST&#8217;, &#8216;ORI&#8217;, &#8216;FH&#8217;], default &#8216;LOC&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.property">
+<code class="descname">property</code><a class="headerlink" href="#bpy.types.ConstraintActuator.property" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ray detects only Objects with this property</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.range">
+<code class="descname">range</code><a class="headerlink" href="#bpy.types.ConstraintActuator.range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum length of ray</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.rotation_max">
+<code class="descname">rotation_max</code><a class="headerlink" href="#bpy.types.ConstraintActuator.rotation_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference Direction</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 3 items in [-inf, inf], default (0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.time">
+<code class="descname">time</code><a class="headerlink" href="#bpy.types.ConstraintActuator.time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum activation time in frame, 0 for unlimited</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-32768, 32767], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.use_fh_normal">
+<code class="descname">use_fh_normal</code><a class="headerlink" href="#bpy.types.ConstraintActuator.use_fh_normal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a horizontal spring force on slopes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.use_fh_paralel_axis">
+<code class="descname">use_fh_paralel_axis</code><a class="headerlink" href="#bpy.types.ConstraintActuator.use_fh_paralel_axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keep object axis parallel to normal</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.use_force_distance">
+<code class="descname">use_force_distance</code><a class="headerlink" href="#bpy.types.ConstraintActuator.use_force_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Force distance of object to point of impact of ray</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.use_local">
+<code class="descname">use_local</code><a class="headerlink" href="#bpy.types.ConstraintActuator.use_local" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set ray along object&#8217;s axis or global axis</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.use_material_detect">
+<code class="descname">use_material_detect</code><a class="headerlink" href="#bpy.types.ConstraintActuator.use_material_detect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect material instead of property</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.use_normal">
+<code class="descname">use_normal</code><a class="headerlink" href="#bpy.types.ConstraintActuator.use_normal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set object axis along (local axis) or parallel (global axis) to the normal at hit position</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.ConstraintActuator.use_persistent">
+<code class="descname">use_persistent</code><a class="headerlink" href="#bpy.types.ConstraintActuator.use_persistent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Persistent actuator: stays active even if ray does not reach target</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Actuator.html#bpy.types.Actuator.name" title="bpy.types.Actuator.name"><code class="xref py py-class docutils literal"><span class="pre">Actuator.name</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Actuator.html#bpy.types.Actuator.type" title="bpy.types.Actuator.type"><code class="xref py py-class docutils literal"><span class="pre">Actuator.type</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.Actuator.html#bpy.types.Actuator.pin" title="bpy.types.Actuator.pin"><code class="xref py py-class docutils literal"><span class="pre">Actuator.pin</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Actuator.html#bpy.types.Actuator.show_expanded" title="bpy.types.Actuator.show_expanded"><code class="xref py py-class docutils literal"><span class="pre">Actuator.show_expanded</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Actuator.html#bpy.types.Actuator.active" title="bpy.types.Actuator.active"><code class="xref py py-class docutils literal"><span class="pre">Actuator.active</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Actuator.html#bpy.types.Actuator.link" title="bpy.types.Actuator.link"><code class="xref py py-class docutils literal"><span class="pre">Actuator.link</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Actuator.html#bpy.types.Actuator.unlink" title="bpy.types.Actuator.unlink"><code class="xref py py-class docutils literal"><span class="pre">Actuator.unlink</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.Constraint.html"
+                        title="previous chapter">Constraint(bpy_struct)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.ConstraintTarget.html"
+                        title="next chapter">ConstraintTarget(bpy_struct)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ConstraintTarget.html" title="ConstraintTarget(bpy_struct)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.Constraint.html" title="Constraint(bpy_struct)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

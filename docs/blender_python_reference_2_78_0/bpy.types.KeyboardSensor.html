@@ -1,0 +1,811 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>KeyboardSensor(Sensor) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="Keyframe(bpy_struct)" href="bpy.types.Keyframe.html" />
+    <link rel="prev" title="KeyMaps(bpy_struct)" href="bpy.types.KeyMaps.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.Keyframe.html" title="Keyframe(bpy_struct)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.KeyMaps.html" title="KeyMaps(bpy_struct)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="keyboardsensor-sensor"></span><h1>KeyboardSensor(Sensor)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base classes &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Sensor.html#bpy.types.Sensor" title="bpy.types.Sensor"><code class="xref py py-class docutils literal"><span class="pre">Sensor</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.KeyboardSensor">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">KeyboardSensor</code><span class="sig-paren">(</span><em>Sensor</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.KeyboardSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sensor to detect keyboard events</p>
+<dl class="attribute">
+<dt id="bpy.types.KeyboardSensor.key">
+<code class="descname">key</code><a class="headerlink" href="#bpy.types.KeyboardSensor.key" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><code class="docutils literal"><span class="pre">NONE</span></code> .</li>
+<li><code class="docutils literal"><span class="pre">LEFTMOUSE</span></code> Left Mouse, LMB.</li>
+<li><code class="docutils literal"><span class="pre">MIDDLEMOUSE</span></code> Middle Mouse, MMB.</li>
+<li><code class="docutils literal"><span class="pre">RIGHTMOUSE</span></code> Right Mouse, RMB.</li>
+<li><code class="docutils literal"><span class="pre">BUTTON4MOUSE</span></code> Button4 Mouse, MB4.</li>
+<li><code class="docutils literal"><span class="pre">BUTTON5MOUSE</span></code> Button5 Mouse, MB5.</li>
+<li><code class="docutils literal"><span class="pre">BUTTON6MOUSE</span></code> Button6 Mouse, MB6.</li>
+<li><code class="docutils literal"><span class="pre">BUTTON7MOUSE</span></code> Button7 Mouse, MB7.</li>
+<li><code class="docutils literal"><span class="pre">ACTIONMOUSE</span></code> Action Mouse, MBA.</li>
+<li><code class="docutils literal"><span class="pre">SELECTMOUSE</span></code> Select Mouse, MBS.</li>
+<li><code class="docutils literal"><span class="pre">PEN</span></code> Pen.</li>
+<li><code class="docutils literal"><span class="pre">ERASER</span></code> Eraser.</li>
+<li><code class="docutils literal"><span class="pre">MOUSEMOVE</span></code> Mouse Move, MsMov.</li>
+<li><code class="docutils literal"><span class="pre">INBETWEEN_MOUSEMOVE</span></code> In-between Move, MsSubMov.</li>
+<li><code class="docutils literal"><span class="pre">TRACKPADPAN</span></code> Mouse/Trackpad Pan, MsPan.</li>
+<li><code class="docutils literal"><span class="pre">TRACKPADZOOM</span></code> Mouse/Trackpad Zoom, MsZoom.</li>
+<li><code class="docutils literal"><span class="pre">MOUSEROTATE</span></code> Mouse/Trackpad Rotate, MsRot.</li>
+<li><code class="docutils literal"><span class="pre">WHEELUPMOUSE</span></code> Wheel Up, WhUp.</li>
+<li><code class="docutils literal"><span class="pre">WHEELDOWNMOUSE</span></code> Wheel Down, WhDown.</li>
+<li><code class="docutils literal"><span class="pre">WHEELINMOUSE</span></code> Wheel In, WhIn.</li>
+<li><code class="docutils literal"><span class="pre">WHEELOUTMOUSE</span></code> Wheel Out, WhOut.</li>
+<li><code class="docutils literal"><span class="pre">EVT_TWEAK_L</span></code> Tweak Left, TwkL.</li>
+<li><code class="docutils literal"><span class="pre">EVT_TWEAK_M</span></code> Tweak Middle, TwkM.</li>
+<li><code class="docutils literal"><span class="pre">EVT_TWEAK_R</span></code> Tweak Right, TwkR.</li>
+<li><code class="docutils literal"><span class="pre">EVT_TWEAK_A</span></code> Tweak Action, TwkA.</li>
+<li><code class="docutils literal"><span class="pre">EVT_TWEAK_S</span></code> Tweak Select, TwkS.</li>
+<li><code class="docutils literal"><span class="pre">A</span></code> A.</li>
+<li><code class="docutils literal"><span class="pre">B</span></code> B.</li>
+<li><code class="docutils literal"><span class="pre">C</span></code> C.</li>
+<li><code class="docutils literal"><span class="pre">D</span></code> D.</li>
+<li><code class="docutils literal"><span class="pre">E</span></code> E.</li>
+<li><code class="docutils literal"><span class="pre">F</span></code> F.</li>
+<li><code class="docutils literal"><span class="pre">G</span></code> G.</li>
+<li><code class="docutils literal"><span class="pre">H</span></code> H.</li>
+<li><code class="docutils literal"><span class="pre">I</span></code> I.</li>
+<li><code class="docutils literal"><span class="pre">J</span></code> J.</li>
+<li><code class="docutils literal"><span class="pre">K</span></code> K.</li>
+<li><code class="docutils literal"><span class="pre">L</span></code> L.</li>
+<li><code class="docutils literal"><span class="pre">M</span></code> M.</li>
+<li><code class="docutils literal"><span class="pre">N</span></code> N.</li>
+<li><code class="docutils literal"><span class="pre">O</span></code> O.</li>
+<li><code class="docutils literal"><span class="pre">P</span></code> P.</li>
+<li><code class="docutils literal"><span class="pre">Q</span></code> Q.</li>
+<li><code class="docutils literal"><span class="pre">R</span></code> R.</li>
+<li><code class="docutils literal"><span class="pre">S</span></code> S.</li>
+<li><code class="docutils literal"><span class="pre">T</span></code> T.</li>
+<li><code class="docutils literal"><span class="pre">U</span></code> U.</li>
+<li><code class="docutils literal"><span class="pre">V</span></code> V.</li>
+<li><code class="docutils literal"><span class="pre">W</span></code> W.</li>
+<li><code class="docutils literal"><span class="pre">X</span></code> X.</li>
+<li><code class="docutils literal"><span class="pre">Y</span></code> Y.</li>
+<li><code class="docutils literal"><span class="pre">Z</span></code> Z.</li>
+<li><code class="docutils literal"><span class="pre">ZERO</span></code> 0.</li>
+<li><code class="docutils literal"><span class="pre">ONE</span></code> 1.</li>
+<li><code class="docutils literal"><span class="pre">TWO</span></code> 2.</li>
+<li><code class="docutils literal"><span class="pre">THREE</span></code> 3.</li>
+<li><code class="docutils literal"><span class="pre">FOUR</span></code> 4.</li>
+<li><code class="docutils literal"><span class="pre">FIVE</span></code> 5.</li>
+<li><code class="docutils literal"><span class="pre">SIX</span></code> 6.</li>
+<li><code class="docutils literal"><span class="pre">SEVEN</span></code> 7.</li>
+<li><code class="docutils literal"><span class="pre">EIGHT</span></code> 8.</li>
+<li><code class="docutils literal"><span class="pre">NINE</span></code> 9.</li>
+<li><code class="docutils literal"><span class="pre">LEFT_CTRL</span></code> Left Ctrl, CtrlL.</li>
+<li><code class="docutils literal"><span class="pre">LEFT_ALT</span></code> Left Alt, AltL.</li>
+<li><code class="docutils literal"><span class="pre">LEFT_SHIFT</span></code> Left Shift, ShiftL.</li>
+<li><code class="docutils literal"><span class="pre">RIGHT_ALT</span></code> Right Alt, AltR.</li>
+<li><code class="docutils literal"><span class="pre">RIGHT_CTRL</span></code> Right Ctrl, CtrlR.</li>
+<li><code class="docutils literal"><span class="pre">RIGHT_SHIFT</span></code> Right Shift, ShiftR.</li>
+<li><code class="docutils literal"><span class="pre">OSKEY</span></code> OS Key, Cmd.</li>
+<li><code class="docutils literal"><span class="pre">GRLESS</span></code> Grless.</li>
+<li><code class="docutils literal"><span class="pre">ESC</span></code> Esc.</li>
+<li><code class="docutils literal"><span class="pre">TAB</span></code> Tab.</li>
+<li><code class="docutils literal"><span class="pre">RET</span></code> Return, Enter.</li>
+<li><code class="docutils literal"><span class="pre">SPACE</span></code> Spacebar, Space.</li>
+<li><code class="docutils literal"><span class="pre">LINE_FEED</span></code> Line Feed.</li>
+<li><code class="docutils literal"><span class="pre">BACK_SPACE</span></code> Back Space, BkSpace.</li>
+<li><code class="docutils literal"><span class="pre">DEL</span></code> Delete, Del.</li>
+<li><code class="docutils literal"><span class="pre">SEMI_COLON</span></code> ;.</li>
+<li><code class="docutils literal"><span class="pre">PERIOD</span></code> ..</li>
+<li><code class="docutils literal"><span class="pre">COMMA</span></code> ,.</li>
+<li><code class="docutils literal"><span class="pre">QUOTE</span></code> &#8221;.</li>
+<li><code class="docutils literal"><span class="pre">ACCENT_GRAVE</span></code> `.</li>
+<li><code class="docutils literal"><span class="pre">MINUS</span></code> -.</li>
+<li><code class="docutils literal"><span class="pre">PLUS</span></code> +.</li>
+<li><code class="docutils literal"><span class="pre">SLASH</span></code> /.</li>
+<li><code class="docutils literal"><span class="pre">BACK_SLASH</span></code> \.</li>
+<li><code class="docutils literal"><span class="pre">EQUAL</span></code> =.</li>
+<li><code class="docutils literal"><span class="pre">LEFT_BRACKET</span></code> [.</li>
+<li><code class="docutils literal"><span class="pre">RIGHT_BRACKET</span></code> ].</li>
+<li><code class="docutils literal"><span class="pre">LEFT_ARROW</span></code> Left Arrow, ←.</li>
+<li><code class="docutils literal"><span class="pre">DOWN_ARROW</span></code> Down Arrow, ↓.</li>
+<li><code class="docutils literal"><span class="pre">RIGHT_ARROW</span></code> Right Arrow, →.</li>
+<li><code class="docutils literal"><span class="pre">UP_ARROW</span></code> Up Arrow, ↑.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_2</span></code> Numpad 2, Pad2.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_4</span></code> Numpad 4, Pad4.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_6</span></code> Numpad 6, Pad6.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_8</span></code> Numpad 8, Pad8.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_1</span></code> Numpad 1, Pad1.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_3</span></code> Numpad 3, Pad3.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_5</span></code> Numpad 5, Pad5.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_7</span></code> Numpad 7, Pad7.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_9</span></code> Numpad 9, Pad9.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_PERIOD</span></code> Numpad ., Pad..</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_SLASH</span></code> Numpad /, Pad/.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_ASTERIX</span></code> Numpad *, Pad*.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_0</span></code> Numpad 0, Pad0.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_MINUS</span></code> Numpad -, Pad-.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_ENTER</span></code> Numpad Enter, PadEnter.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_PLUS</span></code> Numpad +, Pad+.</li>
+<li><code class="docutils literal"><span class="pre">F1</span></code> F1.</li>
+<li><code class="docutils literal"><span class="pre">F2</span></code> F2.</li>
+<li><code class="docutils literal"><span class="pre">F3</span></code> F3.</li>
+<li><code class="docutils literal"><span class="pre">F4</span></code> F4.</li>
+<li><code class="docutils literal"><span class="pre">F5</span></code> F5.</li>
+<li><code class="docutils literal"><span class="pre">F6</span></code> F6.</li>
+<li><code class="docutils literal"><span class="pre">F7</span></code> F7.</li>
+<li><code class="docutils literal"><span class="pre">F8</span></code> F8.</li>
+<li><code class="docutils literal"><span class="pre">F9</span></code> F9.</li>
+<li><code class="docutils literal"><span class="pre">F10</span></code> F10.</li>
+<li><code class="docutils literal"><span class="pre">F11</span></code> F11.</li>
+<li><code class="docutils literal"><span class="pre">F12</span></code> F12.</li>
+<li><code class="docutils literal"><span class="pre">F13</span></code> F13.</li>
+<li><code class="docutils literal"><span class="pre">F14</span></code> F14.</li>
+<li><code class="docutils literal"><span class="pre">F15</span></code> F15.</li>
+<li><code class="docutils literal"><span class="pre">F16</span></code> F16.</li>
+<li><code class="docutils literal"><span class="pre">F17</span></code> F17.</li>
+<li><code class="docutils literal"><span class="pre">F18</span></code> F18.</li>
+<li><code class="docutils literal"><span class="pre">F19</span></code> F19.</li>
+<li><code class="docutils literal"><span class="pre">PAUSE</span></code> Pause.</li>
+<li><code class="docutils literal"><span class="pre">INSERT</span></code> Insert, Ins.</li>
+<li><code class="docutils literal"><span class="pre">HOME</span></code> Home.</li>
+<li><code class="docutils literal"><span class="pre">PAGE_UP</span></code> Page Up, PgUp.</li>
+<li><code class="docutils literal"><span class="pre">PAGE_DOWN</span></code> Page Down, PgDown.</li>
+<li><code class="docutils literal"><span class="pre">END</span></code> End.</li>
+<li><code class="docutils literal"><span class="pre">MEDIA_PLAY</span></code> Media Play/Pause, &gt;/||.</li>
+<li><code class="docutils literal"><span class="pre">MEDIA_STOP</span></code> Media Stop, Stop.</li>
+<li><code class="docutils literal"><span class="pre">MEDIA_FIRST</span></code> Media First, |&lt;&lt;.</li>
+<li><code class="docutils literal"><span class="pre">MEDIA_LAST</span></code> Media Last, &gt;&gt;|.</li>
+<li><code class="docutils literal"><span class="pre">TEXTINPUT</span></code> Text Input, TxtIn.</li>
+<li><code class="docutils literal"><span class="pre">WINDOW_DEACTIVATE</span></code> Window Deactivate.</li>
+<li><code class="docutils literal"><span class="pre">TIMER</span></code> Timer, Tmr.</li>
+<li><code class="docutils literal"><span class="pre">TIMER0</span></code> Timer 0, Tmr0.</li>
+<li><code class="docutils literal"><span class="pre">TIMER1</span></code> Timer 1, Tmr1.</li>
+<li><code class="docutils literal"><span class="pre">TIMER2</span></code> Timer 2, Tmr2.</li>
+<li><code class="docutils literal"><span class="pre">TIMER_JOBS</span></code> Timer Jobs, TmrJob.</li>
+<li><code class="docutils literal"><span class="pre">TIMER_AUTOSAVE</span></code> Timer Autosave, TmrSave.</li>
+<li><code class="docutils literal"><span class="pre">TIMER_REPORT</span></code> Timer Report, TmrReport.</li>
+<li><code class="docutils literal"><span class="pre">TIMERREGION</span></code> Timer Region, TmrReg.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_MOTION</span></code> NDOF Motion, NdofMov.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_MENU</span></code> NDOF Menu, NdofMenu.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_FIT</span></code> NDOF Fit, NdofFit.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_TOP</span></code> NDOF Top, Ndof↑.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_BOTTOM</span></code> NDOF Bottom, Ndof↓.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_LEFT</span></code> NDOF Left, Ndof←.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_RIGHT</span></code> NDOF Right, Ndof→.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_FRONT</span></code> NDOF Front, NdofFront.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_BACK</span></code> NDOF Back, NdofBack.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_ISO1</span></code> NDOF Isometric 1, NdofIso1.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_ISO2</span></code> NDOF Isometric 2, NdofIso2.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_ROLL_CW</span></code> NDOF Roll CW, NdofRCW.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_ROLL_CCW</span></code> NDOF Roll CCW, NdofRCCW.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_SPIN_CW</span></code> NDOF Spin CW, NdofSCW.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_SPIN_CCW</span></code> NDOF Spin CCW, NdofSCCW.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_TILT_CW</span></code> NDOF Tilt CW, NdofTCW.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_TILT_CCW</span></code> NDOF Tilt CCW, NdofTCCW.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_ROTATE</span></code> NDOF Rotate, NdofRot.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_PANZOOM</span></code> NDOF Pan/Zoom, NdofPanZoom.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_DOMINANT</span></code> NDOF Dominant, NdofDom.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_PLUS</span></code> NDOF Plus, Ndof+.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_MINUS</span></code> NDOF Minus, Ndof-.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_ESC</span></code> NDOF Esc, NdofEsc.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_ALT</span></code> NDOF Alt, NdofAlt.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_SHIFT</span></code> NDOF Shift, NdofShift.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_CTRL</span></code> NDOF Ctrl, NdofCtrl.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_1</span></code> NDOF Button 1, NdofB1.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_2</span></code> NDOF Button 2, NdofB2.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_3</span></code> NDOF Button 3, NdofB3.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_4</span></code> NDOF Button 4, NdofB4.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_5</span></code> NDOF Button 5, NdofB5.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_6</span></code> NDOF Button 6, NdofB6.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_7</span></code> NDOF Button 7, NdofB7.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_8</span></code> NDOF Button 8, NdofB8.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_9</span></code> NDOF Button 9, NdofB9.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_10</span></code> NDOF Button 10, NdofB10.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_A</span></code> NDOF Button A, NdofBA.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_B</span></code> NDOF Button B, NdofBB.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_C</span></code> NDOF Button C, NdofBC.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;LEFTMOUSE&#8217;, &#8216;MIDDLEMOUSE&#8217;, &#8216;RIGHTMOUSE&#8217;, &#8216;BUTTON4MOUSE&#8217;, &#8216;BUTTON5MOUSE&#8217;, &#8216;BUTTON6MOUSE&#8217;, &#8216;BUTTON7MOUSE&#8217;, &#8216;ACTIONMOUSE&#8217;, &#8216;SELECTMOUSE&#8217;, &#8216;PEN&#8217;, &#8216;ERASER&#8217;, &#8216;MOUSEMOVE&#8217;, &#8216;INBETWEEN_MOUSEMOVE&#8217;, &#8216;TRACKPADPAN&#8217;, &#8216;TRACKPADZOOM&#8217;, &#8216;MOUSEROTATE&#8217;, &#8216;WHEELUPMOUSE&#8217;, &#8216;WHEELDOWNMOUSE&#8217;, &#8216;WHEELINMOUSE&#8217;, &#8216;WHEELOUTMOUSE&#8217;, &#8216;EVT_TWEAK_L&#8217;, &#8216;EVT_TWEAK_M&#8217;, &#8216;EVT_TWEAK_R&#8217;, &#8216;EVT_TWEAK_A&#8217;, &#8216;EVT_TWEAK_S&#8217;, &#8216;A&#8217;, &#8216;B&#8217;, &#8216;C&#8217;, &#8216;D&#8217;, &#8216;E&#8217;, &#8216;F&#8217;, &#8216;G&#8217;, &#8216;H&#8217;, &#8216;I&#8217;, &#8216;J&#8217;, &#8216;K&#8217;, &#8216;L&#8217;, &#8216;M&#8217;, &#8216;N&#8217;, &#8216;O&#8217;, &#8216;P&#8217;, &#8216;Q&#8217;, &#8216;R&#8217;, &#8216;S&#8217;, &#8216;T&#8217;, &#8216;U&#8217;, &#8216;V&#8217;, &#8216;W&#8217;, &#8216;X&#8217;, &#8216;Y&#8217;, &#8216;Z&#8217;, &#8216;ZERO&#8217;, &#8216;ONE&#8217;, &#8216;TWO&#8217;, &#8216;THREE&#8217;, &#8216;FOUR&#8217;, &#8216;FIVE&#8217;, &#8216;SIX&#8217;, &#8216;SEVEN&#8217;, &#8216;EIGHT&#8217;, &#8216;NINE&#8217;, &#8216;LEFT_CTRL&#8217;, &#8216;LEFT_ALT&#8217;, &#8216;LEFT_SHIFT&#8217;, &#8216;RIGHT_ALT&#8217;, &#8216;RIGHT_CTRL&#8217;, &#8216;RIGHT_SHIFT&#8217;, &#8216;OSKEY&#8217;, &#8216;GRLESS&#8217;, &#8216;ESC&#8217;, &#8216;TAB&#8217;, &#8216;RET&#8217;, &#8216;SPACE&#8217;, &#8216;LINE_FEED&#8217;, &#8216;BACK_SPACE&#8217;, &#8216;DEL&#8217;, &#8216;SEMI_COLON&#8217;, &#8216;PERIOD&#8217;, &#8216;COMMA&#8217;, &#8216;QUOTE&#8217;, &#8216;ACCENT_GRAVE&#8217;, &#8216;MINUS&#8217;, &#8216;PLUS&#8217;, &#8216;SLASH&#8217;, &#8216;BACK_SLASH&#8217;, &#8216;EQUAL&#8217;, &#8216;LEFT_BRACKET&#8217;, &#8216;RIGHT_BRACKET&#8217;, &#8216;LEFT_ARROW&#8217;, &#8216;DOWN_ARROW&#8217;, &#8216;RIGHT_ARROW&#8217;, &#8216;UP_ARROW&#8217;, &#8216;NUMPAD_2&#8217;, &#8216;NUMPAD_4&#8217;, &#8216;NUMPAD_6&#8217;, &#8216;NUMPAD_8&#8217;, &#8216;NUMPAD_1&#8217;, &#8216;NUMPAD_3&#8217;, &#8216;NUMPAD_5&#8217;, &#8216;NUMPAD_7&#8217;, &#8216;NUMPAD_9&#8217;, &#8216;NUMPAD_PERIOD&#8217;, &#8216;NUMPAD_SLASH&#8217;, &#8216;NUMPAD_ASTERIX&#8217;, &#8216;NUMPAD_0&#8217;, &#8216;NUMPAD_MINUS&#8217;, &#8216;NUMPAD_ENTER&#8217;, &#8216;NUMPAD_PLUS&#8217;, &#8216;F1&#8217;, &#8216;F2&#8217;, &#8216;F3&#8217;, &#8216;F4&#8217;, &#8216;F5&#8217;, &#8216;F6&#8217;, &#8216;F7&#8217;, &#8216;F8&#8217;, &#8216;F9&#8217;, &#8216;F10&#8217;, &#8216;F11&#8217;, &#8216;F12&#8217;, &#8216;F13&#8217;, &#8216;F14&#8217;, &#8216;F15&#8217;, &#8216;F16&#8217;, &#8216;F17&#8217;, &#8216;F18&#8217;, &#8216;F19&#8217;, &#8216;PAUSE&#8217;, &#8216;INSERT&#8217;, &#8216;HOME&#8217;, &#8216;PAGE_UP&#8217;, &#8216;PAGE_DOWN&#8217;, &#8216;END&#8217;, &#8216;MEDIA_PLAY&#8217;, &#8216;MEDIA_STOP&#8217;, &#8216;MEDIA_FIRST&#8217;, &#8216;MEDIA_LAST&#8217;, &#8216;TEXTINPUT&#8217;, &#8216;WINDOW_DEACTIVATE&#8217;, &#8216;TIMER&#8217;, &#8216;TIMER0&#8217;, &#8216;TIMER1&#8217;, &#8216;TIMER2&#8217;, &#8216;TIMER_JOBS&#8217;, &#8216;TIMER_AUTOSAVE&#8217;, &#8216;TIMER_REPORT&#8217;, &#8216;TIMERREGION&#8217;, &#8216;NDOF_MOTION&#8217;, &#8216;NDOF_BUTTON_MENU&#8217;, &#8216;NDOF_BUTTON_FIT&#8217;, &#8216;NDOF_BUTTON_TOP&#8217;, &#8216;NDOF_BUTTON_BOTTOM&#8217;, &#8216;NDOF_BUTTON_LEFT&#8217;, &#8216;NDOF_BUTTON_RIGHT&#8217;, &#8216;NDOF_BUTTON_FRONT&#8217;, &#8216;NDOF_BUTTON_BACK&#8217;, &#8216;NDOF_BUTTON_ISO1&#8217;, &#8216;NDOF_BUTTON_ISO2&#8217;, &#8216;NDOF_BUTTON_ROLL_CW&#8217;, &#8216;NDOF_BUTTON_ROLL_CCW&#8217;, &#8216;NDOF_BUTTON_SPIN_CW&#8217;, &#8216;NDOF_BUTTON_SPIN_CCW&#8217;, &#8216;NDOF_BUTTON_TILT_CW&#8217;, &#8216;NDOF_BUTTON_TILT_CCW&#8217;, &#8216;NDOF_BUTTON_ROTATE&#8217;, &#8216;NDOF_BUTTON_PANZOOM&#8217;, &#8216;NDOF_BUTTON_DOMINANT&#8217;, &#8216;NDOF_BUTTON_PLUS&#8217;, &#8216;NDOF_BUTTON_MINUS&#8217;, &#8216;NDOF_BUTTON_ESC&#8217;, &#8216;NDOF_BUTTON_ALT&#8217;, &#8216;NDOF_BUTTON_SHIFT&#8217;, &#8216;NDOF_BUTTON_CTRL&#8217;, &#8216;NDOF_BUTTON_1&#8217;, &#8216;NDOF_BUTTON_2&#8217;, &#8216;NDOF_BUTTON_3&#8217;, &#8216;NDOF_BUTTON_4&#8217;, &#8216;NDOF_BUTTON_5&#8217;, &#8216;NDOF_BUTTON_6&#8217;, &#8216;NDOF_BUTTON_7&#8217;, &#8216;NDOF_BUTTON_8&#8217;, &#8216;NDOF_BUTTON_9&#8217;, &#8216;NDOF_BUTTON_10&#8217;, &#8216;NDOF_BUTTON_A&#8217;, &#8216;NDOF_BUTTON_B&#8217;, &#8216;NDOF_BUTTON_C&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.KeyboardSensor.log">
+<code class="descname">log</code><a class="headerlink" href="#bpy.types.KeyboardSensor.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property that indicates whether to log keystrokes as a string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.KeyboardSensor.modifier_key_1">
+<code class="descname">modifier_key_1</code><a class="headerlink" href="#bpy.types.KeyboardSensor.modifier_key_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifier key code</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">NONE</span></code> .</li>
+<li><code class="docutils literal"><span class="pre">LEFTMOUSE</span></code> Left Mouse, LMB.</li>
+<li><code class="docutils literal"><span class="pre">MIDDLEMOUSE</span></code> Middle Mouse, MMB.</li>
+<li><code class="docutils literal"><span class="pre">RIGHTMOUSE</span></code> Right Mouse, RMB.</li>
+<li><code class="docutils literal"><span class="pre">BUTTON4MOUSE</span></code> Button4 Mouse, MB4.</li>
+<li><code class="docutils literal"><span class="pre">BUTTON5MOUSE</span></code> Button5 Mouse, MB5.</li>
+<li><code class="docutils literal"><span class="pre">BUTTON6MOUSE</span></code> Button6 Mouse, MB6.</li>
+<li><code class="docutils literal"><span class="pre">BUTTON7MOUSE</span></code> Button7 Mouse, MB7.</li>
+<li><code class="docutils literal"><span class="pre">ACTIONMOUSE</span></code> Action Mouse, MBA.</li>
+<li><code class="docutils literal"><span class="pre">SELECTMOUSE</span></code> Select Mouse, MBS.</li>
+<li><code class="docutils literal"><span class="pre">PEN</span></code> Pen.</li>
+<li><code class="docutils literal"><span class="pre">ERASER</span></code> Eraser.</li>
+<li><code class="docutils literal"><span class="pre">MOUSEMOVE</span></code> Mouse Move, MsMov.</li>
+<li><code class="docutils literal"><span class="pre">INBETWEEN_MOUSEMOVE</span></code> In-between Move, MsSubMov.</li>
+<li><code class="docutils literal"><span class="pre">TRACKPADPAN</span></code> Mouse/Trackpad Pan, MsPan.</li>
+<li><code class="docutils literal"><span class="pre">TRACKPADZOOM</span></code> Mouse/Trackpad Zoom, MsZoom.</li>
+<li><code class="docutils literal"><span class="pre">MOUSEROTATE</span></code> Mouse/Trackpad Rotate, MsRot.</li>
+<li><code class="docutils literal"><span class="pre">WHEELUPMOUSE</span></code> Wheel Up, WhUp.</li>
+<li><code class="docutils literal"><span class="pre">WHEELDOWNMOUSE</span></code> Wheel Down, WhDown.</li>
+<li><code class="docutils literal"><span class="pre">WHEELINMOUSE</span></code> Wheel In, WhIn.</li>
+<li><code class="docutils literal"><span class="pre">WHEELOUTMOUSE</span></code> Wheel Out, WhOut.</li>
+<li><code class="docutils literal"><span class="pre">EVT_TWEAK_L</span></code> Tweak Left, TwkL.</li>
+<li><code class="docutils literal"><span class="pre">EVT_TWEAK_M</span></code> Tweak Middle, TwkM.</li>
+<li><code class="docutils literal"><span class="pre">EVT_TWEAK_R</span></code> Tweak Right, TwkR.</li>
+<li><code class="docutils literal"><span class="pre">EVT_TWEAK_A</span></code> Tweak Action, TwkA.</li>
+<li><code class="docutils literal"><span class="pre">EVT_TWEAK_S</span></code> Tweak Select, TwkS.</li>
+<li><code class="docutils literal"><span class="pre">A</span></code> A.</li>
+<li><code class="docutils literal"><span class="pre">B</span></code> B.</li>
+<li><code class="docutils literal"><span class="pre">C</span></code> C.</li>
+<li><code class="docutils literal"><span class="pre">D</span></code> D.</li>
+<li><code class="docutils literal"><span class="pre">E</span></code> E.</li>
+<li><code class="docutils literal"><span class="pre">F</span></code> F.</li>
+<li><code class="docutils literal"><span class="pre">G</span></code> G.</li>
+<li><code class="docutils literal"><span class="pre">H</span></code> H.</li>
+<li><code class="docutils literal"><span class="pre">I</span></code> I.</li>
+<li><code class="docutils literal"><span class="pre">J</span></code> J.</li>
+<li><code class="docutils literal"><span class="pre">K</span></code> K.</li>
+<li><code class="docutils literal"><span class="pre">L</span></code> L.</li>
+<li><code class="docutils literal"><span class="pre">M</span></code> M.</li>
+<li><code class="docutils literal"><span class="pre">N</span></code> N.</li>
+<li><code class="docutils literal"><span class="pre">O</span></code> O.</li>
+<li><code class="docutils literal"><span class="pre">P</span></code> P.</li>
+<li><code class="docutils literal"><span class="pre">Q</span></code> Q.</li>
+<li><code class="docutils literal"><span class="pre">R</span></code> R.</li>
+<li><code class="docutils literal"><span class="pre">S</span></code> S.</li>
+<li><code class="docutils literal"><span class="pre">T</span></code> T.</li>
+<li><code class="docutils literal"><span class="pre">U</span></code> U.</li>
+<li><code class="docutils literal"><span class="pre">V</span></code> V.</li>
+<li><code class="docutils literal"><span class="pre">W</span></code> W.</li>
+<li><code class="docutils literal"><span class="pre">X</span></code> X.</li>
+<li><code class="docutils literal"><span class="pre">Y</span></code> Y.</li>
+<li><code class="docutils literal"><span class="pre">Z</span></code> Z.</li>
+<li><code class="docutils literal"><span class="pre">ZERO</span></code> 0.</li>
+<li><code class="docutils literal"><span class="pre">ONE</span></code> 1.</li>
+<li><code class="docutils literal"><span class="pre">TWO</span></code> 2.</li>
+<li><code class="docutils literal"><span class="pre">THREE</span></code> 3.</li>
+<li><code class="docutils literal"><span class="pre">FOUR</span></code> 4.</li>
+<li><code class="docutils literal"><span class="pre">FIVE</span></code> 5.</li>
+<li><code class="docutils literal"><span class="pre">SIX</span></code> 6.</li>
+<li><code class="docutils literal"><span class="pre">SEVEN</span></code> 7.</li>
+<li><code class="docutils literal"><span class="pre">EIGHT</span></code> 8.</li>
+<li><code class="docutils literal"><span class="pre">NINE</span></code> 9.</li>
+<li><code class="docutils literal"><span class="pre">LEFT_CTRL</span></code> Left Ctrl, CtrlL.</li>
+<li><code class="docutils literal"><span class="pre">LEFT_ALT</span></code> Left Alt, AltL.</li>
+<li><code class="docutils literal"><span class="pre">LEFT_SHIFT</span></code> Left Shift, ShiftL.</li>
+<li><code class="docutils literal"><span class="pre">RIGHT_ALT</span></code> Right Alt, AltR.</li>
+<li><code class="docutils literal"><span class="pre">RIGHT_CTRL</span></code> Right Ctrl, CtrlR.</li>
+<li><code class="docutils literal"><span class="pre">RIGHT_SHIFT</span></code> Right Shift, ShiftR.</li>
+<li><code class="docutils literal"><span class="pre">OSKEY</span></code> OS Key, Cmd.</li>
+<li><code class="docutils literal"><span class="pre">GRLESS</span></code> Grless.</li>
+<li><code class="docutils literal"><span class="pre">ESC</span></code> Esc.</li>
+<li><code class="docutils literal"><span class="pre">TAB</span></code> Tab.</li>
+<li><code class="docutils literal"><span class="pre">RET</span></code> Return, Enter.</li>
+<li><code class="docutils literal"><span class="pre">SPACE</span></code> Spacebar, Space.</li>
+<li><code class="docutils literal"><span class="pre">LINE_FEED</span></code> Line Feed.</li>
+<li><code class="docutils literal"><span class="pre">BACK_SPACE</span></code> Back Space, BkSpace.</li>
+<li><code class="docutils literal"><span class="pre">DEL</span></code> Delete, Del.</li>
+<li><code class="docutils literal"><span class="pre">SEMI_COLON</span></code> ;.</li>
+<li><code class="docutils literal"><span class="pre">PERIOD</span></code> ..</li>
+<li><code class="docutils literal"><span class="pre">COMMA</span></code> ,.</li>
+<li><code class="docutils literal"><span class="pre">QUOTE</span></code> &#8221;.</li>
+<li><code class="docutils literal"><span class="pre">ACCENT_GRAVE</span></code> `.</li>
+<li><code class="docutils literal"><span class="pre">MINUS</span></code> -.</li>
+<li><code class="docutils literal"><span class="pre">PLUS</span></code> +.</li>
+<li><code class="docutils literal"><span class="pre">SLASH</span></code> /.</li>
+<li><code class="docutils literal"><span class="pre">BACK_SLASH</span></code> \.</li>
+<li><code class="docutils literal"><span class="pre">EQUAL</span></code> =.</li>
+<li><code class="docutils literal"><span class="pre">LEFT_BRACKET</span></code> [.</li>
+<li><code class="docutils literal"><span class="pre">RIGHT_BRACKET</span></code> ].</li>
+<li><code class="docutils literal"><span class="pre">LEFT_ARROW</span></code> Left Arrow, ←.</li>
+<li><code class="docutils literal"><span class="pre">DOWN_ARROW</span></code> Down Arrow, ↓.</li>
+<li><code class="docutils literal"><span class="pre">RIGHT_ARROW</span></code> Right Arrow, →.</li>
+<li><code class="docutils literal"><span class="pre">UP_ARROW</span></code> Up Arrow, ↑.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_2</span></code> Numpad 2, Pad2.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_4</span></code> Numpad 4, Pad4.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_6</span></code> Numpad 6, Pad6.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_8</span></code> Numpad 8, Pad8.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_1</span></code> Numpad 1, Pad1.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_3</span></code> Numpad 3, Pad3.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_5</span></code> Numpad 5, Pad5.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_7</span></code> Numpad 7, Pad7.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_9</span></code> Numpad 9, Pad9.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_PERIOD</span></code> Numpad ., Pad..</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_SLASH</span></code> Numpad /, Pad/.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_ASTERIX</span></code> Numpad *, Pad*.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_0</span></code> Numpad 0, Pad0.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_MINUS</span></code> Numpad -, Pad-.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_ENTER</span></code> Numpad Enter, PadEnter.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_PLUS</span></code> Numpad +, Pad+.</li>
+<li><code class="docutils literal"><span class="pre">F1</span></code> F1.</li>
+<li><code class="docutils literal"><span class="pre">F2</span></code> F2.</li>
+<li><code class="docutils literal"><span class="pre">F3</span></code> F3.</li>
+<li><code class="docutils literal"><span class="pre">F4</span></code> F4.</li>
+<li><code class="docutils literal"><span class="pre">F5</span></code> F5.</li>
+<li><code class="docutils literal"><span class="pre">F6</span></code> F6.</li>
+<li><code class="docutils literal"><span class="pre">F7</span></code> F7.</li>
+<li><code class="docutils literal"><span class="pre">F8</span></code> F8.</li>
+<li><code class="docutils literal"><span class="pre">F9</span></code> F9.</li>
+<li><code class="docutils literal"><span class="pre">F10</span></code> F10.</li>
+<li><code class="docutils literal"><span class="pre">F11</span></code> F11.</li>
+<li><code class="docutils literal"><span class="pre">F12</span></code> F12.</li>
+<li><code class="docutils literal"><span class="pre">F13</span></code> F13.</li>
+<li><code class="docutils literal"><span class="pre">F14</span></code> F14.</li>
+<li><code class="docutils literal"><span class="pre">F15</span></code> F15.</li>
+<li><code class="docutils literal"><span class="pre">F16</span></code> F16.</li>
+<li><code class="docutils literal"><span class="pre">F17</span></code> F17.</li>
+<li><code class="docutils literal"><span class="pre">F18</span></code> F18.</li>
+<li><code class="docutils literal"><span class="pre">F19</span></code> F19.</li>
+<li><code class="docutils literal"><span class="pre">PAUSE</span></code> Pause.</li>
+<li><code class="docutils literal"><span class="pre">INSERT</span></code> Insert, Ins.</li>
+<li><code class="docutils literal"><span class="pre">HOME</span></code> Home.</li>
+<li><code class="docutils literal"><span class="pre">PAGE_UP</span></code> Page Up, PgUp.</li>
+<li><code class="docutils literal"><span class="pre">PAGE_DOWN</span></code> Page Down, PgDown.</li>
+<li><code class="docutils literal"><span class="pre">END</span></code> End.</li>
+<li><code class="docutils literal"><span class="pre">MEDIA_PLAY</span></code> Media Play/Pause, &gt;/||.</li>
+<li><code class="docutils literal"><span class="pre">MEDIA_STOP</span></code> Media Stop, Stop.</li>
+<li><code class="docutils literal"><span class="pre">MEDIA_FIRST</span></code> Media First, |&lt;&lt;.</li>
+<li><code class="docutils literal"><span class="pre">MEDIA_LAST</span></code> Media Last, &gt;&gt;|.</li>
+<li><code class="docutils literal"><span class="pre">TEXTINPUT</span></code> Text Input, TxtIn.</li>
+<li><code class="docutils literal"><span class="pre">WINDOW_DEACTIVATE</span></code> Window Deactivate.</li>
+<li><code class="docutils literal"><span class="pre">TIMER</span></code> Timer, Tmr.</li>
+<li><code class="docutils literal"><span class="pre">TIMER0</span></code> Timer 0, Tmr0.</li>
+<li><code class="docutils literal"><span class="pre">TIMER1</span></code> Timer 1, Tmr1.</li>
+<li><code class="docutils literal"><span class="pre">TIMER2</span></code> Timer 2, Tmr2.</li>
+<li><code class="docutils literal"><span class="pre">TIMER_JOBS</span></code> Timer Jobs, TmrJob.</li>
+<li><code class="docutils literal"><span class="pre">TIMER_AUTOSAVE</span></code> Timer Autosave, TmrSave.</li>
+<li><code class="docutils literal"><span class="pre">TIMER_REPORT</span></code> Timer Report, TmrReport.</li>
+<li><code class="docutils literal"><span class="pre">TIMERREGION</span></code> Timer Region, TmrReg.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_MOTION</span></code> NDOF Motion, NdofMov.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_MENU</span></code> NDOF Menu, NdofMenu.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_FIT</span></code> NDOF Fit, NdofFit.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_TOP</span></code> NDOF Top, Ndof↑.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_BOTTOM</span></code> NDOF Bottom, Ndof↓.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_LEFT</span></code> NDOF Left, Ndof←.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_RIGHT</span></code> NDOF Right, Ndof→.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_FRONT</span></code> NDOF Front, NdofFront.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_BACK</span></code> NDOF Back, NdofBack.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_ISO1</span></code> NDOF Isometric 1, NdofIso1.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_ISO2</span></code> NDOF Isometric 2, NdofIso2.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_ROLL_CW</span></code> NDOF Roll CW, NdofRCW.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_ROLL_CCW</span></code> NDOF Roll CCW, NdofRCCW.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_SPIN_CW</span></code> NDOF Spin CW, NdofSCW.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_SPIN_CCW</span></code> NDOF Spin CCW, NdofSCCW.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_TILT_CW</span></code> NDOF Tilt CW, NdofTCW.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_TILT_CCW</span></code> NDOF Tilt CCW, NdofTCCW.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_ROTATE</span></code> NDOF Rotate, NdofRot.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_PANZOOM</span></code> NDOF Pan/Zoom, NdofPanZoom.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_DOMINANT</span></code> NDOF Dominant, NdofDom.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_PLUS</span></code> NDOF Plus, Ndof+.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_MINUS</span></code> NDOF Minus, Ndof-.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_ESC</span></code> NDOF Esc, NdofEsc.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_ALT</span></code> NDOF Alt, NdofAlt.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_SHIFT</span></code> NDOF Shift, NdofShift.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_CTRL</span></code> NDOF Ctrl, NdofCtrl.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_1</span></code> NDOF Button 1, NdofB1.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_2</span></code> NDOF Button 2, NdofB2.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_3</span></code> NDOF Button 3, NdofB3.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_4</span></code> NDOF Button 4, NdofB4.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_5</span></code> NDOF Button 5, NdofB5.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_6</span></code> NDOF Button 6, NdofB6.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_7</span></code> NDOF Button 7, NdofB7.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_8</span></code> NDOF Button 8, NdofB8.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_9</span></code> NDOF Button 9, NdofB9.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_10</span></code> NDOF Button 10, NdofB10.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_A</span></code> NDOF Button A, NdofBA.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_B</span></code> NDOF Button B, NdofBB.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_C</span></code> NDOF Button C, NdofBC.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;LEFTMOUSE&#8217;, &#8216;MIDDLEMOUSE&#8217;, &#8216;RIGHTMOUSE&#8217;, &#8216;BUTTON4MOUSE&#8217;, &#8216;BUTTON5MOUSE&#8217;, &#8216;BUTTON6MOUSE&#8217;, &#8216;BUTTON7MOUSE&#8217;, &#8216;ACTIONMOUSE&#8217;, &#8216;SELECTMOUSE&#8217;, &#8216;PEN&#8217;, &#8216;ERASER&#8217;, &#8216;MOUSEMOVE&#8217;, &#8216;INBETWEEN_MOUSEMOVE&#8217;, &#8216;TRACKPADPAN&#8217;, &#8216;TRACKPADZOOM&#8217;, &#8216;MOUSEROTATE&#8217;, &#8216;WHEELUPMOUSE&#8217;, &#8216;WHEELDOWNMOUSE&#8217;, &#8216;WHEELINMOUSE&#8217;, &#8216;WHEELOUTMOUSE&#8217;, &#8216;EVT_TWEAK_L&#8217;, &#8216;EVT_TWEAK_M&#8217;, &#8216;EVT_TWEAK_R&#8217;, &#8216;EVT_TWEAK_A&#8217;, &#8216;EVT_TWEAK_S&#8217;, &#8216;A&#8217;, &#8216;B&#8217;, &#8216;C&#8217;, &#8216;D&#8217;, &#8216;E&#8217;, &#8216;F&#8217;, &#8216;G&#8217;, &#8216;H&#8217;, &#8216;I&#8217;, &#8216;J&#8217;, &#8216;K&#8217;, &#8216;L&#8217;, &#8216;M&#8217;, &#8216;N&#8217;, &#8216;O&#8217;, &#8216;P&#8217;, &#8216;Q&#8217;, &#8216;R&#8217;, &#8216;S&#8217;, &#8216;T&#8217;, &#8216;U&#8217;, &#8216;V&#8217;, &#8216;W&#8217;, &#8216;X&#8217;, &#8216;Y&#8217;, &#8216;Z&#8217;, &#8216;ZERO&#8217;, &#8216;ONE&#8217;, &#8216;TWO&#8217;, &#8216;THREE&#8217;, &#8216;FOUR&#8217;, &#8216;FIVE&#8217;, &#8216;SIX&#8217;, &#8216;SEVEN&#8217;, &#8216;EIGHT&#8217;, &#8216;NINE&#8217;, &#8216;LEFT_CTRL&#8217;, &#8216;LEFT_ALT&#8217;, &#8216;LEFT_SHIFT&#8217;, &#8216;RIGHT_ALT&#8217;, &#8216;RIGHT_CTRL&#8217;, &#8216;RIGHT_SHIFT&#8217;, &#8216;OSKEY&#8217;, &#8216;GRLESS&#8217;, &#8216;ESC&#8217;, &#8216;TAB&#8217;, &#8216;RET&#8217;, &#8216;SPACE&#8217;, &#8216;LINE_FEED&#8217;, &#8216;BACK_SPACE&#8217;, &#8216;DEL&#8217;, &#8216;SEMI_COLON&#8217;, &#8216;PERIOD&#8217;, &#8216;COMMA&#8217;, &#8216;QUOTE&#8217;, &#8216;ACCENT_GRAVE&#8217;, &#8216;MINUS&#8217;, &#8216;PLUS&#8217;, &#8216;SLASH&#8217;, &#8216;BACK_SLASH&#8217;, &#8216;EQUAL&#8217;, &#8216;LEFT_BRACKET&#8217;, &#8216;RIGHT_BRACKET&#8217;, &#8216;LEFT_ARROW&#8217;, &#8216;DOWN_ARROW&#8217;, &#8216;RIGHT_ARROW&#8217;, &#8216;UP_ARROW&#8217;, &#8216;NUMPAD_2&#8217;, &#8216;NUMPAD_4&#8217;, &#8216;NUMPAD_6&#8217;, &#8216;NUMPAD_8&#8217;, &#8216;NUMPAD_1&#8217;, &#8216;NUMPAD_3&#8217;, &#8216;NUMPAD_5&#8217;, &#8216;NUMPAD_7&#8217;, &#8216;NUMPAD_9&#8217;, &#8216;NUMPAD_PERIOD&#8217;, &#8216;NUMPAD_SLASH&#8217;, &#8216;NUMPAD_ASTERIX&#8217;, &#8216;NUMPAD_0&#8217;, &#8216;NUMPAD_MINUS&#8217;, &#8216;NUMPAD_ENTER&#8217;, &#8216;NUMPAD_PLUS&#8217;, &#8216;F1&#8217;, &#8216;F2&#8217;, &#8216;F3&#8217;, &#8216;F4&#8217;, &#8216;F5&#8217;, &#8216;F6&#8217;, &#8216;F7&#8217;, &#8216;F8&#8217;, &#8216;F9&#8217;, &#8216;F10&#8217;, &#8216;F11&#8217;, &#8216;F12&#8217;, &#8216;F13&#8217;, &#8216;F14&#8217;, &#8216;F15&#8217;, &#8216;F16&#8217;, &#8216;F17&#8217;, &#8216;F18&#8217;, &#8216;F19&#8217;, &#8216;PAUSE&#8217;, &#8216;INSERT&#8217;, &#8216;HOME&#8217;, &#8216;PAGE_UP&#8217;, &#8216;PAGE_DOWN&#8217;, &#8216;END&#8217;, &#8216;MEDIA_PLAY&#8217;, &#8216;MEDIA_STOP&#8217;, &#8216;MEDIA_FIRST&#8217;, &#8216;MEDIA_LAST&#8217;, &#8216;TEXTINPUT&#8217;, &#8216;WINDOW_DEACTIVATE&#8217;, &#8216;TIMER&#8217;, &#8216;TIMER0&#8217;, &#8216;TIMER1&#8217;, &#8216;TIMER2&#8217;, &#8216;TIMER_JOBS&#8217;, &#8216;TIMER_AUTOSAVE&#8217;, &#8216;TIMER_REPORT&#8217;, &#8216;TIMERREGION&#8217;, &#8216;NDOF_MOTION&#8217;, &#8216;NDOF_BUTTON_MENU&#8217;, &#8216;NDOF_BUTTON_FIT&#8217;, &#8216;NDOF_BUTTON_TOP&#8217;, &#8216;NDOF_BUTTON_BOTTOM&#8217;, &#8216;NDOF_BUTTON_LEFT&#8217;, &#8216;NDOF_BUTTON_RIGHT&#8217;, &#8216;NDOF_BUTTON_FRONT&#8217;, &#8216;NDOF_BUTTON_BACK&#8217;, &#8216;NDOF_BUTTON_ISO1&#8217;, &#8216;NDOF_BUTTON_ISO2&#8217;, &#8216;NDOF_BUTTON_ROLL_CW&#8217;, &#8216;NDOF_BUTTON_ROLL_CCW&#8217;, &#8216;NDOF_BUTTON_SPIN_CW&#8217;, &#8216;NDOF_BUTTON_SPIN_CCW&#8217;, &#8216;NDOF_BUTTON_TILT_CW&#8217;, &#8216;NDOF_BUTTON_TILT_CCW&#8217;, &#8216;NDOF_BUTTON_ROTATE&#8217;, &#8216;NDOF_BUTTON_PANZOOM&#8217;, &#8216;NDOF_BUTTON_DOMINANT&#8217;, &#8216;NDOF_BUTTON_PLUS&#8217;, &#8216;NDOF_BUTTON_MINUS&#8217;, &#8216;NDOF_BUTTON_ESC&#8217;, &#8216;NDOF_BUTTON_ALT&#8217;, &#8216;NDOF_BUTTON_SHIFT&#8217;, &#8216;NDOF_BUTTON_CTRL&#8217;, &#8216;NDOF_BUTTON_1&#8217;, &#8216;NDOF_BUTTON_2&#8217;, &#8216;NDOF_BUTTON_3&#8217;, &#8216;NDOF_BUTTON_4&#8217;, &#8216;NDOF_BUTTON_5&#8217;, &#8216;NDOF_BUTTON_6&#8217;, &#8216;NDOF_BUTTON_7&#8217;, &#8216;NDOF_BUTTON_8&#8217;, &#8216;NDOF_BUTTON_9&#8217;, &#8216;NDOF_BUTTON_10&#8217;, &#8216;NDOF_BUTTON_A&#8217;, &#8216;NDOF_BUTTON_B&#8217;, &#8216;NDOF_BUTTON_C&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.KeyboardSensor.modifier_key_2">
+<code class="descname">modifier_key_2</code><a class="headerlink" href="#bpy.types.KeyboardSensor.modifier_key_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifier key code</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">NONE</span></code> .</li>
+<li><code class="docutils literal"><span class="pre">LEFTMOUSE</span></code> Left Mouse, LMB.</li>
+<li><code class="docutils literal"><span class="pre">MIDDLEMOUSE</span></code> Middle Mouse, MMB.</li>
+<li><code class="docutils literal"><span class="pre">RIGHTMOUSE</span></code> Right Mouse, RMB.</li>
+<li><code class="docutils literal"><span class="pre">BUTTON4MOUSE</span></code> Button4 Mouse, MB4.</li>
+<li><code class="docutils literal"><span class="pre">BUTTON5MOUSE</span></code> Button5 Mouse, MB5.</li>
+<li><code class="docutils literal"><span class="pre">BUTTON6MOUSE</span></code> Button6 Mouse, MB6.</li>
+<li><code class="docutils literal"><span class="pre">BUTTON7MOUSE</span></code> Button7 Mouse, MB7.</li>
+<li><code class="docutils literal"><span class="pre">ACTIONMOUSE</span></code> Action Mouse, MBA.</li>
+<li><code class="docutils literal"><span class="pre">SELECTMOUSE</span></code> Select Mouse, MBS.</li>
+<li><code class="docutils literal"><span class="pre">PEN</span></code> Pen.</li>
+<li><code class="docutils literal"><span class="pre">ERASER</span></code> Eraser.</li>
+<li><code class="docutils literal"><span class="pre">MOUSEMOVE</span></code> Mouse Move, MsMov.</li>
+<li><code class="docutils literal"><span class="pre">INBETWEEN_MOUSEMOVE</span></code> In-between Move, MsSubMov.</li>
+<li><code class="docutils literal"><span class="pre">TRACKPADPAN</span></code> Mouse/Trackpad Pan, MsPan.</li>
+<li><code class="docutils literal"><span class="pre">TRACKPADZOOM</span></code> Mouse/Trackpad Zoom, MsZoom.</li>
+<li><code class="docutils literal"><span class="pre">MOUSEROTATE</span></code> Mouse/Trackpad Rotate, MsRot.</li>
+<li><code class="docutils literal"><span class="pre">WHEELUPMOUSE</span></code> Wheel Up, WhUp.</li>
+<li><code class="docutils literal"><span class="pre">WHEELDOWNMOUSE</span></code> Wheel Down, WhDown.</li>
+<li><code class="docutils literal"><span class="pre">WHEELINMOUSE</span></code> Wheel In, WhIn.</li>
+<li><code class="docutils literal"><span class="pre">WHEELOUTMOUSE</span></code> Wheel Out, WhOut.</li>
+<li><code class="docutils literal"><span class="pre">EVT_TWEAK_L</span></code> Tweak Left, TwkL.</li>
+<li><code class="docutils literal"><span class="pre">EVT_TWEAK_M</span></code> Tweak Middle, TwkM.</li>
+<li><code class="docutils literal"><span class="pre">EVT_TWEAK_R</span></code> Tweak Right, TwkR.</li>
+<li><code class="docutils literal"><span class="pre">EVT_TWEAK_A</span></code> Tweak Action, TwkA.</li>
+<li><code class="docutils literal"><span class="pre">EVT_TWEAK_S</span></code> Tweak Select, TwkS.</li>
+<li><code class="docutils literal"><span class="pre">A</span></code> A.</li>
+<li><code class="docutils literal"><span class="pre">B</span></code> B.</li>
+<li><code class="docutils literal"><span class="pre">C</span></code> C.</li>
+<li><code class="docutils literal"><span class="pre">D</span></code> D.</li>
+<li><code class="docutils literal"><span class="pre">E</span></code> E.</li>
+<li><code class="docutils literal"><span class="pre">F</span></code> F.</li>
+<li><code class="docutils literal"><span class="pre">G</span></code> G.</li>
+<li><code class="docutils literal"><span class="pre">H</span></code> H.</li>
+<li><code class="docutils literal"><span class="pre">I</span></code> I.</li>
+<li><code class="docutils literal"><span class="pre">J</span></code> J.</li>
+<li><code class="docutils literal"><span class="pre">K</span></code> K.</li>
+<li><code class="docutils literal"><span class="pre">L</span></code> L.</li>
+<li><code class="docutils literal"><span class="pre">M</span></code> M.</li>
+<li><code class="docutils literal"><span class="pre">N</span></code> N.</li>
+<li><code class="docutils literal"><span class="pre">O</span></code> O.</li>
+<li><code class="docutils literal"><span class="pre">P</span></code> P.</li>
+<li><code class="docutils literal"><span class="pre">Q</span></code> Q.</li>
+<li><code class="docutils literal"><span class="pre">R</span></code> R.</li>
+<li><code class="docutils literal"><span class="pre">S</span></code> S.</li>
+<li><code class="docutils literal"><span class="pre">T</span></code> T.</li>
+<li><code class="docutils literal"><span class="pre">U</span></code> U.</li>
+<li><code class="docutils literal"><span class="pre">V</span></code> V.</li>
+<li><code class="docutils literal"><span class="pre">W</span></code> W.</li>
+<li><code class="docutils literal"><span class="pre">X</span></code> X.</li>
+<li><code class="docutils literal"><span class="pre">Y</span></code> Y.</li>
+<li><code class="docutils literal"><span class="pre">Z</span></code> Z.</li>
+<li><code class="docutils literal"><span class="pre">ZERO</span></code> 0.</li>
+<li><code class="docutils literal"><span class="pre">ONE</span></code> 1.</li>
+<li><code class="docutils literal"><span class="pre">TWO</span></code> 2.</li>
+<li><code class="docutils literal"><span class="pre">THREE</span></code> 3.</li>
+<li><code class="docutils literal"><span class="pre">FOUR</span></code> 4.</li>
+<li><code class="docutils literal"><span class="pre">FIVE</span></code> 5.</li>
+<li><code class="docutils literal"><span class="pre">SIX</span></code> 6.</li>
+<li><code class="docutils literal"><span class="pre">SEVEN</span></code> 7.</li>
+<li><code class="docutils literal"><span class="pre">EIGHT</span></code> 8.</li>
+<li><code class="docutils literal"><span class="pre">NINE</span></code> 9.</li>
+<li><code class="docutils literal"><span class="pre">LEFT_CTRL</span></code> Left Ctrl, CtrlL.</li>
+<li><code class="docutils literal"><span class="pre">LEFT_ALT</span></code> Left Alt, AltL.</li>
+<li><code class="docutils literal"><span class="pre">LEFT_SHIFT</span></code> Left Shift, ShiftL.</li>
+<li><code class="docutils literal"><span class="pre">RIGHT_ALT</span></code> Right Alt, AltR.</li>
+<li><code class="docutils literal"><span class="pre">RIGHT_CTRL</span></code> Right Ctrl, CtrlR.</li>
+<li><code class="docutils literal"><span class="pre">RIGHT_SHIFT</span></code> Right Shift, ShiftR.</li>
+<li><code class="docutils literal"><span class="pre">OSKEY</span></code> OS Key, Cmd.</li>
+<li><code class="docutils literal"><span class="pre">GRLESS</span></code> Grless.</li>
+<li><code class="docutils literal"><span class="pre">ESC</span></code> Esc.</li>
+<li><code class="docutils literal"><span class="pre">TAB</span></code> Tab.</li>
+<li><code class="docutils literal"><span class="pre">RET</span></code> Return, Enter.</li>
+<li><code class="docutils literal"><span class="pre">SPACE</span></code> Spacebar, Space.</li>
+<li><code class="docutils literal"><span class="pre">LINE_FEED</span></code> Line Feed.</li>
+<li><code class="docutils literal"><span class="pre">BACK_SPACE</span></code> Back Space, BkSpace.</li>
+<li><code class="docutils literal"><span class="pre">DEL</span></code> Delete, Del.</li>
+<li><code class="docutils literal"><span class="pre">SEMI_COLON</span></code> ;.</li>
+<li><code class="docutils literal"><span class="pre">PERIOD</span></code> ..</li>
+<li><code class="docutils literal"><span class="pre">COMMA</span></code> ,.</li>
+<li><code class="docutils literal"><span class="pre">QUOTE</span></code> &#8221;.</li>
+<li><code class="docutils literal"><span class="pre">ACCENT_GRAVE</span></code> `.</li>
+<li><code class="docutils literal"><span class="pre">MINUS</span></code> -.</li>
+<li><code class="docutils literal"><span class="pre">PLUS</span></code> +.</li>
+<li><code class="docutils literal"><span class="pre">SLASH</span></code> /.</li>
+<li><code class="docutils literal"><span class="pre">BACK_SLASH</span></code> \.</li>
+<li><code class="docutils literal"><span class="pre">EQUAL</span></code> =.</li>
+<li><code class="docutils literal"><span class="pre">LEFT_BRACKET</span></code> [.</li>
+<li><code class="docutils literal"><span class="pre">RIGHT_BRACKET</span></code> ].</li>
+<li><code class="docutils literal"><span class="pre">LEFT_ARROW</span></code> Left Arrow, ←.</li>
+<li><code class="docutils literal"><span class="pre">DOWN_ARROW</span></code> Down Arrow, ↓.</li>
+<li><code class="docutils literal"><span class="pre">RIGHT_ARROW</span></code> Right Arrow, →.</li>
+<li><code class="docutils literal"><span class="pre">UP_ARROW</span></code> Up Arrow, ↑.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_2</span></code> Numpad 2, Pad2.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_4</span></code> Numpad 4, Pad4.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_6</span></code> Numpad 6, Pad6.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_8</span></code> Numpad 8, Pad8.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_1</span></code> Numpad 1, Pad1.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_3</span></code> Numpad 3, Pad3.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_5</span></code> Numpad 5, Pad5.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_7</span></code> Numpad 7, Pad7.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_9</span></code> Numpad 9, Pad9.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_PERIOD</span></code> Numpad ., Pad..</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_SLASH</span></code> Numpad /, Pad/.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_ASTERIX</span></code> Numpad *, Pad*.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_0</span></code> Numpad 0, Pad0.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_MINUS</span></code> Numpad -, Pad-.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_ENTER</span></code> Numpad Enter, PadEnter.</li>
+<li><code class="docutils literal"><span class="pre">NUMPAD_PLUS</span></code> Numpad +, Pad+.</li>
+<li><code class="docutils literal"><span class="pre">F1</span></code> F1.</li>
+<li><code class="docutils literal"><span class="pre">F2</span></code> F2.</li>
+<li><code class="docutils literal"><span class="pre">F3</span></code> F3.</li>
+<li><code class="docutils literal"><span class="pre">F4</span></code> F4.</li>
+<li><code class="docutils literal"><span class="pre">F5</span></code> F5.</li>
+<li><code class="docutils literal"><span class="pre">F6</span></code> F6.</li>
+<li><code class="docutils literal"><span class="pre">F7</span></code> F7.</li>
+<li><code class="docutils literal"><span class="pre">F8</span></code> F8.</li>
+<li><code class="docutils literal"><span class="pre">F9</span></code> F9.</li>
+<li><code class="docutils literal"><span class="pre">F10</span></code> F10.</li>
+<li><code class="docutils literal"><span class="pre">F11</span></code> F11.</li>
+<li><code class="docutils literal"><span class="pre">F12</span></code> F12.</li>
+<li><code class="docutils literal"><span class="pre">F13</span></code> F13.</li>
+<li><code class="docutils literal"><span class="pre">F14</span></code> F14.</li>
+<li><code class="docutils literal"><span class="pre">F15</span></code> F15.</li>
+<li><code class="docutils literal"><span class="pre">F16</span></code> F16.</li>
+<li><code class="docutils literal"><span class="pre">F17</span></code> F17.</li>
+<li><code class="docutils literal"><span class="pre">F18</span></code> F18.</li>
+<li><code class="docutils literal"><span class="pre">F19</span></code> F19.</li>
+<li><code class="docutils literal"><span class="pre">PAUSE</span></code> Pause.</li>
+<li><code class="docutils literal"><span class="pre">INSERT</span></code> Insert, Ins.</li>
+<li><code class="docutils literal"><span class="pre">HOME</span></code> Home.</li>
+<li><code class="docutils literal"><span class="pre">PAGE_UP</span></code> Page Up, PgUp.</li>
+<li><code class="docutils literal"><span class="pre">PAGE_DOWN</span></code> Page Down, PgDown.</li>
+<li><code class="docutils literal"><span class="pre">END</span></code> End.</li>
+<li><code class="docutils literal"><span class="pre">MEDIA_PLAY</span></code> Media Play/Pause, &gt;/||.</li>
+<li><code class="docutils literal"><span class="pre">MEDIA_STOP</span></code> Media Stop, Stop.</li>
+<li><code class="docutils literal"><span class="pre">MEDIA_FIRST</span></code> Media First, |&lt;&lt;.</li>
+<li><code class="docutils literal"><span class="pre">MEDIA_LAST</span></code> Media Last, &gt;&gt;|.</li>
+<li><code class="docutils literal"><span class="pre">TEXTINPUT</span></code> Text Input, TxtIn.</li>
+<li><code class="docutils literal"><span class="pre">WINDOW_DEACTIVATE</span></code> Window Deactivate.</li>
+<li><code class="docutils literal"><span class="pre">TIMER</span></code> Timer, Tmr.</li>
+<li><code class="docutils literal"><span class="pre">TIMER0</span></code> Timer 0, Tmr0.</li>
+<li><code class="docutils literal"><span class="pre">TIMER1</span></code> Timer 1, Tmr1.</li>
+<li><code class="docutils literal"><span class="pre">TIMER2</span></code> Timer 2, Tmr2.</li>
+<li><code class="docutils literal"><span class="pre">TIMER_JOBS</span></code> Timer Jobs, TmrJob.</li>
+<li><code class="docutils literal"><span class="pre">TIMER_AUTOSAVE</span></code> Timer Autosave, TmrSave.</li>
+<li><code class="docutils literal"><span class="pre">TIMER_REPORT</span></code> Timer Report, TmrReport.</li>
+<li><code class="docutils literal"><span class="pre">TIMERREGION</span></code> Timer Region, TmrReg.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_MOTION</span></code> NDOF Motion, NdofMov.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_MENU</span></code> NDOF Menu, NdofMenu.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_FIT</span></code> NDOF Fit, NdofFit.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_TOP</span></code> NDOF Top, Ndof↑.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_BOTTOM</span></code> NDOF Bottom, Ndof↓.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_LEFT</span></code> NDOF Left, Ndof←.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_RIGHT</span></code> NDOF Right, Ndof→.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_FRONT</span></code> NDOF Front, NdofFront.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_BACK</span></code> NDOF Back, NdofBack.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_ISO1</span></code> NDOF Isometric 1, NdofIso1.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_ISO2</span></code> NDOF Isometric 2, NdofIso2.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_ROLL_CW</span></code> NDOF Roll CW, NdofRCW.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_ROLL_CCW</span></code> NDOF Roll CCW, NdofRCCW.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_SPIN_CW</span></code> NDOF Spin CW, NdofSCW.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_SPIN_CCW</span></code> NDOF Spin CCW, NdofSCCW.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_TILT_CW</span></code> NDOF Tilt CW, NdofTCW.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_TILT_CCW</span></code> NDOF Tilt CCW, NdofTCCW.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_ROTATE</span></code> NDOF Rotate, NdofRot.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_PANZOOM</span></code> NDOF Pan/Zoom, NdofPanZoom.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_DOMINANT</span></code> NDOF Dominant, NdofDom.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_PLUS</span></code> NDOF Plus, Ndof+.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_MINUS</span></code> NDOF Minus, Ndof-.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_ESC</span></code> NDOF Esc, NdofEsc.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_ALT</span></code> NDOF Alt, NdofAlt.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_SHIFT</span></code> NDOF Shift, NdofShift.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_CTRL</span></code> NDOF Ctrl, NdofCtrl.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_1</span></code> NDOF Button 1, NdofB1.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_2</span></code> NDOF Button 2, NdofB2.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_3</span></code> NDOF Button 3, NdofB3.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_4</span></code> NDOF Button 4, NdofB4.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_5</span></code> NDOF Button 5, NdofB5.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_6</span></code> NDOF Button 6, NdofB6.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_7</span></code> NDOF Button 7, NdofB7.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_8</span></code> NDOF Button 8, NdofB8.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_9</span></code> NDOF Button 9, NdofB9.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_10</span></code> NDOF Button 10, NdofB10.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_A</span></code> NDOF Button A, NdofBA.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_B</span></code> NDOF Button B, NdofBB.</li>
+<li><code class="docutils literal"><span class="pre">NDOF_BUTTON_C</span></code> NDOF Button C, NdofBC.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;LEFTMOUSE&#8217;, &#8216;MIDDLEMOUSE&#8217;, &#8216;RIGHTMOUSE&#8217;, &#8216;BUTTON4MOUSE&#8217;, &#8216;BUTTON5MOUSE&#8217;, &#8216;BUTTON6MOUSE&#8217;, &#8216;BUTTON7MOUSE&#8217;, &#8216;ACTIONMOUSE&#8217;, &#8216;SELECTMOUSE&#8217;, &#8216;PEN&#8217;, &#8216;ERASER&#8217;, &#8216;MOUSEMOVE&#8217;, &#8216;INBETWEEN_MOUSEMOVE&#8217;, &#8216;TRACKPADPAN&#8217;, &#8216;TRACKPADZOOM&#8217;, &#8216;MOUSEROTATE&#8217;, &#8216;WHEELUPMOUSE&#8217;, &#8216;WHEELDOWNMOUSE&#8217;, &#8216;WHEELINMOUSE&#8217;, &#8216;WHEELOUTMOUSE&#8217;, &#8216;EVT_TWEAK_L&#8217;, &#8216;EVT_TWEAK_M&#8217;, &#8216;EVT_TWEAK_R&#8217;, &#8216;EVT_TWEAK_A&#8217;, &#8216;EVT_TWEAK_S&#8217;, &#8216;A&#8217;, &#8216;B&#8217;, &#8216;C&#8217;, &#8216;D&#8217;, &#8216;E&#8217;, &#8216;F&#8217;, &#8216;G&#8217;, &#8216;H&#8217;, &#8216;I&#8217;, &#8216;J&#8217;, &#8216;K&#8217;, &#8216;L&#8217;, &#8216;M&#8217;, &#8216;N&#8217;, &#8216;O&#8217;, &#8216;P&#8217;, &#8216;Q&#8217;, &#8216;R&#8217;, &#8216;S&#8217;, &#8216;T&#8217;, &#8216;U&#8217;, &#8216;V&#8217;, &#8216;W&#8217;, &#8216;X&#8217;, &#8216;Y&#8217;, &#8216;Z&#8217;, &#8216;ZERO&#8217;, &#8216;ONE&#8217;, &#8216;TWO&#8217;, &#8216;THREE&#8217;, &#8216;FOUR&#8217;, &#8216;FIVE&#8217;, &#8216;SIX&#8217;, &#8216;SEVEN&#8217;, &#8216;EIGHT&#8217;, &#8216;NINE&#8217;, &#8216;LEFT_CTRL&#8217;, &#8216;LEFT_ALT&#8217;, &#8216;LEFT_SHIFT&#8217;, &#8216;RIGHT_ALT&#8217;, &#8216;RIGHT_CTRL&#8217;, &#8216;RIGHT_SHIFT&#8217;, &#8216;OSKEY&#8217;, &#8216;GRLESS&#8217;, &#8216;ESC&#8217;, &#8216;TAB&#8217;, &#8216;RET&#8217;, &#8216;SPACE&#8217;, &#8216;LINE_FEED&#8217;, &#8216;BACK_SPACE&#8217;, &#8216;DEL&#8217;, &#8216;SEMI_COLON&#8217;, &#8216;PERIOD&#8217;, &#8216;COMMA&#8217;, &#8216;QUOTE&#8217;, &#8216;ACCENT_GRAVE&#8217;, &#8216;MINUS&#8217;, &#8216;PLUS&#8217;, &#8216;SLASH&#8217;, &#8216;BACK_SLASH&#8217;, &#8216;EQUAL&#8217;, &#8216;LEFT_BRACKET&#8217;, &#8216;RIGHT_BRACKET&#8217;, &#8216;LEFT_ARROW&#8217;, &#8216;DOWN_ARROW&#8217;, &#8216;RIGHT_ARROW&#8217;, &#8216;UP_ARROW&#8217;, &#8216;NUMPAD_2&#8217;, &#8216;NUMPAD_4&#8217;, &#8216;NUMPAD_6&#8217;, &#8216;NUMPAD_8&#8217;, &#8216;NUMPAD_1&#8217;, &#8216;NUMPAD_3&#8217;, &#8216;NUMPAD_5&#8217;, &#8216;NUMPAD_7&#8217;, &#8216;NUMPAD_9&#8217;, &#8216;NUMPAD_PERIOD&#8217;, &#8216;NUMPAD_SLASH&#8217;, &#8216;NUMPAD_ASTERIX&#8217;, &#8216;NUMPAD_0&#8217;, &#8216;NUMPAD_MINUS&#8217;, &#8216;NUMPAD_ENTER&#8217;, &#8216;NUMPAD_PLUS&#8217;, &#8216;F1&#8217;, &#8216;F2&#8217;, &#8216;F3&#8217;, &#8216;F4&#8217;, &#8216;F5&#8217;, &#8216;F6&#8217;, &#8216;F7&#8217;, &#8216;F8&#8217;, &#8216;F9&#8217;, &#8216;F10&#8217;, &#8216;F11&#8217;, &#8216;F12&#8217;, &#8216;F13&#8217;, &#8216;F14&#8217;, &#8216;F15&#8217;, &#8216;F16&#8217;, &#8216;F17&#8217;, &#8216;F18&#8217;, &#8216;F19&#8217;, &#8216;PAUSE&#8217;, &#8216;INSERT&#8217;, &#8216;HOME&#8217;, &#8216;PAGE_UP&#8217;, &#8216;PAGE_DOWN&#8217;, &#8216;END&#8217;, &#8216;MEDIA_PLAY&#8217;, &#8216;MEDIA_STOP&#8217;, &#8216;MEDIA_FIRST&#8217;, &#8216;MEDIA_LAST&#8217;, &#8216;TEXTINPUT&#8217;, &#8216;WINDOW_DEACTIVATE&#8217;, &#8216;TIMER&#8217;, &#8216;TIMER0&#8217;, &#8216;TIMER1&#8217;, &#8216;TIMER2&#8217;, &#8216;TIMER_JOBS&#8217;, &#8216;TIMER_AUTOSAVE&#8217;, &#8216;TIMER_REPORT&#8217;, &#8216;TIMERREGION&#8217;, &#8216;NDOF_MOTION&#8217;, &#8216;NDOF_BUTTON_MENU&#8217;, &#8216;NDOF_BUTTON_FIT&#8217;, &#8216;NDOF_BUTTON_TOP&#8217;, &#8216;NDOF_BUTTON_BOTTOM&#8217;, &#8216;NDOF_BUTTON_LEFT&#8217;, &#8216;NDOF_BUTTON_RIGHT&#8217;, &#8216;NDOF_BUTTON_FRONT&#8217;, &#8216;NDOF_BUTTON_BACK&#8217;, &#8216;NDOF_BUTTON_ISO1&#8217;, &#8216;NDOF_BUTTON_ISO2&#8217;, &#8216;NDOF_BUTTON_ROLL_CW&#8217;, &#8216;NDOF_BUTTON_ROLL_CCW&#8217;, &#8216;NDOF_BUTTON_SPIN_CW&#8217;, &#8216;NDOF_BUTTON_SPIN_CCW&#8217;, &#8216;NDOF_BUTTON_TILT_CW&#8217;, &#8216;NDOF_BUTTON_TILT_CCW&#8217;, &#8216;NDOF_BUTTON_ROTATE&#8217;, &#8216;NDOF_BUTTON_PANZOOM&#8217;, &#8216;NDOF_BUTTON_DOMINANT&#8217;, &#8216;NDOF_BUTTON_PLUS&#8217;, &#8216;NDOF_BUTTON_MINUS&#8217;, &#8216;NDOF_BUTTON_ESC&#8217;, &#8216;NDOF_BUTTON_ALT&#8217;, &#8216;NDOF_BUTTON_SHIFT&#8217;, &#8216;NDOF_BUTTON_CTRL&#8217;, &#8216;NDOF_BUTTON_1&#8217;, &#8216;NDOF_BUTTON_2&#8217;, &#8216;NDOF_BUTTON_3&#8217;, &#8216;NDOF_BUTTON_4&#8217;, &#8216;NDOF_BUTTON_5&#8217;, &#8216;NDOF_BUTTON_6&#8217;, &#8216;NDOF_BUTTON_7&#8217;, &#8216;NDOF_BUTTON_8&#8217;, &#8216;NDOF_BUTTON_9&#8217;, &#8216;NDOF_BUTTON_10&#8217;, &#8216;NDOF_BUTTON_A&#8217;, &#8216;NDOF_BUTTON_B&#8217;, &#8216;NDOF_BUTTON_C&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.KeyboardSensor.target">
+<code class="descname">target</code><a class="headerlink" href="#bpy.types.KeyboardSensor.target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property that receives the keystrokes in case a string is logged</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.KeyboardSensor.use_all_keys">
+<code class="descname">use_all_keys</code><a class="headerlink" href="#bpy.types.KeyboardSensor.use_all_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trigger this sensor on any keystroke</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sensor.html#bpy.types.Sensor.name" title="bpy.types.Sensor.name"><code class="xref py py-class docutils literal"><span class="pre">Sensor.name</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sensor.html#bpy.types.Sensor.type" title="bpy.types.Sensor.type"><code class="xref py py-class docutils literal"><span class="pre">Sensor.type</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sensor.html#bpy.types.Sensor.pin" title="bpy.types.Sensor.pin"><code class="xref py py-class docutils literal"><span class="pre">Sensor.pin</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sensor.html#bpy.types.Sensor.active" title="bpy.types.Sensor.active"><code class="xref py py-class docutils literal"><span class="pre">Sensor.active</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sensor.html#bpy.types.Sensor.show_expanded" title="bpy.types.Sensor.show_expanded"><code class="xref py py-class docutils literal"><span class="pre">Sensor.show_expanded</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sensor.html#bpy.types.Sensor.invert" title="bpy.types.Sensor.invert"><code class="xref py py-class docutils literal"><span class="pre">Sensor.invert</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.Sensor.html#bpy.types.Sensor.use_level" title="bpy.types.Sensor.use_level"><code class="xref py py-class docutils literal"><span class="pre">Sensor.use_level</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sensor.html#bpy.types.Sensor.use_pulse_true_level" title="bpy.types.Sensor.use_pulse_true_level"><code class="xref py py-class docutils literal"><span class="pre">Sensor.use_pulse_true_level</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sensor.html#bpy.types.Sensor.use_pulse_false_level" title="bpy.types.Sensor.use_pulse_false_level"><code class="xref py py-class docutils literal"><span class="pre">Sensor.use_pulse_false_level</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sensor.html#bpy.types.Sensor.tick_skip" title="bpy.types.Sensor.tick_skip"><code class="xref py py-class docutils literal"><span class="pre">Sensor.tick_skip</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sensor.html#bpy.types.Sensor.use_tap" title="bpy.types.Sensor.use_tap"><code class="xref py py-class docutils literal"><span class="pre">Sensor.use_tap</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sensor.html#bpy.types.Sensor.controllers" title="bpy.types.Sensor.controllers"><code class="xref py py-class docutils literal"><span class="pre">Sensor.controllers</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sensor.html#bpy.types.Sensor.link" title="bpy.types.Sensor.link"><code class="xref py py-class docutils literal"><span class="pre">Sensor.link</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Sensor.html#bpy.types.Sensor.unlink" title="bpy.types.Sensor.unlink"><code class="xref py py-class docutils literal"><span class="pre">Sensor.unlink</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.KeyMaps.html"
+                        title="previous chapter">KeyMaps(bpy_struct)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.Keyframe.html"
+                        title="next chapter">Keyframe(bpy_struct)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.Keyframe.html" title="Keyframe(bpy_struct)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.KeyMaps.html" title="KeyMaps(bpy_struct)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,554 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>DomainFluidSettings(FluidSettings) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="DopeSheet(bpy_struct)" href="bpy.types.DopeSheet.html" />
+    <link rel="prev" title="DistortedNoiseTexture(Texture)" href="bpy.types.DistortedNoiseTexture.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.DopeSheet.html" title="DopeSheet(bpy_struct)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.DistortedNoiseTexture.html" title="DistortedNoiseTexture(Texture)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="domainfluidsettings-fluidsettings"></span><h1>DomainFluidSettings(FluidSettings)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base classes &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.FluidSettings.html#bpy.types.FluidSettings" title="bpy.types.FluidSettings"><code class="xref py py-class docutils literal"><span class="pre">FluidSettings</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.DomainFluidSettings">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">DomainFluidSettings</code><span class="sig-paren">(</span><em>FluidSettings</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.DomainFluidSettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fluid simulation settings for the domain of a fluid simulation</p>
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.compressibility">
+<code class="descname">compressibility</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.compressibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allowed compressibility due to gravitational force for standing fluid (directly affects simulation step size)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.001, 0.1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.end_time">
+<code class="descname">end_time</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.end_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulation time of the last blender frame (in seconds)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.filepath">
+<code class="descname">filepath</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.filepath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Directory (and/or filename prefix) to store baked fluid simulation files in</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.DomainFluidSettings.fluid_mesh_vertices">
+<code class="descname">fluid_mesh_vertices</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.fluid_mesh_vertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertices of the fluid mesh generated by simulation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.FluidVertexVelocity.html#bpy.types.FluidVertexVelocity" title="bpy.types.FluidVertexVelocity"><code class="xref py py-class docutils literal"><span class="pre">FluidVertexVelocity</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.frame_offset">
+<code class="descname">frame_offset</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.frame_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Offset when reading baked cache</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-inf, inf], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.generate_particles">
+<code class="descname">generate_particles</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.generate_particles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of particles to generate (0=off, 1=normal, &gt;1=more)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 10], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.gravity">
+<code class="descname">gravity</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.gravity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gravity in X, Y and Z direction</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 3 items in [-1000.1, 1000.1], default (0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.grid_levels">
+<code class="descname">grid_levels</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.grid_levels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of coarsened grids to use (-1 for automatic)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-1, 4], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.DomainFluidSettings.memory_estimate">
+<code class="descname">memory_estimate</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.memory_estimate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimated amount of memory needed for baking the domain</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (readonly, never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.partial_slip_factor">
+<code class="descname">partial_slip_factor</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.partial_slip_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of mixing between no- and free-slip, 0 is no slip and 1 is free slip</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.preview_resolution">
+<code class="descname">preview_resolution</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.preview_resolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Preview resolution in X,Y and Z direction</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 100], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.render_display_mode">
+<code class="descname">render_display_mode</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.render_display_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>How to display the mesh for rendering</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">GEOMETRY</span></code> Geometry, Display geometry.</li>
+<li><code class="docutils literal"><span class="pre">PREVIEW</span></code> Preview, Display preview quality results.</li>
+<li><code class="docutils literal"><span class="pre">FINAL</span></code> Final, Display final quality results.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;GEOMETRY&#8217;, &#8216;PREVIEW&#8217;, &#8216;FINAL&#8217;], default &#8216;GEOMETRY&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.resolution">
+<code class="descname">resolution</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.resolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Domain resolution in X,Y and Z direction</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 1024], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.simulation_rate">
+<code class="descname">simulation_rate</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.simulation_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fluid motion rate (0 = stationary, 1 = normal speed)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 100], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.simulation_scale">
+<code class="descname">simulation_scale</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.simulation_scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of the simulation domain in meters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.001, 10], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.slip_type">
+<code class="descname">slip_type</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.slip_type" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><code class="docutils literal"><span class="pre">NOSLIP</span></code> No Slip, Obstacle causes zero normal and tangential velocity (=sticky), default for all (only option for moving objects).</li>
+<li><code class="docutils literal"><span class="pre">PARTIALSLIP</span></code> Partial Slip, Mix between no-slip and free-slip (non moving objects only!).</li>
+<li><code class="docutils literal"><span class="pre">FREESLIP</span></code> Free Slip, Obstacle only causes zero normal velocity (=not sticky, non moving objects only!).</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NOSLIP&#8217;, &#8216;PARTIALSLIP&#8217;, &#8216;FREESLIP&#8217;], default &#8216;NOSLIP&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.start_time">
+<code class="descname">start_time</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.start_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulation time of the first blender frame (in seconds)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.surface_smooth">
+<code class="descname">surface_smooth</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.surface_smooth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of surface smoothing (a value of 0 is off, 1 is normal smoothing and more than 1 is extra smoothing)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 5], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.surface_subdivisions">
+<code class="descname">surface_subdivisions</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.surface_subdivisions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of isosurface subdivisions (this is necessary for the inclusion of particles into the surface generation - WARNING: can lead to longer computation times !)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 5], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.threads">
+<code class="descname">threads</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.threads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override number of threads for the simulation, 0 is automatic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 1024], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.tracer_particles">
+<code class="descname">tracer_particles</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.tracer_particles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of tracer particles to generate</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 10000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.use_reverse_frames">
+<code class="descname">use_reverse_frames</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.use_reverse_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reverse fluid frames</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.use_speed_vectors">
+<code class="descname">use_speed_vectors</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.use_speed_vectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate speed vectors for vector blur</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.use_surface_noobs">
+<code class="descname">use_surface_noobs</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.use_surface_noobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the air gap between fluid surface and obstacles - WARNING: Can result in a dissolving surface in other areas</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.use_time_override">
+<code class="descname">use_time_override</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.use_time_override" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use a custom start and end time (in seconds) instead of the scene&#8217;s timeline</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.viewport_display_mode">
+<code class="descname">viewport_display_mode</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.viewport_display_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>How to display the mesh in the viewport</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">GEOMETRY</span></code> Geometry, Display geometry.</li>
+<li><code class="docutils literal"><span class="pre">PREVIEW</span></code> Preview, Display preview quality results.</li>
+<li><code class="docutils literal"><span class="pre">FINAL</span></code> Final, Display final quality results.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;GEOMETRY&#8217;, &#8216;PREVIEW&#8217;, &#8216;FINAL&#8217;], default &#8216;GEOMETRY&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.viscosity_base">
+<code class="descname">viscosity_base</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.viscosity_base" title="Permalink to this definition">¶</a></dt>
+<dd><p>Viscosity setting: value that is multiplied by 10 to the power of (exponent*-1)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 10], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DomainFluidSettings.viscosity_exponent">
+<code class="descname">viscosity_exponent</code><a class="headerlink" href="#bpy.types.DomainFluidSettings.viscosity_exponent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Negative exponent for the viscosity value (to simplify entering small values e.g. 5*10^-6)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 10], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.FluidSettings.html#bpy.types.FluidSettings.type" title="bpy.types.FluidSettings.type"><code class="xref py py-class docutils literal"><span class="pre">FluidSettings.type</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.DistortedNoiseTexture.html"
+                        title="previous chapter">DistortedNoiseTexture(Texture)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.DopeSheet.html"
+                        title="next chapter">DopeSheet(bpy_struct)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.DopeSheet.html" title="DopeSheet(bpy_struct)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.DistortedNoiseTexture.html" title="DistortedNoiseTexture(Texture)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

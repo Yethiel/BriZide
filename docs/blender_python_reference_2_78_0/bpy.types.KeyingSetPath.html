@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>KeyingSetPath(bpy_struct) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="KeyingSetPaths(bpy_struct)" href="bpy.types.KeyingSetPaths.html" />
+    <link rel="prev" title="KeyingSetInfo(bpy_struct)" href="bpy.types.KeyingSetInfo.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.KeyingSetPaths.html" title="KeyingSetPaths(bpy_struct)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.KeyingSetInfo.html" title="KeyingSetInfo(bpy_struct)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="keyingsetpath-bpy-struct"></span><h1>KeyingSetPath(bpy_struct)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.KeyingSetPath">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">KeyingSetPath</code><span class="sig-paren">(</span><em>bpy_struct</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.KeyingSetPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to a setting for use in a Keying Set</p>
+<dl class="attribute">
+<dt id="bpy.types.KeyingSetPath.array_index">
+<code class="descname">array_index</code><a class="headerlink" href="#bpy.types.KeyingSetPath.array_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Index to the specific setting if applicable</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [-inf, inf], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.KeyingSetPath.data_path">
+<code class="descname">data_path</code><a class="headerlink" href="#bpy.types.KeyingSetPath.data_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to property setting</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.KeyingSetPath.group">
+<code class="descname">group</code><a class="headerlink" href="#bpy.types.KeyingSetPath.group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of Action Group to assign setting(s) for this path to</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.KeyingSetPath.group_method">
+<code class="descname">group_method</code><a class="headerlink" href="#bpy.types.KeyingSetPath.group_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method used to define which Group-name to use</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NAMED&#8217;, &#8216;NONE&#8217;, &#8216;KEYINGSET&#8217;], default &#8216;NAMED&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.KeyingSetPath.id">
+<code class="descname">id</code><a class="headerlink" href="#bpy.types.KeyingSetPath.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID-Block that keyframes for Keying Set should be added to (for Absolute Keying Sets only)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal"><span class="pre">ID</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.KeyingSetPath.id_type">
+<code class="descname">id_type</code><a class="headerlink" href="#bpy.types.KeyingSetPath.id_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of ID-block that can be used</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;ACTION&#8217;, &#8216;ARMATURE&#8217;, &#8216;BRUSH&#8217;, &#8216;CAMERA&#8217;, &#8216;CACHEFILE&#8217;, &#8216;CURVE&#8217;, &#8216;FONT&#8217;, &#8216;GREASEPENCIL&#8217;, &#8216;GROUP&#8217;, &#8216;IMAGE&#8217;, &#8216;KEY&#8217;, &#8216;LAMP&#8217;, &#8216;LIBRARY&#8217;, &#8216;LINESTYLE&#8217;, &#8216;LATTICE&#8217;, &#8216;MASK&#8217;, &#8216;MATERIAL&#8217;, &#8216;META&#8217;, &#8216;MESH&#8217;, &#8216;MOVIECLIP&#8217;, &#8216;NODETREE&#8217;, &#8216;OBJECT&#8217;, &#8216;PAINTCURVE&#8217;, &#8216;PALETTE&#8217;, &#8216;PARTICLE&#8217;, &#8216;SCENE&#8217;, &#8216;SCREEN&#8217;, &#8216;SOUND&#8217;, &#8216;SPEAKER&#8217;, &#8216;TEXT&#8217;, &#8216;TEXTURE&#8217;, &#8216;WINDOWMANAGER&#8217;, &#8216;WORLD&#8217;], default &#8216;OBJECT&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.KeyingSetPath.use_entire_array">
+<code class="descname">use_entire_array</code><a class="headerlink" href="#bpy.types.KeyingSetPath.use_entire_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>When an &#8216;array/vector&#8217; type is chosen (Location, Rotation, Color, etc.), entire array is to be used</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.KeyingSetPath.use_insertkey_needed">
+<code class="descname">use_insertkey_needed</code><a class="headerlink" href="#bpy.types.KeyingSetPath.use_insertkey_needed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Only insert keyframes where they&#8217;re needed in the relevant F-Curves</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.KeyingSetPath.use_insertkey_override_needed">
+<code class="descname">use_insertkey_override_needed</code><a class="headerlink" href="#bpy.types.KeyingSetPath.use_insertkey_override_needed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override default setting to only insert keyframes where they&#8217;re needed in the relevant F-Curves</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.KeyingSetPath.use_insertkey_override_visual">
+<code class="descname">use_insertkey_override_visual</code><a class="headerlink" href="#bpy.types.KeyingSetPath.use_insertkey_override_visual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override default setting to insert keyframes based on &#8216;visual transforms&#8217;</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.KeyingSetPath.use_insertkey_override_xyz_to_rgb">
+<code class="descname">use_insertkey_override_xyz_to_rgb</code><a class="headerlink" href="#bpy.types.KeyingSetPath.use_insertkey_override_xyz_to_rgb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override default setting to set color for newly added transformation F-Curves (Location, Rotation, Scale) to be based on the transform axis</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.KeyingSetPath.use_insertkey_visual">
+<code class="descname">use_insertkey_visual</code><a class="headerlink" href="#bpy.types.KeyingSetPath.use_insertkey_visual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert keyframes based on &#8216;visual transforms&#8217;</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.KeyingSetPath.use_insertkey_xyz_to_rgb">
+<code class="descname">use_insertkey_xyz_to_rgb</code><a class="headerlink" href="#bpy.types.KeyingSetPath.use_insertkey_xyz_to_rgb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Color for newly added transformation F-Curves (Location, Rotation, Scale) is based on the transform axis</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.KeyingSet.html#bpy.types.KeyingSet.paths" title="bpy.types.KeyingSet.paths"><code class="xref py py-class docutils literal"><span class="pre">KeyingSet.paths</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.KeyingSetPaths.html#bpy.types.KeyingSetPaths.active" title="bpy.types.KeyingSetPaths.active"><code class="xref py py-class docutils literal"><span class="pre">KeyingSetPaths.active</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.KeyingSetPaths.html#bpy.types.KeyingSetPaths.add" title="bpy.types.KeyingSetPaths.add"><code class="xref py py-class docutils literal"><span class="pre">KeyingSetPaths.add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.KeyingSetPaths.html#bpy.types.KeyingSetPaths.remove" title="bpy.types.KeyingSetPaths.remove"><code class="xref py py-class docutils literal"><span class="pre">KeyingSetPaths.remove</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.KeyingSetInfo.html"
+                        title="previous chapter">KeyingSetInfo(bpy_struct)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.KeyingSetPaths.html"
+                        title="next chapter">KeyingSetPaths(bpy_struct)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.KeyingSetPaths.html" title="KeyingSetPaths(bpy_struct)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.KeyingSetInfo.html" title="KeyingSetInfo(bpy_struct)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

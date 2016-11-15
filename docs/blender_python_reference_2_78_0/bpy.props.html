@@ -1,0 +1,692 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Property Definitions (bpy.props) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="next" title="Math Types &amp; Utilities (mathutils)" href="mathutils.html" />
+    <link rel="prev" title="Application Translations (bpy.app.translations)" href="bpy.app.translations.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mathutils.html" title="Math Types &amp; Utilities (mathutils)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.app.translations.html" title="Application Translations (bpy.app.translations)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.props">
+<span id="property-definitions-bpy-props"></span><h1>Property Definitions (bpy.props)<a class="headerlink" href="#module-bpy.props" title="Permalink to this headline">¶</a></h1>
+<p>This module defines properties to extend Blender&#8217;s internal data. The result of these functions is used to assign properties to classes registered with Blender and can&#8217;t be used directly.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All parameters to these functions must be passed as keywords.</p>
+</div>
+<div class="section" id="assigning-to-existing-classes">
+<h2>Assigning to Existing Classes<a class="headerlink" href="#assigning-to-existing-classes" title="Permalink to this headline">¶</a></h2>
+<p>Custom properties can be added to any subclass of an <code class="xref py py-class docutils literal"><span class="pre">ID</span></code>,
+<code class="xref py py-class docutils literal"><span class="pre">Bone</span></code> and <code class="xref py py-class docutils literal"><span class="pre">PoseBone</span></code>.</p>
+<p>These properties can be animated, accessed by the user interface and python
+like Blender&#8217;s existing properties.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>
+<span class="kn">import</span> <span class="nn">bpy</span>
+
+<span class="c1"># Assign a custom property to an existing type.</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">custom_float</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">FloatProperty</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Test Prob&quot;</span><span class="p">)</span>
+
+<span class="c1"># Test the property is there.</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">materials</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">custom_float</span> <span class="o">=</span> <span class="mf">5.0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="operator-example">
+<h2>Operator Example<a class="headerlink" href="#operator-example" title="Permalink to this headline">¶</a></h2>
+<p>A common use of custom properties is for python based <code class="xref py py-class docutils literal"><span class="pre">Operator</span></code> classes.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>
+<span class="kn">import</span> <span class="nn">bpy</span>
+
+
+<span class="k">class</span> <span class="nc">DialogOperator</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
+    <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;object.dialog_operator&quot;</span>
+    <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Property Example&quot;</span>
+
+    <span class="n">my_float</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">FloatProperty</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Some Floating Point&quot;</span><span class="p">)</span>
+    <span class="n">my_bool</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">BoolProperty</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Toggle Option&quot;</span><span class="p">)</span>
+    <span class="n">my_string</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">StringProperty</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;String Value&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dialog Runs&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">invoke</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="n">wm</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">window_manager</span>
+        <span class="k">return</span> <span class="n">wm</span><span class="o">.</span><span class="n">invoke_props_dialog</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+
+<span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">DialogOperator</span><span class="p">)</span>
+
+<span class="c1"># test call</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">dialog_operator</span><span class="p">(</span><span class="s1">&#39;INVOKE_DEFAULT&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="propertygroup-example">
+<h2>PropertyGroup Example<a class="headerlink" href="#propertygroup-example" title="Permalink to this headline">¶</a></h2>
+<p>PropertyGroups can be used for collecting custom settings into one value
+to avoid many individual settings mixed in together.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>
+<span class="kn">import</span> <span class="nn">bpy</span>
+
+
+<span class="k">class</span> <span class="nc">MaterialSettings</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
+    <span class="n">my_int</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">IntProperty</span><span class="p">()</span>
+    <span class="n">my_float</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">FloatProperty</span><span class="p">()</span>
+    <span class="n">my_string</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">StringProperty</span><span class="p">()</span>
+
+<span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">MaterialSettings</span><span class="p">)</span>
+
+<span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">my_settings</span> <span class="o">=</span> \
+    <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">PointerProperty</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">MaterialSettings</span><span class="p">)</span>
+
+<span class="c1"># test the new settings work</span>
+<span class="n">material</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">materials</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">material</span><span class="o">.</span><span class="n">my_settings</span><span class="o">.</span><span class="n">my_int</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">material</span><span class="o">.</span><span class="n">my_settings</span><span class="o">.</span><span class="n">my_float</span> <span class="o">=</span> <span class="mf">3.0</span>
+<span class="n">material</span><span class="o">.</span><span class="n">my_settings</span><span class="o">.</span><span class="n">my_string</span> <span class="o">=</span> <span class="s2">&quot;Foo&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="collection-example">
+<h2>Collection Example<a class="headerlink" href="#collection-example" title="Permalink to this headline">¶</a></h2>
+<p>Custom properties can be added to any subclass of an <code class="xref py py-class docutils literal"><span class="pre">ID</span></code>,
+<code class="xref py py-class docutils literal"><span class="pre">Bone</span></code> and <code class="xref py py-class docutils literal"><span class="pre">PoseBone</span></code>.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>
+<span class="kn">import</span> <span class="nn">bpy</span>
+
+
+<span class="c1"># Assign a collection</span>
+<span class="k">class</span> <span class="nc">SceneSettingItem</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">PropertyGroup</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">StringProperty</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Test Prop&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;Unknown&quot;</span><span class="p">)</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">IntProperty</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Test Prop&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>
+
+<span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">SceneSettingItem</span><span class="p">)</span>
+
+<span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Scene</span><span class="o">.</span><span class="n">my_settings</span> <span class="o">=</span> \
+    <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">CollectionProperty</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">SceneSettingItem</span><span class="p">)</span>
+
+<span class="c1"># Assume an armature object selected</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Adding 2 values!&quot;</span><span class="p">)</span>
+
+<span class="n">my_item</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">my_settings</span><span class="o">.</span><span class="n">add</span><span class="p">()</span>
+<span class="n">my_item</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Spam&quot;</span>
+<span class="n">my_item</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="n">my_item</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">my_settings</span><span class="o">.</span><span class="n">add</span><span class="p">()</span>
+<span class="n">my_item</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Eggs&quot;</span>
+<span class="n">my_item</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="k">for</span> <span class="n">my_item</span> <span class="ow">in</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">my_settings</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">my_item</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">my_item</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-example">
+<h2>Update Example<a class="headerlink" href="#update-example" title="Permalink to this headline">¶</a></h2>
+<p>It can be useful to perform an action when a property is changed and can be
+used to update other properties or synchronize with external data.</p>
+<p>All properties define update functions except for CollectionProperty.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>
+<span class="kn">import</span> <span class="nn">bpy</span>
+
+
+<span class="k">def</span> <span class="nf">update_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;my test function&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+<span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Scene</span><span class="o">.</span><span class="n">testprop</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">FloatProperty</span><span class="p">(</span><span class="n">update</span><span class="o">=</span><span class="n">update_func</span><span class="p">)</span>
+
+<span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">testprop</span> <span class="o">=</span> <span class="mf">11.0</span>
+
+<span class="c1"># &gt;&gt;&gt; my test function &lt;bpy_struct, Scene(&quot;Scene&quot;)&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-set-example">
+<h2>Get/Set Example<a class="headerlink" href="#get-set-example" title="Permalink to this headline">¶</a></h2>
+<p>Get/Set functions can be used for boolean, int, float, string and enum properties.
+If these callbacks are defined the property will not be stored in the ID properties
+automatically, instead the get/set functions will be called when the property is
+read or written from the API.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>
+<span class="kn">import</span> <span class="nn">bpy</span>
+
+
+<span class="c1"># Simple property reading/writing from ID properties.</span>
+<span class="c1"># This is what the RNA would do internally.</span>
+<span class="k">def</span> <span class="nf">get_float</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;testprop&quot;</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">set_float</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;testprop&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+<span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Scene</span><span class="o">.</span><span class="n">test_float</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">FloatProperty</span><span class="p">(</span><span class="n">get</span><span class="o">=</span><span class="n">get_float</span><span class="p">,</span> <span class="nb">set</span><span class="o">=</span><span class="n">set_float</span><span class="p">)</span>
+
+
+<span class="c1"># Read-only string property, returns the current date</span>
+<span class="k">def</span> <span class="nf">get_date</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">datetime</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+
+<span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Scene</span><span class="o">.</span><span class="n">test_date</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">StringProperty</span><span class="p">(</span><span class="n">get</span><span class="o">=</span><span class="n">get_date</span><span class="p">)</span>
+
+
+<span class="c1"># Boolean array. Set function stores a single boolean value, returned as the second component.</span>
+<span class="c1"># Array getters must return a list or tuple</span>
+<span class="c1"># Array size must match the property vector size exactly</span>
+<span class="k">def</span> <span class="nf">get_array</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;somebool&quot;</span><span class="p">])</span>
+
+
+<span class="k">def</span> <span class="nf">set_array</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+    <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;somebool&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Scene</span><span class="o">.</span><span class="n">test_array</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">BoolVectorProperty</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">get</span><span class="o">=</span><span class="n">get_array</span><span class="p">,</span> <span class="nb">set</span><span class="o">=</span><span class="n">set_array</span><span class="p">)</span>
+
+
+<span class="c1"># Enum property.</span>
+<span class="c1"># Note: the getter/setter callback must use integer identifiers!</span>
+<span class="n">test_items</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;RED&quot;</span><span class="p">,</span> <span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;GREEN&quot;</span><span class="p">,</span> <span class="s2">&quot;Green&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;BLUE&quot;</span><span class="p">,</span> <span class="s2">&quot;Blue&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;YELLOW&quot;</span><span class="p">,</span> <span class="s2">&quot;Yellow&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+    <span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">get_enum</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">random</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">set_enum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;setting value&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+<span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Scene</span><span class="o">.</span><span class="n">test_enum</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">EnumProperty</span><span class="p">(</span><span class="n">items</span><span class="o">=</span><span class="n">test_items</span><span class="p">,</span> <span class="n">get</span><span class="o">=</span><span class="n">get_enum</span><span class="p">,</span> <span class="nb">set</span><span class="o">=</span><span class="n">set_enum</span><span class="p">)</span>
+
+
+<span class="c1"># Testing</span>
+
+<span class="n">scene</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span>
+
+<span class="n">scene</span><span class="o">.</span><span class="n">test_float</span> <span class="o">=</span> <span class="mf">12.34</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">scene</span><span class="o">.</span><span class="n">test_float</span><span class="p">)</span>
+
+<span class="n">scene</span><span class="o">.</span><span class="n">test_array</span> <span class="o">=</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">scene</span><span class="o">.</span><span class="n">test_array</span><span class="p">])</span>
+
+<span class="c1"># scene.test_date = &quot;blah&quot;   # this would fail, property is read-only</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">scene</span><span class="o">.</span><span class="n">test_date</span><span class="p">)</span>
+
+<span class="n">scene</span><span class="o">.</span><span class="n">test_enum</span> <span class="o">=</span> <span class="s1">&#39;BLUE&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">scene</span><span class="o">.</span><span class="n">test_enum</span><span class="p">)</span>
+
+
+<span class="c1"># &gt;&gt;&gt; 12.34000015258789</span>
+<span class="c1"># &gt;&gt;&gt; [True, False]</span>
+<span class="c1"># &gt;&gt;&gt; 2013-01-05 16:33:52.135340</span>
+<span class="c1"># &gt;&gt;&gt; setting value 3</span>
+<span class="c1"># &gt;&gt;&gt; GREEN</span>
+</pre></div>
+</div>
+<dl class="function">
+<dt id="bpy.props.BoolProperty">
+<code class="descclassname">bpy.props.</code><code class="descname">BoolProperty</code><span class="sig-paren">(</span><em>name=&quot;&quot;</em>, <em>description=&quot;&quot;</em>, <em>default=False</em>, <em>options={'ANIMATABLE'}</em>, <em>subtype='NONE'</em>, <em>update=None</em>, <em>get=None</em>, <em>set=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.BoolProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new boolean property definition.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Name used in the user interface.</li>
+<li><strong>description</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Text used for the tooltip and api documentation.</li>
+<li><strong>options</strong> (<em>set</em>) &#8211; Enumerator in [&#8216;HIDDEN&#8217;, &#8216;SKIP_SAVE&#8217;, &#8216;ANIMATABLE&#8217;, &#8216;LIBRARY_EDITABLE&#8217;, &#8216;PROPORTIONAL&#8217;,&#8217;TEXTEDIT_UPDATE&#8217;].</li>
+<li><strong>subtype</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Enumerator in [&#8216;PIXEL&#8217;, &#8216;UNSIGNED&#8217;, &#8216;PERCENTAGE&#8217;, &#8216;FACTOR&#8217;, &#8216;ANGLE&#8217;, &#8216;TIME&#8217;, &#8216;DISTANCE&#8217;, &#8216;NONE&#8217;].</li>
+<li><strong>update</strong> (<em>function</em>) &#8211; Function to be called when this value is modified,
+This function must take 2 values (self, context) and return None.
+<em>Warning</em> there are no safety checks to avoid infinite recursion.</li>
+<li><strong>get</strong> (<em>function</em>) &#8211; Function to be called when this value is &#8216;read&#8217;,
+This function must take 1 value (self) and return the value of the property.</li>
+<li><strong>set</strong> (<em>function</em>) &#8211; Function to be called when this value is &#8216;written&#8217;,
+This function must take 2 values (self, value) and return None.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.props.BoolVectorProperty">
+<code class="descclassname">bpy.props.</code><code class="descname">BoolVectorProperty</code><span class="sig-paren">(</span><em>name=&quot;&quot;</em>, <em>description=&quot;&quot;</em>, <em>default=(False</em>, <em>False</em>, <em>False)</em>, <em>options={'ANIMATABLE'}</em>, <em>subtype='NONE'</em>, <em>size=3</em>, <em>update=None</em>, <em>get=None</em>, <em>set=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.BoolVectorProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new vector boolean property definition.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Name used in the user interface.</li>
+<li><strong>description</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Text used for the tooltip and api documentation.</li>
+<li><strong>default</strong> (<em>sequence</em>) &#8211; sequence of booleans the length of <em>size</em>.</li>
+<li><strong>options</strong> (<em>set</em>) &#8211; Enumerator in [&#8216;HIDDEN&#8217;, &#8216;SKIP_SAVE&#8217;, &#8216;ANIMATABLE&#8217;, &#8216;LIBRARY_EDITABLE&#8217;, &#8216;PROPORTIONAL&#8217;,&#8217;TEXTEDIT_UPDATE&#8217;].</li>
+<li><strong>subtype</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Enumerator in [&#8216;COLOR&#8217;, &#8216;TRANSLATION&#8217;, &#8216;DIRECTION&#8217;, &#8216;VELOCITY&#8217;, &#8216;ACCELERATION&#8217;, &#8216;MATRIX&#8217;, &#8216;EULER&#8217;, &#8216;QUATERNION&#8217;, &#8216;AXISANGLE&#8217;, &#8216;XYZ&#8217;, &#8216;COLOR_GAMMA&#8217;, &#8216;LAYER&#8217;, &#8216;NONE&#8217;].</li>
+<li><strong>size</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Vector dimensions in [1, 32].</li>
+<li><strong>update</strong> (<em>function</em>) &#8211; Function to be called when this value is modified,
+This function must take 2 values (self, context) and return None.
+<em>Warning</em> there are no safety checks to avoid infinite recursion.</li>
+<li><strong>get</strong> (<em>function</em>) &#8211; Function to be called when this value is &#8216;read&#8217;,
+This function must take 1 value (self) and return the value of the property.</li>
+<li><strong>set</strong> (<em>function</em>) &#8211; Function to be called when this value is &#8216;written&#8217;,
+This function must take 2 values (self, value) and return None.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.props.CollectionProperty">
+<code class="descclassname">bpy.props.</code><code class="descname">CollectionProperty</code><span class="sig-paren">(</span><em>type=None</em>, <em>name=&quot;&quot;</em>, <em>description=&quot;&quot;</em>, <em>options={'ANIMATABLE'}</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.CollectionProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new collection property definition.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>type</strong> (<em>class</em>) &#8211; A subclass of <a class="reference internal" href="bpy.types.PropertyGroup.html#bpy.types.PropertyGroup" title="bpy.types.PropertyGroup"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.PropertyGroup</span></code></a>.</li>
+<li><strong>name</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Name used in the user interface.</li>
+<li><strong>description</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Text used for the tooltip and api documentation.</li>
+<li><strong>options</strong> (<em>set</em>) &#8211; Enumerator in [&#8216;HIDDEN&#8217;, &#8216;SKIP_SAVE&#8217;, &#8216;ANIMATABLE&#8217;, &#8216;LIBRARY_EDITABLE&#8217;, &#8216;PROPORTIONAL&#8217;,&#8217;TEXTEDIT_UPDATE&#8217;].</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.props.EnumProperty">
+<code class="descclassname">bpy.props.</code><code class="descname">EnumProperty</code><span class="sig-paren">(</span><em>items</em>, <em>name=&quot;&quot;</em>, <em>description=&quot;&quot;</em>, <em>default=None</em>, <em>options={'ANIMATABLE'}</em>, <em>update=None</em>, <em>get=None</em>, <em>set=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.EnumProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new enumerator property definition.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>items</strong> (<em>sequence of string tuples or a function</em>) &#8211; <p>sequence of enum items formatted:
+<code class="docutils literal"><span class="pre">[(identifier,</span> <span class="pre">name,</span> <span class="pre">description,</span> <span class="pre">icon,</span> <span class="pre">number),</span> <span class="pre">...]</span></code>.</p>
+<p>The first three elements of the tuples are mandatory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">identifier:</th><td class="field-body">The identifier is used for Python access.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">name:</th><td class="field-body">Name for the interace.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">description:</th><td class="field-body">Used for documentation and tooltips.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">icon:</th><td class="field-body">An icon string identifier or integer icon value
+(e.g. returned by <a class="reference internal" href="bpy.types.UILayout.html#bpy.types.UILayout.icon" title="bpy.types.UILayout.icon"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.UILayout.icon</span></code></a>)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">number:</th><td class="field-body">Unique value used as the identifier for this item (stored in file data).
+Use when the identifier may need to change.</td>
+</tr>
+</tbody>
+</table>
+<p>When an item only contains 4 items they define <code class="docutils literal"><span class="pre">(identifier,</span> <span class="pre">name,</span> <span class="pre">description,</span> <span class="pre">number)</span></code>.</p>
+<p>For dynamic values a callback can be passed which returns a list in
+the same format as the static list.
+This function must take 2 arguments <code class="docutils literal"><span class="pre">(self,</span> <span class="pre">context)</span></code>, <strong>context may be None</strong>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">There is a known bug with using a callback,
+Python must keep a reference to the strings returned or Blender will crash.</p>
+</div>
+</li>
+<li><strong>name</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Name used in the user interface.</li>
+<li><strong>description</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Text used for the tooltip and api documentation.</li>
+<li><strong>default</strong> (<em>string or set</em>) &#8211; The default value for this enum, a string from the identifiers used in <em>items</em>.
+If the <em>ENUM_FLAG</em> option is used this must be a set of such string identifiers instead.
+WARNING: It shall not be specified (or specified to its default <em>None</em> value) for dynamic enums
+(i.e. if a callback function is given as <em>items</em> parameter).</li>
+<li><strong>options</strong> (<em>set</em>) &#8211; Enumerator in [&#8216;HIDDEN&#8217;, &#8216;SKIP_SAVE&#8217;, &#8216;ANIMATABLE&#8217;, &#8216;ENUM_FLAG&#8217;, &#8216;LIBRARY_EDITABLE&#8217;].</li>
+<li><strong>update</strong> (<em>function</em>) &#8211; Function to be called when this value is modified,
+This function must take 2 values (self, context) and return None.
+<em>Warning</em> there are no safety checks to avoid infinite recursion.</li>
+<li><strong>get</strong> (<em>function</em>) &#8211; Function to be called when this value is &#8216;read&#8217;,
+This function must take 1 value (self) and return the value of the property.</li>
+<li><strong>set</strong> (<em>function</em>) &#8211; Function to be called when this value is &#8216;written&#8217;,
+This function must take 2 values (self, value) and return None.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.props.FloatProperty">
+<code class="descclassname">bpy.props.</code><code class="descname">FloatProperty</code><span class="sig-paren">(</span><em>name=&quot;&quot;</em>, <em>description=&quot;&quot;</em>, <em>default=0.0</em>, <em>min=sys.float_info.min</em>, <em>max=sys.float_info.max</em>, <em>soft_min=sys.float_info.min</em>, <em>soft_max=sys.float_info.max</em>, <em>step=3</em>, <em>precision=2</em>, <em>options={'ANIMATABLE'}</em>, <em>subtype='NONE'</em>, <em>unit='NONE'</em>, <em>update=None</em>, <em>get=None</em>, <em>set=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.FloatProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new float property definition.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Name used in the user interface.</li>
+<li><strong>description</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Text used for the tooltip and api documentation.</li>
+<li><strong>min</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; Hard minimum, trying to assign a value below will silently assign this minimum instead.</li>
+<li><strong>max</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; Hard maximum, trying to assign a value above will silently assign this maximum instead.</li>
+<li><strong>soft_min</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; Soft minimum (&gt;= <em>min</em>), user won&#8217;t be able to drag the widget below this value in the UI.</li>
+<li><strong>soft_max</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; Soft maximum (&lt;= <em>max</em>), user won&#8217;t be able to drag the widget above this value in the UI.</li>
+<li><strong>step</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Step of increment/decrement in UI, in [1, 100], defaults to 3 (WARNING: actual value is /100).</li>
+<li><strong>precision</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Maximum number of decimal digits to display, in [0, 6].</li>
+<li><strong>options</strong> (<em>set</em>) &#8211; Enumerator in [&#8216;HIDDEN&#8217;, &#8216;SKIP_SAVE&#8217;, &#8216;ANIMATABLE&#8217;, &#8216;LIBRARY_EDITABLE&#8217;, &#8216;PROPORTIONAL&#8217;,&#8217;TEXTEDIT_UPDATE&#8217;].</li>
+<li><strong>subtype</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Enumerator in [&#8216;PIXEL&#8217;, &#8216;UNSIGNED&#8217;, &#8216;PERCENTAGE&#8217;, &#8216;FACTOR&#8217;, &#8216;ANGLE&#8217;, &#8216;TIME&#8217;, &#8216;DISTANCE&#8217;, &#8216;NONE&#8217;].</li>
+<li><strong>unit</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Enumerator in [&#8216;NONE&#8217;, &#8216;LENGTH&#8217;, &#8216;AREA&#8217;, &#8216;VOLUME&#8217;, &#8216;ROTATION&#8217;, &#8216;TIME&#8217;, &#8216;VELOCITY&#8217;, &#8216;ACCELERATION&#8217;].</li>
+<li><strong>update</strong> (<em>function</em>) &#8211; Function to be called when this value is modified,
+This function must take 2 values (self, context) and return None.
+<em>Warning</em> there are no safety checks to avoid infinite recursion.</li>
+<li><strong>get</strong> (<em>function</em>) &#8211; Function to be called when this value is &#8216;read&#8217;,
+This function must take 1 value (self) and return the value of the property.</li>
+<li><strong>set</strong> (<em>function</em>) &#8211; Function to be called when this value is &#8216;written&#8217;,
+This function must take 2 values (self, value) and return None.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.props.FloatVectorProperty">
+<code class="descclassname">bpy.props.</code><code class="descname">FloatVectorProperty</code><span class="sig-paren">(</span><em>name=&quot;&quot;</em>, <em>description=&quot;&quot;</em>, <em>default=(0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>min=sys.float_info.min</em>, <em>max=sys.float_info.max</em>, <em>soft_min=sys.float_info.min</em>, <em>soft_max=sys.float_info.max</em>, <em>step=3</em>, <em>precision=2</em>, <em>options={'ANIMATABLE'}</em>, <em>subtype='NONE'</em>, <em>unit='NONE'</em>, <em>size=3</em>, <em>update=None</em>, <em>get=None</em>, <em>set=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.FloatVectorProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new vector float property definition.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Name used in the user interface.</li>
+<li><strong>description</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Text used for the tooltip and api documentation.</li>
+<li><strong>default</strong> (<em>sequence</em>) &#8211; sequence of floats the length of <em>size</em>.</li>
+<li><strong>min</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; Hard minimum, trying to assign a value below will silently assign this minimum instead.</li>
+<li><strong>max</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; Hard maximum, trying to assign a value above will silently assign this maximum instead.</li>
+<li><strong>soft_min</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; Soft minimum (&gt;= <em>min</em>), user won&#8217;t be able to drag the widget below this value in the UI.</li>
+<li><strong>soft_max</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; Soft maximum (&lt;= <em>max</em>), user won&#8217;t be able to drag the widget above this value in the UI.</li>
+<li><strong>options</strong> (<em>set</em>) &#8211; Enumerator in [&#8216;HIDDEN&#8217;, &#8216;SKIP_SAVE&#8217;, &#8216;ANIMATABLE&#8217;, &#8216;LIBRARY_EDITABLE&#8217;, &#8216;PROPORTIONAL&#8217;,&#8217;TEXTEDIT_UPDATE&#8217;].</li>
+<li><strong>step</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Step of increment/decrement in UI, in [1, 100], defaults to 3 (WARNING: actual value is /100).</li>
+<li><strong>precision</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Maximum number of decimal digits to display, in [0, 6].</li>
+<li><strong>subtype</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Enumerator in [&#8216;COLOR&#8217;, &#8216;TRANSLATION&#8217;, &#8216;DIRECTION&#8217;, &#8216;VELOCITY&#8217;, &#8216;ACCELERATION&#8217;, &#8216;MATRIX&#8217;, &#8216;EULER&#8217;, &#8216;QUATERNION&#8217;, &#8216;AXISANGLE&#8217;, &#8216;XYZ&#8217;, &#8216;COLOR_GAMMA&#8217;, &#8216;LAYER&#8217;, &#8216;NONE&#8217;].</li>
+<li><strong>unit</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Enumerator in [&#8216;NONE&#8217;, &#8216;LENGTH&#8217;, &#8216;AREA&#8217;, &#8216;VOLUME&#8217;, &#8216;ROTATION&#8217;, &#8216;TIME&#8217;, &#8216;VELOCITY&#8217;, &#8216;ACCELERATION&#8217;].</li>
+<li><strong>size</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Vector dimensions in [1, 32].</li>
+<li><strong>update</strong> (<em>function</em>) &#8211; Function to be called when this value is modified,
+This function must take 2 values (self, context) and return None.
+<em>Warning</em> there are no safety checks to avoid infinite recursion.</li>
+<li><strong>get</strong> (<em>function</em>) &#8211; Function to be called when this value is &#8216;read&#8217;,
+This function must take 1 value (self) and return the value of the property.</li>
+<li><strong>set</strong> (<em>function</em>) &#8211; Function to be called when this value is &#8216;written&#8217;,
+This function must take 2 values (self, value) and return None.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.props.IntProperty">
+<code class="descclassname">bpy.props.</code><code class="descname">IntProperty</code><span class="sig-paren">(</span><em>name=&quot;&quot;</em>, <em>description=&quot;&quot;</em>, <em>default=0</em>, <em>min=-2**31</em>, <em>max=2**31-1</em>, <em>soft_min=-2**31</em>, <em>soft_max=2**31-1</em>, <em>step=1</em>, <em>options={'ANIMATABLE'}</em>, <em>subtype='NONE'</em>, <em>update=None</em>, <em>get=None</em>, <em>set=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.IntProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new int property definition.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Name used in the user interface.</li>
+<li><strong>description</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Text used for the tooltip and api documentation.</li>
+<li><strong>min</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Hard minimum, trying to assign a value below will silently assign this minimum instead.</li>
+<li><strong>max</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Hard maximum, trying to assign a value above will silently assign this maximum instead.</li>
+<li><strong>soft_max</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Soft maximum (&lt;= <em>max</em>), user won&#8217;t be able to drag the widget above this value in the UI.</li>
+<li><strong>soft_min</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Soft minimum (&gt;= <em>min</em>), user won&#8217;t be able to drag the widget below this value in the UI.</li>
+<li><strong>step</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Step of increment/decrement in UI, in [1, 100], defaults to 1 (WARNING: unused currently!).</li>
+<li><strong>options</strong> (<em>set</em>) &#8211; Enumerator in [&#8216;HIDDEN&#8217;, &#8216;SKIP_SAVE&#8217;, &#8216;ANIMATABLE&#8217;, &#8216;LIBRARY_EDITABLE&#8217;, &#8216;PROPORTIONAL&#8217;,&#8217;TEXTEDIT_UPDATE&#8217;].</li>
+<li><strong>subtype</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Enumerator in [&#8216;PIXEL&#8217;, &#8216;UNSIGNED&#8217;, &#8216;PERCENTAGE&#8217;, &#8216;FACTOR&#8217;, &#8216;ANGLE&#8217;, &#8216;TIME&#8217;, &#8216;DISTANCE&#8217;, &#8216;NONE&#8217;].</li>
+<li><strong>update</strong> (<em>function</em>) &#8211; Function to be called when this value is modified,
+This function must take 2 values (self, context) and return None.
+<em>Warning</em> there are no safety checks to avoid infinite recursion.</li>
+<li><strong>get</strong> (<em>function</em>) &#8211; Function to be called when this value is &#8216;read&#8217;,
+This function must take 1 value (self) and return the value of the property.</li>
+<li><strong>set</strong> (<em>function</em>) &#8211; Function to be called when this value is &#8216;written&#8217;,
+This function must take 2 values (self, value) and return None.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.props.IntVectorProperty">
+<code class="descclassname">bpy.props.</code><code class="descname">IntVectorProperty</code><span class="sig-paren">(</span><em>name=&quot;&quot;</em>, <em>description=&quot;&quot;</em>, <em>default=(0</em>, <em>0</em>, <em>0)</em>, <em>min=-2**31</em>, <em>max=2**31-1</em>, <em>soft_min=-2**31</em>, <em>soft_max=2**31-1</em>, <em>step=1</em>, <em>options={'ANIMATABLE'}</em>, <em>subtype='NONE'</em>, <em>size=3</em>, <em>update=None</em>, <em>get=None</em>, <em>set=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.IntVectorProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new vector int property definition.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Name used in the user interface.</li>
+<li><strong>description</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Text used for the tooltip and api documentation.</li>
+<li><strong>default</strong> (<em>sequence</em>) &#8211; sequence of ints the length of <em>size</em>.</li>
+<li><strong>min</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Hard minimum, trying to assign a value below will silently assign this minimum instead.</li>
+<li><strong>max</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Hard maximum, trying to assign a value above will silently assign this maximum instead.</li>
+<li><strong>soft_min</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Soft minimum (&gt;= <em>min</em>), user won&#8217;t be able to drag the widget below this value in the UI.</li>
+<li><strong>soft_max</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Soft maximum (&lt;= <em>max</em>), user won&#8217;t be able to drag the widget above this value in the UI.</li>
+<li><strong>step</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Step of increment/decrement in UI, in [1, 100], defaults to 1 (WARNING: unused currently!).</li>
+<li><strong>options</strong> (<em>set</em>) &#8211; Enumerator in [&#8216;HIDDEN&#8217;, &#8216;SKIP_SAVE&#8217;, &#8216;ANIMATABLE&#8217;, &#8216;LIBRARY_EDITABLE&#8217;, &#8216;PROPORTIONAL&#8217;,&#8217;TEXTEDIT_UPDATE&#8217;].</li>
+<li><strong>subtype</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Enumerator in [&#8216;COLOR&#8217;, &#8216;TRANSLATION&#8217;, &#8216;DIRECTION&#8217;, &#8216;VELOCITY&#8217;, &#8216;ACCELERATION&#8217;, &#8216;MATRIX&#8217;, &#8216;EULER&#8217;, &#8216;QUATERNION&#8217;, &#8216;AXISANGLE&#8217;, &#8216;XYZ&#8217;, &#8216;COLOR_GAMMA&#8217;, &#8216;LAYER&#8217;, &#8216;NONE&#8217;].</li>
+<li><strong>size</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Vector dimensions in [1, 32].</li>
+<li><strong>update</strong> (<em>function</em>) &#8211; Function to be called when this value is modified,
+This function must take 2 values (self, context) and return None.
+<em>Warning</em> there are no safety checks to avoid infinite recursion.</li>
+<li><strong>get</strong> (<em>function</em>) &#8211; Function to be called when this value is &#8216;read&#8217;,
+This function must take 1 value (self) and return the value of the property.</li>
+<li><strong>set</strong> (<em>function</em>) &#8211; Function to be called when this value is &#8216;written&#8217;,
+This function must take 2 values (self, value) and return None.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.props.PointerProperty">
+<code class="descclassname">bpy.props.</code><code class="descname">PointerProperty</code><span class="sig-paren">(</span><em>type=None</em>, <em>name=&quot;&quot;</em>, <em>description=&quot;&quot;</em>, <em>options={'ANIMATABLE'}</em>, <em>update=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.PointerProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new pointer property definition.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>type</strong> (<em>class</em>) &#8211; A subclass of <a class="reference internal" href="bpy.types.PropertyGroup.html#bpy.types.PropertyGroup" title="bpy.types.PropertyGroup"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.PropertyGroup</span></code></a>.</li>
+<li><strong>name</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Name used in the user interface.</li>
+<li><strong>description</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Text used for the tooltip and api documentation.</li>
+<li><strong>options</strong> (<em>set</em>) &#8211; Enumerator in [&#8216;HIDDEN&#8217;, &#8216;SKIP_SAVE&#8217;, &#8216;ANIMATABLE&#8217;, &#8216;LIBRARY_EDITABLE&#8217;, &#8216;PROPORTIONAL&#8217;,&#8217;TEXTEDIT_UPDATE&#8217;].</li>
+<li><strong>update</strong> (<em>function</em>) &#8211; Function to be called when this value is modified,
+This function must take 2 values (self, context) and return None.
+<em>Warning</em> there are no safety checks to avoid infinite recursion.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.props.RemoveProperty">
+<code class="descclassname">bpy.props.</code><code class="descname">RemoveProperty</code><span class="sig-paren">(</span><em>cls</em>, <em>attr=</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.RemoveProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a dynamically defined property.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>cls</strong> (<a class="reference internal" href="bpy.types.LineStyleThicknessModifier_DistanceFromCamera.html#bpy.types.LineStyleThicknessModifier_DistanceFromCamera.type" title="bpy.types.LineStyleThicknessModifier_DistanceFromCamera.type"><em>type</em></a>) &#8211; The class containing the property (must be a positional argument).</li>
+<li><strong>attr</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Property name (must be passed as a keyword).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Typically this function doesn&#8217;t need to be accessed directly.
+Instead use <code class="docutils literal"><span class="pre">del</span> <span class="pre">cls.attr</span></code></p>
+</div>
+<dl class="function">
+<dt id="bpy.props.StringProperty">
+<code class="descclassname">bpy.props.</code><code class="descname">StringProperty</code><span class="sig-paren">(</span><em>name=&quot;&quot;</em>, <em>description=&quot;&quot;</em>, <em>default=&quot;&quot;</em>, <em>maxlen=0</em>, <em>options={'ANIMATABLE'}</em>, <em>subtype='NONE'</em>, <em>update=None</em>, <em>get=None</em>, <em>set=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.props.StringProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new string property definition.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Name used in the user interface.</li>
+<li><strong>description</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Text used for the tooltip and api documentation.</li>
+<li><strong>default</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; initializer string.</li>
+<li><strong>maxlen</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; maximum length of the string.</li>
+<li><strong>options</strong> (<em>set</em>) &#8211; Enumerator in [&#8216;HIDDEN&#8217;, &#8216;SKIP_SAVE&#8217;, &#8216;ANIMATABLE&#8217;, &#8216;LIBRARY_EDITABLE&#8217;, &#8216;PROPORTIONAL&#8217;,&#8217;TEXTEDIT_UPDATE&#8217;].</li>
+<li><strong>subtype</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; Enumerator in [&#8216;FILE_PATH&#8217;, &#8216;DIR_PATH&#8217;, &#8216;FILE_NAME&#8217;, &#8216;BYTE_STRING&#8217;, &#8216;PASSWORD&#8217;, &#8216;NONE&#8217;].</li>
+<li><strong>update</strong> (<em>function</em>) &#8211; Function to be called when this value is modified,
+This function must take 2 values (self, context) and return None.
+<em>Warning</em> there are no safety checks to avoid infinite recursion.</li>
+<li><strong>get</strong> (<em>function</em>) &#8211; Function to be called when this value is &#8216;read&#8217;,
+This function must take 1 value (self) and return the value of the property.</li>
+<li><strong>set</strong> (<em>function</em>) &#8211; Function to be called when this value is &#8216;written&#8217;,
+This function must take 2 values (self, value) and return None.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Property Definitions (bpy.props)</a><ul>
+<li><a class="reference internal" href="#assigning-to-existing-classes">Assigning to Existing Classes</a></li>
+<li><a class="reference internal" href="#operator-example">Operator Example</a></li>
+<li><a class="reference internal" href="#propertygroup-example">PropertyGroup Example</a></li>
+<li><a class="reference internal" href="#collection-example">Collection Example</a></li>
+<li><a class="reference internal" href="#update-example">Update Example</a></li>
+<li><a class="reference internal" href="#get-set-example">Get/Set Example</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.app.translations.html"
+                        title="previous chapter">Application Translations (bpy.app.translations)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mathutils.html"
+                        title="next chapter">Math Types &amp; Utilities (mathutils)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mathutils.html" title="Math Types &amp; Utilities (mathutils)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.app.translations.html" title="Application Translations (bpy.app.translations)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

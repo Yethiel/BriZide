@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>KX_MouseActuator(SCA_IActuator) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Game Types (bge.types)" href="bge.types.html" />
+    <link rel="next" title="KX_MouseFocusSensor(SCA_MouseSensor)" href="bge.types.KX_MouseFocusSensor.html" />
+    <link rel="prev" title="KX_MeshProxy(SCA_IObject)" href="bge.types.KX_MeshProxy.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_MouseFocusSensor.html" title="KX_MouseFocusSensor(SCA_MouseSensor)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_MeshProxy.html" title="KX_MeshProxy(SCA_IObject)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" accesskey="U">Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bge.types">
+<span id="kx-mouseactuator-sca-iactuator"></span><h1>KX_MouseActuator(SCA_IActuator)<a class="headerlink" href="#module-bge.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bge.types.SCA_IActuator.html#bge.types.SCA_IActuator" title="bge.types.SCA_IActuator"><code class="xref py py-class docutils literal"><span class="pre">SCA_IActuator</span></code></a></p>
+<dl class="class">
+<dt id="bge.types.KX_MouseActuator">
+<em class="property">class </em><code class="descclassname">bge.types.</code><code class="descname">KX_MouseActuator</code><span class="sig-paren">(</span><em>SCA_IActuator</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_MouseActuator" title="Permalink to this definition">¶</a></dt>
+<dd><p>The mouse actuator gives control over the visibility of the mouse cursor and rotates the parent object according to mouse movement.</p>
+<dl class="method">
+<dt id="bge.types.KX_MouseActuator.reset">
+<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_MouseActuator.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Undoes the rotation caused by the mouse actuator.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_MouseActuator.visible">
+<code class="descname">visible</code><a class="headerlink" href="#bge.types.KX_MouseActuator.visible" title="Permalink to this definition">¶</a></dt>
+<dd><p>The visibility of the mouse cursor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_MouseActuator.use_axis_x">
+<code class="descname">use_axis_x</code><a class="headerlink" href="#bge.types.KX_MouseActuator.use_axis_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mouse movement along the x axis effects object rotation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_MouseActuator.use_axis_y">
+<code class="descname">use_axis_y</code><a class="headerlink" href="#bge.types.KX_MouseActuator.use_axis_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mouse movement along the y axis effects object rotation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_MouseActuator.threshold">
+<code class="descname">threshold</code><a class="headerlink" href="#bge.types.KX_MouseActuator.threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of movement from the mouse required before rotation is triggered.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list (vector of 2 floats)</td>
+</tr>
+</tbody>
+</table>
+<p>The values in the list should be between 0.0 and 0.5.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_MouseActuator.reset_x">
+<code class="descname">reset_x</code><a class="headerlink" href="#bge.types.KX_MouseActuator.reset_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mouse is locked to the center of the screen on the x axis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_MouseActuator.reset_y">
+<code class="descname">reset_y</code><a class="headerlink" href="#bge.types.KX_MouseActuator.reset_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mouse is locked to the center of the screen on the y axis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_MouseActuator.object_axis">
+<code class="descname">object_axis</code><a class="headerlink" href="#bge.types.KX_MouseActuator.object_axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s 3D axis to rotate with the mouse movement. ([x, y])</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list (vector of 2 integers from 0 to 2)</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li>KX_ACT_MOUSE_OBJECT_AXIS_X</li>
+<li>KX_ACT_MOUSE_OBJECT_AXIS_Y</li>
+<li>KX_ACT_MOUSE_OBJECT_AXIS_Z</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_MouseActuator.local_x">
+<code class="descname">local_x</code><a class="headerlink" href="#bge.types.KX_MouseActuator.local_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotation caused by mouse movement along the x axis is local.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_MouseActuator.local_y">
+<code class="descname">local_y</code><a class="headerlink" href="#bge.types.KX_MouseActuator.local_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotation caused by mouse movement along the y axis is local.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_MouseActuator.sensitivity">
+<code class="descname">sensitivity</code><a class="headerlink" href="#bge.types.KX_MouseActuator.sensitivity" title="Permalink to this definition">¶</a></dt>
+<dd><p>The amount of rotation caused by mouse movement along the x and y axis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list (vector of 2 floats)</td>
+</tr>
+</tbody>
+</table>
+<p>Negative values invert the rotation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_MouseActuator.limit_x">
+<code class="descname">limit_x</code><a class="headerlink" href="#bge.types.KX_MouseActuator.limit_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>The minimum and maximum angle of rotation caused by mouse movement along the x axis in degrees.
+limit_x[0] is minimum, limit_x[1] is maximum.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list (vector of 2 floats)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_MouseActuator.limit_y">
+<code class="descname">limit_y</code><a class="headerlink" href="#bge.types.KX_MouseActuator.limit_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>The minimum and maximum angle of rotation caused by mouse movement along the y axis in degrees.
+limit_y[0] is minimum, limit_y[1] is maximum.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list (vector of 2 floats)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_MouseActuator.angle">
+<code class="descname">angle</code><a class="headerlink" href="#bge.types.KX_MouseActuator.angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>The current rotational offset caused by the mouse actuator in degrees.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list (vector of 2 floats)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bge.types.KX_MeshProxy.html"
+                        title="previous chapter">KX_MeshProxy(SCA_IObject)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bge.types.KX_MouseFocusSensor.html"
+                        title="next chapter">KX_MouseFocusSensor(SCA_MouseSensor)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_MouseFocusSensor.html" title="KX_MouseFocusSensor(SCA_MouseSensor)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_MeshProxy.html" title="KX_MeshProxy(SCA_IObject)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" >Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

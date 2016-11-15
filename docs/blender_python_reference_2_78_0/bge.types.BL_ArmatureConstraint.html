@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>BL_ArmatureConstraint(PyObjectPlus) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Game Types (bge.types)" href="bge.types.html" />
+    <link rel="next" title="BL_ArmatureObject(KX_GameObject)" href="bge.types.BL_ArmatureObject.html" />
+    <link rel="prev" title="BL_ArmatureChannel(PyObjectPlus)" href="bge.types.BL_ArmatureChannel.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.BL_ArmatureObject.html" title="BL_ArmatureObject(KX_GameObject)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.BL_ArmatureChannel.html" title="BL_ArmatureChannel(PyObjectPlus)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" accesskey="U">Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bge.types">
+<span id="bl-armatureconstraint-pyobjectplus"></span><h1>BL_ArmatureConstraint(PyObjectPlus)<a class="headerlink" href="#module-bge.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bge.types.PyObjectPlus.html#bge.types.PyObjectPlus" title="bge.types.PyObjectPlus"><code class="xref py py-class docutils literal"><span class="pre">PyObjectPlus</span></code></a></p>
+<dl class="class">
+<dt id="bge.types.BL_ArmatureConstraint">
+<em class="property">class </em><code class="descclassname">bge.types.</code><code class="descname">BL_ArmatureConstraint</code><span class="sig-paren">(</span><em>PyObjectPlus</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.BL_ArmatureConstraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Proxy to Armature Constraint. Allows to change constraint on the fly.
+Obtained through <a class="reference internal" href="bge.types.BL_ArmatureObject.html#bge.types.BL_ArmatureObject" title="bge.types.BL_ArmatureObject"><code class="xref py py-class docutils literal"><span class="pre">BL_ArmatureObject</span></code></a>.constraints.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Not all armature constraints are supported in the GE.</p>
+</div>
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureConstraint.type">
+<code class="descname">type</code><a class="headerlink" href="#bge.types.BL_ArmatureConstraint.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of constraint, (read-only).</p>
+<p>Use one of <a class="reference internal" href="bge.logic.html#armatureconstraint-constants-type"><span class="std std-ref">these constants</span></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">integer, one of CONSTRAINT_TYPE_* constants</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureConstraint.name">
+<code class="descname">name</code><a class="headerlink" href="#bge.types.BL_ArmatureConstraint.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of constraint constructed as &lt;bone_name&gt;:&lt;constraint_name&gt;. constraints list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+<p>This name is also the key subscript on <a class="reference internal" href="bge.types.BL_ArmatureObject.html#bge.types.BL_ArmatureObject" title="bge.types.BL_ArmatureObject"><code class="xref py py-class docutils literal"><span class="pre">BL_ArmatureObject</span></code></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureConstraint.enforce">
+<code class="descname">enforce</code><a class="headerlink" href="#bge.types.BL_ArmatureConstraint.enforce" title="Permalink to this definition">¶</a></dt>
+<dd><p>fraction of constraint effect that is enforced. Between 0 and 1.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureConstraint.headtail">
+<code class="descname">headtail</code><a class="headerlink" href="#bge.types.BL_ArmatureConstraint.headtail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Position of target between head and tail of the target bone: 0=head, 1=tail.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Only used if the target is a bone (i.e target object is an armature.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureConstraint.lin_error">
+<code class="descname">lin_error</code><a class="headerlink" href="#bge.types.BL_ArmatureConstraint.lin_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>runtime linear error (in Blender units) on constraint at the current frame.</p>
+<p>This is a runtime value updated on each frame by the IK solver. Only available on IK constraint and iTaSC solver.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureConstraint.rot_error">
+<code class="descname">rot_error</code><a class="headerlink" href="#bge.types.BL_ArmatureConstraint.rot_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runtime rotation error (in radiant) on constraint at the current frame.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float.</td>
+</tr>
+</tbody>
+</table>
+<p>This is a runtime value updated on each frame by the IK solver. Only available on IK constraint and iTaSC solver.</p>
+<p>It is only set if the constraint has a rotation part, for example, a CopyPose+Rotation IK constraint.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureConstraint.target">
+<code class="descname">target</code><a class="headerlink" href="#bge.types.BL_ArmatureConstraint.target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Primary target object for the constraint. The position of this object in the GE will be used as target for the constraint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bge.types.KX_GameObject.html#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureConstraint.subtarget">
+<code class="descname">subtarget</code><a class="headerlink" href="#bge.types.BL_ArmatureConstraint.subtarget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Secondary target object for the constraint. The position of this object in the GE will be used as secondary target for the constraint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bge.types.KX_GameObject.html#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a>.</td>
+</tr>
+</tbody>
+</table>
+<p>Currently this is only used for pole target on IK constraint.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureConstraint.active">
+<code class="descname">active</code><a class="headerlink" href="#bge.types.BL_ArmatureConstraint.active" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the constraint is active.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">An inactive constraint does not update lin_error and rot_error.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureConstraint.ik_weight">
+<code class="descname">ik_weight</code><a class="headerlink" href="#bge.types.BL_ArmatureConstraint.ik_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Weight of the IK constraint between 0 and 1.</p>
+<p>Only defined for IK constraint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureConstraint.ik_type">
+<code class="descname">ik_type</code><a class="headerlink" href="#bge.types.BL_ArmatureConstraint.ik_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of IK constraint, (read-only).</p>
+<p>Use one of <a class="reference internal" href="bge.logic.html#armatureconstraint-constants-ik-type"><span class="std std-ref">these constants</span></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">integer.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureConstraint.ik_flag">
+<code class="descname">ik_flag</code><a class="headerlink" href="#bge.types.BL_ArmatureConstraint.ik_flag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combination of IK constraint option flags, read-only.</p>
+<p>Use one of <a class="reference internal" href="bge.logic.html#armatureconstraint-constants-ik-flag"><span class="std std-ref">these constants</span></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">integer</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureConstraint.ik_dist">
+<code class="descname">ik_dist</code><a class="headerlink" href="#bge.types.BL_ArmatureConstraint.ik_dist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Distance the constraint is trying to maintain with target, only used when ik_type=CONSTRAINT_IK_DISTANCE.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureConstraint.ik_mode">
+<code class="descname">ik_mode</code><a class="headerlink" href="#bge.types.BL_ArmatureConstraint.ik_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use one of <a class="reference internal" href="bge.logic.html#armatureconstraint-constants-ik-mode"><span class="std std-ref">these constants</span></a>.</p>
+<p>Additional mode for IK constraint. Currently only used for Distance constraint:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">integer</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bge.types.BL_ArmatureChannel.html"
+                        title="previous chapter">BL_ArmatureChannel(PyObjectPlus)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bge.types.BL_ArmatureObject.html"
+                        title="next chapter">BL_ArmatureObject(KX_GameObject)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.BL_ArmatureObject.html" title="BL_ArmatureObject(KX_GameObject)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.BL_ArmatureChannel.html" title="BL_ArmatureChannel(PyObjectPlus)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" >Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

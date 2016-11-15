@@ -1,0 +1,660 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>DopeSheet(bpy_struct) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="Driver(bpy_struct)" href="bpy.types.Driver.html" />
+    <link rel="prev" title="DomainFluidSettings(FluidSettings)" href="bpy.types.DomainFluidSettings.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.Driver.html" title="Driver(bpy_struct)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.DomainFluidSettings.html" title="DomainFluidSettings(FluidSettings)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="dopesheet-bpy-struct"></span><h1>DopeSheet(bpy_struct)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.DopeSheet">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">DopeSheet</code><span class="sig-paren">(</span><em>bpy_struct</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.DopeSheet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Settings for filtering the channels shown in animation editors</p>
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.filter_fcurve_name">
+<code class="descname">filter_fcurve_name</code><a class="headerlink" href="#bpy.types.DopeSheet.filter_fcurve_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>F-Curve live filtering string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.filter_group">
+<code class="descname">filter_group</code><a class="headerlink" href="#bpy.types.DopeSheet.filter_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Group that included object should be a member of</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Group.html#bpy.types.Group" title="bpy.types.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.filter_text">
+<code class="descname">filter_text</code><a class="headerlink" href="#bpy.types.DopeSheet.filter_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Live filtering string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_armatures">
+<code class="descname">show_armatures</code><a class="headerlink" href="#bpy.types.DopeSheet.show_armatures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include visualization of armature related animation data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_cameras">
+<code class="descname">show_cameras</code><a class="headerlink" href="#bpy.types.DopeSheet.show_cameras" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include visualization of camera related animation data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_curves">
+<code class="descname">show_curves</code><a class="headerlink" href="#bpy.types.DopeSheet.show_curves" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include visualization of curve related animation data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_datablock_filters">
+<code class="descname">show_datablock_filters</code><a class="headerlink" href="#bpy.types.DopeSheet.show_datablock_filters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show options for whether channels related to certain types of data are included</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_expanded_summary">
+<code class="descname">show_expanded_summary</code><a class="headerlink" href="#bpy.types.DopeSheet.show_expanded_summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collapse summary when shown, so all other channels get hidden (Dope Sheet editors only)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_gpencil">
+<code class="descname">show_gpencil</code><a class="headerlink" href="#bpy.types.DopeSheet.show_gpencil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include visualization of Grease Pencil related animation data and frames</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_gpencil_3d_only">
+<code class="descname">show_gpencil_3d_only</code><a class="headerlink" href="#bpy.types.DopeSheet.show_gpencil_3d_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Only show Grease Pencil datablocks used as part of the active scene</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_hidden">
+<code class="descname">show_hidden</code><a class="headerlink" href="#bpy.types.DopeSheet.show_hidden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include channels from objects/bone that are not visible</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_lamps">
+<code class="descname">show_lamps</code><a class="headerlink" href="#bpy.types.DopeSheet.show_lamps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include visualization of lamp related animation data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_lattices">
+<code class="descname">show_lattices</code><a class="headerlink" href="#bpy.types.DopeSheet.show_lattices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include visualization of lattice related animation data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_linestyles">
+<code class="descname">show_linestyles</code><a class="headerlink" href="#bpy.types.DopeSheet.show_linestyles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include visualization of Line Style related Animation data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_materials">
+<code class="descname">show_materials</code><a class="headerlink" href="#bpy.types.DopeSheet.show_materials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include visualization of material related animation data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_meshes">
+<code class="descname">show_meshes</code><a class="headerlink" href="#bpy.types.DopeSheet.show_meshes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include visualization of mesh related animation data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_metaballs">
+<code class="descname">show_metaballs</code><a class="headerlink" href="#bpy.types.DopeSheet.show_metaballs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include visualization of metaball related animation data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_missing_nla">
+<code class="descname">show_missing_nla</code><a class="headerlink" href="#bpy.types.DopeSheet.show_missing_nla" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include animation data blocks with no NLA data (NLA editor only)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_modifiers">
+<code class="descname">show_modifiers</code><a class="headerlink" href="#bpy.types.DopeSheet.show_modifiers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include visualization of animation data related to data-blocks linked to modifiers</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_nodes">
+<code class="descname">show_nodes</code><a class="headerlink" href="#bpy.types.DopeSheet.show_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include visualization of node related animation data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_only_errors">
+<code class="descname">show_only_errors</code><a class="headerlink" href="#bpy.types.DopeSheet.show_only_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Only include F-Curves and drivers that are disabled or have errors</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_only_group_objects">
+<code class="descname">show_only_group_objects</code><a class="headerlink" href="#bpy.types.DopeSheet.show_only_group_objects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Only include channels from objects in the specified group</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_only_matching_fcurves">
+<code class="descname">show_only_matching_fcurves</code><a class="headerlink" href="#bpy.types.DopeSheet.show_only_matching_fcurves" title="Permalink to this definition">¶</a></dt>
+<dd><p>Only include F-Curves with names containing search text</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_only_selected">
+<code class="descname">show_only_selected</code><a class="headerlink" href="#bpy.types.DopeSheet.show_only_selected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Only include channels relating to selected objects and data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_particles">
+<code class="descname">show_particles</code><a class="headerlink" href="#bpy.types.DopeSheet.show_particles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include visualization of particle related animation data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_scenes">
+<code class="descname">show_scenes</code><a class="headerlink" href="#bpy.types.DopeSheet.show_scenes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include visualization of scene related animation data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_shapekeys">
+<code class="descname">show_shapekeys</code><a class="headerlink" href="#bpy.types.DopeSheet.show_shapekeys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include visualization of shape key related animation data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_speakers">
+<code class="descname">show_speakers</code><a class="headerlink" href="#bpy.types.DopeSheet.show_speakers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include visualization of speaker related animation data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_summary">
+<code class="descname">show_summary</code><a class="headerlink" href="#bpy.types.DopeSheet.show_summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display an additional &#8216;summary&#8217; line (Dope Sheet editors only)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_textures">
+<code class="descname">show_textures</code><a class="headerlink" href="#bpy.types.DopeSheet.show_textures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include visualization of texture related animation data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_transforms">
+<code class="descname">show_transforms</code><a class="headerlink" href="#bpy.types.DopeSheet.show_transforms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include visualization of object-level animation data (mostly transforms)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.show_worlds">
+<code class="descname">show_worlds</code><a class="headerlink" href="#bpy.types.DopeSheet.show_worlds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include visualization of world related animation data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.DopeSheet.source">
+<code class="descname">source</code><a class="headerlink" href="#bpy.types.DopeSheet.source" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID-Block representing source data, usually ID_SCE (i.e. Scene)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal"><span class="pre">ID</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.use_datablock_sort">
+<code class="descname">use_datablock_sort</code><a class="headerlink" href="#bpy.types.DopeSheet.use_datablock_sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alphabetically sorts datablocks - mainly objects in the scene (disable to increase viewport speed)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.use_filter_text">
+<code class="descname">use_filter_text</code><a class="headerlink" href="#bpy.types.DopeSheet.use_filter_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Only include channels with names containing search text</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DopeSheet.use_multi_word_filter">
+<code class="descname">use_multi_word_filter</code><a class="headerlink" href="#bpy.types.DopeSheet.use_multi_word_filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform fuzzy/multi-word matching (WARNING: May be slow)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.SpaceDopeSheetEditor.html#bpy.types.SpaceDopeSheetEditor.dopesheet" title="bpy.types.SpaceDopeSheetEditor.dopesheet"><code class="xref py py-class docutils literal"><span class="pre">SpaceDopeSheetEditor.dopesheet</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.SpaceGraphEditor.html#bpy.types.SpaceGraphEditor.dopesheet" title="bpy.types.SpaceGraphEditor.dopesheet"><code class="xref py py-class docutils literal"><span class="pre">SpaceGraphEditor.dopesheet</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.SpaceNLA.html#bpy.types.SpaceNLA.dopesheet" title="bpy.types.SpaceNLA.dopesheet"><code class="xref py py-class docutils literal"><span class="pre">SpaceNLA.dopesheet</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.DomainFluidSettings.html"
+                        title="previous chapter">DomainFluidSettings(FluidSettings)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.Driver.html"
+                        title="next chapter">Driver(bpy_struct)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.Driver.html" title="Driver(bpy_struct)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.DomainFluidSettings.html" title="DomainFluidSettings(FluidSettings)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

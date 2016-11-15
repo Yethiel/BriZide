@@ -1,0 +1,1532 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Brush(ID) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="BrushCapabilities(bpy_struct)" href="bpy.types.BrushCapabilities.html" />
+    <link rel="prev" title="BrightContrastModifier(SequenceModifier)" href="bpy.types.BrightContrastModifier.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.BrushCapabilities.html" title="BrushCapabilities(bpy_struct)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.BrightContrastModifier.html" title="BrightContrastModifier(SequenceModifier)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="brush-id"></span><h1>Brush(ID)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base classes &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal"><span class="pre">ID</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.Brush">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">Brush</code><span class="sig-paren">(</span><em>ID</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Brush" title="Permalink to this definition">¶</a></dt>
+<dd><p>Brush data-block for storing brush settings for painting and sculpting</p>
+<dl class="attribute">
+<dt id="bpy.types.Brush.auto_smooth_factor">
+<code class="descname">auto_smooth_factor</code><a class="headerlink" href="#bpy.types.Brush.auto_smooth_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of smoothing to automatically apply to each stroke</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.blend">
+<code class="descname">blend</code><a class="headerlink" href="#bpy.types.Brush.blend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Brush blending mode</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">MIX</span></code> Mix, Use mix blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">ADD</span></code> Add, Use add blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">SUB</span></code> Subtract, Use subtract blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">MUL</span></code> Multiply, Use multiply blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">LIGHTEN</span></code> Lighten, Use lighten blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">DARKEN</span></code> Darken, Use darken blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">ERASE_ALPHA</span></code> Erase Alpha, Erase alpha while painting.</li>
+<li><code class="docutils literal"><span class="pre">ADD_ALPHA</span></code> Add Alpha, Add alpha while painting.</li>
+<li><code class="docutils literal"><span class="pre">OVERLAY</span></code> Overlay, Use overlay blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">HARDLIGHT</span></code> Hard light, Use hard light blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">COLORBURN</span></code> Color burn, Use color burn blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">LINEARBURN</span></code> Linear burn, Use linear burn blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">COLORDODGE</span></code> Color dodge, Use color dodge blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">SCREEN</span></code> Screen, Use screen blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">SOFTLIGHT</span></code> Soft light, Use softlight blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">PINLIGHT</span></code> Pin light, Use pinlight blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">VIVIDLIGHT</span></code> Vivid light, Use vividlight blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">LINEARLIGHT</span></code> Linear light, Use linearlight blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">DIFFERENCE</span></code> Difference, Use difference blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">EXCLUSION</span></code> Exclusion, Use exclusion blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">HUE</span></code> Hue, Use hue blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">SATURATION</span></code> Saturation, Use saturation blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">LUMINOSITY</span></code> Luminosity, Use luminosity blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">COLOR</span></code> Color, Use color blending mode while painting.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;MIX&#8217;, &#8216;ADD&#8217;, &#8216;SUB&#8217;, &#8216;MUL&#8217;, &#8216;LIGHTEN&#8217;, &#8216;DARKEN&#8217;, &#8216;ERASE_ALPHA&#8217;, &#8216;ADD_ALPHA&#8217;, &#8216;OVERLAY&#8217;, &#8216;HARDLIGHT&#8217;, &#8216;COLORBURN&#8217;, &#8216;LINEARBURN&#8217;, &#8216;COLORDODGE&#8217;, &#8216;SCREEN&#8217;, &#8216;SOFTLIGHT&#8217;, &#8216;PINLIGHT&#8217;, &#8216;VIVIDLIGHT&#8217;, &#8216;LINEARLIGHT&#8217;, &#8216;DIFFERENCE&#8217;, &#8216;EXCLUSION&#8217;, &#8216;HUE&#8217;, &#8216;SATURATION&#8217;, &#8216;LUMINOSITY&#8217;, &#8216;COLOR&#8217;], default &#8216;MIX&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.blur_kernel_radius">
+<code class="descname">blur_kernel_radius</code><a class="headerlink" href="#bpy.types.Brush.blur_kernel_radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Radius of kernel used for soften and sharpen in pixels</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 10000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.blur_mode">
+<code class="descname">blur_mode</code><a class="headerlink" href="#bpy.types.Brush.blur_mode" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;BOX&#8217;, &#8216;GAUSSIAN&#8217;], default &#8216;GAUSSIAN&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Brush.brush_capabilities">
+<code class="descname">brush_capabilities</code><a class="headerlink" href="#bpy.types.Brush.brush_capabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Brush&#8217;s capabilities</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BrushCapabilities.html#bpy.types.BrushCapabilities" title="bpy.types.BrushCapabilities"><code class="xref py py-class docutils literal"><span class="pre">BrushCapabilities</span></code></a>, (readonly, never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.clone_alpha">
+<code class="descname">clone_alpha</code><a class="headerlink" href="#bpy.types.Brush.clone_alpha" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opacity of clone image display</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.clone_image">
+<code class="descname">clone_image</code><a class="headerlink" href="#bpy.types.Brush.clone_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Image for clone tool</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Image.html#bpy.types.Image" title="bpy.types.Image"><code class="xref py py-class docutils literal"><span class="pre">Image</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.clone_offset">
+<code class="descname">clone_offset</code><a class="headerlink" href="#bpy.types.Brush.clone_offset" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 2 items in [-inf, inf], default (0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.color">
+<code class="descname">color</code><a class="headerlink" href="#bpy.types.Brush.color" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 3 items in [0, 1], default (0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.crease_pinch_factor">
+<code class="descname">crease_pinch_factor</code><a class="headerlink" href="#bpy.types.Brush.crease_pinch_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>How much the crease brush pinches</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.666667</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.cursor_color_add">
+<code class="descname">cursor_color_add</code><a class="headerlink" href="#bpy.types.Brush.cursor_color_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Color of cursor when adding</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 3 items in [0, inf], default (0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.cursor_color_subtract">
+<code class="descname">cursor_color_subtract</code><a class="headerlink" href="#bpy.types.Brush.cursor_color_subtract" title="Permalink to this definition">¶</a></dt>
+<dd><p>Color of cursor when subtracting</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 3 items in [0, inf], default (0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.cursor_overlay_alpha">
+<code class="descname">cursor_overlay_alpha</code><a class="headerlink" href="#bpy.types.Brush.cursor_overlay_alpha" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 100], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Brush.curve">
+<code class="descname">curve</code><a class="headerlink" href="#bpy.types.Brush.curve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Editable falloff curve</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.CurveMapping.html#bpy.types.CurveMapping" title="bpy.types.CurveMapping"><code class="xref py py-class docutils literal"><span class="pre">CurveMapping</span></code></a>, (readonly, never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.direction">
+<code class="descname">direction</code><a class="headerlink" href="#bpy.types.Brush.direction" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><code class="docutils literal"><span class="pre">ADD</span></code> Add, Add effect of brush.</li>
+<li><code class="docutils literal"><span class="pre">SUBTRACT</span></code> Subtract, Subtract effect of brush.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;ADD&#8217;, &#8216;SUBTRACT&#8217;], default &#8216;ADD&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.fill_threshold">
+<code class="descname">fill_threshold</code><a class="headerlink" href="#bpy.types.Brush.fill_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Threshold above which filling is not propagated</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 100], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.grad_spacing">
+<code class="descname">grad_spacing</code><a class="headerlink" href="#bpy.types.Brush.grad_spacing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spacing before brush gradient goes full circle</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 10000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Brush.gradient">
+<code class="descname">gradient</code><a class="headerlink" href="#bpy.types.Brush.gradient" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.ColorRamp.html#bpy.types.ColorRamp" title="bpy.types.ColorRamp"><code class="xref py py-class docutils literal"><span class="pre">ColorRamp</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.gradient_fill_mode">
+<code class="descname">gradient_fill_mode</code><a class="headerlink" href="#bpy.types.Brush.gradient_fill_mode" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;LINEAR&#8217;, &#8216;RADIAL&#8217;], default &#8216;LINEAR&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.gradient_stroke_mode">
+<code class="descname">gradient_stroke_mode</code><a class="headerlink" href="#bpy.types.Brush.gradient_stroke_mode" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;PRESSURE&#8217;, &#8216;SPACING_REPEAT&#8217;, &#8216;SPACING_CLAMP&#8217;], default &#8216;PRESSURE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.height">
+<code class="descname">height</code><a class="headerlink" href="#bpy.types.Brush.height" title="Permalink to this definition">¶</a></dt>
+<dd><p>Affectable height of brush (layer height for layer tool, i.e.)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.5</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.icon_filepath">
+<code class="descname">icon_filepath</code><a class="headerlink" href="#bpy.types.Brush.icon_filepath" title="Permalink to this definition">¶</a></dt>
+<dd><p>File path to brush icon</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Brush.image_paint_capabilities">
+<code class="descname">image_paint_capabilities</code><a class="headerlink" href="#bpy.types.Brush.image_paint_capabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Brush&#8217;s capabilities in image paint mode</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.ImapaintToolCapabilities.html#bpy.types.ImapaintToolCapabilities" title="bpy.types.ImapaintToolCapabilities"><code class="xref py py-class docutils literal"><span class="pre">ImapaintToolCapabilities</span></code></a>, (readonly, never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.image_tool">
+<code class="descname">image_tool</code><a class="headerlink" href="#bpy.types.Brush.image_tool" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;DRAW&#8217;, &#8216;SOFTEN&#8217;, &#8216;SMEAR&#8217;, &#8216;CLONE&#8217;, &#8216;FILL&#8217;, &#8216;MASK&#8217;], default &#8216;DRAW&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.jitter">
+<code class="descname">jitter</code><a class="headerlink" href="#bpy.types.Brush.jitter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Jitter the position of the brush while painting</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.jitter_absolute">
+<code class="descname">jitter_absolute</code><a class="headerlink" href="#bpy.types.Brush.jitter_absolute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Jitter the position of the brush in pixels while painting</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 1000000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.mask_overlay_alpha">
+<code class="descname">mask_overlay_alpha</code><a class="headerlink" href="#bpy.types.Brush.mask_overlay_alpha" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 100], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.mask_stencil_dimension">
+<code class="descname">mask_stencil_dimension</code><a class="headerlink" href="#bpy.types.Brush.mask_stencil_dimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dimensions of mask stencil in viewport</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 2 items in [-inf, inf], default (0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.mask_stencil_pos">
+<code class="descname">mask_stencil_pos</code><a class="headerlink" href="#bpy.types.Brush.mask_stencil_pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Position of mask stencil in viewport</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 2 items in [-inf, inf], default (0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.mask_texture">
+<code class="descname">mask_texture</code><a class="headerlink" href="#bpy.types.Brush.mask_texture" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Texture.html#bpy.types.Texture" title="bpy.types.Texture"><code class="xref py py-class docutils literal"><span class="pre">Texture</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Brush.mask_texture_slot">
+<code class="descname">mask_texture_slot</code><a class="headerlink" href="#bpy.types.Brush.mask_texture_slot" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BrushTextureSlot.html#bpy.types.BrushTextureSlot" title="bpy.types.BrushTextureSlot"><code class="xref py py-class docutils literal"><span class="pre">BrushTextureSlot</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.mask_tool">
+<code class="descname">mask_tool</code><a class="headerlink" href="#bpy.types.Brush.mask_tool" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;DRAW&#8217;, &#8216;SMOOTH&#8217;], default &#8216;DRAW&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.normal_weight">
+<code class="descname">normal_weight</code><a class="headerlink" href="#bpy.types.Brush.normal_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>How much grab will pull vertexes out of surface during a grab</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.paint_curve">
+<code class="descname">paint_curve</code><a class="headerlink" href="#bpy.types.Brush.paint_curve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Active Paint Curve</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.PaintCurve.html#bpy.types.PaintCurve" title="bpy.types.PaintCurve"><code class="xref py py-class docutils literal"><span class="pre">PaintCurve</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.plane_offset">
+<code class="descname">plane_offset</code><a class="headerlink" href="#bpy.types.Brush.plane_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjust plane on which the brush acts towards or away from the object surface</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-2, 2], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.plane_trim">
+<code class="descname">plane_trim</code><a class="headerlink" href="#bpy.types.Brush.plane_trim" title="Permalink to this definition">¶</a></dt>
+<dd><p>If a vertex is further away from offset plane than this, then it is not affected</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.5</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.rake_factor">
+<code class="descname">rake_factor</code><a class="headerlink" href="#bpy.types.Brush.rake_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>How much grab will follow cursor rotation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 10], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.rate">
+<code class="descname">rate</code><a class="headerlink" href="#bpy.types.Brush.rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interval between paints for Airbrush</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.0001, 10000], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Brush.sculpt_capabilities">
+<code class="descname">sculpt_capabilities</code><a class="headerlink" href="#bpy.types.Brush.sculpt_capabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Brush&#8217;s capabilities in sculpt mode</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.SculptToolCapabilities.html#bpy.types.SculptToolCapabilities" title="bpy.types.SculptToolCapabilities"><code class="xref py py-class docutils literal"><span class="pre">SculptToolCapabilities</span></code></a>, (readonly, never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.sculpt_plane">
+<code class="descname">sculpt_plane</code><a class="headerlink" href="#bpy.types.Brush.sculpt_plane" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;AREA&#8217;, &#8216;VIEW&#8217;, &#8216;X&#8217;, &#8216;Y&#8217;, &#8216;Z&#8217;], default &#8216;AREA&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.sculpt_tool">
+<code class="descname">sculpt_tool</code><a class="headerlink" href="#bpy.types.Brush.sculpt_tool" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;BLOB&#8217;, &#8216;CLAY&#8217;, &#8216;CLAY_STRIPS&#8217;, &#8216;CREASE&#8217;, &#8216;DRAW&#8217;, &#8216;FILL&#8217;, &#8216;FLATTEN&#8217;, &#8216;GRAB&#8217;, &#8216;INFLATE&#8217;, &#8216;LAYER&#8217;, &#8216;MASK&#8217;, &#8216;NUDGE&#8217;, &#8216;PINCH&#8217;, &#8216;ROTATE&#8217;, &#8216;SCRAPE&#8217;, &#8216;SIMPLIFY&#8217;, &#8216;SMOOTH&#8217;, &#8216;SNAKE_HOOK&#8217;, &#8216;THUMB&#8217;], default &#8216;BLOB&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.secondary_color">
+<code class="descname">secondary_color</code><a class="headerlink" href="#bpy.types.Brush.secondary_color" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 3 items in [0, 1], default (0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.sharp_threshold">
+<code class="descname">sharp_threshold</code><a class="headerlink" href="#bpy.types.Brush.sharp_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Threshold below which, no sharpening is done</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 100], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.size">
+<code class="descname">size</code><a class="headerlink" href="#bpy.types.Brush.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Radius of the brush in pixels</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 5000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.smooth_stroke_factor">
+<code class="descname">smooth_stroke_factor</code><a class="headerlink" href="#bpy.types.Brush.smooth_stroke_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Higher values give a smoother stroke</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.5, 0.99], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.smooth_stroke_radius">
+<code class="descname">smooth_stroke_radius</code><a class="headerlink" href="#bpy.types.Brush.smooth_stroke_radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimum distance from last point before stroke continues</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [10, 200], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.spacing">
+<code class="descname">spacing</code><a class="headerlink" href="#bpy.types.Brush.spacing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spacing between brush daubs as a percentage of brush diameter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 1000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.stencil_dimension">
+<code class="descname">stencil_dimension</code><a class="headerlink" href="#bpy.types.Brush.stencil_dimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dimensions of stencil in viewport</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 2 items in [-inf, inf], default (0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.stencil_pos">
+<code class="descname">stencil_pos</code><a class="headerlink" href="#bpy.types.Brush.stencil_pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Position of stencil in viewport</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 2 items in [-inf, inf], default (0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.strength">
+<code class="descname">strength</code><a class="headerlink" href="#bpy.types.Brush.strength" title="Permalink to this definition">¶</a></dt>
+<dd><p>How powerful the effect of the brush is when applied</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 10], default 0.5</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.stroke_method">
+<code class="descname">stroke_method</code><a class="headerlink" href="#bpy.types.Brush.stroke_method" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><code class="docutils literal"><span class="pre">DOTS</span></code> Dots, Apply paint on each mouse move step.</li>
+<li><code class="docutils literal"><span class="pre">DRAG_DOT</span></code> Drag Dot, Allows a single dot to be carefully positioned.</li>
+<li><code class="docutils literal"><span class="pre">SPACE</span></code> Space, Limit brush application to the distance specified by spacing.</li>
+<li><code class="docutils literal"><span class="pre">AIRBRUSH</span></code> Airbrush, Keep applying paint effect while holding mouse (spray).</li>
+<li><code class="docutils literal"><span class="pre">ANCHORED</span></code> Anchored, Keep the brush anchored to the initial location.</li>
+<li><code class="docutils literal"><span class="pre">LINE</span></code> Line, Draw a line with dabs separated according to spacing.</li>
+<li><code class="docutils literal"><span class="pre">CURVE</span></code> Curve, Define the stroke curve with a bezier curve (dabs are separated according to spacing).</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;DOTS&#8217;, &#8216;DRAG_DOT&#8217;, &#8216;SPACE&#8217;, &#8216;AIRBRUSH&#8217;, &#8216;ANCHORED&#8217;, &#8216;LINE&#8217;, &#8216;CURVE&#8217;], default &#8216;DOTS&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.texture">
+<code class="descname">texture</code><a class="headerlink" href="#bpy.types.Brush.texture" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Texture.html#bpy.types.Texture" title="bpy.types.Texture"><code class="xref py py-class docutils literal"><span class="pre">Texture</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.texture_overlay_alpha">
+<code class="descname">texture_overlay_alpha</code><a class="headerlink" href="#bpy.types.Brush.texture_overlay_alpha" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 100], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.texture_sample_bias">
+<code class="descname">texture_sample_bias</code><a class="headerlink" href="#bpy.types.Brush.texture_sample_bias" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value added to texture samples</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-1, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Brush.texture_slot">
+<code class="descname">texture_slot</code><a class="headerlink" href="#bpy.types.Brush.texture_slot" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BrushTextureSlot.html#bpy.types.BrushTextureSlot" title="bpy.types.BrushTextureSlot"><code class="xref py py-class docutils literal"><span class="pre">BrushTextureSlot</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.unprojected_radius">
+<code class="descname">unprojected_radius</code><a class="headerlink" href="#bpy.types.Brush.unprojected_radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Radius of brush in Blender units</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.001, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_accumulate">
+<code class="descname">use_accumulate</code><a class="headerlink" href="#bpy.types.Brush.use_accumulate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accumulate stroke daubs on top of each other</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_adaptive_space">
+<code class="descname">use_adaptive_space</code><a class="headerlink" href="#bpy.types.Brush.use_adaptive_space" title="Permalink to this definition">¶</a></dt>
+<dd><p>Space daubs according to surface orientation instead of screen space</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_airbrush">
+<code class="descname">use_airbrush</code><a class="headerlink" href="#bpy.types.Brush.use_airbrush" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keep applying paint effect while holding mouse (spray)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_alpha">
+<code class="descname">use_alpha</code><a class="headerlink" href="#bpy.types.Brush.use_alpha" title="Permalink to this definition">¶</a></dt>
+<dd><p>When this is disabled, lock alpha while painting</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_anchor">
+<code class="descname">use_anchor</code><a class="headerlink" href="#bpy.types.Brush.use_anchor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keep the brush anchored to the initial location</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_cursor_overlay">
+<code class="descname">use_cursor_overlay</code><a class="headerlink" href="#bpy.types.Brush.use_cursor_overlay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show cursor in viewport</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_cursor_overlay_override">
+<code class="descname">use_cursor_overlay_override</code><a class="headerlink" href="#bpy.types.Brush.use_cursor_overlay_override" title="Permalink to this definition">¶</a></dt>
+<dd><p>Don&#8217;t show overlay during a stroke</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_curve">
+<code class="descname">use_curve</code><a class="headerlink" href="#bpy.types.Brush.use_curve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the stroke curve with a bezier curve. Dabs are separated according to spacing</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_custom_icon">
+<code class="descname">use_custom_icon</code><a class="headerlink" href="#bpy.types.Brush.use_custom_icon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the brush icon from an image file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_edge_to_edge">
+<code class="descname">use_edge_to_edge</code><a class="headerlink" href="#bpy.types.Brush.use_edge_to_edge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Drag anchor brush from edge-to-edge</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_frontface">
+<code class="descname">use_frontface</code><a class="headerlink" href="#bpy.types.Brush.use_frontface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Brush only affects vertexes that face the viewer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_gradient">
+<code class="descname">use_gradient</code><a class="headerlink" href="#bpy.types.Brush.use_gradient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use Gradient by utilizing a sampling method</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_inverse_smooth_pressure">
+<code class="descname">use_inverse_smooth_pressure</code><a class="headerlink" href="#bpy.types.Brush.use_inverse_smooth_pressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lighter pressure causes more smoothing to be applied</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_line">
+<code class="descname">use_line</code><a class="headerlink" href="#bpy.types.Brush.use_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw a line with dabs separated according to spacing</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_locked_size">
+<code class="descname">use_locked_size</code><a class="headerlink" href="#bpy.types.Brush.use_locked_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>When locked brush stays same size relative to object; when unlocked brush size is given in pixels</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_offset_pressure">
+<code class="descname">use_offset_pressure</code><a class="headerlink" href="#bpy.types.Brush.use_offset_pressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable tablet pressure sensitivity for offset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_original_normal">
+<code class="descname">use_original_normal</code><a class="headerlink" href="#bpy.types.Brush.use_original_normal" title="Permalink to this definition">¶</a></dt>
+<dd><p>When locked keep using normal of surface where stroke was initiated</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_paint_image">
+<code class="descname">use_paint_image</code><a class="headerlink" href="#bpy.types.Brush.use_paint_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this brush in texture paint mode</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_paint_sculpt">
+<code class="descname">use_paint_sculpt</code><a class="headerlink" href="#bpy.types.Brush.use_paint_sculpt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this brush in sculpt mode</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_paint_vertex">
+<code class="descname">use_paint_vertex</code><a class="headerlink" href="#bpy.types.Brush.use_paint_vertex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this brush in vertex paint mode</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_paint_weight">
+<code class="descname">use_paint_weight</code><a class="headerlink" href="#bpy.types.Brush.use_paint_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this brush in weight paint mode</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_persistent">
+<code class="descname">use_persistent</code><a class="headerlink" href="#bpy.types.Brush.use_persistent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sculpt on a persistent layer of the mesh</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_plane_trim">
+<code class="descname">use_plane_trim</code><a class="headerlink" href="#bpy.types.Brush.use_plane_trim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable Plane Trim</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_pressure_jitter">
+<code class="descname">use_pressure_jitter</code><a class="headerlink" href="#bpy.types.Brush.use_pressure_jitter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable tablet pressure sensitivity for jitter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_pressure_masking">
+<code class="descname">use_pressure_masking</code><a class="headerlink" href="#bpy.types.Brush.use_pressure_masking" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pen pressure makes texture influence smaller</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NONE&#8217;, &#8216;RAMP&#8217;, &#8216;CUTOFF&#8217;], default &#8216;NONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_pressure_size">
+<code class="descname">use_pressure_size</code><a class="headerlink" href="#bpy.types.Brush.use_pressure_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable tablet pressure sensitivity for size</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_pressure_spacing">
+<code class="descname">use_pressure_spacing</code><a class="headerlink" href="#bpy.types.Brush.use_pressure_spacing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable tablet pressure sensitivity for spacing</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_pressure_strength">
+<code class="descname">use_pressure_strength</code><a class="headerlink" href="#bpy.types.Brush.use_pressure_strength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable tablet pressure sensitivity for strength</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_primary_overlay">
+<code class="descname">use_primary_overlay</code><a class="headerlink" href="#bpy.types.Brush.use_primary_overlay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show texture in viewport</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_primary_overlay_override">
+<code class="descname">use_primary_overlay_override</code><a class="headerlink" href="#bpy.types.Brush.use_primary_overlay_override" title="Permalink to this definition">¶</a></dt>
+<dd><p>Don&#8217;t show overlay during a stroke</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_relative_jitter">
+<code class="descname">use_relative_jitter</code><a class="headerlink" href="#bpy.types.Brush.use_relative_jitter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Jittering happens in screen space, not relative to brush size</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_restore_mesh">
+<code class="descname">use_restore_mesh</code><a class="headerlink" href="#bpy.types.Brush.use_restore_mesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allow a single dot to be carefully positioned</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_secondary_overlay">
+<code class="descname">use_secondary_overlay</code><a class="headerlink" href="#bpy.types.Brush.use_secondary_overlay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show texture in viewport</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_secondary_overlay_override">
+<code class="descname">use_secondary_overlay_override</code><a class="headerlink" href="#bpy.types.Brush.use_secondary_overlay_override" title="Permalink to this definition">¶</a></dt>
+<dd><p>Don&#8217;t show overlay during a stroke</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_smooth_stroke">
+<code class="descname">use_smooth_stroke</code><a class="headerlink" href="#bpy.types.Brush.use_smooth_stroke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Brush lags behind mouse and follows a smoother path</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_space">
+<code class="descname">use_space</code><a class="headerlink" href="#bpy.types.Brush.use_space" title="Permalink to this definition">¶</a></dt>
+<dd><p>Limit brush application to the distance specified by spacing</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.use_space_attenuation">
+<code class="descname">use_space_attenuation</code><a class="headerlink" href="#bpy.types.Brush.use_space_attenuation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatically adjust strength to give consistent results for different spacings</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.vertex_tool">
+<code class="descname">vertex_tool</code><a class="headerlink" href="#bpy.types.Brush.vertex_tool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Brush blending mode</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">MIX</span></code> Mix, Use mix blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">ADD</span></code> Add, Use add blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">SUB</span></code> Subtract, Use subtract blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">MUL</span></code> Multiply, Use multiply blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">BLUR</span></code> Blur, Blur the color with surrounding values.</li>
+<li><code class="docutils literal"><span class="pre">LIGHTEN</span></code> Lighten, Use lighten blending mode while painting.</li>
+<li><code class="docutils literal"><span class="pre">DARKEN</span></code> Darken, Use darken blending mode while painting.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;MIX&#8217;, &#8216;ADD&#8217;, &#8216;SUB&#8217;, &#8216;MUL&#8217;, &#8216;BLUR&#8217;, &#8216;LIGHTEN&#8217;, &#8216;DARKEN&#8217;], default &#8216;MIX&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Brush.weight">
+<code class="descname">weight</code><a class="headerlink" href="#bpy.types.Brush.weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertex weight when brush is applied</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 1.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.name" title="bpy.types.ID.name"><code class="xref py py-class docutils literal"><span class="pre">ID.name</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.users" title="bpy.types.ID.users"><code class="xref py py-class docutils literal"><span class="pre">ID.users</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.use_fake_user" title="bpy.types.ID.use_fake_user"><code class="xref py py-class docutils literal"><span class="pre">ID.use_fake_user</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.tag" title="bpy.types.ID.tag"><code class="xref py py-class docutils literal"><span class="pre">ID.tag</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_updated" title="bpy.types.ID.is_updated"><code class="xref py py-class docutils literal"><span class="pre">ID.is_updated</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_updated_data" title="bpy.types.ID.is_updated_data"><code class="xref py py-class docutils literal"><span class="pre">ID.is_updated_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_library_indirect" title="bpy.types.ID.is_library_indirect"><code class="xref py py-class docutils literal"><span class="pre">ID.is_library_indirect</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.library" title="bpy.types.ID.library"><code class="xref py py-class docutils literal"><span class="pre">ID.library</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.preview" title="bpy.types.ID.preview"><code class="xref py py-class docutils literal"><span class="pre">ID.preview</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.copy" title="bpy.types.ID.copy"><code class="xref py py-class docutils literal"><span class="pre">ID.copy</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_clear" title="bpy.types.ID.user_clear"><code class="xref py py-class docutils literal"><span class="pre">ID.user_clear</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_remap" title="bpy.types.ID.user_remap"><code class="xref py py-class docutils literal"><span class="pre">ID.user_remap</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_of_id" title="bpy.types.ID.user_of_id"><code class="xref py py-class docutils literal"><span class="pre">ID.user_of_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.animation_data_create" title="bpy.types.ID.animation_data_create"><code class="xref py py-class docutils literal"><span class="pre">ID.animation_data_create</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.animation_data_clear" title="bpy.types.ID.animation_data_clear"><code class="xref py py-class docutils literal"><span class="pre">ID.animation_data_clear</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.update_tag" title="bpy.types.ID.update_tag"><code class="xref py py-class docutils literal"><span class="pre">ID.update_tag</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.context.html#bpy.context.brush" title="bpy.context.brush"><code class="xref py py-mod docutils literal"><span class="pre">bpy.context.brush</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.BlendData.html#bpy.types.BlendData.brushes" title="bpy.types.BlendData.brushes"><code class="xref py py-class docutils literal"><span class="pre">BlendData.brushes</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.BlendDataBrushes.html#bpy.types.BlendDataBrushes.new" title="bpy.types.BlendDataBrushes.new"><code class="xref py py-class docutils literal"><span class="pre">BlendDataBrushes.new</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.BlendDataBrushes.html#bpy.types.BlendDataBrushes.remove" title="bpy.types.BlendDataBrushes.remove"><code class="xref py py-class docutils literal"><span class="pre">BlendDataBrushes.remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Paint.html#bpy.types.Paint.brush" title="bpy.types.Paint.brush"><code class="xref py py-class docutils literal"><span class="pre">Paint.brush</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.BrightContrastModifier.html"
+                        title="previous chapter">BrightContrastModifier(SequenceModifier)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.BrushCapabilities.html"
+                        title="next chapter">BrushCapabilities(bpy_struct)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.BrushCapabilities.html" title="BrushCapabilities(bpy_struct)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.BrightContrastModifier.html" title="BrightContrastModifier(SequenceModifier)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

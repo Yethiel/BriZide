@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>BVHTree Utilities (mathutils.bvhtree) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="next" title="KDTree Utilities (mathutils.kdtree)" href="mathutils.kdtree.html" />
+    <link rel="prev" title="Geometry Utilities (mathutils.geometry)" href="mathutils.geometry.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mathutils.kdtree.html" title="KDTree Utilities (mathutils.kdtree)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mathutils.geometry.html" title="Geometry Utilities (mathutils.geometry)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-mathutils.bvhtree">
+<span id="bvhtree-utilities-mathutils-bvhtree"></span><h1>BVHTree Utilities (mathutils.bvhtree)<a class="headerlink" href="#module-mathutils.bvhtree" title="Permalink to this headline">¶</a></h1>
+<p>BVH tree structures for proximity searches and ray casts on geometry.</p>
+<dl class="class">
+<dt id="mathutils.bvhtree.BVHTree">
+<em class="property">class </em><code class="descclassname">mathutils.bvhtree.</code><code class="descname">BVHTree</code><a class="headerlink" href="#mathutils.bvhtree.BVHTree" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="classmethod">
+<dt id="mathutils.bvhtree.BVHTree.FromBMesh">
+<em class="property">classmethod </em><code class="descname">FromBMesh</code><span class="sig-paren">(</span><em>bmesh</em>, <em>epsilon=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.bvhtree.BVHTree.FromBMesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>BVH tree based on <code class="xref py py-class docutils literal"><span class="pre">BMesh</span></code> data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>bmesh</strong> (<code class="xref py py-class docutils literal"><span class="pre">BMesh</span></code>) &#8211; BMesh data.</li>
+<li><strong>epsilon</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; Increase the threshold for detecting overlap and raycast hits.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="mathutils.bvhtree.BVHTree.FromObject">
+<em class="property">classmethod </em><code class="descname">FromObject</code><span class="sig-paren">(</span><em>object</em>, <em>scene</em>, <em>deform=True</em>, <em>render=False</em>, <em>cage=False</em>, <em>epsilon=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.bvhtree.BVHTree.FromObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>BVH tree based on <code class="xref py py-class docutils literal"><span class="pre">Object</span></code> data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>object</strong> (<code class="xref py py-class docutils literal"><span class="pre">Object</span></code>) &#8211; Object data.</li>
+<li><strong>scene</strong> (<code class="xref py py-class docutils literal"><span class="pre">Scene</span></code>) &#8211; Scene data to use for evaluating the mesh.</li>
+<li><strong>deform</strong> (<em>bool</em>) &#8211; Use mesh with deformations.</li>
+<li><strong>render</strong> (<em>bool</em>) &#8211; Use render settings.</li>
+<li><strong>cage</strong> (<em>bool</em>) &#8211; Use render settings.</li>
+<li><strong>epsilon</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; Increase the threshold for detecting overlap and raycast hits.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="mathutils.bvhtree.BVHTree.FromPolygons">
+<em class="property">classmethod </em><code class="descname">FromPolygons</code><span class="sig-paren">(</span><em>vertices</em>, <em>polygons</em>, <em>all_triangles=False</em>, <em>epsilon=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.bvhtree.BVHTree.FromPolygons" title="Permalink to this definition">¶</a></dt>
+<dd><p>BVH tree constructed geometry passed in as arguments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>vertices</strong> (<em>float triplet sequence</em>) &#8211; float triplets each representing <code class="docutils literal"><span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">z)</span></code></li>
+<li><strong>polygons</strong> (<em>Sequence of sequences containing ints</em>) &#8211; Sequence of polyugons, each containing indices to the vertices argument.</li>
+<li><strong>all_triangles</strong> (<em>bool</em>) &#8211; Use when all <strong>polygons</strong> are triangles for more efficient conversion.</li>
+<li><strong>epsilon</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; Increase the threshold for detecting overlap and raycast hits.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mathutils.bvhtree.BVHTree.find_nearest">
+<code class="descname">find_nearest</code><span class="sig-paren">(</span><em>origin</em>, <em>distance=1.84467e+19</em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.bvhtree.BVHTree.find_nearest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the nearest element to a point.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>co</strong> (<code class="xref py py-class docutils literal"><span class="pre">Vector</span></code>) &#8211; Find nearest element to this point.</li>
+<li><strong>distance</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; Maximum distance threshold.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Returns a tuple
+(<code class="xref py py-class docutils literal"><span class="pre">Vector</span></code> location, <code class="xref py py-class docutils literal"><span class="pre">Vector</span></code> normal, int index, float distance),
+Values will all be None if no hit is found.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">tuple</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mathutils.bvhtree.BVHTree.find_nearest_range">
+<code class="descname">find_nearest_range</code><span class="sig-paren">(</span><em>origin</em>, <em>distance=1.84467e+19</em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.bvhtree.BVHTree.find_nearest_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the nearest elements to a point in the distance range.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>co</strong> (<code class="xref py py-class docutils literal"><span class="pre">Vector</span></code>) &#8211; Find nearest elements to this point.</li>
+<li><strong>distance</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; Maximum distance threshold.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Returns a list of tuples
+(<code class="xref py py-class docutils literal"><span class="pre">Vector</span></code> location, <code class="xref py py-class docutils literal"><span class="pre">Vector</span></code> normal, int index, float distance),</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mathutils.bvhtree.BVHTree.overlap">
+<code class="descname">overlap</code><span class="sig-paren">(</span><em>other_tree</em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.bvhtree.BVHTree.overlap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find overlapping indices between 2 trees.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other_tree</strong> (<a class="reference internal" href="#mathutils.bvhtree.BVHTree" title="mathutils.bvhtree.BVHTree"><code class="xref py py-class docutils literal"><span class="pre">BVHTree</span></code></a>) &#8211; Other tree to preform overlap test on.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns a list of unique index pairs,      the first index referencing this tree, the second referencing the <strong>other_tree</strong>.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mathutils.bvhtree.BVHTree.ray_cast">
+<code class="descname">ray_cast</code><span class="sig-paren">(</span><em>origin</em>, <em>direction</em>, <em>distance=sys.float_info.max</em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.bvhtree.BVHTree.ray_cast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cast a ray onto the mesh.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>co</strong> (<code class="xref py py-class docutils literal"><span class="pre">Vector</span></code>) &#8211; Start location of the ray in object space.</li>
+<li><strong>direction</strong> (<code class="xref py py-class docutils literal"><span class="pre">Vector</span></code>) &#8211; Direction of the ray in object space.</li>
+<li><strong>distance</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; Maximum distance threshold.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Returns a tuple
+(<code class="xref py py-class docutils literal"><span class="pre">Vector</span></code> location, <code class="xref py py-class docutils literal"><span class="pre">Vector</span></code> normal, int index, float distance),
+Values will all be None if no hit is found.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">tuple</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mathutils.geometry.html"
+                        title="previous chapter">Geometry Utilities (mathutils.geometry)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mathutils.kdtree.html"
+                        title="next chapter">KDTree Utilities (mathutils.kdtree)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mathutils.kdtree.html" title="KDTree Utilities (mathutils.kdtree)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mathutils.geometry.html" title="Geometry Utilities (mathutils.geometry)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

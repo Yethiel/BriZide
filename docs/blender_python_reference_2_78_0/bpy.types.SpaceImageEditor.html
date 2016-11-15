@@ -1,0 +1,540 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>SpaceImageEditor(Space) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="SpaceInfo(Space)" href="bpy.types.SpaceInfo.html" />
+    <link rel="prev" title="SpaceGraphEditor(Space)" href="bpy.types.SpaceGraphEditor.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SpaceInfo.html" title="SpaceInfo(Space)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SpaceGraphEditor.html" title="SpaceGraphEditor(Space)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="spaceimageeditor-space"></span><h1>SpaceImageEditor(Space)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base classes &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Space.html#bpy.types.Space" title="bpy.types.Space"><code class="xref py py-class docutils literal"><span class="pre">Space</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.SpaceImageEditor">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">SpaceImageEditor</code><span class="sig-paren">(</span><em>Space</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.SpaceImageEditor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Image and UV editor space data</p>
+<dl class="attribute">
+<dt id="bpy.types.SpaceImageEditor.cursor_location">
+<code class="descname">cursor_location</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.cursor_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>2D cursor location for this view</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 2 items in [-inf, inf], default (0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceImageEditor.draw_channels">
+<code class="descname">draw_channels</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.draw_channels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Channels of the image to draw</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">COLOR_ALPHA</span></code> Color and Alpha, Draw image with RGB colors and alpha transparency.</li>
+<li><code class="docutils literal"><span class="pre">COLOR</span></code> Color, Draw image with RGB colors.</li>
+<li><code class="docutils literal"><span class="pre">ALPHA</span></code> Alpha, Draw alpha transparency channel.</li>
+<li><code class="docutils literal"><span class="pre">Z_BUFFER</span></code> Z-Buffer, Draw Z-buffer associated with image (mapped from camera clip start to end).</li>
+<li><code class="docutils literal"><span class="pre">RED</span></code> Red.</li>
+<li><code class="docutils literal"><span class="pre">GREEN</span></code> Green.</li>
+<li><code class="docutils literal"><span class="pre">BLUE</span></code> Blue.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;COLOR_ALPHA&#8217;, &#8216;COLOR&#8217;, &#8216;ALPHA&#8217;, &#8216;Z_BUFFER&#8217;, &#8216;RED&#8217;, &#8216;GREEN&#8217;, &#8216;BLUE&#8217;], default &#8216;COLOR&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceImageEditor.grease_pencil">
+<code class="descname">grease_pencil</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.grease_pencil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grease pencil data for this space</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.GreasePencil.html#bpy.types.GreasePencil" title="bpy.types.GreasePencil"><code class="xref py py-class docutils literal"><span class="pre">GreasePencil</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceImageEditor.image">
+<code class="descname">image</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Image displayed and edited in this space</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Image.html#bpy.types.Image" title="bpy.types.Image"><code class="xref py py-class docutils literal"><span class="pre">Image</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SpaceImageEditor.image_user">
+<code class="descname">image_user</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.image_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parameters defining which layer, pass and frame of the image is displayed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.ImageUser.html#bpy.types.ImageUser" title="bpy.types.ImageUser"><code class="xref py py-class docutils literal"><span class="pre">ImageUser</span></code></a>, (readonly, never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceImageEditor.mask">
+<code class="descname">mask</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.mask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mask displayed and edited in this space</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Mask.html#bpy.types.Mask" title="bpy.types.Mask"><code class="xref py py-class docutils literal"><span class="pre">Mask</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceImageEditor.mask_draw_type">
+<code class="descname">mask_draw_type</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.mask_draw_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw type for mask splines</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">OUTLINE</span></code> Outline, Draw white edges with black outline.</li>
+<li><code class="docutils literal"><span class="pre">DASH</span></code> Dash, Draw dashed black-white edges.</li>
+<li><code class="docutils literal"><span class="pre">BLACK</span></code> Black, Draw black edges.</li>
+<li><code class="docutils literal"><span class="pre">WHITE</span></code> White, Draw white edges.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;OUTLINE&#8217;, &#8216;DASH&#8217;, &#8216;BLACK&#8217;, &#8216;WHITE&#8217;], default &#8216;OUTLINE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceImageEditor.mask_overlay_mode">
+<code class="descname">mask_overlay_mode</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.mask_overlay_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overlay mode of rasterized mask</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">ALPHACHANNEL</span></code> Alpha Channel, Show alpha channel of the mask.</li>
+<li><code class="docutils literal"><span class="pre">COMBINED</span></code> Combined, Combine space background image with the mask.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;ALPHACHANNEL&#8217;, &#8216;COMBINED&#8217;], default &#8216;ALPHACHANNEL&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceImageEditor.mode">
+<code class="descname">mode</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Editing context being displayed</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">VIEW</span></code> View, View the image and UV edit in mesh editmode.</li>
+<li><code class="docutils literal"><span class="pre">PAINT</span></code> Paint, 2D image painting mode.</li>
+<li><code class="docutils literal"><span class="pre">MASK</span></code> Mask, Mask editing.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;VIEW&#8217;, &#8216;PAINT&#8217;, &#8216;MASK&#8217;], default &#8216;VIEW&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceImageEditor.pivot_point">
+<code class="descname">pivot_point</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.pivot_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotation/Scaling Pivot</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">BOUNDING_BOX_CENTER</span></code> Bounding Box Center, Pivot around bounding box center of selected object(s).</li>
+<li><code class="docutils literal"><span class="pre">CURSOR</span></code> 3D Cursor, Pivot around the 3D cursor.</li>
+<li><code class="docutils literal"><span class="pre">INDIVIDUAL_ORIGINS</span></code> Individual Origins, Pivot around each object&#8217;s own origin.</li>
+<li><code class="docutils literal"><span class="pre">MEDIAN_POINT</span></code> Median Point, Pivot around the median point of selected objects.</li>
+<li><code class="docutils literal"><span class="pre">ACTIVE_ELEMENT</span></code> Active Element, Pivot around active object.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;BOUNDING_BOX_CENTER&#8217;, &#8216;CURSOR&#8217;, &#8216;INDIVIDUAL_ORIGINS&#8217;, &#8216;MEDIAN_POINT&#8217;, &#8216;ACTIVE_ELEMENT&#8217;], default &#8216;BOUNDING_BOX_CENTER&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SpaceImageEditor.sample_histogram">
+<code class="descname">sample_histogram</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.sample_histogram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sampled colors along line</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Histogram.html#bpy.types.Histogram" title="bpy.types.Histogram"><code class="xref py py-class docutils literal"><span class="pre">Histogram</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SpaceImageEditor.scopes">
+<code class="descname">scopes</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.scopes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scopes to visualize image statistics</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Scopes.html#bpy.types.Scopes" title="bpy.types.Scopes"><code class="xref py py-class docutils literal"><span class="pre">Scopes</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceImageEditor.show_grease_pencil">
+<code class="descname">show_grease_pencil</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.show_grease_pencil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show grease pencil for this view</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceImageEditor.show_mask_overlay">
+<code class="descname">show_mask_overlay</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.show_mask_overlay" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceImageEditor.show_mask_smooth">
+<code class="descname">show_mask_smooth</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.show_mask_smooth" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SpaceImageEditor.show_maskedit">
+<code class="descname">show_maskedit</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.show_maskedit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show Mask editing related properties</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SpaceImageEditor.show_paint">
+<code class="descname">show_paint</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.show_paint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show paint related properties</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SpaceImageEditor.show_render">
+<code class="descname">show_render</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.show_render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show render related properties</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceImageEditor.show_repeat">
+<code class="descname">show_repeat</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.show_repeat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw the image repeated outside of the main view</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceImageEditor.show_stereo_3d">
+<code class="descname">show_stereo_3d</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.show_stereo_3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the image in Stereo 3D</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SpaceImageEditor.show_uvedit">
+<code class="descname">show_uvedit</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.show_uvedit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show UV editing related properties</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceImageEditor.use_image_pin">
+<code class="descname">use_image_pin</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.use_image_pin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display current image regardless of object selection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SpaceImageEditor.use_realtime_update">
+<code class="descname">use_realtime_update</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.use_realtime_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update other affected window spaces automatically to reflect changes during interactive operations such as transform</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SpaceImageEditor.uv_editor">
+<code class="descname">uv_editor</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.uv_editor" title="Permalink to this definition">¶</a></dt>
+<dd><p>UV editor settings</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.SpaceUVEditor.html#bpy.types.SpaceUVEditor" title="bpy.types.SpaceUVEditor"><code class="xref py py-class docutils literal"><span class="pre">SpaceUVEditor</span></code></a>, (readonly, never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SpaceImageEditor.zoom">
+<code class="descname">zoom</code><a class="headerlink" href="#bpy.types.SpaceImageEditor.zoom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zoom factor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 2 items in [-inf, inf], default (0.0, 0.0), (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.types.SpaceImageEditor.draw_handler_add">
+<code class="descname">draw_handler_add</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.SpaceImageEditor.draw_handler_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Undocumented</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.types.SpaceImageEditor.draw_handler_remove">
+<code class="descname">draw_handler_remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.SpaceImageEditor.draw_handler_remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Undocumented</p>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Space.html#bpy.types.Space.type" title="bpy.types.Space.type"><code class="xref py py-class docutils literal"><span class="pre">Space.type</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.Space.html#bpy.types.Space.show_locked_time" title="bpy.types.Space.show_locked_time"><code class="xref py py-class docutils literal"><span class="pre">Space.show_locked_time</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.SpaceGraphEditor.html"
+                        title="previous chapter">SpaceGraphEditor(Space)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.SpaceInfo.html"
+                        title="next chapter">SpaceInfo(Space)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SpaceInfo.html" title="SpaceInfo(Space)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SpaceGraphEditor.html" title="SpaceGraphEditor(Space)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

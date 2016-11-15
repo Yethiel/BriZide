@@ -1,0 +1,699 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>BlendData(bpy_struct) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="BlendDataActions(bpy_struct)" href="bpy.types.BlendDataActions.html" />
+    <link rel="prev" title="BezierSplinePoint(bpy_struct)" href="bpy.types.BezierSplinePoint.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.BlendDataActions.html" title="BlendDataActions(bpy_struct)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.BezierSplinePoint.html" title="BezierSplinePoint(bpy_struct)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="blenddata-bpy-struct"></span><h1>BlendData(bpy_struct)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.BlendData">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">BlendData</code><span class="sig-paren">(</span><em>bpy_struct</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.BlendData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main data structure representing a .blend file and all its datablocks</p>
+<dl class="data">
+<dt id="bpy.types.BlendData.actions">
+<code class="descname">actions</code><a class="headerlink" href="#bpy.types.BlendData.actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Action datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataActions.html#bpy.types.BlendDataActions" title="bpy.types.BlendDataActions"><code class="xref py py-class docutils literal"><span class="pre">BlendDataActions</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Action.html#bpy.types.Action" title="bpy.types.Action"><code class="xref py py-class docutils literal"><span class="pre">Action</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.armatures">
+<code class="descname">armatures</code><a class="headerlink" href="#bpy.types.BlendData.armatures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Armature datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataArmatures.html#bpy.types.BlendDataArmatures" title="bpy.types.BlendDataArmatures"><code class="xref py py-class docutils literal"><span class="pre">BlendDataArmatures</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Armature.html#bpy.types.Armature" title="bpy.types.Armature"><code class="xref py py-class docutils literal"><span class="pre">Armature</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.brushes">
+<code class="descname">brushes</code><a class="headerlink" href="#bpy.types.BlendData.brushes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Brush datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataBrushes.html#bpy.types.BlendDataBrushes" title="bpy.types.BlendDataBrushes"><code class="xref py py-class docutils literal"><span class="pre">BlendDataBrushes</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Brush.html#bpy.types.Brush" title="bpy.types.Brush"><code class="xref py py-class docutils literal"><span class="pre">Brush</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.cache_files">
+<code class="descname">cache_files</code><a class="headerlink" href="#bpy.types.BlendData.cache_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cache Files datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataCacheFiles.html#bpy.types.BlendDataCacheFiles" title="bpy.types.BlendDataCacheFiles"><code class="xref py py-class docutils literal"><span class="pre">BlendDataCacheFiles</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.CacheFile.html#bpy.types.CacheFile" title="bpy.types.CacheFile"><code class="xref py py-class docutils literal"><span class="pre">CacheFile</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.cameras">
+<code class="descname">cameras</code><a class="headerlink" href="#bpy.types.BlendData.cameras" title="Permalink to this definition">¶</a></dt>
+<dd><p>Camera datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataCameras.html#bpy.types.BlendDataCameras" title="bpy.types.BlendDataCameras"><code class="xref py py-class docutils literal"><span class="pre">BlendDataCameras</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Camera.html#bpy.types.Camera" title="bpy.types.Camera"><code class="xref py py-class docutils literal"><span class="pre">Camera</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.curves">
+<code class="descname">curves</code><a class="headerlink" href="#bpy.types.BlendData.curves" title="Permalink to this definition">¶</a></dt>
+<dd><p>Curve datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataCurves.html#bpy.types.BlendDataCurves" title="bpy.types.BlendDataCurves"><code class="xref py py-class docutils literal"><span class="pre">BlendDataCurves</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Curve.html#bpy.types.Curve" title="bpy.types.Curve"><code class="xref py py-class docutils literal"><span class="pre">Curve</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.filepath">
+<code class="descname">filepath</code><a class="headerlink" href="#bpy.types.BlendData.filepath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to the .blend file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (readonly, never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.fonts">
+<code class="descname">fonts</code><a class="headerlink" href="#bpy.types.BlendData.fonts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vector font datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataFonts.html#bpy.types.BlendDataFonts" title="bpy.types.BlendDataFonts"><code class="xref py py-class docutils literal"><span class="pre">BlendDataFonts</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.VectorFont.html#bpy.types.VectorFont" title="bpy.types.VectorFont"><code class="xref py py-class docutils literal"><span class="pre">VectorFont</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.grease_pencil">
+<code class="descname">grease_pencil</code><a class="headerlink" href="#bpy.types.BlendData.grease_pencil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grease Pencil datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataGreasePencils.html#bpy.types.BlendDataGreasePencils" title="bpy.types.BlendDataGreasePencils"><code class="xref py py-class docutils literal"><span class="pre">BlendDataGreasePencils</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.GreasePencil.html#bpy.types.GreasePencil" title="bpy.types.GreasePencil"><code class="xref py py-class docutils literal"><span class="pre">GreasePencil</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.groups">
+<code class="descname">groups</code><a class="headerlink" href="#bpy.types.BlendData.groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Group datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataGroups.html#bpy.types.BlendDataGroups" title="bpy.types.BlendDataGroups"><code class="xref py py-class docutils literal"><span class="pre">BlendDataGroups</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Group.html#bpy.types.Group" title="bpy.types.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.images">
+<code class="descname">images</code><a class="headerlink" href="#bpy.types.BlendData.images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Image datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataImages.html#bpy.types.BlendDataImages" title="bpy.types.BlendDataImages"><code class="xref py py-class docutils literal"><span class="pre">BlendDataImages</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Image.html#bpy.types.Image" title="bpy.types.Image"><code class="xref py py-class docutils literal"><span class="pre">Image</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.is_dirty">
+<code class="descname">is_dirty</code><a class="headerlink" href="#bpy.types.BlendData.is_dirty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Have recent edits been saved to disk</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.is_saved">
+<code class="descname">is_saved</code><a class="headerlink" href="#bpy.types.BlendData.is_saved" title="Permalink to this definition">¶</a></dt>
+<dd><p>Has the current session been saved to disk as a .blend file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.lamps">
+<code class="descname">lamps</code><a class="headerlink" href="#bpy.types.BlendData.lamps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lamp datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataLamps.html#bpy.types.BlendDataLamps" title="bpy.types.BlendDataLamps"><code class="xref py py-class docutils literal"><span class="pre">BlendDataLamps</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Lamp.html#bpy.types.Lamp" title="bpy.types.Lamp"><code class="xref py py-class docutils literal"><span class="pre">Lamp</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.lattices">
+<code class="descname">lattices</code><a class="headerlink" href="#bpy.types.BlendData.lattices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lattice datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataLattices.html#bpy.types.BlendDataLattices" title="bpy.types.BlendDataLattices"><code class="xref py py-class docutils literal"><span class="pre">BlendDataLattices</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Lattice.html#bpy.types.Lattice" title="bpy.types.Lattice"><code class="xref py py-class docutils literal"><span class="pre">Lattice</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.libraries">
+<code class="descname">libraries</code><a class="headerlink" href="#bpy.types.BlendData.libraries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Library datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataLibraries.html#bpy.types.BlendDataLibraries" title="bpy.types.BlendDataLibraries"><code class="xref py py-class docutils literal"><span class="pre">BlendDataLibraries</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Library.html#bpy.types.Library" title="bpy.types.Library"><code class="xref py py-class docutils literal"><span class="pre">Library</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.linestyles">
+<code class="descname">linestyles</code><a class="headerlink" href="#bpy.types.BlendData.linestyles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Line Style datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataLineStyles.html#bpy.types.BlendDataLineStyles" title="bpy.types.BlendDataLineStyles"><code class="xref py py-class docutils literal"><span class="pre">BlendDataLineStyles</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.FreestyleLineStyle.html#bpy.types.FreestyleLineStyle" title="bpy.types.FreestyleLineStyle"><code class="xref py py-class docutils literal"><span class="pre">FreestyleLineStyle</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.masks">
+<code class="descname">masks</code><a class="headerlink" href="#bpy.types.BlendData.masks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Masks datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataMasks.html#bpy.types.BlendDataMasks" title="bpy.types.BlendDataMasks"><code class="xref py py-class docutils literal"><span class="pre">BlendDataMasks</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Mask.html#bpy.types.Mask" title="bpy.types.Mask"><code class="xref py py-class docutils literal"><span class="pre">Mask</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.materials">
+<code class="descname">materials</code><a class="headerlink" href="#bpy.types.BlendData.materials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Material datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataMaterials.html#bpy.types.BlendDataMaterials" title="bpy.types.BlendDataMaterials"><code class="xref py py-class docutils literal"><span class="pre">BlendDataMaterials</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Material.html#bpy.types.Material" title="bpy.types.Material"><code class="xref py py-class docutils literal"><span class="pre">Material</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.meshes">
+<code class="descname">meshes</code><a class="headerlink" href="#bpy.types.BlendData.meshes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mesh datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataMeshes.html#bpy.types.BlendDataMeshes" title="bpy.types.BlendDataMeshes"><code class="xref py py-class docutils literal"><span class="pre">BlendDataMeshes</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Mesh.html#bpy.types.Mesh" title="bpy.types.Mesh"><code class="xref py py-class docutils literal"><span class="pre">Mesh</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.metaballs">
+<code class="descname">metaballs</code><a class="headerlink" href="#bpy.types.BlendData.metaballs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Metaball datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataMetaBalls.html#bpy.types.BlendDataMetaBalls" title="bpy.types.BlendDataMetaBalls"><code class="xref py py-class docutils literal"><span class="pre">BlendDataMetaBalls</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.MetaBall.html#bpy.types.MetaBall" title="bpy.types.MetaBall"><code class="xref py py-class docutils literal"><span class="pre">MetaBall</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.movieclips">
+<code class="descname">movieclips</code><a class="headerlink" href="#bpy.types.BlendData.movieclips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Movie Clip datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataMovieClips.html#bpy.types.BlendDataMovieClips" title="bpy.types.BlendDataMovieClips"><code class="xref py py-class docutils literal"><span class="pre">BlendDataMovieClips</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.MovieClip.html#bpy.types.MovieClip" title="bpy.types.MovieClip"><code class="xref py py-class docutils literal"><span class="pre">MovieClip</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.node_groups">
+<code class="descname">node_groups</code><a class="headerlink" href="#bpy.types.BlendData.node_groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Node group datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataNodeTrees.html#bpy.types.BlendDataNodeTrees" title="bpy.types.BlendDataNodeTrees"><code class="xref py py-class docutils literal"><span class="pre">BlendDataNodeTrees</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree" title="bpy.types.NodeTree"><code class="xref py py-class docutils literal"><span class="pre">NodeTree</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.objects">
+<code class="descname">objects</code><a class="headerlink" href="#bpy.types.BlendData.objects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataObjects.html#bpy.types.BlendDataObjects" title="bpy.types.BlendDataObjects"><code class="xref py py-class docutils literal"><span class="pre">BlendDataObjects</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal"><span class="pre">Object</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.palettes">
+<code class="descname">palettes</code><a class="headerlink" href="#bpy.types.BlendData.palettes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Palette datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataPalettes.html#bpy.types.BlendDataPalettes" title="bpy.types.BlendDataPalettes"><code class="xref py py-class docutils literal"><span class="pre">BlendDataPalettes</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Palette.html#bpy.types.Palette" title="bpy.types.Palette"><code class="xref py py-class docutils literal"><span class="pre">Palette</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.particles">
+<code class="descname">particles</code><a class="headerlink" href="#bpy.types.BlendData.particles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Particle datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataParticles.html#bpy.types.BlendDataParticles" title="bpy.types.BlendDataParticles"><code class="xref py py-class docutils literal"><span class="pre">BlendDataParticles</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.ParticleSettings.html#bpy.types.ParticleSettings" title="bpy.types.ParticleSettings"><code class="xref py py-class docutils literal"><span class="pre">ParticleSettings</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.scenes">
+<code class="descname">scenes</code><a class="headerlink" href="#bpy.types.BlendData.scenes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scene datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataScenes.html#bpy.types.BlendDataScenes" title="bpy.types.BlendDataScenes"><code class="xref py py-class docutils literal"><span class="pre">BlendDataScenes</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Scene.html#bpy.types.Scene" title="bpy.types.Scene"><code class="xref py py-class docutils literal"><span class="pre">Scene</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.screens">
+<code class="descname">screens</code><a class="headerlink" href="#bpy.types.BlendData.screens" title="Permalink to this definition">¶</a></dt>
+<dd><p>Screen datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataScreens.html#bpy.types.BlendDataScreens" title="bpy.types.BlendDataScreens"><code class="xref py py-class docutils literal"><span class="pre">BlendDataScreens</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Screen.html#bpy.types.Screen" title="bpy.types.Screen"><code class="xref py py-class docutils literal"><span class="pre">Screen</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.shape_keys">
+<code class="descname">shape_keys</code><a class="headerlink" href="#bpy.types.BlendData.shape_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shape Key datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Key.html#bpy.types.Key" title="bpy.types.Key"><code class="xref py py-class docutils literal"><span class="pre">Key</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.sounds">
+<code class="descname">sounds</code><a class="headerlink" href="#bpy.types.BlendData.sounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sound datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataSounds.html#bpy.types.BlendDataSounds" title="bpy.types.BlendDataSounds"><code class="xref py py-class docutils literal"><span class="pre">BlendDataSounds</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Sound.html#bpy.types.Sound" title="bpy.types.Sound"><code class="xref py py-class docutils literal"><span class="pre">Sound</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.speakers">
+<code class="descname">speakers</code><a class="headerlink" href="#bpy.types.BlendData.speakers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Speaker datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataSpeakers.html#bpy.types.BlendDataSpeakers" title="bpy.types.BlendDataSpeakers"><code class="xref py py-class docutils literal"><span class="pre">BlendDataSpeakers</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Speaker.html#bpy.types.Speaker" title="bpy.types.Speaker"><code class="xref py py-class docutils literal"><span class="pre">Speaker</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.texts">
+<code class="descname">texts</code><a class="headerlink" href="#bpy.types.BlendData.texts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Text datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataTexts.html#bpy.types.BlendDataTexts" title="bpy.types.BlendDataTexts"><code class="xref py py-class docutils literal"><span class="pre">BlendDataTexts</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Text.html#bpy.types.Text" title="bpy.types.Text"><code class="xref py py-class docutils literal"><span class="pre">Text</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.textures">
+<code class="descname">textures</code><a class="headerlink" href="#bpy.types.BlendData.textures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Texture datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataTextures.html#bpy.types.BlendDataTextures" title="bpy.types.BlendDataTextures"><code class="xref py py-class docutils literal"><span class="pre">BlendDataTextures</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.Texture.html#bpy.types.Texture" title="bpy.types.Texture"><code class="xref py py-class docutils literal"><span class="pre">Texture</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.BlendData.use_autopack">
+<code class="descname">use_autopack</code><a class="headerlink" href="#bpy.types.BlendData.use_autopack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatically pack all external data into .blend file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.version">
+<code class="descname">version</code><a class="headerlink" href="#bpy.types.BlendData.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Version of the blender the .blend was saved with</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int array of 3 items in [0, inf], default (0, 0, 0), (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.window_managers">
+<code class="descname">window_managers</code><a class="headerlink" href="#bpy.types.BlendData.window_managers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Window manager datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataWindowManagers.html#bpy.types.BlendDataWindowManagers" title="bpy.types.BlendDataWindowManagers"><code class="xref py py-class docutils literal"><span class="pre">BlendDataWindowManagers</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.WindowManager.html#bpy.types.WindowManager" title="bpy.types.WindowManager"><code class="xref py py-class docutils literal"><span class="pre">WindowManager</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.BlendData.worlds">
+<code class="descname">worlds</code><a class="headerlink" href="#bpy.types.BlendData.worlds" title="Permalink to this definition">¶</a></dt>
+<dd><p>World datablocks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.BlendDataWorlds.html#bpy.types.BlendDataWorlds" title="bpy.types.BlendDataWorlds"><code class="xref py py-class docutils literal"><span class="pre">BlendDataWorlds</span></code></a> <a class="reference internal" href="bpy.types.bpy_prop_collection.html#bpy.types.bpy_prop_collection" title="bpy.types.bpy_prop_collection"><code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code></a> of <a class="reference internal" href="bpy.types.World.html#bpy.types.World" title="bpy.types.World"><code class="xref py py-class docutils literal"><span class="pre">World</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.BlendData.user_map">
+<code class="descname">user_map</code><span class="sig-paren">(</span><span class="optional">[</span><em>subset=(id1</em>, <em>id2</em>, <em>...)</em>, <span class="optional">]</span><em>key_types={..}</em>, <em>value_types={..}</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.BlendData.user_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a mapping of all ID datablocks in current <code class="docutils literal"><span class="pre">bpy.data</span></code> to a set of all datablocks using them.</p>
+<p>For list of valid set members for key_types &amp; value_types, see: <a class="reference internal" href="bpy.types.KeyingSetPath.html#bpy.types.KeyingSetPath.id_type" title="bpy.types.KeyingSetPath.id_type"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.KeyingSetPath.id_type</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>subset</strong> (<em>sequence</em>) &#8211; When passed, only these data-blocks and their users will be included as keys/values in the map.</li>
+<li><strong>key_types</strong> (<em>set of strings</em>) &#8211; Filter the keys mapped by ID types.</li>
+<li><strong>value_types</strong> (<em>set of strings</em>) &#8211; Filter the values in the set by ID types.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">dictionary of <a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal"><span class="pre">bpy.types.ID</span></code></a> instances, with sets of ID&#8217;s as their values.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.Context.html#bpy.types.Context.blend_data" title="bpy.types.Context.blend_data"><code class="xref py py-class docutils literal"><span class="pre">Context.blend_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.RenderEngine.html#bpy.types.RenderEngine.update" title="bpy.types.RenderEngine.update"><code class="xref py py-class docutils literal"><span class="pre">RenderEngine.update</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.BezierSplinePoint.html"
+                        title="previous chapter">BezierSplinePoint(bpy_struct)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.BlendDataActions.html"
+                        title="next chapter">BlendDataActions(bpy_struct)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.BlendDataActions.html" title="BlendDataActions(bpy_struct)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.BezierSplinePoint.html" title="BezierSplinePoint(bpy_struct)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

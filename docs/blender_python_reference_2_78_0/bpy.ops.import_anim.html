@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Import Anim Operators &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Operators (bpy.ops)" href="bpy.ops.html" />
+    <link rel="next" title="Import Curve Operators" href="bpy.ops.import_curve.html" />
+    <link rel="prev" title="Image Operators" href="bpy.ops.image.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.import_curve.html" title="Import Curve Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.image.html" title="Image Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.ops.import_anim">
+<span id="import-anim-operators"></span><h1>Import Anim Operators<a class="headerlink" href="#module-bpy.ops.import_anim" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bpy.ops.import_anim.bvh">
+<code class="descclassname">bpy.ops.import_anim.</code><code class="descname">bvh</code><span class="sig-paren">(</span><em>filepath=&quot;&quot;</em>, <em>axis_forward='-Z'</em>, <em>axis_up='Y'</em>, <em>filter_glob=&quot;*.bvh&quot;</em>, <em>target='ARMATURE'</em>, <em>global_scale=1.0</em>, <em>frame_start=1</em>, <em>use_fps_scale=False</em>, <em>update_scene_fps=False</em>, <em>update_scene_duration=False</em>, <em>use_cyclic=False</em>, <em>rotate_mode='NATIVE'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.import_anim.bvh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a BVH motion capture file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filepath</strong> (<em>string, (optional, never None)</em>) &#8211; File Path, Filepath used for importing the file</li>
+<li><strong>axis_forward</strong> (<em>enum in ['X', 'Y', 'Z', '-X', '-Y', '-Z'], (optional)</em>) &#8211; Forward</li>
+<li><strong>axis_up</strong> (<em>enum in ['X', 'Y', 'Z', '-X', '-Y', '-Z'], (optional)</em>) &#8211; Up</li>
+<li><strong>filter_glob</strong> (<em>string, (optional, never None)</em>) &#8211; filter_glob</li>
+<li><strong>target</strong> (<em>enum in ['ARMATURE', 'OBJECT'], (optional)</em>) &#8211; Target, Import target type</li>
+<li><strong>global_scale</strong> (<em>float in [0.0001, 1e+06], (optional)</em>) &#8211; Scale, Scale the BVH by this value</li>
+<li><strong>frame_start</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Start Frame, Starting frame for the animation</li>
+<li><strong>use_fps_scale</strong> (<em>boolean, (optional)</em>) &#8211; Scale FPS, Scale the framerate from the BVH to the current scenes, otherwise each BVH frame maps directly to a Blender frame</li>
+<li><strong>update_scene_fps</strong> (<em>boolean, (optional)</em>) &#8211; Update Scene FPS, Set the scene framerate to that of the BVH file (note that this nullifies the &#8216;Scale FPS&#8217; option, as the scale will be 1:1)</li>
+<li><strong>update_scene_duration</strong> (<em>boolean, (optional)</em>) &#8211; Update Scene Duration, Extend the scene&#8217;s duration to the BVH duration (never shortens the scene)</li>
+<li><strong>use_cyclic</strong> (<em>boolean, (optional)</em>) &#8211; Loop, Loop the animation playback</li>
+<li><strong>rotate_mode</strong> (<em>enum in ['QUATERNION', 'NATIVE', 'XYZ', 'XZY', 'YXZ', 'YZX', 'ZXY', 'ZYX'], (optional)</em>) &#8211; <p>Rotation, Rotation conversion</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">QUATERNION</span></code> Quaternion, Convert rotations to quaternions.</li>
+<li><code class="docutils literal"><span class="pre">NATIVE</span></code> Euler (Native), Use the rotation order defined in the BVH file.</li>
+<li><code class="docutils literal"><span class="pre">XYZ</span></code> Euler (XYZ), Convert rotations to euler XYZ.</li>
+<li><code class="docutils literal"><span class="pre">XZY</span></code> Euler (XZY), Convert rotations to euler XZY.</li>
+<li><code class="docutils literal"><span class="pre">YXZ</span></code> Euler (YXZ), Convert rotations to euler YXZ.</li>
+<li><code class="docutils literal"><span class="pre">YZX</span></code> Euler (YZX), Convert rotations to euler YZX.</li>
+<li><code class="docutils literal"><span class="pre">ZXY</span></code> Euler (ZXY), Convert rotations to euler ZXY.</li>
+<li><code class="docutils literal"><span class="pre">ZYX</span></code> Euler (ZYX), Convert rotations to euler ZYX.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">File:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://svn.blender.org/svnroot/bf-extensions/trunk/py/scripts/addons/io_anim_bvh/__init__.py">addons/io_anim_bvh/__init__.py</a>:127</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.ops.image.html"
+                        title="previous chapter">Image Operators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.ops.import_curve.html"
+                        title="next chapter">Import Curve Operators</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.import_curve.html" title="Import Curve Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.image.html" title="Image Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

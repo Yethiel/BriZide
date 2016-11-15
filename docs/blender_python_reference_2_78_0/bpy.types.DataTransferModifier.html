@@ -1,0 +1,639 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>DataTransferModifier(Modifier) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="DecimateModifier(Modifier)" href="bpy.types.DecimateModifier.html" />
+    <link rel="prev" title="DampedTrackConstraint(Constraint)" href="bpy.types.DampedTrackConstraint.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.DecimateModifier.html" title="DecimateModifier(Modifier)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.DampedTrackConstraint.html" title="DampedTrackConstraint(Constraint)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="datatransfermodifier-modifier"></span><h1>DataTransferModifier(Modifier)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base classes &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Modifier.html#bpy.types.Modifier" title="bpy.types.Modifier"><code class="xref py py-class docutils literal"><span class="pre">Modifier</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.DataTransferModifier">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">DataTransferModifier</code><span class="sig-paren">(</span><em>Modifier</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.DataTransferModifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifier transferring some data from a source mesh</p>
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.data_types_edges">
+<code class="descname">data_types_edges</code><a class="headerlink" href="#bpy.types.DataTransferModifier.data_types_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Which edge data layers to transfer</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">SHARP_EDGE</span></code> Sharp, Transfer sharp mark.</li>
+<li><code class="docutils literal"><span class="pre">SEAM</span></code> UV Seam, Transfer UV seam mark.</li>
+<li><code class="docutils literal"><span class="pre">CREASE</span></code> Subsurf Crease, Transfer crease values.</li>
+<li><code class="docutils literal"><span class="pre">BEVEL_WEIGHT_EDGE</span></code> Bevel Weight, Transfer bevel weights.</li>
+<li><code class="docutils literal"><span class="pre">FREESTYLE_EDGE</span></code> Freestyle Mark, Transfer Freestyle edge mark.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum set in {&#8216;SHARP_EDGE&#8217;, &#8216;SEAM&#8217;, &#8216;CREASE&#8217;, &#8216;BEVEL_WEIGHT_EDGE&#8217;, &#8216;FREESTYLE_EDGE&#8217;}, default {&#8216;SHARP_EDGE&#8217;}</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.data_types_loops">
+<code class="descname">data_types_loops</code><a class="headerlink" href="#bpy.types.DataTransferModifier.data_types_loops" title="Permalink to this definition">¶</a></dt>
+<dd><p>Which face corner data layers to transfer</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">CUSTOM_NORMAL</span></code> Custom Normals, Transfer custom normals.</li>
+<li><code class="docutils literal"><span class="pre">VCOL</span></code> VCol, Vertex (face corners) colors.</li>
+<li><code class="docutils literal"><span class="pre">UV</span></code> UVs, Transfer UV layers.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum set in {&#8216;CUSTOM_NORMAL&#8217;, &#8216;VCOL&#8217;, &#8216;UV&#8217;}, default {&#8216;CUSTOM_NORMAL&#8217;}</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.data_types_polys">
+<code class="descname">data_types_polys</code><a class="headerlink" href="#bpy.types.DataTransferModifier.data_types_polys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Which poly data layers to transfer</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">SMOOTH</span></code> Smooth, Transfer flat/smooth mark.</li>
+<li><code class="docutils literal"><span class="pre">FREESTYLE_FACE</span></code> Freestyle Mark, Transfer Freestyle face mark.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum set in {&#8216;SMOOTH&#8217;, &#8216;FREESTYLE_FACE&#8217;}, default {&#8216;SMOOTH&#8217;}</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.data_types_verts">
+<code class="descname">data_types_verts</code><a class="headerlink" href="#bpy.types.DataTransferModifier.data_types_verts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Which vertex data layers to transfer</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">VGROUP_WEIGHTS</span></code> Vertex Group(s), Transfer active or all vertex groups.</li>
+<li><code class="docutils literal"><span class="pre">BEVEL_WEIGHT_VERT</span></code> Bevel Weight, Transfer bevel weights.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum set in {&#8216;VGROUP_WEIGHTS&#8217;, &#8216;BEVEL_WEIGHT_VERT&#8217;}, default {&#8216;VGROUP_WEIGHTS&#8217;}</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.edge_mapping">
+<code class="descname">edge_mapping</code><a class="headerlink" href="#bpy.types.DataTransferModifier.edge_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method used to map source edges to destination ones</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TOPOLOGY</span></code> Topology, Copy from identical topology meshes.</li>
+<li><code class="docutils literal"><span class="pre">VERT_NEAREST</span></code> Nearest Vertices, Copy from most similar edge (edge which vertices are the closest of destination edge&#8217;s ones).</li>
+<li><code class="docutils literal"><span class="pre">NEAREST</span></code> Nearest Edge, Copy from closest edge (using midpoints).</li>
+<li><code class="docutils literal"><span class="pre">POLY_NEAREST</span></code> Nearest Face Edge, Copy from closest edge of closest face (using midpoints).</li>
+<li><code class="docutils literal"><span class="pre">EDGEINTERP_VNORPROJ</span></code> Projected Edge Interpolated, Interpolate all source edges hit by the projection of destination one along its own normal (from vertices).</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;TOPOLOGY&#8217;, &#8216;VERT_NEAREST&#8217;, &#8216;NEAREST&#8217;, &#8216;POLY_NEAREST&#8217;, &#8216;EDGEINTERP_VNORPROJ&#8217;], default &#8216;NEAREST&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.invert_vertex_group">
+<code class="descname">invert_vertex_group</code><a class="headerlink" href="#bpy.types.DataTransferModifier.invert_vertex_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invert vertex group influence</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.islands_precision">
+<code class="descname">islands_precision</code><a class="headerlink" href="#bpy.types.DataTransferModifier.islands_precision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factor controlling precision of islands handling (typically, 0.1 should be enough, higher values can make things really slow)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.layers_uv_select_dst">
+<code class="descname">layers_uv_select_dst</code><a class="headerlink" href="#bpy.types.DataTransferModifier.layers_uv_select_dst" title="Permalink to this definition">¶</a></dt>
+<dd><p>How to match source and destination layers</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active Layer, Affect active data layer of all targets.</li>
+<li><code class="docutils literal"><span class="pre">NAME</span></code> By Name, Match target data layers to affect by name.</li>
+<li><code class="docutils literal"><span class="pre">INDEX</span></code> By Order, Match target data layers to affect by order (indices).</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;ACTIVE&#8217;, &#8216;NAME&#8217;, &#8216;INDEX&#8217;], default &#8216;NAME&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.layers_uv_select_src">
+<code class="descname">layers_uv_select_src</code><a class="headerlink" href="#bpy.types.DataTransferModifier.layers_uv_select_src" title="Permalink to this definition">¶</a></dt>
+<dd><p>Which layers to transfer, in case of multi-layers types</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active Layer, Only transfer active data layer.</li>
+<li><code class="docutils literal"><span class="pre">ALL</span></code> All Layers, Transfer all data layers.</li>
+<li><code class="docutils literal"><span class="pre">BONE_SELECT</span></code> Selected Pose Bones, Transfer all vertex groups used by selected pose bones.</li>
+<li><code class="docutils literal"><span class="pre">BONE_DEFORM</span></code> Deform Pose Bones, Transfer all vertex groups used by deform bones.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;ACTIVE&#8217;, &#8216;ALL&#8217;, &#8216;BONE_SELECT&#8217;, &#8216;BONE_DEFORM&#8217;], default &#8216;ALL&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.layers_vcol_select_dst">
+<code class="descname">layers_vcol_select_dst</code><a class="headerlink" href="#bpy.types.DataTransferModifier.layers_vcol_select_dst" title="Permalink to this definition">¶</a></dt>
+<dd><p>How to match source and destination layers</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active Layer, Affect active data layer of all targets.</li>
+<li><code class="docutils literal"><span class="pre">NAME</span></code> By Name, Match target data layers to affect by name.</li>
+<li><code class="docutils literal"><span class="pre">INDEX</span></code> By Order, Match target data layers to affect by order (indices).</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;ACTIVE&#8217;, &#8216;NAME&#8217;, &#8216;INDEX&#8217;], default &#8216;NAME&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.layers_vcol_select_src">
+<code class="descname">layers_vcol_select_src</code><a class="headerlink" href="#bpy.types.DataTransferModifier.layers_vcol_select_src" title="Permalink to this definition">¶</a></dt>
+<dd><p>Which layers to transfer, in case of multi-layers types</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active Layer, Only transfer active data layer.</li>
+<li><code class="docutils literal"><span class="pre">ALL</span></code> All Layers, Transfer all data layers.</li>
+<li><code class="docutils literal"><span class="pre">BONE_SELECT</span></code> Selected Pose Bones, Transfer all vertex groups used by selected pose bones.</li>
+<li><code class="docutils literal"><span class="pre">BONE_DEFORM</span></code> Deform Pose Bones, Transfer all vertex groups used by deform bones.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;ACTIVE&#8217;, &#8216;ALL&#8217;, &#8216;BONE_SELECT&#8217;, &#8216;BONE_DEFORM&#8217;], default &#8216;ALL&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.layers_vgroup_select_dst">
+<code class="descname">layers_vgroup_select_dst</code><a class="headerlink" href="#bpy.types.DataTransferModifier.layers_vgroup_select_dst" title="Permalink to this definition">¶</a></dt>
+<dd><p>How to match source and destination layers</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active Layer, Affect active data layer of all targets.</li>
+<li><code class="docutils literal"><span class="pre">NAME</span></code> By Name, Match target data layers to affect by name.</li>
+<li><code class="docutils literal"><span class="pre">INDEX</span></code> By Order, Match target data layers to affect by order (indices).</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;ACTIVE&#8217;, &#8216;NAME&#8217;, &#8216;INDEX&#8217;], default &#8216;NAME&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.layers_vgroup_select_src">
+<code class="descname">layers_vgroup_select_src</code><a class="headerlink" href="#bpy.types.DataTransferModifier.layers_vgroup_select_src" title="Permalink to this definition">¶</a></dt>
+<dd><p>Which layers to transfer, in case of multi-layers types</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">ACTIVE</span></code> Active Layer, Only transfer active data layer.</li>
+<li><code class="docutils literal"><span class="pre">ALL</span></code> All Layers, Transfer all data layers.</li>
+<li><code class="docutils literal"><span class="pre">BONE_SELECT</span></code> Selected Pose Bones, Transfer all vertex groups used by selected pose bones.</li>
+<li><code class="docutils literal"><span class="pre">BONE_DEFORM</span></code> Deform Pose Bones, Transfer all vertex groups used by deform bones.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;ACTIVE&#8217;, &#8216;ALL&#8217;, &#8216;BONE_SELECT&#8217;, &#8216;BONE_DEFORM&#8217;], default &#8216;ALL&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.loop_mapping">
+<code class="descname">loop_mapping</code><a class="headerlink" href="#bpy.types.DataTransferModifier.loop_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method used to map source faces&#8217; corners to destination ones</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TOPOLOGY</span></code> Topology, Copy from identical topology meshes.</li>
+<li><code class="docutils literal"><span class="pre">NEAREST_NORMAL</span></code> Nearest Corner And Best Matching Normal, Copy from nearest corner which has the best matching normal.</li>
+<li><code class="docutils literal"><span class="pre">NEAREST_POLYNOR</span></code> Nearest Corner And Best Matching Face Normal, Copy from nearest corner which has the face with the best matching normal to destination corner&#8217;s face one.</li>
+<li><code class="docutils literal"><span class="pre">NEAREST_POLY</span></code> Nearest Corner Of Nearest Face, Copy from nearest corner of nearest polygon.</li>
+<li><code class="docutils literal"><span class="pre">POLYINTERP_NEAREST</span></code> Nearest Face Interpolated, Copy from interpolated corners of the nearest source polygon.</li>
+<li><code class="docutils literal"><span class="pre">POLYINTERP_LNORPROJ</span></code> Projected Face Interpolated, Copy from interpolated corners of the source polygon hit by corner normal projection.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;TOPOLOGY&#8217;, &#8216;NEAREST_NORMAL&#8217;, &#8216;NEAREST_POLYNOR&#8217;, &#8216;NEAREST_POLY&#8217;, &#8216;POLYINTERP_NEAREST&#8217;, &#8216;POLYINTERP_LNORPROJ&#8217;], default &#8216;NEAREST_POLYNOR&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.max_distance">
+<code class="descname">max_distance</code><a class="headerlink" href="#bpy.types.DataTransferModifier.max_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum allowed distance between source and destination element, for non-topology mappings</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, inf], default 1.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.mix_factor">
+<code class="descname">mix_factor</code><a class="headerlink" href="#bpy.types.DataTransferModifier.mix_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factor to use when applying data to destination (exact behavior depends on mix mode)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 1.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.mix_mode">
+<code class="descname">mix_mode</code><a class="headerlink" href="#bpy.types.DataTransferModifier.mix_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>How to affect destination elements with source values</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">REPLACE</span></code> Replace, Overwrite all elements&#8217; data.</li>
+<li><code class="docutils literal"><span class="pre">ABOVE_THRESHOLD</span></code> Above Threshold, Only replace destination elements where data is above given threshold (exact behavior depends on data type).</li>
+<li><code class="docutils literal"><span class="pre">BELOW_THRESHOLD</span></code> Below Threshold, Only replace destination elements where data is below given threshold (exact behavior depends on data type).</li>
+<li><code class="docutils literal"><span class="pre">MIX</span></code> Mix, Mix source value into destination one, using given threshold as factor.</li>
+<li><code class="docutils literal"><span class="pre">ADD</span></code> Add, Add source value to destination one, using given threshold as factor.</li>
+<li><code class="docutils literal"><span class="pre">SUB</span></code> Subtract, Subtract source value to destination one, using given threshold as factor.</li>
+<li><code class="docutils literal"><span class="pre">MUL</span></code> Multiply, Multiply source value to destination one, using given threshold as factor.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;REPLACE&#8217;, &#8216;ABOVE_THRESHOLD&#8217;, &#8216;BELOW_THRESHOLD&#8217;, &#8216;MIX&#8217;, &#8216;ADD&#8217;, &#8216;SUB&#8217;, &#8216;MUL&#8217;], default &#8216;REPLACE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.object">
+<code class="descname">object</code><a class="headerlink" href="#bpy.types.DataTransferModifier.object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object to transfer data from</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal"><span class="pre">Object</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.poly_mapping">
+<code class="descname">poly_mapping</code><a class="headerlink" href="#bpy.types.DataTransferModifier.poly_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method used to map source faces to destination ones</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TOPOLOGY</span></code> Topology, Copy from identical topology meshes.</li>
+<li><code class="docutils literal"><span class="pre">NEAREST</span></code> Nearest Face, Copy from nearest polygon (using center points).</li>
+<li><code class="docutils literal"><span class="pre">NORMAL</span></code> Best Normal-Matching, Copy from source polygon which normal is the closest to destination one.</li>
+<li><code class="docutils literal"><span class="pre">POLYINTERP_PNORPROJ</span></code> Projected Face Interpolated, Interpolate all source polygons intersected by the projection of destination one along its own normal.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;TOPOLOGY&#8217;, &#8216;NEAREST&#8217;, &#8216;NORMAL&#8217;, &#8216;POLYINTERP_PNORPROJ&#8217;], default &#8216;NEAREST&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.ray_radius">
+<code class="descname">ray_radius</code><a class="headerlink" href="#bpy.types.DataTransferModifier.ray_radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#8216;Width&#8217; of rays (especially useful when raycasting against vertices or edges)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.use_edge_data">
+<code class="descname">use_edge_data</code><a class="headerlink" href="#bpy.types.DataTransferModifier.use_edge_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable edge data transfer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.use_loop_data">
+<code class="descname">use_loop_data</code><a class="headerlink" href="#bpy.types.DataTransferModifier.use_loop_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable face corner data transfer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.use_max_distance">
+<code class="descname">use_max_distance</code><a class="headerlink" href="#bpy.types.DataTransferModifier.use_max_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Source elements must be closer than given distance from destination one</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.use_object_transform">
+<code class="descname">use_object_transform</code><a class="headerlink" href="#bpy.types.DataTransferModifier.use_object_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate source and destination meshes in global space</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default True</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.use_poly_data">
+<code class="descname">use_poly_data</code><a class="headerlink" href="#bpy.types.DataTransferModifier.use_poly_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable face data transfer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.use_vert_data">
+<code class="descname">use_vert_data</code><a class="headerlink" href="#bpy.types.DataTransferModifier.use_vert_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable vertex data transfer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.vert_mapping">
+<code class="descname">vert_mapping</code><a class="headerlink" href="#bpy.types.DataTransferModifier.vert_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method used to map source vertices to destination ones</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TOPOLOGY</span></code> Topology, Copy from identical topology meshes.</li>
+<li><code class="docutils literal"><span class="pre">NEAREST</span></code> Nearest vertex, Copy from closest vertex.</li>
+<li><code class="docutils literal"><span class="pre">EDGE_NEAREST</span></code> Nearest Edge Vertex, Copy from closest vertex of closest edge.</li>
+<li><code class="docutils literal"><span class="pre">EDGEINTERP_NEAREST</span></code> Nearest Edge Interpolated, Copy from interpolated values of vertices from closest point on closest edge.</li>
+<li><code class="docutils literal"><span class="pre">POLY_NEAREST</span></code> Nearest Face Vertex, Copy from closest vertex of closest face.</li>
+<li><code class="docutils literal"><span class="pre">POLYINTERP_NEAREST</span></code> Nearest Face Interpolated, Copy from interpolated values of vertices from closest point on closest face.</li>
+<li><code class="docutils literal"><span class="pre">POLYINTERP_VNORPROJ</span></code> Projected Face Interpolated, Copy from interpolated values of vertices from point on closest face hit by normal-projection.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;TOPOLOGY&#8217;, &#8216;NEAREST&#8217;, &#8216;EDGE_NEAREST&#8217;, &#8216;EDGEINTERP_NEAREST&#8217;, &#8216;POLY_NEAREST&#8217;, &#8216;POLYINTERP_NEAREST&#8217;, &#8216;POLYINTERP_VNORPROJ&#8217;], default &#8216;NEAREST&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.DataTransferModifier.vertex_group">
+<code class="descname">vertex_group</code><a class="headerlink" href="#bpy.types.DataTransferModifier.vertex_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertex group name for selecting the affected areas</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Modifier.html#bpy.types.Modifier.name" title="bpy.types.Modifier.name"><code class="xref py py-class docutils literal"><span class="pre">Modifier.name</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Modifier.html#bpy.types.Modifier.type" title="bpy.types.Modifier.type"><code class="xref py py-class docutils literal"><span class="pre">Modifier.type</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Modifier.html#bpy.types.Modifier.show_viewport" title="bpy.types.Modifier.show_viewport"><code class="xref py py-class docutils literal"><span class="pre">Modifier.show_viewport</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Modifier.html#bpy.types.Modifier.show_render" title="bpy.types.Modifier.show_render"><code class="xref py py-class docutils literal"><span class="pre">Modifier.show_render</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.Modifier.html#bpy.types.Modifier.show_in_editmode" title="bpy.types.Modifier.show_in_editmode"><code class="xref py py-class docutils literal"><span class="pre">Modifier.show_in_editmode</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Modifier.html#bpy.types.Modifier.show_on_cage" title="bpy.types.Modifier.show_on_cage"><code class="xref py py-class docutils literal"><span class="pre">Modifier.show_on_cage</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Modifier.html#bpy.types.Modifier.show_expanded" title="bpy.types.Modifier.show_expanded"><code class="xref py py-class docutils literal"><span class="pre">Modifier.show_expanded</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Modifier.html#bpy.types.Modifier.use_apply_on_spline" title="bpy.types.Modifier.use_apply_on_spline"><code class="xref py py-class docutils literal"><span class="pre">Modifier.use_apply_on_spline</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.DampedTrackConstraint.html"
+                        title="previous chapter">DampedTrackConstraint(Constraint)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.DecimateModifier.html"
+                        title="next chapter">DecimateModifier(Modifier)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.DecimateModifier.html" title="DecimateModifier(Modifier)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.DampedTrackConstraint.html" title="DampedTrackConstraint(Constraint)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

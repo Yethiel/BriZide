@@ -1,0 +1,1038 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Node Operators &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Operators (bpy.ops)" href="bpy.ops.html" />
+    <link rel="next" title="Object Operators" href="bpy.ops.object.html" />
+    <link rel="prev" title="Nla Operators" href="bpy.ops.nla.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.object.html" title="Object Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.nla.html" title="Nla Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.ops.node">
+<span id="node-operators"></span><h1>Node Operators<a class="headerlink" href="#module-bpy.ops.node" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bpy.ops.node.add_and_link_node">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">add_and_link_node</code><span class="sig-paren">(</span><em>type=&quot;&quot;</em>, <em>settings=None</em>, <em>use_transform=False</em>, <em>link_socket_index=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.add_and_link_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a node to the active tree and link to an existing socket</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>type</strong> (<em>string, (optional, never None)</em>) &#8211; Node Type, Node type</li>
+<li><strong>settings</strong> (<code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal"><span class="pre">NodeSetting</span></code>, (optional)) &#8211; Settings, Settings to be applied on the newly created node</li>
+<li><strong>use_transform</strong> (<em>boolean, (optional)</em>) &#8211; Use Transform, Start transform operator after inserting the node</li>
+<li><strong>link_socket_index</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Link Socket Index, Index of the socket to link</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">File:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/node.py">startup/bl_operators/node.py</a>:160</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.add_file">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">add_file</code><span class="sig-paren">(</span><em>filepath=&quot;&quot;</em>, <em>filter_blender=False</em>, <em>filter_backup=False</em>, <em>filter_image=True</em>, <em>filter_movie=True</em>, <em>filter_python=False</em>, <em>filter_font=False</em>, <em>filter_sound=False</em>, <em>filter_text=False</em>, <em>filter_btx=False</em>, <em>filter_collada=False</em>, <em>filter_alembic=False</em>, <em>filter_folder=True</em>, <em>filter_blenlib=False</em>, <em>filemode=9</em>, <em>relative_path=True</em>, <em>show_multiview=False</em>, <em>use_multiview=False</em>, <em>display_type='DEFAULT'</em>, <em>sort_method='FILE_SORT_ALPHA'</em>, <em>name=&quot;Image&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.add_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a file node to the current node editor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filepath</strong> (<em>string, (optional, never None)</em>) &#8211; File Path, Path to file</li>
+<li><strong>filter_blender</strong> (<em>boolean, (optional)</em>) &#8211; Filter .blend files</li>
+<li><strong>filter_backup</strong> (<em>boolean, (optional)</em>) &#8211; Filter .blend files</li>
+<li><strong>filter_image</strong> (<em>boolean, (optional)</em>) &#8211; Filter image files</li>
+<li><strong>filter_movie</strong> (<em>boolean, (optional)</em>) &#8211; Filter movie files</li>
+<li><strong>filter_python</strong> (<em>boolean, (optional)</em>) &#8211; Filter python files</li>
+<li><strong>filter_font</strong> (<em>boolean, (optional)</em>) &#8211; Filter font files</li>
+<li><strong>filter_sound</strong> (<em>boolean, (optional)</em>) &#8211; Filter sound files</li>
+<li><strong>filter_text</strong> (<em>boolean, (optional)</em>) &#8211; Filter text files</li>
+<li><strong>filter_btx</strong> (<em>boolean, (optional)</em>) &#8211; Filter btx files</li>
+<li><strong>filter_collada</strong> (<em>boolean, (optional)</em>) &#8211; Filter COLLADA files</li>
+<li><strong>filter_alembic</strong> (<em>boolean, (optional)</em>) &#8211; Filter Alembic files</li>
+<li><strong>filter_folder</strong> (<em>boolean, (optional)</em>) &#8211; Filter folders</li>
+<li><strong>filter_blenlib</strong> (<em>boolean, (optional)</em>) &#8211; Filter Blender IDs</li>
+<li><strong>filemode</strong> (<em>int in [1, 9], (optional)</em>) &#8211; File Browser Mode, The setting for the file browser mode to load a .blend file, a library or a special file</li>
+<li><strong>relative_path</strong> (<em>boolean, (optional)</em>) &#8211; Relative Path, Select the file relative to the blend file</li>
+<li><strong>show_multiview</strong> (<em>boolean, (optional)</em>) &#8211; Enable Multi-View</li>
+<li><strong>use_multiview</strong> (<em>boolean, (optional)</em>) &#8211; Use Multi-View</li>
+<li><strong>display_type</strong> (<em>enum in ['DEFAULT', 'LIST_SHORT', 'LIST_LONG', 'THUMBNAIL'], (optional)</em>) &#8211; <p>Display Type</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">DEFAULT</span></code> Default, Automatically determine display type for files.</li>
+<li><code class="docutils literal"><span class="pre">LIST_SHORT</span></code> Short List, Display files as short list.</li>
+<li><code class="docutils literal"><span class="pre">LIST_LONG</span></code> Long List, Display files as a detailed list.</li>
+<li><code class="docutils literal"><span class="pre">THUMBNAIL</span></code> Thumbnails, Display files as thumbnails.</li>
+</ul>
+</li>
+<li><strong>sort_method</strong> (<em>enum in ['FILE_SORT_ALPHA', 'FILE_SORT_EXTENSION', 'FILE_SORT_TIME', 'FILE_SORT_SIZE'], (optional)</em>) &#8211; <p>File sorting mode</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_ALPHA</span></code> Sort alphabetically, Sort the file list alphabetically.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_EXTENSION</span></code> Sort by extension, Sort the file list by extension/type.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_TIME</span></code> Sort by time, Sort files by modification time.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_SIZE</span></code> Sort by size, Sort files by size.</li>
+</ul>
+</li>
+<li><strong>name</strong> (<em>string, (optional, never None)</em>) &#8211; Name, Datablock name to assign</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.add_mask">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">add_mask</code><span class="sig-paren">(</span><em>name=&quot;Mask&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.add_mask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a mask node to the current node editor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>string, (optional, never None)</em>) &#8211; Name, Datablock name to assign</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.add_node">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">add_node</code><span class="sig-paren">(</span><em>type=&quot;&quot;</em>, <em>settings=None</em>, <em>use_transform=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.add_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a node to the active tree</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>type</strong> (<em>string, (optional, never None)</em>) &#8211; Node Type, Node type</li>
+<li><strong>settings</strong> (<code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal"><span class="pre">NodeSetting</span></code>, (optional)) &#8211; Settings, Settings to be applied on the newly created node</li>
+<li><strong>use_transform</strong> (<em>boolean, (optional)</em>) &#8211; Use Transform, Start transform operator after inserting the node</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">File:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/node.py">startup/bl_operators/node.py</a>:120</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.add_reroute">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">add_reroute</code><span class="sig-paren">(</span><em>path=None</em>, <em>cursor=6</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.add_reroute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a reroute node</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>path</strong> (<code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal"><span class="pre">OperatorMousePath</span></code>, (optional)) &#8211; path</li>
+<li><strong>cursor</strong> (<em>int in [0, inf], (optional)</em>) &#8211; Cursor</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.add_search">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">add_search</code><span class="sig-paren">(</span><em>type=&quot;&quot;</em>, <em>settings=None</em>, <em>use_transform=False</em>, <em>node_item=''</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.add_search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a node to the active tree</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>type</strong> (<em>string, (optional, never None)</em>) &#8211; Node Type, Node type</li>
+<li><strong>settings</strong> (<code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal"><span class="pre">NodeSetting</span></code>, (optional)) &#8211; Settings, Settings to be applied on the newly created node</li>
+<li><strong>use_transform</strong> (<em>boolean, (optional)</em>) &#8211; Use Transform, Start transform operator after inserting the node</li>
+<li><strong>node_item</strong> (<em>enum in [], (optional)</em>) &#8211; Node Type, Node type</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">File:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/node.py">startup/bl_operators/node.py</a>:219</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.attach">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">attach</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.attach" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attach active node to a frame</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.backimage_fit">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">backimage_fit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.backimage_fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the background image to the view</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.backimage_move">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">backimage_move</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.backimage_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move Node backdrop</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.backimage_sample">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">backimage_sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.backimage_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use mouse to sample background image</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.backimage_zoom">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">backimage_zoom</code><span class="sig-paren">(</span><em>factor=1.2</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.backimage_zoom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zoom in/out the background image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>factor</strong> (<em>float in [0, 10], (optional)</em>) &#8211; Factor</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.clear_viewer_border">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">clear_viewer_border</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.clear_viewer_border" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear the boundaries for viewer operations</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.clipboard_copy">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">clipboard_copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.clipboard_copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copies selected nodes to the clipboard</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.clipboard_paste">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">clipboard_paste</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.clipboard_paste" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pastes nodes from the clipboard to the active node tree</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.collapse_hide_unused_toggle">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">collapse_hide_unused_toggle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.collapse_hide_unused_toggle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle collapsed nodes and hide unused sockets</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">File:</th><td class="field-body"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/node.py">startup/bl_operators/node.py</a>:262</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.delete">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete selected nodes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.delete_reconnect">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">delete_reconnect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.delete_reconnect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete nodes; will reconnect nodes as if deletion was muted</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.detach">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">detach</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.detach" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detach selected nodes from parents</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.detach_translate_attach">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">detach_translate_attach</code><span class="sig-paren">(</span><em>NODE_OT_detach=None</em>, <em>TRANSFORM_OT_translate=None</em>, <em>NODE_OT_attach=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.detach_translate_attach" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detach nodes, move and attach to frame</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>NODE_OT_detach</strong> (<code class="xref py py-class docutils literal"><span class="pre">NODE_OT_detach</span></code>, (optional)) &#8211; Detach Nodes, Detach selected nodes from parents</li>
+<li><strong>TRANSFORM_OT_translate</strong> (<code class="xref py py-class docutils literal"><span class="pre">TRANSFORM_OT_translate</span></code>, (optional)) &#8211; Translate, Translate (move) selected items</li>
+<li><strong>NODE_OT_attach</strong> (<code class="xref py py-class docutils literal"><span class="pre">NODE_OT_attach</span></code>, (optional)) &#8211; Attach Nodes, Attach active node to a frame</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.duplicate">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">duplicate</code><span class="sig-paren">(</span><em>keep_inputs=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.duplicate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Duplicate selected nodes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>keep_inputs</strong> (<em>boolean, (optional)</em>) &#8211; Keep Inputs, Keep the input links to duplicated nodes</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.duplicate_move">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">duplicate_move</code><span class="sig-paren">(</span><em>NODE_OT_duplicate=None</em>, <em>NODE_OT_translate_attach=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.duplicate_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Duplicate selected nodes and move them</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>NODE_OT_duplicate</strong> (<code class="xref py py-class docutils literal"><span class="pre">NODE_OT_duplicate</span></code>, (optional)) &#8211; Duplicate Nodes, Duplicate selected nodes</li>
+<li><strong>NODE_OT_translate_attach</strong> (<code class="xref py py-class docutils literal"><span class="pre">NODE_OT_translate_attach</span></code>, (optional)) &#8211; Move and Attach, Move nodes and attach to frame</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.duplicate_move_keep_inputs">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">duplicate_move_keep_inputs</code><span class="sig-paren">(</span><em>NODE_OT_duplicate=None</em>, <em>NODE_OT_translate_attach=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.duplicate_move_keep_inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Duplicate selected nodes keeping input links and move them</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>NODE_OT_duplicate</strong> (<code class="xref py py-class docutils literal"><span class="pre">NODE_OT_duplicate</span></code>, (optional)) &#8211; Duplicate Nodes, Duplicate selected nodes</li>
+<li><strong>NODE_OT_translate_attach</strong> (<code class="xref py py-class docutils literal"><span class="pre">NODE_OT_translate_attach</span></code>, (optional)) &#8211; Move and Attach, Move nodes and attach to frame</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.find_node">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">find_node</code><span class="sig-paren">(</span><em>prev=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.find_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search for named node and allow to select and activate it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>prev</strong> (<em>boolean, (optional)</em>) &#8211; Previous</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.group_edit">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">group_edit</code><span class="sig-paren">(</span><em>exit=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.group_edit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edit node group</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>exit</strong> (<em>boolean, (optional)</em>) &#8211; Exit</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.group_insert">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">group_insert</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.group_insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert selected nodes into a node group</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.group_make">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">group_make</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.group_make" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make group from selected nodes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.group_separate">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">group_separate</code><span class="sig-paren">(</span><em>type='COPY'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.group_separate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Separate selected nodes from the node group</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> (<em>enum in ['COPY', 'MOVE'], (optional)</em>) &#8211; <p>Type</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">COPY</span></code> Copy, Copy to parent node tree, keep group intact.</li>
+<li><code class="docutils literal"><span class="pre">MOVE</span></code> Move, Move to parent node tree, remove from group.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.group_ungroup">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">group_ungroup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.group_ungroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ungroup selected nodes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.hide_socket_toggle">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">hide_socket_toggle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.hide_socket_toggle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle unused node socket display</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.hide_toggle">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">hide_toggle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.hide_toggle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle hiding of selected nodes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.insert_offset">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">insert_offset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.insert_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatically offset nodes on insertion</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.join">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">join</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.join" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attach selected nodes to a new common frame</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.link">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">link</code><span class="sig-paren">(</span><em>detach=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.link" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use the mouse to create a link between two nodes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>detach</strong> (<em>boolean, (optional)</em>) &#8211; Detach, Detach and redirect existing links</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.link_make">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">link_make</code><span class="sig-paren">(</span><em>replace=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.link_make" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes a link between selected output in input sockets</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>replace</strong> (<em>boolean, (optional)</em>) &#8211; Replace, Replace socket connections with the new links</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.link_viewer">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">link_viewer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.link_viewer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Link to viewer node</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.links_cut">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">links_cut</code><span class="sig-paren">(</span><em>path=None</em>, <em>cursor=9</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.links_cut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use the mouse to cut (remove) some links</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>path</strong> (<code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal"><span class="pre">OperatorMousePath</span></code>, (optional)) &#8211; path</li>
+<li><strong>cursor</strong> (<em>int in [0, inf], (optional)</em>) &#8211; Cursor</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.links_detach">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">links_detach</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.links_detach" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all links to selected nodes, and try to connect neighbor nodes together</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.move_detach_links">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">move_detach_links</code><span class="sig-paren">(</span><em>NODE_OT_links_detach=None</em>, <em>TRANSFORM_OT_translate=None</em>, <em>NODE_OT_insert_offset=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.move_detach_links" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move a node to detach links</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>NODE_OT_links_detach</strong> (<code class="xref py py-class docutils literal"><span class="pre">NODE_OT_links_detach</span></code>, (optional)) &#8211; Detach Links, Remove all links to selected nodes, and try to connect neighbor nodes together</li>
+<li><strong>TRANSFORM_OT_translate</strong> (<code class="xref py py-class docutils literal"><span class="pre">TRANSFORM_OT_translate</span></code>, (optional)) &#8211; Translate, Translate (move) selected items</li>
+<li><strong>NODE_OT_insert_offset</strong> (<code class="xref py py-class docutils literal"><span class="pre">NODE_OT_insert_offset</span></code>, (optional)) &#8211; Insert Offset, Automatically offset nodes on insertion</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.move_detach_links_release">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">move_detach_links_release</code><span class="sig-paren">(</span><em>NODE_OT_links_detach=None</em>, <em>NODE_OT_translate_attach=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.move_detach_links_release" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move a node to detach links</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>NODE_OT_links_detach</strong> (<code class="xref py py-class docutils literal"><span class="pre">NODE_OT_links_detach</span></code>, (optional)) &#8211; Detach Links, Remove all links to selected nodes, and try to connect neighbor nodes together</li>
+<li><strong>NODE_OT_translate_attach</strong> (<code class="xref py py-class docutils literal"><span class="pre">NODE_OT_translate_attach</span></code>, (optional)) &#8211; Move and Attach, Move nodes and attach to frame</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.mute_toggle">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">mute_toggle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.mute_toggle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle muting of the nodes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.new_node_tree">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">new_node_tree</code><span class="sig-paren">(</span><em>type=''</em>, <em>name=&quot;NodeTree&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.new_node_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new node tree</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>type</strong> (<em>enum in [], (optional)</em>) &#8211; Tree Type</li>
+<li><strong>name</strong> (<em>string, (optional, never None)</em>) &#8211; Name</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.node_color_preset_add">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">node_color_preset_add</code><span class="sig-paren">(</span><em>name=&quot;&quot;</em>, <em>remove_active=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.node_color_preset_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add or remove a Node Color Preset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string, (optional, never None)</em>) &#8211; Name, Name of the preset, used to make the path name</li>
+<li><strong>remove_active</strong> (<em>boolean, (optional)</em>) &#8211; remove_active</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">File:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/presets.py">startup/bl_operators/presets.py</a>:71</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.node_copy_color">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">node_copy_color</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.node_copy_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy color to all selected nodes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.options_toggle">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">options_toggle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.options_toggle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle option buttons display for selected nodes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.output_file_add_socket">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">output_file_add_socket</code><span class="sig-paren">(</span><em>file_path=&quot;Image&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.output_file_add_socket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new input to a file output node</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_path</strong> (<em>string, (optional, never None)</em>) &#8211; File Path, Sub-path of the output file</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.output_file_move_active_socket">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">output_file_move_active_socket</code><span class="sig-paren">(</span><em>direction='DOWN'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.output_file_move_active_socket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the active input of a file output node up or down the list</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>direction</strong> (<em>enum in ['UP', 'DOWN'], (optional)</em>) &#8211; Direction</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.output_file_remove_active_socket">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">output_file_remove_active_socket</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.output_file_remove_active_socket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove active input from a file output node</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.parent_set">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">parent_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.parent_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attach selected nodes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.preview_toggle">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">preview_toggle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.preview_toggle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle preview display for selected nodes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.properties">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">properties</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle the properties region visibility</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.read_fullsamplelayers">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">read_fullsamplelayers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.read_fullsamplelayers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read all render layers of current scene, in full sample</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.read_renderlayers">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">read_renderlayers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.read_renderlayers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read all render layers of all used scenes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.render_changed">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">render_changed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.render_changed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render current scene, when input node&#8217;s layer has been changed</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.resize">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">resize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resize a node</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.select">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">select</code><span class="sig-paren">(</span><em>mouse_x=0</em>, <em>mouse_y=0</em>, <em>extend=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select the node under the cursor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mouse_x</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Mouse X</li>
+<li><strong>mouse_y</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Mouse Y</li>
+<li><strong>extend</strong> (<em>boolean, (optional)</em>) &#8211; Extend</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.select_all">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">select_all</code><span class="sig-paren">(</span><em>action='TOGGLE'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.select_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>(De)select all nodes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>action</strong> (<em>enum in ['TOGGLE', 'SELECT', 'DESELECT', 'INVERT'], (optional)</em>) &#8211; <p>Action, Selection action to execute</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TOGGLE</span></code> Toggle, Toggle selection for all elements.</li>
+<li><code class="docutils literal"><span class="pre">SELECT</span></code> Select, Select all elements.</li>
+<li><code class="docutils literal"><span class="pre">DESELECT</span></code> Deselect, Deselect all elements.</li>
+<li><code class="docutils literal"><span class="pre">INVERT</span></code> Invert, Invert selection of all elements.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.select_border">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">select_border</code><span class="sig-paren">(</span><em>gesture_mode=0</em>, <em>xmin=0</em>, <em>xmax=0</em>, <em>ymin=0</em>, <em>ymax=0</em>, <em>extend=True</em>, <em>tweak=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.select_border" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use box selection to select nodes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>gesture_mode</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Gesture Mode</li>
+<li><strong>xmin</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; X Min</li>
+<li><strong>xmax</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; X Max</li>
+<li><strong>ymin</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Y Min</li>
+<li><strong>ymax</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Y Max</li>
+<li><strong>extend</strong> (<em>boolean, (optional)</em>) &#8211; Extend, Extend selection instead of deselecting everything first</li>
+<li><strong>tweak</strong> (<em>boolean, (optional)</em>) &#8211; Tweak, Only activate when mouse is not over a node - useful for tweak gesture</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.select_circle">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">select_circle</code><span class="sig-paren">(</span><em>x=0</em>, <em>y=0</em>, <em>radius=1</em>, <em>gesture_mode=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.select_circle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use circle selection to select nodes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; X</li>
+<li><strong>y</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Y</li>
+<li><strong>radius</strong> (<em>int in [1, inf], (optional)</em>) &#8211; Radius</li>
+<li><strong>gesture_mode</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Gesture Mode</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.select_grouped">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">select_grouped</code><span class="sig-paren">(</span><em>extend=False</em>, <em>type='TYPE'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.select_grouped" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select nodes with similar properties</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>extend</strong> (<em>boolean, (optional)</em>) &#8211; Extend, Extend selection instead of deselecting everything first</li>
+<li><strong>type</strong> (<em>enum in ['TYPE', 'COLOR', 'PREFIX', 'SUFFIX'], (optional)</em>) &#8211; Type</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.select_lasso">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">select_lasso</code><span class="sig-paren">(</span><em>path=None</em>, <em>deselect=False</em>, <em>extend=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.select_lasso" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select nodes using lasso selection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>path</strong> (<code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal"><span class="pre">OperatorMousePath</span></code>, (optional)) &#8211; Path</li>
+<li><strong>deselect</strong> (<em>boolean, (optional)</em>) &#8211; Deselect, Deselect rather than select items</li>
+<li><strong>extend</strong> (<em>boolean, (optional)</em>) &#8211; Extend, Extend selection instead of deselecting everything first</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.select_link_viewer">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">select_link_viewer</code><span class="sig-paren">(</span><em>NODE_OT_select=None</em>, <em>NODE_OT_link_viewer=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.select_link_viewer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select node and link it to a viewer node</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>NODE_OT_select</strong> (<code class="xref py py-class docutils literal"><span class="pre">NODE_OT_select</span></code>, (optional)) &#8211; Select, Select the node under the cursor</li>
+<li><strong>NODE_OT_link_viewer</strong> (<code class="xref py py-class docutils literal"><span class="pre">NODE_OT_link_viewer</span></code>, (optional)) &#8211; Link to Viewer Node, Link to viewer node</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.select_linked_from">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">select_linked_from</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.select_linked_from" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select nodes linked from the selected ones</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.select_linked_to">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">select_linked_to</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.select_linked_to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select nodes linked to the selected ones</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.select_same_type_step">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">select_same_type_step</code><span class="sig-paren">(</span><em>prev=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.select_same_type_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activate and view same node type, step by step</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>prev</strong> (<em>boolean, (optional)</em>) &#8211; Previous</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.shader_script_update">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">shader_script_update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.shader_script_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update shader script node with new sockets and options from the script</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.switch_view_update">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">switch_view_update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.switch_view_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update views of selected node</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.toolbar">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">toolbar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.toolbar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggles tool shelf display</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.translate_attach">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">translate_attach</code><span class="sig-paren">(</span><em>TRANSFORM_OT_translate=None</em>, <em>NODE_OT_attach=None</em>, <em>NODE_OT_insert_offset=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.translate_attach" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move nodes and attach to frame</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>TRANSFORM_OT_translate</strong> (<code class="xref py py-class docutils literal"><span class="pre">TRANSFORM_OT_translate</span></code>, (optional)) &#8211; Translate, Translate (move) selected items</li>
+<li><strong>NODE_OT_attach</strong> (<code class="xref py py-class docutils literal"><span class="pre">NODE_OT_attach</span></code>, (optional)) &#8211; Attach Nodes, Attach active node to a frame</li>
+<li><strong>NODE_OT_insert_offset</strong> (<code class="xref py py-class docutils literal"><span class="pre">NODE_OT_insert_offset</span></code>, (optional)) &#8211; Insert Offset, Automatically offset nodes on insertion</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.translate_attach_remove_on_cancel">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">translate_attach_remove_on_cancel</code><span class="sig-paren">(</span><em>TRANSFORM_OT_translate=None</em>, <em>NODE_OT_attach=None</em>, <em>NODE_OT_insert_offset=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.translate_attach_remove_on_cancel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move nodes and attach to frame</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>TRANSFORM_OT_translate</strong> (<code class="xref py py-class docutils literal"><span class="pre">TRANSFORM_OT_translate</span></code>, (optional)) &#8211; Translate, Translate (move) selected items</li>
+<li><strong>NODE_OT_attach</strong> (<code class="xref py py-class docutils literal"><span class="pre">NODE_OT_attach</span></code>, (optional)) &#8211; Attach Nodes, Attach active node to a frame</li>
+<li><strong>NODE_OT_insert_offset</strong> (<code class="xref py py-class docutils literal"><span class="pre">NODE_OT_insert_offset</span></code>, (optional)) &#8211; Insert Offset, Automatically offset nodes on insertion</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.tree_path_parent">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">tree_path_parent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.tree_path_parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Go to parent node tree</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">File:</th><td class="field-body"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/node.py">startup/bl_operators/node.py</a>:292</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.tree_socket_add">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">tree_socket_add</code><span class="sig-paren">(</span><em>in_out='IN'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.tree_socket_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an input or output socket to the current node tree</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>in_out</strong> (<em>enum in ['IN', 'OUT'], (optional)</em>) &#8211; Socket Type</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.tree_socket_move">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">tree_socket_move</code><span class="sig-paren">(</span><em>direction='UP'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.tree_socket_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move a socket up or down in the current node tree&#8217;s sockets stack</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>direction</strong> (<em>enum in ['UP', 'DOWN'], (optional)</em>) &#8211; Direction</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.tree_socket_remove">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">tree_socket_remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.tree_socket_remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove an input or output socket to the current node tree</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.view_all">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">view_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.view_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resize view so you can see all nodes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.view_selected">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">view_selected</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.view_selected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resize view so you can see selected nodes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.node.viewer_border">
+<code class="descclassname">bpy.ops.node.</code><code class="descname">viewer_border</code><span class="sig-paren">(</span><em>gesture_mode=0</em>, <em>xmin=0</em>, <em>xmax=0</em>, <em>ymin=0</em>, <em>ymax=0</em>, <em>extend=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.node.viewer_border" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the boundaries for viewer operations</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>gesture_mode</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Gesture Mode</li>
+<li><strong>xmin</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; X Min</li>
+<li><strong>xmax</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; X Max</li>
+<li><strong>ymin</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Y Min</li>
+<li><strong>ymax</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Y Max</li>
+<li><strong>extend</strong> (<em>boolean, (optional)</em>) &#8211; Extend, Extend selection instead of deselecting everything first</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.ops.nla.html"
+                        title="previous chapter">Nla Operators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.ops.object.html"
+                        title="next chapter">Object Operators</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.object.html" title="Object Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.nla.html" title="Nla Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

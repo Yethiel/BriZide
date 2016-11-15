@@ -1,0 +1,655 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>BL_ArmatureChannel(PyObjectPlus) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Game Types (bge.types)" href="bge.types.html" />
+    <link rel="next" title="BL_ArmatureConstraint(PyObjectPlus)" href="bge.types.BL_ArmatureConstraint.html" />
+    <link rel="prev" title="BL_ArmatureBone(PyObjectPlus)" href="bge.types.BL_ArmatureBone.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.BL_ArmatureConstraint.html" title="BL_ArmatureConstraint(PyObjectPlus)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.BL_ArmatureBone.html" title="BL_ArmatureBone(PyObjectPlus)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" accesskey="U">Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bge.types">
+<span id="bl-armaturechannel-pyobjectplus"></span><h1>BL_ArmatureChannel(PyObjectPlus)<a class="headerlink" href="#module-bge.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bge.types.PyObjectPlus.html#bge.types.PyObjectPlus" title="bge.types.PyObjectPlus"><code class="xref py py-class docutils literal"><span class="pre">PyObjectPlus</span></code></a></p>
+<dl class="class">
+<dt id="bge.types.BL_ArmatureChannel">
+<em class="property">class </em><code class="descclassname">bge.types.</code><code class="descname">BL_ArmatureChannel</code><span class="sig-paren">(</span><em>PyObjectPlus</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.BL_ArmatureChannel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Proxy to armature pose channel. Allows to read and set armature pose.
+The attributes are identical to RNA attributes, but mostly in read-only mode.</p>
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.name">
+<code class="descname">name</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>channel name (=bone name), read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.bone">
+<code class="descname">bone</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.bone" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the bone object corresponding to this pose channel, read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bge.types.BL_ArmatureBone.html#bge.types.BL_ArmatureBone" title="bge.types.BL_ArmatureBone"><code class="xref py py-class docutils literal"><span class="pre">BL_ArmatureBone</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.parent">
+<code class="descname">parent</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the parent channel object, None if root channel, read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#bge.types.BL_ArmatureChannel" title="bge.types.BL_ArmatureChannel"><code class="xref py py-class docutils literal"><span class="pre">BL_ArmatureChannel</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.has_ik">
+<code class="descname">has_ik</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.has_ik" title="Permalink to this definition">¶</a></dt>
+<dd><p>true if the bone is part of an active IK chain, read-only.
+This flag is not set when an IK constraint is defined but not enabled (miss target information for example).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.ik_dof_x">
+<code class="descname">ik_dof_x</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.ik_dof_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>true if the bone is free to rotation in the X axis, read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.ik_dof_y">
+<code class="descname">ik_dof_y</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.ik_dof_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>true if the bone is free to rotation in the Y axis, read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.ik_dof_z">
+<code class="descname">ik_dof_z</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.ik_dof_z" title="Permalink to this definition">¶</a></dt>
+<dd><p>true if the bone is free to rotation in the Z axis, read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.ik_limit_x">
+<code class="descname">ik_limit_x</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.ik_limit_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>true if a limit is imposed on X rotation, read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.ik_limit_y">
+<code class="descname">ik_limit_y</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.ik_limit_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>true if a limit is imposed on Y rotation, read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.ik_limit_z">
+<code class="descname">ik_limit_z</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.ik_limit_z" title="Permalink to this definition">¶</a></dt>
+<dd><p>true if a limit is imposed on Z rotation, read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.ik_rot_control">
+<code class="descname">ik_rot_control</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.ik_rot_control" title="Permalink to this definition">¶</a></dt>
+<dd><p>true if channel rotation should applied as IK constraint, read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.ik_lin_control">
+<code class="descname">ik_lin_control</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.ik_lin_control" title="Permalink to this definition">¶</a></dt>
+<dd><p>true if channel size should applied as IK constraint, read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.location">
+<code class="descname">location</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.location" title="Permalink to this definition">¶</a></dt>
+<dd><p>displacement of the bone head in armature local space, read-write.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">vector [X, Y, Z].</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can only move a bone if it is unconnected to its parent. An action playing on the armature may change the value. An IK chain does not update this value, see joint_rotation.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Changing this field has no immediate effect, the pose is updated when the armature is updated during the graphic render (see <a class="reference internal" href="bge.types.BL_ArmatureObject.html#bge.types.BL_ArmatureObject.update" title="bge.types.BL_ArmatureObject.update"><code class="xref py py-data docutils literal"><span class="pre">BL_ArmatureObject.update</span></code></a>).</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.scale">
+<code class="descname">scale</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>scale of the bone relative to its parent, read-write.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">vector [sizeX, sizeY, sizeZ].</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">An action playing on the armature may change the value.  An IK chain does not update this value, see joint_rotation.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Changing this field has no immediate effect, the pose is updated when the armature is updated during the graphic render (see <a class="reference internal" href="bge.types.BL_ArmatureObject.html#bge.types.BL_ArmatureObject.update" title="bge.types.BL_ArmatureObject.update"><code class="xref py py-data docutils literal"><span class="pre">BL_ArmatureObject.update</span></code></a>)</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.rotation_quaternion">
+<code class="descname">rotation_quaternion</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.rotation_quaternion" title="Permalink to this definition">¶</a></dt>
+<dd><p>rotation of the bone relative to its parent expressed as a quaternion, read-write.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">vector [qr, qi, qj, qk].</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This field is only used if rotation_mode is 0. An action playing on the armature may change the value.  An IK chain does not update this value, see joint_rotation.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Changing this field has no immediate effect, the pose is updated when the armature is updated during the graphic render (see <a class="reference internal" href="bge.types.BL_ArmatureObject.html#bge.types.BL_ArmatureObject.update" title="bge.types.BL_ArmatureObject.update"><code class="xref py py-data docutils literal"><span class="pre">BL_ArmatureObject.update</span></code></a>)</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.rotation_euler">
+<code class="descname">rotation_euler</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.rotation_euler" title="Permalink to this definition">¶</a></dt>
+<dd><p>rotation of the bone relative to its parent expressed as a set of euler angles, read-write.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">vector [X, Y, Z].</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This field is only used if rotation_mode is &gt; 0. You must always pass the angles in [X, Y, Z] order; the order of applying the angles to the bone depends on rotation_mode. An action playing on the armature may change this field.  An IK chain does not update this value, see joint_rotation.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Changing this field has no immediate effect, the pose is updated when the armature is updated during the graphic render (see <a class="reference internal" href="bge.types.BL_ArmatureObject.html#bge.types.BL_ArmatureObject.update" title="bge.types.BL_ArmatureObject.update"><code class="xref py py-data docutils literal"><span class="pre">BL_ArmatureObject.update</span></code></a>)</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.rotation_mode">
+<code class="descname">rotation_mode</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.rotation_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method of updating the bone rotation, read-write.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">integer (one of <a class="reference internal" href="bge.logic.html#armaturechannel-constants-rotation-mode"><span class="std std-ref">these constants</span></a>)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.channel_matrix">
+<code class="descname">channel_matrix</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.channel_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>pose matrix in bone space (deformation of the bone due to action, constraint, etc), Read-only.
+This field is updated after the graphic render, it represents the current pose.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">matrix [4][4]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.pose_matrix">
+<code class="descname">pose_matrix</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.pose_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>pose matrix in armature space, read-only,
+This field is updated after the graphic render, it represents the current pose.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">matrix [4][4]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.pose_head">
+<code class="descname">pose_head</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.pose_head" title="Permalink to this definition">¶</a></dt>
+<dd><p>position of bone head in armature space, read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">vector [x, y, z]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.pose_tail">
+<code class="descname">pose_tail</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.pose_tail" title="Permalink to this definition">¶</a></dt>
+<dd><p>position of bone tail in armature space, read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">vector [x, y, z]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.ik_min_x">
+<code class="descname">ik_min_x</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.ik_min_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>minimum value of X rotation in degree (&lt;= 0) when X rotation is limited (see ik_limit_x), read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.ik_max_x">
+<code class="descname">ik_max_x</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.ik_max_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>maximum value of X rotation in degree (&gt;= 0) when X rotation is limited (see ik_limit_x), read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.ik_min_y">
+<code class="descname">ik_min_y</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.ik_min_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>minimum value of Y rotation in degree (&lt;= 0) when Y rotation is limited (see ik_limit_y), read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.ik_max_y">
+<code class="descname">ik_max_y</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.ik_max_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>maximum value of Y rotation in degree (&gt;= 0) when Y rotation is limited (see ik_limit_y), read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.ik_min_z">
+<code class="descname">ik_min_z</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.ik_min_z" title="Permalink to this definition">¶</a></dt>
+<dd><p>minimum value of Z rotation in degree (&lt;= 0) when Z rotation is limited (see ik_limit_z), read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.ik_max_z">
+<code class="descname">ik_max_z</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.ik_max_z" title="Permalink to this definition">¶</a></dt>
+<dd><p>maximum value of Z rotation in degree (&gt;= 0) when Z rotation is limited (see ik_limit_z), read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.ik_stiffness_x">
+<code class="descname">ik_stiffness_x</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.ik_stiffness_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>bone rotation stiffness in X axis, read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float between 0 and 1</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.ik_stiffness_y">
+<code class="descname">ik_stiffness_y</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.ik_stiffness_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>bone rotation stiffness in Y axis, read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float between 0 and 1</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.ik_stiffness_z">
+<code class="descname">ik_stiffness_z</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.ik_stiffness_z" title="Permalink to this definition">¶</a></dt>
+<dd><p>bone rotation stiffness in Z axis, read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float between 0 and 1</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.ik_stretch">
+<code class="descname">ik_stretch</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.ik_stretch" title="Permalink to this definition">¶</a></dt>
+<dd><p>ratio of scale change that is allowed, 0=bone can&#8217;t change size, read-only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.ik_rot_weight">
+<code class="descname">ik_rot_weight</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.ik_rot_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>weight of rotation constraint when ik_rot_control is set, read-write.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float between 0 and 1</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.ik_lin_weight">
+<code class="descname">ik_lin_weight</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.ik_lin_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>weight of size constraint when ik_lin_control is set, read-write.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float between 0 and 1</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.BL_ArmatureChannel.joint_rotation">
+<code class="descname">joint_rotation</code><a class="headerlink" href="#bge.types.BL_ArmatureChannel.joint_rotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Control bone rotation in term of joint angle (for robotic applications), read-write.</p>
+<p>When writing to this attribute, you pass a [x, y, z] vector and an appropriate set of euler angles or quaternion is calculated according to the rotation_mode.</p>
+<p>When you read this attribute, the current pose matrix is converted into a [x, y, z] vector representing the joint angles.</p>
+<p>The value and the meaning of the x, y, z depends on the ik_dof_x/ik_dof_y/ik_dof_z attributes:</p>
+<ul class="simple">
+<li>1DoF joint X, Y or Z: the corresponding x, y, or z value is used an a joint angle in radiant</li>
+<li>2DoF joint X+Y or Z+Y: treated as 2 successive 1DoF joints: first X or Z, then Y. The x or z value is used as a joint angle in radiant along the X or Z axis, followed by a rotation along the new Y axis of y radiants.</li>
+<li>2DoF joint X+Z: treated as a 2DoF joint with rotation axis on the X/Z plane. The x and z values are used as the coordinates of the rotation vector in the X/Z plane.</li>
+<li>3DoF joint X+Y+Z: treated as a revolute joint. The [x, y, z] vector represents the equivalent rotation vector to bring the joint from the rest pose to the new pose.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">vector [x, y, z]</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The bone must be part of an IK chain if you want to set the ik_dof_x/ik_dof_y/ik_dof_z attributes via the UI, but this will interfere with this attribute since the IK solver will overwrite the pose. You can stay in control of the armature if you create an IK constraint but do not finalize it (e.g. don&#8217;t set a target) the IK solver will not run but the IK panel will show up on the UI for each bone in the chain.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">[0, 0, 0] always corresponds to the rest pose.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You must request the armature pose to update and wait for the next graphic frame to see the effect of setting this attribute (see <a class="reference internal" href="bge.types.BL_ArmatureObject.html#bge.types.BL_ArmatureObject.update" title="bge.types.BL_ArmatureObject.update"><code class="xref py py-data docutils literal"><span class="pre">BL_ArmatureObject.update</span></code></a>).</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can read the result of the calculation in rotation or euler_rotation attributes after setting this attribute.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bge.types.BL_ArmatureBone.html"
+                        title="previous chapter">BL_ArmatureBone(PyObjectPlus)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bge.types.BL_ArmatureConstraint.html"
+                        title="next chapter">BL_ArmatureConstraint(PyObjectPlus)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.BL_ArmatureConstraint.html" title="BL_ArmatureConstraint(PyObjectPlus)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.BL_ArmatureBone.html" title="BL_ArmatureBone(PyObjectPlus)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" >Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

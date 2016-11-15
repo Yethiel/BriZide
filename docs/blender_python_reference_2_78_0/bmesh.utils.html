@@ -1,0 +1,389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>BMesh Utilities (bmesh.utils) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bmesh.utils">
+<span id="bmesh-utilities-bmesh-utils"></span><h1>BMesh Utilities (bmesh.utils)<a class="headerlink" href="#module-bmesh.utils" title="Permalink to this headline">¶</a></h1>
+<p>This module provides access to blenders bmesh data structures.</p>
+<dl class="method">
+<dt id="bmesh.utils.edge_rotate">
+<code class="descclassname">bmesh.utils.</code><code class="descname">edge_rotate</code><span class="sig-paren">(</span><em>edge</em>, <em>ccw=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.utils.edge_rotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate the edge and return the newly created edge.
+If rotating the edge fails, None will be returned.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>edge</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMEdge</span></code></a>) &#8211; The edge to rotate.</li>
+<li><strong>ccw</strong> (<em>boolean</em>) &#8211; When True the edge will be rotated counter clockwise.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The newly rotated edge.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMEdge</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bmesh.utils.edge_split">
+<code class="descclassname">bmesh.utils.</code><code class="descname">edge_split</code><span class="sig-paren">(</span><em>edge</em>, <em>vert</em>, <em>fac</em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.utils.edge_split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split an edge, return the newly created data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>edge</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMEdge</span></code></a>) &#8211; The edge to split.</li>
+<li><strong>vert</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMVert</span></code></a>) &#8211; One of the verts on the edge, defines the split direction.</li>
+<li><strong>fac</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; The point on the edge where the new vert will be created [0 - 1].</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The newly created (edge, vert) pair.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bmesh.utils.face_flip">
+<code class="descclassname">bmesh.utils.</code><code class="descname">face_flip</code><span class="sig-paren">(</span><em>faces</em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.utils.face_flip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flip the faces direction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>face</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMFace</span></code></a>) &#8211; Face to flip.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bmesh.utils.face_join">
+<code class="descclassname">bmesh.utils.</code><code class="descname">face_join</code><span class="sig-paren">(</span><em>faces</em>, <em>remove=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.utils.face_join" title="Permalink to this definition">¶</a></dt>
+<dd><p>Joins a sequence of faces.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>faces</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMFace</span></code></a>) &#8211; Sequence of faces.</li>
+<li><strong>remove</strong> (<em>boolean</em>) &#8211; Remove the edges and vertices between the faces.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The newly created face or None on failure.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMFace</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bmesh.utils.face_split">
+<code class="descclassname">bmesh.utils.</code><code class="descname">face_split</code><span class="sig-paren">(</span><em>face</em>, <em>vert_a</em>, <em>vert_b</em>, <em>coords=()</em>, <em>use_exist=True</em>, <em>example=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.utils.face_split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Face split with optional intermediate points.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>face</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMFace</span></code></a>) &#8211; The face to cut.</li>
+<li><strong>vert_a</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMVert</span></code></a>) &#8211; First vertex to cut in the face (face must contain the vert).</li>
+<li><strong>vert_b</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMVert</span></code></a>) &#8211; Second vertex to cut in the face (face must contain the vert).</li>
+<li><strong>coords</strong> (<em>sequence of float triplets</em>) &#8211; Optional argument to define points inbetween <em>vert_a</em> and <em>vert_b</em>.</li>
+<li><strong>use_exist</strong> (<em>boolean</em>) &#8211; .Use an existing edge if it exists (Only used when <em>coords</em> argument is empty or omitted)</li>
+<li><strong>example</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMEdge</span></code></a>) &#8211; Newly created edge will copy settings from this one.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The newly created face or None on failure.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMFace</span></code></a>, <a class="reference internal" href="bmesh.types.html#bmesh.types.BMLoop" title="bmesh.types.BMLoop"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMLoop</span></code></a>) pair</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bmesh.utils.face_split_edgenet">
+<code class="descclassname">bmesh.utils.</code><code class="descname">face_split_edgenet</code><span class="sig-paren">(</span><em>face</em>, <em>edgenet</em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.utils.face_split_edgenet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Splits a face into any number of regions defined by an edgenet.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>face</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMFace</span></code></a>) &#8211; The face to split.</li>
+<li><strong>face</strong> &#8211; The face to split.</li>
+<li><strong>edgenet</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMEdge</span></code></a>) &#8211; Sequence of edges.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The newly created faces.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple of (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMFace</span></code></a>)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bmesh.utils.face_vert_separate">
+<code class="descclassname">bmesh.utils.</code><code class="descname">face_vert_separate</code><span class="sig-paren">(</span><em>face</em>, <em>vert</em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.utils.face_vert_separate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rip a vertex in a face away and add a new vertex.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>face</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMFace" title="bmesh.types.BMFace"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMFace</span></code></a>) &#8211; The face to separate.</li>
+<li><strong>vert</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMVert</span></code></a>) &#8211; A vertex in the face to separate.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return vert:</th><td class="field-body"><p class="first">The newly created vertex or None on failure.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Rtype vert:</th><td class="field-body"><p class="first last"><a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMVert</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is the same as loop_separate, and has only been added for convenience.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="bmesh.utils.loop_separate">
+<code class="descclassname">bmesh.utils.</code><code class="descname">loop_separate</code><span class="sig-paren">(</span><em>loop</em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.utils.loop_separate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rip a vertex in a face away and add a new vertex.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>loop</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLoop" title="bmesh.types.BMLoop"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMLoop</span></code></a>) &#8211; The loop to separate.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return vert:</th><td class="field-body">The newly created vertex or None on failure.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Rtype vert:</th><td class="field-body"><a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMVert</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bmesh.utils.vert_collapse_edge">
+<code class="descclassname">bmesh.utils.</code><code class="descname">vert_collapse_edge</code><span class="sig-paren">(</span><em>vert</em>, <em>edge</em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.utils.vert_collapse_edge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collapse a vertex into an edge.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>vert</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMVert</span></code></a>) &#8211; The vert that will be collapsed.</li>
+<li><strong>edge</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMEdge</span></code></a>) &#8211; The edge to collapse into.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The resulting edge from the collapse operation.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMEdge</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bmesh.utils.vert_collapse_faces">
+<code class="descclassname">bmesh.utils.</code><code class="descname">vert_collapse_faces</code><span class="sig-paren">(</span><em>vert</em>, <em>edge</em>, <em>fac</em>, <em>join_faces</em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.utils.vert_collapse_faces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collapses a vertex that has only two manifold edges onto a vertex it shares an edge with.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>vert</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMVert</span></code></a>) &#8211; The vert that will be collapsed.</li>
+<li><strong>edge</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMEdge</span></code></a>) &#8211; The edge to collapse into.</li>
+<li><strong>fac</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; The factor to use when merging customdata [0 - 1].</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The resulting edge from the collapse operation.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMEdge</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bmesh.utils.vert_dissolve">
+<code class="descclassname">bmesh.utils.</code><code class="descname">vert_dissolve</code><span class="sig-paren">(</span><em>vert</em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.utils.vert_dissolve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dissolve this vertex (will be removed).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>vert</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMVert</span></code></a>) &#8211; The vert to be dissolved.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True when the vertex dissolve is successful.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bmesh.utils.vert_separate">
+<code class="descclassname">bmesh.utils.</code><code class="descname">vert_separate</code><span class="sig-paren">(</span><em>vert</em>, <em>edges</em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.utils.vert_separate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Separate this vertex at every edge.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>vert</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMVert</span></code></a>) &#8211; The vert to be separated.</li>
+<li><strong>edges</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMEdge" title="bmesh.types.BMEdge"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMEdge</span></code></a>) &#8211; The edges to separated.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The newly separated verts (including the vertex passed).</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple of <a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMVert</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bmesh.utils.vert_splice">
+<code class="descclassname">bmesh.utils.</code><code class="descname">vert_splice</code><span class="sig-paren">(</span><em>vert</em>, <em>vert_target</em><span class="sig-paren">)</span><a class="headerlink" href="#bmesh.utils.vert_splice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Splice vert into vert_target.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>vert</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMVert</span></code></a>) &#8211; The vertex to be removed.</li>
+<li><strong>vert_target</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMVert" title="bmesh.types.BMVert"><code class="xref py py-class docutils literal"><span class="pre">bmesh.types.BMVert</span></code></a>) &#8211; The vertex to use.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The verts mustn&#8217;t share an edge or face.</p>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

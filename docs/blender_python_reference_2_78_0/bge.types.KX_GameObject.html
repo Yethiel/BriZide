@@ -1,0 +1,1824 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>KX_GameObject(SCA_IObject) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Game Types (bge.types)" href="bge.types.html" />
+    <link rel="next" title="KX_LibLoadStatus(PyObjectPlus)" href="bge.types.KX_LibLoadStatus.html" />
+    <link rel="prev" title="KX_GameActuator(SCA_IActuator)" href="bge.types.KX_GameActuator.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_LibLoadStatus.html" title="KX_LibLoadStatus(PyObjectPlus)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_GameActuator.html" title="KX_GameActuator(SCA_IActuator)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" accesskey="U">Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bge.types">
+<span id="kx-gameobject-sca-iobject"></span><h1>KX_GameObject(SCA_IObject)<a class="headerlink" href="#module-bge.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bge.types.SCA_IObject.html#bge.types.SCA_IObject" title="bge.types.SCA_IObject"><code class="xref py py-class docutils literal"><span class="pre">SCA_IObject</span></code></a></p>
+<dl class="class">
+<dt id="bge.types.KX_GameObject">
+<em class="property">class </em><code class="descclassname">bge.types.</code><code class="descname">KX_GameObject</code><span class="sig-paren">(</span><em>SCA_IObject</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>All game objects are derived from this class.</p>
+<p>Properties assigned to game objects are accessible as attributes of this class.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Calling ANY method or attribute on an object that has been removed from a scene will raise a SystemError,
+if an object may have been removed since last accessing it use the <code class="xref py py-data docutils literal"><span class="pre">invalid</span></code> attribute to check.</p>
+</div>
+<p>KX_GameObject can be subclassed to extend functionality. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bge</span>
+
+<span class="k">class</span> <span class="nc">CustomGameObject</span><span class="p">(</span><span class="n">bge</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">KX_GameObject</span><span class="p">):</span>
+    <span class="n">RATE</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old_owner</span><span class="p">):</span>
+        <span class="c1"># &quot;old_owner&quot; can just be ignored. At this point, &quot;self&quot; is</span>
+        <span class="c1"># already the object in the scene, and &quot;old_owner&quot; has been</span>
+        <span class="c1"># destroyed.</span>
+
+        <span class="c1"># New attributes can be defined - but we could also use a game</span>
+        <span class="c1"># property, like &quot;self[&#39;rate&#39;]&quot;.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">CustomGameObject</span><span class="o">.</span><span class="n">RATE</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">worldPosition</span><span class="o">.</span><span class="n">z</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span>
+
+        <span class="c1"># switch direction</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">worldPosition</span><span class="o">.</span><span class="n">z</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="o">-</span><span class="n">CustomGameObject</span><span class="o">.</span><span class="n">RATE</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">worldPosition</span><span class="o">.</span><span class="n">z</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">CustomGameObject</span><span class="o">.</span><span class="n">RATE</span>
+
+<span class="c1"># Called first</span>
+<span class="k">def</span> <span class="nf">mutate</span><span class="p">(</span><span class="n">cont</span><span class="p">):</span>
+    <span class="n">old_object</span> <span class="o">=</span> <span class="n">cont</span><span class="o">.</span><span class="n">owner</span>
+    <span class="n">mutated_object</span> <span class="o">=</span> <span class="n">CustomGameObject</span><span class="p">(</span><span class="n">cont</span><span class="o">.</span><span class="n">owner</span><span class="p">)</span>
+
+    <span class="c1"># After calling the constructor above, references to the old object</span>
+    <span class="c1"># should not be used.</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">old_object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">mutated_object</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">old_object</span><span class="o">.</span><span class="n">invalid</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">mutated_object</span> <span class="ow">is</span> <span class="n">cont</span><span class="o">.</span><span class="n">owner</span><span class="p">)</span>
+
+<span class="c1"># Called later - note we are now working with the mutated object.</span>
+<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">cont</span><span class="p">):</span>
+    <span class="n">cont</span><span class="o">.</span><span class="n">owner</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>When subclassing objects other than empties and meshes, the specific type
+should be used - e.g. inherit from <a class="reference internal" href="bge.types.BL_ArmatureObject.html#bge.types.BL_ArmatureObject" title="bge.types.BL_ArmatureObject"><code class="xref py py-class docutils literal"><span class="pre">BL_ArmatureObject</span></code></a> when the object
+to mutate is an armature.</p>
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.name">
+<code class="descname">name</code><a class="headerlink" href="#bge.types.KX_GameObject.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s name. (read-only).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.mass">
+<code class="descname">mass</code><a class="headerlink" href="#bge.types.KX_GameObject.mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s mass</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The object must have a physics controller for the mass to be applied, otherwise the mass value will be returned as 0.0.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.isSuspendDynamics">
+<code class="descname">isSuspendDynamics</code><a class="headerlink" href="#bge.types.KX_GameObject.isSuspendDynamics" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s dynamic state (read-only).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#bge.types.KX_GameObject.suspendDynamics" title="bge.types.KX_GameObject.suspendDynamics"><code class="xref py py-meth docutils literal"><span class="pre">suspendDynamics()</span></code></a> and <a class="reference internal" href="#bge.types.KX_GameObject.restoreDynamics" title="bge.types.KX_GameObject.restoreDynamics"><code class="xref py py-meth docutils literal"><span class="pre">restoreDynamics()</span></code></a> allow you to change the state.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.linearDamping">
+<code class="descname">linearDamping</code><a class="headerlink" href="#bge.types.KX_GameObject.linearDamping" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s linear damping, also known as translational damping. Can be set simultaneously with angular damping using the <a class="reference internal" href="#bge.types.KX_GameObject.setDamping" title="bge.types.KX_GameObject.setDamping"><code class="xref py py-meth docutils literal"><span class="pre">setDamping()</span></code></a> method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float between 0 and 1 inclusive.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The object must have a physics controller for the linear damping to be applied, otherwise the value will be returned as 0.0.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.angularDamping">
+<code class="descname">angularDamping</code><a class="headerlink" href="#bge.types.KX_GameObject.angularDamping" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s angular damping, also known as rotationation damping. Can be set simultaneously with linear damping using the <a class="reference internal" href="#bge.types.KX_GameObject.setDamping" title="bge.types.KX_GameObject.setDamping"><code class="xref py py-meth docutils literal"><span class="pre">setDamping()</span></code></a> method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float between 0 and 1 inclusive.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The object must have a physics controller for the angular damping to be applied, otherwise the value will be returned as 0.0.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.linVelocityMin">
+<code class="descname">linVelocityMin</code><a class="headerlink" href="#bge.types.KX_GameObject.linVelocityMin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enforces the object keeps moving at a minimum velocity.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Applies to dynamic and rigid body objects only.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">A value of 0.0 disables this option.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">While objects are stationary the minimum velocity will not be applied.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.linVelocityMax">
+<code class="descname">linVelocityMax</code><a class="headerlink" href="#bge.types.KX_GameObject.linVelocityMax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clamp the maximum linear velocity to prevent objects moving beyond a set speed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Applies to dynamic and rigid body objects only.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">A value of 0.0 disables this option (rather than setting it stationary).</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.angularVelocityMin">
+<code class="descname">angularVelocityMin</code><a class="headerlink" href="#bge.types.KX_GameObject.angularVelocityMin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enforces the object keeps rotating at a minimum velocity. A value of 0.0 disables this.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">non-negative float</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Applies to dynamic and rigid body objects only.
+While objects are stationary the minimum velocity will not be applied.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.angularVelocityMax">
+<code class="descname">angularVelocityMax</code><a class="headerlink" href="#bge.types.KX_GameObject.angularVelocityMax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clamp the maximum angular velocity to prevent objects rotating beyond a set speed.
+A value of 0.0 disables clamping; it does not stop rotation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">non-negative float</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Applies to dynamic and rigid body objects only.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.localInertia">
+<code class="descname">localInertia</code><a class="headerlink" href="#bge.types.KX_GameObject.localInertia" title="Permalink to this definition">¶</a></dt>
+<dd><p>the object&#8217;s inertia vector in local coordinates. Read only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">Vector((ix, iy, iz))</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.parent">
+<code class="descname">parent</code><a class="headerlink" href="#bge.types.KX_GameObject.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s parent object. (read-only).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a> or None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.groupMembers">
+<code class="descname">groupMembers</code><a class="headerlink" href="#bge.types.KX_GameObject.groupMembers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the list of group members if the object is a group object (dupli group instance), otherwise None is returned.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bge.types.CListValue.html#bge.types.CListValue" title="bge.types.CListValue"><code class="xref py py-class docutils literal"><span class="pre">CListValue</span></code></a> of <a class="reference internal" href="#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a> or None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.groupObject">
+<code class="descname">groupObject</code><a class="headerlink" href="#bge.types.KX_GameObject.groupObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the group object (dupli group instance) that the object belongs to or None if the object is not part of a group.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a> or None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.collisionGroup">
+<code class="descname">collisionGroup</code><a class="headerlink" href="#bge.types.KX_GameObject.collisionGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s collision group.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">bitfield</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.collisionMask">
+<code class="descname">collisionMask</code><a class="headerlink" href="#bge.types.KX_GameObject.collisionMask" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s collision mask.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">bitfield</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.collisionCallbacks">
+<code class="descname">collisionCallbacks</code><a class="headerlink" href="#bge.types.KX_GameObject.collisionCallbacks" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of functions to be called when a collision occurs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of functions and/or methods</td>
+</tr>
+</tbody>
+</table>
+<p>Callbacks should either accept one argument <cite>(object)</cite>, or three
+arguments <cite>(object, point, normal)</cite>. For simplicity, per
+colliding object only the first collision point is reported.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Function form</span>
+<span class="k">def</span> <span class="nf">callback_three</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">point</span><span class="p">,</span> <span class="n">normal</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hit by </span><span class="si">%r</span><span class="s1"> at </span><span class="si">%s</span><span class="s1"> with normal </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">object</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">point</span><span class="p">,</span> <span class="n">normal</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">callback_one</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hit by </span><span class="si">%r</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">object</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">register_callback</span><span class="p">(</span><span class="n">controller</span><span class="p">):</span>
+    <span class="n">controller</span><span class="o">.</span><span class="n">owner</span><span class="o">.</span><span class="n">collisionCallbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">callback_three</span><span class="p">)</span>
+    <span class="n">controller</span><span class="o">.</span><span class="n">owner</span><span class="o">.</span><span class="n">collisionCallbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">callback_one</span><span class="p">)</span>
+
+
+<span class="c1"># Method form</span>
+<span class="k">class</span> <span class="nc">YourGameEntity</span><span class="p">(</span><span class="n">bge</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">KX_GameObject</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old_owner</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">collisionCallbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_collision_three</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">collisionCallbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_collision_one</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">on_collision_three</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">object</span><span class="p">,</span> <span class="n">point</span><span class="p">,</span> <span class="n">normal</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hit by </span><span class="si">%r</span><span class="s1"> at </span><span class="si">%s</span><span class="s1"> with normal </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">object</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">point</span><span class="p">,</span> <span class="n">normal</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">on_collision_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">object</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hit by </span><span class="si">%r</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">object</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For backward compatibility, a callback with variable number of
+arguments (using <cite>*args</cite>) will be passed only the <cite>object</cite>
+argument. Only when there is more than one fixed argument (not
+counting <cite>self</cite> for methods) will the three-argument form be
+used.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.scene">
+<code class="descname">scene</code><a class="headerlink" href="#bge.types.KX_GameObject.scene" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s scene. (read-only).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bge.types.KX_Scene.html#bge.types.KX_Scene" title="bge.types.KX_Scene"><code class="xref py py-class docutils literal"><span class="pre">KX_Scene</span></code></a> or None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.visible">
+<code class="descname">visible</code><a class="headerlink" href="#bge.types.KX_GameObject.visible" title="Permalink to this definition">¶</a></dt>
+<dd><p>visibility flag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Game logic will still run for invisible objects.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.record_animation">
+<code class="descname">record_animation</code><a class="headerlink" href="#bge.types.KX_GameObject.record_animation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Record animation for this object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.color">
+<code class="descname">color</code><a class="headerlink" href="#bge.types.KX_GameObject.color" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object color of the object. [r, g, b, a]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Vector</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.occlusion">
+<code class="descname">occlusion</code><a class="headerlink" href="#bge.types.KX_GameObject.occlusion" title="Permalink to this definition">¶</a></dt>
+<dd><p>occlusion capability flag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.position">
+<code class="descname">position</code><a class="headerlink" href="#bge.types.KX_GameObject.position" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s position. [x, y, z] On write: local position, on read: world position</p>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version use: </span><a class="reference internal" href="#bge.types.KX_GameObject.localPosition" title="bge.types.KX_GameObject.localPosition"><code class="xref py py-data docutils literal"><span class="pre">localPosition</span></code></a> and <a class="reference internal" href="#bge.types.KX_GameObject.worldPosition" title="bge.types.KX_GameObject.worldPosition"><code class="xref py py-data docutils literal"><span class="pre">worldPosition</span></code></a>.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Vector</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.orientation">
+<code class="descname">orientation</code><a class="headerlink" href="#bge.types.KX_GameObject.orientation" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s orientation. 3x3 Matrix. You can also write a Quaternion or Euler vector. On write: local orientation, on read: world orientation</p>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version use: </span><a class="reference internal" href="#bge.types.KX_GameObject.localOrientation" title="bge.types.KX_GameObject.localOrientation"><code class="xref py py-data docutils literal"><span class="pre">localOrientation</span></code></a> and <a class="reference internal" href="#bge.types.KX_GameObject.worldOrientation" title="bge.types.KX_GameObject.worldOrientation"><code class="xref py py-data docutils literal"><span class="pre">worldOrientation</span></code></a>.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Matrix</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.scaling">
+<code class="descname">scaling</code><a class="headerlink" href="#bge.types.KX_GameObject.scaling" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s scaling factor. [sx, sy, sz] On write: local scaling, on read: world scaling</p>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version use: </span><a class="reference internal" href="#bge.types.KX_GameObject.localScale" title="bge.types.KX_GameObject.localScale"><code class="xref py py-data docutils literal"><span class="pre">localScale</span></code></a> and <a class="reference internal" href="#bge.types.KX_GameObject.worldScale" title="bge.types.KX_GameObject.worldScale"><code class="xref py py-data docutils literal"><span class="pre">worldScale</span></code></a>.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Vector</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.localOrientation">
+<code class="descname">localOrientation</code><a class="headerlink" href="#bge.types.KX_GameObject.localOrientation" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s local orientation. 3x3 Matrix. You can also write a Quaternion or Euler vector.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Matrix</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.worldOrientation">
+<code class="descname">worldOrientation</code><a class="headerlink" href="#bge.types.KX_GameObject.worldOrientation" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s world orientation. 3x3 Matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Matrix</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.localScale">
+<code class="descname">localScale</code><a class="headerlink" href="#bge.types.KX_GameObject.localScale" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s local scaling factor. [sx, sy, sz]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Vector</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.worldScale">
+<code class="descname">worldScale</code><a class="headerlink" href="#bge.types.KX_GameObject.worldScale" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s world scaling factor. [sx, sy, sz]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Vector</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.localPosition">
+<code class="descname">localPosition</code><a class="headerlink" href="#bge.types.KX_GameObject.localPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s local position. [x, y, z]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Vector</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.worldPosition">
+<code class="descname">worldPosition</code><a class="headerlink" href="#bge.types.KX_GameObject.worldPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s world position. [x, y, z]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Vector</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.localTransform">
+<code class="descname">localTransform</code><a class="headerlink" href="#bge.types.KX_GameObject.localTransform" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s local space transform matrix. 4x4 Matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Matrix</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.worldTransform">
+<code class="descname">worldTransform</code><a class="headerlink" href="#bge.types.KX_GameObject.worldTransform" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s world space transform matrix. 4x4 Matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="mathutils.html#mathutils.Matrix" title="mathutils.Matrix"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Matrix</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.localLinearVelocity">
+<code class="descname">localLinearVelocity</code><a class="headerlink" href="#bge.types.KX_GameObject.localLinearVelocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s local linear velocity. [x, y, z]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Vector</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.worldLinearVelocity">
+<code class="descname">worldLinearVelocity</code><a class="headerlink" href="#bge.types.KX_GameObject.worldLinearVelocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s world linear velocity. [x, y, z]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Vector</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.localAngularVelocity">
+<code class="descname">localAngularVelocity</code><a class="headerlink" href="#bge.types.KX_GameObject.localAngularVelocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s local angular velocity. [x, y, z]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Vector</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.worldAngularVelocity">
+<code class="descname">worldAngularVelocity</code><a class="headerlink" href="#bge.types.KX_GameObject.worldAngularVelocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object&#8217;s world angular velocity. [x, y, z]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal"><span class="pre">mathutils.Vector</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.timeOffset">
+<code class="descname">timeOffset</code><a class="headerlink" href="#bge.types.KX_GameObject.timeOffset" title="Permalink to this definition">¶</a></dt>
+<dd><p>adjust the slowparent delay at runtime.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.state">
+<code class="descname">state</code><a class="headerlink" href="#bge.types.KX_GameObject.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>the game object&#8217;s state bitmask, using the first 30 bits, one bit must always be set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.meshes">
+<code class="descname">meshes</code><a class="headerlink" href="#bge.types.KX_GameObject.meshes" title="Permalink to this definition">¶</a></dt>
+<dd><p>a list meshes for this object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of <a class="reference internal" href="bge.types.KX_MeshProxy.html#bge.types.KX_MeshProxy" title="bge.types.KX_MeshProxy"><code class="xref py py-class docutils literal"><span class="pre">KX_MeshProxy</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Most objects use only 1 mesh.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Changes to this list will not update the KX_GameObject.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.sensors">
+<code class="descname">sensors</code><a class="headerlink" href="#bge.types.KX_GameObject.sensors" title="Permalink to this definition">¶</a></dt>
+<dd><p>a sequence of <a class="reference internal" href="bge.types.SCA_ISensor.html#bge.types.SCA_ISensor" title="bge.types.SCA_ISensor"><code class="xref py py-class docutils literal"><span class="pre">SCA_ISensor</span></code></a> objects with string/index lookups and iterator support.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This attribute is experemental and may be removed (but probably wont be).</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Changes to this list will not update the KX_GameObject.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.controllers">
+<code class="descname">controllers</code><a class="headerlink" href="#bge.types.KX_GameObject.controllers" title="Permalink to this definition">¶</a></dt>
+<dd><p>a sequence of <a class="reference internal" href="bge.types.SCA_IController.html#bge.types.SCA_IController" title="bge.types.SCA_IController"><code class="xref py py-class docutils literal"><span class="pre">SCA_IController</span></code></a> objects with string/index lookups and iterator support.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of <a class="reference internal" href="bge.types.SCA_ISensor.html#bge.types.SCA_ISensor" title="bge.types.SCA_ISensor"><code class="xref py py-class docutils literal"><span class="pre">SCA_ISensor</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This attribute is experemental and may be removed (but probably wont be).</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Changes to this list will not update the KX_GameObject.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.actuators">
+<code class="descname">actuators</code><a class="headerlink" href="#bge.types.KX_GameObject.actuators" title="Permalink to this definition">¶</a></dt>
+<dd><p>a list of <a class="reference internal" href="bge.types.SCA_IActuator.html#bge.types.SCA_IActuator" title="bge.types.SCA_IActuator"><code class="xref py py-class docutils literal"><span class="pre">SCA_IActuator</span></code></a> with string/index lookups and iterator support.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This attribute is experemental and may be removed (but probably wont be).</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Changes to this list will not update the KX_GameObject.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.attrDict">
+<code class="descname">attrDict</code><a class="headerlink" href="#bge.types.KX_GameObject.attrDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the objects internal python attribute dictionary for direct (faster) access.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.children">
+<code class="descname">children</code><a class="headerlink" href="#bge.types.KX_GameObject.children" title="Permalink to this definition">¶</a></dt>
+<dd><p>direct children of this object, (read-only).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bge.types.CListValue.html#bge.types.CListValue" title="bge.types.CListValue"><code class="xref py py-class docutils literal"><span class="pre">CListValue</span></code></a> of <a class="reference internal" href="#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a>&#8216;s</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.childrenRecursive">
+<code class="descname">childrenRecursive</code><a class="headerlink" href="#bge.types.KX_GameObject.childrenRecursive" title="Permalink to this definition">¶</a></dt>
+<dd><p>all children of this object including childrens children, (read-only).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bge.types.CListValue.html#bge.types.CListValue" title="bge.types.CListValue"><code class="xref py py-class docutils literal"><span class="pre">CListValue</span></code></a> of <a class="reference internal" href="#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a>&#8216;s</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.life">
+<code class="descname">life</code><a class="headerlink" href="#bge.types.KX_GameObject.life" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of seconds until the object ends, assumes 50fps.
+(when added with an add object actuator), (read-only).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.debug">
+<code class="descname">debug</code><a class="headerlink" href="#bge.types.KX_GameObject.debug" title="Permalink to this definition">¶</a></dt>
+<dd><p>If true, the object&#8217;s debug properties will be displayed on screen.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.debugRecursive">
+<code class="descname">debugRecursive</code><a class="headerlink" href="#bge.types.KX_GameObject.debugRecursive" title="Permalink to this definition">¶</a></dt>
+<dd><p>If true, the object&#8217;s and children&#8217;s debug properties will be displayed on screen.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_GameObject.currentLodLevel">
+<code class="descname">currentLodLevel</code><a class="headerlink" href="#bge.types.KX_GameObject.currentLodLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>The index of the level of detail (LOD) currently used by this object (read-only).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.endObject">
+<code class="descname">endObject</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.endObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete this object, can be used in place of the EndObject Actuator.</p>
+<p>The actual removal of the object from the scene is delayed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.replaceMesh">
+<code class="descname">replaceMesh</code><span class="sig-paren">(</span><em>mesh</em>, <em>useDisplayMesh=True</em>, <em>usePhysicsMesh=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.replaceMesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace the mesh of this object with a new mesh. This works the same was as the actuator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mesh</strong> (<code class="xref py py-class docutils literal"><span class="pre">MeshProxy</span></code> or string) &#8211; mesh to replace or the meshes name.</li>
+<li><strong>useDisplayMesh</strong> (<em>boolean</em>) &#8211; when enabled the display mesh will be replaced (optional argument).</li>
+<li><strong>usePhysicsMesh</strong> (<em>boolean</em>) &#8211; when enabled the physics mesh will be replaced (optional argument).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.setVisible">
+<code class="descname">setVisible</code><span class="sig-paren">(</span><em>visible</em>, <em>recursive</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.setVisible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the game object&#8217;s visible flag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>visible</strong> (<em>boolean</em>) &#8211; the visible state to set.</li>
+<li><strong>recursive</strong> (<em>boolean</em>) &#8211; optional argument to set all childrens visibility flag too.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.setOcclusion">
+<code class="descname">setOcclusion</code><span class="sig-paren">(</span><em>occlusion</em>, <em>recursive</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.setOcclusion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the game object&#8217;s occlusion capability.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>occlusion</strong> (<em>boolean</em>) &#8211; the state to set the occlusion to.</li>
+<li><strong>recursive</strong> (<em>boolean</em>) &#8211; optional argument to set all childrens occlusion flag too.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.alignAxisToVect">
+<code class="descname">alignAxisToVect</code><span class="sig-paren">(</span><em>vect</em>, <em>axis=2</em>, <em>factor=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.alignAxisToVect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aligns any of the game object&#8217;s axis along the given vector.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>vect</strong> (<em>3D vector</em>) &#8211; a vector to align the axis.</li>
+<li><strong>axis</strong> (<em>integer</em>) &#8211; <p>The axis you want to align</p>
+<ul>
+<li>0: X axis</li>
+<li>1: Y axis</li>
+<li>2: Z axis</li>
+</ul>
+</li>
+<li><strong>factor</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; Only rotate a feaction of the distance to the target vector (0.0 - 1.0)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.getAxisVect">
+<code class="descname">getAxisVect</code><span class="sig-paren">(</span><em>vect</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.getAxisVect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the axis vector rotates by the objects worldspace orientation.
+This is the equivalent of multiplying the vector by the orientation matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>vect</strong> (<em>3D Vector</em>) &#8211; a vector to align the axis.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The vector in relation to the objects rotation.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">3d vector.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.applyMovement">
+<code class="descname">applyMovement</code><span class="sig-paren">(</span><em>movement</em>, <em>local=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.applyMovement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the game object&#8217;s movement.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>movement</strong> (<em>3D Vector</em>) &#8211; movement vector.</li>
+<li><strong>local</strong> &#8211; <ul>
+<li>False: you get the &#8220;global&#8221; movement ie: relative to world orientation.</li>
+<li>True: you get the &#8220;local&#8221; movement ie: relative to object orientation.</li>
+</ul>
+</li>
+<li><strong>local</strong> &#8211; boolean</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.applyRotation">
+<code class="descname">applyRotation</code><span class="sig-paren">(</span><em>rotation</em>, <em>local=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.applyRotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the game object&#8217;s rotation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>rotation</strong> (<em>3D Vector</em>) &#8211; rotation vector.</li>
+<li><strong>local</strong> &#8211; <ul>
+<li>False: you get the &#8220;global&#8221; rotation ie: relative to world orientation.</li>
+<li>True: you get the &#8220;local&#8221; rotation ie: relative to object orientation.</li>
+</ul>
+</li>
+<li><strong>local</strong> &#8211; boolean</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.applyForce">
+<code class="descname">applyForce</code><span class="sig-paren">(</span><em>force</em>, <em>local=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.applyForce" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the game object&#8217;s force.</p>
+<p>This requires a dynamic object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>force</strong> (<em>3D Vector</em>) &#8211; force vector.</li>
+<li><strong>local</strong> (<em>boolean</em>) &#8211; <ul>
+<li>False: you get the &#8220;global&#8221; force ie: relative to world orientation.</li>
+<li>True: you get the &#8220;local&#8221; force ie: relative to object orientation.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.applyTorque">
+<code class="descname">applyTorque</code><span class="sig-paren">(</span><em>torque</em>, <em>local=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.applyTorque" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the game object&#8217;s torque.</p>
+<p>This requires a dynamic object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>torque</strong> (<em>3D Vector</em>) &#8211; torque vector.</li>
+<li><strong>local</strong> (<em>boolean</em>) &#8211; <ul>
+<li>False: you get the &#8220;global&#8221; torque ie: relative to world orientation.</li>
+<li>True: you get the &#8220;local&#8221; torque ie: relative to object orientation.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.getLinearVelocity">
+<code class="descname">getLinearVelocity</code><span class="sig-paren">(</span><em>local=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.getLinearVelocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the game object&#8217;s linear velocity.</p>
+<p>This method returns the game object&#8217;s velocity through it&#8217;s centre of mass, ie no angular velocity component.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>local</strong> (<em>boolean</em>) &#8211; <ul class="simple">
+<li>False: you get the &#8220;global&#8221; velocity ie: relative to world orientation.</li>
+<li>True: you get the &#8220;local&#8221; velocity ie: relative to object orientation.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the object&#8217;s linear velocity.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Vector((vx, vy, vz))</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.setLinearVelocity">
+<code class="descname">setLinearVelocity</code><span class="sig-paren">(</span><em>velocity</em>, <em>local=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.setLinearVelocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the game object&#8217;s linear velocity.</p>
+<p>This method sets game object&#8217;s velocity through it&#8217;s centre of mass,
+ie no angular velocity component.</p>
+<p>This requires a dynamic object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>velocity</strong> (<em>3D Vector</em>) &#8211; linear velocity vector.</li>
+<li><strong>local</strong> (<em>boolean</em>) &#8211; <ul>
+<li>False: you get the &#8220;global&#8221; velocity ie: relative to world orientation.</li>
+<li>True: you get the &#8220;local&#8221; velocity ie: relative to object orientation.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.getAngularVelocity">
+<code class="descname">getAngularVelocity</code><span class="sig-paren">(</span><em>local=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.getAngularVelocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the game object&#8217;s angular velocity.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>local</strong> (<em>boolean</em>) &#8211; <ul class="simple">
+<li>False: you get the &#8220;global&#8221; velocity ie: relative to world orientation.</li>
+<li>True: you get the &#8220;local&#8221; velocity ie: relative to object orientation.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the object&#8217;s angular velocity.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Vector((vx, vy, vz))</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.setAngularVelocity">
+<code class="descname">setAngularVelocity</code><span class="sig-paren">(</span><em>velocity</em>, <em>local=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.setAngularVelocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the game object&#8217;s angular velocity.</p>
+<p>This requires a dynamic object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>velocity</strong> (<em>boolean</em>) &#8211; angular velocity vector.</li>
+<li><strong>local</strong> &#8211; <ul>
+<li>False: you get the &#8220;global&#8221; velocity ie: relative to world orientation.</li>
+<li>True: you get the &#8220;local&#8221; velocity ie: relative to object orientation.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.getVelocity">
+<code class="descname">getVelocity</code><span class="sig-paren">(</span><em>point=(0</em>, <em>0</em>, <em>0)</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.getVelocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the game object&#8217;s velocity at the specified point.</p>
+<p>Gets the game object&#8217;s velocity at the specified point, including angular
+components.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>point</strong> (<em>3D Vector</em>) &#8211; optional point to return the velocity for, in local coordinates.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the velocity at the specified point.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Vector((vx, vy, vz))</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.getReactionForce">
+<code class="descname">getReactionForce</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.getReactionForce" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the game object&#8217;s reaction force.</p>
+<p>The reaction force is the force applied to this object over the last simulation timestep.
+This also includes impulses, eg from collisions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the reaction force of this object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Vector((fx, fy, fz))</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is not implimented at the moment.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.applyImpulse">
+<code class="descname">applyImpulse</code><span class="sig-paren">(</span><em>point</em>, <em>impulse</em>, <em>local=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.applyImpulse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies an impulse to the game object.</p>
+<p>This will apply the specified impulse to the game object at the specified point.
+If point != position, applyImpulse will also change the object&#8217;s angular momentum.
+Otherwise, only linear momentum will change.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>point</strong> (<em>point [ix, iy, iz] the point to apply the impulse to (in world or local coordinates)</em>) &#8211; the point to apply the impulse to (in world or local coordinates)</li>
+<li><strong>impulse</strong> (<em>3D Vector</em>) &#8211; impulse vector.</li>
+<li><strong>local</strong> (<em>boolean</em>) &#8211; <ul>
+<li>False: you get the &#8220;global&#8221; impulse ie: relative to world coordinates with world orientation.</li>
+<li>True: you get the &#8220;local&#8221; impulse ie: relative to local coordinates with object orientation.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.setDamping">
+<code class="descname">setDamping</code><span class="sig-paren">(</span><em>linear_damping</em>, <em>angular_damping</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.setDamping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets both the <a class="reference internal" href="#bge.types.KX_GameObject.linearDamping" title="bge.types.KX_GameObject.linearDamping"><code class="xref py py-attr docutils literal"><span class="pre">linearDamping</span></code></a> and <a class="reference internal" href="#bge.types.KX_GameObject.angularDamping" title="bge.types.KX_GameObject.angularDamping"><code class="xref py py-attr docutils literal"><span class="pre">angularDamping</span></code></a> simultaneously. This is more efficient than setting both properties individually.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>linear_damping</strong> (<em>float ∈ [0, 1]</em>) &#8211; Linear (&#8220;translational&#8221;) damping factor.</li>
+<li><strong>angular_damping</strong> (<em>float ∈ [0, 1]</em>) &#8211; Angular (&#8220;rotational&#8221;) damping factor.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.suspendDynamics">
+<code class="descname">suspendDynamics</code><span class="sig-paren">(</span><span class="optional">[</span><em>ghost</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.suspendDynamics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Suspends physics for this object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ghost</strong> (<em>bool</em>) &#8211; When set to <cite>True</cite>, collisions with the object will be ignored, similar to the &#8220;ghost&#8221; checkbox in
+Blender. When <cite>False</cite> (the default), the object becomes static but still collide with other objects.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#bge.types.KX_GameObject.isSuspendDynamics" title="bge.types.KX_GameObject.isSuspendDynamics"><code class="xref py py-attr docutils literal"><span class="pre">isSuspendDynamics</span></code></a> allows you to inspect whether the object is in a suspended state.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.restoreDynamics">
+<code class="descname">restoreDynamics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.restoreDynamics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resumes physics for this object. Also reinstates collisions; the object will no longer be a ghost.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The objects linear velocity will be applied from when the dynamics were suspended.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.enableRigidBody">
+<code class="descname">enableRigidBody</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.enableRigidBody" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables rigid body physics for this object.</p>
+<p>Rigid body physics allows the object to roll on collisions.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.disableRigidBody">
+<code class="descname">disableRigidBody</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.disableRigidBody" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disables rigid body physics for this object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.setParent">
+<code class="descname">setParent</code><span class="sig-paren">(</span><em>parent</em>, <em>compound=True</em>, <em>ghost=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.setParent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets this object&#8217;s parent.
+Control the shape status with the optional compound and ghost parameters:</p>
+<p>In that case you can control if it should be ghost or not:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a>) &#8211; new parent object.</li>
+<li><strong>compound</strong> (<em>boolean</em>) &#8211; <p>whether the shape should be added to the parent compound shape.</p>
+<ul>
+<li>True: the object shape should be added to the parent compound shape.</li>
+<li>False: the object should keep its individual shape.</li>
+</ul>
+</li>
+<li><strong>ghost</strong> (<em>boolean</em>) &#8211; <p>whether the object should be ghost while parented.</p>
+<ul>
+<li>True: if the object should be made ghost while parented.</li>
+<li>False: if the object should be solid while parented.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If the object type is sensor, it stays ghost regardless of ghost parameter</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.removeParent">
+<code class="descname">removeParent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.removeParent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes this objects parent.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.getPhysicsId">
+<code class="descname">getPhysicsId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.getPhysicsId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the user data object associated with this game object&#8217;s physics controller.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.getPropertyNames">
+<code class="descname">getPropertyNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.getPropertyNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of all property names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">All property names for this object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="bpy.types.ThemeSpaceListGeneric.html#bpy.types.ThemeSpaceListGeneric.list" title="bpy.types.ThemeSpaceListGeneric.list">list</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.getDistanceTo">
+<code class="descname">getDistanceTo</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.getDistanceTo" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<a class="reference internal" href="#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a> or list [x, y, z]) &#8211; a point or another <a class="reference internal" href="#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a> to measure the distance to.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">distance to another object or point.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float">float</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.getVectTo">
+<code class="descname">getVectTo</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.getVectTo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the vector and the distance to another object or point.
+The vector is normalized unless the distance is 0, in which a zero length vector is returned.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<a class="reference internal" href="#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a> or list [x, y, z]) &#8211; a point or another <a class="reference internal" href="#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a> to get the vector and distance to.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">(distance, globalVector(3), localVector(3))</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">3-tuple (float, 3-tuple (x, y, z), 3-tuple (x, y, z))</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.rayCastTo">
+<code class="descname">rayCastTo</code><span class="sig-paren">(</span><em>other</em>, <em>dist</em>, <em>prop</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.rayCastTo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Look towards another point/object and find first object hit within dist that matches prop.</p>
+<p>The ray is always casted from the center of the object, ignoring the object itself.
+The ray is casted towards the center of another object or an explicit [x, y, z] point.
+Use rayCast() if you need to retrieve the hit point</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>other</strong> (<a class="reference internal" href="#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a> or 3-tuple) &#8211; [x, y, z] or object towards which the ray is casted</li>
+<li><strong>dist</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; max distance to look (can be negative =&gt; look behind); 0 or omitted =&gt; detect up to other</li>
+<li><strong>prop</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; property name that object must have; can be omitted =&gt; detect any object</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the first object hit or None if no object or object does not match prop</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.rayCast">
+<code class="descname">rayCast</code><span class="sig-paren">(</span><em>objto</em>, <em>objfrom</em>, <em>dist</em>, <em>prop</em>, <em>face</em>, <em>xray</em>, <em>poly</em>, <em>mask</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.rayCast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Look from a point/object to another point/object and find first object hit within dist that matches prop.
+if poly is 0, returns a 3-tuple with object reference, hit point and hit normal or (None, None, None) if no hit.
+if poly is 1, returns a 4-tuple with in addition a <a class="reference internal" href="bge.types.KX_PolyProxy.html#bge.types.KX_PolyProxy" title="bge.types.KX_PolyProxy"><code class="xref py py-class docutils literal"><span class="pre">KX_PolyProxy</span></code></a> as 4th element.
+if poly is 2, returns a 5-tuple with in addition a 2D vector with the UV mapping of the hit point as 5th element.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># shoot along the axis gun-gunAim (gunAim should be collision-free)</span>
+<span class="n">obj</span><span class="p">,</span> <span class="n">point</span><span class="p">,</span> <span class="n">normal</span> <span class="o">=</span> <span class="n">gun</span><span class="o">.</span><span class="n">rayCast</span><span class="p">(</span><span class="n">gunAim</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">obj</span><span class="p">:</span>
+   <span class="c1"># do something</span>
+   <span class="k">pass</span>
+</pre></div>
+</div>
+<p>The face paremeter determines the orientation of the normal.</p>
+<ul class="simple">
+<li>0 =&gt; hit normal is always oriented towards the ray origin (as if you casted the ray from outside)</li>
+<li>1 =&gt; hit normal is the real face normal (only for mesh object, otherwise face has no effect)</li>
+</ul>
+<p>The ray has X-Ray capability if xray parameter is 1, otherwise the first object hit (other than self object) stops the ray.
+The prop and xray parameters interact as follow.</p>
+<ul class="simple">
+<li>prop off, xray off: return closest hit or no hit if there is no object on the full extend of the ray.</li>
+<li>prop off, xray on : idem.</li>
+<li>prop on, xray off: return closest hit if it matches prop, no hit otherwise.</li>
+<li>prop on, xray on : return closest hit matching prop or no hit if there is no object matching prop on the full extend of the ray.</li>
+</ul>
+<p>The <a class="reference internal" href="bge.types.KX_PolyProxy.html#bge.types.KX_PolyProxy" title="bge.types.KX_PolyProxy"><code class="xref py py-class docutils literal"><span class="pre">KX_PolyProxy</span></code></a> 4th element of the return tuple when poly=1 allows to retrieve information on the polygon hit by the ray.
+If there is no hit or the hit object is not a static mesh, None is returned as 4th element.</p>
+<p>The ray ignores collision-free objects and faces that dont have the collision flag enabled, you can however use ghost objects.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>objto</strong> (<a class="reference internal" href="#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a> or 3-tuple) &#8211; [x, y, z] or object to which the ray is casted</li>
+<li><strong>objfrom</strong> (<a class="reference internal" href="#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a> or 3-tuple or None) &#8211; [x, y, z] or object from which the ray is casted; None or omitted =&gt; use self object center</li>
+<li><strong>dist</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; max distance to look (can be negative =&gt; look behind); 0 or omitted =&gt; detect up to to</li>
+<li><strong>prop</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; property name that object must have; can be omitted or &#8220;&#8221; =&gt; detect any object</li>
+<li><strong>face</strong> (<em>integer</em>) &#8211; normal option: 1=&gt;return face normal; 0 or omitted =&gt; normal is oriented towards origin</li>
+<li><strong>xray</strong> (<em>integer</em>) &#8211; X-ray option: 1=&gt;skip objects that don&#8217;t match prop; 0 or omitted =&gt; stop on first object</li>
+<li><strong>poly</strong> (<em>integer</em>) &#8211; <p>polygon option: 0, 1 or 2 to return a 3-, 4- or 5-tuple with information on the face hit.</p>
+<ul>
+<li>0 or omitted: return value is a 3-tuple (object, hitpoint, hitnormal) or (None, None, None) if no hit</li>
+<li>1: return value is a 4-tuple and the 4th element is a <a class="reference internal" href="bge.types.KX_PolyProxy.html#bge.types.KX_PolyProxy" title="bge.types.KX_PolyProxy"><code class="xref py py-class docutils literal"><span class="pre">KX_PolyProxy</span></code></a> or None if no hit or the object doesn&#8217;t use a mesh collision shape.</li>
+<li>2: return value is a 5-tuple and the 5th element is a 2-tuple (u, v) with the UV mapping of the hit point or None if no hit, or the object doesn&#8217;t use a mesh collision shape, or doesn&#8217;t have a UV mapping.</li>
+</ul>
+</li>
+<li><strong>mask</strong> (<em>bitfield</em>) &#8211; collision mask: The collision mask (16 layers mapped to a 16-bit integer) is combined with each object&#8217;s collision group, to hit only a subset of the objects in the scene. Only those objects for which <code class="docutils literal"><span class="pre">collisionGroup</span> <span class="pre">&amp;</span> <span class="pre">mask</span></code> is true can be hit.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>(object, hitpoint, hitnormal) or (object, hitpoint, hitnormal, polygon) or (object, hitpoint, hitnormal, polygon, hituv).</p>
+<ul class="simple">
+<li>object, hitpoint and hitnormal are None if no hit.</li>
+<li>polygon is valid only if the object is valid and is a static object, a dynamic object using mesh collision shape or a soft body object, otherwise it is None</li>
+<li>hituv is valid only if polygon is valid and the object has a UV mapping, otherwise it is None</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li>3-tuple (<a class="reference internal" href="#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a>, 3-tuple (x, y, z), 3-tuple (nx, ny, nz))</li>
+<li>or 4-tuple (<a class="reference internal" href="#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a>, 3-tuple (x, y, z), 3-tuple (nx, ny, nz), <a class="reference internal" href="bge.types.KX_PolyProxy.html#bge.types.KX_PolyProxy" title="bge.types.KX_PolyProxy"><code class="xref py py-class docutils literal"><span class="pre">KX_PolyProxy</span></code></a>)</li>
+<li>or 5-tuple (<a class="reference internal" href="#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a>, 3-tuple (x, y, z), 3-tuple (nx, ny, nz), <a class="reference internal" href="bge.types.KX_PolyProxy.html#bge.types.KX_PolyProxy" title="bge.types.KX_PolyProxy"><code class="xref py py-class docutils literal"><span class="pre">KX_PolyProxy</span></code></a>, 2-tuple (u, v))</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The ray ignores the object on which the method is called. It is casted from/to object center or explicit [x, y, z] points.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.setCollisionMargin">
+<code class="descname">setCollisionMargin</code><span class="sig-paren">(</span><em>margin</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.setCollisionMargin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the objects collision margin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>margin</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; the collision margin distance in blender units.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If this object has no physics controller (a physics ID of zero), this function will raise RuntimeError.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.sendMessage">
+<code class="descname">sendMessage</code><span class="sig-paren">(</span><em>subject</em>, <em>body=&quot;&quot;</em>, <em>to=&quot;&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.sendMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a message.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>subject</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; The subject of the message</li>
+<li><strong>body</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; The body of the message (optional)</li>
+<li><strong>to</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; The name of the object to send the message to (optional)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.reinstancePhysicsMesh">
+<code class="descname">reinstancePhysicsMesh</code><span class="sig-paren">(</span><em>gameObject</em>, <em>meshObject</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.reinstancePhysicsMesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the physics system with the changed mesh.</p>
+<p>If no arguments are given the physics mesh will be re-created from the first mesh assigned to the game object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>gameObject</strong> (string, <a class="reference internal" href="#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a> or None) &#8211; optional argument, set the physics shape from this gameObjets mesh.</li>
+<li><strong>meshObject</strong> (string, <code class="xref py py-class docutils literal"><span class="pre">MeshProxy</span></code> or None) &#8211; optional argument, set the physics shape from this mesh.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if reinstance succeeded, False if it failed.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">boolean</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If this object has instances the other instances will be updated too.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The gameObject argument has an advantage that it can convert from a mesh with modifiers applied (such as subsurf).</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Only triangle mesh type objects are supported currently (not convex hull)</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If the object is a part of a combound object it will fail (parent or child)</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Rebuilding the physics mesh can be slow, running many times per second will give a performance hit.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>key</em>, <em>default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value matching key, or the default value if its not found.
+:return: The key value or a default.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.playAction">
+<code class="descname">playAction</code><span class="sig-paren">(</span><em>name</em>, <em>start_frame</em>, <em>end_frame</em>, <em>layer=0</em>, <em>priority=0</em>, <em>blendin=0</em>, <em>play_mode=KX_ACTION_MODE_PLAY</em>, <em>layer_weight=0.0</em>, <em>ipo_flags=0</em>, <em>speed=1.0</em>, <em>blend_mode=KX_ACTION_BLEND_BLEND</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.playAction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plays an action.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; the name of the action</li>
+<li><strong>start</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; the start frame of the action</li>
+<li><strong>end</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; the end frame of the action</li>
+<li><strong>layer</strong> (<em>integer</em>) &#8211; the layer the action will play in (actions in different layers are added/blended together)</li>
+<li><strong>priority</strong> (<em>integer</em>) &#8211; only play this action if there isn&#8217;t an action currently playing in this layer with a higher (lower number) priority</li>
+<li><strong>blendin</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; the amount of blending between this animation and the previous one on this layer</li>
+<li><strong>play_mode</strong> (one of <a class="reference internal" href="bge.logic.html#gameobject-playaction-mode"><span class="std std-ref">these constants</span></a>) &#8211; the play mode</li>
+<li><strong>layer_weight</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; how much of the previous layer to use for blending</li>
+<li><strong>ipo_flags</strong> (<em>int bitfield</em>) &#8211; flags for the old IPO behaviors (force, etc)</li>
+<li><strong>speed</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; the playback speed of the action as a factor (1.0 = normal speed, 2.0 = 2x speed, etc)</li>
+<li><strong>blend_mode</strong> (one of <a class="reference internal" href="bge.logic.html#gameobject-playaction-blend"><span class="std std-ref">these constants</span></a>) &#8211; how to blend this layer with previous layers</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.stopAction">
+<code class="descname">stopAction</code><span class="sig-paren">(</span><em>layer=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.stopAction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop playing the action on the given layer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>layer</strong> (<em>integer</em>) &#8211; The layer to stop playing.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.getActionFrame">
+<code class="descname">getActionFrame</code><span class="sig-paren">(</span><em>layer=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.getActionFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the current frame of the action playing in the supplied layer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>layer</strong> (<em>integer</em>) &#8211; The layer that you want to get the frame from.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The current frame of the action</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float">float</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.getActionName">
+<code class="descname">getActionName</code><span class="sig-paren">(</span><em>layer=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.getActionName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the name of the current action playing in the supplied layer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>layer</strong> (<em>integer</em>) &#8211; The layer that you want to get the action name from.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The name of the current action</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string">string</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.setActionFrame">
+<code class="descname">setActionFrame</code><span class="sig-paren">(</span><em>frame</em>, <em>layer=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.setActionFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the current frame of the action playing in the supplied layer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>layer</strong> (<em>integer</em>) &#8211; The layer where you want to set the frame</li>
+<li><strong>frame</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; The frame to set the action to</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.isPlayingAction">
+<code class="descname">isPlayingAction</code><span class="sig-paren">(</span><em>layer=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.isPlayingAction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks to see if there is an action playing in the given layer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>layer</strong> (<em>integer</em>) &#8211; The layer to check for a playing action.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Whether or not the action is playing</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_GameObject.addDebugProperty">
+<code class="descname">addDebugProperty</code><span class="sig-paren">(</span><em>name</em>, <em>debug = True</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_GameObject.addDebugProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a single debug property to the debug list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string"><em>string</em></a>) &#8211; name of the property that added to the debug list.</li>
+<li><strong>debug</strong> (<em>boolean</em>) &#8211; the debug state.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bge.types.KX_GameActuator.html"
+                        title="previous chapter">KX_GameActuator(SCA_IActuator)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bge.types.KX_LibLoadStatus.html"
+                        title="next chapter">KX_LibLoadStatus(PyObjectPlus)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_LibLoadStatus.html" title="KX_LibLoadStatus(PyObjectPlus)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_GameActuator.html" title="KX_GameActuator(SCA_IActuator)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" >Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

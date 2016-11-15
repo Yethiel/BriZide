@@ -1,0 +1,672 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>FreestyleLineSet(bpy_struct) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="FreestyleLineStyle(ID)" href="bpy.types.FreestyleLineStyle.html" />
+    <link rel="prev" title="FollowTrackConstraint(Constraint)" href="bpy.types.FollowTrackConstraint.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.FreestyleLineStyle.html" title="FreestyleLineStyle(ID)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.FollowTrackConstraint.html" title="FollowTrackConstraint(Constraint)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="freestylelineset-bpy-struct"></span><h1>FreestyleLineSet(bpy_struct)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.FreestyleLineSet">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">FreestyleLineSet</code><span class="sig-paren">(</span><em>bpy_struct</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.FreestyleLineSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Line set for associating lines and style parameters</p>
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.edge_type_combination">
+<code class="descname">edge_type_combination</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.edge_type_combination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify a logical combination of selection conditions on feature edge types</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">OR</span></code> Logical OR, Select feature edges satisfying at least one of edge type conditions.</li>
+<li><code class="docutils literal"><span class="pre">AND</span></code> Logical AND, Select feature edges satisfying all edge type conditions.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;OR&#8217;, &#8216;AND&#8217;], default &#8216;OR&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.edge_type_negation">
+<code class="descname">edge_type_negation</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.edge_type_negation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify either inclusion or exclusion of feature edges selected by edge types</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">INCLUSIVE</span></code> Inclusive, Select feature edges satisfying the given edge type conditions.</li>
+<li><code class="docutils literal"><span class="pre">EXCLUSIVE</span></code> Exclusive, Select feature edges not satisfying the given edge type conditions.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;INCLUSIVE&#8217;, &#8216;EXCLUSIVE&#8217;], default &#8216;INCLUSIVE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.exclude_border">
+<code class="descname">exclude_border</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.exclude_border" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exclude border edges</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.exclude_contour">
+<code class="descname">exclude_contour</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.exclude_contour" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exclude contours</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.exclude_crease">
+<code class="descname">exclude_crease</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.exclude_crease" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exclude crease edges</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.exclude_edge_mark">
+<code class="descname">exclude_edge_mark</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.exclude_edge_mark" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exclude edge marks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.exclude_external_contour">
+<code class="descname">exclude_external_contour</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.exclude_external_contour" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exclude external contours</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.exclude_material_boundary">
+<code class="descname">exclude_material_boundary</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.exclude_material_boundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exclude edges at material boundaries</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.exclude_ridge_valley">
+<code class="descname">exclude_ridge_valley</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.exclude_ridge_valley" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exclude ridges and valleys</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.exclude_silhouette">
+<code class="descname">exclude_silhouette</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.exclude_silhouette" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exclude silhouette edges</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.exclude_suggestive_contour">
+<code class="descname">exclude_suggestive_contour</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.exclude_suggestive_contour" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exclude suggestive contours</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.face_mark_condition">
+<code class="descname">face_mark_condition</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.face_mark_condition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify a feature edge selection condition based on face marks</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">ONE</span></code> One Face, Select a feature edge if either of its adjacent faces is marked.</li>
+<li><code class="docutils literal"><span class="pre">BOTH</span></code> Both Faces, Select a feature edge if both of its adjacent faces are marked.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;ONE&#8217;, &#8216;BOTH&#8217;], default &#8216;ONE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.face_mark_negation">
+<code class="descname">face_mark_negation</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.face_mark_negation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify either inclusion or exclusion of feature edges selected by face marks</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">INCLUSIVE</span></code> Inclusive, Select feature edges satisfying the given face mark conditions.</li>
+<li><code class="docutils literal"><span class="pre">EXCLUSIVE</span></code> Exclusive, Select feature edges not satisfying the given face mark conditions.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;INCLUSIVE&#8217;, &#8216;EXCLUSIVE&#8217;], default &#8216;INCLUSIVE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.group">
+<code class="descname">group</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.group" title="Permalink to this definition">¶</a></dt>
+<dd><p>A group of objects based on which feature edges are selected</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Group.html#bpy.types.Group" title="bpy.types.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.group_negation">
+<code class="descname">group_negation</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.group_negation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify either inclusion or exclusion of feature edges belonging to a group of objects</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">INCLUSIVE</span></code> Inclusive, Select feature edges belonging to some object in the group.</li>
+<li><code class="docutils literal"><span class="pre">EXCLUSIVE</span></code> Exclusive, Select feature edges not belonging to any object in the group.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;INCLUSIVE&#8217;, &#8216;EXCLUSIVE&#8217;], default &#8216;INCLUSIVE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.linestyle">
+<code class="descname">linestyle</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.linestyle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Line style settings</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.FreestyleLineStyle.html#bpy.types.FreestyleLineStyle" title="bpy.types.FreestyleLineStyle"><code class="xref py py-class docutils literal"><span class="pre">FreestyleLineStyle</span></code></a>, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.name">
+<code class="descname">name</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Line set name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.qi_end">
+<code class="descname">qi_end</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.qi_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Last QI value of the QI range</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, inf], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.qi_start">
+<code class="descname">qi_start</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.qi_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>First QI value of the QI range</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, inf], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.select_border">
+<code class="descname">select_border</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.select_border" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select border edges (open mesh edges)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.select_by_edge_types">
+<code class="descname">select_by_edge_types</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.select_by_edge_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select feature edges based on edge types</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.select_by_face_marks">
+<code class="descname">select_by_face_marks</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.select_by_face_marks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select feature edges by face marks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.select_by_group">
+<code class="descname">select_by_group</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.select_by_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select feature edges based on a group of objects</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.select_by_image_border">
+<code class="descname">select_by_image_border</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.select_by_image_border" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select feature edges by image border (less memory consumption)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.select_by_visibility">
+<code class="descname">select_by_visibility</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.select_by_visibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select feature edges based on visibility</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.select_contour">
+<code class="descname">select_contour</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.select_contour" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select contours (outer silhouettes of each object)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.select_crease">
+<code class="descname">select_crease</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.select_crease" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select crease edges (those between two faces making an angle smaller than the Crease Angle)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.select_edge_mark">
+<code class="descname">select_edge_mark</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.select_edge_mark" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select edge marks (edges annotated by Freestyle edge marks)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.select_external_contour">
+<code class="descname">select_external_contour</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.select_external_contour" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select external contours (outer silhouettes of occluding and occluded objects)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.select_material_boundary">
+<code class="descname">select_material_boundary</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.select_material_boundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select edges at material boundaries</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.select_ridge_valley">
+<code class="descname">select_ridge_valley</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.select_ridge_valley" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select ridges and valleys (boundary lines between convex and concave areas of surface)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.select_silhouette">
+<code class="descname">select_silhouette</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.select_silhouette" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select silhouettes (edges at the boundary of visible and hidden faces)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.select_suggestive_contour">
+<code class="descname">select_suggestive_contour</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.select_suggestive_contour" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select suggestive contours (almost silhouette/contour edges)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.show_render">
+<code class="descname">show_render</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.show_render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable or disable this line set during stroke rendering</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.FreestyleLineSet.visibility">
+<code class="descname">visibility</code><a class="headerlink" href="#bpy.types.FreestyleLineSet.visibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine how to use visibility for feature edge selection</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">VISIBLE</span></code> Visible, Select visible feature edges.</li>
+<li><code class="docutils literal"><span class="pre">HIDDEN</span></code> Hidden, Select hidden feature edges.</li>
+<li><code class="docutils literal"><span class="pre">RANGE</span></code> QI Range, Select feature edges within a range of quantitative invisibility (QI) values.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;VISIBLE&#8217;, &#8216;HIDDEN&#8217;, &#8216;RANGE&#8217;], default &#8216;VISIBLE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.Linesets.html#bpy.types.Linesets.active" title="bpy.types.Linesets.active"><code class="xref py py-class docutils literal"><span class="pre">Linesets.active</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Linesets.html#bpy.types.Linesets.new" title="bpy.types.Linesets.new"><code class="xref py py-class docutils literal"><span class="pre">Linesets.new</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.Linesets.html#bpy.types.Linesets.remove" title="bpy.types.Linesets.remove"><code class="xref py py-class docutils literal"><span class="pre">Linesets.remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.FreestyleSettings.html#bpy.types.FreestyleSettings.linesets" title="bpy.types.FreestyleSettings.linesets"><code class="xref py py-class docutils literal"><span class="pre">FreestyleSettings.linesets</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.FollowTrackConstraint.html"
+                        title="previous chapter">FollowTrackConstraint(Constraint)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.FreestyleLineStyle.html"
+                        title="next chapter">FreestyleLineStyle(ID)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.FreestyleLineStyle.html" title="FreestyleLineStyle(ID)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.FollowTrackConstraint.html" title="FollowTrackConstraint(Constraint)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

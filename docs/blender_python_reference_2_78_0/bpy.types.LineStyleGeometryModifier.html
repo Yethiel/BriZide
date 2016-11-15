@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>LineStyleGeometryModifier(LineStyleModifier) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="LineStyleGeometryModifier_2DOffset(LineStyleGeometryModifier)" href="bpy.types.LineStyleGeometryModifier_2DOffset.html" />
+    <link rel="prev" title="LineStyleColorModifiers(bpy_struct)" href="bpy.types.LineStyleColorModifiers.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.LineStyleGeometryModifier_2DOffset.html" title="LineStyleGeometryModifier_2DOffset(LineStyleGeometryModifier)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.LineStyleColorModifiers.html" title="LineStyleColorModifiers(bpy_struct)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="linestylegeometrymodifier-linestylemodifier"></span><h1>LineStyleGeometryModifier(LineStyleModifier)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base classes &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.LineStyleModifier.html#bpy.types.LineStyleModifier" title="bpy.types.LineStyleModifier"><code class="xref py py-class docutils literal"><span class="pre">LineStyleModifier</span></code></a></p>
+<p>subclasses &#8212;
+<a class="reference internal" href="bpy.types.LineStyleGeometryModifier_2DOffset.html#bpy.types.LineStyleGeometryModifier_2DOffset" title="bpy.types.LineStyleGeometryModifier_2DOffset"><code class="xref py py-class docutils literal"><span class="pre">LineStyleGeometryModifier_2DOffset</span></code></a>, <a class="reference internal" href="bpy.types.LineStyleGeometryModifier_2DTransform.html#bpy.types.LineStyleGeometryModifier_2DTransform" title="bpy.types.LineStyleGeometryModifier_2DTransform"><code class="xref py py-class docutils literal"><span class="pre">LineStyleGeometryModifier_2DTransform</span></code></a>, <a class="reference internal" href="bpy.types.LineStyleGeometryModifier_BackboneStretcher.html#bpy.types.LineStyleGeometryModifier_BackboneStretcher" title="bpy.types.LineStyleGeometryModifier_BackboneStretcher"><code class="xref py py-class docutils literal"><span class="pre">LineStyleGeometryModifier_BackboneStretcher</span></code></a>, <a class="reference internal" href="bpy.types.LineStyleGeometryModifier_BezierCurve.html#bpy.types.LineStyleGeometryModifier_BezierCurve" title="bpy.types.LineStyleGeometryModifier_BezierCurve"><code class="xref py py-class docutils literal"><span class="pre">LineStyleGeometryModifier_BezierCurve</span></code></a>, <a class="reference internal" href="bpy.types.LineStyleGeometryModifier_Blueprint.html#bpy.types.LineStyleGeometryModifier_Blueprint" title="bpy.types.LineStyleGeometryModifier_Blueprint"><code class="xref py py-class docutils literal"><span class="pre">LineStyleGeometryModifier_Blueprint</span></code></a>, <a class="reference internal" href="bpy.types.LineStyleGeometryModifier_GuidingLines.html#bpy.types.LineStyleGeometryModifier_GuidingLines" title="bpy.types.LineStyleGeometryModifier_GuidingLines"><code class="xref py py-class docutils literal"><span class="pre">LineStyleGeometryModifier_GuidingLines</span></code></a>, <a class="reference internal" href="bpy.types.LineStyleGeometryModifier_PerlinNoise1D.html#bpy.types.LineStyleGeometryModifier_PerlinNoise1D" title="bpy.types.LineStyleGeometryModifier_PerlinNoise1D"><code class="xref py py-class docutils literal"><span class="pre">LineStyleGeometryModifier_PerlinNoise1D</span></code></a>, <a class="reference internal" href="bpy.types.LineStyleGeometryModifier_PerlinNoise2D.html#bpy.types.LineStyleGeometryModifier_PerlinNoise2D" title="bpy.types.LineStyleGeometryModifier_PerlinNoise2D"><code class="xref py py-class docutils literal"><span class="pre">LineStyleGeometryModifier_PerlinNoise2D</span></code></a>, <a class="reference internal" href="bpy.types.LineStyleGeometryModifier_Polygonalization.html#bpy.types.LineStyleGeometryModifier_Polygonalization" title="bpy.types.LineStyleGeometryModifier_Polygonalization"><code class="xref py py-class docutils literal"><span class="pre">LineStyleGeometryModifier_Polygonalization</span></code></a>, <a class="reference internal" href="bpy.types.LineStyleGeometryModifier_Sampling.html#bpy.types.LineStyleGeometryModifier_Sampling" title="bpy.types.LineStyleGeometryModifier_Sampling"><code class="xref py py-class docutils literal"><span class="pre">LineStyleGeometryModifier_Sampling</span></code></a>, <a class="reference internal" href="bpy.types.LineStyleGeometryModifier_Simplification.html#bpy.types.LineStyleGeometryModifier_Simplification" title="bpy.types.LineStyleGeometryModifier_Simplification"><code class="xref py py-class docutils literal"><span class="pre">LineStyleGeometryModifier_Simplification</span></code></a>, <a class="reference internal" href="bpy.types.LineStyleGeometryModifier_SinusDisplacement.html#bpy.types.LineStyleGeometryModifier_SinusDisplacement" title="bpy.types.LineStyleGeometryModifier_SinusDisplacement"><code class="xref py py-class docutils literal"><span class="pre">LineStyleGeometryModifier_SinusDisplacement</span></code></a>, <a class="reference internal" href="bpy.types.LineStyleGeometryModifier_SpatialNoise.html#bpy.types.LineStyleGeometryModifier_SpatialNoise" title="bpy.types.LineStyleGeometryModifier_SpatialNoise"><code class="xref py py-class docutils literal"><span class="pre">LineStyleGeometryModifier_SpatialNoise</span></code></a>, <a class="reference internal" href="bpy.types.LineStyleGeometryModifier_TipRemover.html#bpy.types.LineStyleGeometryModifier_TipRemover" title="bpy.types.LineStyleGeometryModifier_TipRemover"><code class="xref py py-class docutils literal"><span class="pre">LineStyleGeometryModifier_TipRemover</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.LineStyleGeometryModifier">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">LineStyleGeometryModifier</code><span class="sig-paren">(</span><em>LineStyleModifier</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.LineStyleGeometryModifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base type to define stroke geometry modifiers</p>
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.FreestyleLineStyle.html#bpy.types.FreestyleLineStyle.geometry_modifiers" title="bpy.types.FreestyleLineStyle.geometry_modifiers"><code class="xref py py-class docutils literal"><span class="pre">FreestyleLineStyle.geometry_modifiers</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.LineStyleGeometryModifiers.html#bpy.types.LineStyleGeometryModifiers.new" title="bpy.types.LineStyleGeometryModifiers.new"><code class="xref py py-class docutils literal"><span class="pre">LineStyleGeometryModifiers.new</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.LineStyleGeometryModifiers.html#bpy.types.LineStyleGeometryModifiers.remove" title="bpy.types.LineStyleGeometryModifiers.remove"><code class="xref py py-class docutils literal"><span class="pre">LineStyleGeometryModifiers.remove</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.LineStyleColorModifiers.html"
+                        title="previous chapter">LineStyleColorModifiers(bpy_struct)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.LineStyleGeometryModifier_2DOffset.html"
+                        title="next chapter">LineStyleGeometryModifier_2DOffset(LineStyleGeometryModifier)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.LineStyleGeometryModifier_2DOffset.html" title="LineStyleGeometryModifier_2DOffset(LineStyleGeometryModifier)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.LineStyleColorModifiers.html" title="LineStyleColorModifiers(bpy_struct)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

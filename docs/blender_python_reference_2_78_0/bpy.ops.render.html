@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Render Operators &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Operators (bpy.ops)" href="bpy.ops.html" />
+    <link rel="next" title="Rigidbody Operators" href="bpy.ops.rigidbody.html" />
+    <link rel="prev" title="Ptcache Operators" href="bpy.ops.ptcache.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.rigidbody.html" title="Rigidbody Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.ptcache.html" title="Ptcache Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.ops.render">
+<span id="render-operators"></span><h1>Render Operators<a class="headerlink" href="#module-bpy.ops.render" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bpy.ops.render.cycles_integrator_preset_add">
+<code class="descclassname">bpy.ops.render.</code><code class="descname">cycles_integrator_preset_add</code><span class="sig-paren">(</span><em>name=&quot;&quot;</em>, <em>remove_active=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.render.cycles_integrator_preset_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an Integrator Preset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string, (optional, never None)</em>) &#8211; Name, Name of the preset, used to make the path name</li>
+<li><strong>remove_active</strong> (<em>boolean, (optional)</em>) &#8211; remove_active</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">File:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/presets.py">startup/bl_operators/presets.py</a>:71</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.render.cycles_sampling_preset_add">
+<code class="descclassname">bpy.ops.render.</code><code class="descname">cycles_sampling_preset_add</code><span class="sig-paren">(</span><em>name=&quot;&quot;</em>, <em>remove_active=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.render.cycles_sampling_preset_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a Sampling Preset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string, (optional, never None)</em>) &#8211; Name, Name of the preset, used to make the path name</li>
+<li><strong>remove_active</strong> (<em>boolean, (optional)</em>) &#8211; remove_active</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">File:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/presets.py">startup/bl_operators/presets.py</a>:71</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.render.opengl">
+<code class="descclassname">bpy.ops.render.</code><code class="descname">opengl</code><span class="sig-paren">(</span><em>animation=False</em>, <em>sequencer=False</em>, <em>write_still=False</em>, <em>view_context=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.render.opengl" title="Permalink to this definition">¶</a></dt>
+<dd><p>OpenGL render active viewport</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>animation</strong> (<em>boolean, (optional)</em>) &#8211; Animation, Render files from the animation range of this scene</li>
+<li><strong>sequencer</strong> (<em>boolean, (optional)</em>) &#8211; Sequencer, Render using the sequencer&#8217;s OpenGL display</li>
+<li><strong>write_still</strong> (<em>boolean, (optional)</em>) &#8211; Write Image, Save rendered the image to the output path (used only when animation is disabled)</li>
+<li><strong>view_context</strong> (<em>boolean, (optional)</em>) &#8211; View Context, Use the current 3D view for rendering, else use scene settings</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.render.play_rendered_anim">
+<code class="descclassname">bpy.ops.render.</code><code class="descname">play_rendered_anim</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.render.play_rendered_anim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play back rendered frames/movies using an external player</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">File:</th><td class="field-body"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/screen_play_rendered_anim.py">startup/bl_operators/screen_play_rendered_anim.py</a>:76</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.render.preset_add">
+<code class="descclassname">bpy.ops.render.</code><code class="descname">preset_add</code><span class="sig-paren">(</span><em>name=&quot;&quot;</em>, <em>remove_active=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.render.preset_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add or remove a Render Preset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string, (optional, never None)</em>) &#8211; Name, Name of the preset, used to make the path name</li>
+<li><strong>remove_active</strong> (<em>boolean, (optional)</em>) &#8211; remove_active</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">File:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/presets.py">startup/bl_operators/presets.py</a>:71</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.render.render">
+<code class="descclassname">bpy.ops.render.</code><code class="descname">render</code><span class="sig-paren">(</span><em>animation=False</em>, <em>write_still=False</em>, <em>use_viewport=False</em>, <em>layer=&quot;&quot;</em>, <em>scene=&quot;&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.render.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render active scene</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>animation</strong> (<em>boolean, (optional)</em>) &#8211; Animation, Render files from the animation range of this scene</li>
+<li><strong>write_still</strong> (<em>boolean, (optional)</em>) &#8211; Write Image, Save rendered the image to the output path (used only when animation is disabled)</li>
+<li><strong>use_viewport</strong> (<em>boolean, (optional)</em>) &#8211; Use 3D Viewport, When inside a 3D viewport, use layers and camera of the viewport</li>
+<li><strong>layer</strong> (<em>string, (optional, never None)</em>) &#8211; Render Layer, Single render layer to re-render (used only when animation is disabled)</li>
+<li><strong>scene</strong> (<em>string, (optional, never None)</em>) &#8211; Scene, Scene to render, current scene if not specified</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.render.shutter_curve_preset">
+<code class="descclassname">bpy.ops.render.</code><code class="descname">shutter_curve_preset</code><span class="sig-paren">(</span><em>shape='SMOOTH'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.render.shutter_curve_preset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set shutter curve</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>shape</strong> (<em>enum in ['SHARP', 'SMOOTH', 'MAX', 'LINE', 'ROUND', 'ROOT'], (optional)</em>) &#8211; Mode</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.render.view_cancel">
+<code class="descclassname">bpy.ops.render.</code><code class="descname">view_cancel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.render.view_cancel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel show render view</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.render.view_show">
+<code class="descclassname">bpy.ops.render.</code><code class="descname">view_show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.render.view_show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle show render view</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.ops.ptcache.html"
+                        title="previous chapter">Ptcache Operators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.ops.rigidbody.html"
+                        title="next chapter">Rigidbody Operators</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.rigidbody.html" title="Rigidbody Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.ptcache.html" title="Ptcache Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

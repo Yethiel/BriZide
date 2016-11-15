@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>SCA_DelaySensor(SCA_ISensor) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Game Types (bge.types)" href="bge.types.html" />
+    <link rel="next" title="SCA_IActuator(SCA_ILogicBrick)" href="bge.types.SCA_IActuator.html" />
+    <link rel="prev" title="SCA_AlwaysSensor(SCA_ISensor)" href="bge.types.SCA_AlwaysSensor.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.SCA_IActuator.html" title="SCA_IActuator(SCA_ILogicBrick)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.SCA_AlwaysSensor.html" title="SCA_AlwaysSensor(SCA_ISensor)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" accesskey="U">Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bge.types">
+<span id="sca-delaysensor-sca-isensor"></span><h1>SCA_DelaySensor(SCA_ISensor)<a class="headerlink" href="#module-bge.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bge.types.SCA_ISensor.html#bge.types.SCA_ISensor" title="bge.types.SCA_ISensor"><code class="xref py py-class docutils literal"><span class="pre">SCA_ISensor</span></code></a></p>
+<dl class="class">
+<dt id="bge.types.SCA_DelaySensor">
+<em class="property">class </em><code class="descclassname">bge.types.</code><code class="descname">SCA_DelaySensor</code><span class="sig-paren">(</span><em>SCA_ISensor</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.SCA_DelaySensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Delay sensor generates positive and negative triggers at precise time,
+expressed in number of frames. The delay parameter defines the length of the initial OFF period. A positive trigger is generated at the end of this period.</p>
+<p>The duration parameter defines the length of the ON period following the OFF period.
+There is a negative trigger at the end of the ON period. If duration is 0, the sensor stays ON and there is no negative trigger.</p>
+<p>The sensor runs the OFF-ON cycle once unless the repeat option is set: the OFF-ON cycle repeats indefinately (or the OFF cycle if duration is 0).</p>
+<p>Use <a class="reference internal" href="bge.types.SCA_ISensor.html#bge.types.SCA_ISensor.reset" title="bge.types.SCA_ISensor.reset"><code class="xref py py-class docutils literal"><span class="pre">SCA_ISensor.reset</span></code></a> at any time to restart sensor.</p>
+<dl class="attribute">
+<dt id="bge.types.SCA_DelaySensor.delay">
+<code class="descname">delay</code><a class="headerlink" href="#bge.types.SCA_DelaySensor.delay" title="Permalink to this definition">¶</a></dt>
+<dd><p>length of the initial OFF period as number of frame, 0 for immediate trigger.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">integer.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.SCA_DelaySensor.duration">
+<code class="descname">duration</code><a class="headerlink" href="#bge.types.SCA_DelaySensor.duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>length of the ON period in number of frame after the initial OFF period.</p>
+<p>If duration is greater than 0, a negative trigger is sent at the end of the ON pulse.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">integer</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.SCA_DelaySensor.repeat">
+<code class="descname">repeat</code><a class="headerlink" href="#bge.types.SCA_DelaySensor.repeat" title="Permalink to this definition">¶</a></dt>
+<dd><p>1 if the OFF-ON cycle should be repeated indefinately, 0 if it should run once.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">integer</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bge.types.SCA_AlwaysSensor.html"
+                        title="previous chapter">SCA_AlwaysSensor(SCA_ISensor)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bge.types.SCA_IActuator.html"
+                        title="next chapter">SCA_IActuator(SCA_ILogicBrick)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.SCA_IActuator.html" title="SCA_IActuator(SCA_ILogicBrick)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.SCA_AlwaysSensor.html" title="SCA_AlwaysSensor(SCA_ISensor)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" >Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

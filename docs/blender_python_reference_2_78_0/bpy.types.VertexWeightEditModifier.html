@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>VertexWeightEditModifier(Modifier) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="VertexWeightMixModifier(Modifier)" href="bpy.types.VertexWeightMixModifier.html" />
+    <link rel="prev" title="VertexStringProperties(bpy_struct)" href="bpy.types.VertexStringProperties.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.VertexWeightMixModifier.html" title="VertexWeightMixModifier(Modifier)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.VertexStringProperties.html" title="VertexStringProperties(bpy_struct)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="vertexweighteditmodifier-modifier"></span><h1>VertexWeightEditModifier(Modifier)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base classes &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.Modifier.html#bpy.types.Modifier" title="bpy.types.Modifier"><code class="xref py py-class docutils literal"><span class="pre">Modifier</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.VertexWeightEditModifier">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">VertexWeightEditModifier</code><span class="sig-paren">(</span><em>Modifier</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.VertexWeightEditModifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edit the weights of vertices in a group</p>
+<dl class="attribute">
+<dt id="bpy.types.VertexWeightEditModifier.add_threshold">
+<code class="descname">add_threshold</code><a class="headerlink" href="#bpy.types.VertexWeightEditModifier.add_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lower bound for a vertex&#8217;s weight to be added to the vgroup</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.VertexWeightEditModifier.default_weight">
+<code class="descname">default_weight</code><a class="headerlink" href="#bpy.types.VertexWeightEditModifier.default_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default weight a vertex will have if it is not in the vgroup</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.VertexWeightEditModifier.falloff_type">
+<code class="descname">falloff_type</code><a class="headerlink" href="#bpy.types.VertexWeightEditModifier.falloff_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>How weights are mapped to their new values</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">LINEAR</span></code> Linear, Null action.</li>
+<li><code class="docutils literal"><span class="pre">CURVE</span></code> Custom Curve.</li>
+<li><code class="docutils literal"><span class="pre">SHARP</span></code> Sharp.</li>
+<li><code class="docutils literal"><span class="pre">SMOOTH</span></code> Smooth.</li>
+<li><code class="docutils literal"><span class="pre">ROOT</span></code> Root.</li>
+<li><code class="docutils literal"><span class="pre">ICON_SPHERECURVE</span></code> Sphere.</li>
+<li><code class="docutils literal"><span class="pre">RANDOM</span></code> Random.</li>
+<li><code class="docutils literal"><span class="pre">STEP</span></code> Median Step, Map all values below 0.5 to 0.0, and all others to 1.0.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;LINEAR&#8217;, &#8216;CURVE&#8217;, &#8216;SHARP&#8217;, &#8216;SMOOTH&#8217;, &#8216;ROOT&#8217;, &#8216;ICON_SPHERECURVE&#8217;, &#8216;RANDOM&#8217;, &#8216;STEP&#8217;], default &#8216;LINEAR&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.VertexWeightEditModifier.map_curve">
+<code class="descname">map_curve</code><a class="headerlink" href="#bpy.types.VertexWeightEditModifier.map_curve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Custom mapping curve</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.CurveMapping.html#bpy.types.CurveMapping" title="bpy.types.CurveMapping"><code class="xref py py-class docutils literal"><span class="pre">CurveMapping</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.VertexWeightEditModifier.mask_constant">
+<code class="descname">mask_constant</code><a class="headerlink" href="#bpy.types.VertexWeightEditModifier.mask_constant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Global influence of current modifications on vgroup</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-inf, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.VertexWeightEditModifier.mask_tex_map_object">
+<code class="descname">mask_tex_map_object</code><a class="headerlink" href="#bpy.types.VertexWeightEditModifier.mask_tex_map_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Which object to take texture coordinates from</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Object.html#bpy.types.Object" title="bpy.types.Object"><code class="xref py py-class docutils literal"><span class="pre">Object</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.VertexWeightEditModifier.mask_tex_mapping">
+<code class="descname">mask_tex_mapping</code><a class="headerlink" href="#bpy.types.VertexWeightEditModifier.mask_tex_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Which texture coordinates to use for mapping</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">LOCAL</span></code> Local, Use local generated coordinates.</li>
+<li><code class="docutils literal"><span class="pre">GLOBAL</span></code> Global, Use global coordinates.</li>
+<li><code class="docutils literal"><span class="pre">OBJECT</span></code> Object, Use local generated coordinates of another object.</li>
+<li><code class="docutils literal"><span class="pre">UV</span></code> UV, Use coordinates from an UV layer.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;LOCAL&#8217;, &#8216;GLOBAL&#8217;, &#8216;OBJECT&#8217;, &#8216;UV&#8217;], default &#8216;LOCAL&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.VertexWeightEditModifier.mask_tex_use_channel">
+<code class="descname">mask_tex_use_channel</code><a class="headerlink" href="#bpy.types.VertexWeightEditModifier.mask_tex_use_channel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Which texture channel to use for masking</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;INT&#8217;, &#8216;RED&#8217;, &#8216;GREEN&#8217;, &#8216;BLUE&#8217;, &#8216;HUE&#8217;, &#8216;SAT&#8217;, &#8216;VAL&#8217;, &#8216;ALPHA&#8217;], default &#8216;INT&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.VertexWeightEditModifier.mask_tex_uv_layer">
+<code class="descname">mask_tex_uv_layer</code><a class="headerlink" href="#bpy.types.VertexWeightEditModifier.mask_tex_uv_layer" title="Permalink to this definition">¶</a></dt>
+<dd><p>UV map name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.VertexWeightEditModifier.mask_texture">
+<code class="descname">mask_texture</code><a class="headerlink" href="#bpy.types.VertexWeightEditModifier.mask_texture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Masking texture</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Texture.html#bpy.types.Texture" title="bpy.types.Texture"><code class="xref py py-class docutils literal"><span class="pre">Texture</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.VertexWeightEditModifier.mask_vertex_group">
+<code class="descname">mask_vertex_group</code><a class="headerlink" href="#bpy.types.VertexWeightEditModifier.mask_vertex_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Masking vertex group name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.VertexWeightEditModifier.remove_threshold">
+<code class="descname">remove_threshold</code><a class="headerlink" href="#bpy.types.VertexWeightEditModifier.remove_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Upper bound for a vertex&#8217;s weight to be removed from the vgroup</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.VertexWeightEditModifier.use_add">
+<code class="descname">use_add</code><a class="headerlink" href="#bpy.types.VertexWeightEditModifier.use_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add vertices with weight over threshold to vgroup</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.VertexWeightEditModifier.use_remove">
+<code class="descname">use_remove</code><a class="headerlink" href="#bpy.types.VertexWeightEditModifier.use_remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove vertices with weight below threshold from vgroup</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.VertexWeightEditModifier.vertex_group">
+<code class="descname">vertex_group</code><a class="headerlink" href="#bpy.types.VertexWeightEditModifier.vertex_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertex group name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Modifier.html#bpy.types.Modifier.name" title="bpy.types.Modifier.name"><code class="xref py py-class docutils literal"><span class="pre">Modifier.name</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Modifier.html#bpy.types.Modifier.type" title="bpy.types.Modifier.type"><code class="xref py py-class docutils literal"><span class="pre">Modifier.type</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Modifier.html#bpy.types.Modifier.show_viewport" title="bpy.types.Modifier.show_viewport"><code class="xref py py-class docutils literal"><span class="pre">Modifier.show_viewport</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Modifier.html#bpy.types.Modifier.show_render" title="bpy.types.Modifier.show_render"><code class="xref py py-class docutils literal"><span class="pre">Modifier.show_render</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.Modifier.html#bpy.types.Modifier.show_in_editmode" title="bpy.types.Modifier.show_in_editmode"><code class="xref py py-class docutils literal"><span class="pre">Modifier.show_in_editmode</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Modifier.html#bpy.types.Modifier.show_on_cage" title="bpy.types.Modifier.show_on_cage"><code class="xref py py-class docutils literal"><span class="pre">Modifier.show_on_cage</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Modifier.html#bpy.types.Modifier.show_expanded" title="bpy.types.Modifier.show_expanded"><code class="xref py py-class docutils literal"><span class="pre">Modifier.show_expanded</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Modifier.html#bpy.types.Modifier.use_apply_on_spline" title="bpy.types.Modifier.use_apply_on_spline"><code class="xref py py-class docutils literal"><span class="pre">Modifier.use_apply_on_spline</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.VertexStringProperties.html"
+                        title="previous chapter">VertexStringProperties(bpy_struct)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.VertexWeightMixModifier.html"
+                        title="next chapter">VertexWeightMixModifier(Modifier)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.VertexWeightMixModifier.html" title="VertexWeightMixModifier(Modifier)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.VertexStringProperties.html" title="VertexStringProperties(bpy_struct)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

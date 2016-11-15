@@ -1,0 +1,6 @@
+[info]
+name = test
+
+[meta]
+cube_size = 20
+

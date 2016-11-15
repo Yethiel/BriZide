@@ -1,0 +1,767 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Uv Operators &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Operators (bpy.ops)" href="bpy.ops.html" />
+    <link rel="next" title="View2D Operators" href="bpy.ops.view2d.html" />
+    <link rel="prev" title="Ui Operators" href="bpy.ops.ui.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.view2d.html" title="View2D Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.ui.html" title="Ui Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.ops.uv">
+<span id="uv-operators"></span><h1>Uv Operators<a class="headerlink" href="#module-bpy.ops.uv" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bpy.ops.uv.align">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">align</code><span class="sig-paren">(</span><em>axis='ALIGN_AUTO'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.align" title="Permalink to this definition">¶</a></dt>
+<dd><p>Align selected UV vertices to an axis</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>axis</strong> (<em>enum in ['ALIGN_S', 'ALIGN_T', 'ALIGN_U', 'ALIGN_AUTO', 'ALIGN_X', 'ALIGN_Y'], (optional)</em>) &#8211; <p>Axis, Axis to align UV locations on</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">ALIGN_S</span></code> Straighten, Align UVs along the line defined by the endpoints.</li>
+<li><code class="docutils literal"><span class="pre">ALIGN_T</span></code> Straighten X, Align UVs along the line defined by the endpoints along the X axis.</li>
+<li><code class="docutils literal"><span class="pre">ALIGN_U</span></code> Straighten Y, Align UVs along the line defined by the endpoints along the Y axis.</li>
+<li><code class="docutils literal"><span class="pre">ALIGN_AUTO</span></code> Align Auto, Automatically choose the axis on which there is most alignment already.</li>
+<li><code class="docutils literal"><span class="pre">ALIGN_X</span></code> Align X, Align UVs on X axis.</li>
+<li><code class="docutils literal"><span class="pre">ALIGN_Y</span></code> Align Y, Align UVs on Y axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.average_islands_scale">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">average_islands_scale</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.average_islands_scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Average the size of separate UV islands, based on their area in 3D space</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.circle_select">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">circle_select</code><span class="sig-paren">(</span><em>x=0</em>, <em>y=0</em>, <em>radius=1</em>, <em>gesture_mode=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.circle_select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select UV vertices using circle selection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; X</li>
+<li><strong>y</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Y</li>
+<li><strong>radius</strong> (<em>int in [1, inf], (optional)</em>) &#8211; Radius</li>
+<li><strong>gesture_mode</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Gesture Mode</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.cube_project">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">cube_project</code><span class="sig-paren">(</span><em>cube_size=1.0</em>, <em>correct_aspect=True</em>, <em>clip_to_bounds=False</em>, <em>scale_to_bounds=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.cube_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Project the UV vertices of the mesh over the six faces of a cube</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>cube_size</strong> (<em>float in [0, inf], (optional)</em>) &#8211; Cube Size, Size of the cube to project on</li>
+<li><strong>correct_aspect</strong> (<em>boolean, (optional)</em>) &#8211; Correct Aspect, Map UVs taking image aspect ratio into account</li>
+<li><strong>clip_to_bounds</strong> (<em>boolean, (optional)</em>) &#8211; Clip to Bounds, Clip UV coordinates to bounds after unwrapping</li>
+<li><strong>scale_to_bounds</strong> (<em>boolean, (optional)</em>) &#8211; Scale to Bounds, Scale UV coordinates to bounds after unwrapping</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.cursor_set">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">cursor_set</code><span class="sig-paren">(</span><em>location=(0.0</em>, <em>0.0)</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.cursor_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set 2D cursor location</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>location</strong> (<em>float array of 2 items in [-inf, inf], (optional)</em>) &#8211; Location, Cursor location in normalized (0.0-1.0) coordinates</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.cylinder_project">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">cylinder_project</code><span class="sig-paren">(</span><em>direction='VIEW_ON_EQUATOR'</em>, <em>align='POLAR_ZX'</em>, <em>radius=1.0</em>, <em>correct_aspect=True</em>, <em>clip_to_bounds=False</em>, <em>scale_to_bounds=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.cylinder_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Project the UV vertices of the mesh over the curved wall of a cylinder</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>direction</strong> (<em>enum in ['VIEW_ON_EQUATOR', 'VIEW_ON_POLES', 'ALIGN_TO_OBJECT'], (optional)</em>) &#8211; <p>Direction, Direction of the sphere or cylinder</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">VIEW_ON_EQUATOR</span></code> View on Equator, 3D view is on the equator.</li>
+<li><code class="docutils literal"><span class="pre">VIEW_ON_POLES</span></code> View on Poles, 3D view is on the poles.</li>
+<li><code class="docutils literal"><span class="pre">ALIGN_TO_OBJECT</span></code> Align to Object, Align according to object transform.</li>
+</ul>
+</li>
+<li><strong>align</strong> (<em>enum in ['POLAR_ZX', 'POLAR_ZY'], (optional)</em>) &#8211; <p>Align, How to determine rotation around the pole</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">POLAR_ZX</span></code> Polar ZX, Polar 0 is X.</li>
+<li><code class="docutils literal"><span class="pre">POLAR_ZY</span></code> Polar ZY, Polar 0 is Y.</li>
+</ul>
+</li>
+<li><strong>radius</strong> (<em>float in [0, inf], (optional)</em>) &#8211; Radius, Radius of the sphere or cylinder</li>
+<li><strong>correct_aspect</strong> (<em>boolean, (optional)</em>) &#8211; Correct Aspect, Map UVs taking image aspect ratio into account</li>
+<li><strong>clip_to_bounds</strong> (<em>boolean, (optional)</em>) &#8211; Clip to Bounds, Clip UV coordinates to bounds after unwrapping</li>
+<li><strong>scale_to_bounds</strong> (<em>boolean, (optional)</em>) &#8211; Scale to Bounds, Scale UV coordinates to bounds after unwrapping</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.export_layout">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">export_layout</code><span class="sig-paren">(</span><em>filepath=&quot;&quot;</em>, <em>check_existing=True</em>, <em>export_all=False</em>, <em>modified=False</em>, <em>mode='PNG'</em>, <em>size=(1024</em>, <em>1024)</em>, <em>opacity=0.25</em>, <em>tessellated=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.export_layout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export UV layout to file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filepath</strong> (<em>string, (optional, never None)</em>) &#8211; filepath</li>
+<li><strong>check_existing</strong> (<em>boolean, (optional)</em>) &#8211; Check Existing, Check and warn on overwriting existing files</li>
+<li><strong>export_all</strong> (<em>boolean, (optional)</em>) &#8211; All UVs, Export all UVs in this mesh (not just visible ones)</li>
+<li><strong>modified</strong> (<em>boolean, (optional)</em>) &#8211; Modified, Exports UVs from the modified mesh</li>
+<li><strong>mode</strong> (<em>enum in ['SVG', 'EPS', 'PNG'], (optional)</em>) &#8211; <p>Format, File format to export the UV layout to</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">SVG</span></code> Scalable Vector Graphic (.svg), Export the UV layout to a vector SVG file.</li>
+<li><code class="docutils literal"><span class="pre">EPS</span></code> Encapsulate PostScript (.eps), Export the UV layout to a vector EPS file.</li>
+<li><code class="docutils literal"><span class="pre">PNG</span></code> PNG Image (.png), Export the UV layout to a bitmap image.</li>
+</ul>
+</li>
+<li><strong>size</strong> (<em>int array of 2 items in [8, 32768], (optional)</em>) &#8211; size, Dimensions of the exported file</li>
+<li><strong>opacity</strong> (<em>float in [0, 1], (optional)</em>) &#8211; Fill Opacity, Set amount of opacity for exported UV layout</li>
+<li><strong>tessellated</strong> (<em>boolean, (optional)</em>) &#8211; Tessellated UVs, Export tessellated UVs instead of polygons ones</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">File:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://svn.blender.org/svnroot/bf-extensions/trunk/py/scripts/addons/io_mesh_uv_layout/__init__.py">addons/io_mesh_uv_layout/__init__.py</a>:173</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.follow_active_quads">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">follow_active_quads</code><span class="sig-paren">(</span><em>mode='LENGTH_AVERAGE'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.follow_active_quads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Follow UVs from active quads along continuous face loops</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<em>enum in ['EVEN', 'LENGTH', 'LENGTH_AVERAGE'], (optional)</em>) &#8211; <p>Edge Length Mode, Method to space UV edge loops</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">EVEN</span></code> Even, Space all UVs evenly.</li>
+<li><code class="docutils literal"><span class="pre">LENGTH</span></code> Length, Average space UVs edge length of each loop.</li>
+<li><code class="docutils literal"><span class="pre">LENGTH_AVERAGE</span></code> Length Average, Average space UVs edge length of each loop.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">File:</th><td class="field-body"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/uvcalc_follow_active.py">startup/bl_operators/uvcalc_follow_active.py</a>:244</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.hide">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">hide</code><span class="sig-paren">(</span><em>unselected=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.hide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hide (un)selected UV vertices</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>unselected</strong> (<em>boolean, (optional)</em>) &#8211; Unselected, Hide unselected rather than selected</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.lightmap_pack">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">lightmap_pack</code><span class="sig-paren">(</span><em>PREF_CONTEXT='SEL_FACES'</em>, <em>PREF_PACK_IN_ONE=True</em>, <em>PREF_NEW_UVLAYER=False</em>, <em>PREF_APPLY_IMAGE=False</em>, <em>PREF_IMG_PX_SIZE=512</em>, <em>PREF_BOX_DIV=12</em>, <em>PREF_MARGIN_DIV=0.1</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.lightmap_pack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pack each faces UV&#8217;s into the UV bounds</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>PREF_CONTEXT</strong> (<em>enum in ['SEL_FACES', 'ALL_FACES', 'ALL_OBJECTS'], (optional)</em>) &#8211; <p>Selection</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">SEL_FACES</span></code> Selected Faces, Space all UVs evenly.</li>
+<li><code class="docutils literal"><span class="pre">ALL_FACES</span></code> All Faces, Average space UVs edge length of each loop.</li>
+<li><code class="docutils literal"><span class="pre">ALL_OBJECTS</span></code> Selected Mesh Object, Average space UVs edge length of each loop.</li>
+</ul>
+</li>
+<li><strong>PREF_PACK_IN_ONE</strong> (<em>boolean, (optional)</em>) &#8211; Share Tex Space, Objects Share texture space, map all objects into 1 uvmap</li>
+<li><strong>PREF_NEW_UVLAYER</strong> (<em>boolean, (optional)</em>) &#8211; New UV Map, Create a new UV map for every mesh packed</li>
+<li><strong>PREF_APPLY_IMAGE</strong> (<em>boolean, (optional)</em>) &#8211; New Image, Assign new images for every mesh (only one if shared tex space enabled)</li>
+<li><strong>PREF_IMG_PX_SIZE</strong> (<em>int in [64, 5000], (optional)</em>) &#8211; Image Size, Width and Height for the new image</li>
+<li><strong>PREF_BOX_DIV</strong> (<em>int in [1, 48], (optional)</em>) &#8211; Pack Quality, Pre Packing before the complex boxpack</li>
+<li><strong>PREF_MARGIN_DIV</strong> (<em>float in [0.001, 1], (optional)</em>) &#8211; Margin, Size of the margin as a division of the UV</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">File:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/uvcalc_lightmap.py">startup/bl_operators/uvcalc_lightmap.py</a>:648</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.mark_seam">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">mark_seam</code><span class="sig-paren">(</span><em>clear=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.mark_seam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark selected UV edges as seams</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>clear</strong> (<em>boolean, (optional)</em>) &#8211; Clear Seams, Clear instead of marking seams</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.minimize_stretch">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">minimize_stretch</code><span class="sig-paren">(</span><em>fill_holes=True</em>, <em>blend=0.0</em>, <em>iterations=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.minimize_stretch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reduce UV stretching by relaxing angles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fill_holes</strong> (<em>boolean, (optional)</em>) &#8211; Fill Holes, Virtual fill holes in mesh before unwrapping, to better avoid overlaps and preserve symmetry</li>
+<li><strong>blend</strong> (<em>float in [0, 1], (optional)</em>) &#8211; Blend, Blend factor between stretch minimized and original</li>
+<li><strong>iterations</strong> (<em>int in [0, inf], (optional)</em>) &#8211; Iterations, Number of iterations to run, 0 is unlimited when run interactively</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.pack_islands">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">pack_islands</code><span class="sig-paren">(</span><em>rotate=True</em>, <em>margin=0.001</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.pack_islands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform all islands so that they fill up the UV space as much as possible</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>rotate</strong> (<em>boolean, (optional)</em>) &#8211; Rotate, Rotate islands for best fit</li>
+<li><strong>margin</strong> (<em>float in [0, 1], (optional)</em>) &#8211; Margin, Space between islands</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.pin">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">pin</code><span class="sig-paren">(</span><em>clear=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.pin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set/clear selected UV vertices as anchored between multiple unwrap operations</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>clear</strong> (<em>boolean, (optional)</em>) &#8211; Clear, Clear pinning for the selection instead of setting it</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.project_from_view">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">project_from_view</code><span class="sig-paren">(</span><em>orthographic=False</em>, <em>camera_bounds=True</em>, <em>correct_aspect=True</em>, <em>clip_to_bounds=False</em>, <em>scale_to_bounds=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.project_from_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Project the UV vertices of the mesh as seen in current 3D view</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>orthographic</strong> (<em>boolean, (optional)</em>) &#8211; Orthographic, Use orthographic projection</li>
+<li><strong>camera_bounds</strong> (<em>boolean, (optional)</em>) &#8211; Camera Bounds, Map UVs to the camera region taking resolution and aspect into account</li>
+<li><strong>correct_aspect</strong> (<em>boolean, (optional)</em>) &#8211; Correct Aspect, Map UVs taking image aspect ratio into account</li>
+<li><strong>clip_to_bounds</strong> (<em>boolean, (optional)</em>) &#8211; Clip to Bounds, Clip UV coordinates to bounds after unwrapping</li>
+<li><strong>scale_to_bounds</strong> (<em>boolean, (optional)</em>) &#8211; Scale to Bounds, Scale UV coordinates to bounds after unwrapping</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.remove_doubles">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">remove_doubles</code><span class="sig-paren">(</span><em>threshold=0.02</em>, <em>use_unselected=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.remove_doubles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selected UV vertices that are within a radius of each other are welded together</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>threshold</strong> (<em>float in [0, 10], (optional)</em>) &#8211; Merge Distance, Maximum distance between welded vertices</li>
+<li><strong>use_unselected</strong> (<em>boolean, (optional)</em>) &#8211; Unselected, Merge selected to other unselected vertices</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.reset">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset UV projection</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.reveal">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">reveal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.reveal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reveal all hidden UV vertices</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.seams_from_islands">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">seams_from_islands</code><span class="sig-paren">(</span><em>mark_seams=True</em>, <em>mark_sharp=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.seams_from_islands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set mesh seams according to island setup in the UV editor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mark_seams</strong> (<em>boolean, (optional)</em>) &#8211; Mark Seams, Mark boundary edges as seams</li>
+<li><strong>mark_sharp</strong> (<em>boolean, (optional)</em>) &#8211; Mark Sharp, Mark boundary edges as sharp</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.select">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">select</code><span class="sig-paren">(</span><em>extend=False</em>, <em>location=(0.0</em>, <em>0.0)</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select UV vertices</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>extend</strong> (<em>boolean, (optional)</em>) &#8211; Extend, Extend selection rather than clearing the existing selection</li>
+<li><strong>location</strong> (<em>float array of 2 items in [-inf, inf], (optional)</em>) &#8211; Location, Mouse location in normalized coordinates, 0.0 to 1.0 is within the image bounds</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.select_all">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">select_all</code><span class="sig-paren">(</span><em>action='TOGGLE'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.select_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change selection of all UV vertices</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>action</strong> (<em>enum in ['TOGGLE', 'SELECT', 'DESELECT', 'INVERT'], (optional)</em>) &#8211; <p>Action, Selection action to execute</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TOGGLE</span></code> Toggle, Toggle selection for all elements.</li>
+<li><code class="docutils literal"><span class="pre">SELECT</span></code> Select, Select all elements.</li>
+<li><code class="docutils literal"><span class="pre">DESELECT</span></code> Deselect, Deselect all elements.</li>
+<li><code class="docutils literal"><span class="pre">INVERT</span></code> Invert, Invert selection of all elements.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.select_border">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">select_border</code><span class="sig-paren">(</span><em>pinned=False</em>, <em>gesture_mode=0</em>, <em>xmin=0</em>, <em>xmax=0</em>, <em>ymin=0</em>, <em>ymax=0</em>, <em>extend=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.select_border" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select UV vertices using border selection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pinned</strong> (<em>boolean, (optional)</em>) &#8211; Pinned, Border select pinned UVs only</li>
+<li><strong>gesture_mode</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Gesture Mode</li>
+<li><strong>xmin</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; X Min</li>
+<li><strong>xmax</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; X Max</li>
+<li><strong>ymin</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Y Min</li>
+<li><strong>ymax</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Y Max</li>
+<li><strong>extend</strong> (<em>boolean, (optional)</em>) &#8211; Extend, Extend selection instead of deselecting everything first</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.select_lasso">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">select_lasso</code><span class="sig-paren">(</span><em>path=None</em>, <em>deselect=False</em>, <em>extend=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.select_lasso" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select UVs using lasso selection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>path</strong> (<code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal"><span class="pre">OperatorMousePath</span></code>, (optional)) &#8211; Path</li>
+<li><strong>deselect</strong> (<em>boolean, (optional)</em>) &#8211; Deselect, Deselect rather than select items</li>
+<li><strong>extend</strong> (<em>boolean, (optional)</em>) &#8211; Extend, Extend selection instead of deselecting everything first</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.select_less">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">select_less</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.select_less" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deselect UV vertices at the boundary of each selection region</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.select_linked">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">select_linked</code><span class="sig-paren">(</span><em>extend=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.select_linked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select all UV vertices linked to the active UV map</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>extend</strong> (<em>boolean, (optional)</em>) &#8211; Extend, Extend selection rather than clearing the existing selection</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.select_linked_pick">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">select_linked_pick</code><span class="sig-paren">(</span><em>extend=False</em>, <em>location=(0.0</em>, <em>0.0)</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.select_linked_pick" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select all UV vertices linked under the mouse</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>extend</strong> (<em>boolean, (optional)</em>) &#8211; Extend, Extend selection rather than clearing the existing selection</li>
+<li><strong>location</strong> (<em>float array of 2 items in [-inf, inf], (optional)</em>) &#8211; Location, Mouse location in normalized coordinates, 0.0 to 1.0 is within the image bounds</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.select_loop">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">select_loop</code><span class="sig-paren">(</span><em>extend=False</em>, <em>location=(0.0</em>, <em>0.0)</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.select_loop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select a loop of connected UV vertices</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>extend</strong> (<em>boolean, (optional)</em>) &#8211; Extend, Extend selection rather than clearing the existing selection</li>
+<li><strong>location</strong> (<em>float array of 2 items in [-inf, inf], (optional)</em>) &#8211; Location, Mouse location in normalized coordinates, 0.0 to 1.0 is within the image bounds</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.select_more">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">select_more</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.select_more" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select more UV vertices connected to initial selection</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.select_pinned">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">select_pinned</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.select_pinned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select all pinned UV vertices</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.select_split">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">select_split</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.select_split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select only entirely selected faces</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.smart_project">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">smart_project</code><span class="sig-paren">(</span><em>angle_limit=66.0</em>, <em>island_margin=0.0</em>, <em>user_area_weight=0.0</em>, <em>use_aspect=True</em>, <em>stretch_to_bounds=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.smart_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>This script projection unwraps the selected faces of a mesh (it operates on all selected mesh objects, and can be used to unwrap selected faces, or all faces)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>angle_limit</strong> (<em>float in [1, 89], (optional)</em>) &#8211; Angle Limit, Lower for more projection groups, higher for less distortion</li>
+<li><strong>island_margin</strong> (<em>float in [0, 1], (optional)</em>) &#8211; Island Margin, Margin to reduce bleed from adjacent islands</li>
+<li><strong>user_area_weight</strong> (<em>float in [0, 1], (optional)</em>) &#8211; Area Weight, Weight projections vector by faces with larger areas</li>
+<li><strong>use_aspect</strong> (<em>boolean, (optional)</em>) &#8211; Correct Aspect, Map UVs taking image aspect ratio into account</li>
+<li><strong>stretch_to_bounds</strong> (<em>boolean, (optional)</em>) &#8211; Stretch to UV Bounds, Stretch the final output to texture bounds</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">File:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/uvcalc_smart_project.py">startup/bl_operators/uvcalc_smart_project.py</a>:1090</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.snap_cursor">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">snap_cursor</code><span class="sig-paren">(</span><em>target='PIXELS'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.snap_cursor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Snap cursor to target type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>target</strong> (<em>enum in ['PIXELS', 'SELECTED'], (optional)</em>) &#8211; Target, Target to snap the selected UVs to</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.snap_selected">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">snap_selected</code><span class="sig-paren">(</span><em>target='PIXELS'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.snap_selected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Snap selected UV vertices to target type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>target</strong> (<em>enum in ['PIXELS', 'CURSOR', 'CURSOR_OFFSET', 'ADJACENT_UNSELECTED'], (optional)</em>) &#8211; Target, Target to snap the selected UVs to</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.sphere_project">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">sphere_project</code><span class="sig-paren">(</span><em>direction='VIEW_ON_EQUATOR'</em>, <em>align='POLAR_ZX'</em>, <em>correct_aspect=True</em>, <em>clip_to_bounds=False</em>, <em>scale_to_bounds=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.sphere_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Project the UV vertices of the mesh over the curved surface of a sphere</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>direction</strong> (<em>enum in ['VIEW_ON_EQUATOR', 'VIEW_ON_POLES', 'ALIGN_TO_OBJECT'], (optional)</em>) &#8211; <p>Direction, Direction of the sphere or cylinder</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">VIEW_ON_EQUATOR</span></code> View on Equator, 3D view is on the equator.</li>
+<li><code class="docutils literal"><span class="pre">VIEW_ON_POLES</span></code> View on Poles, 3D view is on the poles.</li>
+<li><code class="docutils literal"><span class="pre">ALIGN_TO_OBJECT</span></code> Align to Object, Align according to object transform.</li>
+</ul>
+</li>
+<li><strong>align</strong> (<em>enum in ['POLAR_ZX', 'POLAR_ZY'], (optional)</em>) &#8211; <p>Align, How to determine rotation around the pole</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">POLAR_ZX</span></code> Polar ZX, Polar 0 is X.</li>
+<li><code class="docutils literal"><span class="pre">POLAR_ZY</span></code> Polar ZY, Polar 0 is Y.</li>
+</ul>
+</li>
+<li><strong>correct_aspect</strong> (<em>boolean, (optional)</em>) &#8211; Correct Aspect, Map UVs taking image aspect ratio into account</li>
+<li><strong>clip_to_bounds</strong> (<em>boolean, (optional)</em>) &#8211; Clip to Bounds, Clip UV coordinates to bounds after unwrapping</li>
+<li><strong>scale_to_bounds</strong> (<em>boolean, (optional)</em>) &#8211; Scale to Bounds, Scale UV coordinates to bounds after unwrapping</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.stitch">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">stitch</code><span class="sig-paren">(</span><em>use_limit=False</em>, <em>snap_islands=True</em>, <em>limit=0.01</em>, <em>static_island=0</em>, <em>midpoint_snap=False</em>, <em>clear_seams=True</em>, <em>mode='VERTEX'</em>, <em>stored_mode='VERTEX'</em>, <em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.stitch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stitch selected UV vertices by proximity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>use_limit</strong> (<em>boolean, (optional)</em>) &#8211; Use Limit, Stitch UVs within a specified limit distance</li>
+<li><strong>snap_islands</strong> (<em>boolean, (optional)</em>) &#8211; Snap Islands, Snap islands together (on edge stitch mode, rotates the islands too)</li>
+<li><strong>limit</strong> (<em>float in [0, inf], (optional)</em>) &#8211; Limit, Limit distance in normalized coordinates</li>
+<li><strong>static_island</strong> (<em>int in [0, inf], (optional)</em>) &#8211; Static Island, Island that stays in place when stitching islands</li>
+<li><strong>midpoint_snap</strong> (<em>boolean, (optional)</em>) &#8211; Snap At Midpoint, UVs are stitched at midpoint instead of at static island</li>
+<li><strong>clear_seams</strong> (<em>boolean, (optional)</em>) &#8211; Clear Seams, Clear seams of stitched edges</li>
+<li><strong>mode</strong> (<em>enum in ['VERTEX', 'EDGE'], (optional)</em>) &#8211; Operation Mode, Use vertex or edge stitching</li>
+<li><strong>stored_mode</strong> (<em>enum in ['VERTEX', 'EDGE'], (optional)</em>) &#8211; Stored Operation Mode, Use vertex or edge stitching</li>
+<li><strong>selection</strong> (<code class="xref py py-class docutils literal"><span class="pre">bpy_prop_collection</span></code> of <code class="xref py py-class docutils literal"><span class="pre">SelectedUvElement</span></code>, (optional)) &#8211; Selection</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.tile_set">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">tile_set</code><span class="sig-paren">(</span><em>tile=(0</em>, <em>0)</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.tile_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set UV image tile coordinates</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tile</strong> (<em>int array of 2 items in [0, inf], (optional)</em>) &#8211; Tile, Tile coordinate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.unwrap">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">unwrap</code><span class="sig-paren">(</span><em>method='ANGLE_BASED'</em>, <em>fill_holes=True</em>, <em>correct_aspect=True</em>, <em>use_subsurf_data=False</em>, <em>margin=0.001</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.unwrap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unwrap the mesh of the object being edited</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>method</strong> (<em>enum in ['ANGLE_BASED', 'CONFORMAL'], (optional)</em>) &#8211; Method, Unwrapping method (Angle Based usually gives better results than Conformal, while being somewhat slower)</li>
+<li><strong>fill_holes</strong> (<em>boolean, (optional)</em>) &#8211; Fill Holes, Virtual fill holes in mesh before unwrapping, to better avoid overlaps and preserve symmetry</li>
+<li><strong>correct_aspect</strong> (<em>boolean, (optional)</em>) &#8211; Correct Aspect, Map UVs taking image aspect ratio into account</li>
+<li><strong>use_subsurf_data</strong> (<em>boolean, (optional)</em>) &#8211; Use Subsurf Modifier, Map UVs taking vertex position after subsurf into account</li>
+<li><strong>margin</strong> (<em>float in [0, 1], (optional)</em>) &#8211; Margin, Space between islands</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.uv.weld">
+<code class="descclassname">bpy.ops.uv.</code><code class="descname">weld</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.uv.weld" title="Permalink to this definition">¶</a></dt>
+<dd><p>Weld selected UV vertices together</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.ops.ui.html"
+                        title="previous chapter">Ui Operators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.ops.view2d.html"
+                        title="next chapter">View2D Operators</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.view2d.html" title="View2D Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.ui.html" title="Ui Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

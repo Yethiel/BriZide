@@ -1,0 +1,497 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Screen Operators &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Operators (bpy.ops)" href="bpy.ops.html" />
+    <link rel="next" title="Script Operators" href="bpy.ops.script.html" />
+    <link rel="prev" title="Scene Operators" href="bpy.ops.scene.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.script.html" title="Script Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.scene.html" title="Scene Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.ops.screen">
+<span id="screen-operators"></span><h1>Screen Operators<a class="headerlink" href="#module-bpy.ops.screen" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bpy.ops.screen.actionzone">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">actionzone</code><span class="sig-paren">(</span><em>modifier=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.actionzone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle area action zones for mouse actions/gestures</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>modifier</strong> (<em>int in [0, 2], (optional)</em>) &#8211; Modifier, Modifier state</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.animation_cancel">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">animation_cancel</code><span class="sig-paren">(</span><em>restore_frame=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.animation_cancel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel animation, returning to the original frame</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>restore_frame</strong> (<em>boolean, (optional)</em>) &#8211; Restore Frame, Restore the frame when animation was initialized</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.animation_play">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">animation_play</code><span class="sig-paren">(</span><em>reverse=False</em>, <em>sync=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.animation_play" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play animation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>reverse</strong> (<em>boolean, (optional)</em>) &#8211; Play in Reverse, Animation is played backwards</li>
+<li><strong>sync</strong> (<em>boolean, (optional)</em>) &#8211; Sync, Drop frames to maintain framerate</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.animation_step">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">animation_step</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.animation_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Step through animation by position</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.area_dupli">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">area_dupli</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.area_dupli" title="Permalink to this definition">¶</a></dt>
+<dd><p>Duplicate selected area into new window</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.area_join">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">area_join</code><span class="sig-paren">(</span><em>min_x=-100</em>, <em>min_y=-100</em>, <em>max_x=-100</em>, <em>max_y=-100</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.area_join" title="Permalink to this definition">¶</a></dt>
+<dd><p>Join selected areas into new window</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>min_x</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; X 1</li>
+<li><strong>min_y</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Y 1</li>
+<li><strong>max_x</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; X 2</li>
+<li><strong>max_y</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Y 2</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.area_move">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">area_move</code><span class="sig-paren">(</span><em>x=0</em>, <em>y=0</em>, <em>delta=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.area_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move selected area edges</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; X</li>
+<li><strong>y</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Y</li>
+<li><strong>delta</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Delta</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.area_options">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">area_options</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.area_options" title="Permalink to this definition">¶</a></dt>
+<dd><p>Operations for splitting and merging</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.area_split">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">area_split</code><span class="sig-paren">(</span><em>direction='HORIZONTAL'</em>, <em>factor=0.5</em>, <em>mouse_x=-100</em>, <em>mouse_y=-100</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.area_split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split selected area into new windows</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>direction</strong> (<em>enum in ['HORIZONTAL', 'VERTICAL'], (optional)</em>) &#8211; Direction</li>
+<li><strong>factor</strong> (<em>float in [0, 1], (optional)</em>) &#8211; Factor</li>
+<li><strong>mouse_x</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Mouse X</li>
+<li><strong>mouse_y</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Mouse Y</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.area_swap">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">area_swap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.area_swap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Swap selected areas screen positions</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.back_to_previous">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">back_to_previous</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.back_to_previous" title="Permalink to this definition">¶</a></dt>
+<dd><p>Revert back to the original screen layout, before fullscreen area overlay</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.delete">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete active screen</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.frame_jump">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">frame_jump</code><span class="sig-paren">(</span><em>end=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.frame_jump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Jump to first/last frame in frame range</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>end</strong> (<em>boolean, (optional)</em>) &#8211; Last Frame, Jump to the last frame of the frame range</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.frame_offset">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">frame_offset</code><span class="sig-paren">(</span><em>delta=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.frame_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move current frame forward/backward by a given number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>delta</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Delta</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.header">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">header</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.header" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle header display</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.header_flip">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">header_flip</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.header_flip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle the header over/below the main window area</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.header_toggle_menus">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">header_toggle_menus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.header_toggle_menus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expand or collapse the header pulldown menus</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.header_toolbox">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">header_toolbox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.header_toolbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display header region toolbox</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.keyframe_jump">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">keyframe_jump</code><span class="sig-paren">(</span><em>next=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.keyframe_jump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Jump to previous/next keyframe</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>next</strong> (<em>boolean, (optional)</em>) &#8211; Next Keyframe</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.marker_jump">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">marker_jump</code><span class="sig-paren">(</span><em>next=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.marker_jump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Jump to previous/next marker</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>next</strong> (<em>boolean, (optional)</em>) &#8211; Next Marker</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.new">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.new" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new screen</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.redo_last">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">redo_last</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.redo_last" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display menu for last action performed</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.region_blend">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">region_blend</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.region_blend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Blend in and out overlapping region</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.region_flip">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">region_flip</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.region_flip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle the region&#8217;s alignment (left/right or top/bottom)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.region_quadview">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">region_quadview</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.region_quadview" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split selected area into camera, front, right &amp; top views</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.region_scale">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">region_scale</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.region_scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale selected area</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.repeat_history">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">repeat_history</code><span class="sig-paren">(</span><em>index=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.repeat_history" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display menu for previous actions performed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>int in [0, inf], (optional)</em>) &#8211; Index</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.repeat_last">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">repeat_last</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.repeat_last" title="Permalink to this definition">¶</a></dt>
+<dd><p>Repeat last action</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.screen_full_area">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">screen_full_area</code><span class="sig-paren">(</span><em>use_hide_panels=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.screen_full_area" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle display selected area as fullscreen/maximized</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>use_hide_panels</strong> (<em>boolean, (optional)</em>) &#8211; Hide Panels, Hide all the panels</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.screen_set">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">screen_set</code><span class="sig-paren">(</span><em>delta=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.screen_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycle through available screens</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>delta</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Delta</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.screencast">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">screencast</code><span class="sig-paren">(</span><em>filepath=&quot;&quot;</em>, <em>full=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.screencast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Capture a video of the active area or whole Blender window</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filepath</strong> (<em>string, (optional, never None)</em>) &#8211; filepath</li>
+<li><strong>full</strong> (<em>boolean, (optional)</em>) &#8211; Full Screen, Capture the whole window (otherwise only capture the active area)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.screenshot">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">screenshot</code><span class="sig-paren">(</span><em>filepath=&quot;&quot;</em>, <em>check_existing=True</em>, <em>filter_blender=False</em>, <em>filter_backup=False</em>, <em>filter_image=True</em>, <em>filter_movie=False</em>, <em>filter_python=False</em>, <em>filter_font=False</em>, <em>filter_sound=False</em>, <em>filter_text=False</em>, <em>filter_btx=False</em>, <em>filter_collada=False</em>, <em>filter_alembic=False</em>, <em>filter_folder=True</em>, <em>filter_blenlib=False</em>, <em>filemode=9</em>, <em>show_multiview=False</em>, <em>use_multiview=False</em>, <em>display_type='DEFAULT'</em>, <em>sort_method='FILE_SORT_ALPHA'</em>, <em>full=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.screenshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Capture a picture of the active area or whole Blender window</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filepath</strong> (<em>string, (optional, never None)</em>) &#8211; File Path, Path to file</li>
+<li><strong>check_existing</strong> (<em>boolean, (optional)</em>) &#8211; Check Existing, Check and warn on overwriting existing files</li>
+<li><strong>filter_blender</strong> (<em>boolean, (optional)</em>) &#8211; Filter .blend files</li>
+<li><strong>filter_backup</strong> (<em>boolean, (optional)</em>) &#8211; Filter .blend files</li>
+<li><strong>filter_image</strong> (<em>boolean, (optional)</em>) &#8211; Filter image files</li>
+<li><strong>filter_movie</strong> (<em>boolean, (optional)</em>) &#8211; Filter movie files</li>
+<li><strong>filter_python</strong> (<em>boolean, (optional)</em>) &#8211; Filter python files</li>
+<li><strong>filter_font</strong> (<em>boolean, (optional)</em>) &#8211; Filter font files</li>
+<li><strong>filter_sound</strong> (<em>boolean, (optional)</em>) &#8211; Filter sound files</li>
+<li><strong>filter_text</strong> (<em>boolean, (optional)</em>) &#8211; Filter text files</li>
+<li><strong>filter_btx</strong> (<em>boolean, (optional)</em>) &#8211; Filter btx files</li>
+<li><strong>filter_collada</strong> (<em>boolean, (optional)</em>) &#8211; Filter COLLADA files</li>
+<li><strong>filter_alembic</strong> (<em>boolean, (optional)</em>) &#8211; Filter Alembic files</li>
+<li><strong>filter_folder</strong> (<em>boolean, (optional)</em>) &#8211; Filter folders</li>
+<li><strong>filter_blenlib</strong> (<em>boolean, (optional)</em>) &#8211; Filter Blender IDs</li>
+<li><strong>filemode</strong> (<em>int in [1, 9], (optional)</em>) &#8211; File Browser Mode, The setting for the file browser mode to load a .blend file, a library or a special file</li>
+<li><strong>show_multiview</strong> (<em>boolean, (optional)</em>) &#8211; Enable Multi-View</li>
+<li><strong>use_multiview</strong> (<em>boolean, (optional)</em>) &#8211; Use Multi-View</li>
+<li><strong>display_type</strong> (<em>enum in ['DEFAULT', 'LIST_SHORT', 'LIST_LONG', 'THUMBNAIL'], (optional)</em>) &#8211; <p>Display Type</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">DEFAULT</span></code> Default, Automatically determine display type for files.</li>
+<li><code class="docutils literal"><span class="pre">LIST_SHORT</span></code> Short List, Display files as short list.</li>
+<li><code class="docutils literal"><span class="pre">LIST_LONG</span></code> Long List, Display files as a detailed list.</li>
+<li><code class="docutils literal"><span class="pre">THUMBNAIL</span></code> Thumbnails, Display files as thumbnails.</li>
+</ul>
+</li>
+<li><strong>sort_method</strong> (<em>enum in ['FILE_SORT_ALPHA', 'FILE_SORT_EXTENSION', 'FILE_SORT_TIME', 'FILE_SORT_SIZE'], (optional)</em>) &#8211; <p>File sorting mode</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_ALPHA</span></code> Sort alphabetically, Sort the file list alphabetically.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_EXTENSION</span></code> Sort by extension, Sort the file list by extension/type.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_TIME</span></code> Sort by time, Sort files by modification time.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SORT_SIZE</span></code> Sort by size, Sort files by size.</li>
+</ul>
+</li>
+<li><strong>full</strong> (<em>boolean, (optional)</em>) &#8211; Full Screen, Capture the whole window (otherwise only capture the active area)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.spacedata_cleanup">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">spacedata_cleanup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.spacedata_cleanup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove unused settings for invisible editors</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.screen.userpref_show">
+<code class="descclassname">bpy.ops.screen.</code><code class="descname">userpref_show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.screen.userpref_show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show user preferences</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.ops.scene.html"
+                        title="previous chapter">Scene Operators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.ops.script.html"
+                        title="next chapter">Script Operators</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.script.html" title="Script Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.scene.html" title="Scene Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

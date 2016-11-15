@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>KDTree Utilities (mathutils.kdtree) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="next" title="Interpolation Utilities (mathutils.interpolate)" href="mathutils.interpolate.html" />
+    <link rel="prev" title="BVHTree Utilities (mathutils.bvhtree)" href="mathutils.bvhtree.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mathutils.interpolate.html" title="Interpolation Utilities (mathutils.interpolate)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mathutils.bvhtree.html" title="BVHTree Utilities (mathutils.bvhtree)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-mathutils.kdtree">
+<span id="kdtree-utilities-mathutils-kdtree"></span><h1>KDTree Utilities (mathutils.kdtree)<a class="headerlink" href="#module-mathutils.kdtree" title="Permalink to this headline">¶</a></h1>
+<p>Generic 3-dimentional kd-tree to perform spatial searches.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mathutils</span>
+
+<span class="c1"># create a kd-tree from a mesh</span>
+<span class="kn">from</span> <span class="nn">bpy</span> <span class="k">import</span> <span class="n">context</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">object</span>
+
+<span class="c1"># 3d cursor relative to the object data</span>
+<span class="n">co_find</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">cursor_location</span> <span class="o">*</span> <span class="n">obj</span><span class="o">.</span><span class="n">matrix_world</span><span class="o">.</span><span class="n">inverted</span><span class="p">()</span>
+
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">data</span>
+<span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">)</span>
+<span class="n">kd</span> <span class="o">=</span> <span class="n">mathutils</span><span class="o">.</span><span class="n">kdtree</span><span class="o">.</span><span class="n">KDTree</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">):</span>
+    <span class="n">kd</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">co</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+
+<span class="n">kd</span><span class="o">.</span><span class="n">balance</span><span class="p">()</span>
+
+
+<span class="c1"># Find the closest point to the center</span>
+<span class="n">co_find</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="n">co</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">dist</span> <span class="o">=</span> <span class="n">kd</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">co_find</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Close to center:&quot;</span><span class="p">,</span> <span class="n">co</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">dist</span><span class="p">)</span>
+
+
+<span class="c1"># Find the closest 10 points to the 3d cursor</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Close 10 points&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">co</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">dist</span><span class="p">)</span> <span class="ow">in</span> <span class="n">kd</span><span class="o">.</span><span class="n">find_n</span><span class="p">(</span><span class="n">co_find</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    &quot;</span><span class="p">,</span> <span class="n">co</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">dist</span><span class="p">)</span>
+
+
+<span class="c1"># Find points within a radius of the 3d cursor</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Close points within 0.5 distance&quot;</span><span class="p">)</span>
+<span class="n">co_find</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">cursor_location</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">co</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">dist</span><span class="p">)</span> <span class="ow">in</span> <span class="n">kd</span><span class="o">.</span><span class="n">find_range</span><span class="p">(</span><span class="n">co_find</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    &quot;</span><span class="p">,</span> <span class="n">co</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">dist</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="class">
+<dt id="mathutils.kdtree.KDTree">
+<em class="property">class </em><code class="descclassname">mathutils.kdtree.</code><code class="descname">KDTree</code><a class="headerlink" href="#mathutils.kdtree.KDTree" title="Permalink to this definition">¶</a></dt>
+<dd><p>KdTree(size) -&gt; new kd-tree initialized to hold <code class="docutils literal"><span class="pre">size</span></code> items.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><a class="reference internal" href="#mathutils.kdtree.KDTree.balance" title="mathutils.kdtree.KDTree.balance"><code class="xref py py-class docutils literal"><span class="pre">KDTree.balance</span></code></a> must have been called before using any of the <code class="docutils literal"><span class="pre">find</span></code> methods.</p>
+</div>
+<dl class="method">
+<dt id="mathutils.kdtree.KDTree.balance">
+<code class="descname">balance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.kdtree.KDTree.balance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Balance the tree.</p>
+</dd></dl>
+
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This builds the entire tree, avoid calling after each insertion.</p>
+</div>
+<dl class="method">
+<dt id="mathutils.kdtree.KDTree.find">
+<code class="descname">find</code><span class="sig-paren">(</span><em>co</em>, <em>filter=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.kdtree.KDTree.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find nearest point to <code class="docutils literal"><span class="pre">co</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>co</strong> (<em>float triplet</em>) &#8211; 3d coordinates.</li>
+<li><strong>filter</strong> (<em>callable</em>) &#8211; function which takes an index and returns True for indices to include in the search.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Returns (<code class="xref py py-class docutils literal"><span class="pre">Vector</span></code>, index, distance).</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">tuple</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mathutils.kdtree.KDTree.find_n">
+<code class="descname">find_n</code><span class="sig-paren">(</span><em>co</em>, <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.kdtree.KDTree.find_n" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find nearest <code class="docutils literal"><span class="pre">n</span></code> points to <code class="docutils literal"><span class="pre">co</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>co</strong> (<em>float triplet</em>) &#8211; 3d coordinates.</li>
+<li><strong>n</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; Number of points to find.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Returns a list of tuples (<code class="xref py py-class docutils literal"><span class="pre">Vector</span></code>, index, distance).</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mathutils.kdtree.KDTree.find_range">
+<code class="descname">find_range</code><span class="sig-paren">(</span><em>co</em>, <em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.kdtree.KDTree.find_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find all points within <code class="docutils literal"><span class="pre">radius</span></code> of <code class="docutils literal"><span class="pre">co</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>co</strong> (<em>float triplet</em>) &#8211; 3d coordinates.</li>
+<li><strong>radius</strong> (<a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float"><em>float</em></a>) &#8211; Distance to search for points.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Returns a list of tuples (<code class="xref py py-class docutils literal"><span class="pre">Vector</span></code>, index, distance).</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mathutils.kdtree.KDTree.insert">
+<code class="descname">insert</code><span class="sig-paren">(</span><em>co</em>, <em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.kdtree.KDTree.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert a point into the KDTree.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>co</strong> (<em>float triplet</em>) &#8211; Point 3d position.</li>
+<li><strong>index</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; The index of the point.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mathutils.bvhtree.html"
+                        title="previous chapter">BVHTree Utilities (mathutils.bvhtree)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mathutils.interpolate.html"
+                        title="next chapter">Interpolation Utilities (mathutils.interpolate)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mathutils.interpolate.html" title="Interpolation Utilities (mathutils.interpolate)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mathutils.bvhtree.html" title="BVHTree Utilities (mathutils.bvhtree)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

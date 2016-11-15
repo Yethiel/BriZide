@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Poselib Operators &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Operators (bpy.ops)" href="bpy.ops.html" />
+    <link rel="next" title="Ptcache Operators" href="bpy.ops.ptcache.html" />
+    <link rel="prev" title="Pose Operators" href="bpy.ops.pose.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.ptcache.html" title="Ptcache Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.pose.html" title="Pose Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.ops.poselib">
+<span id="poselib-operators"></span><h1>Poselib Operators<a class="headerlink" href="#module-bpy.ops.poselib" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bpy.ops.poselib.action_sanitize">
+<code class="descclassname">bpy.ops.poselib.</code><code class="descname">action_sanitize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.poselib.action_sanitize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make action suitable for use as a Pose Library</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.poselib.apply_pose">
+<code class="descclassname">bpy.ops.poselib.</code><code class="descname">apply_pose</code><span class="sig-paren">(</span><em>pose_index=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.poselib.apply_pose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply specified Pose Library pose to the rig</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pose_index</strong> (<em>int in [-2, inf], (optional)</em>) &#8211; Pose, Index of the pose to apply (-2 for no change to pose, -1 for poselib active pose)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.poselib.browse_interactive">
+<code class="descclassname">bpy.ops.poselib.</code><code class="descname">browse_interactive</code><span class="sig-paren">(</span><em>pose_index=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.poselib.browse_interactive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interactively browse poses in 3D-View</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pose_index</strong> (<em>int in [-2, inf], (optional)</em>) &#8211; Pose, Index of the pose to apply (-2 for no change to pose, -1 for poselib active pose)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.poselib.new">
+<code class="descclassname">bpy.ops.poselib.</code><code class="descname">new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.poselib.new" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add New Pose Library to active Object</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.poselib.pose_add">
+<code class="descclassname">bpy.ops.poselib.</code><code class="descname">pose_add</code><span class="sig-paren">(</span><em>frame=1</em>, <em>name=&quot;Pose&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.poselib.pose_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the current Pose to the active Pose Library</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>frame</strong> (<em>int in [0, inf], (optional)</em>) &#8211; Frame, Frame to store pose on</li>
+<li><strong>name</strong> (<em>string, (optional, never None)</em>) &#8211; Pose Name, Name of newly added Pose</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.poselib.pose_remove">
+<code class="descclassname">bpy.ops.poselib.</code><code class="descname">pose_remove</code><span class="sig-paren">(</span><em>pose=''</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.poselib.pose_remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove nth pose from the active Pose Library</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pose</strong> (<em>enum in [], (optional)</em>) &#8211; Pose, The pose to remove</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.poselib.pose_rename">
+<code class="descclassname">bpy.ops.poselib.</code><code class="descname">pose_rename</code><span class="sig-paren">(</span><em>name=&quot;RenamedPose&quot;</em>, <em>pose=''</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.poselib.pose_rename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rename specified pose from the active Pose Library</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<em>string, (optional, never None)</em>) &#8211; New Pose Name, New name for pose</li>
+<li><strong>pose</strong> (<em>enum in [], (optional)</em>) &#8211; Pose, The pose to rename</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.poselib.unlink">
+<code class="descclassname">bpy.ops.poselib.</code><code class="descname">unlink</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.poselib.unlink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove Pose Library from active Object</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.ops.pose.html"
+                        title="previous chapter">Pose Operators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.ops.ptcache.html"
+                        title="next chapter">Ptcache Operators</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.ptcache.html" title="Ptcache Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.pose.html" title="Pose Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

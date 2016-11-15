@@ -1,0 +1,762 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>SmokeDomainSettings(bpy_struct) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="SmokeFlowSettings(bpy_struct)" href="bpy.types.SmokeFlowSettings.html" />
+    <link rel="prev" title="SmokeCollSettings(bpy_struct)" href="bpy.types.SmokeCollSettings.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SmokeFlowSettings.html" title="SmokeFlowSettings(bpy_struct)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SmokeCollSettings.html" title="SmokeCollSettings(bpy_struct)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="smokedomainsettings-bpy-struct"></span><h1>SmokeDomainSettings(bpy_struct)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.SmokeDomainSettings">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">SmokeDomainSettings</code><span class="sig-paren">(</span><em>bpy_struct</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.SmokeDomainSettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Smoke domain settings</p>
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.adapt_margin">
+<code class="descname">adapt_margin</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.adapt_margin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Margin added around fluid to minimize boundary interference</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [2, 24], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.adapt_threshold">
+<code class="descname">adapt_threshold</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.adapt_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum amount of fluid cell can contain before it is considered empty</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.01, 0.5], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.additional_res">
+<code class="descname">additional_res</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.additional_res" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum number of additional cells</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [0, 512], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.alpha">
+<code class="descname">alpha</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.alpha" title="Permalink to this definition">¶</a></dt>
+<dd><p>How much density affects smoke motion (higher value results in faster rising smoke)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-5, 5], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.amplify">
+<code class="descname">amplify</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.amplify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enhance the resolution of smoke by this factor using noise</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 10], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.beta">
+<code class="descname">beta</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.beta" title="Permalink to this definition">¶</a></dt>
+<dd><p>How much heat affects smoke motion (higher value results in faster rising smoke)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [-5, 5], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.burning_rate">
+<code class="descname">burning_rate</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.burning_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Speed of the burning reaction (use larger values for smaller flame)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.01, 4], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.cache_file_format">
+<code class="descname">cache_file_format</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.cache_file_format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select the file format to be used for caching</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">POINTCACHE</span></code> Point Cache, Blender specific point cache file format.</li>
+<li><code class="docutils literal"><span class="pre">OPENVDB</span></code> OpenVDB, OpenVDB file format.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;POINTCACHE&#8217;, &#8216;OPENVDB&#8217;], default &#8216;POINTCACHE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SmokeDomainSettings.cell_size">
+<code class="descname">cell_size</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.cell_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cell Size</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 3 items in [-inf, inf], default (0.0, 0.0, 0.0), (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.collision_extents">
+<code class="descname">collision_extents</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.collision_extents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select which domain border will be treated as collision object</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">BORDEROPEN</span></code> Open, Smoke doesn&#8217;t collide with any border.</li>
+<li><code class="docutils literal"><span class="pre">BORDERVERTICAL</span></code> Vertically Open, Smoke doesn&#8217;t collide with top and bottom sides.</li>
+<li><code class="docutils literal"><span class="pre">BORDERCLOSED</span></code> Collide All, Smoke collides with every side.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;BORDEROPEN&#8217;, &#8216;BORDERVERTICAL&#8217;, &#8216;BORDERCLOSED&#8217;], default &#8216;BORDEROPEN&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.collision_group">
+<code class="descname">collision_group</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.collision_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Limit collisions to this group</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Group.html#bpy.types.Group" title="bpy.types.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SmokeDomainSettings.color_grid">
+<code class="descname">color_grid</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.color_grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Smoke color grid</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 32 items in [-inf, inf], default (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0), (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.data_depth">
+<code class="descname">data_depth</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.data_depth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bit depth for writing all scalar (including vector) lower values reduce file size</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">16</span></code> Float (Half), Half float (16 bit data).</li>
+<li><code class="docutils literal"><span class="pre">32</span></code> Float (Full), Full float (32 bit data).</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;16&#8217;, &#8216;32&#8217;], default &#8216;32&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SmokeDomainSettings.density_grid">
+<code class="descname">density_grid</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.density_grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Smoke density grid</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 32 items in [-inf, inf], default (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0), (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.dissolve_speed">
+<code class="descname">dissolve_speed</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.dissolve_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dissolve Speed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 10000], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SmokeDomainSettings.domain_resolution">
+<code class="descname">domain_resolution</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.domain_resolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Smoke Grid Resolution</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int array of 3 items in [-inf, inf], default (0, 0, 0), (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.effector_group">
+<code class="descname">effector_group</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.effector_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Limit effectors to this group</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Group.html#bpy.types.Group" title="bpy.types.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SmokeDomainSettings.effector_weights">
+<code class="descname">effector_weights</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.effector_weights" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.EffectorWeights.html#bpy.types.EffectorWeights" title="bpy.types.EffectorWeights"><code class="xref py py-class docutils literal"><span class="pre">EffectorWeights</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SmokeDomainSettings.flame_grid">
+<code class="descname">flame_grid</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.flame_grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Smoke flame grid</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 32 items in [-inf, inf], default (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0), (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.flame_ignition">
+<code class="descname">flame_ignition</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.flame_ignition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimum temperature of flames</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.5, 5], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.flame_max_temp">
+<code class="descname">flame_max_temp</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.flame_max_temp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum temperature of flames</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [1, 10], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.flame_smoke">
+<code class="descname">flame_smoke</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.flame_smoke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of smoke created by burning fuel</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 8], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.flame_smoke_color">
+<code class="descname">flame_smoke_color</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.flame_smoke_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Color of smoke emitted from burning fuel</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 3 items in [0, inf], default (0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.flame_vorticity">
+<code class="descname">flame_vorticity</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.flame_vorticity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Additional vorticity for the flames</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 2], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.fluid_group">
+<code class="descname">fluid_group</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.fluid_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Limit fluid objects to this group</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.Group.html#bpy.types.Group" title="bpy.types.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SmokeDomainSettings.heat_grid">
+<code class="descname">heat_grid</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.heat_grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Smoke heat grid</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 32 items in [-inf, inf], default (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0), (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.highres_sampling">
+<code class="descname">highres_sampling</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.highres_sampling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for sampling the high resolution flow</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;FULLSAMPLE&#8217;, &#8216;LINEAR&#8217;, &#8216;NEAREST&#8217;], default &#8216;NEAREST&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.noise_type">
+<code class="descname">noise_type</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.noise_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Noise method which is used for creating the high resolution</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NOISEWAVE&#8217;, &#8216;NOISEFFT&#8217;], default &#8216;NOISEWAVE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.openvdb_cache_compress_type">
+<code class="descname">openvdb_cache_compress_type</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.openvdb_cache_compress_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compression method to be used</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">ZIP</span></code> Zip, Effective but slow compression.</li>
+<li><code class="docutils literal"><span class="pre">BLOSC</span></code> Blosc, Multithreaded compression, similar in size and quality as &#8216;Zip&#8217;.</li>
+<li><code class="docutils literal"><span class="pre">NONE</span></code> None, Do not use any compression.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;ZIP&#8217;, &#8216;BLOSC&#8217;, &#8216;NONE&#8217;], default &#8216;BLOSC&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SmokeDomainSettings.point_cache">
+<code class="descname">point_cache</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.point_cache" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.PointCache.html#bpy.types.PointCache" title="bpy.types.PointCache"><code class="xref py py-class docutils literal"><span class="pre">PointCache</span></code></a>, (readonly, never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.point_cache_compress_type">
+<code class="descname">point_cache_compress_type</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.point_cache_compress_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compression method to be used</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">CACHELIGHT</span></code> Light, Fast but not so effective compression.</li>
+<li><code class="docutils literal"><span class="pre">CACHEHEAVY</span></code> Heavy, Effective but slow compression.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;CACHELIGHT&#8217;, &#8216;CACHEHEAVY&#8217;], default &#8216;CACHELIGHT&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.resolution_max">
+<code class="descname">resolution_max</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.resolution_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximal resolution used in the fluid domain</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [6, 512], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.show_high_resolution">
+<code class="descname">show_high_resolution</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.show_high_resolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show high resolution (using amplification)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SmokeDomainSettings.start_point">
+<code class="descname">start_point</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.start_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start point</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 3 items in [-inf, inf], default (0.0, 0.0, 0.0), (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.strength">
+<code class="descname">strength</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.strength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Strength of noise</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 10], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.time_scale">
+<code class="descname">time_scale</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.time_scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjust simulation speed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.2, 1.5], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.use_adaptive_domain">
+<code class="descname">use_adaptive_domain</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.use_adaptive_domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adapt simulation resolution and size to fluid</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.use_dissolve_smoke">
+<code class="descname">use_dissolve_smoke</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.use_dissolve_smoke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable smoke to disappear over time</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.use_dissolve_smoke_log">
+<code class="descname">use_dissolve_smoke_log</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.use_dissolve_smoke_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Using 1/x</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.use_high_resolution">
+<code class="descname">use_high_resolution</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.use_high_resolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable high resolution (using amplification)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.SmokeDomainSettings.velocity_grid">
+<code class="descname">velocity_grid</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.velocity_grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Smoke velocity grid</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 32 items in [-inf, inf], default (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0), (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.SmokeDomainSettings.vorticity">
+<code class="descname">vorticity</code><a class="headerlink" href="#bpy.types.SmokeDomainSettings.vorticity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of turbulence/rotation in fluid</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.01, 4], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">References</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.SmokeModifier.html#bpy.types.SmokeModifier.domain_settings" title="bpy.types.SmokeModifier.domain_settings"><code class="xref py py-class docutils literal"><span class="pre">SmokeModifier.domain_settings</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.SmokeCollSettings.html"
+                        title="previous chapter">SmokeCollSettings(bpy_struct)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.SmokeFlowSettings.html"
+                        title="next chapter">SmokeFlowSettings(bpy_struct)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SmokeFlowSettings.html" title="SmokeFlowSettings(bpy_struct)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.SmokeCollSettings.html" title="SmokeCollSettings(bpy_struct)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

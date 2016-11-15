@@ -1,0 +1,530 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Nla Operators &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Operators (bpy.ops)" href="bpy.ops.html" />
+    <link rel="next" title="Node Operators" href="bpy.ops.node.html" />
+    <link rel="prev" title="Mesh Operators" href="bpy.ops.mesh.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.node.html" title="Node Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.mesh.html" title="Mesh Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.ops.nla">
+<span id="nla-operators"></span><h1>Nla Operators<a class="headerlink" href="#module-bpy.ops.nla" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bpy.ops.nla.action_pushdown">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">action_pushdown</code><span class="sig-paren">(</span><em>channel_index=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.action_pushdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Push action down onto the top of the NLA stack as a new strip</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>channel_index</strong> (<em>int in [-1, inf], (optional)</em>) &#8211; Channel Index, Index of NLA action channel to perform pushdown operation on</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.action_sync_length">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">action_sync_length</code><span class="sig-paren">(</span><em>active=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.action_sync_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synchronize the length of the referenced Action with the length used in the strip</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>active</strong> (<em>boolean, (optional)</em>) &#8211; Active Strip Only, Only sync the active length for the active strip</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.action_unlink">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">action_unlink</code><span class="sig-paren">(</span><em>force_delete=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.action_unlink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unlink this action from the active action slot (and/or exit Tweak Mode)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>force_delete</strong> (<em>boolean, (optional)</em>) &#8211; Force Delete, Clear Fake User and remove copy stashed in this datablock&#8217;s NLA stack</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.actionclip_add">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">actionclip_add</code><span class="sig-paren">(</span><em>action=''</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.actionclip_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an Action-Clip strip (i.e. an NLA Strip referencing an Action) to the active track</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>action</strong> (<em>enum in [], (optional)</em>) &#8211; Action</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.apply_scale">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">apply_scale</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.apply_scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply scaling of selected strips to their referenced Actions</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.bake">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">bake</code><span class="sig-paren">(</span><em>frame_start=1</em>, <em>frame_end=250</em>, <em>step=1</em>, <em>only_selected=True</em>, <em>visual_keying=False</em>, <em>clear_constraints=False</em>, <em>clear_parents=False</em>, <em>use_current_action=False</em>, <em>bake_types={'POSE'}</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.bake" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bake object/pose loc/scale/rotation animation to a new action</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>frame_start</strong> (<em>int in [0, 300000], (optional)</em>) &#8211; Start Frame, Start frame for baking</li>
+<li><strong>frame_end</strong> (<em>int in [1, 300000], (optional)</em>) &#8211; End Frame, End frame for baking</li>
+<li><strong>step</strong> (<em>int in [1, 120], (optional)</em>) &#8211; Frame Step, Frame Step</li>
+<li><strong>only_selected</strong> (<em>boolean, (optional)</em>) &#8211; Only Selected, Only key selected object/bones</li>
+<li><strong>visual_keying</strong> (<em>boolean, (optional)</em>) &#8211; Visual Keying, Keyframe from the final transformations (with constraints applied)</li>
+<li><strong>clear_constraints</strong> (<em>boolean, (optional)</em>) &#8211; Clear Constraints, Remove all constraints from keyed object/bones, and do &#8216;visual&#8217; keying</li>
+<li><strong>clear_parents</strong> (<em>boolean, (optional)</em>) &#8211; Clear Parents, Bake animation onto the object then clear parents (objects only)</li>
+<li><strong>use_current_action</strong> (<em>boolean, (optional)</em>) &#8211; Overwrite Current Action, Bake animation into current action, instead of creating a new one (useful for baking only part of bones in an armature)</li>
+<li><strong>bake_types</strong> (<em>enum set in {'POSE', 'OBJECT'}, (optional)</em>) &#8211; <p>Bake Data, Which data&#8217;s transformations to bake</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">POSE</span></code> Pose, Bake bones transformations.</li>
+<li><code class="docutils literal"><span class="pre">OBJECT</span></code> Object, Bake object transformations.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">File:</th><td class="field-body"><p class="first last"><a class="reference external" href="http://svn.blender.org/svnroot/bf-blender/trunk/blender/release/scripts/startup/bl_operators/anim.py">startup/bl_operators/anim.py</a>:259</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.channels_click">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">channels_click</code><span class="sig-paren">(</span><em>extend=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.channels_click" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle clicks to select NLA channels</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>extend</strong> (<em>boolean, (optional)</em>) &#8211; Extend Select</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.clear_scale">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">clear_scale</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.clear_scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset scaling of selected strips</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.click_select">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">click_select</code><span class="sig-paren">(</span><em>extend=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.click_select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle clicks to select NLA Strips</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>extend</strong> (<em>boolean, (optional)</em>) &#8211; Extend Select</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.delete">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete selected strips</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.duplicate">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">duplicate</code><span class="sig-paren">(</span><em>linked=False</em>, <em>mode='TRANSLATION'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.duplicate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Duplicate selected NLA-Strips, adding the new strips in new tracks above the originals</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>linked</strong> (<em>boolean, (optional)</em>) &#8211; Linked, When duplicating strips, assign new copies of the actions they use</li>
+<li><strong>mode</strong> (<em>enum in ['INIT', 'DUMMY', 'TRANSLATION', 'ROTATION', 'RESIZE', 'SKIN_RESIZE', 'TOSPHERE', 'SHEAR', 'BEND', 'SHRINKFATTEN', 'TILT', 'TRACKBALL', 'PUSHPULL', 'CREASE', 'MIRROR', 'BONE_SIZE', 'BONE_ENVELOPE', 'BONE_ENVELOPE_DIST', 'CURVE_SHRINKFATTEN', 'MASK_SHRINKFATTEN', 'GPENCIL_SHRINKFATTEN', 'BONE_ROLL', 'TIME_TRANSLATE', 'TIME_SLIDE', 'TIME_SCALE', 'TIME_EXTEND', 'BAKE_TIME', 'BWEIGHT', 'ALIGN', 'EDGESLIDE', 'SEQSLIDE'], (optional)</em>) &#8211; Mode</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.fmodifier_add">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">fmodifier_add</code><span class="sig-paren">(</span><em>type='NULL'</em>, <em>only_active=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.fmodifier_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add F-Modifier to the active/selected NLA-Strips</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>type</strong> (<em>enum in ['NULL', 'GENERATOR', 'FNGENERATOR', 'ENVELOPE', 'CYCLES', 'NOISE', 'LIMITS', 'STEPPED'], (optional)</em>) &#8211; <p>Type</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">NULL</span></code> Invalid.</li>
+<li><code class="docutils literal"><span class="pre">GENERATOR</span></code> Generator, Generate a curve using a factorized or expanded polynomial.</li>
+<li><code class="docutils literal"><span class="pre">FNGENERATOR</span></code> Built-In Function, Generate a curve using standard math functions such as sin and cos.</li>
+<li><code class="docutils literal"><span class="pre">ENVELOPE</span></code> Envelope, Reshape F-Curve values - e.g. change amplitude of movements.</li>
+<li><code class="docutils literal"><span class="pre">CYCLES</span></code> Cycles, Cyclic extend/repeat keyframe sequence.</li>
+<li><code class="docutils literal"><span class="pre">NOISE</span></code> Noise, Add pseudo-random noise on top of F-Curves.</li>
+<li><code class="docutils literal"><span class="pre">LIMITS</span></code> Limits, Restrict maximum and minimum values of F-Curve.</li>
+<li><code class="docutils literal"><span class="pre">STEPPED</span></code> Stepped Interpolation, Snap values to nearest grid-step - e.g. for a stop-motion look.</li>
+</ul>
+</li>
+<li><strong>only_active</strong> (<em>boolean, (optional)</em>) &#8211; Only Active, Only add a F-Modifier of the specified type to the active strip</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.fmodifier_copy">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">fmodifier_copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.fmodifier_copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy the F-Modifier(s) of the active NLA-Strip</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.fmodifier_paste">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">fmodifier_paste</code><span class="sig-paren">(</span><em>only_active=True</em>, <em>replace=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.fmodifier_paste" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add copied F-Modifiers to the selected NLA-Strips</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>only_active</strong> (<em>boolean, (optional)</em>) &#8211; Only Active, Only paste F-Modifiers on active strip</li>
+<li><strong>replace</strong> (<em>boolean, (optional)</em>) &#8211; Replace Existing, Replace existing F-Modifiers, instead of just appending to the end of the existing list</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.make_single_user">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">make_single_user</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.make_single_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure that each action is only used once in the set of strips selected</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.meta_add">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">meta_add</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.meta_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new meta-strips incorporating the selected strips</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.meta_remove">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">meta_remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.meta_remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Separate out the strips held by the selected meta-strips</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.move_down">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">move_down</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.move_down" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move selected strips down a track if there&#8217;s room</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.move_up">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">move_up</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.move_up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move selected strips up a track if there&#8217;s room</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.mute_toggle">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">mute_toggle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.mute_toggle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mute or un-mute selected strips</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.previewrange_set">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">previewrange_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.previewrange_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatically set Preview Range based on range of keyframes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.properties">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">properties</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle the properties region visibility</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.select_all_toggle">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">select_all_toggle</code><span class="sig-paren">(</span><em>invert=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.select_all_toggle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select or deselect all NLA-Strips</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>invert</strong> (<em>boolean, (optional)</em>) &#8211; Invert</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.select_border">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">select_border</code><span class="sig-paren">(</span><em>gesture_mode=0</em>, <em>xmin=0</em>, <em>xmax=0</em>, <em>ymin=0</em>, <em>ymax=0</em>, <em>extend=True</em>, <em>axis_range=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.select_border" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use box selection to grab NLA-Strips</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>gesture_mode</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Gesture Mode</li>
+<li><strong>xmin</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; X Min</li>
+<li><strong>xmax</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; X Max</li>
+<li><strong>ymin</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Y Min</li>
+<li><strong>ymax</strong> (<em>int in [-inf, inf], (optional)</em>) &#8211; Y Max</li>
+<li><strong>extend</strong> (<em>boolean, (optional)</em>) &#8211; Extend, Extend selection instead of deselecting everything first</li>
+<li><strong>axis_range</strong> (<em>boolean, (optional)</em>) &#8211; Axis Range</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.select_leftright">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">select_leftright</code><span class="sig-paren">(</span><em>mode='CHECK'</em>, <em>extend=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.select_leftright" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select strips to the left or the right of the current frame</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mode</strong> (<em>enum in ['CHECK', 'LEFT', 'RIGHT'], (optional)</em>) &#8211; Mode</li>
+<li><strong>extend</strong> (<em>boolean, (optional)</em>) &#8211; Extend Select</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.selected_objects_add">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">selected_objects_add</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.selected_objects_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make selected objects appear in NLA Editor by adding Animation Data</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.snap">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">snap</code><span class="sig-paren">(</span><em>type='CFRA'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.snap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move start of strips to specified time</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> (<em>enum in ['CFRA', 'NEAREST_FRAME', 'NEAREST_SECOND', 'NEAREST_MARKER'], (optional)</em>) &#8211; Type</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.soundclip_add">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">soundclip_add</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.soundclip_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a strip for controlling when speaker plays its sound clip</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.split">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">split</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split selected strips at their midpoints</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.swap">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">swap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.swap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Swap order of selected strips within tracks</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.tracks_add">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">tracks_add</code><span class="sig-paren">(</span><em>above_selected=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.tracks_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add NLA-Tracks above/after the selected tracks</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>above_selected</strong> (<em>boolean, (optional)</em>) &#8211; Above Selected, Add a new NLA Track above every existing selected one</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.tracks_delete">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">tracks_delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.tracks_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete selected NLA-Tracks and the strips they contain</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.transition_add">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">transition_add</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.transition_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a transition strip between two adjacent selected strips</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.tweakmode_enter">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">tweakmode_enter</code><span class="sig-paren">(</span><em>isolate_action=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.tweakmode_enter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enter tweaking mode for the action referenced by the active strip to edit its keyframes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>isolate_action</strong> (<em>boolean, (optional)</em>) &#8211; Isolate Action, Enable &#8216;solo&#8217; on the NLA Track containing the active strip, to edit it without seeing the effects of the NLA stack</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.tweakmode_exit">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">tweakmode_exit</code><span class="sig-paren">(</span><em>isolate_action=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.tweakmode_exit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exit tweaking mode for the action referenced by the active strip</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>isolate_action</strong> (<em>boolean, (optional)</em>) &#8211; Isolate Action, Disable &#8216;solo&#8217; on any of the NLA Tracks after exiting tweak mode to get things back to normal</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.view_all">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">view_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.view_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset viewable area to show full strips range</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.view_frame">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">view_frame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.view_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset viewable area to show range around current frame</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.nla.view_selected">
+<code class="descclassname">bpy.ops.nla.</code><code class="descname">view_selected</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.nla.view_selected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset viewable area to show selected strips range</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.ops.mesh.html"
+                        title="previous chapter">Mesh Operators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.ops.node.html"
+                        title="next chapter">Node Operators</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.node.html" title="Node Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.mesh.html" title="Mesh Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

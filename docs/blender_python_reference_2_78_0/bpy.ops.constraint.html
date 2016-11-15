@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Constraint Operators &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Operators (bpy.ops)" href="bpy.ops.html" />
+    <link rel="next" title="Curve Operators" href="bpy.ops.curve.html" />
+    <link rel="prev" title="Console Operators" href="bpy.ops.console.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.curve.html" title="Curve Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.console.html" title="Console Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" accesskey="U">Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.ops.constraint">
+<span id="constraint-operators"></span><h1>Constraint Operators<a class="headerlink" href="#module-bpy.ops.constraint" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bpy.ops.constraint.childof_clear_inverse">
+<code class="descclassname">bpy.ops.constraint.</code><code class="descname">childof_clear_inverse</code><span class="sig-paren">(</span><em>constraint=&quot;&quot;</em>, <em>owner='OBJECT'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.constraint.childof_clear_inverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear inverse correction for ChildOf constraint</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>constraint</strong> (<em>string, (optional, never None)</em>) &#8211; Constraint, Name of the constraint to edit</li>
+<li><strong>owner</strong> (<em>enum in ['OBJECT', 'BONE'], (optional)</em>) &#8211; <p>Owner, The owner of this constraint</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">OBJECT</span></code> Object, Edit a constraint on the active object.</li>
+<li><code class="docutils literal"><span class="pre">BONE</span></code> Bone, Edit a constraint on the active bone.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.constraint.childof_set_inverse">
+<code class="descclassname">bpy.ops.constraint.</code><code class="descname">childof_set_inverse</code><span class="sig-paren">(</span><em>constraint=&quot;&quot;</em>, <em>owner='OBJECT'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.constraint.childof_set_inverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set inverse correction for ChildOf constraint</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>constraint</strong> (<em>string, (optional, never None)</em>) &#8211; Constraint, Name of the constraint to edit</li>
+<li><strong>owner</strong> (<em>enum in ['OBJECT', 'BONE'], (optional)</em>) &#8211; <p>Owner, The owner of this constraint</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">OBJECT</span></code> Object, Edit a constraint on the active object.</li>
+<li><code class="docutils literal"><span class="pre">BONE</span></code> Bone, Edit a constraint on the active bone.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.constraint.delete">
+<code class="descclassname">bpy.ops.constraint.</code><code class="descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.constraint.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove constraint from constraint stack</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.constraint.followpath_path_animate">
+<code class="descclassname">bpy.ops.constraint.</code><code class="descname">followpath_path_animate</code><span class="sig-paren">(</span><em>constraint=&quot;&quot;</em>, <em>owner='OBJECT'</em>, <em>frame_start=1</em>, <em>length=100</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.constraint.followpath_path_animate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add default animation for path used by constraint if it isn&#8217;t animated already</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>constraint</strong> (<em>string, (optional, never None)</em>) &#8211; Constraint, Name of the constraint to edit</li>
+<li><strong>owner</strong> (<em>enum in ['OBJECT', 'BONE'], (optional)</em>) &#8211; <p>Owner, The owner of this constraint</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">OBJECT</span></code> Object, Edit a constraint on the active object.</li>
+<li><code class="docutils literal"><span class="pre">BONE</span></code> Bone, Edit a constraint on the active bone.</li>
+</ul>
+</li>
+<li><strong>frame_start</strong> (<em>int in [-500000, 500000], (optional)</em>) &#8211; Start Frame, First frame of path animation</li>
+<li><strong>length</strong> (<em>int in [0, 500000], (optional)</em>) &#8211; Length, Number of frames that path animation should take</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.constraint.limitdistance_reset">
+<code class="descclassname">bpy.ops.constraint.</code><code class="descname">limitdistance_reset</code><span class="sig-paren">(</span><em>constraint=&quot;&quot;</em>, <em>owner='OBJECT'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.constraint.limitdistance_reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset limiting distance for Limit Distance Constraint</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>constraint</strong> (<em>string, (optional, never None)</em>) &#8211; Constraint, Name of the constraint to edit</li>
+<li><strong>owner</strong> (<em>enum in ['OBJECT', 'BONE'], (optional)</em>) &#8211; <p>Owner, The owner of this constraint</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">OBJECT</span></code> Object, Edit a constraint on the active object.</li>
+<li><code class="docutils literal"><span class="pre">BONE</span></code> Bone, Edit a constraint on the active bone.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.constraint.move_down">
+<code class="descclassname">bpy.ops.constraint.</code><code class="descname">move_down</code><span class="sig-paren">(</span><em>constraint=&quot;&quot;</em>, <em>owner='OBJECT'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.constraint.move_down" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move constraint down in constraint stack</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>constraint</strong> (<em>string, (optional, never None)</em>) &#8211; Constraint, Name of the constraint to edit</li>
+<li><strong>owner</strong> (<em>enum in ['OBJECT', 'BONE'], (optional)</em>) &#8211; <p>Owner, The owner of this constraint</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">OBJECT</span></code> Object, Edit a constraint on the active object.</li>
+<li><code class="docutils literal"><span class="pre">BONE</span></code> Bone, Edit a constraint on the active bone.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.constraint.move_up">
+<code class="descclassname">bpy.ops.constraint.</code><code class="descname">move_up</code><span class="sig-paren">(</span><em>constraint=&quot;&quot;</em>, <em>owner='OBJECT'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.constraint.move_up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move constraint up in constraint stack</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>constraint</strong> (<em>string, (optional, never None)</em>) &#8211; Constraint, Name of the constraint to edit</li>
+<li><strong>owner</strong> (<em>enum in ['OBJECT', 'BONE'], (optional)</em>) &#8211; <p>Owner, The owner of this constraint</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">OBJECT</span></code> Object, Edit a constraint on the active object.</li>
+<li><code class="docutils literal"><span class="pre">BONE</span></code> Bone, Edit a constraint on the active bone.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.constraint.objectsolver_clear_inverse">
+<code class="descclassname">bpy.ops.constraint.</code><code class="descname">objectsolver_clear_inverse</code><span class="sig-paren">(</span><em>constraint=&quot;&quot;</em>, <em>owner='OBJECT'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.constraint.objectsolver_clear_inverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear inverse correction for ObjectSolver constraint</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>constraint</strong> (<em>string, (optional, never None)</em>) &#8211; Constraint, Name of the constraint to edit</li>
+<li><strong>owner</strong> (<em>enum in ['OBJECT', 'BONE'], (optional)</em>) &#8211; <p>Owner, The owner of this constraint</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">OBJECT</span></code> Object, Edit a constraint on the active object.</li>
+<li><code class="docutils literal"><span class="pre">BONE</span></code> Bone, Edit a constraint on the active bone.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.constraint.objectsolver_set_inverse">
+<code class="descclassname">bpy.ops.constraint.</code><code class="descname">objectsolver_set_inverse</code><span class="sig-paren">(</span><em>constraint=&quot;&quot;</em>, <em>owner='OBJECT'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.constraint.objectsolver_set_inverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set inverse correction for ObjectSolver constraint</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>constraint</strong> (<em>string, (optional, never None)</em>) &#8211; Constraint, Name of the constraint to edit</li>
+<li><strong>owner</strong> (<em>enum in ['OBJECT', 'BONE'], (optional)</em>) &#8211; <p>Owner, The owner of this constraint</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">OBJECT</span></code> Object, Edit a constraint on the active object.</li>
+<li><code class="docutils literal"><span class="pre">BONE</span></code> Bone, Edit a constraint on the active bone.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bpy.ops.constraint.stretchto_reset">
+<code class="descclassname">bpy.ops.constraint.</code><code class="descname">stretchto_reset</code><span class="sig-paren">(</span><em>constraint=&quot;&quot;</em>, <em>owner='OBJECT'</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.ops.constraint.stretchto_reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset original length of bone for Stretch To Constraint</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>constraint</strong> (<em>string, (optional, never None)</em>) &#8211; Constraint, Name of the constraint to edit</li>
+<li><strong>owner</strong> (<em>enum in ['OBJECT', 'BONE'], (optional)</em>) &#8211; <p>Owner, The owner of this constraint</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">OBJECT</span></code> Object, Edit a constraint on the active object.</li>
+<li><code class="docutils literal"><span class="pre">BONE</span></code> Bone, Edit a constraint on the active bone.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.ops.console.html"
+                        title="previous chapter">Console Operators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.ops.curve.html"
+                        title="next chapter">Curve Operators</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.curve.html" title="Curve Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.console.html" title="Console Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.ops.html" >Operators (bpy.ops)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

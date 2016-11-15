@@ -1,0 +1,372 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>KX_ConstraintWrapper(PyObjectPlus) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Game Types (bge.types)" href="bge.types.html" />
+    <link rel="next" title="KX_FontObject(KX_GameObject)" href="bge.types.KX_FontObject.html" />
+    <link rel="prev" title="KX_ConstraintActuator(SCA_IActuator)" href="bge.types.KX_ConstraintActuator.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_FontObject.html" title="KX_FontObject(KX_GameObject)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_ConstraintActuator.html" title="KX_ConstraintActuator(SCA_IActuator)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" accesskey="U">Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bge.types">
+<span id="kx-constraintwrapper-pyobjectplus"></span><h1>KX_ConstraintWrapper(PyObjectPlus)<a class="headerlink" href="#module-bge.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bge.types.PyObjectPlus.html#bge.types.PyObjectPlus" title="bge.types.PyObjectPlus"><code class="xref py py-class docutils literal"><span class="pre">PyObjectPlus</span></code></a></p>
+<dl class="class">
+<dt id="bge.types.KX_ConstraintWrapper">
+<em class="property">class </em><code class="descclassname">bge.types.</code><code class="descname">KX_ConstraintWrapper</code><span class="sig-paren">(</span><em>PyObjectPlus</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_ConstraintWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>KX_ConstraintWrapper</p>
+<dl class="method">
+<dt id="bge.types.KX_ConstraintWrapper.getConstraintId">
+<code class="descname">getConstraintId</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_ConstraintWrapper.getConstraintId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the contraint ID</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the constraint ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">integer</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_ConstraintWrapper.setParam">
+<code class="descname">setParam</code><span class="sig-paren">(</span><em>axis</em>, <em>value0</em>, <em>value1</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_ConstraintWrapper.setParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the contraint limits</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>axis</strong> (<em>integer</em>) &#8211; </td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Lowerlimit == Upperlimit -&gt; axis is locked</li>
+<li>Lowerlimit &gt; Upperlimit -&gt; axis is free</li>
+<li>Lowerlimit &lt; Upperlimit -&gt; axis it limited in that range</li>
+</ul>
+</div>
+<p>For PHY_LINEHINGE_CONSTRAINT = 2 or PHY_ANGULAR_CONSTRAINT = 3:</p>
+<dl class="docutils">
+<dt>axis = 3 is a constraint limit, with low/high limit value</dt>
+<dd><ul class="first last simple">
+<li>3: X axis angle</li>
+</ul>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>(min)</strong> (<em>value0</em>) &#8211; Set the minimum limit of the axis</li>
+<li><strong>(max)</strong> (<em>value1</em>) &#8211; Set the maximum limit of the axis</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>For PHY_CONE_TWIST_CONSTRAINT = 4:</p>
+<dl class="docutils">
+<dt>axis = 3..5 are constraint limits, high limit values</dt>
+<dd><ul class="first last simple">
+<li>3: X axis angle</li>
+<li>4: Y axis angle</li>
+<li>5: Z axis angle</li>
+</ul>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>(min)</strong> (<em>value0</em>) &#8211; Set the minimum limit of the axis</li>
+<li><strong>(max)</strong> (<em>value1</em>) &#8211; Set the maximum limit of the axis</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>For PHY_GENERIC_6DOF_CONSTRAINT = 12:</p>
+<dl class="docutils">
+<dt>axis = 0..2 are constraint limits, with low/high limit value</dt>
+<dd><ul class="first last simple">
+<li>0: X axis position</li>
+<li>1: Y axis position</li>
+<li>2: Z axis position</li>
+</ul>
+</dd>
+<dt>axis = 3..5 are relative constraint (Euler) angles in radians</dt>
+<dd><ul class="first last simple">
+<li>3: X axis angle</li>
+<li>4: Y axis angle</li>
+<li>5: Z axis angle</li>
+</ul>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>(min)</strong> (<em>value0</em>) &#8211; Set the minimum limit of the axis</li>
+<li><strong>(max)</strong> (<em>value1</em>) &#8211; Set the maximum limit of the axis</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>axis = 6..8 are translational motors, with value0=target velocity, value1 = max motor force</dt>
+<dd><ul class="first last simple">
+<li>6: X axis position</li>
+<li>7: Y axis position</li>
+<li>8: Z axis position</li>
+</ul>
+</dd>
+<dt>axis = 9..11 are rotational motors, with value0=target velocity, value1 = max motor force</dt>
+<dd><ul class="first last simple">
+<li>9: X axis angle</li>
+<li>10: Y axis angle</li>
+<li>11: Z axis angle</li>
+</ul>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>(speed)</strong> (<em>value0</em>) &#8211; Set the linear velocity of the axis</li>
+<li><strong>(force)</strong> (<em>value1</em>) &#8211; Set the maximum force limit of the axis</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>axis = 12..14 are for linear springs on each of the position of freedom</dt>
+<dd><ul class="first last simple">
+<li>12: X axis position</li>
+<li>13: Y axis position</li>
+<li>14: Z axis position</li>
+</ul>
+</dd>
+<dt>axis = 15..17 are for angular springs on each of the angle of freedom in radians</dt>
+<dd><ul class="first last simple">
+<li>15: X axis angle</li>
+<li>16: Y axis angle</li>
+<li>17: Z axis angle</li>
+</ul>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>(stiffness)</strong> (<em>value0</em>) &#8211; Set the stiffness of the spring</li>
+<li><strong>(damping)</strong> (<em>value1</em>) &#8211; Tendency of the spring to return to it&#8217;s original position</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_ConstraintWrapper.getParam">
+<code class="descname">getParam</code><span class="sig-paren">(</span><em>axis</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_ConstraintWrapper.getParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the contraint position or euler angle of a generic 6DOF constraint</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>axis</strong> (<em>integer</em>) &#8211; </td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>axis = 0..2 are linear constraint values</dt>
+<dd><ul class="first last simple">
+<li>0: X axis position</li>
+<li>1: Y axis position</li>
+<li>2: Z axis position</li>
+</ul>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">position</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float">float</a></td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>axis = 3..5 are relative constraint (Euler) angles in radians</dt>
+<dd><ul class="first last simple">
+<li>3: X axis angle</li>
+<li>4: Y axis angle</li>
+<li>5: Z axis angle</li>
+</ul>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">angle</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float">float</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_ConstraintWrapper.constraint_id">
+<code class="descname">constraint_id</code><a class="headerlink" href="#bge.types.KX_ConstraintWrapper.constraint_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the contraint ID  (read only)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">integer</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bge.types.KX_ConstraintWrapper.constraint_type">
+<code class="descname">constraint_type</code><a class="headerlink" href="#bge.types.KX_ConstraintWrapper.constraint_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the contraint type (read only)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><p class="first">integer</p>
+<ul class="last simple">
+<li><a class="reference internal" href="bge.constraints.html#bge.constraints.POINTTOPOINT_CONSTRAINT" title="bge.constraints.POINTTOPOINT_CONSTRAINT"><code class="xref py py-class docutils literal"><span class="pre">POINTTOPOINT_CONSTRAINT</span></code></a></li>
+<li><a class="reference internal" href="bge.constraints.html#bge.constraints.LINEHINGE_CONSTRAINT" title="bge.constraints.LINEHINGE_CONSTRAINT"><code class="xref py py-class docutils literal"><span class="pre">LINEHINGE_CONSTRAINT</span></code></a></li>
+<li><a class="reference internal" href="bge.constraints.html#bge.constraints.ANGULAR_CONSTRAINT" title="bge.constraints.ANGULAR_CONSTRAINT"><code class="xref py py-class docutils literal"><span class="pre">ANGULAR_CONSTRAINT</span></code></a></li>
+<li><a class="reference internal" href="bge.constraints.html#bge.constraints.CONETWIST_CONSTRAINT" title="bge.constraints.CONETWIST_CONSTRAINT"><code class="xref py py-class docutils literal"><span class="pre">CONETWIST_CONSTRAINT</span></code></a></li>
+<li><a class="reference internal" href="bge.constraints.html#bge.constraints.VEHICLE_CONSTRAINT" title="bge.constraints.VEHICLE_CONSTRAINT"><code class="xref py py-class docutils literal"><span class="pre">VEHICLE_CONSTRAINT</span></code></a></li>
+<li><a class="reference internal" href="bge.constraints.html#bge.constraints.GENERIC_6DOF_CONSTRAINT" title="bge.constraints.GENERIC_6DOF_CONSTRAINT"><code class="xref py py-class docutils literal"><span class="pre">GENERIC_6DOF_CONSTRAINT</span></code></a></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bge.types.KX_ConstraintActuator.html"
+                        title="previous chapter">KX_ConstraintActuator(SCA_IActuator)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bge.types.KX_FontObject.html"
+                        title="next chapter">KX_FontObject(KX_GameObject)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_FontObject.html" title="KX_FontObject(KX_GameObject)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_ConstraintActuator.html" title="KX_ConstraintActuator(SCA_IActuator)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" >Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

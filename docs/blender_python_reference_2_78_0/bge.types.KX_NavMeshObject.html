@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>KX_NavMeshObject(KX_GameObject) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Game Types (bge.types)" href="bge.types.html" />
+    <link rel="next" title="KX_NearSensor(KX_TouchSensor)" href="bge.types.KX_NearSensor.html" />
+    <link rel="prev" title="KX_MouseFocusSensor(SCA_MouseSensor)" href="bge.types.KX_MouseFocusSensor.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_NearSensor.html" title="KX_NearSensor(KX_TouchSensor)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_MouseFocusSensor.html" title="KX_MouseFocusSensor(SCA_MouseSensor)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" accesskey="U">Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bge.types">
+<span id="kx-navmeshobject-kx-gameobject"></span><h1>KX_NavMeshObject(KX_GameObject)<a class="headerlink" href="#module-bge.types" title="Permalink to this headline">¶</a></h1>
+<p>base class &#8212; <a class="reference internal" href="bge.types.KX_GameObject.html#bge.types.KX_GameObject" title="bge.types.KX_GameObject"><code class="xref py py-class docutils literal"><span class="pre">KX_GameObject</span></code></a></p>
+<dl class="class">
+<dt id="bge.types.KX_NavMeshObject">
+<em class="property">class </em><code class="descclassname">bge.types.</code><code class="descname">KX_NavMeshObject</code><span class="sig-paren">(</span><em>KX_GameObject</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_NavMeshObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Python interface for using and controlling navigation meshes.</p>
+<dl class="method">
+<dt id="bge.types.KX_NavMeshObject.findPath">
+<code class="descname">findPath</code><span class="sig-paren">(</span><em>start</em>, <em>goal</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_NavMeshObject.findPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the path from start to goal points.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>start</strong> &#8211; the start point</li>
+<li><strong>start</strong> &#8211; 3D Vector</li>
+<li><strong>goal</strong> &#8211; the goal point</li>
+<li><strong>start</strong> &#8211; 3D Vector</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a path as a list of points</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of points</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_NavMeshObject.raycast">
+<code class="descname">raycast</code><span class="sig-paren">(</span><em>start</em>, <em>goal</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_NavMeshObject.raycast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raycast from start to goal points.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>start</strong> &#8211; the start point</li>
+<li><strong>start</strong> &#8211; 3D Vector</li>
+<li><strong>goal</strong> &#8211; the goal point</li>
+<li><strong>start</strong> &#8211; 3D Vector</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the hit factor</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="bpy.types.PropertyGroupItem.html#bpy.types.PropertyGroupItem.float" title="bpy.types.PropertyGroupItem.float">float</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_NavMeshObject.draw">
+<code class="descname">draw</code><span class="sig-paren">(</span><em>mode</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_NavMeshObject.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws a debug mesh for the navigation mesh.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mode</strong> &#8211; the drawing mode (one of <a class="reference internal" href="bge.logic.html#navmesh-draw-mode"><span class="std std-ref">these constants</span></a>)</li>
+<li><strong>mode</strong> &#8211; integer</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bge.types.KX_NavMeshObject.rebuild">
+<code class="descname">rebuild</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bge.types.KX_NavMeshObject.rebuild" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rebuild the navigation mesh.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bge.types.KX_MouseFocusSensor.html"
+                        title="previous chapter">KX_MouseFocusSensor(SCA_MouseSensor)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bge.types.KX_NearSensor.html"
+                        title="next chapter">KX_NearSensor(KX_TouchSensor)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_NearSensor.html" title="KX_NearSensor(KX_TouchSensor)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bge.types.KX_MouseFocusSensor.html" title="KX_MouseFocusSensor(SCA_MouseSensor)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bge.types.html" >Game Types (bge.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

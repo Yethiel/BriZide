@@ -1,0 +1,634 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>PointLamp(Lamp) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="PointerProperty(Property)" href="bpy.types.PointerProperty.html" />
+    <link rel="prev" title="PointDensityTexture(Texture)" href="bpy.types.PointDensityTexture.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.PointerProperty.html" title="PointerProperty(Property)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.PointDensityTexture.html" title="PointDensityTexture(Texture)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="pointlamp-lamp"></span><h1>PointLamp(Lamp)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base classes &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal"><span class="pre">ID</span></code></a>, <a class="reference internal" href="bpy.types.Lamp.html#bpy.types.Lamp" title="bpy.types.Lamp"><code class="xref py py-class docutils literal"><span class="pre">Lamp</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.PointLamp">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">PointLamp</code><span class="sig-paren">(</span><em>Lamp</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.PointLamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Omnidirectional point lamp</p>
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.compression_threshold">
+<code class="descname">compression_threshold</code><a class="headerlink" href="#bpy.types.PointLamp.compression_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deep shadow map compression threshold</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.constant_coefficient">
+<code class="descname">constant_coefficient</code><a class="headerlink" href="#bpy.types.PointLamp.constant_coefficient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constant distance attenuation coefficient</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.PointLamp.falloff_curve">
+<code class="descname">falloff_curve</code><a class="headerlink" href="#bpy.types.PointLamp.falloff_curve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Custom Lamp Falloff Curve</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.CurveMapping.html#bpy.types.CurveMapping" title="bpy.types.CurveMapping"><code class="xref py py-class docutils literal"><span class="pre">CurveMapping</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.falloff_type">
+<code class="descname">falloff_type</code><a class="headerlink" href="#bpy.types.PointLamp.falloff_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Intensity Decay with distance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;CONSTANT&#8217;, &#8216;INVERSE_LINEAR&#8217;, &#8216;INVERSE_SQUARE&#8217;, &#8216;INVERSE_COEFFICIENTS&#8217;, &#8216;CUSTOM_CURVE&#8217;, &#8216;LINEAR_QUADRATIC_WEIGHTED&#8217;], default &#8216;CONSTANT&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.ge_shadow_buffer_type">
+<code class="descname">ge_shadow_buffer_type</code><a class="headerlink" href="#bpy.types.PointLamp.ge_shadow_buffer_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The shadow mapping algorithm used</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">SIMPLE</span></code> Simple, Simple shadow maps.</li>
+<li><code class="docutils literal"><span class="pre">VARIANCE</span></code> Variance, Variance shadow maps.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;SIMPLE&#8217;, &#8216;VARIANCE&#8217;], default &#8216;SIMPLE&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.linear_attenuation">
+<code class="descname">linear_attenuation</code><a class="headerlink" href="#bpy.types.PointLamp.linear_attenuation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Linear distance attenuation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.linear_coefficient">
+<code class="descname">linear_coefficient</code><a class="headerlink" href="#bpy.types.PointLamp.linear_coefficient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Linear distance attenuation coefficient</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.quadratic_attenuation">
+<code class="descname">quadratic_attenuation</code><a class="headerlink" href="#bpy.types.PointLamp.quadratic_attenuation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quadratic distance attenuation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.quadratic_coefficient">
+<code class="descname">quadratic_coefficient</code><a class="headerlink" href="#bpy.types.PointLamp.quadratic_coefficient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quadratic distance attenuation coefficient</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.shadow_adaptive_threshold">
+<code class="descname">shadow_adaptive_threshold</code><a class="headerlink" href="#bpy.types.PointLamp.shadow_adaptive_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Threshold for Adaptive Sampling (Raytraced shadows)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.shadow_buffer_bias">
+<code class="descname">shadow_buffer_bias</code><a class="headerlink" href="#bpy.types.PointLamp.shadow_buffer_bias" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shadow buffer sampling bias</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0.001, 5], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.shadow_buffer_bleed_bias">
+<code class="descname">shadow_buffer_bleed_bias</code><a class="headerlink" href="#bpy.types.PointLamp.shadow_buffer_bleed_bias" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bias for reducing light-bleed on variance shadow maps</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 1], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.shadow_buffer_clip_end">
+<code class="descname">shadow_buffer_clip_end</code><a class="headerlink" href="#bpy.types.PointLamp.shadow_buffer_clip_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shadow map clip end, beyond which objects will not generate shadows</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 9999], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.shadow_buffer_clip_start">
+<code class="descname">shadow_buffer_clip_start</code><a class="headerlink" href="#bpy.types.PointLamp.shadow_buffer_clip_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shadow map clip start, below which objects will not generate shadows</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 9999], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.shadow_buffer_samples">
+<code class="descname">shadow_buffer_samples</code><a class="headerlink" href="#bpy.types.PointLamp.shadow_buffer_samples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of shadow buffer samples</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 16], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.shadow_buffer_size">
+<code class="descname">shadow_buffer_size</code><a class="headerlink" href="#bpy.types.PointLamp.shadow_buffer_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resolution of the shadow buffer, higher values give crisper shadows but use more memory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [128, 10240], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.shadow_buffer_soft">
+<code class="descname">shadow_buffer_soft</code><a class="headerlink" href="#bpy.types.PointLamp.shadow_buffer_soft" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of shadow buffer sampling area</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, 100], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.shadow_buffer_type">
+<code class="descname">shadow_buffer_type</code><a class="headerlink" href="#bpy.types.PointLamp.shadow_buffer_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of shadow buffer</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">REGULAR</span></code> Classical, Classic shadow buffer.</li>
+<li><code class="docutils literal"><span class="pre">HALFWAY</span></code> Classic-Halfway, Regular buffer, averaging the closest and 2nd closest Z value to reducing bias artifacts.</li>
+<li><code class="docutils literal"><span class="pre">IRREGULAR</span></code> Irregular, Irregular buffer produces sharp shadow always, but it doesn&#8217;t show up for raytracing.</li>
+<li><code class="docutils literal"><span class="pre">DEEP</span></code> Deep, Deep shadow buffer supports transparency and better filtering, at the cost of more memory usage and processing time.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;REGULAR&#8217;, &#8216;HALFWAY&#8217;, &#8216;IRREGULAR&#8217;, &#8216;DEEP&#8217;], default &#8216;REGULAR&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.shadow_color">
+<code class="descname">shadow_color</code><a class="headerlink" href="#bpy.types.PointLamp.shadow_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Color of shadows cast by the lamp</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float array of 3 items in [0, inf], default (0.0, 0.0, 0.0)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.shadow_filter_type">
+<code class="descname">shadow_filter_type</code><a class="headerlink" href="#bpy.types.PointLamp.shadow_filter_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of shadow filter (Buffer Shadows)</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">BOX</span></code> Box, Apply the Box filter to shadow buffer samples.</li>
+<li><code class="docutils literal"><span class="pre">TENT</span></code> Tent, Apply the Tent Filter to shadow buffer samples.</li>
+<li><code class="docutils literal"><span class="pre">GAUSS</span></code> Gauss, Apply the Gauss filter to shadow buffer samples.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;BOX&#8217;, &#8216;TENT&#8217;, &#8216;GAUSS&#8217;], default &#8216;BOX&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.shadow_method">
+<code class="descname">shadow_method</code><a class="headerlink" href="#bpy.types.PointLamp.shadow_method" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><code class="docutils literal"><span class="pre">NOSHADOW</span></code> No Shadow.</li>
+<li><code class="docutils literal"><span class="pre">RAY_SHADOW</span></code> Ray Shadow, Use ray tracing for shadow.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;NOSHADOW&#8217;, &#8216;RAY_SHADOW&#8217;], default &#8216;NOSHADOW&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.shadow_ray_sample_method">
+<code class="descname">shadow_ray_sample_method</code><a class="headerlink" href="#bpy.types.PointLamp.shadow_ray_sample_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for generating shadow samples: Adaptive QMC is fastest, Constant QMC is less noisy but slower</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;ADAPTIVE_QMC&#8217;, &#8216;CONSTANT_QMC&#8217;], default &#8216;ADAPTIVE_QMC&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.shadow_ray_samples">
+<code class="descname">shadow_ray_samples</code><a class="headerlink" href="#bpy.types.PointLamp.shadow_ray_samples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of samples taken extra (samples x samples)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int in [1, 64], default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.shadow_sample_buffers">
+<code class="descname">shadow_sample_buffers</code><a class="headerlink" href="#bpy.types.PointLamp.shadow_sample_buffers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of shadow buffers to render for better AA, this increases memory usage</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">BUFFERS_1</span></code> 1, Only one buffer rendered.</li>
+<li><code class="docutils literal"><span class="pre">BUFFERS_4</span></code> 4, Render 4 buffers for better AA, this quadruples memory usage.</li>
+<li><code class="docutils literal"><span class="pre">BUFFERS_9</span></code> 9, Render 9 buffers for better AA, this uses nine times more memory.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">enum in [&#8216;BUFFERS_1&#8217;, &#8216;BUFFERS_4&#8217;, &#8216;BUFFERS_9&#8217;], default &#8216;BUFFERS_1&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.shadow_soft_size">
+<code class="descname">shadow_soft_size</code><a class="headerlink" href="#bpy.types.PointLamp.shadow_soft_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Light size for ray shadow sampling (Raytraced shadows)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">float in [0, inf], default 0.0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.use_auto_clip_end">
+<code class="descname">use_auto_clip_end</code><a class="headerlink" href="#bpy.types.PointLamp.use_auto_clip_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatic calculation of clipping-end, based on visible vertices</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.use_auto_clip_start">
+<code class="descname">use_auto_clip_start</code><a class="headerlink" href="#bpy.types.PointLamp.use_auto_clip_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatic calculation of clipping-start, based on visible vertices</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.use_only_shadow">
+<code class="descname">use_only_shadow</code><a class="headerlink" href="#bpy.types.PointLamp.use_only_shadow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cast shadows only, without illuminating objects</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.use_shadow">
+<code class="descname">use_shadow</code><a class="headerlink" href="#bpy.types.PointLamp.use_shadow" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.use_shadow_layer">
+<code class="descname">use_shadow_layer</code><a class="headerlink" href="#bpy.types.PointLamp.use_shadow_layer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Objects on the same layers only cast shadows</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.PointLamp.use_sphere">
+<code class="descname">use_sphere</code><a class="headerlink" href="#bpy.types.PointLamp.use_sphere" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set light intensity to zero beyond lamp distance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean, default False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.name" title="bpy.types.ID.name"><code class="xref py py-class docutils literal"><span class="pre">ID.name</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.users" title="bpy.types.ID.users"><code class="xref py py-class docutils literal"><span class="pre">ID.users</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.use_fake_user" title="bpy.types.ID.use_fake_user"><code class="xref py py-class docutils literal"><span class="pre">ID.use_fake_user</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.tag" title="bpy.types.ID.tag"><code class="xref py py-class docutils literal"><span class="pre">ID.tag</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_updated" title="bpy.types.ID.is_updated"><code class="xref py py-class docutils literal"><span class="pre">ID.is_updated</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_updated_data" title="bpy.types.ID.is_updated_data"><code class="xref py py-class docutils literal"><span class="pre">ID.is_updated_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_library_indirect" title="bpy.types.ID.is_library_indirect"><code class="xref py py-class docutils literal"><span class="pre">ID.is_library_indirect</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.library" title="bpy.types.ID.library"><code class="xref py py-class docutils literal"><span class="pre">ID.library</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.preview" title="bpy.types.ID.preview"><code class="xref py py-class docutils literal"><span class="pre">ID.preview</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Lamp.html#bpy.types.Lamp.type" title="bpy.types.Lamp.type"><code class="xref py py-class docutils literal"><span class="pre">Lamp.type</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Lamp.html#bpy.types.Lamp.distance" title="bpy.types.Lamp.distance"><code class="xref py py-class docutils literal"><span class="pre">Lamp.distance</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Lamp.html#bpy.types.Lamp.energy" title="bpy.types.Lamp.energy"><code class="xref py py-class docutils literal"><span class="pre">Lamp.energy</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.Lamp.html#bpy.types.Lamp.color" title="bpy.types.Lamp.color"><code class="xref py py-class docutils literal"><span class="pre">Lamp.color</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Lamp.html#bpy.types.Lamp.use_own_layer" title="bpy.types.Lamp.use_own_layer"><code class="xref py py-class docutils literal"><span class="pre">Lamp.use_own_layer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Lamp.html#bpy.types.Lamp.use_negative" title="bpy.types.Lamp.use_negative"><code class="xref py py-class docutils literal"><span class="pre">Lamp.use_negative</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Lamp.html#bpy.types.Lamp.use_specular" title="bpy.types.Lamp.use_specular"><code class="xref py py-class docutils literal"><span class="pre">Lamp.use_specular</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Lamp.html#bpy.types.Lamp.use_diffuse" title="bpy.types.Lamp.use_diffuse"><code class="xref py py-class docutils literal"><span class="pre">Lamp.use_diffuse</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Lamp.html#bpy.types.Lamp.node_tree" title="bpy.types.Lamp.node_tree"><code class="xref py py-class docutils literal"><span class="pre">Lamp.node_tree</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Lamp.html#bpy.types.Lamp.use_nodes" title="bpy.types.Lamp.use_nodes"><code class="xref py py-class docutils literal"><span class="pre">Lamp.use_nodes</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Lamp.html#bpy.types.Lamp.animation_data" title="bpy.types.Lamp.animation_data"><code class="xref py py-class docutils literal"><span class="pre">Lamp.animation_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Lamp.html#bpy.types.Lamp.texture_slots" title="bpy.types.Lamp.texture_slots"><code class="xref py py-class docutils literal"><span class="pre">Lamp.texture_slots</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Lamp.html#bpy.types.Lamp.active_texture" title="bpy.types.Lamp.active_texture"><code class="xref py py-class docutils literal"><span class="pre">Lamp.active_texture</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Lamp.html#bpy.types.Lamp.active_texture_index" title="bpy.types.Lamp.active_texture_index"><code class="xref py py-class docutils literal"><span class="pre">Lamp.active_texture_index</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.Lamp.html#bpy.types.Lamp.cycles" title="bpy.types.Lamp.cycles"><code class="xref py py-class docutils literal"><span class="pre">Lamp.cycles</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.copy" title="bpy.types.ID.copy"><code class="xref py py-class docutils literal"><span class="pre">ID.copy</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_clear" title="bpy.types.ID.user_clear"><code class="xref py py-class docutils literal"><span class="pre">ID.user_clear</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_remap" title="bpy.types.ID.user_remap"><code class="xref py py-class docutils literal"><span class="pre">ID.user_remap</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_of_id" title="bpy.types.ID.user_of_id"><code class="xref py py-class docutils literal"><span class="pre">ID.user_of_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.animation_data_create" title="bpy.types.ID.animation_data_create"><code class="xref py py-class docutils literal"><span class="pre">ID.animation_data_create</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.animation_data_clear" title="bpy.types.ID.animation_data_clear"><code class="xref py py-class docutils literal"><span class="pre">ID.animation_data_clear</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.update_tag" title="bpy.types.ID.update_tag"><code class="xref py py-class docutils literal"><span class="pre">ID.update_tag</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.PointDensityTexture.html"
+                        title="previous chapter">PointDensityTexture(Texture)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.PointerProperty.html"
+                        title="next chapter">PointerProperty(Property)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.PointerProperty.html" title="PointerProperty(Property)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.PointDensityTexture.html" title="PointDensityTexture(Texture)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

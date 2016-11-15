@@ -1,0 +1,441 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Menu(bpy_struct) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="Mesh(ID)" href="bpy.types.Mesh.html" />
+    <link rel="prev" title="MaterialVolume(bpy_struct)" href="bpy.types.MaterialVolume.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.Mesh.html" title="Mesh(ID)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.MaterialVolume.html" title="MaterialVolume(bpy_struct)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="menu-bpy-struct"></span><h1>Menu(bpy_struct)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-menu-example">
+<h2>Basic Menu Example<a class="headerlink" href="#basic-menu-example" title="Permalink to this headline">¶</a></h2>
+<p>Here is an example of a simple menu. Menus differ from panels in that they must
+reference from a header, panel or another menu.</p>
+<p>Notice the &#8216;CATEGORY_MT_name&#8217; in  <a class="reference internal" href="#bpy.types.Menu.bl_idname" title="bpy.types.Menu.bl_idname"><code class="xref py py-class docutils literal"><span class="pre">Menu.bl_idname</span></code></a>, this is a naming
+convention for menus.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Menu subclasses must be registered before referencing them from blender.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Menus have their <code class="xref py py-class docutils literal"><span class="pre">Layout.operator_context</span></code> initialized as
+&#8216;EXEC_REGION_WIN&#8217; rather than &#8216;INVOKE_DEFAULT&#8217; (see <a class="reference internal" href="bpy.ops.html#operator-execution-context"><span class="std std-ref">Execution Context</span></a>).
+If the operator context needs to initialize inputs from the
+<a class="reference internal" href="bpy.types.Operator.html#bpy.types.Operator.invoke" title="bpy.types.Operator.invoke"><code class="xref py py-class docutils literal"><span class="pre">Operator.invoke</span></code></a> function, then this needs to be explicitly set.</p>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+
+
+<span class="k">class</span> <span class="nc">BasicMenu</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Menu</span><span class="p">):</span>
+    <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;OBJECT_MT_select_test&quot;</span>
+    <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Select&quot;</span>
+
+    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout</span>
+
+        <span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="s2">&quot;object.select_all&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Select/Deselect All&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="s1">&#39;TOGGLE&#39;</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="s2">&quot;object.select_all&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Inverse&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="s1">&#39;INVERT&#39;</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="s2">&quot;object.select_random&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Random&quot;</span><span class="p">)</span>
+
+
+<span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">BasicMenu</span><span class="p">)</span>
+
+<span class="c1"># test call to display immediately.</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">wm</span><span class="o">.</span><span class="n">call_menu</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;OBJECT_MT_select_test&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="submenus">
+<h2>Submenus<a class="headerlink" href="#submenus" title="Permalink to this headline">¶</a></h2>
+<p>This menu demonstrates some different functions.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+
+
+<span class="k">class</span> <span class="nc">SubMenu</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Menu</span><span class="p">):</span>
+    <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;OBJECT_MT_select_submenu&quot;</span>
+    <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Select&quot;</span>
+
+    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout</span>
+
+        <span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="s2">&quot;object.select_all&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Select/Deselect All&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="s1">&#39;TOGGLE&#39;</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="s2">&quot;object.select_all&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Inverse&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="s1">&#39;INVERT&#39;</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="s2">&quot;object.select_random&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Random&quot;</span><span class="p">)</span>
+
+        <span class="c1"># access this operator as a submenu</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">operator_menu_enum</span><span class="p">(</span><span class="s2">&quot;object.select_by_type&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Select All by Type...&quot;</span><span class="p">)</span>
+
+        <span class="n">layout</span><span class="o">.</span><span class="n">separator</span><span class="p">()</span>
+
+        <span class="c1"># expand each operator option into this menu</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">operator_enum</span><span class="p">(</span><span class="s2">&quot;object.lamp_add&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">)</span>
+
+        <span class="n">layout</span><span class="o">.</span><span class="n">separator</span><span class="p">()</span>
+
+        <span class="c1"># use existing memu</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">menu</span><span class="p">(</span><span class="s2">&quot;VIEW3D_MT_transform&quot;</span><span class="p">)</span>
+
+
+<span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">SubMenu</span><span class="p">)</span>
+
+<span class="c1"># test call to display immediately.</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">wm</span><span class="o">.</span><span class="n">call_menu</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;OBJECT_MT_select_submenu&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="extending-menus">
+<h2>Extending Menus<a class="headerlink" href="#extending-menus" title="Permalink to this headline">¶</a></h2>
+<p>When creating menus for addons you can&#8217;t reference menus in Blender&#8217;s default
+scripts.
+Instead, the addon can add menu items to existing menus.</p>
+<p>The function menu_draw acts like <a class="reference internal" href="#bpy.types.Menu.draw" title="bpy.types.Menu.draw"><code class="xref py py-class docutils literal"><span class="pre">Menu.draw</span></code></a>.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+
+
+<span class="k">def</span> <span class="nf">menu_draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="s2">&quot;wm.save_homefile&quot;</span><span class="p">)</span>
+
+<span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">INFO_MT_file</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">menu_draw</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="preset-menus">
+<h2>Preset Menus<a class="headerlink" href="#preset-menus" title="Permalink to this headline">¶</a></h2>
+<p>Preset menus are simply a convention that uses a menu sub-class
+to perform the common task of managing presets.</p>
+<p>This example shows how you can add a preset menu.</p>
+<p>This example uses the object draw options,
+however you can use properties defined by your own scripts too.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>
+<span class="kn">import</span> <span class="nn">bpy</span>
+<span class="kn">from</span> <span class="nn">bpy.types</span> <span class="k">import</span> <span class="n">Operator</span><span class="p">,</span> <span class="n">Menu</span>
+<span class="kn">from</span> <span class="nn">bl_operators.presets</span> <span class="k">import</span> <span class="n">AddPresetBase</span>
+
+
+<span class="k">class</span> <span class="nc">OBJECT_MT_draw_presets</span><span class="p">(</span><span class="n">Menu</span><span class="p">):</span>
+    <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Object Draw Presets&quot;</span>
+    <span class="n">preset_subdir</span> <span class="o">=</span> <span class="s2">&quot;object/draw&quot;</span>
+    <span class="n">preset_operator</span> <span class="o">=</span> <span class="s2">&quot;script.execute_preset&quot;</span>
+    <span class="n">draw</span> <span class="o">=</span> <span class="n">Menu</span><span class="o">.</span><span class="n">draw_preset</span>
+
+
+<span class="k">class</span> <span class="nc">AddPresetObjectDraw</span><span class="p">(</span><span class="n">AddPresetBase</span><span class="p">,</span> <span class="n">Operator</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Add a Object Draw Preset&#39;&#39;&#39;</span>
+    <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;camera.object_draw_preset_add&quot;</span>
+    <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Add Object Draw Preset&quot;</span>
+    <span class="n">preset_menu</span> <span class="o">=</span> <span class="s2">&quot;OBJECT_MT_draw_presets&quot;</span>
+
+    <span class="c1"># variable used for all preset values</span>
+    <span class="n">preset_defines</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;obj = bpy.context.object&quot;</span>
+        <span class="p">]</span>
+
+    <span class="c1"># properties to store in the preset</span>
+    <span class="n">preset_values</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;obj.draw_type&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;obj.show_bounds&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;obj.draw_bounds_type&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;obj.show_name&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;obj.show_axis&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;obj.show_wire&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+
+    <span class="c1"># where to store the preset</span>
+    <span class="n">preset_subdir</span> <span class="o">=</span> <span class="s2">&quot;object/draw&quot;</span>
+
+
+<span class="c1"># Draw into an existing panel</span>
+<span class="k">def</span> <span class="nf">panel_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="n">layout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout</span>
+
+    <span class="n">row</span> <span class="o">=</span> <span class="n">layout</span><span class="o">.</span><span class="n">row</span><span class="p">(</span><span class="n">align</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">row</span><span class="o">.</span><span class="n">menu</span><span class="p">(</span><span class="n">OBJECT_MT_draw_presets</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">OBJECT_MT_draw_presets</span><span class="o">.</span><span class="n">bl_label</span><span class="p">)</span>
+    <span class="n">row</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">AddPresetObjectDraw</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">icon</span><span class="o">=</span><span class="s1">&#39;ZOOMIN&#39;</span><span class="p">)</span>
+    <span class="n">row</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">AddPresetObjectDraw</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">icon</span><span class="o">=</span><span class="s1">&#39;ZOOMOUT&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">remove_active</span> <span class="o">=</span> <span class="kc">True</span>
+
+
+<span class="n">classes</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">OBJECT_MT_draw_presets</span><span class="p">,</span>
+    <span class="n">AddPresetObjectDraw</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">cls</span> <span class="ow">in</span> <span class="n">classes</span><span class="p">:</span>
+        <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">cls</span><span class="p">)</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">OBJECT_PT_display</span><span class="o">.</span><span class="n">prepend</span><span class="p">(</span><span class="n">panel_func</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">cls</span> <span class="ow">in</span> <span class="n">classes</span><span class="p">:</span>
+        <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">cls</span><span class="p">)</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">OBJECT_PT_display</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">panel_func</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">register</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>base class &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a></p>
+<p>subclasses &#8212;
+<a class="reference internal" href="bpy.types.GPENCIL_PIE_sculpt.html#bpy.types.GPENCIL_PIE_sculpt" title="bpy.types.GPENCIL_PIE_sculpt"><code class="xref py py-class docutils literal"><span class="pre">GPENCIL_PIE_sculpt</span></code></a>, <a class="reference internal" href="bpy.types.GPENCIL_PIE_settings_palette.html#bpy.types.GPENCIL_PIE_settings_palette" title="bpy.types.GPENCIL_PIE_settings_palette"><code class="xref py py-class docutils literal"><span class="pre">GPENCIL_PIE_settings_palette</span></code></a>, <a class="reference internal" href="bpy.types.GPENCIL_PIE_tool_palette.html#bpy.types.GPENCIL_PIE_tool_palette" title="bpy.types.GPENCIL_PIE_tool_palette"><code class="xref py py-class docutils literal"><span class="pre">GPENCIL_PIE_tool_palette</span></code></a>, <a class="reference internal" href="bpy.types.GPENCIL_PIE_tools_more.html#bpy.types.GPENCIL_PIE_tools_more" title="bpy.types.GPENCIL_PIE_tools_more"><code class="xref py py-class docutils literal"><span class="pre">GPENCIL_PIE_tools_more</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.Menu">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">Menu</code><span class="sig-paren">(</span><em>bpy_struct</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Menu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Editor menu containing buttons</p>
+<dl class="attribute">
+<dt id="bpy.types.Menu.bl_description">
+<code class="descname">bl_description</code><a class="headerlink" href="#bpy.types.Menu.bl_description" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Menu.bl_idname">
+<code class="descname">bl_idname</code><a class="headerlink" href="#bpy.types.Menu.bl_idname" title="Permalink to this definition">¶</a></dt>
+<dd><p>If this is set, the menu gets a custom ID, otherwise it takes the name of the class used to define the menu (for example, if the class name is &#8220;OBJECT_MT_hello&#8221;, and bl_idname is not set by the script, then bl_idname = &#8220;OBJECT_MT_hello&#8221;)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Menu.bl_label">
+<code class="descname">bl_label</code><a class="headerlink" href="#bpy.types.Menu.bl_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>The menu label</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bpy.types.Menu.bl_translation_context">
+<code class="descname">bl_translation_context</code><a class="headerlink" href="#bpy.types.Menu.bl_translation_context" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string, default &#8220;*&#8221;, (never None)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="bpy.types.Menu.layout">
+<code class="descname">layout</code><a class="headerlink" href="#bpy.types.Menu.layout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the structure of the menu in the UI</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="bpy.types.UILayout.html#bpy.types.UILayout" title="bpy.types.UILayout"><code class="xref py py-class docutils literal"><span class="pre">UILayout</span></code></a>, (readonly)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="bpy.types.Menu.poll">
+<em class="property">classmethod </em><code class="descname">poll</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Menu.poll" title="Permalink to this definition">¶</a></dt>
+<dd><p>If this method returns a non-null output, then the menu can be drawn</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Menu.draw">
+<code class="descname">draw</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Menu.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw UI elements into the menu UI layout</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Menu.draw_preset">
+<code class="descname">draw_preset</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Menu.draw_preset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define these on the subclass:
+- preset_operator (string)
+- preset_subdir (string)</p>
+<p>Optionally:
+- preset_extensions (set of strings)
+- preset_operator_defaults (dict of keyword args)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bpy.types.Menu.path_menu">
+<code class="descname">path_menu</code><span class="sig-paren">(</span><em>searchpaths</em>, <em>operator</em>, <em>props_default=None</em>, <em>filter_ext=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.Menu.path_menu" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Menu(bpy_struct)</a><ul>
+<li><a class="reference internal" href="#basic-menu-example">Basic Menu Example</a></li>
+<li><a class="reference internal" href="#submenus">Submenus</a></li>
+<li><a class="reference internal" href="#extending-menus">Extending Menus</a></li>
+<li><a class="reference internal" href="#preset-menus">Preset Menus</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.MaterialVolume.html"
+                        title="previous chapter">MaterialVolume(bpy_struct)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.Mesh.html"
+                        title="next chapter">Mesh(ID)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.Mesh.html" title="Mesh(ID)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.MaterialVolume.html" title="MaterialVolume(bpy_struct)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

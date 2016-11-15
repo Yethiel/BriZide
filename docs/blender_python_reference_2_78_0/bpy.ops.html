@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Operators (bpy.ops) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="next" title="Action Operators" href="bpy.ops.action.html" />
+    <link rel="prev" title="Data Access (bpy.data)" href="bpy.data.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.action.html" title="Action Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.data.html" title="Data Access (bpy.data)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="operators-bpy-ops">
+<h1>Operators (bpy.ops)<a class="headerlink" href="#operators-bpy-ops" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="calling-operators">
+<h2>Calling Operators<a class="headerlink" href="#calling-operators" title="Permalink to this headline">¶</a></h2>
+<p>Provides python access to calling operators, this includes operators written in
+C, Python or macros.</p>
+<p>Only keyword arguments can be used to pass operator properties.</p>
+<p>Operators don&#8217;t have return values as you might expect,
+instead they return a set() which is made up of:
+<code class="docutils literal"><span class="pre">{'RUNNING_MODAL',</span> <span class="pre">'CANCELLED',</span> <span class="pre">'FINISHED',</span> <span class="pre">'PASS_THROUGH'}</span></code>.
+Common return values are <code class="docutils literal"><span class="pre">{'FINISHED'}</span></code> and <code class="docutils literal"><span class="pre">{'CANCELLED'}</span></code>.</p>
+<p>Calling an operator in the wrong context will raise a <code class="docutils literal"><span class="pre">RuntimeError</span></code>,
+there is a poll() method to avoid this problem.</p>
+<p>Note that the operator ID (bl_idname) in this example is <code class="docutils literal"><span class="pre">mesh.subdivide</span></code>,
+<code class="docutils literal"><span class="pre">bpy.ops</span></code> is just the access path for python.</p>
+<div class="section" id="keywords-and-positional-arguments">
+<h3>Keywords and Positional Arguments<a class="headerlink" href="#keywords-and-positional-arguments" title="Permalink to this headline">¶</a></h3>
+<p>For calling operators keywords are used for operator properties and
+positional arguments are used to define how the operator is called.</p>
+<p>There are 3 optional positional arguments (documented in detail below).</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">override_context</span><span class="p">,</span> <span class="n">execution_context</span><span class="p">,</span> <span class="n">undo</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>override_context - <code class="docutils literal"><span class="pre">dict</span></code> type.</li>
+<li>execution_context - <code class="docutils literal"><span class="pre">str</span></code> (enum).</li>
+<li>undo - <code class="docutils literal"><span class="pre">bool</span></code> type.</li>
+</ul>
+<p>Each of these arguments is optional, but must be given in the order above.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+
+<span class="c1"># calling an operator</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">mesh</span><span class="o">.</span><span class="n">subdivide</span><span class="p">(</span><span class="n">number_cuts</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">smoothness</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+
+<span class="c1"># check poll() to avoid exception.</span>
+<span class="k">if</span> <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">mode_set</span><span class="o">.</span><span class="n">poll</span><span class="p">():</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">mode_set</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;EDIT&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="overriding-context">
+<h2>Overriding Context<a class="headerlink" href="#overriding-context" title="Permalink to this headline">¶</a></h2>
+<p>It is possible to override context members that the operator sees, so that they
+act on specified rather than the selected or active data, or to execute an
+operator in the different part of the user interface.</p>
+<p>The context overrides are passed as a dictionary, with keys matching the context
+member names in bpy.context.
+For example to override <code class="docutils literal"><span class="pre">bpy.context.active_object</span></code>,
+you would pass <code class="docutils literal"><span class="pre">{'active_object':</span> <span class="pre">object}</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You will nearly always want to use a copy of the actual current context as basis
+(otherwise, you&#8217;ll have to find and gather all needed data yourself).</p>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>
+<span class="c1"># remove all objects in scene rather than the selected ones</span>
+<span class="kn">import</span> <span class="nn">bpy</span>
+<span class="n">override</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">override</span><span class="p">[</span><span class="s1">&#39;selected_bases&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">object_bases</span><span class="p">)</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">override</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="execution-context">
+<span id="operator-execution-context"></span><h2>Execution Context<a class="headerlink" href="#execution-context" title="Permalink to this headline">¶</a></h2>
+<p>When calling an operator you may want to pass the execution context.</p>
+<p>This determines the context that is given for the operator to run in, and whether
+invoke() is called or only execute().</p>
+<p>&#8216;EXEC_DEFAULT&#8217; is used by default, running only the execute() method, but you may
+want the operator to take user interaction with &#8216;INVOKE_DEFAULT&#8217; which will also
+call invoke() if existing.</p>
+<p>The execution context is one of:
+(&#8216;INVOKE_DEFAULT&#8217;, &#8216;INVOKE_REGION_WIN&#8217;, &#8216;INVOKE_REGION_CHANNELS&#8217;,
+&#8216;INVOKE_REGION_PREVIEW&#8217;, &#8216;INVOKE_AREA&#8217;, &#8216;INVOKE_SCREEN&#8217;, &#8216;EXEC_DEFAULT&#8217;,
+&#8216;EXEC_REGION_WIN&#8217;, &#8216;EXEC_REGION_CHANNELS&#8217;, &#8216;EXEC_REGION_PREVIEW&#8217;, &#8216;EXEC_AREA&#8217;,
+&#8216;EXEC_SCREEN&#8217;)</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>
+<span class="c1"># group add popup</span>
+<span class="kn">import</span> <span class="nn">bpy</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">group_instance_add</span><span class="p">(</span><span class="s1">&#39;INVOKE_DEFAULT&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It is also possible to run an operator in a particular part of the user
+interface. For this we need to pass the window, screen, area and sometimes
+a region.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>
+<span class="c1"># maximize 3d view in all windows</span>
+<span class="kn">import</span> <span class="nn">bpy</span>
+
+<span class="k">for</span> <span class="n">window</span> <span class="ow">in</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">window_manager</span><span class="o">.</span><span class="n">windows</span><span class="p">:</span>
+    <span class="n">screen</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">screen</span>
+
+    <span class="k">for</span> <span class="n">area</span> <span class="ow">in</span> <span class="n">screen</span><span class="o">.</span><span class="n">areas</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">area</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;VIEW_3D&#39;</span><span class="p">:</span>
+            <span class="n">override</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;window&#39;</span><span class="p">:</span> <span class="n">window</span><span class="p">,</span> <span class="s1">&#39;screen&#39;</span><span class="p">:</span> <span class="n">screen</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="n">area</span><span class="p">}</span>
+            <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">screen_full_area</span><span class="p">(</span><span class="n">override</span><span class="p">)</span>
+            <span class="k">break</span>
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.action.html">Action Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.anim.html">Anim Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.armature.html">Armature Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.boid.html">Boid Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.brush.html">Brush Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.buttons.html">Buttons Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.cachefile.html">Cachefile Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.camera.html">Camera Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.clip.html">Clip Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.cloth.html">Cloth Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.console.html">Console Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.constraint.html">Constraint Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.curve.html">Curve Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.cycles.html">Cycles Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.dpaint.html">Dpaint Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.ed.html">Ed Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.export_anim.html">Export Anim Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.export_mesh.html">Export Mesh Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.export_scene.html">Export Scene Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.file.html">File Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.fluid.html">Fluid Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.font.html">Font Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.gpencil.html">Gpencil Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.graph.html">Graph Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.group.html">Group Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.image.html">Image Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.import_anim.html">Import Anim Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.import_curve.html">Import Curve Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.import_mesh.html">Import Mesh Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.import_scene.html">Import Scene Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.info.html">Info Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.lamp.html">Lamp Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.lattice.html">Lattice Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.logic.html">Logic Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.marker.html">Marker Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.mask.html">Mask Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.material.html">Material Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.mball.html">Mball Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.mesh.html">Mesh Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.nla.html">Nla Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.node.html">Node Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.object.html">Object Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.outliner.html">Outliner Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.paint.html">Paint Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.paintcurve.html">Paintcurve Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.palette.html">Palette Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.particle.html">Particle Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.pose.html">Pose Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.poselib.html">Poselib Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.ptcache.html">Ptcache Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.render.html">Render Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.rigidbody.html">Rigidbody Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.safe_areas.html">Safe Areas Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.scene.html">Scene Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.screen.html">Screen Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.script.html">Script Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.sculpt.html">Sculpt Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.sequencer.html">Sequencer Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.sketch.html">Sketch Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.sound.html">Sound Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.surface.html">Surface Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.text.html">Text Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.texture.html">Texture Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.time.html">Time Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.transform.html">Transform Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.ui.html">Ui Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.uv.html">Uv Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.view2d.html">View2D Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.view3d.html">View3D Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.wm.html">Wm Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bpy.ops.world.html">World Operators</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Operators (bpy.ops)</a><ul>
+<li><a class="reference internal" href="#calling-operators">Calling Operators</a><ul>
+<li><a class="reference internal" href="#keywords-and-positional-arguments">Keywords and Positional Arguments</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#overriding-context">Overriding Context</a></li>
+<li><a class="reference internal" href="#execution-context">Execution Context</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.data.html"
+                        title="previous chapter">Data Access (bpy.data)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.ops.action.html"
+                        title="next chapter">Action Operators</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.ops.action.html" title="Action Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.data.html" title="Data Access (bpy.data)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

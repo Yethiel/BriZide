@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ShaderNodeTree(NodeTree) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="up" title="Types (bpy.types)" href="bpy.types.html" />
+    <link rel="next" title="ShaderNodeUVAlongStroke(ShaderNode)" href="bpy.types.ShaderNodeUVAlongStroke.html" />
+    <link rel="prev" title="ShaderNodeTexture(ShaderNode)" href="bpy.types.ShaderNodeTexture.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ShaderNodeUVAlongStroke.html" title="ShaderNodeUVAlongStroke(ShaderNode)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ShaderNodeTexture.html" title="ShaderNodeTexture(ShaderNode)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" accesskey="U">Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bpy.types">
+<span id="shadernodetree-nodetree"></span><h1>ShaderNodeTree(NodeTree)<a class="headerlink" href="#module-bpy.types" title="Permalink to this headline">¶</a></h1>
+<p>base classes &#8212; <a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct" title="bpy.types.bpy_struct"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct</span></code></a>, <a class="reference internal" href="bpy.types.ID.html#bpy.types.ID" title="bpy.types.ID"><code class="xref py py-class docutils literal"><span class="pre">ID</span></code></a>, <a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree" title="bpy.types.NodeTree"><code class="xref py py-class docutils literal"><span class="pre">NodeTree</span></code></a></p>
+<dl class="class">
+<dt id="bpy.types.ShaderNodeTree">
+<em class="property">class </em><code class="descclassname">bpy.types.</code><code class="descname">ShaderNodeTree</code><span class="sig-paren">(</span><em>NodeTree</em><span class="sig-paren">)</span><a class="headerlink" href="#bpy.types.ShaderNodeTree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Node tree consisting of linked nodes used for materials (and other shading data-blocks)</p>
+</dd></dl>
+
+<p class="rubric">Inherited Properties</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.id_data" title="bpy.types.bpy_struct.id_data"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.id_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.name" title="bpy.types.ID.name"><code class="xref py py-class docutils literal"><span class="pre">ID.name</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.users" title="bpy.types.ID.users"><code class="xref py py-class docutils literal"><span class="pre">ID.users</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.use_fake_user" title="bpy.types.ID.use_fake_user"><code class="xref py py-class docutils literal"><span class="pre">ID.use_fake_user</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.tag" title="bpy.types.ID.tag"><code class="xref py py-class docutils literal"><span class="pre">ID.tag</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_updated" title="bpy.types.ID.is_updated"><code class="xref py py-class docutils literal"><span class="pre">ID.is_updated</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_updated_data" title="bpy.types.ID.is_updated_data"><code class="xref py py-class docutils literal"><span class="pre">ID.is_updated_data</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.is_library_indirect" title="bpy.types.ID.is_library_indirect"><code class="xref py py-class docutils literal"><span class="pre">ID.is_library_indirect</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.library" title="bpy.types.ID.library"><code class="xref py py-class docutils literal"><span class="pre">ID.library</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.preview" title="bpy.types.ID.preview"><code class="xref py py-class docutils literal"><span class="pre">ID.preview</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.view_center" title="bpy.types.NodeTree.view_center"><code class="xref py py-class docutils literal"><span class="pre">NodeTree.view_center</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.animation_data" title="bpy.types.NodeTree.animation_data"><code class="xref py py-class docutils literal"><span class="pre">NodeTree.animation_data</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.nodes" title="bpy.types.NodeTree.nodes"><code class="xref py py-class docutils literal"><span class="pre">NodeTree.nodes</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.links" title="bpy.types.NodeTree.links"><code class="xref py py-class docutils literal"><span class="pre">NodeTree.links</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.grease_pencil" title="bpy.types.NodeTree.grease_pencil"><code class="xref py py-class docutils literal"><span class="pre">NodeTree.grease_pencil</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.type" title="bpy.types.NodeTree.type"><code class="xref py py-class docutils literal"><span class="pre">NodeTree.type</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.inputs" title="bpy.types.NodeTree.inputs"><code class="xref py py-class docutils literal"><span class="pre">NodeTree.inputs</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.active_input" title="bpy.types.NodeTree.active_input"><code class="xref py py-class docutils literal"><span class="pre">NodeTree.active_input</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.outputs" title="bpy.types.NodeTree.outputs"><code class="xref py py-class docutils literal"><span class="pre">NodeTree.outputs</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.active_output" title="bpy.types.NodeTree.active_output"><code class="xref py py-class docutils literal"><span class="pre">NodeTree.active_output</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.bl_idname" title="bpy.types.NodeTree.bl_idname"><code class="xref py py-class docutils literal"><span class="pre">NodeTree.bl_idname</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.bl_label" title="bpy.types.NodeTree.bl_label"><code class="xref py py-class docutils literal"><span class="pre">NodeTree.bl_label</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.bl_description" title="bpy.types.NodeTree.bl_description"><code class="xref py py-class docutils literal"><span class="pre">NodeTree.bl_description</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.bl_icon" title="bpy.types.NodeTree.bl_icon"><code class="xref py py-class docutils literal"><span class="pre">NodeTree.bl_icon</span></code></a></li>
+</ul>
+</td></tr></table>
+<p class="rubric">Inherited Functions</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.as_pointer" title="bpy.types.bpy_struct.as_pointer"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.as_pointer</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_add" title="bpy.types.bpy_struct.driver_add"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_add</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.driver_remove" title="bpy.types.bpy_struct.driver_remove"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.driver_remove</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.get" title="bpy.types.bpy_struct.get"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.get</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_hidden" title="bpy.types.bpy_struct.is_property_hidden"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_hidden</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_readonly" title="bpy.types.bpy_struct.is_property_readonly"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_readonly</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.is_property_set" title="bpy.types.bpy_struct.is_property_set"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.is_property_set</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.items" title="bpy.types.bpy_struct.items"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.items</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_delete" title="bpy.types.bpy_struct.keyframe_delete"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_delete</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keyframe_insert" title="bpy.types.bpy_struct.keyframe_insert"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keyframe_insert</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.keys" title="bpy.types.bpy_struct.keys"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.keys</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_from_id" title="bpy.types.bpy_struct.path_from_id"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_from_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.path_resolve" title="bpy.types.bpy_struct.path_resolve"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.path_resolve</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.property_unset" title="bpy.types.bpy_struct.property_unset"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.property_unset</span></code></a></li>
+</ul>
+</td><td><ul class="simple">
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.type_recast" title="bpy.types.bpy_struct.type_recast"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.type_recast</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.bpy_struct.html#bpy.types.bpy_struct.values" title="bpy.types.bpy_struct.values"><code class="xref py py-class docutils literal"><span class="pre">bpy_struct.values</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.copy" title="bpy.types.ID.copy"><code class="xref py py-class docutils literal"><span class="pre">ID.copy</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_clear" title="bpy.types.ID.user_clear"><code class="xref py py-class docutils literal"><span class="pre">ID.user_clear</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_remap" title="bpy.types.ID.user_remap"><code class="xref py py-class docutils literal"><span class="pre">ID.user_remap</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.user_of_id" title="bpy.types.ID.user_of_id"><code class="xref py py-class docutils literal"><span class="pre">ID.user_of_id</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.animation_data_create" title="bpy.types.ID.animation_data_create"><code class="xref py py-class docutils literal"><span class="pre">ID.animation_data_create</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.animation_data_clear" title="bpy.types.ID.animation_data_clear"><code class="xref py py-class docutils literal"><span class="pre">ID.animation_data_clear</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.ID.html#bpy.types.ID.update_tag" title="bpy.types.ID.update_tag"><code class="xref py py-class docutils literal"><span class="pre">ID.update_tag</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.interface_update" title="bpy.types.NodeTree.interface_update"><code class="xref py py-class docutils literal"><span class="pre">NodeTree.interface_update</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.poll" title="bpy.types.NodeTree.poll"><code class="xref py py-class docutils literal"><span class="pre">NodeTree.poll</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.update" title="bpy.types.NodeTree.update"><code class="xref py py-class docutils literal"><span class="pre">NodeTree.update</span></code></a></li>
+<li><a class="reference internal" href="bpy.types.NodeTree.html#bpy.types.NodeTree.get_from_context" title="bpy.types.NodeTree.get_from_context"><code class="xref py py-class docutils literal"><span class="pre">NodeTree.get_from_context</span></code></a></li>
+</ul>
+</td></tr></table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bpy.types.ShaderNodeTexture.html"
+                        title="previous chapter">ShaderNodeTexture(ShaderNode)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bpy.types.ShaderNodeUVAlongStroke.html"
+                        title="next chapter">ShaderNodeUVAlongStroke(ShaderNode)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ShaderNodeUVAlongStroke.html" title="ShaderNodeUVAlongStroke(ShaderNode)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bpy.types.ShaderNodeTexture.html" title="ShaderNodeTexture(ShaderNode)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bpy.types.html" >Types (bpy.types)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

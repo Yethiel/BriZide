@@ -1,0 +1,824 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Game Keys (bge.events) &mdash; Blender 2.78.0 f50ddbf - API documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.78.0 f50ddbf - API',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Blender 2.78.0 f50ddbf - API documentation" href="contents.html" />
+    <link rel="next" title="Physics Constraints (bge.constraints)" href="bge.constraints.html" />
+    <link rel="prev" title="Video Texture (bge.texture)" href="bge.texture.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.constraints.html" title="Physics Constraints (bge.constraints)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bge.texture.html" title="Video Texture (bge.texture)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="game-keys-bge-events">
+<h1>Game Keys (bge.events)<a class="headerlink" href="#game-keys-bge-events" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="intro">
+<h2>Intro<a class="headerlink" href="#intro" title="Permalink to this headline">¶</a></h2>
+<p>This module holds key constants for the SCA_KeyboardSensor.</p>
+<span class="target" id="module-bge.events"></span><div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Set a connected keyboard sensor to accept F1</span>
+<span class="kn">import</span> <span class="nn">bge</span>
+
+<span class="n">co</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">logic</span><span class="o">.</span><span class="n">getCurrentController</span><span class="p">()</span>
+<span class="c1"># &#39;Keyboard&#39; is a keyboard sensor</span>
+<span class="n">sensor</span> <span class="o">=</span> <span class="n">co</span><span class="o">.</span><span class="n">sensors</span><span class="p">[</span><span class="s2">&quot;Keyboard&quot;</span><span class="p">]</span>
+<span class="n">sensor</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">F1KEY</span>
+
+<span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="p">::</span> <span class="n">python</span>
+
+<span class="c1"># Do the all keys thing</span>
+<span class="kn">import</span> <span class="nn">bge</span>
+
+<span class="n">co</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">logic</span><span class="o">.</span><span class="n">getCurrentController</span><span class="p">()</span>
+<span class="c1"># &#39;Keyboard&#39; is a keyboard sensor</span>
+<span class="n">sensor</span> <span class="o">=</span> <span class="n">co</span><span class="o">.</span><span class="n">sensors</span><span class="p">[</span><span class="s2">&quot;Keyboard&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">status</span> <span class="ow">in</span> <span class="n">sensor</span><span class="o">.</span><span class="n">events</span><span class="p">:</span>
+     <span class="c1"># key[0] == bge.events.keycode, key[1] = status</span>
+     <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="n">bge</span><span class="o">.</span><span class="n">logic</span><span class="o">.</span><span class="n">KX_INPUT_JUST_ACTIVATED</span><span class="p">:</span>
+             <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">bge</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">WKEY</span><span class="p">:</span>
+                     <span class="c1"># Activate Forward!</span>
+             <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">bge</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">SKEY</span><span class="p">:</span>
+                     <span class="c1"># Activate Backward!</span>
+             <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">bge</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">AKEY</span><span class="p">:</span>
+                     <span class="c1"># Activate Left!</span>
+             <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">bge</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">DKEY</span><span class="p">:</span>
+                     <span class="c1"># Activate Right!</span>
+
+<span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="p">::</span> <span class="n">python</span>
+
+<span class="c1"># The all keys thing without a keyboard sensor (but you will</span>
+<span class="c1"># need an always sensor with pulse mode on)</span>
+<span class="kn">import</span> <span class="nn">bge</span>
+
+<span class="c1"># Just shortening names here</span>
+<span class="n">keyboard</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">logic</span><span class="o">.</span><span class="n">keyboard</span>
+<span class="n">JUST_ACTIVATED</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">logic</span><span class="o">.</span><span class="n">KX_INPUT_JUST_ACTIVATED</span>
+
+<span class="k">if</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">bge</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">WKEY</span><span class="p">]</span> <span class="o">==</span> <span class="n">JUST_ACTIVATED</span><span class="p">:</span>
+     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Activate Forward!&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">bge</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">SKEY</span><span class="p">]</span> <span class="o">==</span> <span class="n">JUST_ACTIVATED</span><span class="p">:</span>
+     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Activate Backward!&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">bge</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">AKEY</span><span class="p">]</span> <span class="o">==</span> <span class="n">JUST_ACTIVATED</span><span class="p">:</span>
+     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Activate Left!&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">bge</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">DKEY</span><span class="p">]</span> <span class="o">==</span> <span class="n">JUST_ACTIVATED</span><span class="p">:</span>
+     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Activate Right!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="bge.events.EventToString">
+<code class="descclassname">bge.events.</code><code class="descname">EventToString</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.events.EventToString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the string name of a key event. Will raise a ValueError error if its invalid.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; key event constant from <a class="reference internal" href="#module-bge.events" title="bge.events"><code class="xref py py-mod docutils literal"><span class="pre">bge.events</span></code></a> or the keyboard sensor.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string">string</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bge.events.EventToCharacter">
+<code class="descclassname">bge.events.</code><code class="descname">EventToCharacter</code><span class="sig-paren">(</span><em>event</em>, <em>shift</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.events.EventToCharacter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the string name of a key event. Returns an empty string if the event cant be represented as a character.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>event</strong> (<a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessEdge.int" title="bmesh.types.BMLayerAccessEdge.int"><em>int</em></a>) &#8211; key event constant from <a class="reference internal" href="#module-bge.events" title="bge.events"><code class="xref py py-mod docutils literal"><span class="pre">bge.events</span></code></a> or the keyboard sensor.</li>
+<li><strong>shift</strong> (<em>bool</em>) &#8211; set to true if shift is held.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="bmesh.types.html#bmesh.types.BMLayerAccessVert.string" title="bmesh.types.BMLayerAccessVert.string">string</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="keys-constants">
+<h2>Keys (Constants)<a class="headerlink" href="#keys-constants" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mouse-keys">
+<span id="id1"></span><h3>Mouse Keys<a class="headerlink" href="#mouse-keys" title="Permalink to this headline">¶</a></h3>
+<dl class="data">
+<dt id="bge.events.LEFTMOUSE">
+<code class="descclassname">bge.events.</code><code class="descname">LEFTMOUSE</code><a class="headerlink" href="#bge.events.LEFTMOUSE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.MIDDLEMOUSE">
+<code class="descclassname">bge.events.</code><code class="descname">MIDDLEMOUSE</code><a class="headerlink" href="#bge.events.MIDDLEMOUSE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.RIGHTMOUSE">
+<code class="descclassname">bge.events.</code><code class="descname">RIGHTMOUSE</code><a class="headerlink" href="#bge.events.RIGHTMOUSE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.WHEELUPMOUSE">
+<code class="descclassname">bge.events.</code><code class="descname">WHEELUPMOUSE</code><a class="headerlink" href="#bge.events.WHEELUPMOUSE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.WHEELDOWNMOUSE">
+<code class="descclassname">bge.events.</code><code class="descname">WHEELDOWNMOUSE</code><a class="headerlink" href="#bge.events.WHEELDOWNMOUSE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.MOUSEX">
+<code class="descclassname">bge.events.</code><code class="descname">MOUSEX</code><a class="headerlink" href="#bge.events.MOUSEX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.MOUSEY">
+<code class="descclassname">bge.events.</code><code class="descname">MOUSEY</code><a class="headerlink" href="#bge.events.MOUSEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="keyboard-keys">
+<span id="id2"></span><h3>Keyboard Keys<a class="headerlink" href="#keyboard-keys" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="alphabet-keys">
+<h4>Alphabet keys<a class="headerlink" href="#alphabet-keys" title="Permalink to this headline">¶</a></h4>
+<dl class="data">
+<dt id="bge.events.AKEY">
+<code class="descclassname">bge.events.</code><code class="descname">AKEY</code><a class="headerlink" href="#bge.events.AKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.BKEY">
+<code class="descclassname">bge.events.</code><code class="descname">BKEY</code><a class="headerlink" href="#bge.events.BKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.CKEY">
+<code class="descclassname">bge.events.</code><code class="descname">CKEY</code><a class="headerlink" href="#bge.events.CKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.DKEY">
+<code class="descclassname">bge.events.</code><code class="descname">DKEY</code><a class="headerlink" href="#bge.events.DKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.EKEY">
+<code class="descclassname">bge.events.</code><code class="descname">EKEY</code><a class="headerlink" href="#bge.events.EKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.FKEY">
+<code class="descclassname">bge.events.</code><code class="descname">FKEY</code><a class="headerlink" href="#bge.events.FKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.GKEY">
+<code class="descclassname">bge.events.</code><code class="descname">GKEY</code><a class="headerlink" href="#bge.events.GKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.HKEY">
+<code class="descclassname">bge.events.</code><code class="descname">HKEY</code><a class="headerlink" href="#bge.events.HKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.IKEY">
+<code class="descclassname">bge.events.</code><code class="descname">IKEY</code><a class="headerlink" href="#bge.events.IKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.JKEY">
+<code class="descclassname">bge.events.</code><code class="descname">JKEY</code><a class="headerlink" href="#bge.events.JKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.KKEY">
+<code class="descclassname">bge.events.</code><code class="descname">KKEY</code><a class="headerlink" href="#bge.events.KKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.LKEY">
+<code class="descclassname">bge.events.</code><code class="descname">LKEY</code><a class="headerlink" href="#bge.events.LKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.MKEY">
+<code class="descclassname">bge.events.</code><code class="descname">MKEY</code><a class="headerlink" href="#bge.events.MKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.NKEY">
+<code class="descclassname">bge.events.</code><code class="descname">NKEY</code><a class="headerlink" href="#bge.events.NKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.OKEY">
+<code class="descclassname">bge.events.</code><code class="descname">OKEY</code><a class="headerlink" href="#bge.events.OKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.PKEY">
+<code class="descclassname">bge.events.</code><code class="descname">PKEY</code><a class="headerlink" href="#bge.events.PKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.QKEY">
+<code class="descclassname">bge.events.</code><code class="descname">QKEY</code><a class="headerlink" href="#bge.events.QKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.RKEY">
+<code class="descclassname">bge.events.</code><code class="descname">RKEY</code><a class="headerlink" href="#bge.events.RKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.SKEY">
+<code class="descclassname">bge.events.</code><code class="descname">SKEY</code><a class="headerlink" href="#bge.events.SKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.TKEY">
+<code class="descclassname">bge.events.</code><code class="descname">TKEY</code><a class="headerlink" href="#bge.events.TKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.UKEY">
+<code class="descclassname">bge.events.</code><code class="descname">UKEY</code><a class="headerlink" href="#bge.events.UKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.VKEY">
+<code class="descclassname">bge.events.</code><code class="descname">VKEY</code><a class="headerlink" href="#bge.events.VKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.WKEY">
+<code class="descclassname">bge.events.</code><code class="descname">WKEY</code><a class="headerlink" href="#bge.events.WKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.XKEY">
+<code class="descclassname">bge.events.</code><code class="descname">XKEY</code><a class="headerlink" href="#bge.events.XKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.YKEY">
+<code class="descclassname">bge.events.</code><code class="descname">YKEY</code><a class="headerlink" href="#bge.events.YKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.ZKEY">
+<code class="descclassname">bge.events.</code><code class="descname">ZKEY</code><a class="headerlink" href="#bge.events.ZKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="number-keys">
+<h4>Number keys<a class="headerlink" href="#number-keys" title="Permalink to this headline">¶</a></h4>
+<dl class="data">
+<dt id="bge.events.ZEROKEY">
+<code class="descclassname">bge.events.</code><code class="descname">ZEROKEY</code><a class="headerlink" href="#bge.events.ZEROKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.ONEKEY">
+<code class="descclassname">bge.events.</code><code class="descname">ONEKEY</code><a class="headerlink" href="#bge.events.ONEKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.TWOKEY">
+<code class="descclassname">bge.events.</code><code class="descname">TWOKEY</code><a class="headerlink" href="#bge.events.TWOKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.THREEKEY">
+<code class="descclassname">bge.events.</code><code class="descname">THREEKEY</code><a class="headerlink" href="#bge.events.THREEKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.FOURKEY">
+<code class="descclassname">bge.events.</code><code class="descname">FOURKEY</code><a class="headerlink" href="#bge.events.FOURKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.FIVEKEY">
+<code class="descclassname">bge.events.</code><code class="descname">FIVEKEY</code><a class="headerlink" href="#bge.events.FIVEKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.SIXKEY">
+<code class="descclassname">bge.events.</code><code class="descname">SIXKEY</code><a class="headerlink" href="#bge.events.SIXKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.SEVENKEY">
+<code class="descclassname">bge.events.</code><code class="descname">SEVENKEY</code><a class="headerlink" href="#bge.events.SEVENKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.EIGHTKEY">
+<code class="descclassname">bge.events.</code><code class="descname">EIGHTKEY</code><a class="headerlink" href="#bge.events.EIGHTKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.NINEKEY">
+<code class="descclassname">bge.events.</code><code class="descname">NINEKEY</code><a class="headerlink" href="#bge.events.NINEKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="modifiers-keys">
+<h4>Modifiers Keys<a class="headerlink" href="#modifiers-keys" title="Permalink to this headline">¶</a></h4>
+<dl class="data">
+<dt id="bge.events.CAPSLOCKKEY">
+<code class="descclassname">bge.events.</code><code class="descname">CAPSLOCKKEY</code><a class="headerlink" href="#bge.events.CAPSLOCKKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.LEFTCTRLKEY">
+<code class="descclassname">bge.events.</code><code class="descname">LEFTCTRLKEY</code><a class="headerlink" href="#bge.events.LEFTCTRLKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.LEFTALTKEY">
+<code class="descclassname">bge.events.</code><code class="descname">LEFTALTKEY</code><a class="headerlink" href="#bge.events.LEFTALTKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.RIGHTALTKEY">
+<code class="descclassname">bge.events.</code><code class="descname">RIGHTALTKEY</code><a class="headerlink" href="#bge.events.RIGHTALTKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.RIGHTCTRLKEY">
+<code class="descclassname">bge.events.</code><code class="descname">RIGHTCTRLKEY</code><a class="headerlink" href="#bge.events.RIGHTCTRLKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.RIGHTSHIFTKEY">
+<code class="descclassname">bge.events.</code><code class="descname">RIGHTSHIFTKEY</code><a class="headerlink" href="#bge.events.RIGHTSHIFTKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.LEFTSHIFTKEY">
+<code class="descclassname">bge.events.</code><code class="descname">LEFTSHIFTKEY</code><a class="headerlink" href="#bge.events.LEFTSHIFTKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="arrow-keys">
+<h4>Arrow Keys<a class="headerlink" href="#arrow-keys" title="Permalink to this headline">¶</a></h4>
+<dl class="data">
+<dt id="bge.events.LEFTARROWKEY">
+<code class="descclassname">bge.events.</code><code class="descname">LEFTARROWKEY</code><a class="headerlink" href="#bge.events.LEFTARROWKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.DOWNARROWKEY">
+<code class="descclassname">bge.events.</code><code class="descname">DOWNARROWKEY</code><a class="headerlink" href="#bge.events.DOWNARROWKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.RIGHTARROWKEY">
+<code class="descclassname">bge.events.</code><code class="descname">RIGHTARROWKEY</code><a class="headerlink" href="#bge.events.RIGHTARROWKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.UPARROWKEY">
+<code class="descclassname">bge.events.</code><code class="descname">UPARROWKEY</code><a class="headerlink" href="#bge.events.UPARROWKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="numberpad-keys">
+<h4>Numberpad Keys<a class="headerlink" href="#numberpad-keys" title="Permalink to this headline">¶</a></h4>
+<dl class="data">
+<dt id="bge.events.PAD0">
+<code class="descclassname">bge.events.</code><code class="descname">PAD0</code><a class="headerlink" href="#bge.events.PAD0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.PAD1">
+<code class="descclassname">bge.events.</code><code class="descname">PAD1</code><a class="headerlink" href="#bge.events.PAD1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.PAD2">
+<code class="descclassname">bge.events.</code><code class="descname">PAD2</code><a class="headerlink" href="#bge.events.PAD2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.PAD3">
+<code class="descclassname">bge.events.</code><code class="descname">PAD3</code><a class="headerlink" href="#bge.events.PAD3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.PAD4">
+<code class="descclassname">bge.events.</code><code class="descname">PAD4</code><a class="headerlink" href="#bge.events.PAD4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.PAD5">
+<code class="descclassname">bge.events.</code><code class="descname">PAD5</code><a class="headerlink" href="#bge.events.PAD5" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.PAD6">
+<code class="descclassname">bge.events.</code><code class="descname">PAD6</code><a class="headerlink" href="#bge.events.PAD6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.PAD7">
+<code class="descclassname">bge.events.</code><code class="descname">PAD7</code><a class="headerlink" href="#bge.events.PAD7" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.PAD8">
+<code class="descclassname">bge.events.</code><code class="descname">PAD8</code><a class="headerlink" href="#bge.events.PAD8" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.PAD9">
+<code class="descclassname">bge.events.</code><code class="descname">PAD9</code><a class="headerlink" href="#bge.events.PAD9" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.PADPERIOD">
+<code class="descclassname">bge.events.</code><code class="descname">PADPERIOD</code><a class="headerlink" href="#bge.events.PADPERIOD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.PADSLASHKEY">
+<code class="descclassname">bge.events.</code><code class="descname">PADSLASHKEY</code><a class="headerlink" href="#bge.events.PADSLASHKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.PADASTERKEY">
+<code class="descclassname">bge.events.</code><code class="descname">PADASTERKEY</code><a class="headerlink" href="#bge.events.PADASTERKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.PADMINUS">
+<code class="descclassname">bge.events.</code><code class="descname">PADMINUS</code><a class="headerlink" href="#bge.events.PADMINUS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.PADENTER">
+<code class="descclassname">bge.events.</code><code class="descname">PADENTER</code><a class="headerlink" href="#bge.events.PADENTER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.PADPLUSKEY">
+<code class="descclassname">bge.events.</code><code class="descname">PADPLUSKEY</code><a class="headerlink" href="#bge.events.PADPLUSKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="function-keys">
+<h4>Function Keys<a class="headerlink" href="#function-keys" title="Permalink to this headline">¶</a></h4>
+<dl class="data">
+<dt id="bge.events.F1KEY">
+<code class="descclassname">bge.events.</code><code class="descname">F1KEY</code><a class="headerlink" href="#bge.events.F1KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.F2KEY">
+<code class="descclassname">bge.events.</code><code class="descname">F2KEY</code><a class="headerlink" href="#bge.events.F2KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.F3KEY">
+<code class="descclassname">bge.events.</code><code class="descname">F3KEY</code><a class="headerlink" href="#bge.events.F3KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.F4KEY">
+<code class="descclassname">bge.events.</code><code class="descname">F4KEY</code><a class="headerlink" href="#bge.events.F4KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.F5KEY">
+<code class="descclassname">bge.events.</code><code class="descname">F5KEY</code><a class="headerlink" href="#bge.events.F5KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.F6KEY">
+<code class="descclassname">bge.events.</code><code class="descname">F6KEY</code><a class="headerlink" href="#bge.events.F6KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.F7KEY">
+<code class="descclassname">bge.events.</code><code class="descname">F7KEY</code><a class="headerlink" href="#bge.events.F7KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.F8KEY">
+<code class="descclassname">bge.events.</code><code class="descname">F8KEY</code><a class="headerlink" href="#bge.events.F8KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.F9KEY">
+<code class="descclassname">bge.events.</code><code class="descname">F9KEY</code><a class="headerlink" href="#bge.events.F9KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.F10KEY">
+<code class="descclassname">bge.events.</code><code class="descname">F10KEY</code><a class="headerlink" href="#bge.events.F10KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.F11KEY">
+<code class="descclassname">bge.events.</code><code class="descname">F11KEY</code><a class="headerlink" href="#bge.events.F11KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.F12KEY">
+<code class="descclassname">bge.events.</code><code class="descname">F12KEY</code><a class="headerlink" href="#bge.events.F12KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.F13KEY">
+<code class="descclassname">bge.events.</code><code class="descname">F13KEY</code><a class="headerlink" href="#bge.events.F13KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.F14KEY">
+<code class="descclassname">bge.events.</code><code class="descname">F14KEY</code><a class="headerlink" href="#bge.events.F14KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.F15KEY">
+<code class="descclassname">bge.events.</code><code class="descname">F15KEY</code><a class="headerlink" href="#bge.events.F15KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.F16KEY">
+<code class="descclassname">bge.events.</code><code class="descname">F16KEY</code><a class="headerlink" href="#bge.events.F16KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.F17KEY">
+<code class="descclassname">bge.events.</code><code class="descname">F17KEY</code><a class="headerlink" href="#bge.events.F17KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.F18KEY">
+<code class="descclassname">bge.events.</code><code class="descname">F18KEY</code><a class="headerlink" href="#bge.events.F18KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.F19KEY">
+<code class="descclassname">bge.events.</code><code class="descname">F19KEY</code><a class="headerlink" href="#bge.events.F19KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="other-keys">
+<h4>Other Keys<a class="headerlink" href="#other-keys" title="Permalink to this headline">¶</a></h4>
+<dl class="data">
+<dt id="bge.events.ACCENTGRAVEKEY">
+<code class="descclassname">bge.events.</code><code class="descname">ACCENTGRAVEKEY</code><a class="headerlink" href="#bge.events.ACCENTGRAVEKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.BACKSLASHKEY">
+<code class="descclassname">bge.events.</code><code class="descname">BACKSLASHKEY</code><a class="headerlink" href="#bge.events.BACKSLASHKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.BACKSPACEKEY">
+<code class="descclassname">bge.events.</code><code class="descname">BACKSPACEKEY</code><a class="headerlink" href="#bge.events.BACKSPACEKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.COMMAKEY">
+<code class="descclassname">bge.events.</code><code class="descname">COMMAKEY</code><a class="headerlink" href="#bge.events.COMMAKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.DELKEY">
+<code class="descclassname">bge.events.</code><code class="descname">DELKEY</code><a class="headerlink" href="#bge.events.DELKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.ENDKEY">
+<code class="descclassname">bge.events.</code><code class="descname">ENDKEY</code><a class="headerlink" href="#bge.events.ENDKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.EQUALKEY">
+<code class="descclassname">bge.events.</code><code class="descname">EQUALKEY</code><a class="headerlink" href="#bge.events.EQUALKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.ESCKEY">
+<code class="descclassname">bge.events.</code><code class="descname">ESCKEY</code><a class="headerlink" href="#bge.events.ESCKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.HOMEKEY">
+<code class="descclassname">bge.events.</code><code class="descname">HOMEKEY</code><a class="headerlink" href="#bge.events.HOMEKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.INSERTKEY">
+<code class="descclassname">bge.events.</code><code class="descname">INSERTKEY</code><a class="headerlink" href="#bge.events.INSERTKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.LEFTBRACKETKEY">
+<code class="descclassname">bge.events.</code><code class="descname">LEFTBRACKETKEY</code><a class="headerlink" href="#bge.events.LEFTBRACKETKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.LINEFEEDKEY">
+<code class="descclassname">bge.events.</code><code class="descname">LINEFEEDKEY</code><a class="headerlink" href="#bge.events.LINEFEEDKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.MINUSKEY">
+<code class="descclassname">bge.events.</code><code class="descname">MINUSKEY</code><a class="headerlink" href="#bge.events.MINUSKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.PAGEDOWNKEY">
+<code class="descclassname">bge.events.</code><code class="descname">PAGEDOWNKEY</code><a class="headerlink" href="#bge.events.PAGEDOWNKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.PAGEUPKEY">
+<code class="descclassname">bge.events.</code><code class="descname">PAGEUPKEY</code><a class="headerlink" href="#bge.events.PAGEUPKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.PAUSEKEY">
+<code class="descclassname">bge.events.</code><code class="descname">PAUSEKEY</code><a class="headerlink" href="#bge.events.PAUSEKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.PERIODKEY">
+<code class="descclassname">bge.events.</code><code class="descname">PERIODKEY</code><a class="headerlink" href="#bge.events.PERIODKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.QUOTEKEY">
+<code class="descclassname">bge.events.</code><code class="descname">QUOTEKEY</code><a class="headerlink" href="#bge.events.QUOTEKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.RIGHTBRACKETKEY">
+<code class="descclassname">bge.events.</code><code class="descname">RIGHTBRACKETKEY</code><a class="headerlink" href="#bge.events.RIGHTBRACKETKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.RETKEY">
+<code class="descclassname">bge.events.</code><code class="descname">RETKEY</code><span class="sig-paren">(</span><em>Deprecated: use bge.events.ENTERKEY</em><span class="sig-paren">)</span><a class="headerlink" href="#bge.events.RETKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.ENTERKEY">
+<code class="descclassname">bge.events.</code><code class="descname">ENTERKEY</code><a class="headerlink" href="#bge.events.ENTERKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.SEMICOLONKEY">
+<code class="descclassname">bge.events.</code><code class="descname">SEMICOLONKEY</code><a class="headerlink" href="#bge.events.SEMICOLONKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.SLASHKEY">
+<code class="descclassname">bge.events.</code><code class="descname">SLASHKEY</code><a class="headerlink" href="#bge.events.SLASHKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.SPACEKEY">
+<code class="descclassname">bge.events.</code><code class="descname">SPACEKEY</code><a class="headerlink" href="#bge.events.SPACEKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="bge.events.TABKEY">
+<code class="descclassname">bge.events.</code><code class="descname">TABKEY</code><a class="headerlink" href="#bge.events.TABKEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Game Keys (bge.events)</a><ul>
+<li><a class="reference internal" href="#intro">Intro</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#keys-constants">Keys (Constants)</a><ul>
+<li><a class="reference internal" href="#mouse-keys">Mouse Keys</a></li>
+<li><a class="reference internal" href="#keyboard-keys">Keyboard Keys</a><ul>
+<li><a class="reference internal" href="#alphabet-keys">Alphabet keys</a></li>
+<li><a class="reference internal" href="#number-keys">Number keys</a></li>
+<li><a class="reference internal" href="#modifiers-keys">Modifiers Keys</a></li>
+<li><a class="reference internal" href="#arrow-keys">Arrow Keys</a></li>
+<li><a class="reference internal" href="#numberpad-keys">Numberpad Keys</a></li>
+<li><a class="reference internal" href="#function-keys">Function Keys</a></li>
+<li><a class="reference internal" href="#other-keys">Other Keys</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bge.texture.html"
+                        title="previous chapter">Video Texture (bge.texture)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bge.constraints.html"
+                        title="next chapter">Physics Constraints (bge.constraints)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bge.constraints.html" title="Physics Constraints (bge.constraints)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bge.texture.html" title="Video Texture (bge.texture)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Blender 2.78.0 f50ddbf - API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright Blender Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>
