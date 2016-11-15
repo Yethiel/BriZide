@@ -13,6 +13,6 @@ Brizide is a free open-source racing game.
 Current state: Keep bugs for yourself.
 
 ## Controls
-**Arrow keys**: Move ship
-**Space**: Drift, float
++ **Arrow keys**: Move ship
++ **Space**: Drift, float
 > Hold space for more than one second to gather power from the stabilizer, release to get a boost.
