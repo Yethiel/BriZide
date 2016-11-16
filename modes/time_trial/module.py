@@ -14,7 +14,7 @@ Checkpoint globalDict structure:
 """
 
 from bge import logic, events
-from scripts import level, components, global_constants as G, sound
+from modules import level, components, global_constants as G, sound
 
 from random import randint
 

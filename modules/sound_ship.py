@@ -1,7 +1,7 @@
 import aud
 from bge import logic
-from scripts import sound
-from scripts.helpers import clamp
+from modules import sound
+from modules.helpers import clamp
 sce = logic.getCurrentScene()
 
 gD = logic.globalDict

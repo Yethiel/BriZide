@@ -1,6 +1,6 @@
 from bge import logic, events
 globalDict = logic.globalDict
-from scripts import global_constants as G
+from modules import global_constants as G
 import configparser, mathutils, os
 
 co = logic.getCurrentController()

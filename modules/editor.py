@@ -7,9 +7,9 @@ from mathutils import Vector
 from math import pi
 
 from bge import logic, events, render
-from scripts import level, sound, global_constants as G
+from modules import level, sound, global_constants as G
 
-from scripts.editor_ops import delete_block
+from modules.editor_ops import delete_block
 
 gD = logic.globalDict
 
@@ -24,7 +24,7 @@ obj_cam = sce.objects["Camera_Editor"]
 cam_step = 5
 
 winw = render.getWindowWidth()
-winh = render.getWindowHeight()	
+winh = render.getWindowHeight()
 
 pivot_cam = sce.objects["Pivot_Camera_Editor"]
 
@@ -249,7 +249,7 @@ def select_axis(mode):
 
 def reset_mode(mode):
 	gD["editor"][mode]["amount"] = Vector([0, 0, 0])
-	
+
 
 def rotation_mode():
 	render.setMousePosition(int(winw / 2), int(winh / 2))

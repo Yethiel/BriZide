@@ -4,8 +4,8 @@ import bgui
 import bgui.bge_utils
 from bge import logic
 
-from scripts.editor_ops import delete_block
-from scripts import global_constants as G
+from modules.editor_ops import delete_block
+from modules import global_constants as G
 
 gD = logic.globalDict
 

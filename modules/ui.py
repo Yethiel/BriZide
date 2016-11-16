@@ -2,8 +2,8 @@ import sys
 import bgui
 import bgui.bge_utils
 from bge import logic
-from scripts.ui_main_menu import MainMenu
-from scripts import global_constants as G
+from modules.ui_main_menu import MainMenu
+from modules import global_constants as G
 
 
 globalDict = logic.globalDict

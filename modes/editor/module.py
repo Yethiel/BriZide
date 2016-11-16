@@ -5,8 +5,8 @@ It is attached to the Controller object in the mode's blend file.
 """
 
 from bge import logic
-from scripts import level, components, global_constants as G
-from scripts.ui_editor import EditorUI
+from modules import level, components, global_constants as G
+from modules.ui_editor import EditorUI
 
 globalDict = logic.globalDict
 own = logic.getCurrentController().owner # This is the object that executes these functions.

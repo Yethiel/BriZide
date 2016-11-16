@@ -8,7 +8,7 @@ import pickle
 import configparser
 import os
 import mathutils
-from scripts import global_constants as G
+from modules import global_constants as G
 
 co = logic.getCurrentController()
 sce = logic.getCurrentScene()

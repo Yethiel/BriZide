@@ -1,7 +1,7 @@
 from bge import logic
 import configparser
 import os.path
-from scripts import global_constants as G
+from modules import global_constants as G
 CONFIG_PATH = logic.expandPath("//config.ini")
 
 def load():

@@ -1,7 +1,7 @@
 from bge import logic
 globalDict = logic.globalDict
-from scripts.helpers import get_prop, set_prop
-from scripts import global_constants as G
+from modules.helpers import get_prop, set_prop
+from modules import global_constants as G
 sce = logic.getCurrentScene()
 
 controller_level_obj = sce.objects["Controller_Level"]

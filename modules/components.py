@@ -1,7 +1,7 @@
 """
 These are just some scripts to make loading libraries (components) easier.
 """
-from scripts import global_constants as G
+from modules import global_constants as G
 from bge import logic
 extension = ".blend"
 def load(component):

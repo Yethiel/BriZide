@@ -3,7 +3,7 @@ from os import listdir
 from bge import logic
 globalDict = logic.globalDict
 from random import shuffle, randint
-from scripts import global_constants as G
+from modules import global_constants as G
 
 cont = logic.getCurrentController()
 own = cont.owner

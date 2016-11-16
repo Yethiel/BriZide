@@ -1,6 +1,6 @@
 import aud
 from bge import logic
-from scripts import global_constants as G
+from modules import global_constants as G
 import os
 globalDict = logic.globalDict
 
