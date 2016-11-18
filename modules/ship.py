@@ -146,16 +146,19 @@ def stabilize():
 	else:
 		if own.localLinearVelocity[0] >= own["StableThreshold"]:
 			own.applyForce([-own.localLinearVelocity[0]*own["StableStrength"],0,0], True)
+			own.applyForce([0,abs(own.localLinearVelocity[0]),0], True)
 			if G.DEBUG: own['DEBUG_stabilizer'] = '<--'
 		elif own.localLinearVelocity[0] <= -own["StableThreshold"]:
 			own.applyForce([-own.localLinearVelocity[0]*own["StableStrength"],0,0], True)
+			own.applyForce([0,abs(own.localLinearVelocity[0]),0], True)
+
 			if G.DEBUG: own['DEBUG_stabilizer'] = '-->'
 		else:
 			if G.DEBUG: own['DEBUG_stabilizer'] = '---'
 
 # def thrust(d):
 # 	t = own["timer_thrust"]
-# 	if t < own["ThrustRate"]:
+# 	if t < own["ThrustRate"]:f
 # 		thrust = (t/own["ThrustRate"]) * own["ThrustRatio"]
 # 	else:
 # 		thrust = own["ThrustRatio"]

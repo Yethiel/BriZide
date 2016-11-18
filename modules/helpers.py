@@ -17,3 +17,6 @@ def clamp(value, min, max):
 		return min
 	else:
 		return value
+
+def time_string(timefloat):
+	return str( int(timefloat/60) ) + ":" + str(int(timefloat) % 60) + ":" + str(timefloat - int(timefloat))[2:][:3]

@@ -27,6 +27,7 @@
       * checkpoint_data
       * checkpoint_count_registered
       * race_complete bool
+			* cp_data
         + {'name': 'Block_Checkpoint', 'reference': Block_Checkpoint, 'times': {}}
     - ships
     - block_list (available blocks)

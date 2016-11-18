@@ -2,7 +2,7 @@
 This is the script for the time trial game mode.
 It is attached to the Controller object in the mode's blend file.
 
-Checkpoint globalDict structure:
+Checkpoint gD structure:
 
 - current
 	- level
@@ -14,7 +14,7 @@ Checkpoint globalDict structure:
 """
 
 from bge import logic, events
-from modules import level, components, global_constants as G, sound
+from modules import level, components, global_constants as G, sound, helpers
 
 from random import randint
 
@@ -23,7 +23,7 @@ import bgui
 import bgui.bge_utils
 
 sce = logic.getCurrentScene() # scene that contains all objects
-globalDict = logic.globalDict
+gD = logic.globalDict
 
 own = logic.getCurrentController().owner # This is the object that executes these functions.
 
@@ -56,14 +56,16 @@ class TimeTrialUI(bgui.bge_utils.Layout):
 		self.lbl_count = bgui.Label(self.frame, text="1", pos=[0.5, 0.8], sub_theme='Large', options = bgui.BGUI_DEFAULT | bgui.BGUI_CENTERX)
 		self.lbl_laps = bgui.Label(self.frame, text="Lap", pos=[0.2, 0.9], options = bgui.BGUI_DEFAULT)
 		self.lbl_checkpoints = bgui.Label(self.frame, text="Lap", pos=[0.2, 0.85], options = bgui.BGUI_DEFAULT)
+		self.lbl_time = bgui.Label(self.frame, text="Time", pos=[0.5, 0.85], sub_theme='Large', options = bgui.BGUI_DEFAULT| bgui.BGUI_CENTERX)
+		self.lbl_time_last_check = bgui.Label(self.frame, text="Time", pos=[0.5, 0.75], options = bgui.BGUI_DEFAULT| bgui.BGUI_CENTERX)
 
 	def update(self):
-		if "checkpoint_count_registered" in globalDict["current"]["level"]:
-			self.lbl_laps.text = "Lap " + str(globalDict["current"]["level"]["lap"]+1) +"/"+ str(globalDict["current"]["level"]["total_laps"])
-			self.lbl_checkpoints.text = "Chk " + str(globalDict["current"]["level"]["checkpoint_count_registered"]) +"/"+ str(globalDict["current"]["level"]["checkpoint_count"])
+		if "checkpoint_count_registered" in gD["current"]["level"]:
+			self.lbl_laps.text = "Lap " + str(gD["current"]["level"]["lap"]+1) +"/"+ str(gD["current"]["level"]["total_laps"])
+			self.lbl_checkpoints.text = "Chk " + str(gD["current"]["level"]["checkpoint_count_registered"]) +"/"+ str(gD["current"]["level"]["checkpoint_count"])
 
-		if G.PLAYER_ID in globalDict["current"]["ships"]:
-			self.lbl_velocity.text = ">>> " + str(int(globalDict["current"]["ships"][G.PLAYER_ID]["reference"]["Velocity"]))
+		if G.PLAYER_ID in gD["current"]["ships"]:
+			self.lbl_velocity.text = ">>> " + str(int(gD["current"]["ships"][G.PLAYER_ID]["reference"]["Velocity"]))
 
 
 		if own["countdown"] < 4:
@@ -76,13 +78,25 @@ class TimeTrialUI(bgui.bge_utils.Layout):
 			self.lbl_count.text = ""
 
 
+		try:
+			last_check = gD["current"]["ships"][G.PLAYER_ID]["last_checkpoint"]["id"]
+			self.lbl_time_last_check.text = helpers.time_string((gD["current"]["level"]["checkpoint_data"][last_check]["times"][G.PLAYER_ID][gD["current"]["level"]["lap"]]))
+		except:
+			pass
+		if gD["current"]["level"]["race_complete"]:
+			self.lbl_time.text = self.lbl_time_last_check.text
+		else:
+			self.lbl_time.text = helpers.time_string(own["Timer"])
+
+
+
 def setup():
 
 	# load the blocks
 	components.load("blocks")
 
 	# load the level
-	level.load(globalDict.get("settings")["Game"]["LevelDir"]) # load from file to memory
+	level.load(gD.get("settings")["Game"]["LevelDir"]) # load from file to memory
 	components.load("level") # place the level in the 3d world
 
 	# load the cube creator
@@ -96,15 +110,15 @@ def setup():
 
 
 	# set the music directory
-	globalDict["current"]["music"]["subdir"] = "time_trial"
-	globalDict["current"]["level"]["race_complete"] = False
+	gD["current"]["music"]["subdir"] = "time_trial"
+	gD["current"]["level"]["race_complete"] = False
 
 	global ships
 	global cp_data
-	ships = globalDict["current"]["ships"] # ship list from global dict
-	cp_data = globalDict["current"]["level"]["checkpoint_data"]
+	ships = gD["current"]["ships"] # ship list from global dict
+	cp_data = gD["current"]["level"]["checkpoint_data"]
 
-	globalDict["ui"]["sys"].add_overlay(TimeTrialUI)
+	gD["ui"]["sys"].add_overlay(TimeTrialUI)
 
 	# In debug mode, print when game mode is ready
 	if G.DEBUG: print(own.name + ": Game mode Time Trial has been set up.")
@@ -130,7 +144,7 @@ def main():
 			sound.EchoWrapper("go" + str(randint(0,4))).play()
 			own["countdown"] -= 1
 			# Give controls to the player
-			globalDict["input"]["focus"] = "ship"
+			gD["input"]["focus"] = "ship"
 		if own["countdown"] == 0 and own["Timer"] > 5:
 			own["countdown"] -= 1
 
@@ -145,8 +159,8 @@ def main():
 				checkpoint_check(ship_ref)
 				checkpoint_register(checkpoint, ship_ref)
 	if keyboard.events[key_reset] == JUST_RELEASED:
-		ship = globalDict["current"]["ships"][G.PLAYER_ID]["reference"]
-		ship.worldPosition = globalDict["current"]["ships"][G.PLAYER_ID]["last_checkpoint"].worldPosition
+		ship = gD["current"]["ships"][G.PLAYER_ID]["reference"]
+		ship.worldPosition = gD["current"]["ships"][G.PLAYER_ID]["last_checkpoint"].worldPosition
 		ship.localLinearVelocity = [0, 0, 0]
 	if keyboard.events[key_restart] == JUST_RELEASED:
 		pass
@@ -154,14 +168,14 @@ def main():
 
 # Use this function with a mesage actuator.
 # It gets called whenever the Controller object receives a message.
-# In this instance, it is used to refresh the globalDict when a checkpoint has been activated.
+# In this instance, it is used to refresh the gD when a checkpoint has been activated.
 def actions():
 	message_sensor = own.sensors["Message"] # This is the sensor that receives messages from other objects, e.g. when a checkpoint has been passed
 	if message_sensor.positive and "time_trial.registered" in message_sensor.subjects[-1]:
 		if G.DEBUG: print(own.name + ": Message received: "+str(message_sensor.subjects))
 		if G.DEBUG: print(own.name + ": Checkpoint passed.")
 
-	# add checkpoints to the globalDict
+	# add checkpoints to the gD
 	if message_sensor.positive:
 		for msg in range(0, len(message_sensor.subjects)): # messages can arrive at the same time. work on all of them
 			if "checkpoint.setup" in message_sensor.subjects[msg]:
@@ -180,31 +194,31 @@ def actions():
 
 # When a ship passes a checkpoint, register it
 def checkpoint_register(checkpoint, ship_ref):
-	if not globalDict["current"]["level"]["race_complete"]:
+	if not gD["current"]["level"]["race_complete"]:
 
 		time_list = cp_data[checkpoint]["times"]
 		ship_id = ship_ref["player_id"]
-		lap = globalDict["current"]["level"]["lap"]
-		last_checkpoint = globalDict["current"]["ships"][ship_ref["player_id"]]["last_checkpoint"]
+		lap = gD["current"]["level"]["lap"]
+		last_checkpoint = gD["current"]["ships"][ship_ref["player_id"]]["last_checkpoint"]
 
 		if not ship_id in time_list:
 			time_list[ship_id] = []
 
 		if len(time_list[ship_id])-1 < lap and cp_data[checkpoint]["reference"] != last_checkpoint:
 			time_list[ship_id].insert(lap, own["Timer"])
-			globalDict["current"]["ships"][ship_ref["player_id"]]["last_checkpoint"] = cp_data[checkpoint]["reference"]
+			gD["current"]["ships"][ship_ref["player_id"]]["last_checkpoint"] = cp_data[checkpoint]["reference"]
 			sound.play("checkpoint")
 			if G.DEBUG: print(str(ship_id), "registered at", checkpoint, "Lap:", lap, "Time:", time_list[ship_id][lap])
 
 # check if a lap has been completed or if the race is over
 def checkpoint_check(ship_ref):
-	if not globalDict["current"]["level"]["race_complete"]:
+	if not gD["current"]["level"]["race_complete"]:
 		ship_id = ship_ref["player_id"]
-		lap = globalDict["current"]["level"]["lap"]
-		total_laps = int(globalDict["current"]["level"]["total_laps"])
+		lap = gD["current"]["level"]["lap"]
+		total_laps = int(gD["current"]["level"]["total_laps"])
 
 		amount_registered = 0
-		amount_checkpoints = globalDict["current"]["level"]["checkpoint_count"]
+		amount_checkpoints = gD["current"]["level"]["checkpoint_count"]
 
 		for checkpoint in cp_data:
 			time_list = cp_data[checkpoint]["times"]
@@ -213,21 +227,21 @@ def checkpoint_check(ship_ref):
 					amount_registered += 1
 
 		# if len(time_list) >= total_laps:
-		globalDict["current"]["level"]["checkpoint_count_registered"] = amount_registered
+		gD["current"]["level"]["checkpoint_count_registered"] = amount_registered
 
 		if amount_registered == amount_checkpoints:
 			amount_registered = 0
-			globalDict["current"]["level"]["lap"] += 1
+			gD["current"]["level"]["lap"] += 1
 			sound.play("lap_complete")
-		# print(globalDict["current"]["level"]["lap"])
+		# print(gD["current"]["level"]["lap"])
 
 		if lap == total_laps:
-			globalDict["input"]["focus"] = "menu"
+			gD["input"]["focus"] = "menu"
 			if G.DEBUG: print("Time Trial over.")
 			sound.play("race_complete")
-			globalDict["current"]["level"]["checkpoint_count_registered"] = globalDict["current"]["level"]["checkpoint_count"]
-			globalDict["current"]["level"]["lap"] = int(globalDict["current"]["level"]["total_laps"])-1
-			globalDict["current"]["level"]["race_complete"] = True
+			gD["current"]["level"]["checkpoint_count_registered"] = gD["current"]["level"]["checkpoint_count"]
+			gD["current"]["level"]["lap"] = int(gD["current"]["level"]["total_laps"])-1
+			gD["current"]["level"]["race_complete"] = True
 			# components.load("main_menu")
 
 
