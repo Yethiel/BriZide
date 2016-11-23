@@ -59,8 +59,10 @@ def load(level_name):
 		"start_pos" : start_pos,
 		"start_orientation" : start_orientation,
 		"checkpoint_count" : checkpoint_count,
-		"checkpoint_data" : {}
+		"checkpoint_data" : {},
+		"portal_data" : {},
 	}
+
 	if G.DEBUG:
 		print("=== LEVEL INFORMATION ===")
 		print("    Name: "+ str(level_dict["name"]))
@@ -82,6 +84,7 @@ def save():
 	# prepare block dict
 	blocks = []
 	checkpoint_count = 0
+	portal_count = 0
 
 	# Save all saveable blocks
 	for obj in sce.objects:
@@ -99,6 +102,14 @@ def save():
 				else:
 					block["id"] = obj["id"]
 				checkpoint_count += 1
+			elif "Portal" in obj.name:
+				if not "id" in obj:
+					block["id"] = portal_count
+					if block["id"] == 0:
+						block["link_id"] = 1
+					else: 
+						block["link_id"] = 0
+				portal_count += 1
 
 			blocks.append(block)
 
@@ -134,6 +145,8 @@ def place():
 		nb = sce.addObject(block["type"])
 		if "id" in block:
 			nb["id"] = block["id"]
+		if "link_id" in block:
+			nb["link_id"] = block["link_id"]
 		nb.worldPosition = block["position"]
 		do = nb.worldOrientation.to_euler()
 		for x in [0, 1, 2]:

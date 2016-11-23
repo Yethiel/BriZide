@@ -155,7 +155,6 @@ def main():
 
 		for checkpoint in cp_data:
 			if ship_ref.getDistanceTo(cp_data[checkpoint]["reference"]) <= TRIGGER_DISTANCE:
-				# send a message with the subject "activate" with the body of the ship's name (to the checkpoint, from the ship)
 				checkpoint_check(ship_ref)
 				checkpoint_register(checkpoint, ship_ref)
 	if keyboard.events[key_reset] == JUST_RELEASED:

@@ -342,6 +342,7 @@ def setup():
 
 	# prepare the ship's own entry in the global dict
 	globalDict["current"]["ships"][own["player_id"]]["last_checkpoint"] = None
+	globalDict["current"]["ships"][own["player_id"]]["last_portal_id"] = None
 	globalDict["current"]["ships"][own["player_id"]]["reference"] = own
 
 	# set the start position according to the level
