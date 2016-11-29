@@ -36,6 +36,7 @@ def play_shuffle():
         music_list = []
         playing_index = 0
         own["current_dir"] = subdir # keep track of the directory this script is currently in
+        
         for file in listdir(music_subdir):
             for type in G.TYPES_MUSIC:
                 if type in file:
@@ -48,8 +49,10 @@ def play_shuffle():
         own["handle"].stop()
 
     IS_PLAYING = (hasattr(own["handle"], 'status') and own["handle"].status == True)
+ 
     if not own["init"] or not IS_PLAYING or change:
         own["handle"] = play(music_subdir + "/" + music_list[playing_index])
+ 
         if G.DEBUG: print(own.name + ": Now playing track " + str(playing_index) + ": " + music_list[playing_index])
 
         if playing_index + 1 > len(music_list)-1:
@@ -60,11 +63,3 @@ def play_shuffle():
         # set the volume
         own["handle"].volume = float(audio_settings["Music"]) * float(audio_settings["Master"])
         own["init"] = True
-
-# def play_random():
-#     IS_PLAYING = (hasattr(own["handle"], 'status') and own["handle"].status == True)
-#     if not own["init"] or not IS_PLAYING:
-#         shuffle(music_list)
-#         own["handle"] = play(G.PATH_MUSIC + music_list[randint(0, len(music_list)-1)])
-#         own["handle"].volume = float(audio_settings["Music"]) * float(audio_settings["Master"])
-#         own["init"] = True

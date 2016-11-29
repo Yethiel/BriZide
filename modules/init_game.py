@@ -44,15 +44,6 @@ def main():
 	# get available content
 	content.set_all()
 
-	# main menu
-	# this basically is a component scene linked to the main.blend file
-	# overlay scenes can only be applied from the current blend file, not external libraries.
-	# loading this with my component.py does not work.
-	# logic.addScene("UI_Menu")
-	# components.load("main_menu")
-	# main menu will be loaded as separate module
-
-
 # after laoding a mode, you should end the menu.
 
 def end_menu():

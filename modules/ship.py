@@ -156,15 +156,6 @@ def stabilize():
 		else:
 			if G.DEBUG: own['DEBUG_stabilizer'] = '---'
 
-# def thrust(d):
-# 	t = own["timer_thrust"]
-# 	if t < own["ThrustRate"]:f
-# 		thrust = (t/own["ThrustRate"]) * own["ThrustRatio"]
-# 	else:
-# 		thrust = own["ThrustRatio"]
-# 	if not own.localLinearVelocity[1] >= own["TopSpeed"]:
-# 			own.applyForce([0,own["ThrustRatio"]*d,0], True)
-
 
 def get_grip():
 	if own["on_ground"]:

@@ -2,13 +2,24 @@ from bge import logic
 import configparser
 import os.path
 from modules import global_constants as G
-CONFIG_PATH = logic.expandPath("//config.ini")
+
+own = logic.getCurrentController().owner
 
 def load():
+"""
+This function tries to load the config file 
+(specified in the global constants).
+If it's not there, a config file with default settings will be created.
+
+:rtype: :py:class:`configparser.ConfigParser`
+"""
+	
 	config = configparser.ConfigParser()
-	if os.path.isfile(CONFIG_PATH):
-		config.read(CONFIG_PATH)
-		if G.DEBUG: print("Successfully loaded config file.")
+	# Check if the config file is there. If so, load it.
+	if os.path.isfile(G.CONFIG_PATH):
+		config.read(G.CONFIG_PATH)
+		if G.DEBUG: print(own, "Successfully loaded config file.")
+	
 	else:
 		# create an ini with the default configuration
 		config["Game"] = {
@@ -70,8 +81,10 @@ def load():
 			"editor_9" : "NINEKEY",
 			"editor_10" : "ZEROKEY"
 		}
-		with open(CONFIG_PATH, 'w') as configfile:
+		# create a new config file and write to it
+		with open(G.CONFIG_PATH, 'w') as configfile:
 			config.write(configfile)
 		if G.DEBUG: print("Could not find config file. Created a file with defaults.")
+	
 	config["Game"]["Version"] = str(G.VERSION) # Version number will be saved into the blk file for compatibility.
 	return config

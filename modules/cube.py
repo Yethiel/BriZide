@@ -11,7 +11,6 @@ sce = logic.getCurrentScene()
 
 settings = logic.globalDict.get("settings")
 level = logic.globalDict.get("current")["level"]
-DEBUG = settings["Dev"]["debug"] == "True"
 tile_size = 32
 cube_size = level["cube_size"]
 
@@ -22,7 +21,7 @@ def main():
 	(we're counting tiles that you can drive on for the cube size).
 	A cube size of 10 should result in a driveable area of 10x10 tiles per side of the cube.
 	"""
-	cube_range = range (0, cube_size)
+	cube_range = range(0, cube_size)
 
 	# create a cube with that size (wall by wall)
 
@@ -56,11 +55,3 @@ def main():
 		for z in cube_range:
 			own.worldPosition = [(cube_size-1) * tile_size, y * tile_size , z * tile_size]
 			sce.addObject("CubeTile_X+", own, 0)
-
-	# for x in cube_range:
-	# 	for y in cube_range:
-	# 		for z in cube_range:
-	# 			crit = [0, cube_size - 1] # criteria for cube placement (so we get a hollow cube, has to be an outermost block to get placed)
-	# 			if x in crit or y in crit or z in crit:
-	# 				add_now([x, y, z])
-	# 				if DEBUG: print(own.worldPosition)

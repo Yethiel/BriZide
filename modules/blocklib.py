@@ -6,15 +6,16 @@ addObj.
 """
 from bge import logic
 
-co = logic.getCurrentController()
-own = co.owner
+cont = logic.getCurrentController()
+own = cont.owner
 sce = logic.getCurrentScene()
 
 settings = logic.globalDict.get("settings")
-DEBUG = settings["Dev"]["debug"] == "True"
 
-# Add all blocks to the gobal dict
 def add():
+	"""
+	This will look up all objects in a blend file and append them to the block list.
+	"""
 	# load the block list from the globalDict (in case multiple blocklibs are used, so that these can be added to the list, we don't want to replace it)
 	block_list = logic.globalDict.get("current")["block_list"]
 
@@ -23,18 +24,18 @@ def add():
 		if "Block_" in obj.name:
 			# we need to use the name since this lib will be freed and the objects will be gone, leaving freed references
 			block_list.append(obj.name)
+	
 	logic.globalDict["current"]["block_list"] = block_list # save the list back to the globalDict
-	if len(block_list) != 0: # if there is actually something there...
-		print("Successfully loaded block list.")
-		if DEBUG: print(block_list)
-
-def free_component(component):
-	for lib in logic.LibList():
-		if component in lib:
-			logic.LibFree(lib)
-			print("Freed component " + component)
+	
+	if len(block_list) != 0: # if some blocks have been foudn
+		if G.DEBUG:
+			print("Successfully loaded block list.")
+			print(block_list)
 
 def main():
+	"""
+	Gets executed by the Controller object.
+	The library will be freed shortly after.
+	"""
 	add()
-	# free the lib since blocklib is on the first layer while we need it to be on the second layer for addObject
 	free_component("blocklib")

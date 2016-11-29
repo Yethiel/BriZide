@@ -88,7 +88,9 @@ def save():
 
 	# Save all saveable blocks
 	for obj in sce.objects:
+
 		if "Block_" in obj.name:
+
 			wo = obj.worldOrientation.to_euler() # saving the start orientation as an euler matrix (saves some digits)
 
 			block = {
@@ -96,12 +98,14 @@ def save():
 				"position" : [obj.worldPosition.x, obj.worldPosition.y, obj.worldPosition.z],
 				"orientation" : [wo[0], wo[1], wo[2]]
 			}
+
 			if "Checkpoint" in obj.name:
 				if not "id" in obj:
 					block["id"] = checkpoint_count
 				else:
 					block["id"] = obj["id"]
 				checkpoint_count += 1
+
 			elif "Portal" in obj.name:
 				if not "id" in obj:
 					block["id"] = portal_count
@@ -119,14 +123,17 @@ def save():
 		"blocks" : blocks,
 		"checkpoint_count" : checkpoint_count
 	}
+
 	pickle.dump( blk_file, open( blk_path, "wb" ) )
 	print("Saved block file.")
 
 	# write .inf file
 	inf = configparser.ConfigParser()
+	
 	inf["info"] = {
 		"name" : level_dict["name"]
 	}
+	
 	inf["meta"] = {
 		"cube_size" : level_dict["cube_size"]
 	}
@@ -134,6 +141,7 @@ def save():
 
 	with open(inf_path, 'w') as inffile:
 		inf.write(inffile)
+	
 	print("Saved information file.")
 
 
@@ -143,16 +151,18 @@ def place():
 	for block in level_dict["block_list"]:
 
 		nb = sce.addObject(block["type"])
+		
 		if "id" in block:
 			nb["id"] = block["id"]
+		
 		if "link_id" in block:
 			nb["link_id"] = block["link_id"]
+		
 		nb.worldPosition = block["position"]
 		do = nb.worldOrientation.to_euler()
+		
 		for x in [0, 1, 2]:
 			do[x] = block["orientation"][x]
+		
 		nb.worldOrientation = do.to_matrix()
 		logic.NextFrame()
-		# for a in range(0, 2):
-		#     for b in range(0, 2):
-		#         nb.worldOrientation[a][b] = block["orientation"][a][b]
