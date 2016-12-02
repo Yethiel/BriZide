@@ -44,24 +44,26 @@ class MainMenu(bgui.bge_utils.Layout):
 		self.win.img = bgui.Image(self.frame, '//gfx/title.bmp', pos=[0, 0],
 			options = bgui.BGUI_DEFAULT|bgui.BGUI_CENTERED|bgui.BGUI_CACHE)
 
-		# self.lb_modes = bgui.ListBox(self.win, "lb_modes", items=globalDict["content"]["modes"], padding=0.05, size=[0.09, 0.09], pos=[.04, 0.1])
-		# self.lb_modes.renderer = ListBoxRenderer(self.lb_modes)
-		# self.lb_modes.on_click = self.lb_modes_click
-
 		# for x in range(0, len(globalDict["content"]["modes"])):
 		# 	setattr(self, "x")
+		self.mode_buttons = []
+		amnt_modes = len(globalDict["content"]["modes"])
 
-		self.button = bgui.FrameButton(self.win, text=globalDict["content"]["modes"][0], size=[.5, .1], pos=[0, .9],
-			options = bgui.BGUI_DEFAULT)
-		self.button.on_click = self.select_mode
+		# add all game modes to the menu (tab-style)
+		for x in range(0, amnt_modes):
 
-		self.button = bgui.FrameButton(self.win, text=globalDict["content"]["modes"][1], size=[.5, .1], pos=[.5, .9],
-			options = bgui.BGUI_DEFAULT)
-		self.button.on_click = self.select_mode
+			button = bgui.FrameButton(self.win, 
+				text=globalDict["content"]["modes"][x], 
+				size=[1/amnt_modes, .1], 
+				pos=[x/amnt_modes, .9],
+				options = bgui.BGUI_DEFAULT)
+
+			button.on_click = self.select_mode
+			self.mode_buttons.append(button)
 		
-		self.button = bgui.FrameButton(self.win, text='Start', size=[.14, .1], pos=[.815, .03],
+		self.button_start = bgui.FrameButton(self.win, text='Start', size=[.14, .1], pos=[.815, .03],
 			options = bgui.BGUI_DEFAULT)
-		self.button.on_click = self.start
+		self.button_start.on_click = self.start
 
 	def lb_modes_click(self, widget):
 		globalDict["settings"]["Game"]["mode"] = widget.selected

@@ -7,6 +7,7 @@ TL;DR: Get name lists of available content
 """
 from bge import logic
 from os import listdir
+from modules import global_constants as G
 
 def get_levels():
 	"""

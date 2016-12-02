@@ -6,14 +6,6 @@ from modules import global_constants as G
 own = logic.getCurrentController().owner
 
 def load():
-"""
-This function tries to load the config file 
-(specified in the global constants).
-If it's not there, a config file with default settings will be created.
-
-:rtype: :py:class:`configparser.ConfigParser`
-"""
-	
 	config = configparser.ConfigParser()
 	# Check if the config file is there. If so, load it.
 	if os.path.isfile(G.CONFIG_PATH):

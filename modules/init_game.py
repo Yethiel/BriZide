@@ -1,5 +1,7 @@
 """
-This is where it all starts!
+This is the module called by the controller object in main.blend.
+The main function will initialize the globalDict and 
+load the game mode.
 """
 
 from bge import logic

@@ -1,5 +1,5 @@
 from bge import logic, events
-globalDict = logic.globalDict
+gD = logic.globalDict
 from modules import global_constants as G
 import configparser, mathutils, os
 
@@ -9,7 +9,7 @@ sce = logic.getCurrentScene()
 own["last_obj"] = None
 own["thrust"] = 0.0
 
-settings = globalDict["settings"]
+settings = gD["settings"]
 
 # get directions for raycasting
 for obj in own.children:
@@ -38,7 +38,7 @@ key_absorb_weapon = events.LEFTSHIFTKEY
 key_pause = events.ESCKEY
 
 def load(ship_name, player_id):
-	settings = logic.globalDict.get("settings")
+	settings = gD.get("settings")
 	ship_path = logic.expandPath("//ships/"+ship_name)
 	inf_path = logic.expandPath("//ships/"+ship_name+"/"+ship_name+".inf")
 
@@ -90,14 +90,14 @@ def load(ship_name, player_id):
 			for key in ship_dict[category]:
 				print("    " + str(key) + ": " + str(ship_dict[category][key]))
 
-	logic.globalDict["current"]["ships"][player_id] = ship_dict
+	gD["current"]["ships"][player_id] = ship_dict
 	own["player_id"] = player_id
 
 
 # executed every tick to respond to key events
 def controls():
 
-	if globalDict.get("input")["focus"] == "ship":
+	if gD.get("input")["focus"] == "ship":
 		if keyboard.events[key_thrust] == ACTIVE:
 			thrust(1)
 		if keyboard.events[key_thrust_reverse] == ACTIVE:
@@ -291,7 +291,7 @@ def main():
 		descend()
 		own["on_ground"] = False
 
-	if globalDict.get("input")["focus"] == "ship":
+	if gD.get("input")["focus"] == "ship":
 
 		if keyboard.events[key_steer_left] == ACTIVE:
 			own['lastkey'] = 'key_steer_left'
@@ -306,7 +306,7 @@ def main():
 
 		own.applyRotation((0,0, own["turn"] ), True) #actual steering happens here
 	# catch ship out of cube
-	cube_size = globalDict["current"]["level"]["cube_size"]
+	cube_size = gD["current"]["level"]["cube_size"]
 	if own.worldPosition.z < -16:
 		own.worldPosition.z += 5
 	if own.worldPosition.z > cube_size * 32 - 16:
@@ -329,20 +329,20 @@ def near():
 	# i used to check for checkpoints here, but i'll put speed pads here later.
 def setup():
 	# load the ship information file (ShipDir is the directory to load the .inf from)
-	load(globalDict.get("settings")["Game"]["ShipDir"], G.PLAYER_ID)
+	load(gD.get("settings")["Game"]["ShipDir"], G.PLAYER_ID)
 
 	# prepare the ship's own entry in the global dict
-	globalDict["current"]["ships"][own["player_id"]]["last_checkpoint"] = None
-	globalDict["current"]["ships"][own["player_id"]]["last_portal_id"] = None
-	globalDict["current"]["ships"][own["player_id"]]["reference"] = own
+	gD["current"]["ships"][own["player_id"]]["last_checkpoint"] = None
+	gD["current"]["ships"][own["player_id"]]["last_portal_id"] = None
+	gD["current"]["ships"][own["player_id"]]["reference"] = own
 
 	# set the start position according to the level
-	own.worldPosition = globalDict.get("current")["level"]["start_pos"]
+	own.worldPosition = gD.get("current")["level"]["start_pos"]
 
 	# set the start orientation according to the level
 	# for this we have to convert the euler matrix saved in the level file to a regular orientation matrix
 	ship_orientation = own.worldOrientation.to_euler() # we need an euler matrix
-	start_orientation = globalDict.get("current")["level"]["start_orientation"]
+	start_orientation = gD.get("current")["level"]["start_orientation"]
 	for x in [0, 1, 2]:
 		ship_orientation[x] = start_orientation[x]
 	own.worldOrientation = ship_orientation.to_matrix()
