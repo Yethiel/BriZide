@@ -1,78 +1,113 @@
 """
-This script contains all functions that can be
-perfomed on or with levels (files and instances in the game)
+This module is for managing levels.
+Objects from the classes defined here will be saved in the globalDict.
 """
 
-from bge import logic
+import os
 import pickle
 import configparser
-import os
 import mathutils
+from bge import logic
 from modules import global_constants as G
 
 co = logic.getCurrentController()
 sce = logic.getCurrentScene()
 own = co.owner
+settings = logic.globalDict.get("settings")
+
+class Block():
 
 
-def load(level_name):
+class Level():
+	"""Used for loading and storing level data
 
-	settings = logic.globalDict.get("settings")
-	level_path = logic.expandPath("//levels/"+level_name)
-	inf_path = logic.expandPath("//levels/"+level_name+"/"+level_name+".inf")
-	blk_path = logic.expandPath("//levels/"+level_name+"/"+level_name+".blk")
+	Attributes:
+		identifier: A string that represents the level, e.g. folder name
+		path: Path to the level folder
+		cube_size: Size of the cube that encloses the level
+		start_pos: Coordinate of the start position (x, y, z)
+		start_orientation: Orientation for the spawn position
+		__checkpoint_count: Amount of checkpoints
+		__block_data: List of block objects that the level includes
+		__valid: True if everything loaded correctly
+		inf_path: path + .inf file name
+		blk_path: path + .blk file name
 
-	# load the information file
-	inf = configparser.ConfigParser()
-	if os.path.isfile(inf_path):
-		inf.read(inf_path)
-		if G.DEBUG: print("Loaded level information file.")
+	"""
+	def __init__(self, identifier):
+		"""Init level objet with defaults"""
+		self.identifier = identifier
+		self.path = G.PATH_LEVELS + self.identifier
+		self.cube_size = 32
+		self.start_pos = [0, 0, 0]
+		self.start_orientation = []
+		self.__checkpoint_count = 0
+		self.__block_data =[]
+		self.__valid = True
 
-	# load the block file
-	start_pos = [0, 0, 0]
-	start_orientation = []
-	checkpoint_count = 0
-	blk_file = {
-		"blocks" : []
-	}
+		self.__lap = 0
+		self.__total_laps = 0
 
-	if os.path.isfile(blk_path):
-		blk_file = pickle.load( open( blk_path, "rb" ) )
-	else:
-		print("No .blk file found.")
-	for block in blk_file["blocks"]:
-		# get start position from start object
-		if "Start" in block["type"]:
-			start_pos = block["position"]
-			start_orientation = block["orientation"]
-		# get checkpoint_count
-		elif "Checkpoint" in block["type"]:
-			block["id"] = checkpoint_count # set an id for the checkpoint
-			checkpoint_count += 1
+		self.inf_path = self.path + self.identifier + G.EXTENSION_INF
+		self.blk_path = self.path + self.identifier + G.EXTENSION_BLK
 
-	level_dict = {
-		"name" : inf["info"]["name"],
-		"lap" : 0,
-		"total_laps": settings["Game"]["laps"],
-		"cube_size" : int(inf["meta"]["cube_size"]),
-		"block_list" : blk_file["blocks"],
-		"start_pos" : start_pos,
-		"start_orientation" : start_orientation,
-		"checkpoint_count" : checkpoint_count,
-		"checkpoint_data" : {},
-		"portal_data" : {},
-	}
+	def __str__(self):
+		"""String representation"""
+		return self.identifier
 
-	if G.DEBUG:
+	def print_info(self):
+		"""Print debug information, mainly attributes"""
 		print("=== LEVEL INFORMATION ===")
-		print("    Name: "+ str(level_dict["name"]))
-		print("    Cube Size: "+ str(level_dict["cube_size"]))
-		print("    Start Pos: "+ str(level_dict["start_pos"]))
-		print("    Start Orientation: "+ str(level_dict["start_orientation"]))
-		print("    Number of Blocks: "+ str(len(level_dict["block_list"])))
-		print("    Checkpoints: "+ str(level_dict["checkpoint_count"]))
+		print("\tName: {}".format(self.identifier))
+		print("\tCube Size: {}".format(self.cube_size))
+		print("\tStart Pos: {}".format(self.start_pos))
+		print("\tStart Orientation: {}".format(self.start_orientation))
+		print("\tNumber of Blocks: {}".format(len(self.__blocks)))
+		print("\tCheckpoints: {}".format(self.__checkpoint_count))
 
-	logic.globalDict["current"]["level"] = level_dict
+	def get_checkpoint_count():
+		"""The checkpoint count will only be set by load(), thus only get"""
+		return self.__checkpoint_count
+ 
+	def load(self):
+		"""Load the level from its folder"""
+		
+		# Load the information file
+		if os.path.isfile(self.inf_path):
+			inf_file = configparser.ConfigParser()
+			inf_file.read(self.inf_path)
+			if G.DEBUG: print("{}: {}".format(own.name, 
+				"Loaded level information file.")
+		else:
+			if G.DEBUG: print("{}: {}".format(own.name, 
+				"Could not load level information file.")
+			self.__valid = False
+			return -1
+
+		# Load the block file
+		if os.path.isfile(blk_path):
+			blk_file = pickle.load(open(self.blk_path, "rb"))
+		else:
+			print("{}: {}".format(own.name, "No .blk file found.")
+			self.__valid = False
+			return -1
+
+		for block in blk_file["blocks"]:
+			# Get start position from start object
+			if "Start" in block["type"]:
+				self.start_pos = block["position"]
+				self.start_orientation = block["orientation"]
+			
+			# Get checkpoint_count and set the IDs
+			elif "Checkpoint" in block["type"]:
+				block["id"] = self.checkpoint_count
+				self.checkpoint_count += 1
+
+		# Set attributes
+		self.cube_size = inf["meta"]["cube_size"])
+			
+		# Make this object accessible in the globalDict
+		logic.globalDict["current"]["level"] = self
 
 def save():
 	settings = logic.globalDict.get("settings")
