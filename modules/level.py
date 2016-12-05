@@ -16,10 +16,15 @@ own = co.owner
 settings = logic.globalDict.get("settings")
 
 class Block():
-
+	def __init__(self):
+		self.
 
 class Level():
 	"""Used for loading and storing level data
+
+	A level does not include anything related to the game modes.
+	There is no information about laps or checkpoints.
+	This is solely to set up the game world.
 
 	Attributes:
 		identifier: A string that represents the level, e.g. folder name
@@ -27,7 +32,6 @@ class Level():
 		cube_size: Size of the cube that encloses the level
 		start_pos: Coordinate of the start position (x, y, z)
 		start_orientation: Orientation for the spawn position
-		__checkpoint_count: Amount of checkpoints
 		__block_data: List of block objects that the level includes
 		__valid: True if everything loaded correctly
 		inf_path: path + .inf file name
@@ -41,7 +45,6 @@ class Level():
 		self.cube_size = 32
 		self.start_pos = [0, 0, 0]
 		self.start_orientation = []
-		self.__checkpoint_count = 0
 		self.__block_data =[]
 		self.__valid = True
 
@@ -63,9 +66,8 @@ class Level():
 		print("\tStart Pos: {}".format(self.start_pos))
 		print("\tStart Orientation: {}".format(self.start_orientation))
 		print("\tNumber of Blocks: {}".format(len(self.__blocks)))
-		print("\tCheckpoints: {}".format(self.__checkpoint_count))
 
-	def get_checkpoint_count():
+	def get_checkpoint_count(self):
 		"""The checkpoint count will only be set by load(), thus only get"""
 		return self.__checkpoint_count
  
@@ -82,7 +84,7 @@ class Level():
 			if G.DEBUG: print("{}: {}".format(own.name, 
 				"Could not load level information file.")
 			self.__valid = False
-			return -1
+			return 0
 
 		# Load the block file
 		if os.path.isfile(blk_path):
@@ -90,7 +92,7 @@ class Level():
 		else:
 			print("{}: {}".format(own.name, "No .blk file found.")
 			self.__valid = False
-			return -1
+			return 0
 
 		for block in blk_file["blocks"]:
 			# Get start position from start object
@@ -98,11 +100,6 @@ class Level():
 				self.start_pos = block["position"]
 				self.start_orientation = block["orientation"]
 			
-			# Get checkpoint_count and set the IDs
-			elif "Checkpoint" in block["type"]:
-				block["id"] = self.checkpoint_count
-				self.checkpoint_count += 1
-
 		# Set attributes
 		self.cube_size = inf["meta"]["cube_size"])
 			
