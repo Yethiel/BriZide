@@ -2,6 +2,6 @@
 
 ## Sound
 
-**Announcer**: Victor Bitu
-**Engine Sound**: Adam Nagy
-
+**Announcer**: Pong Pearson
+**Engine Sound**: Qvarcos
+**Music**: Qvarcos
