@@ -27,7 +27,6 @@ ACTIVE = logic.KX_INPUT_ACTIVE
 
 c_stt = settings["Controls_Player1"]
 
-# camera movement
 key_thrust = getattr(events, c_stt["ship_thrust"])
 key_thrust_reverse = getattr(events, c_stt["ship_thrust_reverse"])
 key_steer_left = getattr(events, c_stt["ship_steer_left"])
@@ -39,6 +38,7 @@ key_pause = events.ESCKEY
 
 def load(ship_name, player_id):
 	settings = gD.get("settings")
+
 	ship_path = logic.expandPath("//ships/"+ship_name)
 	inf_path = logic.expandPath("//ships/"+ship_name+"/"+ship_name+".inf")
 
@@ -60,9 +60,9 @@ def load(ship_name, player_id):
 			"TopSpeed" : 160,
 			"ThrustRatio" : 50,
 			"ThrustRate" : 6,
-			"Grip" : 1.5,
+			"Grip" : 1,
 			"GripAir" : 1,
-			"SteerRate" : 0.5,
+			"SteerRate" : 0.3,
 			"SteerRatio" : 0.04,
 			"TurnAmount" : 0.04,
 			"StableThreshold" : 0.01,
@@ -76,12 +76,39 @@ def load(ship_name, player_id):
 
 	# Replace parameters from inf file. Keys that aren't present won't be replaced.
 	for category in ship_dict:
+		
 		for key in ship_dict[category]:
+			
 			if key in inf[category]:
-				ship_dict[category][key] = str(inf[category][key]).split("#")[0]
+
+				new_val = None # value to overwrite the default
+				
 				if category == "Handling":  # Since the inf file will be loaded as strings, we need to cast them in this case.
-					own[key] = float(ship_dict[category][key])
-				else:  # Strings
+					set_success = True
+					# new_val = float(inf[category][key]).split(";")[0].replace("\t", "")
+					try:
+						new_val = float(str(inf[category][key]).split(";")[0].replace("\t", ""))
+					except Exception as e:
+						if G.DEBUG: print(own.name + ":", "Could not set", key + ":", str(e))
+						set_success = False
+					
+					if set_success: # Only overwrite default if the string could be parsed.
+						ship_dict[category][key] = new_val
+					
+					own[key] = ship_dict[category][key]
+
+				
+				elif category == "Main": # These are supposed to be strings
+					set_success = True
+					try:
+						new_val = str(inf[category][key]).split(";")[0].replace("\t", "")
+					except:
+						if G.DEBUG: print(own.name, ": Could not set", ship_dict[category][key])
+						set_success = False
+						
+					if set_success: # Only set it if the string could be parsed.
+						ship_dict[category][key] = new_val
+					
 					own[key] = ship_dict[category][key]
 	if G.DEBUG:
 		print("=== SHIP INFORMATION ===")
@@ -185,7 +212,7 @@ def steer(d):
 
 	if own.localLinearVelocity[1] < 0 and keyboard.events[key_thrust_reverse] == ACTIVE: d *= -1 # inverse steering when going reverse
 
-
+	# Smoothly center steering.
 	if own["turn"] > 0: #currently steering left
 		if d < 0: # player wants left
 			if abs(own["turn"]) <= own["SteerRatio"]: own["turn"] += (1/fps * own["SteerRate"]* get_grip())* -d
@@ -194,7 +221,7 @@ def steer(d):
 			# own["turn"] += (1/fps * own["SteerRate"])* -d   #center without respecting grip
 			center_steering()
 
-
+	# Smoothly center steering.
 	elif own["turn"] < 0: #currently steering right
 		if d < 0: # player wants left
 			# own["turn"] += (1/fps * own["SteerRate"])* -d #center without respecting grip
@@ -305,22 +332,23 @@ def main():
 			center_steering()
 
 		own.applyRotation((0,0, own["turn"] ), True) #actual steering happens here
+
 	# catch ship out of cube
 	cube_size = gD["current"]["level"]["cube_size"]
 	if own.worldPosition.z < -16:
-		own.worldPosition.z += 5
+		own.worldPosition.z += 32
 	if own.worldPosition.z > cube_size * 32 - 16:
-		own.worldPosition.z += 5
+		own.worldPosition.z += 32
 
 	if own.worldPosition.y > cube_size * 32 - 16:
-		own.worldPosition.y -= 5
+		own.worldPosition.y -= 32
 	if own.worldPosition.y < -16:
-		own.worldPosition.y += 5
+		own.worldPosition.y += 32
 
 	if own.worldPosition.x > cube_size * 32 - 16:
-		own.worldPosition.x -= 5
+		own.worldPosition.x -= 32
 	if own.worldPosition.x < -16:
-		own.worldPosition.x += 5
+		own.worldPosition.x += 32
 
 	# print(own.worldPosition)
 

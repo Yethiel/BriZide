@@ -11,7 +11,7 @@ it even further by keeping everything open.
 ### `.inf`
 These files contain meta-data (names, strings, paths, etc.) and parameters for
 components (e.g. ship parameters). Python's configparser module is used to
-read them.
+read them. Comments (entire lines as well as in-line comments) begin with `;`.
 The name is borrowed from Re-Volt's track information files (ini-like).
 
 ### `.blend`

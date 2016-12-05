@@ -39,6 +39,13 @@ Download Blender 2.78 (other versions might work as well) and launch the `main.b
 The source files for the launchers are provided (brizide_bin.blend and brizide_build.blend).
 Compiled launchers will be provided at a later point as they are quite large.
 
+## Implemented Features
++ Ship physics
++ Only one level and one ship
++ Bare-bones time trial mode (no score saving yet)
++ Free mode
++ Basic track editor
+
 ## License
 
 All Rights Reserved (for now). The project is not far enough into development 

@@ -16,7 +16,8 @@ sce = logic.getCurrentScene()
 
 def main():
 	os.system('clear')
-	print("Brizide ver.", G.VERSION, "Debug")
+	print("Brizide ver.", G.VERSION)
+	if G.DEBUG: print("D E B U G")
 	globalDict["settings"] = config.load()
 
 	### Preparing the globalDict
