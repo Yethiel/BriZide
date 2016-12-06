@@ -12,7 +12,7 @@ sce = logic.getCurrentScene()
 settings = logic.globalDict.get("settings")
 level = logic.globalDict.get("current")["level"]
 tile_size = 32
-cube_size = level["cube_size"]
+cube_size = level.get_cube_size()
 
 def main():
 	# get cube size from settings

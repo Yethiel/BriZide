@@ -6,7 +6,7 @@ load the game mode.
 
 from bge import logic
 globalDict = logic.globalDict
-from modules import components, content, modes, level, config, global_constants as G
+from modules import components, content, modes, config, global_constants as G
 import os
 
 cont = logic.getCurrentController()

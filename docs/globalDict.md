@@ -15,7 +15,7 @@
     - Controls_1 (list of available controls and their bindings)
       * test
   + current
-    - level
+    - level (pyObj:modules.level.Level, things nested below are depr.)
       * name
       * lap
       * cube_size

@@ -14,7 +14,7 @@ Checkpoint gD structure:
 """
 
 from bge import logic, events
-from modules import level, components, global_constants as G, sound, helpers
+from modules import components, global_constants as G, sound, helpers
 
 from random import randint
 
@@ -52,7 +52,12 @@ class TimeTrialUI(bgui.bge_utils.Layout):
 		self.frame = bgui.Frame(self, border=0)
 		self.frame.colors = [(0, 0, 0, 0) for i in range(4)]
 
-		self.lbl_velocity = bgui.Label(self.frame, text="velocity", pos=[0.9, 0.1], options = bgui.BGUI_DEFAULT)
+		self.lbl_velocity = bgui.Label(
+			self.frame,
+			text="velocity", 
+			pos=[0.9, 0.1], 
+			options = bgui.BGUI_DEFAULT)
+
 		self.lbl_count = bgui.Label(self.frame, text="1", pos=[0.5, 0.8], sub_theme='Large', options = bgui.BGUI_DEFAULT | bgui.BGUI_CENTERX)
 		self.lbl_laps = bgui.Label(self.frame, text="Lap", pos=[0.2, 0.9], options = bgui.BGUI_DEFAULT)
 		self.lbl_checkpoints = bgui.Label(self.frame, text="Lap", pos=[0.2, 0.85], options = bgui.BGUI_DEFAULT)
@@ -96,7 +101,6 @@ def setup():
 	components.load("blocks")
 
 	# load the level
-	level.load(gD.get("settings")["Game"]["LevelDir"]) # load from file to memory
 	components.load("level") # place the level in the 3d world
 
 	# load the cube creator
@@ -105,13 +109,9 @@ def setup():
 	# load the ship wrapper
 	components.load("ship")
 
-	# countdown
-
-
-
 	# set the music directory
-	gD["current"]["music"]["subdir"] = "free"
-	gD["current"]["level"]["race_complete"] = False
+	# gD["current"]["music"]["subdir"] = "free"
+	# gD["current"]["level"]["race_complete"] = False
 
 	global ships
 	global cp_data

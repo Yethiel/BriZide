@@ -8,8 +8,8 @@ own = logic.getCurrentController().owner
 def load():
 	config = configparser.ConfigParser()
 	# Check if the config file is there. If so, load it.
-	if os.path.isfile(G.CONFIG_PATH):
-		config.read(G.CONFIG_PATH)
+	if os.path.isfile(G.PATH_CONFIG_FILE):
+		config.read(G.PATH_CONFIG_FILE)
 		if G.DEBUG: print(own, "Successfully loaded config file.")
 	
 	else:
@@ -74,7 +74,7 @@ def load():
 			"editor_10" : "ZEROKEY"
 		}
 		# create a new config file and write to it
-		with open(G.CONFIG_PATH, 'w') as configfile:
+		with open(G.PATH_CONFIG_FILE, 'w') as configfile:
 			config.write(configfile)
 		if G.DEBUG: print("Could not find config file. Created a file with defaults.")
 	

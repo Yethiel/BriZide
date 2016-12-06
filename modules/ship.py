@@ -9,6 +9,8 @@ sce = logic.getCurrentScene()
 own["last_obj"] = None
 own["thrust"] = 0.0
 
+level = gD["current"]["level"]
+
 settings = gD["settings"]
 
 # get directions for raycasting
@@ -334,7 +336,8 @@ def main():
 		own.applyRotation((0,0, own["turn"] ), True) #actual steering happens here
 
 	# catch ship out of cube
-	cube_size = gD["current"]["level"]["cube_size"]
+	level = gD["current"]["level"] # TODO(Yethiel): Remove when better loading is implemented
+	cube_size = level.get_cube_size()
 	if own.worldPosition.z < -16:
 		own.worldPosition.z += 32
 	if own.worldPosition.z > cube_size * 32 - 16:
@@ -365,13 +368,19 @@ def setup():
 	gD["current"]["ships"][own["player_id"]]["reference"] = own
 
 	# set the start position according to the level
-	own.worldPosition = gD.get("current")["level"]["start_pos"]
+	
+	try:
+		level = gD["current"]["level"] # TODO(Yethiel): Remove when better loading is implemented
+		own.worldPosition = level.get_start_pos()
+		# set the start orientation according to the level
+		# for this we have to convert the euler matrix saved in the level file to a regular orientation matrix
+		ship_orientation = own.worldOrientation.to_euler() # we need an euler matrix
+		start_orientation = gD.get("current")["level"]["start_orientation"]
+		for x in [0, 1, 2]:
+			ship_orientation[x] = start_orientation[x]
+		own.worldOrientation = ship_orientation.to_matrix()
+		own["on_ground"] = False
+	except:
+		pass
+		print("FIXME: Level not loaded")
 
-	# set the start orientation according to the level
-	# for this we have to convert the euler matrix saved in the level file to a regular orientation matrix
-	ship_orientation = own.worldOrientation.to_euler() # we need an euler matrix
-	start_orientation = gD.get("current")["level"]["start_orientation"]
-	for x in [0, 1, 2]:
-		ship_orientation[x] = start_orientation[x]
-	own.worldOrientation = ship_orientation.to_matrix()
-	own["on_ground"] = False

@@ -4,7 +4,7 @@ These are just some functions to make loading libraries (components) easier.
 
 from modules import global_constants as G
 from bge import logic
-extension = G.COMPONENT_EXTENSION
+extension = G.EXTENSION_COMPONENT
 
 def load(component):
 	"""
