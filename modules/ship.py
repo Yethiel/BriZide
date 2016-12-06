@@ -374,7 +374,7 @@ def setup():
 	# set the start orientation according to the level
 	# for this we have to convert the euler matrix saved in the level file to a regular orientation matrix
 	ship_orientation = own.worldOrientation.to_euler() # we need an euler matrix
-	start_orientation = level.start_orientation
+	start_orientation = level.get_start_orientation()
 	for x in [0, 1, 2]:
 		ship_orientation[x] = start_orientation[x]
 	own.worldOrientation = ship_orientation.to_matrix()

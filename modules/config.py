@@ -77,6 +77,6 @@ def load():
 		with open(G.PATH_CONFIG_FILE, 'w') as configfile:
 			config.write(configfile)
 		if G.DEBUG: print("Could not find config file. Created a file with defaults.")
-	
-	config["Game"]["Version"] = str(G.VERSION) # Version number will be saved into the blk file for compatibility.
+	# Version number will be saved into the blk file for compatibility checks.
+	config["Game"]["Version"] = str(G.VERSION) 
 	return config

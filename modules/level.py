@@ -92,7 +92,7 @@ class Level():
         self.path = G.PATH_LEVELS + self.identifier + "/"
         self.__cube_size = 32
         self.__start_pos = [0, 0, 0]
-        self.start_orientation = []
+        self.__start_orientation = []
         self.__block_data =[]
         self.__valid = True
 
@@ -109,7 +109,7 @@ class Level():
         print("\tName: {}".format(self.identifier))
         print("\tCube Size: {}".format(self.__cube_size))
         print("\tStart Pos: {}".format(self.__start_pos))
-        print("\tStart Orientation: {}".format(self.start_orientation))
+        print("\tStart Orientation: {}".format(self.__start_orientation))
         print("\tNumber of Blocks: {}".format(len(self.__block_data)))
 
     def get_checkpoint_count(self):
@@ -122,6 +122,9 @@ class Level():
 
     def get_start_pos(self):
         return self.__start_pos
+
+    def get_start_orientation(self):
+        return self.__start_orientation
 
     def is_valid(self):
         return self.__valid
@@ -160,7 +163,7 @@ class Level():
             # Get start position from start object
             if "Start" in block["type"]:
                 self.__start_pos = block["position"]
-                self.start_orientation = block["orientation"]
+                self.__start_orientation = block["orientation"]
             
             # Create a new block object to store the information
             block_dat = Block(
