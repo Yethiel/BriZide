@@ -1,16 +1,6 @@
 """
-This is the script for the time trial game mode.
+This is the script for thefree game mode.
 It is attached to the Controller object in the mode's blend file.
-
-Checkpoint gD structure:
-
-- current
-	- level
-		- checkpoint_data
-			- ID
-				- name (obj.name)
-				- times {"PLAYER_ID" : [lap0, lap1, lap2, ...]}
-				- reference (to bge object)
 """
 
 from bge import logic, events
@@ -32,6 +22,8 @@ TRIGGER_DISTANCE = 32 # distance for a checkpoint to be triggered
 own["countdown"] = 4
 
 own["init_cp"] = False #whether the checkpoints have been set up
+
+own["init"] = False
 
 
 # Setup is executed as soon as the game mode has been loaded.
@@ -97,17 +89,10 @@ class TimeTrialUI(bgui.bge_utils.Layout):
 
 def setup():
 
-	# load the blocks
-	components.load("blocks")
+	# Queue the required components
+	queue_id = components.queue(["blocks", "level", "cube", "ship"])
 
-	# load the level
-	components.load("level") # place the level in the 3d world
 
-	# load the cube creator
-	components.load("cube")
-
-	# load the ship wrapper
-	components.load("ship")
 
 	# set the music directory
 	# gD["current"]["music"]["subdir"] = "free"
@@ -128,8 +113,16 @@ def setup():
 
 # The main loop always runs.
 def main():
+	if not logic.components["queue"] and not own["init"]:
+		own["init"] = True
+	elif not own["init"]:
+		components.load()
+		if logic.components["currently_loading"] is not None:
+			if G.DEBUG: print("{}: {} {} ({}%)".format(own.name,
+				"Loading library", logic.components["currently_loading"].libraryName, logic.components["currently_loading"].progress*100))
 
-	pass
+	else:
+		pass
 
 
 def controls():

@@ -14,7 +14,7 @@ own = cont.owner
 sce = logic.getCurrentScene()
 
 
-def main():
+def setup():
 	os.system('clear')
 	print("Brizide ver.", G.VERSION)
 	if G.DEBUG: print("D E B U G")
@@ -37,7 +37,7 @@ def main():
 	globalDict["input"] = {		# this is for control modules to check whether they are in focus
 		"focus" : "menu"
 	}
-	globalDict["modes"] = {	# some memory for game modes
+	globalDict["modes"] = {
 
 	}
 	globalDict["current"] = current_game
@@ -47,7 +47,8 @@ def main():
 	# get available content
 	content.set_all()
 
-# after laoding a mode, you should end the menu.
+def main():
+	pass
 
 def end_menu():
 	for scene in logic.getSceneList():
@@ -63,5 +64,6 @@ def actions():
 	# this starts the game with the selected mode and settings
 	if message_sensor.positive and "start" in str(message_sensor.subjects):
 		mode = str(message_sensor.bodies[0])
-		components.load("../modes/" + mode + "/" + mode) # replace this with something else
+		components.load_immediate("../modes/" + mode + "/" + mode)
 		end_menu()
+
