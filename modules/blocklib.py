@@ -5,6 +5,7 @@ blocklib.blend to the second layer of blocks.blend so they can be used with
 addObj.
 """
 from bge import logic
+from modules.components import mark_loaded
 
 cont = logic.getCurrentController()
 own = cont.owner

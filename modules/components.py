@@ -12,20 +12,21 @@ extension = G.EXTENSION_COMPONENT
 
 logic.components = {
 	"queue" : [],
-	"loaded" : [],
-	"currently_loading" : None,
-	"status" : {}}
+	"loaded" : [None],
+	"opened" :[None],
+	"currently_loading" : None}
 
+comps = logic.components
 
 def queue(components):
 	"""Queue components to load them in order"""
 
 	if isinstance(components, str):
-		logic.components["queue"].append(str(component))
+		comps["queue"].append(str(component))
 
 	elif isinstance(components, list):
 		for component in components:
-			logic.components["queue"].append(str(component))
+			comps["queue"].append(str(component))
 
 
 def load():
@@ -35,21 +36,28 @@ def load():
 	Run each tick.
 	"""
 
-	if logic.components["queue"]:
-		if not logic.components["currently_loading"]:
+	if comps["queue"]:
+		if not comps["currently_loading"]:
+			print(own.name, "Loading",comps["queue"][0])
 			
+			# Make a path from the component name
 			blend_path = logic.expandPath("{}{}{}".format(
-				"//components/", logic.components["queue"][0], extension))
+				"//components/", comps["queue"][0], extension))
 			
 			# Store the returned status object.
-			logic.components["currently_loading"] = logic.LibLoad(blend_path, 
+			comps["currently_loading"] = logic.LibLoad(blend_path, 
 					"Scene", async=True)
 			
-			print("Loading",logic.components["queue"][0])
-			logic.components["queue"].pop(0)
-		
-		elif logic.components["currently_loading"].finished:
-			logic.components["currently_loading"] = None
+			# Add "opened" component to the list, remove it from the queue
+			comps["opened"].append(comps["queue"][0])
+			comps["queue"].pop(0)
+
+		#Proceed with the next module when the library loaded and the 
+		#component added itself to the "done" list.
+		elif comps["currently_loading"].finished and comps["opened"][-1] == comps["loaded"][-1]:
+			print(own.name, "Done loading", comps["opened"][-1])
+			comps["currently_loading"] = None
+
 
 def load_immediate(component):
 	"""Load a library immediately, blocking everything else"""
@@ -65,3 +73,11 @@ def free(component):
 		if component in lib:
 			logic.LibFree(lib)
 
+def is_done(required_components):
+	"""Takes a list and checks if all modules are loaded"""
+	
+	done = True
+	for x in required_components:
+		if not x in comps["loaded"]:
+			done = False
+	return done

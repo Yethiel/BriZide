@@ -10,6 +10,7 @@ import mathutils
 from bge import logic
 from modules import global_constants as G
 
+
 cont = logic.getCurrentController()
 sce = logic.getCurrentScene()
 own = cont.owner
@@ -278,6 +279,8 @@ def setup():
 
         # Make accessible in the global dict
         gD["current"]["level"] = new_level
+        logic.components["loaded"].append("level")
+
 
     else:
         if G.DEBUG: print("{}: {} ({})".format(own.name,

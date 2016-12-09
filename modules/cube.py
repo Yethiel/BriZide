@@ -55,3 +55,5 @@ def main():
 		for z in cube_range:
 			own.worldPosition = [(cube_size-1) * tile_size, y * tile_size , z * tile_size]
 			sce.addObject("CubeTile_X+", own, 0)
+	
+	logic.components["loaded"].append("cube")

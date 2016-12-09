@@ -1,6 +1,7 @@
 from bge import logic, events
 gD = logic.globalDict
 from modules import global_constants as G
+
 import configparser, mathutils, os
 
 co = logic.getCurrentController()
@@ -379,4 +380,9 @@ def setup():
 		ship_orientation[x] = start_orientation[x]
 	own.worldOrientation = ship_orientation.to_matrix()
 	own["on_ground"] = False
+	logic.components["loaded"].append("ship")
+
+
+
+
 
