@@ -39,6 +39,7 @@
         + last_portal_id
         + reference
     - block_list (available blocks)
+    -music
   + editor
     - selected_block
     - rotation

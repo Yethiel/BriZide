@@ -18,7 +18,7 @@ required_components = ["blocks", "level", "cube", "ship"]
 queue_id = components.queue(required_components)
 
 # Set the music directory
-# gD["current"]["music"]["subdir"] = "free"
+gD["current"]["music"]["subdir"] = "time_trial"
 
 def setup():
 	

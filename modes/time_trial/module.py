@@ -4,13 +4,12 @@ It is attached to the Controller object in the mode's blend file.
 
 Checkpoint gD structure:
 
-- current
-	- level
-		- checkpoint_data
-			- ID
-				- name (obj.name)
-				- times {"PLAYER_ID" : [lap0, lap1, lap2, ...]}
-				- reference (to bge object)
+- time_trial
+	- checkpoint_data
+		- ID
+			- name (obj.name)
+			- times {"PLAYER_ID" : [lap0, lap1, lap2, ...]}
+			- reference (to bge object)
 """
 
 from bge import logic, events
@@ -22,10 +21,17 @@ import sys
 import bgui
 import bgui.bge_utils
 
+required_components = ["blocks", "level", "cube", "ship"]
+
+# Queue the required components
+queue_id = components.queue(required_components)
+
 sce = logic.getCurrentScene() # scene that contains all objects
 gD = logic.globalDict
 
 own = logic.getCurrentController().owner # This is the object that executes these functions.
+
+own["init"] = False
 
 TRIGGER_DISTANCE = 32 # distance for a checkpoint to be triggered
 
@@ -60,9 +66,9 @@ class TimeTrialUI(bgui.bge_utils.Layout):
 		self.lbl_time_last_check = bgui.Label(self.frame, text="Time", pos=[0.5, 0.75], options = bgui.BGUI_DEFAULT| bgui.BGUI_CENTERX)
 
 	def update(self):
-		if "checkpoint_count_registered" in gD["current"]["level"]:
-			self.lbl_laps.text = "Lap " + str(gD["current"]["level"]["lap"]+1) +"/"+ str(gD["current"]["level"]["total_laps"])
-			self.lbl_checkpoints.text = "Chk " + str(gD["current"]["level"]["checkpoint_count_registered"]) +"/"+ str(gD["current"]["level"]["checkpoint_count"])
+		if "checkpoint_count_registered" in gD["time_trial"]:
+			self.lbl_laps.text = "Lap " + str(gD["time_trial"]["lap"]+1) +"/"+ str(gD["time_trial"]["total_laps"])
+			self.lbl_checkpoints.text = "Chk " + str(gD["time_trial"]["checkpoint_count_registered"]) +"/"+ str(gD["time_trial"]["checkpoint_count"])
 
 		if G.PLAYER_ID in gD["current"]["ships"]:
 			self.lbl_velocity.text = ">>> " + str(int(gD["current"]["ships"][G.PLAYER_ID]["reference"]["Velocity"]))
@@ -80,10 +86,10 @@ class TimeTrialUI(bgui.bge_utils.Layout):
 
 		try:
 			last_check = gD["current"]["ships"][G.PLAYER_ID]["last_checkpoint"]["id"]
-			self.lbl_time_last_check.text = helpers.time_string((gD["current"]["level"]["checkpoint_data"][last_check]["times"][G.PLAYER_ID][gD["current"]["level"]["lap"]]))
+			self.lbl_time_last_check.text = helpers.time_string((gD["time_trial"]["checkpoint_data"][last_check]["times"][G.PLAYER_ID][gD["time_trial"]["lap"]]))
 		except:
 			pass
-		if gD["current"]["level"]["race_complete"]:
+		if gD["current"]["race_complete"]:
 			self.lbl_time.text = self.lbl_time_last_check.text
 		else:
 			self.lbl_time.text = helpers.time_string(own["Timer"])
@@ -92,31 +98,21 @@ class TimeTrialUI(bgui.bge_utils.Layout):
 
 def setup():
 
-	# load the blocks
-	components.load("blocks")
+	# a dict to store all data we need
+	gD["time_trial"] = {}
+	gD["time_trial"]["checkpoint_data"] = {}
 
-	# load the level
-	level.load(gD.get("settings")["Game"]["LevelDir"]) # load from file to memory
-	components.load("level") # place the level in the 3d world
-
-	# load the cube creator
-	components.load("cube")
-
-	# load the ship wrapper
-	components.load("ship")
-
-	# countdown
-
-
+	gD["time_trial"]["lap"] = 0
+	gD["time_trial"]["total_laps"] = 3
 
 	# set the music directory
 	gD["current"]["music"]["subdir"] = "time_trial"
-	gD["current"]["level"]["race_complete"] = False
+	gD["current"]["race_complete"] = False
 
 	global ships
 	global cp_data
 	ships = gD["current"]["ships"] # ship list from global dict
-	cp_data = gD["current"]["level"]["checkpoint_data"]
+	cp_data = gD["time_trial"]["checkpoint_data"]
 
 	gD["ui"]["sys"].add_overlay(TimeTrialUI)
 
@@ -128,6 +124,20 @@ def setup():
 
 # The main loop always runs.
 def main():
+
+	if not own["init"]:
+
+		# Prepare the game mode by loading the queued components
+		components.load()
+
+		# If the queue is emtpy, we're done
+		if components.is_done(required_components):
+			own["init"] = True
+			setup()
+	else:
+		pass
+
+
 	if own["countdown"] > -1 and own["Timer"] > 1:
 		if own["countdown"] == 4:
 			sound.play("three" + str(randint(0,4)))
@@ -193,11 +203,11 @@ def actions():
 
 # When a ship passes a checkpoint, register it
 def checkpoint_register(checkpoint, ship_ref):
-	if not gD["current"]["level"]["race_complete"]:
+	if not gD["current"]["race_complete"]:
 
 		time_list = cp_data[checkpoint]["times"]
 		ship_id = ship_ref["player_id"]
-		lap = gD["current"]["level"]["lap"]
+		lap = gD["time_trial"]["lap"]
 		last_checkpoint = gD["current"]["ships"][ship_ref["player_id"]]["last_checkpoint"]
 
 		if not ship_id in time_list:
@@ -211,13 +221,13 @@ def checkpoint_register(checkpoint, ship_ref):
 
 # check if a lap has been completed or if the race is over
 def checkpoint_check(ship_ref):
-	if not gD["current"]["level"]["race_complete"]:
+	if not gD["current"]["race_complete"]:
 		ship_id = ship_ref["player_id"]
-		lap = gD["current"]["level"]["lap"]
-		total_laps = int(gD["current"]["level"]["total_laps"])
+		lap = gD["time_trial"]["lap"]
+		total_laps = int(gD["time_trial"]["total_laps"])
 
 		amount_registered = 0
-		amount_checkpoints = gD["current"]["level"]["checkpoint_count"]
+		amount_checkpoints = gD["time_trial"]["checkpoint_count"]
 
 		for checkpoint in cp_data:
 			time_list = cp_data[checkpoint]["times"]
@@ -226,21 +236,21 @@ def checkpoint_check(ship_ref):
 					amount_registered += 1
 
 		# if len(time_list) >= total_laps:
-		gD["current"]["level"]["checkpoint_count_registered"] = amount_registered
+		gD["time_trial"]["checkpoint_count_registered"] = amount_registered
 
 		if amount_registered == amount_checkpoints:
 			amount_registered = 0
-			gD["current"]["level"]["lap"] += 1
+			gD["time_trial"]["lap"] += 1
 			sound.play("lap_complete")
-		# print(gD["current"]["level"]["lap"])
+		# print(gD["time_trial"]["lap"])
 
 		if lap == total_laps:
 			gD["input"]["focus"] = "menu"
 			if G.DEBUG: print("Time Trial over.")
 			sound.play("race_complete")
-			gD["current"]["level"]["checkpoint_count_registered"] = gD["current"]["level"]["checkpoint_count"]
-			gD["current"]["level"]["lap"] = int(gD["current"]["level"]["total_laps"])-1
-			gD["current"]["level"]["race_complete"] = True
+			gD["time_trial"]["checkpoint_count_registered"] = gD["time_trial"]["checkpoint_count"]
+			gD["time_trial"]["lap"] = int(gD["time_trial"]["total_laps"])-1
+			gD["current"]["race_complete"] = True
 			# components.load("main_menu")
 
 
