@@ -215,7 +215,7 @@ def steer(d):
 	# Smoothly center steering.
 	if own["turn"] > 0: #currently steering left
 		if d < 0: # player wants left
-			if abs(own["turn"]) <= own["SteerRatio"]: own["turn"] += (1/fps * own["SteerRate"]* get_grip())* -d
+			if abs(own["turn"]) <= own["SteerRatio"]: own["turn"] += (1/fps * own["SteerRate"])* -d
 
 		elif d > 0: # player wants right
 			# own["turn"] += (1/fps * own["SteerRate"])* -d   #center without respecting grip
@@ -227,11 +227,11 @@ def steer(d):
 			# own["turn"] += (1/fps * own["SteerRate"])* -d #center without respecting grip
 			center_steering()
 		elif d > 0: # player wants right
-			if abs(own["turn"]) <= own["SteerRatio"]: own["turn"] += (1/fps * own["SteerRate"] * get_grip())* -d
+			if abs(own["turn"]) <= own["SteerRatio"]: own["turn"] += (1/fps * own["SteerRate"])* -d
 
 
 	else:
-		if abs(own["turn"]) <= own["SteerRatio"]: own["turn"] += (1/fps * own["SteerRate"]* get_grip())* -d
+		if abs(own["turn"]) <= own["SteerRatio"]: own["turn"] += (1/fps * own["SteerRate"])* -d
 
 def center_thrust():
 	fps = logic.getLogicTicRate()
