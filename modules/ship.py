@@ -159,28 +159,30 @@ def controls():
 			print("Pause")
 			own['lastkey'] = 'key_pause'
 
-		if keyboard.events[key_deactivate_stabilizer] == JUST_ACTIVATED:
-			own["restore"] = own.localLinearVelocity[1]
-			own["stabilizer_boost"] = 0
+		# speed boost was a bad idea
+		# if keyboard.events[key_deactivate_stabilizer] == JUST_ACTIVATED:
+		# 	own["restore"] = own.localLinearVelocity[1]
+		# 	own["stabilizer_boost"] = 0
 
-		if keyboard.events[key_deactivate_stabilizer] == JUST_RELEASED:
-			if own["stabilizer_boost"] > 1:
-				own.localLinearVelocity[1] += own["restore"]
-			else:
-				pass # not enough power, discarding animation/sound
+		# if keyboard.events[key_deactivate_stabilizer] == JUST_RELEASED:
+		# 	if own["stabilizer_boost"] > 1:
+		# 		own.localLinearVelocity[1] += own["restore"]
+		# 	else:
+		# 		pass # not enough power, discarding animation/sound
 
 	# the stabilizer prevents the ship from drifting. the degree can vary from ship to ship
 def stabilize():
 	if keyboard.events[key_deactivate_stabilizer] == ACTIVE or not own["on_ground"]:
 		if G.DEBUG: own['DEBUG_stabilizer'] = 'xxx'
 	else:
+		# if abs(own.localLinearVelocity[0]) < 70:
 		if own.localLinearVelocity[0] >= own["StableThreshold"]:
-			own.applyForce([-own.localLinearVelocity[0]*own["StableStrength"],0,0], True)
-			own.applyForce([0,abs(own.localLinearVelocity[0]),0], True)
+			own.applyForce([-own.localLinearVelocity[0]*own["StableStrength"] * get_grip(),0,0], True)
+			own.applyForce([0,abs(own.localLinearVelocity[0]) * get_grip(),0], True)
 			if G.DEBUG: own['DEBUG_stabilizer'] = '<--'
 		elif own.localLinearVelocity[0] <= -own["StableThreshold"]:
-			own.applyForce([-own.localLinearVelocity[0]*own["StableStrength"],0,0], True)
-			own.applyForce([0,abs(own.localLinearVelocity[0]),0], True)
+			own.applyForce([-own.localLinearVelocity[0]*own["StableStrength"] * get_grip(),0,0], True)
+			own.applyForce([0,abs(own.localLinearVelocity[0]) * get_grip(),0], True)
 
 			if G.DEBUG: own['DEBUG_stabilizer'] = '-->'
 		else:
@@ -188,7 +190,7 @@ def stabilize():
 
 
 def get_grip():
-	if own["on_ground"]:
+	if own["on_ground"] and not keyboard.events[key_deactivate_stabilizer] == ACTIVE:
 		return abs(1 - (own.localLinearVelocity[1]/own["TopSpeed"]) + own["Grip"])
 	else:
 		return own["GripAir"]
@@ -221,13 +223,11 @@ def steer(d):
 			if abs(own["turn"]) <= own["SteerRatio"]: own["turn"] += (1/fps * own["SteerRate"]* get_grip())* -d
 
 		elif d > 0: # player wants right
-			# own["turn"] += (1/fps * own["SteerRate"])* -d   #center without respecting grip
 			center_steering()
 
 	# Smoothly center steering.
 	elif own["turn"] < 0: #currently steering right
 		if d < 0: # player wants left
-			# own["turn"] += (1/fps * own["SteerRate"])* -d #center without respecting grip
 			center_steering()
 		elif d > 0: # player wants right
 			if abs(own["turn"]) <= own["SteerRatio"]: own["turn"] += (1/fps * own["SteerRate"] * get_grip())* -d
