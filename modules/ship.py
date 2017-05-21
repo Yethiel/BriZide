@@ -160,28 +160,13 @@ def controls():
 			print("Pause")
 			own['lastkey'] = 'key_pause'
 
-		if keyboard.events[key_deactivate_stabilizer] == ACTIVE and abs(own.localLinearVelocity[0]) > 70:
-			if own["stabilizer_boost"] < 500:
-				own["stabilizer_boost"] += abs(own.localLinearVelocity[0])/120
-			else:
-				own["stabilizer_boost"] = 500 
-
-		elif keyboard.events[key_boost] == ACTIVE:
+		# BOOST
+		if keyboard.events[key_boost] == ACTIVE:
 			if own["stabilizer_boost"] > 10:
 				own.applyForce((0, own["ThrustRatio"]*2, 0), True)
 				own["stabilizer_boost"] -= 2.5
-		
-		# speed boost was a bad idea
-		# 	own["restore"] = own.localLinearVelocity[1]
-		# 	own["stabilizer_boost"] = 0
 
-		# if keyboard.events[key_deactivate_stabilizer] == JUST_RELEASED:
-		# 	if own["stabilizer_boost"] > 1:
-		# 		own.localLinearVelocity[1] += own["restore"]
-		# 	else:
-		# 		pass # not enough power, discarding animation/sound
-
-	# the stabilizer prevents the ship from drifting. the degree can vary from ship to ship
+# the stabilizer prevents the ship from drifting. the degree can vary from ship to ship
 def stabilize():
 	if keyboard.events[key_deactivate_stabilizer] == ACTIVE or not own["on_ground"]:
 		if G.DEBUG: own['DEBUG_stabilizer'] = 'xxx'
@@ -258,7 +243,6 @@ def center_thrust():
 		own["thrust"] += own["ThrustRate"] * 1/fps * 60
 
 def thrust(d):
-
 	fps = logic.getLogicTicRate()
 
 	if abs(own["thrust"]) <= abs(own["ThrustRatio"]) and own.getLinearVelocity(True)[1] < own["TopSpeed"]:
@@ -283,14 +267,19 @@ def descend():
 def main():
 	own["Velocity"] = own.localLinearVelocity[1]
 
-	# own.applyRotation((0,0, own["turn"]), True)
-
 	damping = own["HoverDamping"]
 	height = own["HoverHeight"]
 	strength = own["HoverStrength"]
 
 	obj, point, normal = own.rayCast(own["dir_z_neg"], own, 10, "mag")
 	stabilize()
+
+	# generate boost
+	if abs(own.localLinearVelocity[0]) > 70:
+		if own["stabilizer_boost"] < 500:
+			own["stabilizer_boost"] += abs(own.localLinearVelocity[0])/120
+		else:
+			own["stabilizer_boost"] = 500 
 
 	if obj != None:
 		own["on_ground"] = True
@@ -343,7 +332,8 @@ def main():
 
 def near():
 	pass
-	# i used to check for checkpoints here, but i'll put speed pads here later.
+	# currently not used. near behavious should rather be used on blocks.
+
 def setup():
 	# load the ship information file (ShipDir is the directory to load the .inf from)
 	load(gD.get("settings")["Game"]["ShipDir"], G.PLAYER_ID)
