@@ -34,6 +34,7 @@ key_thrust = getattr(events, c_stt["ship_thrust"])
 key_thrust_reverse = getattr(events, c_stt["ship_thrust_reverse"])
 key_steer_left = getattr(events, c_stt["ship_steer_left"])
 key_steer_right = getattr(events, c_stt["ship_steer_right"])
+key_boost = getattr(events, c_stt["ship_boost"])
 key_activate_weapon = events.LEFTCTRLKEY
 key_deactivate_stabilizer = getattr(events, c_stt["ship_deactivate_stabilizer"])
 key_absorb_weapon = events.LEFTSHIFTKEY
@@ -159,8 +160,18 @@ def controls():
 			print("Pause")
 			own['lastkey'] = 'key_pause'
 
+		if keyboard.events[key_deactivate_stabilizer] == ACTIVE:
+			if own["stabilizer_boost"] < 500:
+				own["stabilizer_boost"] += abs(own.localLinearVelocity[1])/120
+			else:
+				own["stabilizer_boost"] = 500 
+
+		elif keyboard.events[key_boost] == ACTIVE:
+			if own["stabilizer_boost"] > 10:
+				own.applyForce((0, own["ThrustRatio"]*2, 0), True)
+				own["stabilizer_boost"] -= 2
+		
 		# speed boost was a bad idea
-		# if keyboard.events[key_deactivate_stabilizer] == JUST_ACTIVATED:
 		# 	own["restore"] = own.localLinearVelocity[1]
 		# 	own["stabilizer_boost"] = 0
 

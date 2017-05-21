@@ -3,7 +3,7 @@ from bge import logic
 ### META
 DEBUG = True
 VERSION = 0
-REVISION = "NONE"
+REVISION = "DEV"
 
 ### CONTENT PATHS
 PATH_LEVELS = logic.expandPath("//levels/")
@@ -13,7 +13,7 @@ PATH_MUSIC = logic.expandPath("//music/")
 PATH_CONFIG_FILE = logic.expandPath("//config.ini")
 
 ### FILE TYPES
-TYPES_MUSIC = [".mp3", ".ogg", ".wav"]
+TYPES_MUSIC = [".mp3", ".ogg", ".wav", ".flac"]
 EXTENSION_COMPONENT = ".blend"
 EXTENSION_INF = ".inf"
 EXTENSION_BLK = ".blk"
