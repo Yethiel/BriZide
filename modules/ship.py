@@ -160,16 +160,16 @@ def controls():
 			print("Pause")
 			own['lastkey'] = 'key_pause'
 
-		if keyboard.events[key_deactivate_stabilizer] == ACTIVE:
+		if keyboard.events[key_deactivate_stabilizer] == ACTIVE and abs(own.localLinearVelocity[0]) > 70:
 			if own["stabilizer_boost"] < 500:
-				own["stabilizer_boost"] += abs(own.localLinearVelocity[1])/120
+				own["stabilizer_boost"] += abs(own.localLinearVelocity[0])/120
 			else:
 				own["stabilizer_boost"] = 500 
 
 		elif keyboard.events[key_boost] == ACTIVE:
 			if own["stabilizer_boost"] > 10:
 				own.applyForce((0, own["ThrustRatio"]*2, 0), True)
-				own["stabilizer_boost"] -= 2
+				own["stabilizer_boost"] -= 2.5
 		
 		# speed boost was a bad idea
 		# 	own["restore"] = own.localLinearVelocity[1]
@@ -186,18 +186,17 @@ def stabilize():
 	if keyboard.events[key_deactivate_stabilizer] == ACTIVE or not own["on_ground"]:
 		if G.DEBUG: own['DEBUG_stabilizer'] = 'xxx'
 	else:
-		# if abs(own.localLinearVelocity[0]) < 70:
-		if own.localLinearVelocity[0] >= own["StableThreshold"]:
+		if abs(own.localLinearVelocity[0]) >= own["StableThreshold"]:
 			own.applyForce([-own.localLinearVelocity[0]*own["StableStrength"] * get_grip(),0,0], True)
 			own.applyForce([0,abs(own.localLinearVelocity[0]) * get_grip(),0], True)
-			if G.DEBUG: own['DEBUG_stabilizer'] = '<--'
-		elif own.localLinearVelocity[0] <= -own["StableThreshold"]:
-			own.applyForce([-own.localLinearVelocity[0]*own["StableStrength"] * get_grip(),0,0], True)
-			own.applyForce([0,abs(own.localLinearVelocity[0]) * get_grip(),0], True)
+		if G.DEBUG:
+			if own.localLinearVelocity[0] >= own["StableThreshold"]:
+				own['DEBUG_stabilizer'] = '<--'
+			elif own.localLinearVelocity[0] <= -own["StableThreshold"]:
+				own['DEBUG_stabilizer'] = '-->'
+			else:
+				own['DEBUG_stabilizer'] = '---'
 
-			if G.DEBUG: own['DEBUG_stabilizer'] = '-->'
-		else:
-			if G.DEBUG: own['DEBUG_stabilizer'] = '---'
 
 
 def get_grip():
@@ -265,36 +264,11 @@ def thrust(d):
 	if abs(own["thrust"]) <= abs(own["ThrustRatio"]) and own.getLinearVelocity(True)[1] < own["TopSpeed"]:
 		own["thrust"] += 1/fps * own["ThrustRate"] * d * 10
 
-
-	# if own["thrust"] > 0: #currently steering left
-	# 	if d < 0: # player wants left
-	# 		if abs(own["thrust"]) <= own["ThrustRatio"]: own["thrust"] += (1/fps * own["ThrustRate"]* get_grip())* -d
-
-	# 	elif d > 0: # player wants right
-	# 		# own["thrust"] += (1/fps * own["ThrustRate"])* -d   #center without respecting grip
-	# 		center_thrust()
-
-
-	# elif own["thrust"] < 0: #currently Thrusting right
-	# 	if d < 0: # player wants left
-	# 		# own["thrust"] += (1/fps * own["ThrustRate"])* -d #center without respecting grip
-	# 		center_thrust()
-	# 	elif d > 0: # player wants right
-	# 		if abs(own["thrust"]) <= own["ThrustRatio"]: own["thrust"] += (1/fps * own["ThrustRate"] * get_grip())* -d
-
-
-	# else:
-	# 	if abs(own["thrust"]) <= own["ThrustRatio"]: own["thrust"] += (1/fps * own["ThrustRate"]* get_grip())* -d
-
-
 def activate_weapon():
 	pass
 
 def absorb_weapon():
 	pass
-
-def speedup():
-	own.localLinearVelocity[1] = own["TopSpeed"]*1.5
 
 def collision():
 	own['energy'] -= abs(own.localLinearVelocity[1])/own["Shield"]/10

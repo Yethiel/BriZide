@@ -58,7 +58,6 @@ class TimeTrialUI(bgui.bge_utils.Layout):
 		self.frame = bgui.Frame(self, border=0)
 		self.frame.colors = [(0, 0, 0, 0) for i in range(4)]
 
-		self.lbl_velocity = bgui.Label(self.frame, text="velocity", pos=[0.9, 0.1], options = bgui.BGUI_DEFAULT)
 		self.lbl_count = bgui.Label(self.frame, text="1", pos=[0.5, 0.8], sub_theme='Large', options = bgui.BGUI_DEFAULT | bgui.BGUI_CENTERX)
 		self.lbl_laps = bgui.Label(self.frame, text="Lap", pos=[0.2, 0.9], options = bgui.BGUI_DEFAULT)
 		self.lbl_checkpoints = bgui.Label(self.frame, text="Lap", pos=[0.2, 0.85], options = bgui.BGUI_DEFAULT)
@@ -70,8 +69,7 @@ class TimeTrialUI(bgui.bge_utils.Layout):
 			self.lbl_laps.text = "Lap " + str(gD["time_trial"]["lap"]+1) +"/"+ str(gD["time_trial"]["total_laps"])
 			self.lbl_checkpoints.text = "Chk " + str(gD["time_trial"]["checkpoint_count_registered"]) +"/"+ str(gD["time_trial"]["checkpoint_count"])
 
-		if G.PLAYER_ID in gD["current"]["ships"]:
-			self.lbl_velocity.text = ">>> " + str(int(gD["current"]["ships"][G.PLAYER_ID]["reference"]["Velocity"]))
+		
 
 
 		if own["countdown"] < 4:
