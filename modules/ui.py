@@ -29,8 +29,8 @@ class OverlayUI(bgui.bge_utils.Layout):
 	def update(self):
 		self.lbl_fps.text = str(int(logic.getAverageFrameRate()))
 		self.lbl_tck.text = str(int(logic.getLogicTicRate()))
-		self.bar_boost.percent = gD["current"]["ships"][G.PLAYER_ID]["reference"]["stabilizer_boost"]/500
 		if G.PLAYER_ID in gD["current"]["ships"]:
+			self.bar_boost.percent = gD["current"]["ships"][G.PLAYER_ID]["reference"]["stabilizer_boost"]/500
 			self.lbl_velocity.text = ">>> " + str(int(gD["current"]["ships"][G.PLAYER_ID]["reference"]["Velocity"]))
 
 def main(cont):

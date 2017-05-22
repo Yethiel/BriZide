@@ -6,6 +6,7 @@ addObj.
 """
 from bge import logic
 from modules.components import mark_loaded
+from modules.components import free
 
 cont = logic.getCurrentController()
 own = cont.owner
@@ -39,4 +40,4 @@ def main():
 	The library will be freed shortly after.
 	"""
 	add()
-	free_component("blocklib")
+	free("blocklib")
