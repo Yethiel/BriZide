@@ -1,7 +1,6 @@
 """
 This is the module called by the controller object in main.blend.
-The main function will initialize the globalDict and 
-load the game mode.
+The main function will initialize the globalDict.
 """
 
 from bge import logic
@@ -25,7 +24,6 @@ def setup():
 	# contains properties for the current game session (levels, selected ship, start position, etc.)
 	current_game = {
 		"level" : None,			# the level to be loaded in any game mode
-		"startpos" : [0, 0, 0],		# fallback startpos, should be per ship, of course.
 		"ships" : {},			# list of ships/players. a dict with {ship_id : {}, ...}
 		"block_list" : [],
 		"music" : {
@@ -36,9 +34,6 @@ def setup():
 
 	globalDict["input"] = {		# this is for control modules to check whether they are in focus
 		"focus" : "menu"
-	}
-	globalDict["modes"] = {
-
 	}
 	globalDict["current"] = current_game
 
