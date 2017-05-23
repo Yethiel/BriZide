@@ -10,6 +10,17 @@ sce = logic.getCurrentScene()
 own["last_obj"] = None
 own["thrust"] = 0.0
 
+whl_fl = own.children["whl_fl"]
+whl_fr = own.children["whl_fr"]
+whl_bl = own.children["whl_bl"]
+whl_br = own.children["whl_br"]
+
+dir_neg_whl_fl = own.children["dir_neg_whl_fl"]
+dir_neg_whl_fr = own.children["dir_neg_whl_fr"]
+dir_neg_whl_bl = own.children["dir_neg_whl_bl"]
+dir_neg_whl_br = own.children["dir_neg_whl_br"]
+
+
 level = gD["current"]["level"]
 
 settings = gD["settings"]
@@ -271,7 +282,6 @@ def main():
 	height = own["HoverHeight"]
 	strength = own["HoverStrength"]
 
-	obj, point, normal = own.rayCast(own["dir_z_neg"], own, 10, "mag")
 	stabilize()
 
 	# generate boost
@@ -281,15 +291,21 @@ def main():
 		else:
 			own["stabilizer_boost"] = 500 
 
+	obj, point, normal = own.rayCast(own["dir_z_neg"], own, 2 * height, "mag")
+	own["on_ground"] = True
 	if obj != None:
-		own["on_ground"] = True
-		# print(normal[2])
-		actual_dist = -own.getDistanceTo(point)
-		distance = (actual_dist + height) # - own.localPosition.z
-		cancel = -own.localLinearVelocity.z * damping * (distance + height)
-		force = distance * strength + cancel
-		own.applyForce([0, 0, force], True)
-		own.alignAxisToVect(normal, 2, .2)
+		normalmed = mathutils.Vector((0,0,0))
+		for whl in [(whl_fr, dir_neg_whl_fr), (whl_fl, dir_neg_whl_fl), (whl_bl, dir_neg_whl_bl), (whl_br, dir_neg_whl_br)]:
+			obj, point, normal = own.rayCast(whl[1], whl[0], 2 * height, "mag")
+			if obj != None:
+				normalmed += normal
+		if obj != None:
+			actual_dist = -whl[0].getDistanceTo(point)
+			distance = (actual_dist + height) # - whl[0].localPosition.z
+			cancel = -whl[0].localLinearVelocity.z * damping * (distance + height)
+			force = distance * strength + cancel
+			own.applyForce([0, 0, force], True)
+			own.alignAxisToVect(normalmed, 2, .2)
 
 	else:
 		descend()
