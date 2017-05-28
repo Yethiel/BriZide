@@ -41,10 +41,9 @@ def get_modes():
 
 def set_all():
 	"""
-	Calls all the get functions and sets the lists in the globalDict.
+	Calls all the get functions and sets the lists.
 	"""
-	logic.globalDict["content"] = {
-		"levels" : get_levels(),
-		"modes" : get_modes(),
-		"ships" : get_ships()
-		}
+	logic.game.level_list = get_levels()
+	logic.game.ship_list = get_ships()
+	logic.game.mode_list = get_modes()
+

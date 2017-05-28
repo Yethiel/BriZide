@@ -277,7 +277,7 @@ def setup():
 
         # Make accessible in the global dict
         gD["current"]["level"] = new_level
-        logic.components["loaded"].append("level")
+        logic.components.mark_loaded("level")
 
 
     else:

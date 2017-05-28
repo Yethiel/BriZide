@@ -44,16 +44,16 @@ class MainMenu(bgui.bge_utils.Layout):
 		self.win.img = bgui.Image(self.frame, '//gfx/title.bmp', pos=[0, 0],
 			options = bgui.BGUI_DEFAULT|bgui.BGUI_CENTERED|bgui.BGUI_CACHE)
 
-		# for x in range(0, len(globalDict["content"]["modes"])):
+		# for x in range(0, len(logic.game.mode_list)):
 		# 	setattr(self, "x")
 		self.mode_buttons = []
-		amnt_modes = len(globalDict["content"]["modes"])
+		amnt_modes = len(logic.game.mode_list)
 
 		# add all game modes to the menu (tab-style)
 		for x in range(0, amnt_modes):
 
 			button = bgui.FrameButton(self.win, 
-				text=globalDict["content"]["modes"][x], 
+				text=logic.game.mode_list[x], 
 				size=[1/amnt_modes, .1], 
 				pos=[x/amnt_modes, .9],
 				options = bgui.BGUI_DEFAULT)
@@ -65,12 +65,9 @@ class MainMenu(bgui.bge_utils.Layout):
 			options = bgui.BGUI_DEFAULT)
 		self.button_start.on_click = self.start
 
-	def lb_modes_click(self, widget):
-		globalDict["settings"]["Game"]["mode"] = widget.selected
-
 	def select_mode(self,widget):
-		globalDict["settings"]["Game"]["mode"] = widget.text
+		logic.game.set_mode(widget.text)
 
 	def start(self, widget):
-		logic.sendMessage("start", globalDict["settings"]["Game"]["mode"])
-		globalDict["ui"]["sys"].remove_overlay(MainMenu)
+		logic.ui["sys"].remove_overlay(MainMenu)
+		logic.game.start()

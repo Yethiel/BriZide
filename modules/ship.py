@@ -370,7 +370,9 @@ def setup():
 		ship_orientation[x] = start_orientation[x]
 	own.worldOrientation = ship_orientation.to_matrix()
 	own["on_ground"] = False
-	logic.components["loaded"].append("ship")
+
+	# Mark the ship component as loaded
+	logic.components.mark_loaded("ship")
 
 
 

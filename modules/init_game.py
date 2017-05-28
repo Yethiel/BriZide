@@ -18,7 +18,10 @@ def setup():
 	print("Brizide ver.", G.VERSION)
 	if G.DEBUG: print("D E B U G")
 	globalDict["settings"] = config.load()
-	logic.game = game.Game() # new controlled "global dict"
+
+	logic.game = game.Game() # new and controlled "global dict"
+	logic.components = components.Components() # manages game components loaded by game modes
+
 
 	### Preparing the globalDict
 
@@ -38,7 +41,7 @@ def setup():
 	}
 	globalDict["current"] = current_game
 
-	globalDict["ui"] = {}
+	logic.ui = {}
 
 	# get available content
 	content.set_all()
@@ -55,11 +58,12 @@ def end_menu():
 
 # actions are triggered with a message sensor. messages are sent by the UI
 def actions():
-	message_sensor = own.sensors["msg"]
+	pass
+	# message_sensor = own.sensors["msg"]
 
-	# this starts the game with the selected mode and settings
-	if message_sensor.positive and "start" in str(message_sensor.subjects):
-		mode = str(message_sensor.bodies[0])
-		components.load_immediate("../modes/" + mode + "/" + mode)
-		end_menu()
+	# # this starts the game with the selected mode and settings
+	# if message_sensor.positive and "start" in str(message_sensor.subjects):
+	# 	mode = str(message_sensor.bodies[0])
+	# 	components.load_immediate("../modes/" + mode + "/" + mode)
+	# 	end_menu()
 

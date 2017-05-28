@@ -4,7 +4,7 @@ It is attached to the Controller object in the mode's blend file.
 """
 
 from bge import logic, events
-from modules import components, global_constants as G
+from modules import global_constants as G
 
 sce = logic.getCurrentScene() # Scene that contains all objects
 own = logic.getCurrentController().owner # Object that controls this module
@@ -15,7 +15,7 @@ own["init"] = False
 required_components = ["blocks", "level", "cube", "ship"]
 
 # Queue the required components
-queue_id = components.queue(required_components)
+queue_id = logic.components.queue(required_components)
 
 # Set the music directory
 gD["current"]["music"]["subdir"] = "time_trial"
@@ -35,10 +35,10 @@ def main():
 	if not own["init"]:
 
 		# Prepare the game mode by loading the queued components
-		components.load()
+		logic.components.load()
 
 		# If the queue is emtpy, we're done
-		if components.is_done(required_components):
+		if logic.components.is_done(required_components):
 			own["init"] = True
 			setup()
 	else:
