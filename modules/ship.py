@@ -154,7 +154,7 @@ def controls():
 		for thing in [JUST_ACTIVATED, JUST_RELEASED]:
 			if thing in [keyboard.events[key_steer_left], keyboard.events[key_steer_right]]:
 				pass
-		if  JUST_ACTIVATED in [keyboard.events[key_thrust], keyboard.events[key_thrust_reverse]]:
+		if JUST_ACTIVATED in [keyboard.events[key_thrust], keyboard.events[key_thrust_reverse]]:
 			pass
 
 		if keyboard.events[key_activate_weapon] == JUST_ACTIVATED:
@@ -204,13 +204,13 @@ def get_grip():
 
 # when not steering, approximate 0 again (straight forward)
 def center_steering():
-	fps = logic.getLogicTicRate()
-	if abs(own["turn"]) < abs(1/fps * own["SteerRate"]): own["turn"] = 0
+	delta = logic.getLogicTicRate()
+	if abs(own["turn"]) < abs(1/delta * own["SteerRate"]): own["turn"] = 0
 
 	if own["turn"] > 0:
-		own["turn"] -= (1/fps * own["SteerRate"])
+		own["turn"] -= (1/delta * own["SteerRate"])
 	elif own["turn"] < 0:
-		own["turn"] += (1/fps * own["SteerRate"])
+		own["turn"] += (1/delta * own["SteerRate"])
 	else:
 		# own["turn"] = 0
 		pass
@@ -219,14 +219,14 @@ def center_steering():
 
 def steer(d):
 
-	fps = logic.getLogicTicRate()
+	delta = logic.getLogicTicRate()
 
 	if own.localLinearVelocity[1] < 0 and keyboard.events[key_thrust_reverse] == ACTIVE: d *= -1 # inverse steering when going reverse
 
 	# Smoothly center steering.
 	if own["turn"] > 0: #currently steering left
 		if d < 0: # player wants left
-			if abs(own["turn"]) <= own["SteerRatio"]: own["turn"] += (1/fps * own["SteerRate"]* get_grip())* -d
+			if abs(own["turn"]) <= own["SteerRatio"]: own["turn"] += (1/delta * own["SteerRate"]* get_grip())* -d
 
 		elif d > 0: # player wants right
 			center_steering()
@@ -236,28 +236,28 @@ def steer(d):
 		if d < 0: # player wants left
 			center_steering()
 		elif d > 0: # player wants right
-			if abs(own["turn"]) <= own["SteerRatio"]: own["turn"] += (1/fps * own["SteerRate"] * get_grip())* -d
+			if abs(own["turn"]) <= own["SteerRatio"]: own["turn"] += (1/delta * own["SteerRate"] * get_grip())* -d
 
 
 	else:
-		if abs(own["turn"]) <= own["SteerRatio"]: own["turn"] += (1/fps * own["SteerRate"]* get_grip())* -d
+		if abs(own["turn"]) <= own["SteerRatio"]: own["turn"] += (1/delta * own["SteerRate"]* get_grip())* -d
 
 def center_thrust():
-	fps = logic.getLogicTicRate()
+	delta = logic.getLogicTicRate()
 
-	# if abs(own["thrust"]) < own["ThrustRate"] * 1/fps * 60:
+	# if abs(own["thrust"]) < own["ThrustRate"] * 1/delta * 60:
 	# 	own.localLinearVelocity.y = 0
 
 	if own["thrust"] > 0:
-		own["thrust"] -= own["ThrustRate"] * 1/fps * 60
+		own["thrust"] -= own["ThrustRate"] * 1/delta * 60
 	else:
-		own["thrust"] += own["ThrustRate"] * 1/fps * 60
+		own["thrust"] += own["ThrustRate"] * 1/delta * 60
 
 def thrust(d):
-	fps = logic.getLogicTicRate()
+	delta = logic.getLogicTicRate()
 
 	if abs(own["thrust"]) <= abs(own["ThrustRatio"]) and own.getLinearVelocity(True)[1] < own["TopSpeed"]:
-		own["thrust"] += 1/fps * own["ThrustRate"] * d * 10
+		own["thrust"] += 1/delta * own["ThrustRate"] * d * 10
 
 def activate_weapon():
 	pass
@@ -351,6 +351,7 @@ def near():
 	# currently not used. near behavious should rather be used on blocks.
 
 def setup():
+	own["id"] = logic.game.register_ship(own)
 	# load the ship information file (ShipDir is the directory to load the .inf from)
 	load(gD.get("settings")["Game"]["ShipDir"], G.PLAYER_ID)
 
@@ -360,8 +361,6 @@ def setup():
 	gD["current"]["ships"][own["player_id"]]["reference"] = own
 
 	# set the start position according to the level
-	
-
 	own.worldPosition = level.get_start_pos()
 	# set the start orientation according to the level
 	# for this we have to convert the euler matrix saved in the level file to a regular orientation matrix

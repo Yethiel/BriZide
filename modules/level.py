@@ -260,8 +260,6 @@ class Level():
 
 def setup():
     """Executed by the level controller object in level.blend"""
-
-    # TODO(Yethiel): Only place the level if component dependencies are met
     
     # Create a new level
     new_level = Level(settings["Game"]["leveldir"])

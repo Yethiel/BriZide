@@ -1,6 +1,7 @@
 """
 Load BGE Libraries sequentially so that
 dependencies are met.
+MAKE THIS OOP
 """
 
 from modules import global_constants as G
@@ -33,7 +34,7 @@ def load():
 	"""Load the libraries one after another
 	All libraries are loaded in a separate thread. Only one lib is loaded
 	at a time.
-	Run each tick.
+	Run each tick!
 	"""
 
 	if comps["queue"]:
@@ -81,3 +82,6 @@ def is_done(required_components):
 		if not x in comps["loaded"]:
 			done = False
 	return done
+
+def register():
+	pass
