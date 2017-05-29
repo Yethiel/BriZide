@@ -93,12 +93,13 @@ class Level():
         self.path = G.PATH_LEVELS + self.identifier + "/"
         self.__cube_size = 32
         self.__start_pos = [0, 0, 0]
-        self.__start_orientation = []
+        self.__start_orientation = [0, 0, 0]
         self.__block_data =[]
         self.__valid = True
 
         self.inf_path = self.path + self.identifier + G.EXTENSION_INF
         self.blk_path = self.path + self.identifier + G.EXTENSION_BLK
+        self.blend_path = self.path + self.identifier + G.EXTENSION_BLD
 
     def __str__(self):
         """String representation"""
@@ -152,32 +153,36 @@ class Level():
             self.__valid = False
             return 0
 
+        # Load the Blend file
+        if os.path.isfile(self.blend_path):
+            logic.LibLoad(self.blend_path,"Scene", async=False)
+            print("{}: {}".format(own.name, "Loaded .blend file."))
         # Load the block file
         if os.path.isfile(self.blk_path):
             blk_file = pickle.load(open(self.blk_path, "rb"))
+            for block in blk_file["blocks"]:
+                # Get start position from start object
+                if "Start" in block["type"]:
+                    self.__start_pos = block["position"]
+                    self.__start_orientation = block["orientation"]
+                
+                # Create a new block object to store the information
+                block_dat = Block(
+                    type=block["type"], 
+                    position=block["position"], 
+                    orientation=block["orientation"])
+                if "id" in block:
+                    block_dat.id = id=block["id"]
+                if "properties" in block:
+                    block_dat.properties = block["properties"]
+
+                # Append block to level block list
+                self.__block_data.append(block_dat)
         else:
             print("{}: {}".format(own.name, "No .blk file found."))
-            self.__valid = False
-            return 0
+            # self.__valid = False
+            # return 0
 
-        for block in blk_file["blocks"]:
-            # Get start position from start object
-            if "Start" in block["type"]:
-                self.__start_pos = block["position"]
-                self.__start_orientation = block["orientation"]
-            
-            # Create a new block object to store the information
-            block_dat = Block(
-                type=block["type"], 
-                position=block["position"], 
-                orientation=block["orientation"])
-            if "id" in block:
-                block_dat.id = id=block["id"]
-            if "properties" in block:
-                block_dat.properties = block["properties"]
-
-            # Append block to level block list
-            self.__block_data.append(block_dat)
             
         # Set attributes
         self.__cube_size = int(inf_file["meta"]["cube_size"])

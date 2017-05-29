@@ -329,20 +329,21 @@ def main():
 	# catch ship out of cube
 	level = gD["current"]["level"] # TODO(Yethiel): Remove when better loading is implemented
 	cube_size = level.get_cube_size()
-	if own.worldPosition.z < -16:
-		own.worldPosition.z += 32
-	if own.worldPosition.z > cube_size * 32 - 16:
-		own.worldPosition.z += 32
+	if cube_size > 0:
+		if own.worldPosition.z < -16:
+			own.worldPosition.z += 32
+		if own.worldPosition.z > cube_size * 32 - 16:
+			own.worldPosition.z += 32
 
-	if own.worldPosition.y > cube_size * 32 - 16:
-		own.worldPosition.y -= 32
-	if own.worldPosition.y < -16:
-		own.worldPosition.y += 32
+		if own.worldPosition.y > cube_size * 32 - 16:
+			own.worldPosition.y -= 32
+		if own.worldPosition.y < -16:
+			own.worldPosition.y += 32
 
-	if own.worldPosition.x > cube_size * 32 - 16:
-		own.worldPosition.x -= 32
-	if own.worldPosition.x < -16:
-		own.worldPosition.x += 32
+		if own.worldPosition.x > cube_size * 32 - 16:
+			own.worldPosition.x -= 32
+		if own.worldPosition.x < -16:
+			own.worldPosition.x += 32
 
 	# print(own.worldPosition)
 

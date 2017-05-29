@@ -45,7 +45,7 @@ class Components:
 
 
 		if self.__queue:
-			if G.DEBUG: sleep(0.2)
+			# if G.DEBUG: sleep(0.2)
 			if not self.__currently_loading:
 				print(own.name, "Loading",self.__queue[0])
 				
