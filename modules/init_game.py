@@ -33,6 +33,8 @@ def setup():
     # get available content
     content.set_all()
 
+    logic.game.set_mode(logic.game.mode_list[0])
+
 def main():
     tests.main()
 

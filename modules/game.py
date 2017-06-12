@@ -10,10 +10,10 @@ class Game:
     the level object.
     """
     def __init__(self):
-        self.__ships = {}    # dictionary of ships (id:ship)
-        self.level = None    # current level object
-        self.mode = None     # current mode (string)
-        self.music_dir = None   # current music directory (string)
+        self.__ships = {}           # dictionary of ships (id:ship)
+        self.level = None           # current level object
+        self.mode = None            # current mode (string)
+        self.music_dir = None       # current music directory (string)
         self.ship_possessions = {}  # dictionary player_id:ship_id
 
         # lists for game content (strings of folder names)
@@ -21,9 +21,11 @@ class Game:
         self.ship_list = []
         self.mode_list = []
 
-
     def register_ship(self, objref):
-        """Returns an ID and saves a reference in the dictionary"""
+        """
+        Called by each ship to link itself in the ships dictionary
+        Returns a unique id that is used to link the ship to a player.
+        """
         ship_id = len(self.__ships)
         self.__ships[ship_id] = objref
         return ship_id
@@ -52,23 +54,28 @@ class Game:
         return levelstr
 
     def get_level(self):
+        """Returns the level object"""
         return self.level
 
     def set_mode(self, modestr):
+        """Sets the mode (takes folder name of game mode)"""
         self.mode = modestr
         return modestr
 
     def get_mode(self):
+        """Returns the folder name of the currently set mode"""
         return self.mode
 
     def set_music_dir(self, dirstr):
+        """Set the music directory (subdir of music folder)"""
         self.music_dir = dirstr
         return self.music_dir
 
     def get_music_dir(self):
+        """Returns the current music directory"""
         return self.music_dir
 
     def start(self):
-        """Starts the game"""
+        """Starts the game (tells the game mode to start and load all comps)"""
         logic.components.load_immediate(
             "../modes/" + self.mode + "/" + self.mode)

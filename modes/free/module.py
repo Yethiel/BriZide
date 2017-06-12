@@ -22,28 +22,28 @@ logic.game.set_music_dir("time_trial")
 
 def setup():
 
-	# Setup the game mode and give the player controls.
-	own["Timer"] = 0
-	gD["input"]["focus"] = "ship"
+    # Setup the game mode and give the player controls.
+    own["Timer"] = 0
+    gD["input"]["focus"] = "ship"
 
-	# In debug mode, print when game mode is ready
-	if G.DEBUG: print("{}: {}".format(own.name, "Free mode has been set up."))
+    # In debug mode, print when game mode is ready
+    if G.DEBUG: print("{}: {}".format(own.name, "Free mode has been set up."))
 
 # The main loop always runs.
 def main():
 
-	if not own["init"]:
+    if not own["init"]:
 
-		# Prepare the game mode by loading the queued components
-		logic.components.load()
+        # Prepare the game mode by loading the queued components
+        logic.components.load()
 
-		# If the queue is emtpy, we're done
-		if logic.components.is_done(required_components):
-			own["init"] = True
-			setup()
-	else:
-		pass
+        # If the queue is emtpy, we're done
+        if logic.components.is_done(required_components):
+            own["init"] = True
+            setup()
+    else:
+        pass
 
 
 def controls():
-	pass
+    pass
