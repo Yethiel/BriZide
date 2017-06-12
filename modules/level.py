@@ -32,29 +32,29 @@ class Block():
         properties: A dictionary of BGE properties (e.g. portal links, effects)
     """
     def __init__(
-        self, type=None, position=None, orientation=None, id=None, 
+        self, type=None, position=None, orientation=None, id=None,
         properties=None):
-        
-        if type is None: 
+
+        if type is None:
             self.type = "Default"
-        else: 
+        else:
             self.type = type
-        
+
         if position is None:
             self.position = [0, 0, 0]
         else:
             self.position = position
-        
+
         if orientation is None:
             self.orientation = [[], [], []]
         else:
             self.orientation = orientation
-        
+
         if id is None:
             self.id = -1
         else:
             self.id = -1
-        
+
         if properties is None:
             self.properties = {}
         else:
@@ -62,7 +62,7 @@ class Block():
 
     def __str__(self):
         return "{} {}".format(type, id)
-        
+
 
 class Level():
     # TODO(Yethiel): Rework the start pos and orientation: RV-like Grid layout
@@ -130,7 +130,7 @@ class Level():
 
     def is_valid(self):
         return self.__valid
- 
+
     def load(self):
         """
         Load the level from its folder
@@ -139,15 +139,15 @@ class Level():
         This is for faster level transition times:
         Levels can be loaded in advance.
         """
-        
+
         # Load the information file
         if os.path.isfile(self.inf_path):
             inf_file = configparser.ConfigParser()
             inf_file.read(self.inf_path)
-            if G.DEBUG: print("{}: {}".format(own.name, 
+            if G.DEBUG: print("{}: {}".format(own.name,
                 "Loaded level information file."))
         else:
-            if G.DEBUG: print("{}: {} ({})".format(own.name, 
+            if G.DEBUG: print("{}: {} ({})".format(own.name,
                 "Could not load level information file.",
                 self.inf_path))
             self.__valid = False
@@ -165,11 +165,11 @@ class Level():
                 if "Start" in block["type"]:
                     self.__start_pos = block["position"]
                     self.__start_orientation = block["orientation"]
-                
+
                 # Create a new block object to store the information
                 block_dat = Block(
-                    type=block["type"], 
-                    position=block["position"], 
+                    type=block["type"],
+                    position=block["position"],
                     orientation=block["orientation"])
                 if "id" in block:
                     block_dat.id = id=block["id"]
@@ -183,7 +183,7 @@ class Level():
             # self.__valid = False
             # return 0
 
-            
+
         # Set attributes
         self.__cube_size = int(inf_file["meta"]["cube_size"])
 
@@ -199,8 +199,8 @@ class Level():
 
                 block = {
                     "type" : obj.meshes[0].name,
-                    "position" : [obj.worldPosition.x, 
-                        obj.worldPosition.y, 
+                    "position" : [obj.worldPosition.x,
+                        obj.worldPosition.y,
                         obj.worldPosition.z],
                     "orientation" : [wo[0], wo[1], wo[2]],
                     "properties" : {}
@@ -223,11 +223,11 @@ class Level():
 
         # write .inf file
         inf = configparser.ConfigParser()
-        
+
         inf["info"] = {
             "name" : level_dict["name"]
         }
-        
+
         inf["meta"] = {
             "cube_size" : level_dict["cube_size"]
         }
@@ -235,37 +235,37 @@ class Level():
 
         with open(inf_path, 'w') as inffile:
             inf.write(inffile)
-        
+
         if G.DEBUG: print("{}: {}".format(own.name,
             "Saved information file."))
 
 
     def place(self):
         """
-        Assuming that the level itself has been loaded in to the global dict, 
+        Assuming that the level itself has been loaded in to the global dict,
         we can now actually load it into the 3D world.
         """
         for block in self.__block_data:
 
             new_block = sce.addObject(block.type)
-            
+
             # Copy properties
             for prop in block.properties:
                 new_block[prop] = block.properties[prop]
-            
+
             new_block.worldPosition = block.position # Set position
-            
+
             # Convert Orientation to matrix and apply it to the 3D object
             new_orientation = mathutils.Euler((0, 0, 0), "XYZ")
-            
+
             for x in [0, 1, 2]:
                 new_orientation[x] = block.orientation[x]
-            
+
             new_block.worldOrientation = new_orientation.to_matrix()
 
 def setup():
     """Executed by the level controller object in level.blend"""
-    
+
     # Create a new level
     new_level = Level(settings["Game"]["leveldir"])
 
@@ -281,7 +281,7 @@ def setup():
         new_level.place()
 
         # Make accessible in the global dict
-        gD["current"]["level"] = new_level
+        logic.game.set_level(new_level)
         logic.components.mark_loaded("level")
 
 

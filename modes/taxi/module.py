@@ -1,6 +1,5 @@
 """
-This is the script for the free game mode.
-It is attached to the Controller object in the mode's blend file.
+Taxi Mode
 """
 
 from bge import logic, events
@@ -18,7 +17,7 @@ required_components = ["blocks", "level", "cube", "ship"]
 queue_id = logic.components.queue(required_components)
 
 # Set the music directory
-logic.game.set_music_dir("time_trial")
+gD["current"]["music"]["subdir"] = "time_trial"
 
 def setup():
 
@@ -27,7 +26,7 @@ def setup():
 	gD["input"]["focus"] = "ship"
 
 	# In debug mode, print when game mode is ready
-	if G.DEBUG: print("{}: {}".format(own.name, "Free mode has been set up."))
+	if G.DEBUG: print("{}: {}".format(own.name, "Taxi mode has been set up."))
 
 # The main loop always runs.
 def main():

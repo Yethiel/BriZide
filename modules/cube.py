@@ -10,7 +10,7 @@ own = co.owner
 sce = logic.getCurrentScene()
 
 settings = logic.globalDict.get("settings")
-level = logic.globalDict.get("current")["level"]
+level = logic.game.get_level()
 tile_size = 32
 cube_size = level.get_cube_size()
 
@@ -56,5 +56,5 @@ def main():
 			for z in cube_range:
 				own.worldPosition = [(cube_size-1) * tile_size, y * tile_size , z * tile_size]
 				sce.addObject("CubeTile_X+", own, 0)
-		
+
 	logic.components.mark_loaded("cube")
