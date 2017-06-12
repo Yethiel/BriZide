@@ -5,8 +5,9 @@ from modules import global_constants as G
 
 class Game:
     """
-    This class is meant to act like the globalDict, mostly because I cannot keep
-    track of all the properties.
+    Class for all the things that are going on while the game is running.
+    It is used to manage ships and their players, available content and
+    the level object.
     """
     def __init__(self):
         self.__ships = {}    # dictionary of ships (id:ship)
