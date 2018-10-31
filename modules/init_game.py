@@ -21,6 +21,7 @@ def setup():
     globalDict["settings"] = config.load()
     logic.game = game.Game() # new and controlled "global dict"
     logic.components = components.Components() # manages game components loaded by game modes
+    print("HIIIIIIIIIIIIIIIIII",logic.components.init_loading)
     logic.game.set_music_dir("menu")
 
     globalDict["input"] = {     # this is for control modules to check whether they are in focus

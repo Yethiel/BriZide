@@ -15,7 +15,7 @@ own["init"] = False
 required_components = ["blocks", "level", "cube", "ship"]
 
 # Queue the required components
-queue_id = logic.components.queue(required_components)
+queue_id = logic.components.enqueue(required_components)
 
 # Set the music directory
 logic.game.set_music_dir("time_trial")

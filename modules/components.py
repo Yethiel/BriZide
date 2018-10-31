@@ -10,24 +10,25 @@ own = logic.getCurrentController().owner
 extension = G.EXTENSION_COMPONENT
 
 class Components:
-    def __init__(self):
-        self.__queue = []
-        self.__loaded = [None]
-        self.__opened = [None]
-        self.__currently_loading = None
-        self.__currently_loading_str = ""
-        self.__count = 0
-        self.__init_loading = False
 
-    def queue(self, components):
+    def __init__(self):
+        self.init_loading = False
+        self.queue = []
+        self.loaded = [None]
+        self.opened = [None]
+        self.currently_loading = None
+        self.currently_loading_str = ""
+        self.count = 0
+
+    def enqueue(self, components):
         """Queue components to load them in order"""
 
         if isinstance(components, str):
-            self.__queue.append(str(component))
+            self.queue.append(str(component))
 
         elif isinstance(components, list):
             for component in components:
-                self.__queue.append(str(component))
+                self.queue.append(str(component))
 
 
     def load(self):
@@ -37,38 +38,37 @@ class Components:
         Run each tick!
         """
 
-        if not self.__init_loading and self.__queue:
-            self.__init_loading = True
-            self.__count = len(self.__queue)
+        if not self.init_loading and self.queue:
+            self.init_loading = True
+            self.count = len(self.queue)
 
 
-        if self.__queue:
+        if self.queue:
             # if G.DEBUG: sleep(0.2)
-            if not self.__currently_loading:
-                print(own.name, "Loading",self.__queue[0])
+            if not self.currently_loading:
+                print(own.name, "Loading",self.queue[0])
 
                 # Make a path from the component name
                 blend_path = logic.expandPath("{}{}{}".format(
-                    "//components/", self.__queue[0], extension))
+                    "//components/", self.queue[0], extension))
 
                 # Store the returned status object.
-                self.__currently_loading = logic.LibLoad(blend_path,
-                        "Scene", async=True)
-                self.__currently_loading_str = self.__currently_loading.libraryName
+                self.currently_loading = logic.LibLoad(blend_path, "Scene")
+                self.currently_loading_str = self.currently_loading.libraryName
 
                 # Add "opened" component to the list, remove it from the queue
-                self.__opened.append(self.__queue[0])
-                self.__queue.pop(0)
+                self.opened.append(self.queue[0])
+                self.queue.pop(0)
 
             #Proceed with the next module when the library loaded and the
             #component added itself to the "done" list.
-            elif self.__currently_loading.finished and self.__opened[-1] == self.__loaded[-1]:
-                print(own.name, "Done loading", self.__opened[-1])
-                self.__currently_loading = None
+            elif self.currently_loading.finished and self.opened[-1] == self.loaded[-1]:
+                print(own.name, "Done loading", self.opened[-1])
+                self.currently_loading = None
 
         else:
-            self.__init_loading = False
-            self.__count = 0
+            self.init_loading = False
+            self.count = 0
 
 
     def load_immediate(self, component):
@@ -77,9 +77,9 @@ class Components:
         blend_path = logic.expandPath("{}{}{}".format(
             "//components/", component, extension))
 
-        logic.LibLoad(blend_path,"Scene", async=False)
+        logic.LibLoad(blend_path,"Scene")
 
-        # self.__loaded.append(component)
+        # self.loaded.append(component)
 
     def free(self, component):
         """Frees a component that resembles the string. Very loose."""
@@ -92,29 +92,29 @@ class Components:
 
         done = True
         for x in required_components:
-            if not x in self.__loaded:
+            if not x in self.loaded:
                 done = False
         return done
 
     def is_loading(self):
         """Returns a boolean whether or not a component is currently loading"""
-        return self.__init_loading
+        return self.init_loading
 
     def mark_loaded(self, componentstr):
         """Adds a component (string) to the loaded component list"""
-        if not componentstr in self.__loaded:
-            self.__loaded.append(componentstr)
+        if not componentstr in self.loaded:
+            self.loaded.append(componentstr)
             return True
         else:
             return False
 
     def get_percent(self):
         """Returns the percentage of the components loaded (0<=x<=1)"""
-        if self.__init_loading:
-            return (len(self.__loaded) / self.__count)
+        if self.init_loading:
+            return (len(self.loaded) / self.count)
         else:
             return 0
 
     def get_currently_loading(self):
         """Returns string name of the currently loading component"""
-        return self.__currently_loading_str
+        return self.currently_loading_str

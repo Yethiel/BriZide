@@ -155,7 +155,7 @@ class Level():
 
         # Load the Blend file
         if os.path.isfile(self.blend_path):
-            logic.LibLoad(self.blend_path,"Scene", async=False)
+            logic.LibLoad(self.blend_path,"Scene")
             print("{}: {}".format(own.name, "Loaded .blend file."))
         # Load the block file
         if os.path.isfile(self.blk_path):
