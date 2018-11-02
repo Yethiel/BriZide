@@ -10,11 +10,12 @@ class Game:
     the level object.
     """
     def __init__(self):
-        self.__ships = {}           # dictionary of ships (id:ship)
+        self.ships = {}           # dictionary of ships (id:ship)
         self.level = None           # current level object
         self.mode = None            # current mode (string)
         self.music_dir = None       # current music directory (string)
         self.ship_possessions = {}  # dictionary player_id:ship_id
+        self.players = [0]
 
         # lists for game content (strings of folder names)
         self.level_list = []
@@ -26,13 +27,13 @@ class Game:
         Called by each ship to link itself in the ships dictionary
         Returns a unique id that is used to link the ship to a player.
         """
-        ship_id = len(self.__ships)
-        self.__ships[ship_id] = objref
+        ship_id = len(self.ships)
+        self.ships[ship_id] = objref
         return ship_id
 
     def get_ship(self, ship_id):
         """Get the ship object with the id (int)"""
-        return self.__ships[ship_id]
+        return self.ships[ship_id]
 
     def assign_ship_to_player(self, ship_id, player_id):
         """Assigns ship id to player id"""

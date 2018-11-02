@@ -140,6 +140,8 @@ class Level():
         Levels can be loaded in advance.
         """
 
+        idx = 1000
+
         # Load the information file
         if os.path.isfile(self.inf_path):
             inf_file = configparser.ConfigParser()
@@ -172,7 +174,10 @@ class Level():
                     position=block["position"],
                     orientation=block["orientation"])
                 if "id" in block:
-                    block_dat.id = id=block["id"]
+                    block_dat.id = block["id"]
+                else:
+                    block["id"] = idx
+                    idx += 1
                 if "properties" in block:
                     block_dat.properties = block["properties"]
 

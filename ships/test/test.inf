@@ -5,28 +5,29 @@
 ;#########################
 
 [Main]
-Name:			Test						; Name of the ship. Should be similar to the folder name.
+Name:           Test                        ; Name of the ship. Should be similar to the folder name.
 
-Model:			//ships/test/test.blend		; Blender file with a mesh
-Texture:		//ships/test/test.png		; Texture to replace the one from the mesh (optional)
-Shadow:			//ships/test/shadow.png		; Texture for the shadow plane below the ship.
+Model:          //ships/test/test.blend     ; Blender file with a mesh
+Texture:        //ships/test/test.png       ; Texture to replace the one from the mesh (optional)
+Shadow:         //ships/test/shadow.png     ; Texture for the shadow plane below the ship.
 
 [Handling]
 
-TopSpeed:			160				; Top speed of the engine beyond which it won't accelerate any more
-ThrustRatio:		50				; Engine ratio
-ThrustRate:			6				; How fast the engine ratio is approached
+TopSpeed:           160             ; Top speed of the engine beyond which it won't accelerate any more
+ThrustRatio:        50              ; Engine ratio
+ThrustRate:         6               ; How long it takes (seconds) to reach the full
 
-Grip:				0.2				; Grip of the ship when on ground (0 to 1)
-GripAir:			1               ; Grop of the ship when in air (0 to 1)
+Grip:               0.5             ; Grip of the ship when on ground
+GripAir:            1
 
-SteerRate:			0.2				; How long it takes (seconds) to reach the full SteerRatio
-SteerRatio:			0.06			; Maximum steering step
+SteerRate:          0.2             ; How long it takes (seconds) to reach the full SteerRatio
+SteerRatio:         0.06            ; Maximum steering step
 
-StableThreshold:	0.01			; When the stabilizer kicks in (Velocity)
-StableStrength:		2				; Strength of the stabilizer
-Shield:				100				; Shield strength
+StableThreshold:    0.01            ; When the stabilizer kicks in (Velocity)
+StableStrength:     2               ; Strength of the stabilizer
+Shield:             100             ; Shield strength
 
-HoverHeight:		5				; Height of the ship
-HoverStrength:		250				; Strength of the force to keep the ship above the ground
-HoverDamping:		3				; Dampening of the above force
+HoverHeight:        5               ; Height of the ship
+HoverStrength:      250             ; Strength of the force to keep the ship above the ground
+HoverDamping:       2               ; Dampening of the above force
+

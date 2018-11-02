@@ -2,5 +2,5 @@
 name = test
 
 [meta]
-cube_size = 0
+cube_size = 20
 
