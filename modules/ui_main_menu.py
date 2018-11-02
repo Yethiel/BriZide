@@ -4,6 +4,8 @@ import bgui
 import bgui.bge_utils
 from bge import logic
 
+from modules import menu
+
 globalDict = logic.globalDict
 
 
@@ -30,9 +32,27 @@ class MainMenu(bgui.bge_utils.Layout):
     def __init__(self, sys, data):
         super().__init__(sys, data)
 
+        self.menu = menu.Menu()
+
+        list = menu.List(label="Game Mode")
+
+        for game_mode in logic.game.mode_list:
+            list.options.append(menu.Option(game_mode, game_mode, None))
+
+        self.menu.options.append(menu.Option("Start game", "start_game", self.start))
+
+        self.menu.guilabels = []
+
         # Use a frame to store all of our widgets
         self.frame = bgui.Frame(self, border=0)
         self.frame.colors = [(0, 0, 0, 0) for i in range(4)]
+
+        pos = 0.0
+        for option in self.menu.options:
+            self.menuthing = bgui.Label(self.frame, text=option.label, pos=[0.1, pos], options = bgui.BGUI_DEFAULT|bgui.BGUI_CENTERED)
+            self.menu.guilabels.append(bgui.Label(self.frame, text=option.label, pos=[0.5, pos], options = bgui.BGUI_DEFAULT|bgui.BGUI_CENTERED))
+            pos -= .2
+
 
         # A themed frame
         self.win = bgui.Frame(self, size=[0.8, 0.8],
