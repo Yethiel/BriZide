@@ -79,40 +79,43 @@ class Level():
     Attributes:
         identifier: A string that represents the level, e.g. folder name
         path: Path to the level folder
-        __cube_size: Size of the cube that encloses the level
+        cube_size: Size of the cube that encloses the level
         start_pos: Coordinate of the start position (x, y, z)
         start_orientation: Orientation for the spawn position
-        __block_data: List of block objects that the level includes
-        __valid: True if everything loaded correctly
+        block_data: List of block objects that the level includes
+        valid: True if everything loaded correctly
         inf_path: path + .inf file name
         blk_path: path + .blk file name
     """
     def __init__(self, identifier):
         """Init level objet with defaults"""
-        self.identifier = identifier
-        self.path = G.PATH_LEVELS + self.identifier + "/"
-        self.__cube_size = 32
-        self.__start_pos = [0, 0, 0]
-        self.__start_orientation = [0, 0, 0]
-        self.__block_data =[]
-        self.__valid = True
-
-        self.inf_path = self.path + self.identifier + G.EXTENSION_INF
-        self.blk_path = self.path + self.identifier + G.EXTENSION_BLK
-        self.blend_path = self.path + self.identifier + G.EXTENSION_BLD
+        self.set_identifier(identifier)
+        self.cube_size = 32
+        self.start_pos = [0, 0, 0]
+        self.start_orientation = [0, 0, 0]
+        self.block_data =[]
+        self.valid = True
 
     def __str__(self):
         """String representation"""
         return self.identifier
 
+    def set_identifier(self, identifier):
+        self.identifier = identifier
+        self.path = G.PATH_LEVELS + self.identifier + "/"
+
+        self.inf_path = "{}{}".format(os.path.join(self.path, self.identifier), G.EXTENSION_INF)
+        self.blk_path = "{}{}".format(os.path.join(self.path, self.identifier), G.EXTENSION_BLK)
+        self.blend_path = "{}{}".format(os.path.join(self.path, self.identifier), G.EXTENSION_BLD)
+
     def print_info(self):
         """Print debug information, mainly attributes"""
         print("=== LEVEL INFORMATION ===")
         print("\tName: {}".format(self.identifier))
-        print("\tCube Size: {}".format(self.__cube_size))
-        print("\tStart Pos: {}".format(self.__start_pos))
-        print("\tStart Orientation: {}".format(self.__start_orientation))
-        print("\tNumber of Blocks: {}".format(len(self.__block_data)))
+        print("\tCube Size: {}".format(self.cube_size))
+        print("\tStart Pos: {}".format(self.start_pos))
+        print("\tStart Orientation: {}".format(self.start_orientation))
+        print("\tNumber of Blocks: {}".format(len(self.block_data)))
 
     def get_checkpoint_count(self):
         """The checkpoint count will only be set by load(), thus only get"""
@@ -120,16 +123,16 @@ class Level():
 
     def get_cube_size(self):
         """Returns the cube size"""
-        return self.__cube_size
+        return self.cube_size
 
     def get_start_pos(self):
-        return self.__start_pos
+        return self.start_pos
 
     def get_start_orientation(self):
-        return self.__start_orientation
+        return self.start_orientation
 
     def is_valid(self):
-        return self.__valid
+        return self.valid
 
     def load(self):
         """
@@ -152,7 +155,7 @@ class Level():
             if G.DEBUG: print("{}: {} ({})".format(own.name,
                 "Could not load level information file.",
                 self.inf_path))
-            self.__valid = False
+            self.valid = False
             return 0
 
         # Load the Blend file
@@ -165,8 +168,8 @@ class Level():
             for block in blk_file["blocks"]:
                 # Get start position from start object
                 if "Start" in block["type"]:
-                    self.__start_pos = block["position"]
-                    self.__start_orientation = block["orientation"]
+                    self.start_pos = block["position"]
+                    self.start_orientation = block["orientation"]
 
                 # Create a new block object to store the information
                 block_dat = Block(
@@ -182,19 +185,21 @@ class Level():
                     block_dat.properties = block["properties"]
 
                 # Append block to level block list
-                self.__block_data.append(block_dat)
+                self.block_data.append(block_dat)
         else:
             print("{}: {}".format(own.name, "No .blk file found."))
-            # self.__valid = False
+            # self.valid = False
             # return 0
 
 
         # Set attributes
-        self.__cube_size = int(inf_file["meta"]["cube_size"])
+        self.cube_size = int(inf_file["meta"]["cube_size"])
 
     def save(self):
         """The track editor uses this to save a level to files"""
         # Save all saveable blocks
+        blocks = []
+
         for obj in sce.objects:
 
             if "Block_" in obj.name:
@@ -213,8 +218,10 @@ class Level():
 
                 # Copy properties set by the level editor into the dict
                 for prop in obj.getPropertyNames():
-                    properties[prop] = block[prop]
-
+                    try:
+                        properties[prop] = block[prop]
+                    except Exception as e:
+                        print(e)
                 blocks.append(block)
 
         blk_file = {
@@ -222,23 +229,27 @@ class Level():
             "author" : settings["Game"]["Name"],
             "blocks" : blocks}
 
+
+        if not os.path.isdir(self.path):
+            os.mkdir(self.path)
+
         # TODO(Yethiel): Make up own format
-        pickle.dump( blk_file, open( blk_path, "wb" ) )
+        pickle.dump(blk_file, open(self.blk_path, "wb"))
         print("Saved block file.")
 
         # write .inf file
         inf = configparser.ConfigParser()
 
         inf["info"] = {
-            "name" : level_dict["name"]
+            "name" : self.identifier
         }
 
         inf["meta"] = {
-            "cube_size" : level_dict["cube_size"]
+            "cube_size" : self.cube_size
         }
 
 
-        with open(inf_path, 'w') as inffile:
+        with open(self.inf_path, 'w') as inffile:
             inf.write(inffile)
 
         if G.DEBUG: print("{}: {}".format(own.name,
@@ -250,7 +261,7 @@ class Level():
         Assuming that the level itself has been loaded in to the global dict,
         we can now actually load it into the 3D world.
         """
-        for block in self.__block_data:
+        for block in self.block_data:
 
             new_block = sce.addObject(block.type)
 

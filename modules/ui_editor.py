@@ -65,6 +65,13 @@ class EditorUI(bgui.bge_utils.Layout):
             options = bgui.BGUI_DEFAULT)
         self.button_file.pt_size = 18
 
+        self.level_name = bgui.TextInput(
+            self.frame_menu,
+            text="UNSET",
+            size=[0.3, 1],
+            pos=[0.1, 0],
+            options = bgui.BGUI_DEFAULT
+        )
 
         # Block property panel
         self.frame_prop = bgui.Frame(
@@ -101,6 +108,12 @@ class EditorUI(bgui.bge_utils.Layout):
     def update(self):
         try: self.frame_prop.label_active_block.text = gD["editor"]["active_block"].name
         except: self.frame_prop.label_active_block.text = "Nothing selected."
+
+        if self.level_name.text == "UNSET":
+            self.level_name.text = logic.game.level.identifier
+        else:
+            logic.game.level.set_identifier(self.level_name.text)
+
         # self.button_file
     def lb_modes_click(self, widget):
         gD["settings"]["Game"]["mode"] = widget.selected

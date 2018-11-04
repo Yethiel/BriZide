@@ -331,7 +331,7 @@ def main():
 
     if keyboard.events[events.LEFTCTRLKEY] == ACTIVE: # all controls that require CTRL to be held down
         if keyboard.events[events.SKEY] == JUST_RELEASED:
-            level.save()
+            logic.game.level.save()
 
 ### ROTATION MODE
     if gD["input"]["focus"] == G.FOCUS_EDITOR_ROT:
