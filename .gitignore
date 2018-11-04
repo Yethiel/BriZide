@@ -5,6 +5,9 @@ __pycache__/
 
 # C extensions
 *.so
+*.blend2
+*.blend3
+*.blend4
 
 # Distribution / packaging
 .Python

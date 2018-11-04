@@ -7,14 +7,14 @@ cont = logic.getCurrentController()
 own = cont.owner
 
 def load(mode):
-	inf_path = logic.expandPath("//modes/"+mode+"/"+mode+".inf")
+    inf_path = logic.expandPath("//modes/"+mode+"/"+mode+".inf")
 
-	# load the information file
-	inf = configparser.ConfigParser()
-	if os.path.isfile(inf_path):
-		inf.read(inf_path)
-		print("Loaded game mode information file.")
+    # load the information file
+    inf = configparser.ConfigParser()
+    if os.path.isfile(inf_path):
+        inf.read(inf_path)
+        print("Loaded game mode information file.")
 
 def start(mode):
-	pass
-	# load lib
+    pass
+    # load lib

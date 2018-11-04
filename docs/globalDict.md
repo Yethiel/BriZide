@@ -15,7 +15,7 @@
     - Controls_1 (list of available controls and their bindings)
       * test
   + current
-    - level
+    - level (pyObj:modules.level.Level, things nested below are depr.)
       * name
       * lap
       * cube_size
@@ -39,6 +39,7 @@
         + last_portal_id
         + reference
     - block_list (available blocks)
+    -music
   + editor
     - selected_block
     - rotation
