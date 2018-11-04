@@ -342,13 +342,13 @@ def main():
         grab_mode()
 
 ### SELECT BLOCK TO PLACE
-    if keyboard.events[events.RIGHTARROWKEY] == JUST_RELEASED:
+    if keyboard.events[events.RIGHTARROWKEY] == JUST_RELEASED and gD["editor"]["selected_block_index"] < len(logic.game.block_list) - 1:
         gD["editor"]["selected_block_index"] += 1
-        gD["editor"]["selected_block"] = gD["current"]["block_list"][gD["editor"]["selected_block_index"]]
+        gD["editor"]["selected_block"] = logic.game.block_list[gD["editor"]["selected_block_index"]]
         refresh_cursor(gD["editor"]["selected_block"])
-    if keyboard.events[events.LEFTARROWKEY] == JUST_RELEASED:
+    if keyboard.events[events.LEFTARROWKEY] == JUST_RELEASED and gD["editor"]["selected_block_index"] > 0:
         gD["editor"]["selected_block_index"] -= 1
-        gD["editor"]["selected_block"] = gD["current"]["block_list"][gD["editor"]["selected_block_index"]]
+        gD["editor"]["selected_block"] = logic.game.block_list[gD["editor"]["selected_block_index"]]
         refresh_cursor(gD["editor"]["selected_block"])
 
     # what to do when we're not in one of the manipulation modes

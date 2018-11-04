@@ -61,7 +61,7 @@ class MainMenu(bgui.bge_utils.Layout):
 
 
         # Create an image to display
-        self.win.img = bgui.Image(self.frame, '//gfx/title.bmp', pos=[0, 0],
+        self.win.img = bgui.Image(self.frame, '//gfx/title.png', pos=[0, 0],
             options = bgui.BGUI_DEFAULT|bgui.BGUI_CENTERED|bgui.BGUI_CACHE)
 
         # for x in range(0, len(logic.game.mode_list)):
