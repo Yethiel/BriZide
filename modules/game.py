@@ -14,6 +14,7 @@ class Game:
         self.level = None           # current level object
         self.mode = None            # current mode (string)
         self.music_dir = None       # current music directory (string)
+        self.block_list = []
         self.ship_possessions = {}  # dictionary player_id:ship_id
         self.players = [0]
 

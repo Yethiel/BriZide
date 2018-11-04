@@ -150,6 +150,8 @@ def setup():
 
     logic.ui["sys"].add_overlay(TimeTrialUI)
 
+    logic.game.set_music_dir("time_trial")
+
     # In debug mode, print when game mode is ready
     if G.DEBUG: print(own.name + ": Game mode Time Trial has been set up.")
 

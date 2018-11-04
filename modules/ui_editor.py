@@ -5,7 +5,7 @@ import bgui.bge_utils
 from bge import logic
 
 from modules.editor_ops import delete_block
-from modules bgui, import global_constants as G
+from modules import global_constants as G
 
 gD = logic.globalDict
 

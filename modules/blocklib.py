@@ -5,12 +5,12 @@ blocklib.blend to the second layer of blocks.blend so they can be used with
 addObj.
 """
 from bge import logic
-from modules.components import mark_loaded
-from modules.components import free
+from modules import global_constants as G
 
 cont = logic.getCurrentController()
 own = cont.owner
 sce = logic.getCurrentScene()
+
 
 settings = logic.globalDict.get("settings")
 
@@ -19,15 +19,13 @@ def add():
     This will look up all objects in a blend file and append them to the block list.
     """
     # load the block list from the globalDict (in case multiple blocklibs are used, so that these can be added to the list, we don't want to replace it)
-    block_list = logic.globalDict.get("current")["block_list"]
+    block_list = logic.game.block_list
 
     # get all blocks that are in this scene and add them to a list
-    for obj in sce.objects:
+    for obj in sce.objects: 
         if "Block_" in obj.name:
             # we need to use the name since this lib will be freed and the objects will be gone, leaving freed references
             block_list.append(obj.name)
-
-    logic.globalDict["current"]["block_list"] = block_list # save the list back to the globalDict
 
     if len(block_list) != 0: # if some blocks have been foudn
         if G.DEBUG:
@@ -40,4 +38,5 @@ def main():
     The library will be freed shortly after.
     """
     add()
-    free("blocklib")
+    logic.components.mark_loaded("blocklib")
+

@@ -86,6 +86,8 @@ class Components:
         for lib in logic.LibList():
             if component in lib:
                 logic.LibFree(lib)
+                if G.DEBUG:
+                    print("Freed", component)
 
     def is_done(self, required_components):
         """Takes a list and checks if all modules are loaded"""

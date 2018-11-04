@@ -30,7 +30,7 @@ pivot_cam = sce.objects["Pivot_Camera_Editor"]
 
 settings = gD["settings"]
 DEBUG = settings["Dev"]["debug"] == "True"
-current_level = gD["current"]["level"]
+current_level = logic.game.level
 selected_block = gD["editor"]["selected_block"]
 own["mouse_cam_timeout"] = 0
 
