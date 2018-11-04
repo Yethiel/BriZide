@@ -223,13 +223,16 @@ def steer(d):
 
     if own.localLinearVelocity[1] < 0 and keyboard.events[key_thrust_reverse] == ACTIVE: d *= -1 # inverse steering when going reverse
 
+
     # Smoothly center steering.
     if own["turn"] > 0: #currently steering left
         if d < 0: # player wants left
             if abs(own["turn"]) <= own["SteerRatio"]: own["turn"] += (1/delta * own["SteerRate"]* get_grip())* -d
 
+
         elif d > 0: # player wants right
             center_steering()
+
 
     # Smoothly center steering.
     elif own["turn"] < 0: #currently steering right
@@ -241,6 +244,7 @@ def steer(d):
 
     else:
         if abs(own["turn"]) <= own["SteerRatio"]: own["turn"] += (1/delta * own["SteerRate"]* get_grip())* -d
+
 
 def center_thrust():
     delta = logic.getLogicTicRate()
