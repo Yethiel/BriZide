@@ -283,21 +283,21 @@ def setup():
     """Executed by the level controller object in level.blend"""
 
     # Create a new level
-    new_level = Level(settings["Game"]["leveldir"])
+    logic.game.level = Level(logic.game.level_name)
 
     # Load the level data from file
-    new_level.load()
+    logic.game.level.load()
 
-    if new_level.is_valid():
+    if logic.game.level.is_valid():
 
         # Print some debug stuff
-        if G.DEBUG: new_level.print_info()
+        if G.DEBUG: logic.game.level.print_info()
 
         # Place level in 3D world
-        new_level.place()
+        logic.game.level.place()
 
         # Make accessible in the global dict
-        logic.game.set_level(new_level)
+        logic.game.set_level(logic.game.level)
         logic.components.mark_loaded("level")
 
 

@@ -3,6 +3,8 @@ from bge import logic
 from modules import components
 from modules import global_constants as G
 
+globalDict = logic.globalDict
+
 class Game:
     """
     Class for all the things that are going on while the game is running.
@@ -12,6 +14,7 @@ class Game:
     def __init__(self):
         self.ships = {}           # dictionary of ships (id:ship)
         self.level = None           # current level object
+        self.level_name = globalDict["settings"]["Game"]["leveldir"]
         self.mode = None            # current mode (string)
         self.music_dir = None       # current music directory (string)
         self.block_list = []
@@ -52,7 +55,7 @@ class Game:
 
     def set_level(self, levelstr):
         """Set the folder name of the level"""
-        self.level = levelstr
+        self.level_name = levelstr
         return levelstr
 
     def get_level(self):
