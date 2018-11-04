@@ -11,22 +11,18 @@ from modules.ui_editor import EditorUI
 globalDict = logic.globalDict
 own = logic.getCurrentController().owner # This is the object that executes these functions.
 
+own["init"] = False
 
 required_components = ["blocklib", "blocks", "level", "cube", "editor"]
 queue_id = logic.components.enqueue(required_components)
 # Setup is executed as soon as the game mode has been loaded.
 def setup():
-
-    logic.components.free("blocklib")
     
     ### Prepare the global dict
     editor = {
         "selected_block" : "Block_0_32_32_32" # yay defaults
     }
     globalDict["editor"] = editor
-
-    own["init"] = False
-
 
     # Queue the required components
 

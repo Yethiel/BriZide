@@ -24,7 +24,7 @@ class OverlayUI(bgui.bge_utils.Layout):
 
         self.lbl_fps = bgui.Label(self.frame, text="fps", pos=[0.1, 0.9], options = bgui.BGUI_DEFAULT)
         self.lbl_tck = bgui.Label(self.frame, text="tck", pos=[0.1, 0.85], options = bgui.BGUI_DEFAULT)
-        self.lbl_rev = bgui.Label(self.frame, text="Brizide rev. " + G.REVISION, pos=[0.1, 0.1], options = bgui.BGUI_DEFAULT)
+        self.lbl_rev = bgui.Label(self.frame, text="Brizide " + G.REVISION, pos=[0.01, 0.01], options = bgui.BGUI_DEFAULT)
         self.lbl_velocity = bgui.Label(self.frame, text="", pos=[0.6, 0.1], options = bgui.BGUI_DEFAULT, sub_theme='Large')
         self.bar_boost = bgui.ProgressBar(self.frame, name="Boost", pos=[0.1, 0.1], options = bgui.BGUI_DEFAULT, percent = 0.0, size=[0.2,0.05])
 
@@ -61,7 +61,6 @@ def main(cont):
         logic.ui['sys'] = bgui.bge_utils.System(logic.expandPath('//themes/default'))
         logic.ui['sys1'] = bgui.bge_utils.System(logic.expandPath('//themes/default'))
         logic.ui['sys'].load_layout(MainUI, None)
-        logic.ui['sys1'].load_layout(OverlayUI, None)
         logic.ui["sys"].add_overlay(MainMenu, None)
         mouse.visible = True
 

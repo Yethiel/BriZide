@@ -90,16 +90,16 @@ key_10 = getattr(events, c_stt["editor_10"])
 
 gD["input"]["focus"] = G.FOCUS_EDITOR_MAIN
 gD["editor"]["rotation"] = {
-    "axis": Vector([1, 1, 1]),
+    "axis": Vector([0, 0, 1]),
     "amount" : Vector([0, 0, 0]),
     "step_size" : pi/2,
     "original" : Vector([0, 0, 1])
 }
 gD["editor"]["grab"] = {
-    "axis": [1, 1, 1],
+    "axis": [0, 0, 1],
     "amount" : Vector([0, 0, 0]),
     "step_size" : 16,
-    "original" : [0,0,1],
+    "original" : [0, 0, 1],
 }
 gD["editor"]["active_block"] = obj_cursor
 gD["editor"]["selected_block_index"] = 0
@@ -261,7 +261,7 @@ def rotation_mode():
 
     vec = gD["editor"]["rotation"]["axis"]
     amnt = gD["editor"]["rotation"]["amount"]
-    amnt += Vector([(mx-my)*vec[0], (mx-my)*vec[1], (mx-my)*vec[2]])
+    amnt += Vector([(mx-my)*vec[0]*5, (mx-my)*vec[1]*5, (mx-my)*vec[2]*5])
     # gD["editor"]["active_block"].applyRotation(Vector([(amnt[0] % pi) * pi, (amnt[1] % pi) * pi, (amnt[2] % pi) * pi]), False)
     ornt_new = gD["editor"]["active_block"].worldOrientation.to_euler()
     for x in [0, 1, 2]: ornt_new[x] = gD["editor"]["rotation"]["original"][x] + int(amnt[x]) * gD["editor"]["rotation"]["step_size"]
@@ -292,7 +292,7 @@ def grab_mode():
 
     vec = gD["editor"]["grab"]["axis"]
     amnt = gD["editor"]["grab"]["amount"]
-    amnt += Vector([(mx-my)*vec[0], (mx-my)*vec[1], (mx-my)*vec[2]])
+    amnt += Vector([(mx-my)*vec[0]*10, (mx-my)*vec[1]*10, (mx-my)*vec[2]*10])
     pos_new = gD["editor"]["active_block"].worldPosition
     for x in [0, 1, 2]: pos_new[x] = gD["editor"]["grab"]["original"][x] + int(amnt[x]) * gD["editor"]["grab"]["step_size"]
     gD["editor"]["active_block"].worldPosition = pos_new

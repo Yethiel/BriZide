@@ -1,9 +1,12 @@
 from bge import logic
+import datetime
+
+now = datetime.datetime.now()
 
 ### META
 DEBUG = True
 VERSION = 0
-REVISION = "DEV"
+REVISION = now.strftime("%Y-%m-%d %H:%M")
 
 ### CONTENT PATHS
 PATH_LEVELS = logic.expandPath("//levels/")

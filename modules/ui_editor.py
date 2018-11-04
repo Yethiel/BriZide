@@ -6,7 +6,6 @@ from bge import logic
 
 from modules.editor_ops import delete_block
 from modules import global_constants as G
-
 gD = logic.globalDict
 
 own = logic.getCurrentController().owner
@@ -101,20 +100,22 @@ class EditorUI(bgui.bge_utils.Layout):
             if G.DEBUG: print(own.name, "Set focus to UI")
             self.focus_before = gD.get("input")["focus"]
         gD["input"]["focus"] = G.FOCUS_UI
+    
     def lift_focus_ui(self,widget):
         if not G.FOCUS_LOCK:
             if G.DEBUG: print(own.name, "Lifted focus from UI")
             gD["input"]["focus"] = self.focus_before
+   
     def update(self):
         try: self.frame_prop.label_active_block.text = gD["editor"]["active_block"].name
         except: self.frame_prop.label_active_block.text = "Nothing selected."
 
-        if self.level_name.text == "UNSET":
-            self.level_name.text = logic.game.level.identifier
-        else:
-            logic.game.level.set_identifier(self.level_name.text)
+        if logic.game.level is not None:
+            if self.level_name.text == "UNSET":
+                self.level_name.text = logic.game.level.identifier
+            else:
+                logic.game.level.set_identifier(self.level_name.text)
 
-        # self.button_file
     def lb_modes_click(self, widget):
         gD["settings"]["Game"]["mode"] = widget.selected
 

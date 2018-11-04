@@ -5,6 +5,7 @@ import bgui.bge_utils
 from bge import logic
 
 from modules import menu
+from modules import ui
 
 globalDict = logic.globalDict
 
@@ -27,6 +28,7 @@ class ListBoxRenderer():
 
 
         return self.label
+
 class MainMenu(bgui.bge_utils.Layout):
 
     def __init__(self, sys, data):
@@ -90,4 +92,5 @@ class MainMenu(bgui.bge_utils.Layout):
 
     def start(self, widget):
         logic.ui["sys"].remove_overlay(MainMenu)
+        logic.ui['sys1'].load_layout(ui.OverlayUI, None)
         logic.game.start()
