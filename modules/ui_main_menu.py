@@ -60,8 +60,8 @@ class MainMenu(bgui.bge_utils.Layout):
 
 
         # Create an image to display
-        self.win.img = bgui.Image(self.frame, '//gfx/title.png', pos=[0, 0],
-            options = bgui.BGUI_DEFAULT|bgui.BGUI_CENTERED|bgui.BGUI_CACHE)
+        #self.win.img = bgui.Image(self.frame, '//gfx/title.png', pos=[0, 0],
+         #   options = bgui.BGUI_DEFAULT|bgui.BGUI_CENTERED|bgui.BGUI_CACHE)
 
         # for x in range(0, len(logic.game.mode_list)):
         #     setattr(self, "x")
@@ -97,6 +97,9 @@ class MainMenu(bgui.bge_utils.Layout):
             options = bgui.BGUI_DEFAULT)
         self.button_start.on_click = self.start
 
+        self.label_level = bgui.Label(self.win, text="", pos=[.1, .6], options=bgui.BGUI_DEFAULT)
+        self.label_mode = bgui.Label(self.win, text="", pos=[.1, .65], options=bgui.BGUI_DEFAULT)
+
         # self.menu_items = []
         # pos = 0.7
         # for option in self.menu.options:
@@ -106,7 +109,9 @@ class MainMenu(bgui.bge_utils.Layout):
 
 
     def update(self):
-        pass
+        self.label_level.text = "Level: {}".format(logic.game.level_name)
+        self.label_mode.text = "Mode: {}".format(logic.game.mode)
+        self.label_mode.text = "Mode: {}".format(logic.game.mode)
         # for x in range(len(self.menu_items)):
         #     if x == self.menu.active:
         #         if not ">" in self.menu_items[self.menu.active].text:

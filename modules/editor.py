@@ -374,8 +374,8 @@ def main():
         # Place the selected block and restore the cursor after it
         if mouse.events[key_place] == JUST_ACTIVATED:
             place_block(selected_block)
-            gD["editor"]["selected_block"] = None
-            refresh_cursor("Cursor")
+            #gD["editor"]["selected_block"] = None
+            #refresh_cursor("Cursor")
 
         # Delete the current active block
         if keyboard.events[key_delete] == JUST_ACTIVATED:

@@ -18,6 +18,7 @@ def load():
         "Name" : "Player",
         "LevelDir" : "test",
         "ShipDir" : "test",
+        "Mode" : "time_trial",
         "Laps" : 3
         }
         config["Audio"] = {

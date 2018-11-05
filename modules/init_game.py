@@ -20,6 +20,7 @@ def setup():
 
     globalDict["settings"] = config.load()
     logic.game = game.Game() # new and controlled "global dict"
+    print(logic.game.mode)
     logic.components = components.Components() # manages game components loaded by game modes
     logic.game.set_music_dir("menu")
 
@@ -33,10 +34,9 @@ def setup():
     # get available content
     content.set_all()
 
-    logic.game.set_mode(logic.game.mode_list[0])
-
 def main():
-    tests.main()
+    pass
+    # tests.main()
 
 # def end_menu():
 #     """Deprecated"""
