@@ -34,6 +34,10 @@ def setup():
     # get available content
     content.set_all()
 
+    player_dir = os.path.join(G.PATH_PROFILES, globalDict["settings"]["Game"]["name"])
+    if not os.path.isdir(player_dir):
+        os.makedirs(player_dir)
+
 def main():
     pass
     # tests.main()

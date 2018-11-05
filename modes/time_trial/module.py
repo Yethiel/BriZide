@@ -1,3 +1,4 @@
+import os
 from bge import logic, events
 from modules import level, global_constants as G, sound, helpers
 
@@ -24,7 +25,7 @@ TRIGGER_DISTANCE = 32 # distance for a checkpoint to be triggered
 
 own["countdown"] = 4
 
-own["init_cp"] = False #whether the checkpoints have been set up
+own["init_cp"] = False # whether the checkpoints have been set up
 
 
 # Setup is executed as soon as the game mode has been loaded.
@@ -129,7 +130,17 @@ def main():
 
                         if G.DEBUG: print("Time Trial over.")
 
+                        gD["time_trial"]["final_time"] = own["Timer"]
+                        write_score()
+
                         sound.play("race_complete")
+
+
+def write_score():
+    tt_file_path = os.path.join(logic.game.get_profiles_dir(), "time_trial.txt")
+
+    with open(tt_file_path, "a") as f:
+        f.write(str(gD["time_trial"]["final_time"]) + '\n')
 
 
 def setup():

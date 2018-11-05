@@ -1,3 +1,5 @@
+
+import os
 from bge import logic
 
 from modules import components
@@ -79,6 +81,9 @@ class Game:
     def get_music_dir(self):
         """Returns the current music directory"""
         return self.music_dir
+
+    def get_profiles_dir(self):
+        return os.path.join(G.PATH_PROFILES, globalDict["settings"]["Game"]["name"])
 
     def start(self):
         """Starts the game (tells the game mode to start and load all comps)"""
