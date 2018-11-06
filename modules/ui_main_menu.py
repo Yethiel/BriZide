@@ -127,5 +127,6 @@ class MainMenu(bgui.bge_utils.Layout):
 
     def start(self, widget):
         logic.ui["sys"].remove_overlay(MainMenu)
-        logic.ui['sys1'].load_layout(ui.OverlayUI, None)
+        logic.ui['sys1'].load_layout(ui.MainUI, None)
+        logic.ui['sys1'].add_overlay(ui.OverlayUI, None)
         logic.game.start()
