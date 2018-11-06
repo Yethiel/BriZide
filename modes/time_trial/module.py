@@ -61,8 +61,10 @@ class TimeTrialUI(bgui.bge_utils.Layout):
         tt = logic.time_trial
         if own["done_loading"]:
 
-            self.lbl_best.text = "BEST: {} ({})".format(helpers.time_string(tt.best_time["time"]), tt.best_time["player"])
-
+            self.lbl_best.text = "BEST: {} ({})".format(
+                helpers.time_string(tt.best_time["time"]), 
+                tt.best_time["player"]
+            )
             self.lbl_checkpoints.text = "Chk " + str(tt.cp_progress[str(0)]) +"/"+ str(tt.cp_count)
 
             if not "countdown" in own:
@@ -185,7 +187,8 @@ class TimeTrial():
                     if not str(ship) in cp:
                         cp[str(ship)] = True
                         sound.play("checkpoint")
-                        if G.DEBUG: print("Ship", ship, "passed", self.cp_data.index(cp))
+                        if G.DEBUG: 
+                            print("Ship", ship, "passed", self.cp_data.index(cp))
 
                         amnt_passed = 0
                         for cp in self.cp_data:
@@ -241,15 +244,10 @@ def main():
         if not own["done_loading"]:
             load(own)
 
-            if logic.components.is_done(required_components):
-                own["done_loading"] = True
-                setup()
-
     tt = logic.time_trial
 
     tt.countdown(own)
     tt.checkpoints(game, own)
-
 
 
 def setup():
@@ -274,4 +272,3 @@ def setup():
     if G.DEBUG: print(own.name + ": Game mode Time Trial has been set up.")
 
     own["Timer"] = 0
-
