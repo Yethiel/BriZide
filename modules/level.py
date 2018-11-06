@@ -11,10 +11,6 @@ from bge import logic
 from modules import global_constants as G
 
 
-cont = logic.getCurrentController()
-sce = logic.getCurrentScene()
-own = cont.owner
-
 gD = logic.globalDict
 
 settings = gD.get("settings")
@@ -143,6 +139,9 @@ class Level():
         Levels can be loaded in advance.
         """
 
+        sce = logic.getCurrentScene()
+        own = logic.getCurrentController().owner
+
         idx = 1000
 
         # Load the information file
@@ -198,6 +197,10 @@ class Level():
     def save(self):
         """The track editor uses this to save a level to files"""
         # Save all saveable blocks
+
+        sce = logic.getCurrentScene()
+        own = logic.getCurrentController().owner
+
         blocks = []
 
         for obj in sce.objects:
@@ -261,6 +264,10 @@ class Level():
         Assuming that the level itself has been loaded in to the global dict,
         we can now actually load it into the 3D world.
         """
+
+        sce = logic.getCurrentScene()
+        own = logic.getCurrentController().owner
+
         for block in self.block_data:
 
             new_block = sce.addObject(block.type)

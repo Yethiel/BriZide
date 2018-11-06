@@ -120,3 +120,12 @@ class Components:
     def get_currently_loading(self):
         """Returns string name of the currently loading component"""
         return self.currently_loading_str
+
+    def clear(self):
+        self.init_loading = False
+        self.queue = []
+        self.loaded = [None]
+        self.opened = [None]
+        self.currently_loading = None
+        self.currently_loading_str = ""
+        self.count = 0

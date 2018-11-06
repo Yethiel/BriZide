@@ -89,3 +89,11 @@ class Game:
         """Starts the game (tells the game mode to start and load all comps)"""
         logic.components.load_immediate(
             "../modes/" + self.mode + "/" + self.mode)
+
+    def clear(self):
+        self.ships = {}           # dictionary of ships (id:ship)
+        self.level = None           # current level object
+        self.level_name = globalDict["settings"]["Game"]["leveldir"]
+        self.block_list = []
+        self.ship_possessions = {}  # dictionary player_id:ship_id
+        self.players = [0]
