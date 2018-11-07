@@ -265,15 +265,13 @@ def rotation_mode():
     amnt += Vector([(mx-my)*vec[0]*5, (mx-my)*vec[1]*5, (mx-my)*vec[2]*5])
     ornt_new = gD["editor"]["rotation"]["original"].copy()
     if vec[0]:
-        mat_rot = mathutils.Matrix.Rotation(math.radians(int(amnt[0])*45), 4, 'X')
+        mat_rot = mathutils.Matrix.Rotation(math.radians(int(amnt[0])*90), 4, 'X')
     if vec[1]:
-        mat_rot = mathutils.Matrix.Rotation(math.radians(int(amnt[1])*45), 4, 'Y')
+        mat_rot = mathutils.Matrix.Rotation(math.radians(int(amnt[1])*90), 4, 'Y')
     if vec[2]:
-        mat_rot = mathutils.Matrix.Rotation(math.radians(int(amnt[2])*45), 4, 'Z')
+        mat_rot = mathutils.Matrix.Rotation(math.radians(int(amnt[2])*90), 4, 'Z')
     ornt_new.rotate(mat_rot)
     gD["editor"]["active_block"].worldOrientation = ornt_new
-
-    gD["editor"]["active_block"].worldOrientation.rotate(mat_rot)
 
     # exit rotation mode and leave rotation applied
     if JUST_RELEASED in [keyboard.events[key_confirm], mouse.events[events.LEFTMOUSE]]:
@@ -369,7 +367,10 @@ def main():
             own["hitObject"] = sen_mouse.hitObject
 
             if mouse.events[key_select] == JUST_ACTIVATED:
-                gD["editor"]["active_block"] = own["hitObject"]
+                if own["hitObject"] != gD["editor"]["active_block"]:
+                    gD["editor"]["active_block"] = own["hitObject"]
+                else: 
+                    gD["editor"]["active_block"] = obj_cursor
             # gD["editor"]["active_block"].visible = False
 
             if "CubeTile" in sen_mouse.hitObject.name:
