@@ -3,6 +3,7 @@ This is file for the level editor which can be used to create and manipulate tra
 """
 
 import mathutils
+import math
 from mathutils import Vector
 from math import pi
 
@@ -260,13 +261,19 @@ def rotation_mode():
     select_axis("rotation")
 
     vec = gD["editor"]["rotation"]["axis"]
-    print(vec)
     amnt = gD["editor"]["rotation"]["amount"]
     amnt += Vector([(mx-my)*vec[0]*5, (mx-my)*vec[1]*5, (mx-my)*vec[2]*5])
-    # gD["editor"]["active_block"].applyRotation(Vector([(amnt[0] % pi) * pi, (amnt[1] % pi) * pi, (amnt[2] % pi) * pi]), False)
-    ornt_new = gD["editor"]["active_block"].localOrientation.to_euler()
-    for x in [0, 1, 2]: ornt_new[x] = gD["editor"]["rotation"]["original"][x] + int(amnt[x]) * gD["editor"]["rotation"]["step_size"]
-    gD["editor"]["active_block"].localOrientation = ornt_new.to_matrix()
+    ornt_new = gD["editor"]["rotation"]["original"].copy()
+    if vec[0]:
+        mat_rot = mathutils.Matrix.Rotation(math.radians(int(amnt[0])*45), 4, 'X')
+    if vec[1]:
+        mat_rot = mathutils.Matrix.Rotation(math.radians(int(amnt[1])*45), 4, 'Y')
+    if vec[2]:
+        mat_rot = mathutils.Matrix.Rotation(math.radians(int(amnt[2])*45), 4, 'Z')
+    ornt_new.rotate(mat_rot)
+    gD["editor"]["active_block"].worldOrientation = ornt_new
+
+    gD["editor"]["active_block"].worldOrientation.rotate(mat_rot)
 
     # exit rotation mode and leave rotation applied
     if JUST_RELEASED in [keyboard.events[key_confirm], mouse.events[events.LEFTMOUSE]]:
@@ -280,11 +287,12 @@ def rotation_mode():
     if JUST_RELEASED in [keyboard.events[key_discard], mouse.events[events.RIGHTMOUSE]]:
         reset_mode("rotation")
 
-        gD["editor"]["active_block"].localOrientation = gD["editor"]["rotation"]["original"].to_matrix()
+        gD["editor"]["active_block"].worldOrientation = gD["editor"]["rotation"]["original"].to_matrix()
         gD["input"]["focus"] = G.FOCUS_EDITOR_MAIN
         G.FOCUS_LOCK = False
         if G.DEBUG: print(own.name,"Leaving Rotation, discarded changes")
         mouse.visible = True
+
 
 def grab_mode():
     render.setMousePosition(int(winw / 2), int(winh / 2))
@@ -297,7 +305,6 @@ def grab_mode():
     pos_new = gD["editor"]["active_block"].worldPosition
     for x in [0, 1, 2]: pos_new[x] = gD["editor"]["grab"]["original"][x] + int(amnt[x]) * gD["editor"]["grab"]["step_size"]
     gD["editor"]["active_block"].worldPosition = pos_new
-
 
     # select axis
     select_axis("grab")
