@@ -147,8 +147,8 @@ def controls():
 
         if not ACTIVE in [keyboard.events[key_thrust_reverse], keyboard.events[key_thrust]]:
             center_thrust()
-
-        own.applyForce([0,own["thrust"],0], True)
+        if abs(max(own.getLinearVelocity(True))) < own["TopSpeed"]:
+            own.applyForce([0,own["thrust"],0], True)
 
 
         for thing in [JUST_ACTIVATED, JUST_RELEASED]:
@@ -259,8 +259,9 @@ def center_thrust():
 
 def thrust(d):
     delta = logic.getLogicTicRate()
-
-    if abs(own["thrust"]) <= abs(own["ThrustRatio"]) and own.getLinearVelocity(True)[1] < own["TopSpeed"]:
+    print(max(own.getLinearVelocity(True)))
+    print(max(own.getLinearVelocity(True)) < own["TopSpeed"])
+    if abs(own["thrust"]) <= abs(own["ThrustRatio"]) and max(own.getLinearVelocity(True)) < own["TopSpeed"]:
         own["thrust"] += 1/delta * own["ThrustRate"] * d * 10
 
 def activate_weapon():

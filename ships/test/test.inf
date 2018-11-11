@@ -13,21 +13,21 @@ Shadow:         //ships/test/shadow.png     ; Texture for the shadow plane below
 
 [Handling]
 
-TopSpeed:           160             ; Top speed of the engine beyond which it won't accelerate any more
-ThrustRatio:        50              ; Engine ratio
-ThrustRate:         6               ; How long it takes (seconds) to reach the full
+TopSpeed:           200             ; Top speed of the engine beyond which it won't accelerate any more
+ThrustRatio:        90              ; Engine ratio
+ThrustRate:         8               ; 
 
-Grip:               0.5             ; Grip of the ship when on ground
+Grip:               1.5             ; Grip of the ship when on ground
 GripAir:            1
 
-SteerRate:          0.2             ; How long it takes (seconds) to reach the full SteerRatio
+SteerRate:          0.23             ; How long it takes (seconds) to reach the full SteerRatio
 SteerRatio:         0.06            ; Maximum steering step
 
-StableThreshold:    0.01            ; When the stabilizer kicks in (Velocity)
-StableStrength:     2               ; Strength of the stabilizer
+StableThreshold:    0.002           ; When the stabilizer kicks in (Velocity)
+StableStrength:     2.2             ; Strength of the stabilizer
 Shield:             100             ; Shield strength
 
-HoverHeight:        5               ; Height of the ship
-HoverStrength:      250             ; Strength of the force to keep the ship above the ground
-HoverDamping:       2               ; Dampening of the above force
+HoverHeight:        5.4             ; Height of the ship
+HoverStrength:      260             ; Strength of the force to keep the ship above the ground
+HoverDamping:       2.5             ; Dampening of the above force
 
