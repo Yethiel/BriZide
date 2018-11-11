@@ -17,17 +17,17 @@ TopSpeed:           200             ; Top speed of the engine beyond which it wo
 ThrustRatio:        90              ; Engine ratio
 ThrustRate:         8               ; 
 
-Grip:               1.5             ; Grip of the ship when on ground
+Grip:               0.6             ; Grip of the ship when on ground
 GripAir:            1
 
-SteerRate:          0.23             ; How long it takes (seconds) to reach the full SteerRatio
+SteerRate:          0.23            ; How long it takes (seconds) to reach the full SteerRatio
 SteerRatio:         0.06            ; Maximum steering step
 
-StableThreshold:    0.002           ; When the stabilizer kicks in (Velocity)
-StableStrength:     2.2             ; Strength of the stabilizer
+StableThreshold:    0.001           ; When the stabilizer kicks in (Velocity)
+StableStrength:     2.6             ; Strength of the stabilizer
 Shield:             100             ; Shield strength
 
 HoverHeight:        5.4             ; Height of the ship
-HoverStrength:      260             ; Strength of the force to keep the ship above the ground
-HoverDamping:       2.5             ; Dampening of the above force
+HoverStrength:      270             ; Strength of the force to keep the ship above the ground
+HoverDamping:       3.4             ; Dampening of the above force
 

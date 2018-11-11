@@ -173,7 +173,7 @@ def controls():
 
         # BOOST
         if keyboard.events[key_boost] == ACTIVE:
-            if own["stabilizer_boost"] > 10:
+            if own["stabilizer_boost"] > 10 and abs(max(own.getLinearVelocity(True))) < own["TopSpeed"]*1.5:
                 own.applyForce((0, own["ThrustRatio"]*2, 0), True)
                 own["stabilizer_boost"] -= 2.5
 
