@@ -5,6 +5,7 @@ import bgui.bge_utils
 from bge import logic
 
 from modules import menu
+from modules import ui
 
 globalDict = logic.globalDict
 
@@ -27,6 +28,7 @@ class ListBoxRenderer():
 
 
         return self.label
+
 class MainMenu(bgui.bge_utils.Layout):
 
     def __init__(self, sys, data):
@@ -39,6 +41,8 @@ class MainMenu(bgui.bge_utils.Layout):
         for game_mode in logic.game.mode_list:
             list.options.append(menu.Option(game_mode, game_mode, None))
 
+        self.menu.options.append(menu.Option("Track", "track", self.start))
+        self.menu.options.append(menu.Option("Ship", "track", self.start))
         self.menu.options.append(menu.Option("Start game", "start_game", self.start))
 
         self.menu.guilabels = []
@@ -47,11 +51,6 @@ class MainMenu(bgui.bge_utils.Layout):
         self.frame = bgui.Frame(self, border=0)
         self.frame.colors = [(0, 0, 0, 0) for i in range(4)]
 
-        pos = 0.0
-        for option in self.menu.options:
-            self.menuthing = bgui.Label(self.frame, text=option.label, pos=[0.1, pos], options = bgui.BGUI_DEFAULT|bgui.BGUI_CENTERED)
-            self.menu.guilabels.append(bgui.Label(self.frame, text=option.label, pos=[0.5, pos], options = bgui.BGUI_DEFAULT|bgui.BGUI_CENTERED))
-            pos -= .2
 
 
         # A themed frame
@@ -61,8 +60,8 @@ class MainMenu(bgui.bge_utils.Layout):
 
 
         # Create an image to display
-        self.win.img = bgui.Image(self.frame, '//gfx/title.png', pos=[0, 0],
-            options = bgui.BGUI_DEFAULT|bgui.BGUI_CENTERED|bgui.BGUI_CACHE)
+        #self.win.img = bgui.Image(self.frame, '//gfx/title.png', pos=[0, 0],
+         #   options = bgui.BGUI_DEFAULT|bgui.BGUI_CENTERED|bgui.BGUI_CACHE)
 
         # for x in range(0, len(logic.game.mode_list)):
         #     setattr(self, "x")
@@ -81,13 +80,53 @@ class MainMenu(bgui.bge_utils.Layout):
             button.on_click = self.select_mode
             self.mode_buttons.append(button)
 
+        amnt_levels = len(logic.game.level_list)
+
+        for x in range(0, amnt_levels):
+
+            button = bgui.FrameButton(self.win,
+                text=logic.game.level_list[x],
+                size=[1/amnt_levels, .1],
+                pos=[x/amnt_levels, .8],
+                options = bgui.BGUI_DEFAULT)
+
+            button.on_click = self.select_level
+            self.mode_buttons.append(button)
+
         self.button_start = bgui.FrameButton(self.win, text='Start', size=[.14, .1], pos=[.815, .03],
             options = bgui.BGUI_DEFAULT)
         self.button_start.on_click = self.start
 
+        self.label_level = bgui.Label(self.win, text="", pos=[.1, .6], options=bgui.BGUI_DEFAULT)
+        self.label_mode = bgui.Label(self.win, text="", pos=[.1, .65], options=bgui.BGUI_DEFAULT)
+
+        # self.menu_items = []
+        # pos = 0.7
+        # for option in self.menu.options:
+        #     menuthing = bgui.Label(self.frame, text=option.label, pos=[0.4, pos], options = bgui.BGUI_DEFAULT)
+        #     pos -= 0.03
+        #     self.menu_items.append(menuthing)
+
+
+    def update(self):
+        self.label_level.text = "Level: {}".format(logic.game.level_name)
+        self.label_mode.text = "Mode: {}".format(logic.game.mode)
+        self.label_mode.text = "Mode: {}".format(logic.game.mode)
+        # for x in range(len(self.menu_items)):
+        #     if x == self.menu.active:
+        #         if not ">" in self.menu_items[self.menu.active].text:
+        #             self.menu_items[self.menu.active].text = ">>{}<<".format(self.menu_items[self.menu.active].text)
+        #     else:
+        #         self.menu_items[self.menu.active].text = self.menu_items[self.menu.active].text.replace(">>", "").replace("<<", "")
+
     def select_mode(self,widget):
         logic.game.set_mode(widget.text)
 
+    def select_level(self,widget):
+        logic.game.set_level(widget.text)
+
     def start(self, widget):
         logic.ui["sys"].remove_overlay(MainMenu)
+        logic.ui['sys1'].load_layout(ui.MainUI, None)
+        logic.ui['sys1'].add_overlay(ui.OverlayUI, None)
         logic.game.start()

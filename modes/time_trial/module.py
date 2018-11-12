@@ -1,43 +1,14 @@
-from bge import logic, events
-from modules import level, global_constants as G, sound, helpers
-
+import os
+import bgui
+from bge import logic
+from modules import components, global_constants, sound, helpers, ui, ui_main_menu
+from modules import global_constants as G
 from random import randint
 
-import sys
-import bgui
-import bgui.bge_utils
-
 required_components = ["blocks", "level", "cube", "ship"]
-
-# Queue the required components
-components = logic.components
-queue_id = components.enqueue(required_components)
-
-sce = logic.getCurrentScene() # scene that contains all objects
+trigger_distance = 32 # distance for a checkpoint to be triggered
 gD = logic.globalDict
-
-own = logic.getCurrentController().owner # This is the object that executes these functions.
-
-own["init"] = False
-
-TRIGGER_DISTANCE = 32 # distance for a checkpoint to be triggered
-
-own["countdown"] = 4
-
-own["init_cp"] = False #whether the checkpoints have been set up
-
-
-# Setup is executed as soon as the game mode has been loaded.
-
-keyboard = logic.keyboard
-JUST_ACTIVATED = logic.KX_INPUT_JUST_ACTIVATED
-JUST_RELEASED = logic.KX_INPUT_JUST_RELEASED
-ACTIVE = logic.KX_INPUT_ACTIVE
-
-#Key assignments Keyboard, will be loaded from settings
-key_reset = events.BACKSPACEKEY
-key_restart = events.DELKEY
-# key_menu_confirm = events.ENTERKEY
+game = logic.game
 
 
 class TimeTrialUI(bgui.bge_utils.Layout):
@@ -45,120 +16,259 @@ class TimeTrialUI(bgui.bge_utils.Layout):
         super().__init__(sys, data)
         self.frame = bgui.Frame(self, border=0)
         self.frame.colors = [(0, 0, 0, 0) for i in range(4)]
+        self.cont_obj = data
 
-        self.lbl_count = bgui.Label(self.frame, text="1", pos=[0.5, 0.7], sub_theme='Large', options = bgui.BGUI_DEFAULT | bgui.BGUI_CENTERX)
-        #self.lbl_laps = bgui.Label(self.frame, text="Lap", pos=[0.2, 0.9], options = bgui.BGUI_DEFAULT)
-        self.lbl_checkpoints = bgui.Label(self.frame, text="0/0", pos=[0.2, 0.85], options = bgui.BGUI_DEFAULT)
-        self.lbl_time = bgui.Label(self.frame, text="", pos=[0.5, 0.85], sub_theme='Large', options = bgui.BGUI_DEFAULT| bgui.BGUI_CENTERX)
-        #self.lbl_time_last_check = bgui.Label(self.frame, text="Time", pos=[0.5, 0.75], options = bgui.BGUI_DEFAULT| bgui.BGUI_CENTERX)
+        self.lbl_count = bgui.Label(
+            self.frame, 
+            text="1", 
+            pos=[0.5, 0.7], 
+            sub_theme='Large', 
+            options = bgui.BGUI_DEFAULT | bgui.BGUI_CENTERX
+        )
+        self.lbl_checkpoints = bgui.Label(
+            self.frame, 
+            text="0/0", 
+            pos=[0.2, 0.85], 
+            options = bgui.BGUI_DEFAULT
+        )
+        self.lbl_time = bgui.Label(
+            self.frame, 
+            text="", 
+            pos=[0.5, 0.85], 
+            sub_theme='Large', 
+            options = bgui.BGUI_DEFAULT| bgui.BGUI_CENTERX
+        )
+        self.lbl_best = bgui.Label(
+            self.frame, 
+            text="BEST: ",
+            pos=[0.5, 0.82], 
+            options = bgui.BGUI_DEFAULT| bgui.BGUI_CENTERX
+        )
+
+        self.button_menu = bgui.FrameButton(self.frame,
+                text="Back to Menu",
+                size=[.2, .1],
+                pos=[0.5, .3],
+                options = bgui.BGUI_DEFAULT
+        )
+
+        self.button_menu.on_click = self.return_to_menu
+        self.button_menu.visible = False
 
     def update(self):
-        self.lbl_checkpoints.text = "Chk " + str(gD["time_trial"]["cp_progress"][str(0)]) +"/"+ str(gD["time_trial"]["cp_count"])
 
-        if own["countdown"] < 4:
-            self.lbl_count.text = str(own["countdown"])
-        else:
-            self.lbl_count.text = ""
-        if own["countdown"] == 0:
-            self.lbl_count.text = "GO!"
-        if own["countdown"] == -1:
-            self.lbl_count.text = ""
+        own = self.cont_obj
+        tt = logic.time_trial
+        if own["done_loading"]:
 
-        if own["CountdownTimer"] > 4 and gD:
-            if not gD["time_trial"]["cp_count"] == gD["time_trial"]["cp_progress"]["0"]:
-                self.lbl_time.text = helpers.time_string(own["Timer"])
+            self.lbl_best.text = "BEST: {} ({})".format(
+                helpers.time_string(tt.best_time["time"]), 
+                tt.best_time["player"]
+            )
+            self.lbl_checkpoints.text = "Chk " + str(tt.cp_progress[str(0)]) +"/"+ str(tt.cp_count)
+
+            if not "countdown" in own:
+                own["countdown"] = 4
+
+            if own["countdown"] < 4:
+                self.lbl_count.text = str(own["countdown"])
+            else:
+                self.lbl_count.text = ""
+            if own["countdown"] == 0:
+                self.lbl_count.text = "GO!"
+            if own["countdown"] == -1:
+                self.lbl_count.text = ""
+
+            if own["CountdownTimer"] > 4 and gD:
+                if not tt.cp_count == tt.cp_progress["0"]:
+                    self.lbl_time.text = helpers.time_string(own["Timer"])
+
+            amnt_passed = tt.cp_progress["0"]
+            if amnt_passed == len(tt.cp_data):
+                self.button_menu.visible = True
+            else:
+                self.button_menu.visible = False    
 
 
-# The main loop always runs.
+    def return_to_menu(self, widget):
+        sce = logic.getCurrentScene()
+        own = self.cont_obj
+
+        logic.ui["sys"].remove_overlay(TimeTrialUI)
+        logic.ui["sys1"].remove_overlay(ui.OverlayUI)
+        for component in required_components:
+            logic.components.free(component)
+        own.endObject()
+        logic.components.free("time_trial")
+        logic.components.clear()
+        logic.game.clear()
+        logic.ui["sys"].add_overlay(ui_main_menu.MainMenu)
+
+
+class TimeTrial():
+    def __init__(self):
+        self.cp_data = []
+        self.cp_count = 0
+        self.cp_progress = {"0": 0}
+        self.best_times = []
+        self.best_time = {"player": "", "time": 999.0}
+        self.final_time = 0.0
+
+    def setup_checkpoints(self, sce):
+        for obj in sce.objects:
+            if "Block_Checkpoint" in obj.name:
+                self.cp_data.append(obj)
+        self.cp_count = len(self.cp_data)
+
+    def get_times(self, game):
+        # Gets the best times of all players
+        for player in os.listdir(G.PATH_PROFILES):
+            score_file = os.path.join(
+                G.PATH_PROFILES, 
+                player, 
+                "time_trial", 
+                "{}.txt".format(game.level_name)
+            )
+
+            if os.path.isfile(score_file):
+                with open(score_file, "r") as f:
+                    for line in f:
+                        self.best_times.append(
+                            {"player": player,
+                             "time": float(line)}
+                        )
+            elif G.DEBUG:
+                print(
+                    "Times file does not exist for {}".format(game.level_name)
+                )
+
+        # Gets the best time
+        for time in self.best_times:
+            if time["time"] < self.best_time["time"]:
+                self.best_time = time
+
+    def write_time(self, game):
+        tt_file_path = os.path.join(
+            game.get_profiles_dir(),
+            "time_trial", 
+            "{}.txt".format(game.level_name)
+        )
+
+        with open(tt_file_path, "a") as f:
+            f.write(str(self.final_time) + '\n')
+
+    def countdown(self, cont_obj):
+        if cont_obj["countdown"] > -1 and cont_obj["CountdownTimer"] > 1:
+            if cont_obj["countdown"] == 4:
+                sound.play("three" + str(randint(0,4)))
+                # sound.EchoWrapper("three0").play()
+                cont_obj["countdown"] -= 1
+            if cont_obj["countdown"] == 3 and cont_obj["CountdownTimer"] > 2:
+                sound.play("two" + str(randint(0,4)))
+                cont_obj["countdown"] -= 1
+            if cont_obj["countdown"] == 2 and cont_obj["CountdownTimer"] > 3:
+                sound.play("one" + str(randint(0,4)))
+                cont_obj["countdown"] -= 1
+            if cont_obj["countdown"] == 1 and cont_obj["CountdownTimer"] > 4:
+                # sound.play("go" + str(randint(0,4)))
+                sound.EchoWrapper("go" + str(randint(0,4))).play()
+                cont_obj["countdown"] -= 1
+                # Give controls to the player
+                gD["input"]["focus"] = "ship"
+                cont_obj["Timer"] = 0.0
+            if cont_obj["countdown"] == 0 and cont_obj["CountdownTimer"] > 5:
+                cont_obj["countdown"] -= 1
+
+    def checkpoints(self, game, cont_obj):
+
+        for cp in self.cp_data:
+            for ship in game.ships:
+                if game.ships[ship].getDistanceTo(cp) <= trigger_distance:
+                    if not str(ship) in cp:
+                        cp[str(ship)] = True
+                        sound.play("checkpoint")
+                        if G.DEBUG: 
+                            print("Ship", ship, "passed", self.cp_data.index(cp))
+
+                        amnt_passed = 0
+                        for cp in self.cp_data:
+                            if str(ship) in cp:
+                                amnt_passed += 1
+                        
+                        if G.DEBUG: print(amnt_passed, "/", len(self.cp_data))
+                        
+                        self.cp_progress[str(ship)] = amnt_passed
+                        if amnt_passed == len(self.cp_data):
+                            gD["input"]["focus"] = "menu"
+
+                            if G.DEBUG: print("Time Trial over.")
+
+                            self.final_time = cont_obj["Timer"]
+                            self.write_time(game)
+
+                            sound.play("race_complete")
+
+
+def init():
+    """ Runs once before or while loading """
+
+    logic.components = components.Components()
+    logic.time_trial = TimeTrial()
+    queue_id = logic.components.enqueue(required_components)
+
+    sce = logic.getCurrentScene()
+    own = logic.getCurrentController().owner
+
+    own["init"] = True
+
+
+
+def load(cont_obj):
+    # Prepare the game mode by loading the queued components
+    logic.components.load()
+
+    # If the queue is emtpy we're done
+    if logic.components.is_done(required_components):
+        cont_obj["done_loading"] = True
+        setup()
+
+
 def main():
+    """ Runs every logic tick """
+    sce = logic.getCurrentScene()
+    own = logic.getCurrentController().owner   
+    game = logic.game
 
-    if not own["init"]:
+    if own["init"]:
 
-        # Prepare the game mode by loading the queued components
-        components.load()
+        if not own["done_loading"]:
+            load(own)
 
-        # If the queue is emtpy, we're done
-        if components.is_done(required_components):
-            own["init"] = True
-            setup()
-    else:
-        pass
+    tt = logic.time_trial
 
-    cp_data = gD["time_trial"]["checkpoint_data"]
-
-
-    if own["countdown"] > -1 and own["CountdownTimer"] > 1:
-        if own["countdown"] == 4:
-            sound.play("three" + str(randint(0,4)))
-            # sound.EchoWrapper("three0").play()
-            own["countdown"] -= 1
-        if own["countdown"] == 3 and own["CountdownTimer"] > 2:
-            sound.play("two" + str(randint(0,4)))
-            own["countdown"] -= 1
-        if own["countdown"] == 2 and own["CountdownTimer"] > 3:
-            sound.play("one" + str(randint(0,4)))
-            own["countdown"] -= 1
-        if own["countdown"] == 1 and own["CountdownTimer"] > 4:
-            # sound.play("go" + str(randint(0,4)))
-            sound.EchoWrapper("go" + str(randint(0,4))).play()
-            own["countdown"] -= 1
-            # Give controls to the player
-            gD["input"]["focus"] = "ship"
-            own["Timer"] = 0.0
-        if own["countdown"] == 0 and own["CountdownTimer"] > 5:
-            own["countdown"] -= 1
-
-    for cp in cp_data:
-        for ship in logic.game.ships:
-            if logic.game.ships[ship].getDistanceTo(cp) <= TRIGGER_DISTANCE:
-                if not str(ship) in cp:
-                    cp[str(ship)] = True
-                    sound.play("checkpoint")
-                    if G.DEBUG: print("Ship", ship, "passed", cp_data.index(cp))
-
-                    amnt_passed = 0
-                    for cp in cp_data:
-                        if str(ship) in cp:
-                            amnt_passed += 1
-                    
-                    if G.DEBUG: print(amnt_passed, "/", len(cp_data))
-                    
-                    gD["time_trial"]["cp_progress"][str(ship)] = amnt_passed
-                    if amnt_passed == len(cp_data):
-                        gD["input"]["focus"] = "menu"
-
-                        if G.DEBUG: print("Time Trial over.")
-
-                        sound.play("race_complete")
+    tt.countdown(own)
+    tt.checkpoints(game, own)
 
 
 def setup():
+    """ Runs when loading is done """
 
-    # a dict to store all data we need
-    gD["time_trial"] = {}
-    gD["time_trial"]["checkpoint_data"] = []
-    gD["time_trial"]["cp_count"] = 0
-    gD["time_trial"]["cp_progress"] = {"0":0}
+    sce = logic.getCurrentScene()
+    own = logic.getCurrentController().owner
+    game = logic.game
 
-    cp_data = gD["time_trial"]["checkpoint_data"]
+    # Creates a folder for the mode
+    if not os.path.isdir(os.path.join(game.get_profiles_dir(),"time_trial")):
+        os.makedirs(os.path.join(game.get_profiles_dir(),"time_trial"))
 
-    for obj in sce.objects:
-        if "Block_Checkpoint" in obj.name:
-            cp_data.append(obj)
-            gD["time_trial"]["cp_count"] = len(cp_data)
-    print("AMOUNT CHECKPOINTS", len(cp_data))
 
-    logic.ui["sys"].add_overlay(TimeTrialUI)
+    tt = logic.time_trial
 
-    logic.game.set_music_dir("time_trial")
+    tt.setup_checkpoints(sce)
+    tt.get_times(game)
+    logic.ui["sys"].add_overlay(TimeTrialUI, own)
+    game.set_music_dir("time_trial")
 
-    # In debug mode, print when game mode is ready
     if G.DEBUG: print(own.name + ": Game mode Time Trial has been set up.")
 
     own["Timer"] = 0
-
-
-def controls():
-    pass
-
-

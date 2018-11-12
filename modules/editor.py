@@ -3,6 +3,7 @@ This is file for the level editor which can be used to create and manipulate tra
 """
 
 import mathutils
+import math
 from mathutils import Vector
 from math import pi
 
@@ -90,16 +91,16 @@ key_10 = getattr(events, c_stt["editor_10"])
 
 gD["input"]["focus"] = G.FOCUS_EDITOR_MAIN
 gD["editor"]["rotation"] = {
-    "axis": Vector([1, 1, 1]),
+    "axis": Vector([0, 0, 1]),
     "amount" : Vector([0, 0, 0]),
     "step_size" : pi/2,
     "original" : Vector([0, 0, 1])
 }
 gD["editor"]["grab"] = {
-    "axis": [1, 1, 1],
+    "axis": [0, 0, 1],
     "amount" : Vector([0, 0, 0]),
     "step_size" : 16,
-    "original" : [0,0,1],
+    "original" : [0, 0, 1],
 }
 gD["editor"]["active_block"] = obj_cursor
 gD["editor"]["selected_block_index"] = 0
@@ -261,11 +262,16 @@ def rotation_mode():
 
     vec = gD["editor"]["rotation"]["axis"]
     amnt = gD["editor"]["rotation"]["amount"]
-    amnt += Vector([(mx-my)*vec[0], (mx-my)*vec[1], (mx-my)*vec[2]])
-    # gD["editor"]["active_block"].applyRotation(Vector([(amnt[0] % pi) * pi, (amnt[1] % pi) * pi, (amnt[2] % pi) * pi]), False)
-    ornt_new = gD["editor"]["active_block"].worldOrientation.to_euler()
-    for x in [0, 1, 2]: ornt_new[x] = gD["editor"]["rotation"]["original"][x] + int(amnt[x]) * gD["editor"]["rotation"]["step_size"]
-    gD["editor"]["active_block"].worldOrientation = ornt_new.to_matrix()
+    amnt += Vector([(mx-my)*vec[0]*5, (mx-my)*vec[1]*5, (mx-my)*vec[2]*5])
+    ornt_new = gD["editor"]["rotation"]["original"].copy()
+    if vec[0]:
+        mat_rot = mathutils.Matrix.Rotation(math.radians(int(amnt[0])*90), 4, 'X')
+    if vec[1]:
+        mat_rot = mathutils.Matrix.Rotation(math.radians(int(amnt[1])*90), 4, 'Y')
+    if vec[2]:
+        mat_rot = mathutils.Matrix.Rotation(math.radians(int(amnt[2])*90), 4, 'Z')
+    ornt_new.rotate(mat_rot)
+    gD["editor"]["active_block"].worldOrientation = ornt_new
 
     # exit rotation mode and leave rotation applied
     if JUST_RELEASED in [keyboard.events[key_confirm], mouse.events[events.LEFTMOUSE]]:
@@ -285,6 +291,7 @@ def rotation_mode():
         if G.DEBUG: print(own.name,"Leaving Rotation, discarded changes")
         mouse.visible = True
 
+
 def grab_mode():
     render.setMousePosition(int(winw / 2), int(winh / 2))
     mx = mouse.position[0] - 0.5
@@ -292,11 +299,10 @@ def grab_mode():
 
     vec = gD["editor"]["grab"]["axis"]
     amnt = gD["editor"]["grab"]["amount"]
-    amnt += Vector([(mx-my)*vec[0], (mx-my)*vec[1], (mx-my)*vec[2]])
+    amnt += Vector([(mx-my)*vec[0]*10, (mx-my)*vec[1]*10, (mx-my)*vec[2]*10])
     pos_new = gD["editor"]["active_block"].worldPosition
     for x in [0, 1, 2]: pos_new[x] = gD["editor"]["grab"]["original"][x] + int(amnt[x]) * gD["editor"]["grab"]["step_size"]
     gD["editor"]["active_block"].worldPosition = pos_new
-
 
     # select axis
     select_axis("grab")
@@ -361,7 +367,10 @@ def main():
             own["hitObject"] = sen_mouse.hitObject
 
             if mouse.events[key_select] == JUST_ACTIVATED:
-                gD["editor"]["active_block"] = own["hitObject"]
+                if own["hitObject"] != gD["editor"]["active_block"]:
+                    gD["editor"]["active_block"] = own["hitObject"]
+                else: 
+                    gD["editor"]["active_block"] = obj_cursor
             # gD["editor"]["active_block"].visible = False
 
             if "CubeTile" in sen_mouse.hitObject.name:
@@ -374,8 +383,8 @@ def main():
         # Place the selected block and restore the cursor after it
         if mouse.events[key_place] == JUST_ACTIVATED:
             place_block(selected_block)
-            gD["editor"]["selected_block"] = None
-            refresh_cursor("Cursor")
+            #gD["editor"]["selected_block"] = None
+            #refresh_cursor("Cursor")
 
         # Delete the current active block
         if keyboard.events[key_delete] == JUST_ACTIVATED:

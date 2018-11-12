@@ -1,7 +1,11 @@
+
+import os
 from bge import logic
 
 from modules import components
 from modules import global_constants as G
+
+globalDict = logic.globalDict
 
 class Game:
     """
@@ -12,7 +16,8 @@ class Game:
     def __init__(self):
         self.ships = {}           # dictionary of ships (id:ship)
         self.level = None           # current level object
-        self.mode = None            # current mode (string)
+        self.level_name = globalDict["settings"]["Game"]["leveldir"]
+        self.mode = globalDict["settings"]["Game"]["mode"]            # current mode (string)
         self.music_dir = None       # current music directory (string)
         self.block_list = []
         self.ship_possessions = {}  # dictionary player_id:ship_id
@@ -52,7 +57,7 @@ class Game:
 
     def set_level(self, levelstr):
         """Set the folder name of the level"""
-        self.level = levelstr
+        self.level_name = levelstr
         return levelstr
 
     def get_level(self):
@@ -77,7 +82,18 @@ class Game:
         """Returns the current music directory"""
         return self.music_dir
 
+    def get_profiles_dir(self):
+        return os.path.join(G.PATH_PROFILES, globalDict["settings"]["Game"]["name"])
+
     def start(self):
         """Starts the game (tells the game mode to start and load all comps)"""
         logic.components.load_immediate(
             "../modes/" + self.mode + "/" + self.mode)
+
+    def clear(self):
+        self.ships = {}           # dictionary of ships (id:ship)
+        self.level = None           # current level object
+        self.level_name = globalDict["settings"]["Game"]["leveldir"]
+        self.block_list = []
+        self.ship_possessions = {}  # dictionary player_id:ship_id
+        self.players = [0]

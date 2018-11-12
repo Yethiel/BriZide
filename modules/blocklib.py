@@ -18,19 +18,21 @@ def add():
     """
     This will look up all objects in a blend file and append them to the block list.
     """
-    # load the block list from the globalDict (in case multiple blocklibs are used, so that these can be added to the list, we don't want to replace it)
-    block_list = logic.game.block_list
 
     # get all blocks that are in this scene and add them to a list
     for obj in sce.objects: 
         if "Block_" in obj.name:
             # we need to use the name since this lib will be freed and the objects will be gone, leaving freed references
-            block_list.append(obj.name)
+            logic.game.block_list.append(obj.name)
 
-    if len(block_list) != 0: # if some blocks have been foudn
+    if len(logic.game.block_list) != 0: # if some blocks have been foudn
         if G.DEBUG:
             print("Successfully loaded block list.")
-            print(block_list)
+            print(logic.game.block_list)
+
+    for obj in sce.objects:
+        if "Block" in obj.name:
+            obj.endObject()
 
 def main():
     """
@@ -39,4 +41,3 @@ def main():
     """
     add()
     logic.components.mark_loaded("blocklib")
-

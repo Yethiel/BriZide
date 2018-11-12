@@ -5,18 +5,7 @@ a large cube of variable size (track base)
 
 from bge import logic
 
-co = logic.getCurrentController()
-own = co.owner
-sce = logic.getCurrentScene()
 
-settings = logic.globalDict.get("settings")
-level = logic.game.get_level()
-
-# size of the tile objects the cube is made out of (in Blender units)
-tile_size = 32
-
-# get cube size from the level
-cube_size = level.get_cube_size()
 
 def main():
 
@@ -24,6 +13,16 @@ def main():
     A cube size of 10 should result in a driveable area
     of 10x10 tiles per side of the cube.
     """
+    sce = logic.getCurrentScene()
+    own = logic.getCurrentController().owner
+
+    settings = logic.globalDict.get("settings")
+    level = logic.game.get_level()
+
+    # size of the tile objects the cube is made out of (in Blender units)
+    tile_size = 32
+    cube_size = level.get_cube_size()
+    
     if cube_size > 0:
         cube_range = range(0, cube_size)
 

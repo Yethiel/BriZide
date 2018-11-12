@@ -1,9 +1,12 @@
 from bge import logic
+import datetime
+
+now = datetime.datetime.now()
 
 ### META
 DEBUG = True
 VERSION = 0
-REVISION = "DEV"
+REVISION = now.strftime("%Y-%m-%d %H:%M")
 
 ### CONTENT PATHS
 PATH_LEVELS = logic.expandPath("//levels/")
@@ -11,6 +14,7 @@ PATH_SHIPS = logic.expandPath("//ships/")
 PATH_MODES = logic.expandPath("//modes/")
 PATH_MUSIC = logic.expandPath("//music/")
 PATH_CONFIG_FILE = logic.expandPath("//config.ini")
+PATH_PROFILES = logic.expandPath("//profiles/")
 
 ### FILE TYPES
 TYPES_MUSIC = [".mp3", ".ogg", ".wav", ".flac"]
