@@ -1,32 +1,26 @@
-;#########################
-;
-; Brizide Ship Parameters
-;
-;#########################
-
 [Main]
-Name:           Test                        ; Name of the ship
+Name:           Test                        
 
-Model:          //ships/test/test.blend     ; Blender file with a mesh
-Texture:        //ships/test/test.png       ; Texture to replace the one from the mesh (optional)
+Model:          //ships/test/test.blend     
+Texture:        //ships/test/test.png       
 
 [Handling]
 
-TopSpeed:           200             ; Top speed of the engine beyond which it won't accelerate any more
-TopThrust:          90              ; 
-Thrust:             8               ; 
+TopSpeed:           200.0           
+TopThrust:          60.0            
+Thrust:             3.5             
 
-Grip:               0.6             ; Grip of the ship when on ground
+Grip:               0.6             
 GripAir:            1
 
-SteerRate:          0.23            ; How long it takes (seconds) to reach the full SteerRatio
-SteerMax:           0.06            ; Maximum steering step
+SteerRate:          0.0025           
+SteerMax:           0.07            
 
-StableThreshold:    0.001           ; When the stabilizer kicks in (Velocity)
-StableStrength:     2.6             ; Strength of the stabilizer
-Shield:             100             ; Shield strength
+StableThreshold:    0.001           
+StableStrength:     1.4
+Shield:             100             
 
-HoverHeight:        5.4             ; Height of the ship
-HoverStrength:      270             ; Strength of the force to keep the ship above the ground
-HoverDamping:       3.4             ; Dampening of the above force
+HoverHeight:        5.4             
+HoverStrength:      140.0             
+HoverDamping:       1.8          
 

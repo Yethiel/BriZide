@@ -32,188 +32,188 @@ for obj in own.children:
     elif "dir_z_neg" in obj.name:
         own["dir_z_neg"] = obj
 
-keyboard = logic.keyboard
-JUST_ACTIVATED = logic.KX_INPUT_JUST_ACTIVATED
-JUST_RELEASED = logic.KX_INPUT_JUST_RELEASED
-ACTIVE = logic.KX_INPUT_ACTIVE
+# keyboard = logic.keyboard
+# JUST_ACTIVATED = logic.KX_INPUT_JUST_ACTIVATED
+# JUST_RELEASED = logic.KX_INPUT_JUST_RELEASED
+# ACTIVE = logic.KX_INPUT_ACTIVE
 
-#Key assignments Keyboard, will be loaded from settings
+# #Key assignments Keyboard, will be loaded from settings
 
-c_stt = settings["Controls_Player1"]
+# c_stt = settings["Controls_Player1"]
 
-key_thrust = getattr(events, c_stt["ship_thrust"])
-key_thrust_reverse = getattr(events, c_stt["ship_thrust_reverse"])
-key_steer_left = getattr(events, c_stt["ship_steer_left"])
-key_steer_right = getattr(events, c_stt["ship_steer_right"])
-key_boost = getattr(events, c_stt["ship_boost"])
-key_activate_weapon = events.LEFTCTRLKEY
-key_deactivate_stabilizer = getattr(events, c_stt["ship_deactivate_stabilizer"])
-key_absorb_weapon = events.LEFTSHIFTKEY
-key_pause = events.ESCKEY
+# key_thrust = getattr(events, c_stt["ship_thrust"])
+# key_thrust_reverse = getattr(events, c_stt["ship_thrust_reverse"])
+# key_steer_left = getattr(events, c_stt["ship_steer_left"])
+# key_steer_right = getattr(events, c_stt["ship_steer_right"])
+# key_boost = getattr(events, c_stt["ship_boost"])
+# key_activate_weapon = events.LEFTCTRLKEY
+# key_deactivate_stabilizer = getattr(events, c_stt["ship_deactivate_stabilizer"])
+# key_absorb_weapon = events.LEFTSHIFTKEY
+# key_pause = events.ESCKEY
 
 def load(ship_name, player_id):
-    settings = gD.get("settings")
+    # settings = gD.get("settings")
 
-    ship_path = logic.expandPath("//ships/"+ship_name)
-    inf_path = logic.expandPath("//ships/"+ship_name+"/"+ship_name+".inf")
+    # ship_path = logic.expandPath("//ships/"+ship_name)
+    # inf_path = logic.expandPath("//ships/"+ship_name+"/"+ship_name+".inf")
 
-    # load the information file
-    inf = configparser.ConfigParser()
-    if os.path.isfile(inf_path):
-        inf.read(inf_path)
-        if G.DEBUG: print("Loaded ship information file.")
+    # # load the information file
+    # inf = configparser.ConfigParser()
+    # if os.path.isfile(inf_path):
+    #     inf.read(inf_path)
+    #     if G.DEBUG: print("Loaded ship information file.")
 
-    # Set default values. they will not be overwritten when they're missing from the ship's inf file.
-    ship_dict = {
-        "Main" : {
-            "Name" : "Unknown",
-            "Model" : "//ships/test/test.blend",
-            "Texture" : "//ships/test/test.png",
-            "Shadow" : "//ships/test/shadow.png",
-        },
-        "Handling" : {
-            "TopSpeed" : 160,
-            "ThrustRatio" : 50,
-            "ThrustRate" : 6,
-            "Grip" : 1,
-            "GripAir" : 1,
-            "SteerRate" : 0.3,
-            "SteerRatio" : 0.04,
-            "TurnAmount" : 0.04,
-            "StableThreshold" : 0.01,
-            "StableStrength" : 2,
-            "Shield" : 100,
-            "HoverHeight" : 6,
-            "HoverStrength" : 200,
-            "HoverDamping" : 2.5,
-        }
-    }
+    # # Set default values. they will not be overwritten when they're missing from the ship's inf file.
+    # ship_dict = {
+    #     "Main" : {
+    #         "Name" : "Unknown",
+    #         "Model" : "//ships/test/test.blend",
+    #         "Texture" : "//ships/test/test.png",
+    #         "Shadow" : "//ships/test/shadow.png",
+    #     },
+    #     "Handling" : {
+    #         "TopSpeed" : 160,
+    #         "ThrustRatio" : 50,
+    #         "ThrustRate" : 6,
+    #         "Grip" : 1,
+    #         "GripAir" : 1,
+    #         "SteerRate" : 0.3,
+    #         "SteerRatio" : 0.04,
+    #         "TurnAmount" : 0.04,
+    #         "StableThreshold" : 0.01,
+    #         "StableStrength" : 2,
+    #         "Shield" : 100,
+    #         "HoverHeight" : 6,
+    #         "HoverStrength" : 200,
+    #         "HoverDamping" : 2.5,
+    #     }
+    # }
 
-    # Replace parameters from inf file. Keys that aren't present won't be replaced.
-    for category in ship_dict:
+    # # Replace parameters from inf file. Keys that aren't present won't be replaced.
+    # for category in ship_dict:
 
-        for key in ship_dict[category]:
+    #     for key in ship_dict[category]:
 
-            if key in inf[category]:
+    #         if key in inf[category]:
 
-                new_val = None # value to overwrite the default
+    #             new_val = None # value to overwrite the default
 
-                if category == "Handling":  # Since the inf file will be loaded as strings, we need to cast them in this case.
-                    set_success = True
-                    # new_val = float(inf[category][key]).split(";")[0].replace("\t", "")
-                    try:
-                        new_val = float(str(inf[category][key]).split(";")[0].replace("\t", ""))
-                    except Exception as e:
-                        if G.DEBUG: print(own.name + ":", "Could not set", key + ":", str(e))
-                        set_success = False
+    #             if category == "Handling":  # Since the inf file will be loaded as strings, we need to cast them in this case.
+    #                 set_success = True
+    #                 # new_val = float(inf[category][key]).split(";")[0].replace("\t", "")
+    #                 try:
+    #                     new_val = float(str(inf[category][key]).split(";")[0].replace("\t", ""))
+    #                 except Exception as e:
+    #                     if G.DEBUG: print(own.name + ":", "Could not set", key + ":", str(e))
+    #                     set_success = False
 
-                    if set_success: # Only overwrite default if the string could be parsed.
-                        ship_dict[category][key] = new_val
+    #                 if set_success: # Only overwrite default if the string could be parsed.
+    #                     ship_dict[category][key] = new_val
 
-                    own[key] = ship_dict[category][key]
+    #                 own[key] = ship_dict[category][key]
 
 
-                elif category == "Main": # These are supposed to be strings
-                    set_success = True
-                    try:
-                        new_val = str(inf[category][key]).split(";")[0].replace("\t", "")
-                    except:
-                        if G.DEBUG: print(own.name, ": Could not set", ship_dict[category][key])
-                        set_success = False
+    #             elif category == "Main": # These are supposed to be strings
+    #                 set_success = True
+    #                 try:
+    #                     new_val = str(inf[category][key]).split(";")[0].replace("\t", "")
+    #                 except:
+    #                     if G.DEBUG: print(own.name, ": Could not set", ship_dict[category][key])
+    #                     set_success = False
 
-                    if set_success: # Only set it if the string could be parsed.
-                        ship_dict[category][key] = new_val
+    #                 if set_success: # Only set it if the string could be parsed.
+    #                     ship_dict[category][key] = new_val
 
-                    own[key] = ship_dict[category][key]
-    if G.DEBUG:
-        print("=== SHIP INFORMATION ===")
-        for category in ship_dict:
-            print(" > " + category + " < ")
-            for key in ship_dict[category]:
-                print("    " + str(key) + ": " + str(ship_dict[category][key]))
+    #                 own[key] = ship_dict[category][key]
+    # if G.DEBUG:
+    #     print("=== SHIP INFORMATION ===")
+    #     for category in ship_dict:
+    #         print(" > " + category + " < ")
+    #         for key in ship_dict[category]:
+    #             print("    " + str(key) + ": " + str(ship_dict[category][key]))
 
-    own["player_id"] = player_id
+    # own["player_id"] = player_id
 
 
 
 # executed every tick to respond to key events
 def controls():
 
-    if gD.get("input")["focus"] == "ship":
-        if keyboard.events[key_thrust] == ACTIVE:
-            thrust(1)
-        if keyboard.events[key_thrust_reverse] == ACTIVE:
-            thrust(-1)
+    # if gD.get("input")["focus"] == "ship":
+    #     if keyboard.events[key_thrust] == ACTIVE:
+    #         thrust(1)
+    #     if keyboard.events[key_thrust_reverse] == ACTIVE:
+    #         thrust(-1)
 
         if not ACTIVE in [keyboard.events[key_thrust_reverse], keyboard.events[key_thrust]]:
             center_thrust()
-        if abs(max(own.getLinearVelocity(True))) < own["TopSpeed"]:
-            own.applyForce([0,own["thrust"],0], True)
+        # if abs(max(own.getLinearVelocity(True))) < own["TopSpeed"]:
+        #     own.applyForce([0,own["thrust"],0], True)
 
 
-        for thing in [JUST_ACTIVATED, JUST_RELEASED]:
-            if thing in [keyboard.events[key_steer_left], keyboard.events[key_steer_right]]:
-                pass
-        if JUST_ACTIVATED in [keyboard.events[key_thrust], keyboard.events[key_thrust_reverse]]:
-            pass
+        # for thing in [JUST_ACTIVATED, JUST_RELEASED]:
+        #     if thing in [keyboard.events[key_steer_left], keyboard.events[key_steer_right]]:
+        #         pass
+        # if JUST_ACTIVATED in [keyboard.events[key_thrust], keyboard.events[key_thrust_reverse]]:
+        #     pass
 
-        if keyboard.events[key_activate_weapon] == JUST_ACTIVATED:
-            #print("Activate weapon")
-            own['lastkey'] = 'key_activate_weapon'
-            activate_weapon()
+        # if keyboard.events[key_activate_weapon] == JUST_ACTIVATED:
+        #     #print("Activate weapon")
+        #     own['lastkey'] = 'key_activate_weapon'
+        #     activate_weapon()
 
-        if keyboard.events[key_absorb_weapon] == JUST_ACTIVATED:
-            #print("Absorb weapon")
-            own['lastkey'] = 'key_absorb_weapon'
-            absorb_weapon()
+        # if keyboard.events[key_absorb_weapon] == JUST_ACTIVATED:
+        #     #print("Absorb weapon")
+        #     own['lastkey'] = 'key_absorb_weapon'
+        #     absorb_weapon()
 
-        if keyboard.events[key_pause] == JUST_ACTIVATED:
-            print("Pause")
-            own['lastkey'] = 'key_pause'
+        # if keyboard.events[key_pause] == JUST_ACTIVATED:
+        #     print("Pause")
+        #     own['lastkey'] = 'key_pause'
 
         # BOOST
-        if keyboard.events[key_boost] == ACTIVE:
-            if own["stabilizer_boost"] > 10 and abs(max(own.getLinearVelocity(True))) < own["TopSpeed"]*1.5:
-                own.applyForce((0, own["ThrustRatio"]*2, 0), True)
-                own["stabilizer_boost"] -= 2.5
+        # if keyboard.events[key_boost] == ACTIVE:
+        #     if own["stabilizer_boost"] > 10 and abs(max(own.getLinearVelocity(True))) < own["TopSpeed"]*1.5:
+        #         own.applyForce((0, own["ThrustRatio"]*2, 0), True)
+        #         own["stabilizer_boost"] -= 2.5
 
 # the stabilizer prevents the ship from drifting. the degree can vary from ship to ship
-def stabilize():
-    if keyboard.events[key_deactivate_stabilizer] == ACTIVE or not own["on_ground"]:
-        if G.DEBUG: own['DEBUG_stabilizer'] = 'xxx'
-    else:
-        if abs(own.localLinearVelocity[0]) >= own["StableThreshold"]:
-            own.applyForce([-own.localLinearVelocity[0]*own["StableStrength"] * get_grip(),0,0], True)
-            own.applyForce([0,abs(own.localLinearVelocity[0]) * get_grip(),0], True)
-        if G.DEBUG:
-            if own.localLinearVelocity[0] >= own["StableThreshold"]:
-                own['DEBUG_stabilizer'] = '<--'
-            elif own.localLinearVelocity[0] <= -own["StableThreshold"]:
-                own['DEBUG_stabilizer'] = '-->'
-            else:
-                own['DEBUG_stabilizer'] = '---'
+# def stabilize():
+#     if keyboard.events[key_deactivate_stabilizer] == ACTIVE or not own["on_ground"]:
+#         if G.DEBUG: own['DEBUG_stabilizer'] = 'xxx'
+#     else:
+#         if abs(own.localLinearVelocity[0]) >= own["StableThreshold"]:
+#             own.applyForce([-own.localLinearVelocity[0]*own["StableStrength"] * get_grip(),0,0], True)
+#             own.applyForce([0,abs(own.localLinearVelocity[0]) * get_grip(),0], True)
+#         if G.DEBUG:
+#             if own.localLinearVelocity[0] >= own["StableThreshold"]:
+#                 own['DEBUG_stabilizer'] = '<--'
+#             elif own.localLinearVelocity[0] <= -own["StableThreshold"]:
+#                 own['DEBUG_stabilizer'] = '-->'
+#             else:
+#                 own['DEBUG_stabilizer'] = '---'
 
 
 
-def get_grip():
-    if own["on_ground"] and not keyboard.events[key_deactivate_stabilizer] == ACTIVE:
-        return abs(1 - (own.localLinearVelocity[1]/own["TopSpeed"]) + own["Grip"])
-    else:
-        return own["GripAir"]
+# def get_grip():
+#     if own["on_ground"] and not keyboard.events[key_deactivate_stabilizer] == ACTIVE:
+#         return abs(1 - (own.localLinearVelocity[1]/own["TopSpeed"]) + own["Grip"])
+#     else:
+#         return own["GripAir"]
 
 
 # when not steering, approximate 0 again (straight forward)
-def center_steering():
-    delta = logic.getLogicTicRate()
-    if abs(own["turn"]) < abs(1/delta * own["SteerRate"]): own["turn"] = 0
+# def center_steering():
+#     delta = logic.getLogicTicRate()
+#     if abs(own["turn"]) < abs(1/delta * own["SteerRate"]): own["turn"] = 0
 
-    if own["turn"] > 0:
-        own["turn"] -= (1/delta * own["SteerRate"])
-    elif own["turn"] < 0:
-        own["turn"] += (1/delta * own["SteerRate"])
-    else:
-        # own["turn"] = 0
-        pass
+#     if own["turn"] > 0:
+#         own["turn"] -= (1/delta * own["SteerRate"])
+#     elif own["turn"] < 0:
+#         own["turn"] += (1/delta * own["SteerRate"])
+#     else:
+#         # own["turn"] = 0
+#         pass
 
     # own.applyRotation((0,0, own["turn"] ), True)
 
@@ -246,32 +246,32 @@ def steer(d):
         if abs(own["turn"]) <= own["SteerRatio"]: own["turn"] += (1/delta * own["SteerRate"]* get_grip())* -d
 
 
-def center_thrust():
-    delta = logic.getLogicTicRate()
+# def center_thrust():
+#     delta = logic.getLogicTicRate()
 
-    # if abs(own["thrust"]) < own["ThrustRate"] * 1/delta * 60:
-    # 	own.localLinearVelocity.y = 0
+#     # if abs(own["thrust"]) < own["ThrustRate"] * 1/delta * 60:
+#     # 	own.localLinearVelocity.y = 0
 
-    if own["thrust"] > 0:
-        own["thrust"] -= own["ThrustRate"] * 1/delta * 60
-    else:
-        own["thrust"] += own["ThrustRate"] * 1/delta * 60
+#     if own["thrust"] > 0:
+#         own["thrust"] -= own["ThrustRate"] * 1/delta * 60
+#     else:
+#         own["thrust"] += own["ThrustRate"] * 1/delta * 60
 
-def thrust(d):
-    delta = logic.getLogicTicRate()
-    print(max(own.getLinearVelocity(True)))
-    print(max(own.getLinearVelocity(True)) < own["TopSpeed"])
-    if abs(own["thrust"]) <= abs(own["ThrustRatio"]) and max(own.getLinearVelocity(True)) < own["TopSpeed"]:
-        own["thrust"] += 1/delta * own["ThrustRate"] * d * 10
+# def thrust(d):
+#     delta = logic.getLogicTicRate()
+#     print(max(own.getLinearVelocity(True)))
+#     print(max(own.getLinearVelocity(True)) < own["TopSpeed"])
+#     if abs(own["thrust"]) <= abs(own["ThrustRatio"]) and max(own.getLinearVelocity(True)) < own["TopSpeed"]:
+#         own["thrust"] += 1/delta * own["ThrustRate"] * d * 10
 
-def activate_weapon():
-    pass
+# def activate_weapon():
+#     pass
 
-def absorb_weapon():
-    pass
+# def absorb_weapon():
+#     pass
 
-def collision():
-    own['energy'] -= abs(own.localLinearVelocity[1])/own["Shield"]/10
+# def collision():
+#     own['energy'] -= abs(own.localLinearVelocity[1])/own["Shield"]/10
 
 def descend():
     #TODO
