@@ -1,7 +1,4 @@
 from bge import logic
-"""
-some shortcuts to make code more legible
-"""
 
 # just get stuff from the globalDict
 def get_prop(key):
@@ -27,3 +24,6 @@ def clamp(value, min, max):
 def time_string(timefloat):
     """ Interprets a float as seconds and returns a formatted string """
     return str( int(timefloat/60) ) + ":" + str(int(timefloat) % 60) + ":" + str(timefloat - int(timefloat))[2:][:3]
+
+def fatal_error(msg):
+    print("Something went wrong:", msg)

@@ -8,6 +8,15 @@ from modules import global_constants as G
 
 gD = logic.globalDict
 
+class UIManager():
+    def __init__(self):
+
+        self.focus = "menu"
+
+    def set_focus(self, element):
+        self.focus = element
+
+
 class MainUI(bgui.bge_utils.Layout):
     def __init__(self, sys, data):
         super().__init__(sys, data)

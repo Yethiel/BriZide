@@ -5,7 +5,7 @@ The main function will initialize the globalDict.
 
 from bge import logic
 globalDict = logic.globalDict
-from modules import game, components, content, modes, config, tests, global_constants as G
+from modules import ui, game, components, content, modes, config, tests, global_constants as G
 import os
 
 cont = logic.getCurrentController()
@@ -19,17 +19,23 @@ def setup():
     if G.DEBUG: print("D E B U G")
 
     globalDict["settings"] = config.load()
+    logic.settings = config.load()
     logic.game = game.Game() # new and controlled "global dict"
-    print(logic.game.mode)
+
     logic.components = components.Components() # manages game components loaded by game modes
     logic.game.set_music_dir("menu")
 
     globalDict["input"] = {     # this is for control modules to check whether they are in focus
         "focus" : "menu"
     }
+    logic.uim = ui.UIManager()
+    logic.uim.set_focus("menu")
 
     # A dictionary for all the UI layers
     logic.ui = {}
+
+
+
 
     # get available content
     content.set_all()
