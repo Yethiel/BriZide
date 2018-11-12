@@ -159,8 +159,6 @@ class Ship():
         
         if logic.uim.focus == "ship":
             self.controls()
-        else:
-            print("control not set!")
 
         # Generates boost
         if abs(self.go.localLinearVelocity[0]) > 70:
