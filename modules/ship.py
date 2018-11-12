@@ -17,8 +17,9 @@ JUST_RELEASED = logic.KX_INPUT_JUST_RELEASED
 ACTIVE = logic.KX_INPUT_ACTIVE
 
 class Ship():
-    def __init__(self, identifier, player_id):
+    def __init__(self, game_obj, identifier, player_id):
 
+        self.go = game_obj
         self.load(identifier)
 
         # Meta
@@ -142,7 +143,15 @@ class Ship():
         else:
             self.current_thrust += self.thrust
 
+
+        if abs(own.localLinearVelocity[0]) > 70:
+        if own["stabilizer_boost"] < 500:
+            own["stabilizer_boost"] += abs(own.localLinearVelocity[0])/120
+        else:
+            own["stabilizer_boost"] = 500
+
     def controls(self):
+        """ Controls only work when the uim focus is set to 'ship' """
         
         own = logic.getCurrentController().owner
 
