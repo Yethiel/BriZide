@@ -51,8 +51,8 @@ class OverlayUI(bgui.bge_utils.Layout):
         self.lbl_tck.text = str(int(logic.getLogicTicRate()))
         ship = logic.game.get_ship_by_player(G.PLAYER_ID)
         if ship:
-            self.bar_boost.percent = ship["stabilizer_boost"]/500
-            self.lbl_velocity.text = ">>> " + str(int(ship["Velocity"]))
+            self.bar_boost.percent = ship.current_boost/500
+            self.lbl_velocity.text = ">>> " + str(int(ship.current_velocity))
 
         if logic.components.is_loading():
             self.frame_load.visible = True

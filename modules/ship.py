@@ -63,6 +63,7 @@ class Ship():
         self.current_steer = 0.0
         self.current_thrust = 0.0
         self.current_boost = 0.0
+        self.current_velocity = 0.0
         self.on_ground = False
 
         # Directional objects
@@ -156,6 +157,7 @@ class Ship():
 
     def run(self):
 
+        self.current_velocity = self.go.localLinearVelocity[1]
         
         if logic.uim.focus == "ship":
             self.controls()
@@ -345,6 +347,8 @@ def setup():
     identifier = logic.settings["Player{}".format(player_id)]["Ship"]
 
     ship = Ship(game_obj, identifier, player_id)
+
+    logic.game.assign_ship_to_player(ship.id, player_id)
 
     ship.go.worldPosition = level.get_start_pos()
     ship_orientation = ship.go.worldOrientation.to_euler() # we need an euler matrix
