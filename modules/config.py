@@ -17,9 +17,11 @@ def load():
         config["Game"] = {
         "Name" : "Player",
         "LevelDir" : "test",
-        "ShipDir" : "test",
         "Mode" : "time_trial",
-        "Laps" : 3
+        }
+        config["Player0"] = {
+            "name": "Player 0",
+            "Ship": "test"
         }
         config["Audio"] = {
         "Music" : 1,

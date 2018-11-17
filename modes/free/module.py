@@ -24,7 +24,8 @@ def setup():
 
     # Setup the game mode and give the player controls.
     own["Timer"] = 0
-    gD["input"]["focus"] = "ship"
+    # gD["input"]["focus"] = "ship"
+    logic.uim.focus = "ship"
 
     # In debug mode, print when game mode is ready
     if G.DEBUG: print("{}: {}".format(own.name, "Free mode has been set up."))

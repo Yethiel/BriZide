@@ -102,6 +102,7 @@ class TimeTrialUI(bgui.bge_utils.Layout):
         logic.components.free("time_trial")
         logic.components.clear()
         logic.game.clear()
+        logic.uim.set_focus("menu")
         logic.ui["sys"].add_overlay(ui_main_menu.MainMenu)
 
 
@@ -149,7 +150,7 @@ class TimeTrial():
 
     def write_time(self, game):
         tt_file_path = os.path.join(
-            game.get_profiles_dir(),
+            game.get_profile_dir("0"),
             "time_trial", 
             "{}.txt".format(game.level_name)
         )
@@ -174,7 +175,7 @@ class TimeTrial():
                 sound.EchoWrapper("go" + str(randint(0,4))).play()
                 cont_obj["countdown"] -= 1
                 # Give controls to the player
-                gD["input"]["focus"] = "ship"
+                logic.uim.focus = "ship"
                 cont_obj["Timer"] = 0.0
             if cont_obj["countdown"] == 0 and cont_obj["CountdownTimer"] > 5:
                 cont_obj["countdown"] -= 1
@@ -183,7 +184,8 @@ class TimeTrial():
 
         for cp in self.cp_data:
             for ship in game.ships:
-                if game.ships[ship].getDistanceTo(cp) <= trigger_distance:
+
+                if game.ships[ship].go.getDistanceTo(cp) <= trigger_distance:
                     if not str(ship) in cp:
                         cp[str(ship)] = True
                         sound.play("checkpoint")
@@ -258,8 +260,8 @@ def setup():
     game = logic.game
 
     # Creates a folder for the mode
-    if not os.path.isdir(os.path.join(game.get_profiles_dir(),"time_trial")):
-        os.makedirs(os.path.join(game.get_profiles_dir(),"time_trial"))
+    if not os.path.isdir(os.path.join(game.get_profile_dir("0"),"time_trial")):
+        os.makedirs(os.path.join(game.get_profile_dir("0"),"time_trial"))
 
 
     tt = logic.time_trial

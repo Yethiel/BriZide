@@ -5,7 +5,7 @@ The main function will initialize the globalDict.
 
 from bge import logic
 globalDict = logic.globalDict
-from modules import game, components, content, modes, config, tests, global_constants as G
+from modules import ui, game, components, content, config, tests, global_constants as G
 import os
 
 cont = logic.getCurrentController()
@@ -18,15 +18,19 @@ def setup():
     print("Brizide ver.", G.VERSION)
     if G.DEBUG: print("D E B U G")
 
-    globalDict["settings"] = config.load()
+    globalDict["settings"] = config.load() #TODO: remove
+
+    logic.settings = config.load()
     logic.game = game.Game() # new and controlled "global dict"
-    print(logic.game.mode)
+
     logic.components = components.Components() # manages game components loaded by game modes
     logic.game.set_music_dir("menu")
 
     globalDict["input"] = {     # this is for control modules to check whether they are in focus
         "focus" : "menu"
     }
+    logic.uim = ui.UIManager()
+    logic.uim.set_focus("menu")
 
     # A dictionary for all the UI layers
     logic.ui = {}
@@ -34,7 +38,7 @@ def setup():
     # get available content
     content.set_all()
 
-    player_dir = os.path.join(G.PATH_PROFILES, globalDict["settings"]["Game"]["name"])
+    player_dir = os.path.join(G.PATH_PROFILES, logic.settings["Player0"]["Name"])
     if not os.path.isdir(player_dir):
         os.makedirs(player_dir)
 

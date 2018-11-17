@@ -82,8 +82,8 @@ class Game:
         """Returns the current music directory"""
         return self.music_dir
 
-    def get_profiles_dir(self):
-        return os.path.join(G.PATH_PROFILES, globalDict["settings"]["Game"]["name"])
+    def get_profile_dir(self, player_id="0"):
+        return os.path.join(G.PATH_PROFILES, logic.settings["Player{}".format(player_id)]["Name"])
 
     def start(self):
         """Starts the game (tells the game mode to start and load all comps)"""

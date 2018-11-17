@@ -1,22 +1,7 @@
 # BriZide
 
 BriZide is a free open-source racing game set in the distant future.
-Players race ships on levels in a large cubic space ships.
-
-The main focus of the project is fun and easy multi-player.
-Many game modes are planned, including checkpoint races, combat, 
-a Tron-like wall mode and battle tag. All modes are either team based 
-or player versus player.
-The single-player mode will come with time-trial courses.
-
-The handling is somewhere between Wipeout and F-Zero. Simple and predictable,
-a bit floaty but not as arcade-y as F-Zero.
-
-## Links
-
-+ [GitHub Page](http://yethiel.github.io/BriZide)
-+ [Trello (Progress Tracking)](https://trello.com/b/rlifnl3U/brizide)
-+ [YouTube](https://www.youtube.com/playlist?list=PLIkM0Lr0_PBD2wVuWs1Waj-bJKDU-VqQ9)
+Players race ships on levels in a large cubic space station.
 
 ## Story
 
@@ -25,8 +10,9 @@ a bit floaty but not as arcade-y as F-Zero.
 ## Default Controls
 
 + **Arrow keys**: Move ship
-+ **Space**: Drift
-+ **Left Alt**: Boost
++ **W**: Boost
++ **S**: Drift
++ **1** - **3**: Change camera
 
 ## Documentation and Development
 The game is made with the Blender Game Engine.
@@ -34,19 +20,21 @@ Check the project wiki or the `docs` folder.
 
 ## Download and Install
 
+You need to have Blender installed.
+
+```
+git clone https://github.com/Yethiel/BriZide.git
+cd BriZide
+# optional: git checkout dev
+blenderplayer main.blend
+```
+
 **The game is not guaranteed to work in the current state.**
-Download Blender 2.78 (other versions might work as well) and launch the `main.blend` file.
+Download Blender 2.79 (other versions might work as well) and launch the `main.blend` file.
 The source files for the launchers are provided (brizide_bin.blend and brizide_build.blend).
 Compiled launchers will be provided at a later point as they are quite large.
 
 ## Implemented Features
-+ Ship physics
-+ Only one level and one ship
-+ Bare-bones time trial mode (no score saving yet)
++ Bare-bones time trial mode
 + Free mode
 + Basic track editor
-
-## License
-
-All Rights Reserved (for now). The project is not far enough into development 
-to decide on an open source license yet.
