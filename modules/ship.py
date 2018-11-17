@@ -271,7 +271,7 @@ class Ship():
         if self.current_steer > 0: #currently steering left
             if d < 0: # player wants left
                 if abs(self.current_steer) <= self.steer_max: 
-                    self.current_steer += (self.steer_rate * self.get_grip())* -d
+                    self.current_steer += (1/delta * self.steer_rate * self.get_grip())* -d
 
             elif d > 0: # player wants right
                 self.center_steering()
@@ -285,11 +285,11 @@ class Ship():
                 pass
             elif d > 0: # player wants right
                 if abs(self.current_steer) <= self.steer_max: 
-                    self.current_steer += (self.steer_rate * self.get_grip())* -d
+                    self.current_steer += (1/delta * self.steer_rate * self.get_grip())* -d
 
         else:
             if abs(self.current_steer) <= self.steer_max: 
-                self.current_steer += (self.steer_rate* self.get_grip())* -d
+                self.current_steer += (1/delta * self.steer_rate* self.get_grip())* -d
 
 
     def add_thrust(self, d):
@@ -310,12 +310,14 @@ class Ship():
             )
 
     def center_steering(self):
-        if abs(self.current_steer) < abs(self.steer_rate): self.current_steer = 0
+        delta = logic.getLogicTicRate()
+
+        if abs(self.current_steer) < abs(1/delta * self.steer_rate): self.current_steer = 0
 
         if self.current_steer > 0:
-            self.current_steer -= (self.steer_rate)
+            self.current_steer -= (1/delta * self.steer_rate)
         elif self.current_steer < 0:
-            self.current_steer += (self.steer_rate)
+            self.current_steer += (1/delta * self.steer_rate)
         else:
             pass
 
@@ -343,7 +345,6 @@ def setup():
     identifier = logic.settings["Player{}".format(player_id)]["Ship"]
 
     ship = Ship(game_obj, identifier, player_id)
-    logic.game.register_ship(ship)
 
     ship.go.worldPosition = level.get_start_pos()
     ship_orientation = ship.go.worldOrientation.to_euler() # we need an euler matrix

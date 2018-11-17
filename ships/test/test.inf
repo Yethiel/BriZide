@@ -7,20 +7,20 @@ Texture:        //ships/test/test.png
 [Handling]
 
 TopSpeed:           200.0           
-TopThrust:          60.0            
-Thrust:             3.5             
+TopThrust:          90.0            
+Thrust:             8.0             
 
 Grip:               0.6             
-GripAir:            1
+GripAir:            1.0
 
-SteerRate:          0.0025           
-SteerMax:           0.07            
+SteerRate:          0.23       
+SteerMax:           0.06            
 
 StableThreshold:    0.001           
-StableStrength:     1.4
+StableStrength:     2.6
 Shield:             100             
 
 HoverHeight:        5.4             
-HoverStrength:      140.0             
-HoverDamping:       1.8          
+HoverStrength:      270.0             
+HoverDamping:       3.4          
 

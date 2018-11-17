@@ -10,8 +10,9 @@ Players race ships on levels in a large cubic space station.
 ## Default Controls
 
 + **Arrow keys**: Move ship
-+ **Space**: Drift
-+ **Left Alt**: Boost
++ **W**: Boost
++ **S**: Drift
++ **1** - **3**: Change camera
 
 ## Documentation and Development
 The game is made with the Blender Game Engine.

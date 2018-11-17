@@ -102,6 +102,7 @@ class TimeTrialUI(bgui.bge_utils.Layout):
         logic.components.free("time_trial")
         logic.components.clear()
         logic.game.clear()
+        logic.uim.set_focus("menu")
         logic.ui["sys"].add_overlay(ui_main_menu.MainMenu)
 
 
