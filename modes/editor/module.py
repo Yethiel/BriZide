@@ -13,7 +13,7 @@ own = logic.getCurrentController().owner # This is the object that executes thes
 
 own["init"] = False
 
-required_components = ["blocklib", "blocks", "level", "cube", "editor"]
+required_components = ["blocklib", "blocks", "level", "cube", "ship", "editor"]
 queue_id = logic.components.enqueue(required_components)
 # Setup is executed as soon as the game mode has been loaded.
 def setup():
