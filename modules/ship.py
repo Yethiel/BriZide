@@ -330,7 +330,6 @@ class Ship():
 
     def add_thrust(self, d):
         delta = logic.getLogicTicRate()
-        print(max(self.go.getLinearVelocity(True)) < self.top_speed)
         if abs(self.current_thrust) <= abs(self.top_thrust) and max(self.go.getLinearVelocity(True)) < self.top_speed:
             self.current_thrust += 1/delta * self.thrust * d * 10
 

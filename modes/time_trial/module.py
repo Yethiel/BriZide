@@ -1,5 +1,6 @@
 import os
 import bgui
+from mathutils import Color
 from bge import logic
 from modules import components, global_constants, sound, helpers, ui, ui_main_menu
 from modules import global_constants as G
@@ -191,6 +192,8 @@ class TimeTrial():
                         sound.play("checkpoint")
                         if G.DEBUG: 
                             print("Ship", ship, "passed", self.cp_data.index(cp))
+
+                        cp.color = [0, 0, 0, 0]
 
                         amnt_passed = 0
                         for cp in self.cp_data:
