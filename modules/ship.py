@@ -198,6 +198,9 @@ class Ship():
 
         # Generates boost
         if abs(self.go.localLinearVelocity[0]) > 70:
+
+            smoke = logic.getCurrentScene().addObject("Smoke", self.go)
+            smoke.color[3] = sum([abs(c) for c in self.go.localLinearVelocity]) / self.top_speed
             if self.current_boost < 500:
                 self.current_boost += abs(self.go.localLinearVelocity[0])/120
             else:
