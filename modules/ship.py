@@ -1,10 +1,12 @@
 from bge import logic, events
 
 import os
+import aud
 import mathutils
 import configparser
 
-from modules import helpers, global_constants as G
+from modules import helpers, sound, global_constants as G
+from modules.helpers import clamp
 
 uim = logic.uim
 settigns = logic.settings
@@ -157,7 +159,39 @@ class Ship():
 
     def run(self):
 
+        camera = logic.getCurrentScene().objects["Camera_Ship"]
+
+
+        if not "init_sound_engine" in self.go:
+            self.go["sound_engine"] = sound.play("engine")
+            self.go["sound_engine"].loop_count = -1
+            self.go["sound_engine"].relative = False
+            self.go["sound_engine"].distance_maximum = 64
+            self.go["sound_engine"].distance_reference = 0
+
+            self.go["sound_air"] = sound.play("wind")
+            self.go["sound_air"].loop_count = -1
+            self.go["sound_air"].volume = 0
+            self.go["sound_air"].relative = False
+            self.go["sound_air"].distance_maximum = 32
+            self.go["sound_air"].distance_reference = 0
+
+
+            self.go["init_sound_engine"] = False
+            logic.device.distance_model = aud.AUD_DISTANCE_MODEL_LINEAR
+
         self.current_velocity = self.go.localLinearVelocity[1]
+
+        logic.device.listener_location = camera.worldPosition
+        logic.device.listener_orientation = camera.worldOrientation.to_quaternion()
+        # logic.device.listener_velocity = camera.getLinearVelocity()
+
+        # self.go["sound_engine"].pitch = clamp(abs(self.go["thrust"]/self.go["ThrustRatio"]) + abs(self.go.getLinearVelocity(True)[1])/ 130, 0, 2.34)
+        self.go["sound_engine"].pitch = clamp(abs(self.current_thrust/self.top_thrust) + abs(self.current_velocity)/100, 0.5, 5.0)
+        self.go["sound_air"].volume = clamp((abs(self.go.getLinearVelocity(True)[0] + (self.go.getLinearVelocity(True)[1]/2) + self.go.getLinearVelocity(True)[2]))/200, 0, 2)
+
+        self.go["sound_engine"].location = self.go.worldPosition
+        self.go["sound_air"].location = self.go.worldPosition
         
         if logic.uim.focus == "ship":
             self.controls()
@@ -195,7 +229,7 @@ class Ship():
                 self.go.alignAxisToVect(normalmed, 2, .2)
         else:
             self.on_ground = False
-            self.go.applyForce([0,0,-60], True)
+            self.go.applyForce([0,0,-200], True)
 
         # Ship behavior that does not necessarily depend on controls
         self.go.applyRotation((0,0, self.current_steer), True) #actual steering happens here
@@ -246,7 +280,7 @@ class Ship():
             allow_boost = max(self.go.getLinearVelocity(True)) < self.top_speed * 1.5
 
             if self.current_boost > 10 and allow_boost:
-                self.go.applyForce((0, self.thrust * 2, 0), True)
+                self.go.applyForce((0, self.thrust * 18, 0), True)
                 self.current_boost -= 2.5
 
         # Stabilizer
