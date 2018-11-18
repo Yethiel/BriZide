@@ -193,7 +193,9 @@ class TimeTrial():
                         if G.DEBUG: 
                             print("Ship", ship, "passed", self.cp_data.index(cp))
 
-                        cp.color = [.05, .05, .05, 1]
+                        cp.color = [.05, .05, .0, 1]
+
+                        cp.worldScale = [0.2, 0.2, 0.2]
 
                         amnt_passed = 0
                         for cp in self.cp_data:

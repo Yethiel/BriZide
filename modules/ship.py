@@ -229,7 +229,7 @@ class Ship():
                 self.go.alignAxisToVect(normalmed, 2, .2)
         else:
             self.on_ground = False
-            self.go.applyForce([0,0,-200], True)
+            self.go.applyForce([0, 0, -150], True)
 
         # Ship behavior that does not necessarily depend on controls
         self.go.applyRotation((0,0, self.current_steer), True) #actual steering happens here
