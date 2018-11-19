@@ -34,42 +34,66 @@ def main():
                 own.worldPosition = [x * tile_size,
                                      y * tile_size,
                                      0]
-                sce.addObject("CubeTile_Z-", own, 0)
+                
+                if y % 2:
+                    sce.addObject("CubeTile_Z-", own, 0)
+                else:
+                    sce.addObject("CubeWindow_Z-", own, 0)
         # Z +
         for x in cube_range:
             for y in cube_range:
                 own.worldPosition = [x * tile_size,
                                      y * tile_size,
                                      (cube_size-1) * tile_size]
-                sce.addObject("CubeTile_Z+", own, 0)
+                
+                if y % 2:
+                    sce.addObject("CubeTile_Z+", own, 0)
+                else:
+                    sce.addObject("CubeWindow_Z+", own, 0)
         # Y -
         for x in cube_range:
             for z in cube_range:
                 own.worldPosition = [x * tile_size,
                                      0,
                                      z * tile_size]
-                sce.addObject("CubeTile_Y-", own, 0)
+                
+                if y % 2:
+                    sce.addObject("CubeTile_Y-", own, 0)
+                else:
+                    sce.addObject("CubeWindow_Y-", own, 0)
         # Y +
         for x in cube_range:
             for z in cube_range:
                 own.worldPosition = [x * tile_size,
                                      (cube_size-1) * tile_size,
                                      z * tile_size]
-                sce.addObject("CubeTile_Y+", own, 0)
+                
+                if y % 2:
+                    sce.addObject("CubeTile_Y+", own, 0)
+                else:
+                    sce.addObject("CubeWindow_Y+", own, 0)
         # X -
         for y in cube_range:
             for z in cube_range:
                 own.worldPosition = [0,
                                      y * tile_size,
                                      z * tile_size]
-                sce.addObject("CubeTile_X-", own, 0)
+                
+                if y % 2:
+                    sce.addObject("CubeTile_X-", own, 0)
+                else:
+                    sce.addObject("CubeWindow_X-", own, 0)
         # X +
         for y in cube_range:
             for z in cube_range:
                 own.worldPosition = [(cube_size-1) * tile_size,
                                      y * tile_size ,
                                      z * tile_size]
-                sce.addObject("CubeTile_X+", own, 0)
+                
+                if y % 2:
+                    sce.addObject("CubeTile_X+", own, 0)
+                else:
+                    sce.addObject("CubeWindow_X+", own, 0)
 
     # tell the components object that loading of this component is done.
     logic.components.mark_loaded("cube")
