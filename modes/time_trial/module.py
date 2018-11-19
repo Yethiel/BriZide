@@ -2,7 +2,7 @@ import os
 import bgui
 from mathutils import Color
 from bge import logic
-from modules import components, global_constants, sound, helpers, ui, ui_main_menu
+from modules import components, global_constants, sound, helpers, ui, ui_main_menu, lights
 from modules import global_constants as G
 from random import randint
 
@@ -95,16 +95,19 @@ class TimeTrialUI(bgui.bge_utils.Layout):
         sce = logic.getCurrentScene()
         own = self.cont_obj
 
+        lights.clear()
         logic.ui["sys"].remove_overlay(TimeTrialUI)
         logic.ui["sys1"].remove_overlay(ui.OverlayUI)
         for component in required_components:
             logic.components.free(component)
         own.endObject()
+
         logic.components.free("time_trial")
         logic.components.clear()
         logic.game.clear()
         logic.uim.set_focus("menu")
         logic.ui["sys"].add_overlay(ui_main_menu.MainMenu)
+        logic.game.set_music_dir("menu")
 
 
 class TimeTrial():
@@ -206,7 +209,7 @@ class TimeTrial():
                         
                         self.cp_progress[str(ship)] = amnt_passed
                         if amnt_passed == len(self.cp_data):
-                            gD["input"]["focus"] = "menu"
+                            logic.uim.set_focus("menu")
 
                             if G.DEBUG: print("Time Trial over.")
 

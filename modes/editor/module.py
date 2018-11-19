@@ -33,7 +33,7 @@ def setup():
     # logic.addScene("UI_Editor")
 
     # unlock ship
-    globalDict["input"]["focus"] = "editor_main"
+    logic.uim.set_focus("editor_main")
 
     logic.ui["sys"].add_overlay(EditorUI)
 

@@ -96,15 +96,15 @@ class EditorUI(bgui.bge_utils.Layout):
         self.frame_prop.button_delete.on_click = delete_block
 
     def set_focus_ui(self, widget):
-        if gD.get("input")["focus"] != G.FOCUS_UI and not G.FOCUS_LOCK:
+        if logic.uim.focus != G.FOCUS_UI and not G.FOCUS_LOCK:
             if G.DEBUG: print(own.name, "Set focus to UI")
-            self.focus_before = gD.get("input")["focus"]
-        gD["input"]["focus"] = G.FOCUS_UI
+            self.focus_before = logic.uim.focus
+        logic.uim.set_focus(G.FOCUS_UI)
     
     def lift_focus_ui(self,widget):
         if not G.FOCUS_LOCK:
             if G.DEBUG: print(own.name, "Lifted focus from UI")
-            gD["input"]["focus"] = self.focus_before
+            logic.uim.set_focus(self.focus_before)
    
     def update(self):
         try: self.frame_prop.label_active_block.text = gD["editor"]["active_block"].name

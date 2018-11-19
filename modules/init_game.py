@@ -26,9 +26,6 @@ def setup():
     logic.components = components.Components() # manages game components loaded by game modes
     logic.game.set_music_dir("menu")
 
-    globalDict["input"] = {     # this is for control modules to check whether they are in focus
-        "focus" : "menu"
-    }
     logic.uim = ui.UIManager()
     logic.uim.set_focus("menu")
 
@@ -45,14 +42,6 @@ def setup():
 def main():
     pass
     # tests.main()
-
-# def end_menu():
-#     """Deprecated"""
-#     for scene in logic.getSceneList():
-#         if "UI_Menu" in scene.name:
-#             scene.end()
-#     components.free("main_menu")
-
 
 # actions are triggered with a message sensor. messages are sent by the UI
 def actions():

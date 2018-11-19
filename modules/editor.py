@@ -89,7 +89,8 @@ key_8 = getattr(events, c_stt["editor_8"])
 key_9 = getattr(events, c_stt["editor_9"])
 key_10 = getattr(events, c_stt["editor_10"])
 
-gD["input"]["focus"] = G.FOCUS_EDITOR_MAIN
+logic.uim.set_focus(G.FOCUS_EDITOR_MAIN)
+
 gD["editor"]["rotation"] = {
     "axis": Vector([0, 0, 1]),
     "amount" : Vector([0, 0, 0]),
@@ -219,7 +220,7 @@ def check_rotation_mode():
         gD["editor"]["rotation"]["original"] = gD["editor"]["active_block"].worldOrientation.to_euler()
         mouse.visible = False
 
-        gD["input"]["focus"] = G.FOCUS_EDITOR_ROT # set the input focus
+        logic.uim.set_focus(G.FOCUS_EDITOR_ROT) # set the input focus
         G.FOCUS_LOCK = True
 
         if G.DEBUG: print(own.name,"Rotation")
@@ -232,7 +233,7 @@ def check_grab_mode():
         for x in [0, 1, 2]: gD["editor"]["grab"]["original"][x] = gD["editor"]["active_block"].worldPosition[x]
         mouse.visible = False
 
-        gD["input"]["focus"] = G.FOCUS_EDITOR_GRAB # set the input focus
+        logic.uim.set_focus(G.FOCUS_EDITOR_GRAB) # set the input focus
         G.FOCUS_LOCK = True
 
         if G.DEBUG: print(own.name,"Grab")
@@ -276,7 +277,7 @@ def rotation_mode():
     # exit rotation mode and leave rotation applied
     if JUST_RELEASED in [keyboard.events[key_confirm], mouse.events[events.LEFTMOUSE]]:
         reset_mode("rotation")
-        gD["input"]["focus"] = G.FOCUS_EDITOR_MAIN
+        logic.uim.set_focus(G.FOCUS_EDITOR_MAIN)
         G.FOCUS_LOCK = False
         if G.DEBUG: print(own.name,"Leaving Rotation")
         mouse.visible = True
@@ -286,7 +287,7 @@ def rotation_mode():
         reset_mode("rotation")
 
         gD["editor"]["active_block"].worldOrientation = gD["editor"]["rotation"]["original"].to_matrix()
-        gD["input"]["focus"] = G.FOCUS_EDITOR_MAIN
+        logic.uim.set_focus(G.FOCUS_EDITOR_MAIN)
         G.FOCUS_LOCK = False
         if G.DEBUG: print(own.name,"Leaving Rotation, discarded changes")
         mouse.visible = True
@@ -320,7 +321,7 @@ def grab_mode():
     # exit grab mode and leave translation applied
     if JUST_RELEASED in [keyboard.events[key_confirm], mouse.events[events.LEFTMOUSE]]:
         reset_mode("grab")
-        gD["input"]["focus"] = G.FOCUS_EDITOR_MAIN
+        logic.uim.set_focus(G.FOCUS_EDITOR_MAIN)
         mouse.visible = True
         if G.DEBUG: print(own.name,"Leaving Grab")
 
@@ -328,7 +329,7 @@ def grab_mode():
     if JUST_RELEASED in [keyboard.events[key_discard], mouse.events[events.RIGHTMOUSE]]:
         reset_mode("grab")
         gD["editor"]["active_block"].worldPosition = gD["editor"]["grab"]["original"]
-        gD["input"]["focus"] = G.FOCUS_EDITOR_MAIN
+        logic.uim.set_focus(G.FOCUS_EDITOR_MAIN)
         mouse.visible = True
         if G.DEBUG: print(own.name,"Leaving Grab, discarded changes")
 
@@ -340,11 +341,11 @@ def main():
             logic.game.level.save()
 
 ### ROTATION MODE
-    if gD["input"]["focus"] == G.FOCUS_EDITOR_ROT:
+    if logic.uim.focus == G.FOCUS_EDITOR_ROT:
         rotation_mode()
 
 ### GRAB MODE
-    elif gD["input"]["focus"] == G.FOCUS_EDITOR_GRAB:
+    elif logic.uim.focus == G.FOCUS_EDITOR_GRAB:
         grab_mode()
 
 ### SELECT BLOCK TO PLACE
@@ -358,7 +359,7 @@ def main():
         refresh_cursor(gD["editor"]["selected_block"])
 
     # what to do when we're not in one of the manipulation modes
-    if gD["input"]["focus"] == G.FOCUS_EDITOR_MAIN:
+    if logic.uim.focus == G.FOCUS_EDITOR_MAIN:
 
         move_camera()
 
