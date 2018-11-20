@@ -4,7 +4,6 @@ import bgui
 import bgui.bge_utils
 from bge import logic
 
-from modules import menu
 from modules import ui
 
 globalDict = logic.globalDict
@@ -34,18 +33,18 @@ class MainMenu(bgui.bge_utils.Layout):
     def __init__(self, sys, data):
         super().__init__(sys, data)
 
-        self.menu = menu.Menu()
+        # self.menu = menu.Menu()
 
-        list = menu.List(label="Game Mode")
+        # list = menu.List(label="Game Mode")
 
-        for game_mode in logic.game.mode_list:
-            list.options.append(menu.Option(game_mode, game_mode, None))
+        # for game_mode in logic.game.mode_list:
+        #     list.options.append(menu.Option(game_mode, game_mode, None))
 
-        self.menu.options.append(menu.Option("Track", "track", self.start))
-        self.menu.options.append(menu.Option("Ship", "track", self.start))
-        self.menu.options.append(menu.Option("Start game", "start_game", self.start))
+        # self.menu.options.append(menu.Option("Track", "track", self.start))
+        # self.menu.options.append(menu.Option("Ship", "track", self.start))
+        # self.menu.options.append(menu.Option("Start game", "start_game", self.start))
 
-        self.menu.guilabels = []
+        # self.menu.guilabels = []
 
         # Use a frame to store all of our widgets
         self.frame = bgui.Frame(self, border=0)

@@ -5,7 +5,7 @@ The main function will initialize the globalDict.
 
 from bge import logic
 globalDict = logic.globalDict
-from modules import ui, game, components, content, config, tests, global_constants as G
+from modules import ui, menu, game, components, content, config, tests, global_constants as G
 import os
 
 cont = logic.getCurrentController()
@@ -39,17 +39,32 @@ def setup():
     if not os.path.isdir(player_dir):
         os.makedirs(player_dir)
 
+    logic.menus = {}
+
+    logic.menus["main_menu"] = menu.Menu(own)
+
+    logic.menus["main_menu"].options.append(
+        menu.Option(
+            logic.menus["main_menu"], 
+            "Start Game", 
+            [0, 1, 0], 0)
+    )
+
+    logic.menus["main_menu"].options.append(
+        menu.Option(
+            logic.menus["main_menu"], 
+            "Game Mode", 
+            [0, 0, 0], 0)
+    )
+
+    logic.menus["main_menu"].options.append(
+        menu.Option(
+            logic.menus["main_menu"], 
+            "Level", 
+            [0, -1, 0], 0)
+    )
+
 def main():
-    pass
-    # tests.main()
-
-# actions are triggered with a message sensor. messages are sent by the UI
-def actions():
-    pass
-    # message_sensor = own.sensors["msg"]
-
-    # # this starts the game with the selected mode and settings
-    # if message_sensor.positive and "start" in str(message_sensor.subjects):
-    #   mode = str(message_sensor.bodies[0])
-    #   components.load_immediate("../modes/" + mode + "/" + mode)
-    #   end_menu()
+    
+    if "main_menu" in logic.menus:
+        logic.menus["main_menu"].update()
