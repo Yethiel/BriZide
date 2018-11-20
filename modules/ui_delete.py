@@ -63,16 +63,17 @@ class OverlayUI(bgui.bge_utils.Layout):
 
 
 def main(cont):
-    own = cont.owner
-    mouse = logic.mouse
+    pass
+    # own = cont.owner
+    # mouse = logic.mouse
 
-    if 'sys' not in logic.ui:
-        logic.ui['sys'] = bgui.bge_utils.System(logic.expandPath('//themes/default'))
-        logic.ui['sys1'] = bgui.bge_utils.System(logic.expandPath('//themes/default'))
-        logic.ui['sys'].load_layout(MainUI, None)
-        logic.ui["sys"].add_overlay(MainMenu, None)
-        mouse.visible = True
+    # if 'sys' not in logic.ui:
+    #     logic.ui['sys'] = bgui.bge_utils.System(logic.expandPath('//themes/default'))
+    #     logic.ui['sys1'] = bgui.bge_utils.System(logic.expandPath('//themes/default'))
+    #     logic.ui['sys'].load_layout(MainUI, None)
+    #     logic.ui["sys"].add_overlay(MainMenu, None)
+    #     mouse.visible = True
 
-    else:
-        logic.ui['sys'].run()
-        logic.ui['sys1'].run()
+    # else:
+    #     logic.ui['sys'].run()
+    #     logic.ui['sys1'].run()

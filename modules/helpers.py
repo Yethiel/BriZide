@@ -27,3 +27,10 @@ def time_string(timefloat):
 
 def fatal_error(msg):
     print("Something went wrong:", msg)
+
+
+def get_scene(scene_name):
+    for sce in logic.getSceneList():
+        if sce.name == scene_name:
+            return sce
+    return None

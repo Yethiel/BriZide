@@ -5,7 +5,7 @@ The main function will initialize the globalDict.
 
 from bge import logic
 globalDict = logic.globalDict
-from modules import ui, menu, game, components, content, config, tests, global_constants as G
+from modules import gui, game, components, content, config, tests, global_constants as G
 import os
 
 cont = logic.getCurrentController()
@@ -26,11 +26,8 @@ def setup():
     logic.components = components.Components() # manages game components loaded by game modes
     logic.game.set_music_dir("menu")
 
-    logic.uim = ui.UIManager()
+    logic.uim = gui.UIManager()
     logic.uim.set_focus("menu")
-
-    # A dictionary for all the UI layers
-    logic.ui = {}
 
     # get available content
     content.set_all()
@@ -39,32 +36,15 @@ def setup():
     if not os.path.isdir(player_dir):
         os.makedirs(player_dir)
 
-    logic.menus = {}
+    logic.addScene("Menu")
+    logic.addScene("Skybox", 0)
+    logic.uim.set_focus("menu")
 
-    logic.menus["main_menu"] = menu.Menu(own)
 
-    logic.menus["main_menu"].options.append(
-        menu.Option(
-            logic.menus["main_menu"], 
-            "Start Game", 
-            [0, 1, 0], 0)
-    )
-
-    logic.menus["main_menu"].options.append(
-        menu.Option(
-            logic.menus["main_menu"], 
-            "Game Mode", 
-            [0, 0, 0], 0)
-    )
-
-    logic.menus["main_menu"].options.append(
-        menu.Option(
-            logic.menus["main_menu"], 
-            "Level", 
-            [0, -1, 0], 0)
-    )
 
 def main():
     
-    if "main_menu" in logic.menus:
-        logic.menus["main_menu"].update()
+    if logic.uim.queue:
+        if logic.uim.queue[0] == "game_start":
+            logic.game.start()
+            logic.uim.queue.pop(0)

@@ -1,11 +1,12 @@
 from bge import logic
 
-from modules import global_constants as G
+from modules import helpers, global_constants as G
 
 logic.lights = []
 
 def setup():
-    sce = logic.getCurrentScene()
+    sce = helpers.get_scene("Scene")
+    print(sce.name)
     own = logic.getCurrentController().owner
     light_obj = sce.objects[own["light"]]
     light_obj.worldPosition = own.worldPosition
@@ -17,7 +18,7 @@ def setup():
 
 
 def clear():
-    sce = logic.getCurrentScene()
+    sce = helpers.get_scene("Scene")
     own = logic.getCurrentController().owner
 
     if G.DEBUG: print("Clearing lights")
