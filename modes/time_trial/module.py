@@ -1,7 +1,7 @@
 import os
 import bgui
 from mathutils import Color
-from bge import logic
+from bge import logic, events
 from modules import components, global_constants, sound, helpers, btk, lights
 from modules import global_constants as G
 from random import randint
@@ -10,6 +10,11 @@ required_components = ["blocks", "level", "cube", "ship"]
 trigger_distance = 32 # distance for a checkpoint to be triggered
 game = logic.game
 
+kbd = logic.keyboard
+
+JUST_ACTIVATED = logic.KX_INPUT_JUST_ACTIVATED
+JUST_RELEASED = logic.KX_INPUT_JUST_RELEASED
+ACTIVE = logic.KX_INPUT_ACTIVE
 
 # class TimeTrialUI(bgui.bge_utils.Layout):
 #     def __init__(self, sys, data):
@@ -230,6 +235,24 @@ def update_label_time(widget):
     widget.text = helpers.time_string(own["Timer"])
 
 
+def return_to_menu(widget):
+    sce = logic.getCurrentScene()
+    own = logic.time_trial.controller
+
+    logic.ui.pop("time_trial")
+
+    lights.clear()
+    for component in required_components:
+        logic.components.free(component)
+    own.endObject()
+
+    logic.components.free("time_trial")
+    logic.components.clear()
+    logic.game.clear()
+    logic.uim.set_focus("menu")
+    logic.game.set_music_dir("menu")
+
+
 def init():
     """ Runs once before or while loading """
 
@@ -244,10 +267,27 @@ def init():
     own["init"] = True
 
     logic.ui["time_trial"] = btk.Layout("time_trial", logic.uim.go)
+    layout = logic.ui["time_trial"]
 
-    btk.Label(logic.ui["time_trial"], text="Speed", position=[12, 0.1, 0], size=0.6, update=update_label_speed)    
-    btk.Label(logic.ui["time_trial"], text="Tile", position=[0.5, 7, 0], size=0.4, update=update_label_time)    
+    btk.Label(layout, text="Speed", position=[12, 0.1, 0], size=0.6, update=update_label_speed)    
+    btk.Label(layout, text="Tile", position=[0.5, 7, 0], size=0.4, update=update_label_time)
 
+    menu = btk.Menu("pause_menu", layout)
+
+    menu.populate(
+        texts=[
+            "Restart", 
+            "Return to Menu"
+        ], 
+        position=[0.5, 5.0, 0],
+        size=0.5,
+        actions=[
+            None,
+            return_to_menu
+        ],
+        hidden=False
+    )
+    menu.hide()
 
 
 def load(cont_obj):
@@ -275,6 +315,22 @@ def main():
 
     tt.countdown(own)
     tt.checkpoints(game, own)
+    
+    menu = logic.ui["time_trial"].get_element("pause_menu")
+
+    if own["ui_timer"] > 0.01:
+        if logic.uim.focus == "ship" and kbd.events[events.ESCKEY] == JUST_ACTIVATED:
+            menu.show()
+            menu.focus()
+            logic.uim.set_focus("menu")
+            own["ui_timer"] = 0
+
+        elif logic.uim.focus == "menu" and kbd.events[events.ESCKEY] == JUST_ACTIVATED:
+            menu.hide()
+            menu.unfocus()
+            logic.uim.set_focus("ship")
+            own["ui_timer"] = 0
+
 
 
 def setup():

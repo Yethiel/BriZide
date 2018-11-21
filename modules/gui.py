@@ -1,6 +1,7 @@
 from bge import logic
 from modules import btk
 
+from modules import global_constants as G
 
 class UIManager():
     def __init__(self):
@@ -10,6 +11,7 @@ class UIManager():
         self.go = None  # Game object used to spawn ui elements
 
     def set_focus(self, element):
+        if G.DEBUG: print("Set focus to", element)
         self.focus = element
 
     def enqueue(self, command):
@@ -98,9 +100,12 @@ def select_mode(widget):
 
 def start_game(widget):
     logic.ui["layout_main"].hide()
+    logic.ui["layout_main"].unfocus()
     logic.uim.enqueue("game_start")
 
 
 def main():
-    for element in logic.ui:
-        logic.ui[element].run()
+    elements = logic.ui.copy().keys()
+    for element in elements:
+        if element in logic.ui:
+            logic.ui[element].run()

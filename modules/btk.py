@@ -17,8 +17,8 @@ class Layout:
         """
         self.title = title
         self.elements = []
-        self.go = game_obj
-        self.sce = self.go.scene
+        self.root = game_obj
+        self.sce = self.root.scene
 
     def run(self):
         for element in self.elements:
@@ -28,9 +28,21 @@ class Layout:
         for element in self.elements:
             element.hide()
 
+    def end(self):
+        for element in self.elements:
+            if hasattr(element, "go"):
+                go.endObject()
+            if hasattr(element, "elements"):
+                element.end()
+
     def show(self):
         for element in self.elements:
             element.show()
+
+    def unfocus(self):
+        for element in self.elements:
+            if hasattr(element, "unfocus"):
+                element.unfocus()
 
     def add_element(self, element):
         self.elements.append(element)
@@ -40,7 +52,9 @@ class Layout:
 
     def get_element(self, title):
         for element in self.elements:
-            if element.title == title:
+            if hasattr(element, "title") and element.title == title:
+                return element
+            elif hasattr(element, "text") and element.text == title:
                 return element
         return None
 
@@ -56,7 +70,7 @@ class Menu(Layout):
                     Boolean: Whether the menu gains control
         """
 
-        super().__init__(title, parent.go)
+        super().__init__(title, parent.root)
         self.parent = parent
         self.active = 0
         self.focused = focused
@@ -84,7 +98,7 @@ class Menu(Layout):
 
     def focus(self):
         self.focused = True
-        self.go["timer"] = 0.0
+        self.root["timer"] = 0.0
 
     def unfocus(self):
         self.focused = False
@@ -104,12 +118,12 @@ class Menu(Layout):
         for i in range(len(self.elements)):
             self.elements[i].go.color = [0.3, 0.3, 0.2, 1.0]
             if i == self.active:
-                c = math.sin(self.go["timer"]*8) / 4
+                c = math.sin(self.root["timer"]*8) / 4
                 self.elements[i].go.color = [0.75 + c, 0.75 + c, 0.65 + c, 1.0]
             self.elements[i].run()
 
     def controls(self):
-        if logic.uim.focus == "menu" and self.focused and self.go["timer"] > 0.1:
+        if logic.uim.focus == "menu" and self.focused and self.root["timer"] > 0.1:
             if kbd.events[events.UPARROWKEY] == JUST_ACTIVATED:
                 self.previous()
             if kbd.events[events.DOWNARROWKEY] == JUST_ACTIVATED:
@@ -121,7 +135,7 @@ class Element:
     def __init__(self, parent, object, position, update=None, hidden=False):
         self.parent = parent
         self.update = update
-        self.go = self.parent.sce.addObject(object, parent.go)
+        self.go = self.parent.sce.addObject(object, parent.root)
         self.go.worldPosition = position
 
         self.parent.add_element(self)
