@@ -16,7 +16,7 @@ def main():
     sce = logic.getCurrentScene()
     own = logic.getCurrentController().owner
 
-    settings = logic.globalDict.get("settings")
+    settings = logic.settings
     level = logic.game.get_level()
 
     # size of the tile objects the cube is made out of (in Blender units)

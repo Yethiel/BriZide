@@ -1,13 +1,5 @@
 from bge import logic
 
-# just get stuff from the globalDict
-def get_prop(key):
-    return logic.globalDict.get(key)
-
-def set_prop(key, value):
-    logic.globalDict[key][value]
-
-
 def clamp(value, min, max):
     """ Clamps the given value
     :param: value

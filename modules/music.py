@@ -1,14 +1,13 @@
 import aud
 from os import listdir
 from bge import logic
-globalDict = logic.globalDict
 from random import shuffle, randint
 from modules import global_constants as G
 
 cont = logic.getCurrentController()
 own = cont.owner
 
-audio_settings = globalDict["settings"]["Audio"]
+audio_settings = logic.settings["Audio"]
 
 logic.device = aud.device()
 

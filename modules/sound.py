@@ -2,11 +2,10 @@ import aud
 from bge import logic
 from modules import global_constants as G
 import os
-globalDict = logic.globalDict
 
 logic.device = aud.device()
-vol_master = float(globalDict["settings"]["Audio"]["master"])
-vol_sfx = float(globalDict["settings"]["Audio"]["effects"])
+vol_master = float(logic.settings["Audio"]["master"])
+vol_sfx = float(logic.settings["Audio"]["effects"])
 logic.device.volume = vol_master
 
 logic.sounds = {}
@@ -60,7 +59,7 @@ def play(facname):
     if facname in logic.sounds.keys():
         if G.DEBUG: print("Playing sound:",facname)
         snd = logic.device.play(logic.sounds[facname])
-        snd.volume = float(globalDict["settings"]["Audio"]["effects"])
+        snd.volume = float(logic.settings["Audio"]["effects"])
         return snd
     else:
         if G.DEBUG: print("Sound not found:", facname)

@@ -4,7 +4,6 @@ The main function will initialize the globalDict.
 """
 
 from bge import logic
-globalDict = logic.globalDict
 from modules import gui, game, components, content, config, tests, global_constants as G
 import os
 
@@ -17,8 +16,6 @@ def setup():
     if G.DEBUG: os.system('clear')
     print("Brizide ver.", G.VERSION)
     if G.DEBUG: print("D E B U G")
-
-    globalDict["settings"] = config.load() #TODO: remove
 
     logic.settings = config.load()
     logic.game = game.Game() # new and controlled "global dict"
