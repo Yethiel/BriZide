@@ -99,3 +99,4 @@ ENV/
 docs/blender_python_reference_2_78_0/
 old/
 docs/docs_bgui/
+profiles/*
