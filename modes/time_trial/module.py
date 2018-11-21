@@ -1,5 +1,4 @@
 import os
-import bgui
 from mathutils import Color
 from bge import logic, events
 from modules import components, global_constants, sound, helpers, btk, lights
