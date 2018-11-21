@@ -110,13 +110,14 @@ game = logic.game
 
 
 class TimeTrial():
-    def __init__(self):
+    def __init__(self, controller):
         self.cp_data = []
         self.cp_count = 0
         self.cp_progress = {"0": 0}
         self.best_times = []
         self.best_time = {"player": "", "time": 999.0}
         self.final_time = 0.0
+        self.controller = logic.getCurrentController().owner
 
     def setup_checkpoints(self, sce):
         for obj in sce.objects:
@@ -222,24 +223,30 @@ def update_label_speed(widget):
     ship = game.get_ship_by_player(0)
     if ship:
         # self.bar_boost.percent = ship.current_boost/500
-        widget.text = ">>> " + str(int(ship.current_velocity))    
+        widget.text = ">>> " + str(int(ship.current_velocity))
+
+def update_label_time(widget):
+    own = logic.time_trial.controller
+    widget.text = helpers.time_string(own["Timer"])
 
 
 def init():
     """ Runs once before or while loading """
 
+    own = logic.getCurrentController().owner
+
     logic.components = components.Components()
-    logic.time_trial = TimeTrial()
+    logic.time_trial = TimeTrial(own)
     queue_id = logic.components.enqueue(required_components)
 
     sce = logic.getCurrentScene()
-    own = logic.getCurrentController().owner
 
     own["init"] = True
 
-    logic.ui["time_trial"] = btk.Layout(logic.uim.go)
+    logic.ui["time_trial"] = btk.Layout("time_trial", logic.uim.go)
 
-    logic.ui["time_trial"].elements.append(btk.Option(logic.ui["time_trial"], text="Speed", position=[12, 0.1, 0], size = 0.6, update=update_label_speed))    
+    btk.Label(logic.ui["time_trial"], text="Speed", position=[12, 0.1, 0], size=0.6, update=update_label_speed)    
+    btk.Label(logic.ui["time_trial"], text="Tile", position=[0.5, 7, 0], size=0.4, update=update_label_time)    
 
 
 
