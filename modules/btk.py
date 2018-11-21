@@ -1,4 +1,4 @@
-from bge import logic, events
+from bge import logic, events, render
 import math
 
 kbd = logic.keyboard
@@ -157,15 +157,25 @@ class Element:
 class Label(Element):
     def __init__(self, parent, text="Label", position=[0.0, 0.0, 0.0], size=1.0, update=None, hidden=False):
         super().__init__(parent, object="ui_label", title=text, position=position, update=update, hidden=hidden)
+        
         self.text = text
         self.go.size = size
+        self.test = 0.0001
 
     def set_color(self, color):
         self.go.color = color
 
     def run(self):
         super().run()
+
         self.go.text = self.text
+
+        default_px_per_bu = 100  
+        window_width = render.getWindowWidth()
+        view_width = self.go.scene.active_camera.ortho_scale
+        pixel_ratio = window_width / view_width # pixels / bu
+        self.go.resolution = pixel_ratio / default_px_per_bu
+
 
 
 class Option(Label):
