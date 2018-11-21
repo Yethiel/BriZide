@@ -216,6 +216,12 @@ class TimeTrial():
                         if amnt_passed == len(self.cp_data):
                             logic.uim.set_focus("menu")
 
+                            menu = logic.ui["time_trial"].get_element("pause_menu")
+                            menu.show()
+                            menu.focus()
+                            logic.uim.set_focus("menu")
+                            logit.time_trial.controller["ui_timer"] = 0
+
                             if G.DEBUG: print("Time Trial over.")
 
                             self.final_time = cont_obj["Timer"]
@@ -239,6 +245,7 @@ def return_to_menu(widget):
     sce = logic.getCurrentScene()
     own = logic.time_trial.controller
 
+    logic.ui["time_trial"].end()
     logic.ui.pop("time_trial")
 
     lights.clear()
@@ -251,6 +258,31 @@ def return_to_menu(widget):
     logic.game.clear()
     logic.uim.set_focus("menu")
     logic.game.set_music_dir("menu")
+
+    logic.ui["layout_main"].get_element("menu_main").show()
+    logic.ui["layout_main"].get_element("logo").show()
+    logic.ui["layout_main"].get_element("B r i Z i d e").show()
+    logic.ui["layout_main"].get_element("menu_main").focus()
+
+
+def restart(widget):
+    sce = logic.getCurrentScene()
+    own = logic.time_trial.controller
+
+    logic.ui["time_trial"].end()
+    logic.ui.pop("time_trial")
+
+    lights.clear()
+    for component in required_components:
+        logic.components.free(component)
+    own.endObject()
+
+    logic.components.free("time_trial")
+    logic.components.clear()
+    logic.game.clear()
+    logic.uim.set_focus("menu")
+    
+    logic.uim.enqueue("game_start")
 
 
 def init():
@@ -282,7 +314,7 @@ def init():
         position=[0.5, 5.0, 0],
         size=0.5,
         actions=[
-            None,
+            restart,
             return_to_menu
         ],
         hidden=False
@@ -330,7 +362,6 @@ def main():
             menu.unfocus()
             logic.uim.set_focus("ship")
             own["ui_timer"] = 0
-
 
 
 def setup():

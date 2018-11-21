@@ -34,21 +34,23 @@ def setup():
         texts=[
             "Start Game", 
             "Game Mode", 
-            "Level"
+            "Level",
+            "Quit"
         ], 
         position=[0.5, 5.0, 0],
         size=0.5,
         actions=[
             start_game, 
             show_menu_mode, 
-            show_menu_level
+            show_menu_level,
+            end_game
         ],
         hidden=False
     )
 
     menu_level = btk.Menu("menu_level", layout)
     menu_level.populate(
-        texts=logic.game.level_list, 
+        texts=logic.game.level_list,
         position=[5.5, 5.0, 0],
         size=0.5,
         actions=[select_level for x in range(len(logic.game.level_list))],
@@ -59,7 +61,7 @@ def setup():
 
     menu_mode = btk.Menu("menu_mode", layout)
     menu_mode.populate(
-        texts=logic.game.mode_list, 
+        texts=logic.game.mode_list,
         position=[5.5, 5.0, 0],
         size=0.5,
         actions=[select_mode for x in range(len(logic.game.mode_list))],
@@ -67,7 +69,7 @@ def setup():
     )
     menu_mode.set_active(logic.game.mode)
 
-    logo = btk.Element(layout, "logo", [0.5, 6, 0])
+    logo = btk.Element(layout, object="logo", title="logo", position=[0.5, 6, 0])
     title = btk.Label(layout, text="B r i Z i d e", position=[3, 6.8, 0], size=0.6)
     title.set_color([1, 0.5, 0.0, 1.0])
 
@@ -102,6 +104,9 @@ def start_game(widget):
     logic.ui["layout_main"].hide()
     logic.ui["layout_main"].unfocus()
     logic.uim.enqueue("game_start")
+
+def end_game(widget):
+    logic.endGame()
 
 
 def main():

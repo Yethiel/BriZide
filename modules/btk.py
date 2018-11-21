@@ -31,8 +31,10 @@ class Layout:
     def end(self):
         for element in self.elements:
             if hasattr(element, "go"):
-                go.endObject()
+                print("Ending game object")
+                element.go.endObject()
             if hasattr(element, "elements"):
+                print("Ending menu")
                 element.end()
 
     def show(self):
@@ -53,8 +55,6 @@ class Layout:
     def get_element(self, title):
         for element in self.elements:
             if hasattr(element, "title") and element.title == title:
-                return element
-            elif hasattr(element, "text") and element.text == title:
                 return element
         return None
 
@@ -132,12 +132,12 @@ class Menu(Layout):
                 self.get_active().execute()
 
 class Element:
-    def __init__(self, parent, object, position, update=None, hidden=False):
+    def __init__(self, parent, object=None, position=[0,0,0], title="", update=None, hidden=False):
         self.parent = parent
         self.update = update
         self.go = self.parent.sce.addObject(object, parent.root)
         self.go.worldPosition = position
-
+        self.title = title
         self.parent.add_element(self)
 
         if hidden:
@@ -156,7 +156,7 @@ class Element:
 
 class Label(Element):
     def __init__(self, parent, text="Label", position=[0.0, 0.0, 0.0], size=1.0, update=None, hidden=False):
-        super().__init__(parent, "ui_label", position, update, hidden)
+        super().__init__(parent, object="ui_label", title=text, position=position, update=update, hidden=hidden)
         self.text = text
         self.go.size = size
 
