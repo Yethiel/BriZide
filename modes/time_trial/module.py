@@ -183,7 +183,7 @@ class TimeTrial():
                             menu.show()
                             menu.focus()
                             logic.uim.set_focus("menu")
-                            logit.time_trial.controller["ui_timer"] = 0
+                            logic.time_trial.controller["ui_timer"] = 0
 
                             if G.DEBUG: print("Time Trial over.")
 
@@ -227,14 +227,20 @@ def update_label_checkpoints(widget):
 
 def update_checkpoint_bar(widget):
     tt = logic.time_trial
-    widget.progress = tt.cp_progress[str(0)] / tt.cp_count
-
-
+    if tt.cp_count != 0:
+        widget.progress = tt.cp_progress[str(0)] / tt.cp_count
 
 def update_boost_bar(widget):
     ship = logic.game.get_ship_by_player(0)
     if ship:
         widget.progress = ship.current_boost/500
+
+def update_label_best(widget):
+    tt = logic.time_trial
+    widget.text  = "BEST: {} ({})".format(
+            helpers.time_string(tt.best_time["time"]), 
+            tt.best_time["player"]
+    )
 
 
 def return_to_menu(widget):
@@ -298,11 +304,14 @@ def init():
     logic.ui["time_trial"] = btk.Layout("time_trial", logic.uim.go)
     layout = logic.ui["time_trial"]
 
+    btk.Label(layout, text="", position=[7.5, 7.5, 0], size=1.0, update=update_label_countdown)
+
+    btk.Label(layout, text="", position=[0.5, 7.5, 0], size=0.6, update=update_label_time)
+    btk.Label(layout, text="", position=[0.52, 7.2, 0], size=0.2, update=update_label_best)
+    btk.Label(layout, text="", position=[0.5, 6.5, 0], size=0.4, update=update_label_checkpoints)
+
     btk.Label(layout, text="", position=[12, 0.5, 0], size=0.6, update=update_label_speed)    
-    btk.Label(layout, text="", position=[0.5, 6.5, 0], size=0.4, update=update_label_time)
-    btk.Label(layout, text="", position=[0.5, 7.5, 0], size=1.0, update=update_label_countdown)
-    btk.Label(layout, text="", position=[0.5, 6, 0], size=0.4, update=update_label_checkpoints)
-    
+
     boost_bar = btk.ProgressBar(
         layout, 
         title="boost", 
@@ -316,7 +325,7 @@ def init():
     checkpoint_bar = btk.ProgressBar(
         layout, 
         title="checkpoints_bar", 
-        position=[0.5, 5.95, -0.1], 
+        position=[0.5, 6.45, -0.1], 
         min_scale=[0, .4, 1], 
         max_scale=[2.5, .4, 1], 
         update=update_checkpoint_bar
