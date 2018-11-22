@@ -4,7 +4,7 @@ The main function will initialize the globalDict.
 """
 
 from bge import logic
-from modules import gui, game, components, content, config, tests, global_constants as G
+from modules import sound, gui, game, components, content, config, tests, global_constants as G
 import os
 
 cont = logic.getCurrentController()
@@ -17,7 +17,9 @@ def setup():
     print("Brizide ver.", G.VERSION)
     if G.DEBUG: print("D E B U G")
 
+
     logic.settings = config.load()
+    sound.init()
     logic.game = game.Game() # new and controlled "global dict"
 
     logic.components = components.Components() # manages game components loaded by game modes

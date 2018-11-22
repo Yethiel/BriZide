@@ -1,5 +1,6 @@
 from bge import logic, events, render
 import math
+from modules import sound
 
 kbd = logic.keyboard
 
@@ -13,7 +14,7 @@ class Layout:
             title:
                 String: identifier of the layout
             game_obj:
-                KX_GameObject
+                KX_GameObject to use as the root
         """
         self.title = title
         self.elements = []
@@ -126,17 +127,22 @@ class Menu(Layout):
         if logic.uim.focus == "menu" and self.focused and self.root["timer"] > 0.1:
             if kbd.events[events.UPARROWKEY] == JUST_ACTIVATED:
                 self.previous()
+                sound.play("menu")
             if kbd.events[events.DOWNARROWKEY] == JUST_ACTIVATED:
                 self.next()
+                sound.play("menu")
             if kbd.events[events.ENTERKEY] == JUST_ACTIVATED:
+                sound.play("select")
                 self.get_active().execute()
 
+
 class Element:
-    def __init__(self, parent, object=None, position=[0,0,0], title="", update=None, hidden=False):
+    def __init__(self, parent, object=None, position=[0,0,0], scale=[1,1,1], title="", update=None, hidden=False):
         self.parent = parent
         self.update = update
         self.go = self.parent.sce.addObject(object, parent.root)
         self.go.worldPosition = position
+        self.go.worldScale = scale
         self.title = title
         self.parent.add_element(self)
 
@@ -147,11 +153,30 @@ class Element:
         if self.update is not None:
             self.update(self)
 
+    def set_color(self, color):
+        self.go.color = color
+
     def hide(self):
         self.go.visible = False
 
     def show(self):
         self.go.visible = True
+
+
+class ProgressBar(Element):
+    def __init__(self, parent, title="", position=[0,0,0], min_scale=[0,0,0], max_scale=[1,1,1], update=None, hidden=False):
+        super().__init__(parent, object="ui_bar", title=title, position=position, scale=min_scale, update=update, hidden=hidden)
+        self.progress = 0.0
+        self.min_scale = min_scale
+        self.max_scale = max_scale
+
+    def run(self):
+        super().run()
+
+        x = self.min_scale[0] + self.progress * (self.max_scale[0] - self.min_scale[0])
+        y = self.min_scale[1] + self.progress * (self.max_scale[1] - self.min_scale[1])
+        z = self.min_scale[2] + self.progress * (self.max_scale[2] - self.min_scale[2])
+        self.go.worldScale = [x, y, z]
 
 
 class Label(Element):
@@ -161,9 +186,6 @@ class Label(Element):
         self.text = text
         self.go.size = size
         self.test = 0.0001
-
-    def set_color(self, color):
-        self.go.color = color
 
     def run(self):
         super().run()
@@ -175,7 +197,6 @@ class Label(Element):
         view_width = self.go.scene.active_camera.ortho_scale
         pixel_ratio = window_width / view_width # pixels / bu
         self.go.resolution = pixel_ratio / default_px_per_bu
-
 
 
 class Option(Label):

@@ -69,7 +69,7 @@ def setup():
     )
     menu_mode.set_active(logic.game.mode)
 
-    logo = btk.Element(layout, object="logo", title="logo", position=[0.5, 6, 0])
+    logo = btk.Element(layout, object="logo", title="logo", position=[0.5, 6, 0], scale=[2,2,1])
     title = btk.Label(layout, text="B r i Z i d e", position=[3, 6.8, 0], size=0.6)
     title.set_color([1, 0.5, 0.0, 1.0])
 

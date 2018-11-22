@@ -4,9 +4,6 @@ from modules import global_constants as G
 import os
 
 logic.device = aud.device()
-vol_master = float(logic.settings["Audio"]["master"])
-vol_sfx = float(logic.settings["Audio"]["effects"])
-logic.device.volume = vol_master
 
 logic.sounds = {}
 for wavpath in [logic.expandPath("//wavs/announcer/"), logic.expandPath("//wavs/")]:
@@ -33,6 +30,8 @@ class EchoWrapper():
         self.distance_maximum = distance_maximum
 
     def play(self):
+        vol_sfx = float(logic.settings["Audio"]["effects"])
+
         for i in range(0, self.feedback):
             newfac = aud.Factory.delay(logic.sounds[self.soundstring], self.delay*i)
             snd = logic.device.play(newfac)
@@ -64,3 +63,6 @@ def play(facname):
     else:
         if G.DEBUG: print("Sound not found:", facname)
         return None
+
+def init():
+    logic.device.volume = float(logic.settings["Audio"]["master"])

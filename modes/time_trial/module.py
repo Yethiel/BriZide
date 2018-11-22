@@ -189,7 +189,6 @@ class TimeTrial():
                 cont_obj["countdown"] -= 1
 
     def checkpoints(self, game, cont_obj):
-
         for cp in self.cp_data:
             for ship in game.ships:
 
@@ -237,7 +236,30 @@ def update_label_speed(widget):
 
 def update_label_time(widget):
     own = logic.time_trial.controller
-    widget.text = helpers.time_string(own["Timer"])
+    tt = logic.time_trial
+    if own["CountdownTimer"] > 4:
+        if not tt.cp_count == tt.cp_progress["0"]:
+            widget.text = helpers.time_string(own["Timer"])
+
+def update_label_countdown(widget):
+    own = logic.time_trial.controller
+
+    if not "countdown" in own:
+        own["countdown"] = 4
+    if own["countdown"] < 4:
+        widget.text = str(own["countdown"])
+    else:
+        widget.text = ""
+    if own["countdown"] == 0:
+        widget.text = "GO!"
+    if own["countdown"] == -1:
+        widget.text = ""
+
+
+def update_boost_bar(widget):
+    ship = logic.game.get_ship_by_player(0)
+    if ship:
+        widget.progress = ship.current_boost/500
 
 
 def return_to_menu(widget):
@@ -300,8 +322,19 @@ def init():
     logic.ui["time_trial"] = btk.Layout("time_trial", logic.uim.go)
     layout = logic.ui["time_trial"]
 
-    btk.Label(layout, text="Speed", position=[12, 0.1, 0], size=0.6, update=update_label_speed)    
-    btk.Label(layout, text="Tile", position=[0.5, 7, 0], size=0.4, update=update_label_time)
+    btk.Label(layout, text="", position=[12, 0.1, 0], size=0.6, update=update_label_speed)    
+    btk.Label(layout, text="", position=[0.5, 7, 0], size=0.4, update=update_label_time)
+    btk.Label(layout, text="", position=[0.5, 7.5, 0], size=1.0, update=update_label_countdown)
+    
+    boost_bar = btk.ProgressBar(
+        layout, 
+        title="boost", 
+        position=[0.5, 0.5, 0], 
+        min_scale=[0, .5, 1], 
+        max_scale=[4, .5, 1], 
+        update=update_boost_bar
+    )
+    boost_bar.set_color([1, .743, 0.0, 0.75])
 
     menu = btk.Menu("pause_menu", layout)
 
