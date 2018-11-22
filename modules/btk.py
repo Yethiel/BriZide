@@ -1,3 +1,7 @@
+"""
+BTK: A GUI toolkit for the Blender Game Engine
+"""
+
 from bge import logic, events, render
 import math
 from modules import sound
@@ -192,7 +196,8 @@ class Label(Element):
 
         self.go.text = self.text
 
-        default_px_per_bu = 100  
+        # Approximates font resolution (font.dimensions only available in UPBGE)
+        default_px_per_bu = 100
         window_width = render.getWindowWidth()
         view_width = self.go.scene.active_camera.ortho_scale
         pixel_ratio = window_width / view_width # pixels / bu

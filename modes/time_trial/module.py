@@ -15,13 +15,6 @@ JUST_ACTIVATED = logic.KX_INPUT_JUST_ACTIVATED
 JUST_RELEASED = logic.KX_INPUT_JUST_RELEASED
 ACTIVE = logic.KX_INPUT_ACTIVE
 
-# class TimeTrialUI(bgui.bge_utils.Layout):
-#     def __init__(self, sys, data):
-#         super().__init__(sys, data)
-#         self.frame = bgui.Frame(self, border=0)
-#         self.frame.colors = [(0, 0, 0, 0) for i in range(4)]
-#         self.cont_obj = data
-
 #         self.lbl_count = bgui.Label(
 #             self.frame, 
 #             text="1", 
@@ -71,17 +64,6 @@ ACTIVE = logic.KX_INPUT_ACTIVE
 #             )
 #             self.lbl_checkpoints.text = "Chk " + str(tt.cp_progress[str(0)]) +"/"+ str(tt.cp_count)
 
-#             if not "countdown" in own:
-#                 own["countdown"] = 4
-
-#             if own["countdown"] < 4:
-#                 self.lbl_count.text = str(own["countdown"])
-#             else:
-#                 self.lbl_count.text = ""
-#             if own["countdown"] == 0:
-#                 self.lbl_count.text = "GO!"
-#             if own["countdown"] == -1:
-#                 self.lbl_count.text = ""
 
 #             if own["CountdownTimer"] > 4 and gD:
 #                 if not tt.cp_count == tt.cp_progress["0"]:
@@ -94,23 +76,6 @@ ACTIVE = logic.KX_INPUT_ACTIVE
 #                 self.button_menu.visible = False    
 
 
-#     def return_to_menu(self, widget):
-#         sce = logic.getCurrentScene()
-#         own = self.cont_obj
-
-#         lights.clear()
-#         logic.ui["sys"].remove_overlay(TimeTrialUI)
-#         logic.ui["sys1"].remove_overlay(ui.OverlayUI)
-#         for component in required_components:
-#             logic.components.free(component)
-#         own.endObject()
-
-#         logic.components.free("time_trial")
-#         logic.components.clear()
-#         logic.game.clear()
-#         logic.uim.set_focus("menu")
-#         logic.ui["sys"].add_overlay(ui_main_menu.MainMenu)
-#         logic.game.set_music_dir("menu")
 
 
 class TimeTrial():
@@ -256,6 +221,16 @@ def update_label_countdown(widget):
         widget.text = ""
 
 
+def update_label_checkpoints(widget):
+    tt = logic.time_trial
+    widget.text = "Chk " + str(tt.cp_progress[str(0)]) +"/"+ str(tt.cp_count)
+
+def update_checkpoint_bar(widget):
+    tt = logic.time_trial
+    widget.progress = tt.cp_progress[str(0)] / tt.cp_count
+
+
+
 def update_boost_bar(widget):
     ship = logic.game.get_ship_by_player(0)
     if ship:
@@ -319,12 +294,14 @@ def init():
 
     own["init"] = True
 
+    # Creates a new BTK layout for the HUD
     logic.ui["time_trial"] = btk.Layout("time_trial", logic.uim.go)
     layout = logic.ui["time_trial"]
 
-    btk.Label(layout, text="", position=[12, 0.1, 0], size=0.6, update=update_label_speed)    
-    btk.Label(layout, text="", position=[0.5, 7, 0], size=0.4, update=update_label_time)
+    btk.Label(layout, text="", position=[12, 0.5, 0], size=0.6, update=update_label_speed)    
+    btk.Label(layout, text="", position=[0.5, 6.5, 0], size=0.4, update=update_label_time)
     btk.Label(layout, text="", position=[0.5, 7.5, 0], size=1.0, update=update_label_countdown)
+    btk.Label(layout, text="", position=[0.5, 6, 0], size=0.4, update=update_label_checkpoints)
     
     boost_bar = btk.ProgressBar(
         layout, 
@@ -336,8 +313,19 @@ def init():
     )
     boost_bar.set_color([1, .743, 0.0, 0.75])
 
-    menu = btk.Menu("pause_menu", layout)
+    checkpoint_bar = btk.ProgressBar(
+        layout, 
+        title="checkpoints_bar", 
+        position=[0.5, 5.95, -0.1], 
+        min_scale=[0, .4, 1], 
+        max_scale=[2.5, .4, 1], 
+        update=update_checkpoint_bar
+    )
+    checkpoint_bar.set_color([1, .743, 0.0, 0.75])
 
+
+    # Creates a pause menu and populates it with options
+    menu = btk.Menu("pause_menu", layout)
     menu.populate(
         texts=[
             "Restart", 
@@ -351,7 +339,7 @@ def init():
         ],
         hidden=False
     )
-    menu.hide()
+    menu.hide()  # Hides the pause menu
 
 
 def load(cont_obj):
@@ -380,15 +368,14 @@ def main():
     tt.countdown(own)
     tt.checkpoints(game, own)
     
+    # Controls the pause menu
     menu = logic.ui["time_trial"].get_element("pause_menu")
-
     if own["ui_timer"] > 0.01:
         if logic.uim.focus == "ship" and kbd.events[events.ESCKEY] == JUST_ACTIVATED:
             menu.show()
             menu.focus()
             logic.uim.set_focus("menu")
             own["ui_timer"] = 0
-
         elif logic.uim.focus == "menu" and kbd.events[events.ESCKEY] == JUST_ACTIVATED:
             menu.hide()
             menu.unfocus()
@@ -412,7 +399,6 @@ def setup():
 
     tt.setup_checkpoints(sce)
     tt.get_times(game)
-    #logic.ui["sys"].add_overlay(TimeTrialUI, own)
     game.set_music_dir("time_trial")
     logic.uim.set_focus("")
 
