@@ -244,27 +244,28 @@ def update_label_best(widget):
 
 
 def return_to_menu(widget):
-    sce = logic.getCurrentScene()
-    own = logic.time_trial.controller
+    logic.restartGame()
+    # sce = logic.getCurrentScene()
+    # own = logic.time_trial.controller
 
-    logic.ui["time_trial"].end()
-    logic.ui.pop("time_trial")
+    # logic.ui["time_trial"].end()
+    # logic.ui.pop("time_trial")
 
-    lights.clear()
-    for component in required_components:
-        logic.components.free(component)
-    own.endObject()
+    # lights.clear()
+    # for component in required_components:
+    #     logic.components.free(component)
+    # own.endObject()
 
-    logic.components.free("time_trial")
-    logic.components.clear()
-    logic.game.clear()
-    logic.uim.set_focus("menu")
-    logic.game.set_music_dir("menu")
+    # logic.components.free("time_trial")
+    # logic.components.clear()
+    # logic.game.clear()
+    # logic.uim.set_focus("menu")
+    # logic.game.set_music_dir("menu")
 
-    logic.ui["layout_main"].get_element("menu_main").show()
-    logic.ui["layout_main"].get_element("logo").show()
-    logic.ui["layout_main"].get_element("B r i Z i d e").show()
-    logic.ui["layout_main"].get_element("menu_main").focus()
+    # logic.ui["layout_main"].get_element("menu_main").show()
+    # logic.ui["layout_main"].get_element("logo").show()
+    # logic.ui["layout_main"].get_element("B r i Z i d e").show()
+    # logic.ui["layout_main"].get_element("menu_main").focus()
 
 
 def restart(widget):

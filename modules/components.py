@@ -85,7 +85,7 @@ class Components:
         """Frees a component that resembles the string. Very loose."""
         for lib in logic.LibList():
             if component in lib:
-                logic.LibFree(lib)
+                logic.LibFree(lib)  # crashes happen here (randomly and when exiting)
                 if G.DEBUG:
                     print("Freed", component)
 

@@ -13,9 +13,10 @@ def clamp(value, min, max):
     else:
         return value
 
-def time_string(timefloat):
+def time_string(t):
     """ Interprets a float as seconds and returns a formatted string """
-    return str( int(timefloat/60) ) + ":" + str(int(timefloat) % 60) + ":" + str(timefloat - int(timefloat))[2:][:3]
+    return "{0:02d}:{1:02d}:{2}".format(int(t/60), int(t) % 60, str(t - int(t))[2:][:3])
+
 
 def fatal_error(msg):
     print("Something went wrong:", msg)
