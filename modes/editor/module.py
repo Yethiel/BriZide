@@ -6,7 +6,7 @@ It is attached to the Controller object in the mode's blend file.
 
 from bge import logic
 from modules import level, components, global_constants as G
-from modules.ui_editor import EditorUI
+# from modules.ui_editor import EditorUI
 
 globalDict = logic.globalDict
 own = logic.getCurrentController().owner # This is the object that executes these functions.
@@ -15,6 +15,7 @@ own["init"] = False
 
 required_components = ["blocklib", "blocks", "level", "cube", "ship", "editor"]
 queue_id = logic.components.enqueue(required_components)
+
 # Setup is executed as soon as the game mode has been loaded.
 def setup():
     
@@ -35,9 +36,10 @@ def setup():
     # unlock ship
     logic.uim.set_focus("editor_main")
 
-    logic.ui["sys"].add_overlay(EditorUI)
-
     print(own.name + ": Editor has been set up.")
+
+    logic.ui["layout_loading"].hide()
+
 
 # The main loop always runs.
 def main():
