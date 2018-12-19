@@ -19,9 +19,24 @@ Select options in the main menu with the arrow keys. Press `ENTER` to select a m
 + `1` - `3`: Change camera
 + `ESC`: Show menu
 
-## Documentation and Development
-The game is made with the Blender Game Engine.
-Check the project wiki or the `docs` folder.
+### Editor
+
+**Note**: The Editor is currently incomplete and might not work correctly. The controls are somewhat similar to Blender's.
+
++ `W`, `A`, `S`, `D` or `SHIFT` + `MMB`: Drag camera
++ `Q`, `E` or `CTRL` + `MMB`: Zoom out and in
++ `MMB`: Rotate camera
++ `RMB`: Select block
++ `LMB`: Place block
++ `DELETE`: Delete selected block
++ `←`, `→`: Select block to build
++ `CTRL` + `S`: Save level
++ `R`: Enter Rotation Mode
+    + `X`, `Y`, `Z`: Select axis
+    + `Mouse Movement`: Rotate
++ `G`: Enter Grab Mode
+    + `X`, `Y`, `Z`: Select axis
+    + `Mouse Movement`: Move selected block
 
 ## Download and Install
 
