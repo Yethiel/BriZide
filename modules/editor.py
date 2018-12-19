@@ -29,7 +29,7 @@ winh = render.getWindowHeight()
 
 pivot_cam = sce.objects["Pivot_Camera_Editor"]
 
-settings = gD["settings"]
+settings = logic.settings
 DEBUG = settings["Dev"]["debug"] == "True"
 current_level = logic.game.level
 selected_block = gD["editor"]["selected_block"]
