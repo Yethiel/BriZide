@@ -182,6 +182,8 @@ class Ship():
 
         self.current_velocity = self.go.localLinearVelocity[1]
 
+        self.go.childrenRecursive["flare"].worldScale = [self.current_thrust / self.top_thrust + .5 for x in range(3)]
+
         logic.device.listener_location = camera.worldPosition
         logic.device.listener_orientation = camera.worldOrientation.to_quaternion()
         # logic.device.listener_velocity = camera.getLinearVelocity()
