@@ -2,7 +2,6 @@ from bge import logic
 
 from modules import helpers, global_constants as G
 
-logic.lights = []
 
 def setup():
     sce = helpers.get_scene("Scene")
@@ -10,19 +9,25 @@ def setup():
     own = logic.getCurrentController().owner
     light_obj = sce.objects[own["light"]]
     light_obj.worldPosition = own.worldPosition
+
+    # light_obj.setParent(own) bork
+    # light_obj["light_obj"] = True
+
+def main():
+    sce = helpers.get_scene("Scene")
+    own = logic.getCurrentController().owner
+    light_obj = sce.objects[own["light"]]
+    light_obj.worldOrientation = own.worldPosition
     light_obj.worldOrientation = own.worldOrientation
-
-    light_obj.setParent(own)
-
-    logic.lights.append(light_obj)
+    
 
 
 def clear():
-    sce = helpers.get_scene("Scene")
-    own = logic.getCurrentController().owner
+    pass
+    # sce = helpers.get_scene("Scene")
 
-    if G.DEBUG: print("Clearing lights")
+    # if G.DEBUG: print("Clearing lights")
 
-    for obj in logic.lights:
-        obj.removeParent()
-        logic.lights.remove(obj)
+    # for obj in sce.objects:
+    #     if "light_obj" in obj:
+    #         obj.removeParent()
