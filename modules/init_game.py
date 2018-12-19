@@ -4,8 +4,7 @@ The main function will initialize the globalDict.
 """
 
 from bge import logic
-globalDict = logic.globalDict
-from modules import ui, game, components, content, config, tests, global_constants as G
+from modules import sound, gui, game, components, content, config, tests, global_constants as G
 import os
 
 cont = logic.getCurrentController()
@@ -18,22 +17,16 @@ def setup():
     print("Brizide ver.", G.VERSION)
     if G.DEBUG: print("D E B U G")
 
-    globalDict["settings"] = config.load() #TODO: remove
 
     logic.settings = config.load()
+    sound.init()
     logic.game = game.Game() # new and controlled "global dict"
 
     logic.components = components.Components() # manages game components loaded by game modes
     logic.game.set_music_dir("menu")
 
-    globalDict["input"] = {     # this is for control modules to check whether they are in focus
-        "focus" : "menu"
-    }
-    logic.uim = ui.UIManager()
+    logic.uim = gui.UIManager()
     logic.uim.set_focus("menu")
-
-    # A dictionary for all the UI layers
-    logic.ui = {}
 
     # get available content
     content.set_all()
@@ -42,25 +35,15 @@ def setup():
     if not os.path.isdir(player_dir):
         os.makedirs(player_dir)
 
+    logic.addScene("Menu")
+    logic.addScene("Skybox", 0)
+    logic.uim.set_focus("menu")
+
+
+
 def main():
-    pass
-    # tests.main()
-
-# def end_menu():
-#     """Deprecated"""
-#     for scene in logic.getSceneList():
-#         if "UI_Menu" in scene.name:
-#             scene.end()
-#     components.free("main_menu")
-
-
-# actions are triggered with a message sensor. messages are sent by the UI
-def actions():
-    pass
-    # message_sensor = own.sensors["msg"]
-
-    # # this starts the game with the selected mode and settings
-    # if message_sensor.positive and "start" in str(message_sensor.subjects):
-    #   mode = str(message_sensor.bodies[0])
-    #   components.load_immediate("../modes/" + mode + "/" + mode)
-    #   end_menu()
+    
+    if logic.uim.queue:
+        if logic.uim.queue[0] == "game_start":
+            logic.game.start()
+            logic.uim.queue.pop(0)

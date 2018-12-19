@@ -4,9 +4,6 @@ from modules import sound
 from modules.helpers import clamp
 sce = logic.getCurrentScene()
 
-gD = logic.globalDict
-
-
 def collision():
     pass
     # sound = aud.Factory.file(logic.expandPath("//wavs/collision1.wav"))

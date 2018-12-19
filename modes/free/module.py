@@ -8,7 +8,6 @@ from modules import global_constants as G
 
 sce = logic.getCurrentScene() # Scene that contains all objects
 own = logic.getCurrentController().owner # Object that controls this module
-gD = logic.globalDict # globalDict for saving things across objects
 
 own["init"] = False
 

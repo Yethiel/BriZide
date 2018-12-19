@@ -11,9 +11,6 @@ cont = logic.getCurrentController()
 own = cont.owner
 sce = logic.getCurrentScene()
 
-
-settings = logic.globalDict.get("settings")
-
 def add():
     """
     This will look up all objects in a blend file and append them to the block list.

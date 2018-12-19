@@ -16,8 +16,8 @@ class Game:
     def __init__(self):
         self.ships = {}           # dictionary of ships (id:ship)
         self.level = None           # current level object
-        self.level_name = globalDict["settings"]["Game"]["leveldir"]
-        self.mode = globalDict["settings"]["Game"]["mode"]            # current mode (string)
+        self.level_name = logic.settings["Game"]["leveldir"]
+        self.mode = logic.settings["Game"]["mode"]            # current mode (string)
         self.music_dir = None       # current music directory (string)
         self.block_list = []
         self.ship_possessions = {}  # dictionary player_id:ship_id
@@ -93,7 +93,7 @@ class Game:
     def clear(self):
         self.ships = {}           # dictionary of ships (id:ship)
         self.level = None           # current level object
-        self.level_name = globalDict["settings"]["Game"]["leveldir"]
+        self.level_name = logic.settings["Game"]["leveldir"]
         self.block_list = []
         self.ship_possessions = {}  # dictionary player_id:ship_id
         self.players = [0]

@@ -2,12 +2,8 @@ import aud
 from bge import logic
 from modules import global_constants as G
 import os
-globalDict = logic.globalDict
 
 logic.device = aud.device()
-vol_master = float(globalDict["settings"]["Audio"]["master"])
-vol_sfx = float(globalDict["settings"]["Audio"]["effects"])
-logic.device.volume = vol_master
 
 logic.sounds = {}
 for wavpath in [logic.expandPath("//wavs/announcer/"), logic.expandPath("//wavs/")]:
@@ -34,6 +30,8 @@ class EchoWrapper():
         self.distance_maximum = distance_maximum
 
     def play(self):
+        vol_sfx = float(logic.settings["Audio"]["effects"])
+
         for i in range(0, self.feedback):
             newfac = aud.Factory.delay(logic.sounds[self.soundstring], self.delay*i)
             snd = logic.device.play(newfac)
@@ -60,8 +58,11 @@ def play(facname):
     if facname in logic.sounds.keys():
         if G.DEBUG: print("Playing sound:",facname)
         snd = logic.device.play(logic.sounds[facname])
-        snd.volume = float(globalDict["settings"]["Audio"]["effects"])
+        snd.volume = float(logic.settings["Audio"]["effects"])
         return snd
     else:
         if G.DEBUG: print("Sound not found:", facname)
         return None
+
+def init():
+    logic.device.volume = float(logic.settings["Audio"]["master"])
