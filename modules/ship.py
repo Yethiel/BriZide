@@ -286,6 +286,7 @@ class Ship():
 
             if self.current_boost > 10 and allow_boost:
                 self.go.applyForce((0, self.thrust * 18, 0), True)
+                smoke = logic.getCurrentScene().addObject("Smoke", self.go)
                 self.current_boost -= 2.5
 
         # Stabilizer
