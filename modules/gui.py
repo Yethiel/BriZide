@@ -22,14 +22,18 @@ def setup():
 
     own = logic.getCurrentController().owner
 
+    # The game object that's used to spawn the UI (addObj)
     logic.uim.go = own
 
+    # Dictionary for the UI layouts
     logic.ui = {}
 
+    # Main menu layout
     layout = logic.ui["layout_main"] = btk.Layout("layout_main", logic.uim.go)
     menu = btk.Menu("menu_main", layout)
     menu.focus()
 
+    # Main menu
     menu.populate(
         texts=[
             "Start Game", 
@@ -48,6 +52,7 @@ def setup():
         hidden=False
     )
 
+    # Sub-menu: level selection
     menu_level = btk.Menu("menu_level", layout)
     menu_level.populate(
         texts=logic.game.level_list,
@@ -58,7 +63,7 @@ def setup():
     )
     menu_level.set_active(logic.game.level_name)
 
-
+    # Sub-menu: game mode
     menu_mode = btk.Menu("menu_mode", layout)
     menu_mode.populate(
         texts=logic.game.mode_list,
@@ -69,9 +74,38 @@ def setup():
     )
     menu_mode.set_active(logic.game.mode)
 
+    # Misc. menu items
     logo = btk.Element(layout, object="logo", title="logo", position=[0.5, 6, 0], scale=[2,2,1])
     title = btk.Label(layout, text="B r i Z i d e", position=[3, 6.8, 0], size=0.6)
     title.set_color([1, 0.5, 0.0, 1.0])
+
+    # Creates the loading screen
+    layout_loading = logic.ui["layout_loading"] = btk.Layout("layout_loading", logic.uim.go)
+
+    # "Loading"
+    loading = btk.Label(layout_loading, text="Loading", position=[6.5, 3, 0.2], size=0.6, hidden=True)
+    
+    # Displays the component that's being loaded
+    loading_what = btk.Label(layout_loading, text="", position=[1, 1.15, 0.3], size=0.3, hidden=True, update=update_loading_label)
+    loading_what.set_color([0, 0, 0, 1])
+    loading_bar = btk.ProgressBar(layout_loading, 
+        position=[0, 1, 0.2], 
+        hidden=True, 
+        min_scale=[0, .5, 1], 
+        max_scale=[16, .5, 1],  
+        update=update_loading_bar
+    )
+    
+    # Loading screen backdrop
+    loading_screen = btk.Element(layout_loading, object="loading_screen", title="loading_screen", position=[0, 0, 0.1], hidden=True)
+
+
+def update_loading_bar(widget):
+    widget.progress = logic.components.get_percent()
+
+
+def update_loading_label(widget):
+    widget.text = logic.components.get_currently_loading()
 
 
 def show_menu_level(widget):
@@ -102,6 +136,7 @@ def select_mode(widget):
 
 def start_game(widget):
     logic.ui["layout_main"].hide()
+    logic.ui["layout_loading"].show()
     logic.ui["layout_main"].unfocus()
     logic.uim.enqueue("game_start")
 

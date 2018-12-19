@@ -272,6 +272,7 @@ def restart(widget):
 
     logic.ui["time_trial"].end()
     logic.ui.pop("time_trial")
+    logic.ui["layout_loading"].show()
 
     for component in required_components:
         logic.components.free(component)
@@ -346,7 +347,8 @@ def init():
         ],
         hidden=False
     )
-    menu.hide()  # Hides the pause menu
+    
+    menu.hide()
 
 
 def load(cont_obj):
@@ -396,6 +398,8 @@ def setup():
     sce = logic.getCurrentScene()
     own = logic.getCurrentController().owner
     game = logic.game
+
+    logic.ui["layout_loading"].hide()
 
     # Creates a folder for the mode
     if not os.path.isdir(os.path.join(game.get_profile_dir("0"),"time_trial")):
