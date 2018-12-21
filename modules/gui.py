@@ -5,17 +5,21 @@ from modules import global_constants as G
 
 class UIManager():
     def __init__(self):
-
         self.focus = "menu"
+        self.previous = None
         self.queue = []
         self.go = None  # Game object used to spawn ui elements
 
     def set_focus(self, element):
-        if G.DEBUG: print("Set focus to", element)
+        self.previous = self.focus
         self.focus = element
+        if G.DEBUG: print("Set focus to", element)
 
     def enqueue(self, command):
         self.queue.append(command)
+
+    def restore_focus(self):
+        self.set_focus(self.previous)
 
 
 def setup():
@@ -37,6 +41,7 @@ def setup():
     menu.populate(
         texts=[
             "Start Game", 
+            "Start Editor", 
             "Game Mode", 
             "Level",
             "Quit"
@@ -45,6 +50,7 @@ def setup():
         size=0.5,
         actions=[
             start_game, 
+            start_editor,
             show_menu_mode, 
             show_menu_level,
             end_game
@@ -80,7 +86,7 @@ def setup():
     title.set_color([1, 0.5, 0.0, 1.0])
 
     # Creates the loading screen
-    layout_loading = logic.ui["layout_loading"] = btk.Layout("layout_loading", logic.uim.go)
+    layout_loading = logic.ui["loading_screen"] = btk.Layout("loading_screen", logic.uim.go)
 
     # "Loading"
     loading = btk.Label(layout_loading, text="Loading", position=[6.5, 3, 0.2], size=0.6, hidden=True)
@@ -136,9 +142,18 @@ def select_mode(widget):
 
 def start_game(widget):
     logic.ui["layout_main"].hide()
-    logic.ui["layout_loading"].show()
+    logic.ui["loading_screen"].show()
     logic.ui["layout_main"].unfocus()
     logic.uim.enqueue("game_start")
+
+
+def start_editor(widget):
+    logic.game.set_mode("editor")
+    logic.ui["layout_main"].hide()
+    logic.ui["loading_screen"].show()
+    logic.ui["layout_main"].unfocus()
+    logic.uim.enqueue("game_start")
+
 
 def end_game(widget):
     logic.endGame()

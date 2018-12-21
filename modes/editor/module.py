@@ -1,63 +1,42 @@
-"""
-This is the script for the E D I T O R.
-Be careful with this. If you change too many things, others might not be able to open your tracks.
-It is attached to the Controller object in the mode's blend file.
-"""
-
 from bge import logic
-from modules import level, components, global_constants as G
-# from modules.ui_editor import EditorUI
+from modules import btk
+from modules.game_mode import Game_Mode
 
-globalDict = logic.globalDict
-own = logic.getCurrentController().owner # This is the object that executes these functions.
-
-own["init"] = False
-
-required_components = ["blocklib", "blocks", "level", "cube", "ship", "editor"]
-queue_id = logic.components.enqueue(required_components)
-
-# Setup is executed as soon as the game mode has been loaded.
-def setup():
-    
-    ### Prepare the global dict
-    editor = {
-        "selected_block" : "Block_0_32_32_32" # yay defaults
-    }
-    globalDict["editor"] = editor
-
-    # Queue the required components
-
-    # Set the music directory
-    logic.game.set_music_dir("editor")
-
-    # the blocklib will free itself after main() is done.
-    # logic.addScene("UI_Editor")
-
-    # unlock ship
-    logic.uim.set_focus("editor_main")
-
-    print(own.name + ": Editor has been set up.")
-
-    logic.ui["layout_loading"].hide()
+required_components = ["blocklib", "blocks", "level", "cube"]
 
 
-# The main loop always runs.
+class Edit_Mode(Game_Mode):
+    def __init__(self, game_obj):
+        # initiates the game mode, name needs to match folder name
+        super().__init__(required_components, game_obj, "editor")
+
+    def setup(self):
+        logic.game.set_music_dir("editor")
+        super().setup()  # hides loading screen
+        layout = logic.ui["editor"]
+
+        label_selected_block = btk.Label(layout, 
+            text="block",
+            position=[0.4, 0.4, 0],
+            size=0.3,
+            update=update_label_selected_block
+        )        
+
+    def run(self):
+        super().run()  # handles loading of components
+
+
+def init():
+    """ Runs immediately after the scene loaded """
+    logic.edit_mode = Edit_Mode(logic.getCurrentController().owner)
+
+
 def main():
-    
-    if not own["init"]:
+    """ Runs every logic tick """
+    logic.edit_mode.run()
 
-        # Prepare the game mode by loading the queued components
-        logic.components.load()
 
-        # If the queue is emtpy, we're done
-        if logic.components.is_done(required_components):
-            own["init"] = True
-            setup()
-    else:
-        pass
+# UI functions
 
-# Use this function with a mesage actuator.
-# It gets called whenever the Controller object receives a message.
-# In this instance, it is used to refresh the globalDict when a checkpoint has been activated.
-def actions():
-    print(own.name + ": Message received.")
+def update_label_selected_block(widget):
+    widget.text = "not implemented"

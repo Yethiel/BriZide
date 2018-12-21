@@ -362,6 +362,7 @@ class Ship():
         else:
             pass
 
+
     def center_thrust(self):
         delta = logic.getLogicTicRate()
 
