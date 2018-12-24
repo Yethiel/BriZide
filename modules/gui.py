@@ -1,7 +1,9 @@
+import math
 from bge import logic
 from modules import btk
 
 from modules import global_constants as G
+from modules.helpers import clamp
 
 class UIManager():
     def __init__(self):
@@ -23,7 +25,6 @@ class UIManager():
 
 
 def setup():
-
     own = logic.getCurrentController().owner
 
     # The game object that's used to spawn the UI (addObj)
@@ -82,14 +83,14 @@ def setup():
 
     # Misc. menu items
     logo = btk.Element(layout, object="logo", title="logo", position=[0.5, 6, 0], scale=[2,2,1])
-    title = btk.Label(layout, text="B r i Z i d e", position=[3, 6.8, 0], size=0.6)
+    title = btk.Label(layout, text="B r i Z i d e", position=[3, 6.8, 0], size=0.6, update=update_fade)
     title.set_color([1, 0.5, 0.0, 1.0])
 
     # Creates the loading screen
     layout_loading = logic.ui["loading_screen"] = btk.Layout("loading_screen", logic.uim.go)
 
     # "Loading"
-    loading = btk.Label(layout_loading, text="Loading", position=[6.5, 3, 0.2], size=0.6, hidden=True)
+    loading = btk.Label(layout_loading, text="Loading", position=[6.5, 3, 0.2], size=0.6, hidden=True, update=update_pulsate)
     
     # Displays the component that's being loaded
     loading_what = btk.Label(layout_loading, text="", position=[1, 1.15, 0.3], size=0.3, hidden=True, update=update_loading_label)
@@ -104,6 +105,15 @@ def setup():
     
     # Loading screen backdrop
     loading_screen = btk.Element(layout_loading, object="loading_screen", title="loading_screen", position=[0, 0, 0.1], hidden=True)
+
+
+def update_fade(widget):
+    widget.go.color[3] = clamp(logic.uim.go["ui_timer"], 0.0, 1.0)
+
+
+def update_pulsate(widget):
+    c = math.sin(logic.uim.go["timer"]*8) / 4
+    widget.set_color([0.75 + c, 0.75 + c, 0.65 + c, 1.0])
 
 
 def update_loading_bar(widget):
@@ -165,4 +175,5 @@ def main():
     elements = logic.ui.copy().keys()
     for element in elements:
         if element in logic.ui:
-            logic.ui[element].run()
+            if not hasattr(logic.ui[element], "go") or logic.ui[element].go.visible:
+                logic.ui[element].run()

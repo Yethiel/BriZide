@@ -15,18 +15,18 @@ def load():
     else:
         # create an ini with the default configuration
         config["Game"] = {
-        "Name" : "Player",
-        "LevelDir" : "test",
-        "Mode" : "time_trial",
+            "Name" : "Player",
+            "LevelDir" : "test",
+            "Mode" : "time_trial",
         }
         config["Player0"] = {
             "name": "Player 0",
             "Ship": "test"
         }
         config["Audio"] = {
-        "Music" : 1,
-        "Master" : 0.5,
-        "Effects" : 1,
+            "Music" : 1.0,
+            "Master" : 1.0,
+            "Effects" : 1.0,
         }
 
         config["Dev"] = {
