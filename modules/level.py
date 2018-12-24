@@ -304,7 +304,6 @@ def setup():
         logic.game.level.place()
 
         # Make accessible in the global dict
-        logic.game.set_level(logic.game.level)
         logic.components.mark_loaded("level")
 
 

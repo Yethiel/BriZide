@@ -2,7 +2,7 @@
 import os
 from bge import logic
 
-from modules import components
+from modules import components, config
 from modules import global_constants as G
 
 globalDict = logic.globalDict
@@ -57,6 +57,7 @@ class Game:
 
     def set_level(self, levelstr):
         """Set the folder name of the level"""
+        logic.settings["Game"]["leveldir"] = levelstr
         self.level_name = levelstr
         return levelstr
 
@@ -66,6 +67,7 @@ class Game:
 
     def set_mode(self, modestr):
         """Sets the mode (takes folder name of game mode)"""
+        logic.settings["Game"]["mode"] = modestr
         self.mode = modestr
         return modestr
 
@@ -97,3 +99,6 @@ class Game:
         self.block_list = []
         self.ship_possessions = {}  # dictionary player_id:ship_id
         self.players = [0]
+
+    def save_settings(self):
+        config.save()

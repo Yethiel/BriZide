@@ -1,6 +1,5 @@
 """
 This is the module called by the controller object in main.blend.
-The main function will initialize the globalDict.
 """
 
 from bge import logic
@@ -17,10 +16,9 @@ def setup():
     print("Brizide ver.", G.VERSION)
     if G.DEBUG: print("D E B U G")
 
-
     logic.settings = config.load()
     sound.init()
-    logic.game = game.Game() # new and controlled "global dict"
+    logic.game = game.Game()
 
     logic.components = components.Components() # manages game components loaded by game modes
     logic.game.set_music_dir("menu")
@@ -28,7 +26,7 @@ def setup():
     logic.uim = gui.UIManager()
     logic.uim.set_focus("menu")
 
-    # get available content
+    # gets available content
     content.set_all()
 
     player_dir = os.path.join(G.PATH_PROFILES, logic.settings["Player0"]["Name"])
@@ -40,9 +38,13 @@ def setup():
     logic.uim.set_focus("menu")
 
 
-
 def main():
-    
+    """
+    Workaround: Starting the game from the context of a different
+        scene other than the main one breaks the component system.
+        So the UI puts a command in the queue which then gets
+        executed here.
+    """
     if logic.uim.queue:
         if logic.uim.queue[0] == "game_start":
             logic.game.start()

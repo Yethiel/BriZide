@@ -41,8 +41,12 @@ class Game_Mode:
         )
         menu.hide()
 
+
+    def setup_done(self):
+        """ Run this after self.setup is done """
         logic.ui["loading_screen"].hide()
         logic.uim.set_focus(self.name)
+
 
     def run(self):
         """ Runs every logic tick """

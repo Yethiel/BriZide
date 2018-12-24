@@ -128,6 +128,7 @@ def show_menu_mode(widget):
 
 def select_level(widget):
     logic.game.set_level(widget.text)
+    logic.game.save_settings()
     logic.ui["layout_main"].get_element("menu_level").unfocus()
     logic.ui["layout_main"].get_element("menu_main").focus()
     logic.ui["layout_main"].get_element("menu_level").hide()
@@ -135,6 +136,7 @@ def select_level(widget):
 
 def select_mode(widget):
     logic.game.set_mode(widget.text)
+    logic.game.save_settings()
     logic.ui["layout_main"].get_element("menu_mode").unfocus()
     logic.ui["layout_main"].get_element("menu_main").focus()
     logic.ui["layout_main"].get_element("menu_mode").hide()
