@@ -4,7 +4,7 @@ This is the module called by the controller object in main.blend.
 
 from bge import logic
 from modules import sound, gui, game, components, content, config, tests, global_constants as G
-import os
+import os, sys
 
 cont = logic.getCurrentController()
 own = cont.owner

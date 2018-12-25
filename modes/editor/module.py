@@ -1,8 +1,21 @@
-from bge import logic, render
+from bge import logic, events, render
 from modules import btk
+from modules.helpers import keystat
 from modules.game_mode import Game_Mode
 
 required_components = ["blocklib", "blocks", "level", "cube"]
+kbd = logic.keyboard
+mouse = logic.mouse
+
+controls = logic.settings["Controls_Editor"]
+
+key_rotate_cam = controls["editor_rotate_cam"]
+key_left = controls["editor_left"]
+key_right = controls["editor_right"]
+key_forward = controls["editor_forward"]
+key_backward = controls["editor_backward"]
+key_up = controls["editor_up"]
+key_down = controls["editor_down"]
 
 
 class Edit_Mode(Game_Mode):
@@ -38,15 +51,39 @@ class Edit_Mode(Game_Mode):
         winw = render.getWindowWidth()
         winh = render.getWindowHeight()
 
-        mx = logic.mouse.position[0] - 0.5
-        my = logic.mouse.position[1] - 0.5
+        # camera rotation
+        if keystat(key_rotate_cam, 'JUST_ACTIVATED'):
+            mouse.visible = False
+            self.old_mouse_pos = logic.mouse.position
+            render.setMousePosition(int(winw / 2), int(winh / 2))     
 
-        # rotates the camera
-        camera.applyRotation([0, 0.0, -mx], False)
-        camera.applyRotation([-my, 0.0, 0], True)
+        if keystat(key_rotate_cam, 'ACTIVE'):
+            render.setMousePosition(int(winw / 2), int(winh / 2))     
+            mx = logic.mouse.position[0] - 0.5  # how much the mouse moved
+            my = logic.mouse.position[1] - 0.5
+            camera.applyRotation([0, 0.0, -mx], False)
+            camera.applyRotation([-my, 0.0, 0], True)
 
-        render.setMousePosition(int(winw / 2), int(winh / 2))     
+        if keystat(key_rotate_cam, 'JUST_RELEASED'):
+            render.setMousePosition(
+                int(self.old_mouse_pos[0] * winw), 
+                int(self.old_mouse_pos[1] * winh))
+            mouse.visible = True
 
+        if keystat(key_left, 'ACTIVE'):
+            camera.applyMovement([-1, 0, 0], True)
+        if keystat(key_right, 'ACTIVE'):
+            camera.applyMovement([1, 0, 0], True)
+
+        if keystat(key_forward, 'ACTIVE'):
+            camera.applyMovement([0, 0, -1], True)
+        if keystat(key_backward, 'ACTIVE'):
+            camera.applyMovement([0, 0, 1], True)
+
+        if keystat(key_up, 'ACTIVE'):
+            camera.applyMovement([0, 1, 0], True)
+        if keystat(key_down, 'ACTIVE'):
+            camera.applyMovement([0, -1, 0], True)
 
 def init():
     """ Runs immediately after the scene loaded """

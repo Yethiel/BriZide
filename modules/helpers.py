@@ -1,4 +1,4 @@
-from bge import logic
+from bge import logic, events
 
 def clamp(value, min, max):
     """ Clamps the given value
@@ -27,3 +27,20 @@ def get_scene(scene_name):
         if sce.name == scene_name:
             return sce
     return None
+
+
+def keystat(key, status):
+    if status == "JUST_ACTIVATED":
+        status = logic.KX_INPUT_JUST_ACTIVATED
+    elif status == "JUST_RELEASED":
+        status = logic.KX_INPUT_JUST_RELEASED
+    elif status == "ACTIVE":
+        status = logic.KX_INPUT_ACTIVE
+    else:
+        print("invalid status provided:", status, key)
+        return False
+
+    if getattr(events, key) in logic.mouse.events:
+        return logic.mouse.events[getattr(events, key)] == status
+    else:
+        return logic.keyboard.events[getattr(events, key)] == status
