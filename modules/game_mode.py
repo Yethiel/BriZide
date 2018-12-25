@@ -59,7 +59,7 @@ class Game_Mode:
 
         menu = logic.ui[self.name].get_element("pause_menu")
         if logic.uim.go["ui_timer"] > 0.01:
-            if logic.uim.focus == self.name and kbd.events[events.ESCKEY] == JUST_ACTIVATED:
+            if logic.uim.focus != "menu" and kbd.events[events.ESCKEY] == JUST_ACTIVATED:
                 menu.show()
                 menu.focus()
                 logic.uim.set_focus("menu")
