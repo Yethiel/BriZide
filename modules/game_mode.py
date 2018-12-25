@@ -40,11 +40,6 @@ class Game_Mode:
             ]
         )
         menu.hide()
-
-
-    def setup_done(self):
-        """ Run this after self.setup is done """
-        logic.ui["loading_screen"].hide()
         logic.uim.set_focus(self.name)
 
 
@@ -59,6 +54,7 @@ class Game_Mode:
             if logic.components.is_done(self.components):
                 self.loaded = True
                 self.setup()
+                logic.ui["loading_screen"].hide()
             return
 
         menu = logic.ui[self.name].get_element("pause_menu")

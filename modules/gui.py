@@ -90,13 +90,14 @@ def setup():
     layout_loading = logic.ui["loading_screen"] = btk.Layout("loading_screen", logic.uim.go)
 
     # "Loading"
-    loading = btk.Label(layout_loading, text="Loading", position=[6.5, 3, 0.2], size=0.6, hidden=True, update=update_pulsate)
+    loading = btk.Label(layout_loading, text="Loading", position=[6.5, 3, 0.3], size=0.6, hidden=True, update=update_pulsate)
     
     # Displays the component that's being loaded
-    loading_what = btk.Label(layout_loading, text="", position=[1, 1.15, 0.3], size=0.3, hidden=True, update=update_loading_label)
-    loading_what.set_color([0, 0, 0, 1])
+    loading_what = btk.Label(layout_loading, text="", position=[1, 1.15, 0.4], size=0.3, hidden=True, update=update_loading_label)
+    loading_what.set_color([1, 1, 1, 1])
+
     loading_bar = btk.ProgressBar(layout_loading, 
-        position=[0, 1, 0.2], 
+        position=[0, 1, 0.3], 
         hidden=True, 
         min_scale=[0, .5, 1], 
         max_scale=[16, .5, 1],  

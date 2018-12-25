@@ -29,9 +29,6 @@ class Edit_Mode(Game_Mode):
             update=update_label_selected_block
         )
 
-        self.setup_done()  # hides the loading screen
-
-
     def run(self):
         """ runs every logic tick """
         super().run()  # handles loading of components
