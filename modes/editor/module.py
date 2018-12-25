@@ -1,6 +1,6 @@
 from bge import logic, events, render
 from modules import btk
-from modules.helpers import keystat
+from modules.helpers import keystat, get_scene
 from modules.game_mode import Game_Mode
 
 required_components = ["blocklib", "blocks", "level", "cube"]
@@ -16,6 +16,8 @@ key_forward = controls["editor_forward"]
 key_backward = controls["editor_backward"]
 key_up = controls["editor_up"]
 key_down = controls["editor_down"]
+
+key_select = controls["editor_select"]
 
 
 class Edit_Mode(Game_Mode):
@@ -33,14 +35,15 @@ class Edit_Mode(Game_Mode):
         # sets the camera
         scene.active_camera = scene.objects["camera_editor"]
 
+        logic.addScene('UI_Editor')
+
         # creates the UI
         layout = logic.ui["editor"]
         label_selected_block = btk.Label(layout, 
             text="block",
             position=[0.4, 0.4, 0],
             size=0.3,
-            update=update_label_selected_block
-        )
+            update=update_label_selected_block)
 
     def run(self):
         """ runs every logic tick """
@@ -50,6 +53,15 @@ class Edit_Mode(Game_Mode):
         camera = scene.active_camera
         winw = render.getWindowWidth()
         winh = render.getWindowHeight()
+        sensor_mouse = self.go.sensors['Over']
+
+        # editor overlay (cursor, etc.)
+        scene_ui = get_scene('UI_Editor')
+        if scene_ui is None:  # skips if scene isn't loaded yet
+            return
+        cursor = get_scene('UI_Editor').objects['cursor']
+        scene_ui.objects['camera_editor_ui'].worldPosition = camera.worldPosition
+        scene_ui.objects['camera_editor_ui'].worldOrientation = camera.worldOrientation
 
         # camera rotation
         if keystat(key_rotate_cam, 'JUST_ACTIVATED'):
@@ -70,6 +82,7 @@ class Edit_Mode(Game_Mode):
                 int(self.old_mouse_pos[1] * winh))
             mouse.visible = True
 
+        # camera movement
         if keystat(key_left, 'ACTIVE'):
             camera.applyMovement([-1, 0, 0], True)
         if keystat(key_right, 'ACTIVE'):
@@ -84,6 +97,13 @@ class Edit_Mode(Game_Mode):
             camera.applyMovement([0, 1, 0], True)
         if keystat(key_down, 'ACTIVE'):
             camera.applyMovement([0, -1, 0], True)
+
+        # selection
+        if sensor_mouse.hitObject != None:
+            # sets the cursor to the selected object
+            if keystat(key_select, 'JUST_ACTIVATED'):
+                cursor.worldPosition = sensor_mouse.hitObject.worldPosition
+
 
 def init():
     """ Runs immediately after the scene loaded """

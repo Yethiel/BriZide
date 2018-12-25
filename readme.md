@@ -11,6 +11,8 @@ Be quicker than the previous record to set a new highscore.
 
 ## Default Controls
 
+Controls can be set in the config.ini file. See the [bge docs](https://docs.blender.org/api/2.79b/bge.events.html#keys-constants) for available keys.
+
 Select options in the main menu with the arrow keys. Press `ENTER` to select a menu entry.
 
 + `Arrow keys`: Move ship
