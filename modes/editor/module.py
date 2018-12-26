@@ -18,12 +18,15 @@ key_up = controls["editor_up"]
 key_down = controls["editor_down"]
 
 key_select = controls["editor_select"]
+key_deselect = controls["editor_deselect"]
+key_delete = controls["editor_delete"]
 
 
 class Edit_Mode(Game_Mode):
     def __init__(self, game_obj):
         # initiates the game mode, name needs to match folder name
         super().__init__(required_components, game_obj, "editor")
+        self.selection = {}
 
     def setup(self):
         """ runs after loading is done """
@@ -45,9 +48,19 @@ class Edit_Mode(Game_Mode):
             size=0.3,
             update=update_label_selected_block)
 
+        """ Workaround:
+            Libload loads all scenes from a blend file so the ones
+            from overlay scenes have to be deleted manually.
+            These objects are part of the overlay scene for the UI.
+        """
+        scene.objects["cursor"].endObject()
+        scene.objects["camera_editor_ui"].endObject()
+
     def run(self):
         """ runs every logic tick """
         super().run()  # handles loading of components
+
+        if logic.uim.focus == 'menu': return
 
         scene = logic.getCurrentScene()
         camera = scene.active_camera
@@ -82,27 +95,98 @@ class Edit_Mode(Game_Mode):
                 int(self.old_mouse_pos[1] * winh))
             mouse.visible = True
 
-        # camera movement
-        if keystat(key_left, 'ACTIVE'):
-            camera.applyMovement([-1, 0, 0], True)
-        if keystat(key_right, 'ACTIVE'):
-            camera.applyMovement([1, 0, 0], True)
+        # left control modifier
+        if keystat('LEFTCTRLKEY', 'ACTIVE'):
+            blocks = [obj for obj in scene.objects if "Block_" in obj.name]
+            if keystat('AKEY', 'JUST_RELEASED'):
+                if len(self.selection.keys()) != len(blocks):
+                    self.deselect_all()
+                    for obj in blocks:
+                        self.select_multiple(obj)
+                else:
+                    self.deselect_all()
 
-        if keystat(key_forward, 'ACTIVE'):
-            camera.applyMovement([0, 0, -1], True)
-        if keystat(key_backward, 'ACTIVE'):
-            camera.applyMovement([0, 0, 1], True)
+            return  # accepts no other keys
 
-        if keystat(key_up, 'ACTIVE'):
-            camera.applyMovement([0, 1, 0], True)
-        if keystat(key_down, 'ACTIVE'):
-            camera.applyMovement([0, -1, 0], True)
+        # left shift modifier
+        if keystat('LEFTSHIFTKEY', 'ACTIVE'):
+            # add object
+            if keystat('AKEY', 'JUST_RELEASED'):
+                print("Add object")
+
+            hit_obj = sensor_mouse.hitObject
+            # sets the cursor to the selected object
+            if keystat(key_select, 'JUST_ACTIVATED') and hit_obj != None:
+                cursor.worldPosition = hit_obj.worldPosition
+                self.select_multiple(hit_obj)
+
+            return  # accepts no other keys
 
         # selection
-        if sensor_mouse.hitObject != None:
+        hit_obj = sensor_mouse.hitObject
+        if hit_obj != None:
             # sets the cursor to the selected object
             if keystat(key_select, 'JUST_ACTIVATED'):
-                cursor.worldPosition = sensor_mouse.hitObject.worldPosition
+                cursor.worldPosition = hit_obj.worldPosition
+                self.select_single(hit_obj)
+
+        # delete selection
+        if keystat(key_delete, 'JUST_RELEASED'):
+            self.delete_selection()
+        
+        # camera movement
+        if keystat(key_left, 'ACTIVE'):
+            camera.applyMovement([-2, 0, 0], True)
+        if keystat(key_right, 'ACTIVE'):
+            camera.applyMovement([2, 0, 0], True)
+
+        if keystat(key_forward, 'ACTIVE'):
+            camera.applyMovement([0, 0, -2], True)
+        if keystat(key_backward, 'ACTIVE'):
+            camera.applyMovement([0, 0, 2], True)
+
+        if keystat('WHEELDOWNMOUSE', 'JUST_RELEASED'):
+            camera.applyMovement([0, 0, 20], True)
+        if keystat('WHEELUPMOUSE', 'JUST_RELEASED'):
+            camera.applyMovement([0, 0, -20], True)
+
+        if keystat(key_up, 'ACTIVE'):
+            camera.applyMovement([0, 2, 0], True)
+        if keystat(key_down, 'ACTIVE'):
+            camera.applyMovement([0, -2, 0], True)
+
+    def delete_selection(self):
+        """ Deletes all objects in the selection """
+        keys = list(self.selection.keys())
+        for o in keys:
+            self.selection[o].endObject()
+            del self.selection[o]
+            o.endObject()
+
+    def select_single(self, obj):
+        """ Selects a single object """
+        if 'Block_' not in obj.name:
+            return
+        scene_ui = get_scene('UI_Editor')
+        self.deselect_all()
+        self.selection[obj] = scene_ui.addObject('selection', obj)
+
+    def select_multiple(self, obj):
+        """ Selects multiple objects when shift is held down """
+        if 'Block_' not in obj.name:
+            return
+        scene_ui = get_scene('UI_Editor')
+        if not obj in self.selection:
+            self.selection[obj] = scene_ui.addObject('selection', obj)
+        else:
+            self.selection[obj].endObject()
+            del self.selection[obj]
+
+    def deselect_all(self):
+        keys = list(self.selection.keys())
+        for o in keys:
+            self.selection[o].endObject()
+            del self.selection[o]
 
 
 def init():

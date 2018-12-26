@@ -79,8 +79,12 @@ A **custom game mode** can be added with just a few lines of code. Copy any game
 + Free mode
 + Basic level editor
 
-## Screenshots
-![](docs/screenshot-02.jpg)
+## Credits
+
+### Audio
+**ZetaSphere**: *Sequence Break* (Time Trial soundtrack)  
+**PotatoFace**: Menu theme  
+**Pong Pearson**: Announcer voice
 
 ## Story
 
