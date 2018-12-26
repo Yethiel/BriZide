@@ -1,5 +1,6 @@
 from bge import logic, events
 from modules import btk
+from modules.helpers import get_scene
 
 kbd = logic.keyboard
 

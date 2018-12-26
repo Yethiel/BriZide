@@ -25,7 +25,7 @@ key_delete = controls["editor_delete"]
 class Edit_Mode(Game_Mode):
     def __init__(self, game_obj):
         # initiates the game mode, name needs to match folder name
-        super().__init__(required_components, game_obj, "editor")
+        super().__init__(required_components, game_obj, 'editor')
         self.selection = {}
 
     def setup(self):
@@ -33,17 +33,17 @@ class Edit_Mode(Game_Mode):
         super().setup()
 
         scene = logic.getCurrentScene()
-        logic.game.set_music_dir("editor")
+        logic.game.set_music_dir('editor')
 
         # sets the camera
-        scene.active_camera = scene.objects["camera_editor"]
+        scene.active_camera = scene.objects['camera_editor']
 
         logic.addScene('UI_Editor')
 
         # creates the UI
-        layout = logic.ui["editor"]
+        layout = logic.ui['editor']
         label_selected_block = btk.Label(layout, 
-            text="block",
+            text='block',
             position=[0.4, 0.4, 0],
             size=0.3,
             update=update_label_selected_block)
@@ -53,8 +53,8 @@ class Edit_Mode(Game_Mode):
             from overlay scenes have to be deleted manually.
             These objects are part of the overlay scene for the UI.
         """
-        scene.objects["cursor"].endObject()
-        scene.objects["camera_editor_ui"].endObject()
+        scene.objects['cursor'].endObject()
+        scene.objects['camera_editor_ui'].endObject()
 
     def run(self):
         """ runs every logic tick """
@@ -203,4 +203,4 @@ def main():
 # UI functions
 
 def update_label_selected_block(widget):
-    widget.text = "not implemented"
+    widget.text = 'editor'
