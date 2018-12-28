@@ -155,6 +155,10 @@ class Edit_Mode(Game_Mode):
         if keystat(key_down, 'ACTIVE'):
             camera.applyMovement([0, -2, 0], True)
 
+    def restart(self, widget):
+        get_scene('UI_Editor').end()
+        super().restart(widget)
+
     def delete_selection(self):
         """ Deletes all objects in the selection """
         keys = list(self.selection.keys())
@@ -193,11 +197,11 @@ def init():
     """ Runs immediately after the scene loaded """
 
     # creates a new game mode object
-    logic.edit_mode = Edit_Mode(logic.getCurrentController().owner)
+    logic.editor = Edit_Mode(logic.getCurrentController().owner)
 
 
 def main():
-    logic.edit_mode.run()
+    logic.editor.run()
 
 
 # UI functions
