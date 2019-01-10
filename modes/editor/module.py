@@ -58,6 +58,15 @@ class Edit_Mode(Game_Mode):
             size=0.3,
             update=update_label_mode)
 
+        self.menu_block = btk.Menu("menu_block", layout)
+        self.menu_block.populate(
+            texts=logic.game.block_list,
+            position=[0.5, 8.5, 0],
+            size=0.28,
+            actions=[None for x in range(len(logic.game.block_list))],
+            hidden=True
+        )
+
         """ Workaround:
             Libload loads all scenes from a blend file so the ones
             from overlay scenes have to be deleted manually.
@@ -130,6 +139,8 @@ class Edit_Mode(Game_Mode):
                 # add object
                 if keystat('AKEY', 'JUST_RELEASED'):
                     self.mode = ADD
+                    self.menu_block.show()
+                    self.menu_block.focus()
                     return
                 return
 
@@ -137,6 +148,8 @@ class Edit_Mode(Game_Mode):
             if keystat('LEFTCTRLKEY', 'ACTIVE'):
                 blocks = [obj for obj in scene.objects if "Block_" in obj.name]
                 if keystat('AKEY', 'JUST_RELEASED'):
+
+
                     if len(self.selection.keys()) != len(blocks):
                         self.deselect_all()
                         for obj in blocks:
@@ -148,6 +161,14 @@ class Edit_Mode(Game_Mode):
             # selection
             hit_obj = sensor_mouse.hitObject
             if hit_obj != None:
+
+                if "Cube" in hit_obj.name:
+                    scene.objects['live_cursor'].worldPosition = hit_obj.worldPosition
+                else:
+                    scene.objects['live_cursor'].worldPosition = hit_obj.worldPosition
+                    for x in [0, 1, 2]:
+                        scene.objects['live_cursor'].worldPosition[x] += sensor_mouse.hitNormal[x] * 32
+
                 # sets the cursor to the selected object
                 if keystat(key_select, 'JUST_ACTIVATED'):
                     cursor.worldPosition = hit_obj.worldPosition
@@ -163,9 +184,33 @@ class Edit_Mode(Game_Mode):
         elif self.mode == ROTATE:
             if keystat('BACKSPACEKEY', 'JUST_RELEASED'):
                 self.mode = SELECT
+        
         elif self.mode == ADD:
+
+            scene.objects['live_cursor'].replaceMesh(self.menu_block.get_active().text)
+
+            hit_obj = sensor_mouse.hitObject
+            if hit_obj != None:
+
+                if "Cube" in hit_obj.name:
+                    scene.objects['live_cursor'].worldPosition = hit_obj.worldPosition
+                else:
+                    scene.objects['live_cursor'].worldPosition = hit_obj.worldPosition
+                    for x in [0, 1, 2]:
+                        scene.objects['live_cursor'].worldPosition[x] += sensor_mouse.hitNormal[x] * 32
+
+
+            if keystat('ENTERKEY', 'JUST_RELEASED') or keystat('LEFTMOUSE', 'JUST_RELEASED'):
+                scene.addObject(self.menu_block.get_active().text, scene.objects['live_cursor'])
+
+
             if keystat('BACKSPACEKEY', 'JUST_RELEASED'):
+                self.menu_block.unfocus()
+                self.menu_block.hide()
+                scene.objects['live_cursor'].replaceMesh('plain_cursor')
                 self.mode = SELECT
+
+
 
         # camera movement
         if keystat(key_left, 'ACTIVE'):
