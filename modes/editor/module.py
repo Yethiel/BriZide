@@ -146,10 +146,10 @@ class Edit_Mode(Game_Mode):
 
             # left control modifier
             if keystat('LEFTCTRLKEY', 'ACTIVE'):
+
+                # selects/deselects all blocks
                 blocks = [obj for obj in scene.objects if "Block_" in obj.name]
                 if keystat('AKEY', 'JUST_RELEASED'):
-
-
                     if len(self.selection.keys()) != len(blocks):
                         self.deselect_all()
                         for obj in blocks:
@@ -188,7 +188,9 @@ class Edit_Mode(Game_Mode):
         elif self.mode == ADD:
 
             scene.objects['live_cursor'].replaceMesh(self.menu_block.get_active().text)
+            scene.objects['live_cursor'].visible = not scene.objects['live_cursor'].visible
 
+            # places 3D cursor (block preview)
             hit_obj = sensor_mouse.hitObject
             if hit_obj != None:
 
@@ -199,18 +201,16 @@ class Edit_Mode(Game_Mode):
                     for x in [0, 1, 2]:
                         scene.objects['live_cursor'].worldPosition[x] += sensor_mouse.hitNormal[x] * 32
 
-
+            # enter or left mouse button to place block
             if keystat('ENTERKEY', 'JUST_RELEASED') or keystat('LEFTMOUSE', 'JUST_RELEASED'):
                 scene.addObject(self.menu_block.get_active().text, scene.objects['live_cursor'])
 
-
+            # exits ADD mode
             if keystat('BACKSPACEKEY', 'JUST_RELEASED'):
                 self.menu_block.unfocus()
                 self.menu_block.hide()
                 scene.objects['live_cursor'].replaceMesh('plain_cursor')
                 self.mode = SELECT
-
-
 
         # camera movement
         if keystat(key_left, 'ACTIVE'):

@@ -8,7 +8,7 @@ logic.device = aud.device()
 logic.sounds = {}
 for wavpath in [logic.expandPath("//wavs/announcer/"), logic.expandPath("//wavs/")]:
     for wav in os.listdir(wavpath):
-        if "engine" in wav:
+        if ".ogg" in wav:
             fac = aud.Factory.file(str(wavpath) + str(wav))
             logic.sounds[wav.replace('.ogg','')] = aud.Factory.buffer(fac)
         elif ".wav" in wav:
