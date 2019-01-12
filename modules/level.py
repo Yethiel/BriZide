@@ -228,8 +228,8 @@ class Level():
                 blocks.append(block)
 
         blk_file = {
-            "version" : settings["Game"]["Version"],
-            "author" : settings["Game"]["Name"],
+            "version" : logic.settings["Game"]["Version"],
+            "author" : logic.settings["Player0"]["Name"],
             "blocks" : blocks}
 
 

@@ -165,6 +165,10 @@ class Edit_Mode(Game_Mode):
                             self.select_multiple(obj)
                     else:
                         self.deselect_all()
+
+                if keystat('SKEY', 'JUST_RELEASED'):
+                    logic.game.level.save()
+                
                 return
 
             # selection
