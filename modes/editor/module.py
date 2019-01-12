@@ -294,6 +294,10 @@ class Edit_Mode(Game_Mode):
         get_scene('UI_Editor').end()
         super().restart(widget)
 
+    def return_to_menu(self, widget):
+        get_scene('UI_Editor').end()
+        super().return_to_menu(widget)
+
     def delete_selection(self):
         """ Deletes all objects in the selection """
         keys = list(self.selection.keys())
@@ -346,6 +350,7 @@ def main():
 
 def update_label_mode(widget):
     widget.text = 'Mode: {}'.format(logic.editor.get_mode())
+
 
 def update_label_axes(widget):
     if logic.editor.mode in [ROTATE, GRAB]:

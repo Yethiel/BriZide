@@ -89,6 +89,7 @@ class Game:
 
     def start(self):
         """Starts the game (tells the game mode to start and load all comps)"""
+        if G.DEBUG: print("Starting game")
         logic.components.load_immediate(
             "../modes/" + self.mode + "/" + self.mode)
 

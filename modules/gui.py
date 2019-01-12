@@ -45,7 +45,8 @@ def setup():
             "Start Editor", 
             "Game Mode", 
             "Level",
-            "Quit"
+            "Quit",
+            "Debug: Dump scenes"
         ], 
         position=[0.5, 5.0, 0],
         size=0.5,
@@ -54,7 +55,8 @@ def setup():
             start_editor,
             show_menu_mode, 
             show_menu_level,
-            end_game
+            end_game, 
+            dump_scenes
         ],
         hidden=False
     )
@@ -166,6 +168,11 @@ def start_editor(widget):
     logic.ui["loading_screen"].show()
     logic.ui["layout_main"].unfocus()
     logic.uim.enqueue("game_start")
+
+
+def dump_scenes(widget):
+    from modules import debug
+    debug.dump_scenes()
 
 
 def end_game(widget):

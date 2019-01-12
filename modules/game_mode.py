@@ -1,6 +1,7 @@
 from bge import logic, events
 from modules import btk
 from modules.helpers import get_scene
+from modules import global_constants as G
 
 kbd = logic.keyboard
 
@@ -48,6 +49,7 @@ class Game_Mode:
         """ Runs every logic tick """
         
         if not self.loaded:
+            if G.DEBUG: print("Not loaded yet.")
             # Prepares the game mode by loading the queued components
             logic.components.load()
 
@@ -75,10 +77,11 @@ class Game_Mode:
     def return_to_menu(self, widget):
         sce = logic.getCurrentScene()
 
+        logic.ui[self.name].hide()
         logic.ui[self.name].end()
         logic.ui.pop(self.name)
 
-        for component in self.components:
+        for component in self.components[::-1]:
             logic.components.free(component)
         self.go.endObject()
 
@@ -94,17 +97,29 @@ class Game_Mode:
         logic.ui["layout_main"].get_element("menu_main").focus()
 
 
+        if G.DEBUG:
+            from modules import debug
+            debug.dump_scenes()
+
+        # Workaround: BGE LibLoad-related crash
+        # logic.restartGame()
+
+
     def restart(self, widget):
         sce = logic.getCurrentScene()
-
+        if G.DEBUG: print("Ending UI")
         logic.ui[self.name].end()
+        if G.DEBUG: print("Popping UI")
         logic.ui.pop(self.name)
+        if G.DEBUG: print("Showing loading screen")
         logic.ui["loading_screen"].show()
 
-        for component in self.components:
+        for component in self.components[::-1]:
             logic.components.free(component)
+        if G.DEBUG: print("Ending controller object")
         self.go.endObject()
 
+        if G.DEBUG: print("Freeing own component")
         logic.components.free(self.name)
         logic.components.clear()
         logic.game.clear()
