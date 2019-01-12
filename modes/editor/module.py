@@ -1,3 +1,4 @@
+import math
 from bge import logic, events, render
 from modules import btk
 from modules.helpers import keystat, get_scene
@@ -37,6 +38,7 @@ class Edit_Mode(Game_Mode):
         super().__init__(required_components, game_obj, 'editor')
         self.selection = {}
         self.mode = SELECT  # editor starts in select mode
+        self.axes = [0, 0, 1]  # axes for manipulation
 
     def setup(self):
         """ runs after loading is done """
@@ -57,6 +59,11 @@ class Edit_Mode(Game_Mode):
             position=[0.4, 0.4, 0],
             size=0.3,
             update=update_label_mode)
+        label_axes = btk.Label(layout, 
+            text='Axes:',
+            position=[0.4, 0.7, 0],
+            size=0.2,
+            update=update_label_axes)
 
         self.menu_block = btk.Menu("menu_block", layout)
         self.menu_block.populate(
@@ -119,15 +126,17 @@ class Edit_Mode(Game_Mode):
         # branches out into modes
         if self.mode == SELECT:
 
-            # rotation mode on R
+            # switches to rotation mode on R (only if selection isn't empty)
             if keystat(key_rotate, 'JUST_RELEASED'):
-                self.mode = ROTATE
-                return
+                if len(self.selection.keys()) > 0:
+                    self.mode = ROTATE
+                    return
 
-            # grab mode on G
+            # switches to grab mode on G (only if selection isn't empty)
             if keystat(key_grab, 'JUST_RELEASED'):
-                self.mode = GRAB
-                return
+                if len(self.selection.keys()) > 0:
+                    self.mode = GRAB
+                    return
 
             # left shift modifier
             if keystat('LEFTSHIFTKEY', 'ACTIVE'):
@@ -179,10 +188,54 @@ class Edit_Mode(Game_Mode):
                 self.delete_selection()
 
         elif self.mode == GRAB:
+            if keystat('XKEY', 'JUST_RELEASED'):
+                self.axes = [1, 0, 0]
+            elif keystat('YKEY', 'JUST_RELEASED'):
+                self.axes = [0, 1, 0]
+            elif keystat('ZKEY', 'JUST_RELEASED'):
+                self.axes = [0, 0, 1]
+
+            for obj in self.selection:
+                self.selection[obj].worldPosition = obj.worldPosition
+                
+            if keystat('LEFTARROWKEY', 'JUST_RELEASED') or keystat('DOWNARROWKEY', 'JUST_RELEASED'):
+                for obj in self.selection:
+                    obj.applyMovement([-a * 16 for a in self.axes], False)
+
+            elif keystat('RIGHTARROWKEY', 'JUST_RELEASED') or keystat('UPARROWKEY', 'JUST_RELEASED'):
+                for obj in self.selection:
+                    obj.applyMovement([a * 16 for a in self.axes], False)
+
             if keystat('BACKSPACEKEY', 'JUST_RELEASED'):
                 self.mode = SELECT
+            elif keystat('ENTERKEY', 'JUST_RELEASED'):
+                self.mode = SELECT
+
+
+
         elif self.mode == ROTATE:
-            if keystat('BACKSPACEKEY', 'JUST_RELEASED'):
+            if keystat('XKEY', 'JUST_RELEASED'):
+                self.axes = [1, 0, 0]
+            elif keystat('YKEY', 'JUST_RELEASED'):
+                self.axes = [0, 1, 0]
+            elif keystat('ZKEY', 'JUST_RELEASED'):
+                self.axes = [0, 0, 1]
+            
+            for obj in self.selection:
+                self.selection[obj].worldOrientation = obj.worldOrientation
+
+            if keystat('LEFTARROWKEY', 'JUST_RELEASED') or keystat('DOWNARROWKEY', 'JUST_RELEASED'):
+                for obj in self.selection:
+                    obj.applyRotation([math.pi * a * .25 for a in self.axes], False)
+
+            elif keystat('RIGHTARROWKEY', 'JUST_RELEASED') or keystat('UPARROWKEY', 'JUST_RELEASED'):
+                for obj in self.selection:
+                    obj.applyRotation([math.pi * -a * .25 for a in self.axes], False)
+
+            elif keystat('BACKSPACEKEY', 'JUST_RELEASED'):
+                self.mode = SELECT
+
+            elif keystat('ENTERKEY', 'JUST_RELEASED'):
                 self.mode = SELECT
         
         elif self.mode == ADD:
@@ -289,3 +342,9 @@ def main():
 
 def update_label_mode(widget):
     widget.text = 'Mode: {}'.format(logic.editor.get_mode())
+
+def update_label_axes(widget):
+    if logic.editor.mode in [ROTATE, GRAB]:
+        widget.text = 'Axes: {}'.format(logic.editor.axes)
+    elif widget.text != '':
+        widget.text = ''
