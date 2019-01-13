@@ -22,6 +22,10 @@ def main():
     # size of the tile objects the cube is made out of (in Blender units)
     tile_size = 32
     cube_size = level.get_cube_size()
+
+    big_cube = sce.addObject("CubeCollision", own, 0)
+    big_cube.worldPosition = [(cube_size*tile_size)/2 - 16, (cube_size*tile_size)/2 - 16, (cube_size*tile_size)/2 - 16]
+    big_cube.worldScale = [cube_size, cube_size, cube_size]
     
     if cube_size > 0:
         cube_range = range(0, cube_size)
