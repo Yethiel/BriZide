@@ -199,6 +199,8 @@ class Ship():
         logic.device.listener_location = camera.worldPosition
         logic.device.listener_orientation = camera.worldOrientation.to_quaternion()
 
+        logic.game.go["radial"] = clamp((self.current_velocity - (self.top_speed-10)) /  (self.top_speed+50) * 0.7, 0, 0.15)
+
         self.go["sound_engine"].volume = clamp((self.current_thrust / self.top_thrust), 0, 2)
         self.go["sound_engine_idle"].volume = clamp(1 - self.current_thrust / self.top_thrust, 0, 2)
         self.go["sound_engine"].pitch = 1 + (.3 * self.current_velocity / self.top_speed)
