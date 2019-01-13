@@ -3,7 +3,7 @@
 BriZide is a free open-source racing game set in the distant future.
 Race anti-gravity ships around levels in a large cubic space station.
 
-![](screenshots/flares.png)
+![](screenshot.jpg)
 
 ## Time Trial
 Race around the cube and **collect all checkpoints** in any order. The bar in the top left shows you how many checkpoints are left. The bar in the bottom left shows you how much boost you have. Go sideways to generate boost.
@@ -28,21 +28,30 @@ Select options in the main menu with the arrow keys. Press `ENTER` to select a m
 + `W`, `A`, `S`, `D` or `SHIFT` + `MMB`: Drag camera
 + `Q`, `E` or `CTRL` + `MMB`: Zoom out and in
 + `MMB`: Rotate camera
-+ `RMB`: Select block
-+ `LMB`: Place block
-+ `DELETE`: Delete selected block
-+ `←`, `→`: Select block to build
-+ `CTRL` + `S`: Save level
++ Select Mode (default):
+    + `LMB`: Select block
+    + `SHIFT` + `LMB`: Select multiple blocks
+    + `CTRL` + `A`: Select or deselect all blocks
+    + `DELETE`: Delete selected blocks
+    + `CTRL` + `S`: Save level
++ `SHIFT` + `A`: Enter Add Mode
+    + `↑`, `↓`: Select block to place
+    + `LMB`, `ENTER`: Place block
+    + `BACKSPACE`: Leave mode
 + `R`: Enter Rotation Mode
     + `X`, `Y`, `Z`: Select axis
-    + `Mouse Movement`: Rotate
+    + `←`, `→`, `↑`, `↓`: Rotate selected blocks
+    + `ENTER`, `BACKSPACE`: Leave mode
 + `G`: Enter Grab Mode
     + `X`, `Y`, `Z`: Select axis
-    + `Mouse Movement`: Move selected block
+    + `←`, `→`, `↑`, `↓`: Move selected blocks
+    + `ENTER`, `BACKSPACE`: Leave mode
 
 ## Download and Install
 
-There's no executable at the moment so you need to have [Blender](https://blender.org) installed.
+Builds are available [**here**](https://files.re-volt.io/brizide/).
+
+Alternatively, you can clone this repo and run the game with Blender:
 
 GNU/Linux:
 
@@ -82,7 +91,8 @@ A **custom game mode** can be added with just a few lines of code. Copy any game
 ## Credits
 
 ### Audio
-**ZetaSphere**: *Sequence Break* (Time Trial soundtrack)  
+**ZetaSphere**: Time Trial soundtrack  
+**Qvarcos**: Editor soundtrack  
 **PotatoFace**: Menu theme  
 **Pong Pearson**: Announcer voice
 
