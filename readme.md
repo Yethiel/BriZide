@@ -1,15 +1,17 @@
 # BriZide
 
 BriZide is a free open-source racing game set in the distant future.
-Players race ships on levels in a large cubic space station.
+Race anti-gravity ships around levels in a large cubic space station.
 
 ![](screenshots/flares.png)
 
-## Story
-
-> Project 'Bright Side' was initiated by the Global Space Program in the year 2353. Its aim was to relocate humanity to colonize planets far from home due to earth's long exhausted resources. A large cubic space ship was built, equipped with everything to keep the population inside occupied and save. For many centuries, the inhabitants were able to maintain a rather regular life until situations in the cube changed. Resources have gone down to a minimum and the government was overthrown. Illegal races are probably the only thing left to maintain some sort of social climate.
+## Time Trial
+Race around the cube and **collect all checkpoints** in any order. The bar in the top left shows you how many checkpoints are left. The bar in the bottom left shows you how much boost you have. Go sideways to generate boost.
+Be quicker than the previous record to set a new highscore.
 
 ## Default Controls
+
+Controls can be set in the config.ini file. See the [bge docs](https://docs.blender.org/api/2.79b/bge.events.html#keys-constants) for available keys.
 
 Select options in the main menu with the arrow keys. Press `ENTER` to select a menu entry.
 
@@ -62,10 +64,28 @@ Download Blender 2.79 (other versions might work as well) and launch the `main.b
 The source files for the launchers are provided (brizide_bin.blend and brizide_build.blend).
 Compiled launchers will be provided at a later point as they are quite large.
 
+## Modding
+Almost every aspect of this game can be modified.  
+Game modes, levels, ships and assets can all be found in the game's folder and easily modified with free software (Blender, Gimp, ...).
+
+A **custom game mode** can be added with just a few lines of code. Copy any game mode folder and start modifying it. You will be able to select it in the _Game Mode_ menu.
+
+**Levels** can be modified and built from scratch with the built-in level editor. You can also make the game load a regular .blend file as a level, too.
+
+**Ships** will be selectable from the main menu soon, as well.
+
 ## Implemented Features
 + Bare-bones time trial mode
 + Free mode
-+ Basic track editor
++ Basic level editor
 
-## Screenshots
-![](docs/screenshot-02.jpg)
+## Credits
+
+### Audio
+**ZetaSphere**: *Sequence Break* (Time Trial soundtrack)  
+**PotatoFace**: Menu theme  
+**Pong Pearson**: Announcer voice
+
+## Story
+
+> Project 'Bright Side' was initiated by the Global Space Program in the year 2353. Its aim was to relocate humanity to colonize planets far from home due to earth's long exhausted resources. A large cubic space station was built, equipped with everything to keep the population inside occupied and save. For many centuries, the inhabitants were able to maintain a rather regular life until situations in the cube changed. Resources have gone down to a minimum and the government was overthrown. Illegal races are probably the only thing left to maintain some sort of social climate.

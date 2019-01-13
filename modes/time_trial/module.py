@@ -15,68 +15,6 @@ JUST_ACTIVATED = logic.KX_INPUT_JUST_ACTIVATED
 JUST_RELEASED = logic.KX_INPUT_JUST_RELEASED
 ACTIVE = logic.KX_INPUT_ACTIVE
 
-#         self.lbl_count = bgui.Label(
-#             self.frame, 
-#             text="1", 
-#             pos=[0.5, 0.7], 
-#             sub_theme='Large', 
-#             options = bgui.BGUI_DEFAULT | bgui.BGUI_CENTERX
-#         )
-#         self.lbl_checkpoints = bgui.Label(
-#             self.frame, 
-#             text="0/0", 
-#             pos=[0.2, 0.85], 
-#             options = bgui.BGUI_DEFAULT
-#         )
-#         self.lbl_time = bgui.Label(
-#             self.frame, 
-#             text="", 
-#             pos=[0.5, 0.85], 
-#             sub_theme='Large', 
-#             options = bgui.BGUI_DEFAULT| bgui.BGUI_CENTERX
-#         )
-#         self.lbl_best = bgui.Label(
-#             self.frame, 
-#             text="BEST: ",
-#             pos=[0.5, 0.82], 
-#             options = bgui.BGUI_DEFAULT| bgui.BGUI_CENTERX
-#         )
-
-#         self.button_menu = bgui.FrameButton(self.frame,
-#                 text="Back to Menu",
-#                 size=[.2, .1],
-#                 pos=[0.5, .3],
-#                 options = bgui.BGUI_DEFAULT
-#         )
-
-#         self.button_menu.on_click = self.return_to_menu
-#         self.button_menu.visible = False
-
-#     def update(self):
-
-#         own = self.cont_obj
-#         tt = logic.time_trial
-#         if own["done_loading"]:
-
-#             self.lbl_best.text = "BEST: {} ({})".format(
-#                 helpers.time_string(tt.best_time["time"]), 
-#                 tt.best_time["player"]
-#             )
-#             self.lbl_checkpoints.text = "Chk " + str(tt.cp_progress[str(0)]) +"/"+ str(tt.cp_count)
-
-
-#             if own["CountdownTimer"] > 4 and gD:
-#                 if not tt.cp_count == tt.cp_progress["0"]:
-#                     self.lbl_time.text = helpers.time_string(own["Timer"])
-
-#             amnt_passed = tt.cp_progress["0"]
-#             if amnt_passed == len(tt.cp_data):
-#                 self.button_menu.visible = True
-#             else:
-#                 self.button_menu.visible = False    
-
-
-
 
 class TimeTrial():
     def __init__(self, controller):
@@ -238,8 +176,8 @@ def update_boost_bar(widget):
 def update_label_best(widget):
     tt = logic.time_trial
     widget.text  = "BEST: {} ({})".format(
-            helpers.time_string(tt.best_time["time"]), 
-            tt.best_time["player"]
+        helpers.time_string(tt.best_time["time"]), 
+        tt.best_time["player"]
     )
 
 
@@ -272,7 +210,7 @@ def restart(widget):
 
     logic.ui["time_trial"].end()
     logic.ui.pop("time_trial")
-    logic.ui["layout_loading"].show()
+    logic.ui["loading_screen"].show()
 
     for component in required_components:
         logic.components.free(component)
@@ -399,7 +337,7 @@ def setup():
     own = logic.getCurrentController().owner
     game = logic.game
 
-    logic.ui["layout_loading"].hide()
+    logic.ui["loading_screen"].hide()
 
     # Creates a folder for the mode
     if not os.path.isdir(os.path.join(game.get_profile_dir("0"),"time_trial")):

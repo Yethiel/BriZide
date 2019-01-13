@@ -43,9 +43,7 @@ obj_cursor = sce.objects["Cursor"]
 
 keyboard = logic.keyboard
 mouse = logic.mouse
-JUST_ACTIVATED = logic.KX_INPUT_JUST_ACTIVATED
-JUST_RELEASED = logic.KX_INPUT_JUST_RELEASED
-ACTIVE = logic.KX_INPUT_ACTIVE
+
 
 #Key assignments Keyboard, will be loaded from settings
 c_stt = settings["Controls_Editor"]

@@ -74,10 +74,12 @@ class Components:
     def load_immediate(self, component):
         """Load a library immediately, blocking everything else"""
 
+        if G.DEBUG: print("Loading immediate:", component)
+
         blend_path = logic.expandPath("{}{}{}".format(
             "//components/", component, extension))
 
-        logic.LibLoad(blend_path,"Scene")
+        logic.LibLoad(blend_path, "Scene")
 
         # self.loaded.append(component)
 

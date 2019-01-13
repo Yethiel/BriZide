@@ -1,49 +1,29 @@
-"""
-This is the script for the free game mode.
-It is attached to the Controller object in the mode's blend file.
-"""
-
-from bge import logic, events
-from modules import global_constants as G
-
-sce = logic.getCurrentScene() # Scene that contains all objects
-own = logic.getCurrentController().owner # Object that controls this module
-
-own["init"] = False
+from bge import logic, render
+from modules import btk
+from modules.game_mode import Game_Mode
 
 required_components = ["blocks", "level", "cube", "ship"]
 
-# Queue the required components
-queue_id = logic.components.enqueue(required_components)
 
-# Set the music directory
-logic.game.set_music_dir("time_trial")
+class Free_Mode(Game_Mode):
+    def __init__(self, game_obj):
+        # initiates the game mode, name needs to match folder name
+        super().__init__(required_components, game_obj, "free")
 
-def setup():
+    def setup(self):
+        """ runs after loading is done """
+        super().setup()
+        logic.game.set_music_dir("time_trial")
+        logic.uim.set_focus("ship")
 
-    # Setup the game mode and give the player controls.
-    own["Timer"] = 0
-    # gD["input"]["focus"] = "ship"
-    logic.uim.focus = "ship"
+    def run(self):
+        """ runs every logic tick """
+        super().run()  # handles loading of components
 
-    # In debug mode, print when game mode is ready
-    if G.DEBUG: print("{}: {}".format(own.name, "Free mode has been set up."))
 
-# The main loop always runs.
+def init():
+    """ Runs immediately after the scene loaded """
+    logic.free_mode = Free_Mode(logic.getCurrentController().owner)
+
 def main():
-
-    if not own["init"]:
-
-        # Prepare the game mode by loading the queued components
-        logic.components.load()
-
-        # If the queue is emtpy, we're done
-        if logic.components.is_done(required_components):
-            own["init"] = True
-            setup()
-    else:
-        pass
-
-
-def controls():
-    pass
+    logic.free_mode.run()

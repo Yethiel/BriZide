@@ -161,13 +161,25 @@ class Ship():
 
         camera = logic.getCurrentScene().objects["Camera_Ship"]
 
-
         if not "init_sound_engine" in self.go:
-            self.go["sound_engine"] = sound.play("engine")
+            self.go["sound_engine_idle"] = sound.play("engine_idle")
+            self.go["sound_engine_idle"].relative = False
+            self.go["sound_engine_idle"].loop_count = -1
+            self.go["sound_engine_idle"].relative = False
+            self.go["sound_engine_idle"].distance_maximum = 64
+
+            self.go["sound_engine"] = sound.play("engine_loop")
+            self.go["sound_engine"].relative = False
             self.go["sound_engine"].loop_count = -1
             self.go["sound_engine"].relative = False
             self.go["sound_engine"].distance_maximum = 64
-            self.go["sound_engine"].distance_reference = 0
+
+
+            self.go["sound_engine_top"] = sound.play("engine_top")
+            self.go["sound_engine_top"].relative = False
+            self.go["sound_engine_top"].loop_count = -1
+            self.go["sound_engine_top"].relative = False
+            self.go["sound_engine_top"].distance_maximum = 64
 
             self.go["sound_air"] = sound.play("wind")
             self.go["sound_air"].loop_count = -1
@@ -186,12 +198,15 @@ class Ship():
 
         logic.device.listener_location = camera.worldPosition
         logic.device.listener_orientation = camera.worldOrientation.to_quaternion()
-        # logic.device.listener_velocity = camera.getLinearVelocity()
 
-        # self.go["sound_engine"].pitch = clamp(abs(self.go["thrust"]/self.go["ThrustRatio"]) + abs(self.go.getLinearVelocity(True)[1])/ 130, 0, 2.34)
-        self.go["sound_engine"].pitch = clamp(abs(self.current_thrust/self.top_thrust) + abs(self.current_velocity)/100, 0.5, 5.0)
+        self.go["sound_engine"].volume = clamp((self.current_thrust / self.top_thrust), 0, 2)
+        self.go["sound_engine_idle"].volume = clamp(1 - self.current_thrust / self.top_thrust, 0, 2)
+        self.go["sound_engine"].pitch = 1 + (.3 * self.current_velocity / self.top_speed)
+        self.go["sound_engine_top"].volume = clamp((self.current_velocity - self.top_speed) /  self.top_speed , 0, 2)
         self.go["sound_air"].volume = clamp((abs(self.go.getLinearVelocity(True)[0] + (self.go.getLinearVelocity(True)[1]/2) + self.go.getLinearVelocity(True)[2]))/200, 0, 2)
 
+        self.go["sound_engine_idle"].location = self.go.worldPosition
+        self.go["sound_engine_top"].location = self.go.worldPosition
         self.go["sound_engine"].location = self.go.worldPosition
         self.go["sound_air"].location = self.go.worldPosition
         
@@ -281,11 +296,14 @@ class Ship():
             self.go.applyForce([0, self.current_thrust, 0], True)
 
         # Boost
+        if kbd.events[self.key_boost] == JUST_ACTIVATED:
+            sound.play("boost_kick")
         if kbd.events[self.key_boost] == ACTIVE:
             allow_boost = max(self.go.getLinearVelocity(True)) < self.top_speed * 1.5
 
             if self.current_boost > 10 and allow_boost:
                 self.go.applyForce((0, self.thrust * 18, 0), True)
+                smoke = logic.getCurrentScene().addObject("Smoke", self.go)
                 self.current_boost -= 2.5
 
         # Stabilizer
@@ -360,6 +378,7 @@ class Ship():
             self.current_steer += (1/delta * self.steer_rate)
         else:
             pass
+
 
     def center_thrust(self):
         delta = logic.getLogicTicRate()

@@ -128,7 +128,7 @@ class Menu(Layout):
             self.elements[i].run()
 
     def controls(self):
-        if logic.uim.focus == "menu" and self.focused and self.root["timer"] > 0.1:
+        if self.focused and self.root["timer"] > 0.1:  #logic.uim.focus == "menu"
             if kbd.events[events.UPARROWKEY] == JUST_ACTIVATED:
                 self.previous()
                 sound.play("menu")
@@ -165,6 +165,13 @@ class Element:
 
     def show(self):
         self.go.visible = True
+
+
+class Button(Element):
+    def __init__(self, parent, title="", position=[0,0,0], action=None, update=None, hidden=False):
+        super().__init__(parent, object="ui_button", title=title, position=position, update=update, hidden=hidden)
+        self.action = action
+
 
 
 class ProgressBar(Element):
@@ -221,4 +228,5 @@ class Option(Label):
         self.value = 0
 
     def execute(self):
-        self.action(self)
+        if self.action is not None:
+            self.action(self)
