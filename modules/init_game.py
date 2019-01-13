@@ -18,7 +18,7 @@ def setup():
 
     logic.settings = config.load()
     sound.init()
-    logic.game = game.Game()
+    logic.game = game.Game(own)
 
     logic.components = components.Components() # manages game components loaded by game modes
     logic.game.set_music_dir("menu")

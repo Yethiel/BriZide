@@ -13,7 +13,7 @@ class Game:
     It is used to manage ships and their players, available content and
     the level object.
     """
-    def __init__(self):
+    def __init__(self, game_obj):
         self.ships = {}           # dictionary of ships (id:ship)
         self.level = None           # current level object
         self.level_name = logic.settings["Game"]["leveldir"]
@@ -27,6 +27,8 @@ class Game:
         self.level_list = []
         self.ship_list = []
         self.mode_list = []
+
+        self.go = game_obj
 
     def register_ship(self, objref):
         """
