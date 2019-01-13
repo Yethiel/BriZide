@@ -75,34 +75,34 @@ class Game_Mode:
 
 
     def return_to_menu(self, widget):
-        sce = logic.getCurrentScene()
+        # sce = logic.getCurrentScene()
 
-        logic.ui[self.name].hide()
-        logic.ui[self.name].end()
-        logic.ui.pop(self.name)
+        # logic.ui[self.name].hide()
+        # logic.ui[self.name].end()
+        # logic.ui.pop(self.name)
 
-        for component in self.components[::-1]:
-            logic.components.free(component)
-        self.go.endObject()
+        # for component in self.components[::-1]:
+        #     logic.components.free(component)
+        # self.go.endObject()
 
-        logic.components.free(self.name)
-        logic.components.clear()
-        logic.game.clear()
-        logic.uim.set_focus("menu")
-        logic.game.set_music_dir("menu")
+        # logic.components.free(self.name)
+        # logic.components.clear()
+        # logic.game.clear()
+        # logic.uim.set_focus("menu")
+        # logic.game.set_music_dir("menu")
 
-        logic.ui["layout_main"].get_element("menu_main").show()
-        logic.ui["layout_main"].get_element("logo").show()
-        logic.ui["layout_main"].get_element("B r i Z i d e").show()
-        logic.ui["layout_main"].get_element("menu_main").focus()
+        # logic.ui["layout_main"].get_element("menu_main").show()
+        # logic.ui["layout_main"].get_element("logo").show()
+        # logic.ui["layout_main"].get_element("B r i Z i d e").show()
+        # logic.ui["layout_main"].get_element("menu_main").focus()
 
 
-        if G.DEBUG:
-            from modules import debug
-            debug.dump_scenes()
+        # if G.DEBUG:
+        #     from modules import debug
+        #     debug.dump_scenes()
 
         # Workaround: BGE LibLoad-related crash
-        # logic.restartGame()
+        logic.restartGame()
 
 
     def restart(self, widget):
