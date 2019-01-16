@@ -162,11 +162,26 @@ class Ship():
         camera = logic.getCurrentScene().objects["Camera_Ship"]
 
         if not "init_sound_engine" in self.go:
+
             self.go["sound_engine_idle"] = sound.play("engine_idle")
             self.go["sound_engine_idle"].relative = False
             self.go["sound_engine_idle"].loop_count = -1
             self.go["sound_engine_idle"].relative = False
             self.go["sound_engine_idle"].distance_maximum = 64
+
+            self.go["sound_boost_low"] = sound.play("boost_low")
+            self.go["sound_boost_low"].relative = False
+            self.go["sound_boost_low"].volume = 0.0
+            self.go["sound_boost_low"].loop_count = -1
+            self.go["sound_boost_low"].relative = False
+            self.go["sound_boost_low"].distance_maximum = 64
+
+            self.go["sound_boost_high"] = sound.play("boost_high")
+            self.go["sound_boost_high"].relative = False
+            self.go["sound_boost_high"].volume = 0.0
+            self.go["sound_boost_high"].loop_count = -1
+            self.go["sound_boost_high"].relative = False
+            self.go["sound_boost_high"].distance_maximum = 64
 
             self.go["sound_engine"] = sound.play("engine_loop")
             self.go["sound_engine"].relative = False
@@ -183,13 +198,13 @@ class Ship():
 
             self.go["sound_air"] = sound.play("wind")
             self.go["sound_air"].loop_count = -1
-            self.go["sound_air"].volume = 0
+            self.go["sound_air"].volume = 0.0
             self.go["sound_air"].relative = False
             self.go["sound_air"].distance_maximum = 32
             self.go["sound_air"].distance_reference = 0
 
 
-            self.go["init_sound_engine"] = False
+            self.go["init_sound_engine"] = True
             logic.device.distance_model = aud.AUD_DISTANCE_MODEL_LINEAR
 
         self.current_velocity = self.go.localLinearVelocity[1]
@@ -202,6 +217,7 @@ class Ship():
         logic.game.go["radial"] = clamp((self.current_velocity - (self.top_speed-10)) /  (self.top_speed+50) * 0.7, 0, 0.15)
 
         self.go["sound_engine"].volume = clamp((self.current_thrust / self.top_thrust), 0, 2)
+        self.go["sound_boost_low"].volume = clamp((self.current_thrust / self.top_thrust), 0, 2)
         self.go["sound_engine_idle"].volume = clamp(1 - self.current_thrust / self.top_thrust, 0, 2)
         self.go["sound_engine"].pitch = 1 + (.3 * self.current_velocity / self.top_speed)
         self.go["sound_engine_top"].volume = clamp((self.current_velocity - self.top_speed) /  self.top_speed , 0, 2)
@@ -300,13 +316,25 @@ class Ship():
         # Boost
         if kbd.events[self.key_boost] == JUST_ACTIVATED:
             sound.play("boost_kick")
-        if kbd.events[self.key_boost] == ACTIVE:
+        
+        
+        if kbd.events[self.key_boost] == ACTIVE and self.current_boost > 10:
             allow_boost = max(self.go.getLinearVelocity(True)) < self.top_speed * 1.5
-
-            if self.current_boost > 10 and allow_boost:
+            if allow_boost:
                 self.go.applyForce((0, self.thrust * 18, 0), True)
-                smoke = logic.getCurrentScene().addObject("Smoke", self.go)
                 self.current_boost -= 2.5
+            smoke = logic.getCurrentScene().addObject("Smoke", self.go)
+
+            # self.go["sound_boost_low"].volume = self.current_boost / 10
+            self.go["sound_boost_low"].pitch = clamp(self.current_velocity / self.top_speed + 1, 1.0, 3)
+            self.go["sound_boost_high"].volume = 0.1
+            self.go["sound_boost_low"].volume = clamp(self.current_velocity / self.top_speed, 0, 0.4)
+
+        else:
+            self.go["sound_boost_low"].volume = 0.0
+            self.go["sound_boost_low"].pitch = 1.0
+            self.go["sound_boost_high"].volume = 0.0
+
 
         # Stabilizer
         if kbd.events[self.key_deactivate_stabilizer] == ACTIVE or not self.on_ground:
