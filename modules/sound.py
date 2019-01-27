@@ -6,6 +6,7 @@ import os
 logic.device = aud.device()
 
 logic.sounds = {}
+logic.playing_sounds = {}
 for wavpath in [logic.expandPath("//wavs/announcer/"), logic.expandPath("//wavs/")]:
     for wav in os.listdir(wavpath):
         if ".ogg" in wav:
@@ -13,7 +14,7 @@ for wavpath in [logic.expandPath("//wavs/announcer/"), logic.expandPath("//wavs/
             logic.sounds[wav.replace('.ogg','')] = aud.Factory.buffer(fac)
         elif ".wav" in wav:
             logic.sounds[wav.replace('.wav','')] = aud.Factory.file(str(wavpath) + str(wav))
-print(logic.sounds.keys())
+if G.DEBUG: print("Sounds:", logic.sounds.keys())
 
 class EchoWrapper():
     def __init__(self, soundstring, feedback=6, delay=0.07, dry=1, wet=0.3,

@@ -9,7 +9,7 @@ own = cont.owner
 
 audio_settings = logic.settings["Audio"]
 
-logic.device = aud.device()
+logic.music_device = aud.device()
 
 music_list = []
 global playing_index
@@ -22,7 +22,7 @@ own["current_dir"] = logic.game.music_dir
 def play(path):
     factory = aud.Factory.file(path)
     # play the audio, this return a handle to control play/pause
-    return logic.device.play(factory)
+    return logic.music_device.play(factory)
 
 def play_shuffle():
     global playing_index, music_list

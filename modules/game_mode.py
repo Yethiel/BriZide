@@ -106,6 +106,7 @@ class Game_Mode:
 
 
     def restart(self, widget):
+        logic.device.stopAll()  # stops all sounds
         sce = logic.getCurrentScene()
         if G.DEBUG: print("Ending UI")
         logic.ui[self.name].end()

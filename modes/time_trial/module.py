@@ -1,45 +1,85 @@
 import os
-from mathutils import Color
-from bge import logic, events
-from modules import components, global_constants, sound, helpers, btk, lights
-from modules import global_constants as G
+from bge import logic, events, render
+from modules import btk, components, sound, helpers, global_constants as G
+from modules.game_mode import Game_Mode
 from random import randint
 
 required_components = ["blocks", "level", "cube", "ship"]
+
 trigger_distance = 32 # distance for a checkpoint to be triggered
-game = logic.game
 
-kbd = logic.keyboard
-
-JUST_ACTIVATED = logic.KX_INPUT_JUST_ACTIVATED
-JUST_RELEASED = logic.KX_INPUT_JUST_RELEASED
-ACTIVE = logic.KX_INPUT_ACTIVE
-
-
-class TimeTrial():
-    def __init__(self, controller):
+class Time_Trial_Mode(Game_Mode):
+    def __init__(self, game_obj):
+        # initiates the game mode, name needs to match folder name
+        super().__init__(required_components, game_obj, "time_trial")
         self.cp_data = []
         self.cp_count = 0
         self.cp_progress = {"0": 0}
         self.best_times = []
         self.best_time = {"player": "", "time": 999.0}
         self.final_time = 0.0
-        self.controller = logic.getCurrentController().owner
 
+    def setup(self):
+        """ runs after loading is done """
+        super().setup()
+        sce = logic.getCurrentScene()
+        logic.game.set_music_dir("time_trial")
+        self.setup_checkpoints(sce)
+        self.get_times()
+
+        layout = logic.ui["time_trial"]
+
+        btk.Label(layout, text="", position=[7.5, 7.5, 0], size=1.0, update=update_label_countdown)
+
+        btk.Label(layout, text="", position=[0.5, 7.5, 0], size=0.6, update=update_label_time)
+        btk.Label(layout, text="", position=[0.52, 7.2, 0], size=0.2, update=update_label_best)
+        btk.Label(layout, text="", position=[0.5, 6.5, 0], size=0.4, update=update_label_checkpoints)
+
+        btk.Label(layout, text="", position=[12, 0.5, 0], size=0.6, update=update_label_speed)    
+
+        boost_bar = btk.ProgressBar(
+            layout, 
+            title="boost", 
+            position=[0.5, 0.5, 0], 
+            min_scale=[0, .5, 1], 
+            max_scale=[4, .5, 1], 
+            update=update_boost_bar
+        )
+        boost_bar.set_color([1, .743, 0.0, 0.75])
+
+        checkpoint_bar = btk.ProgressBar(
+            layout, 
+            title="checkpoints_bar", 
+            position=[0.5, 6.45, -0.1], 
+            min_scale=[0, .4, 1], 
+            max_scale=[2.5, .4, 1], 
+            update=update_checkpoint_bar
+        )
+        checkpoint_bar.set_color([1, .743, 0.0, 0.75])
+
+    def run(self):
+        """ runs every logic tick """
+        super().run()  # handles loading of components
+
+        self.countdown()
+        self.checkpoints()
+        
     def setup_checkpoints(self, sce):
         for obj in sce.objects:
             if "Block_Checkpoint" in obj.name:
                 self.cp_data.append(obj)
         self.cp_count = len(self.cp_data)
 
-    def get_times(self, game):
+    def get_times(self):
         # Gets the best times of all players
         for player in os.listdir(G.PATH_PROFILES):
+            if player == ".gitkeep": 
+                continue
             score_file = os.path.join(
                 G.PATH_PROFILES, 
                 player, 
                 "time_trial", 
-                "{}.txt".format(game.level_name)
+                "{}.txt".format(logic.game.level_name)
             )
 
             if os.path.isfile(score_file):
@@ -51,7 +91,7 @@ class TimeTrial():
                         )
             elif G.DEBUG:
                 print(
-                    "Times file does not exist for {}".format(game.level_name)
+                    "Times file does not exist for {} ({})".format(logic.game.level_name, score_file)
                 )
 
         # Gets the best time
@@ -59,43 +99,43 @@ class TimeTrial():
             if time["time"] < self.best_time["time"]:
                 self.best_time = time
 
-    def write_time(self, game):
+    def write_time(self):
         tt_file_path = os.path.join(
-            game.get_profile_dir("0"),
+            logic.game.get_profile_dir("0"),
             "time_trial", 
-            "{}.txt".format(game.level_name)
+            "{}.txt".format(logic.game.level_name)
         )
 
         with open(tt_file_path, "a") as f:
             f.write(str(self.final_time) + '\n')
 
-    def countdown(self, cont_obj):
-        if cont_obj["countdown"] > -1 and cont_obj["CountdownTimer"] > 1:
-            if cont_obj["countdown"] == 4:
+    def countdown(self):
+        if self.go["countdown"] > -1 and self.go["CountdownTimer"] > 1:
+            if self.go["countdown"] == 4:
                 sound.play("three" + str(randint(0,4)))
                 # sound.EchoWrapper("three0").play()
-                cont_obj["countdown"] -= 1
-            if cont_obj["countdown"] == 3 and cont_obj["CountdownTimer"] > 2:
+                self.go["countdown"] -= 1
+            if self.go["countdown"] == 3 and self.go["CountdownTimer"] > 2:
                 sound.play("two" + str(randint(0,4)))
-                cont_obj["countdown"] -= 1
-            if cont_obj["countdown"] == 2 and cont_obj["CountdownTimer"] > 3:
+                self.go["countdown"] -= 1
+            if self.go["countdown"] == 2 and self.go["CountdownTimer"] > 3:
                 sound.play("one" + str(randint(0,4)))
-                cont_obj["countdown"] -= 1
-            if cont_obj["countdown"] == 1 and cont_obj["CountdownTimer"] > 4:
+                self.go["countdown"] -= 1
+            if self.go["countdown"] == 1 and self.go["CountdownTimer"] > 4:
                 # sound.play("go" + str(randint(0,4)))
                 sound.EchoWrapper("go" + str(randint(0,4))).play()
-                cont_obj["countdown"] -= 1
+                self.go["countdown"] -= 1
                 # Give controls to the player
                 logic.uim.focus = "ship"
-                cont_obj["Timer"] = 0.0
-            if cont_obj["countdown"] == 0 and cont_obj["CountdownTimer"] > 5:
-                cont_obj["countdown"] -= 1
+                self.go["Timer"] = 0.0
+            if self.go["countdown"] == 0 and self.go["CountdownTimer"] > 5:
+                self.go["countdown"] -= 1
 
-    def checkpoints(self, game, cont_obj):
+    def checkpoints(self):
         for cp in self.cp_data:
-            for ship in game.ships:
+            for ship in logic.game.ships:
 
-                if game.ships[ship].go.getDistanceTo(cp) <= trigger_distance:
+                if logic.game.ships[ship].go.getDistanceTo(cp) <= trigger_distance:
                     if not str(ship) in cp:
                         cp[str(ship)] = True
                         sound.play("checkpoint")
@@ -121,31 +161,30 @@ class TimeTrial():
                             menu.show()
                             menu.focus()
                             logic.uim.set_focus("menu")
-                            logic.time_trial.controller["ui_timer"] = 0
+                            self.go["ui_timer"] = 0
 
                             if G.DEBUG: print("Time Trial over.")
 
-                            self.final_time = cont_obj["Timer"]
-                            self.write_time(game)
+                            self.final_time = self.go["Timer"]
+                            self.write_time()
 
                             sound.play("race_complete")
 
-
 def update_label_speed(widget):
-    ship = game.get_ship_by_player(0)
+    ship = logic.game.get_ship_by_player(0)
     if ship:
         # self.bar_boost.percent = ship.current_boost/500
         widget.text = ">>> " + str(int(ship.current_velocity))
 
 def update_label_time(widget):
-    own = logic.time_trial.controller
+    own = logic.time_trial.go
     tt = logic.time_trial
     if own["CountdownTimer"] > 4:
         if not tt.cp_count == tt.cp_progress["0"]:
             widget.text = helpers.time_string(own["Timer"])
 
 def update_label_countdown(widget):
-    own = logic.time_trial.controller
+    own = logic.time_trial.go
 
     if not "countdown" in own:
         own["countdown"] = 4
@@ -180,177 +219,13 @@ def update_label_best(widget):
         tt.best_time["player"]
     )
 
-
-def return_to_menu(widget):
-    sce = logic.getCurrentScene()
-    own = logic.time_trial.controller
-
-    logic.ui["time_trial"].end()
-    logic.ui.pop("time_trial")
-
-    for component in required_components:
-        logic.components.free(component)
-    own.endObject()
-
-    logic.components.free("time_trial")
-    logic.components.clear()
-    logic.game.clear()
-    logic.uim.set_focus("menu")
-    logic.game.set_music_dir("menu")
-
-    logic.ui["layout_main"].get_element("menu_main").show()
-    logic.ui["layout_main"].get_element("logo").show()
-    logic.ui["layout_main"].get_element("B r i Z i d e").show()
-    logic.ui["layout_main"].get_element("menu_main").focus()
-
-
-def restart(widget):
-    sce = logic.getCurrentScene()
-    own = logic.time_trial.controller
-
-    logic.ui["time_trial"].end()
-    logic.ui.pop("time_trial")
-    logic.ui["loading_screen"].show()
-
-    for component in required_components:
-        logic.components.free(component)
-    own.endObject()
-
-    logic.components.free("time_trial")
-    logic.components.clear()
-    logic.game.clear()
-    logic.uim.set_focus("menu")
-    
-    logic.uim.enqueue("game_start")
-
-
 def init():
-    """ Runs once before or while loading """
-
-    own = logic.getCurrentController().owner
-
-    logic.components = components.Components()
-    logic.time_trial = TimeTrial(own)
-    queue_id = logic.components.enqueue(required_components)
-
-    sce = logic.getCurrentScene()
-
-    own["init"] = True
-
-    # Creates a new BTK layout for the HUD
-    logic.ui["time_trial"] = btk.Layout("time_trial", logic.uim.go)
-    layout = logic.ui["time_trial"]
-
-    btk.Label(layout, text="", position=[7.5, 7.5, 0], size=1.0, update=update_label_countdown)
-
-    btk.Label(layout, text="", position=[0.5, 7.5, 0], size=0.6, update=update_label_time)
-    btk.Label(layout, text="", position=[0.52, 7.2, 0], size=0.2, update=update_label_best)
-    btk.Label(layout, text="", position=[0.5, 6.5, 0], size=0.4, update=update_label_checkpoints)
-
-    btk.Label(layout, text="", position=[12, 0.5, 0], size=0.6, update=update_label_speed)    
-
-    boost_bar = btk.ProgressBar(
-        layout, 
-        title="boost", 
-        position=[0.5, 0.5, 0], 
-        min_scale=[0, .5, 1], 
-        max_scale=[4, .5, 1], 
-        update=update_boost_bar
-    )
-    boost_bar.set_color([1, .743, 0.0, 0.75])
-
-    checkpoint_bar = btk.ProgressBar(
-        layout, 
-        title="checkpoints_bar", 
-        position=[0.5, 6.45, -0.1], 
-        min_scale=[0, .4, 1], 
-        max_scale=[2.5, .4, 1], 
-        update=update_checkpoint_bar
-    )
-    checkpoint_bar.set_color([1, .743, 0.0, 0.75])
-
-
-    # Creates a pause menu and populates it with options
-    menu = btk.Menu("pause_menu", layout)
-    menu.populate(
-        texts=[
-            "Restart", 
-            "Return to Menu"
-        ], 
-        position=[0.5, 5.0, 0],
-        size=0.5,
-        actions=[
-            restart,
-            return_to_menu
-        ],
-        hidden=False
-    )
-    
-    menu.hide()
-
-
-def load(cont_obj):
-    # Prepare the game mode by loading the queued components
-    logic.components.load()
-
-    # If the queue is emtpy we're done
-    if logic.components.is_done(required_components):
-        cont_obj["done_loading"] = True
-        setup()
-
-
-def main():
-    """ Runs every logic tick """
-    sce = logic.getCurrentScene()
-    own = logic.getCurrentController().owner   
-    game = logic.game
-
-    if own["init"]:
-
-        if not own["done_loading"]:
-            load(own)
-
-    tt = logic.time_trial
-
-    tt.countdown(own)
-    tt.checkpoints(game, own)
-    
-    # Controls the pause menu
-    menu = logic.ui["time_trial"].get_element("pause_menu")
-    if own["ui_timer"] > 0.01:
-        if logic.uim.focus == "ship" and kbd.events[events.ESCKEY] == JUST_ACTIVATED:
-            menu.show()
-            menu.focus()
-            logic.uim.set_focus("menu")
-            own["ui_timer"] = 0
-        elif logic.uim.focus == "menu" and kbd.events[events.ESCKEY] == JUST_ACTIVATED:
-            menu.hide()
-            menu.unfocus()
-            logic.uim.set_focus("ship")
-            own["ui_timer"] = 0
-
-
-def setup():
-    """ Runs when loading is done """
-
-    sce = logic.getCurrentScene()
-    own = logic.getCurrentController().owner
-    game = logic.game
-
-    logic.ui["loading_screen"].hide()
+    """ Runs immediately after the scene loaded """
+    logic.time_trial = Time_Trial_Mode(logic.getCurrentController().owner)
 
     # Creates a folder for the mode
-    if not os.path.isdir(os.path.join(game.get_profile_dir("0"),"time_trial")):
-        os.makedirs(os.path.join(game.get_profile_dir("0"),"time_trial"))
+    if not os.path.isdir(os.path.join(logic.game.get_profile_dir("0"),"time_trial")):
+        os.makedirs(os.path.join(logic.game.get_profile_dir("0"),"time_trial"))
 
-
-    tt = logic.time_trial
-
-    tt.setup_checkpoints(sce)
-    tt.get_times(game)
-    game.set_music_dir("time_trial")
-    logic.uim.set_focus("")
-
-    if G.DEBUG: print(own.name + ": Game mode Time Trial has been set up.")
-
-    own["Timer"] = 0
+def main():
+    logic.time_trial.run()

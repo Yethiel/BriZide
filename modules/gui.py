@@ -176,8 +176,9 @@ def dump_scenes(widget):
 
 
 def end_game(widget):
+    logic.device.stopAll()
+    logic.music_device.stopAll()
     logic.endGame()
-
 
 def main():
     elements = logic.ui.copy().keys()
