@@ -12,11 +12,12 @@ sce = logic.getCurrentScene()
 
 
 def setup():
-    if G.DEBUG: os.system('clear')
     print("Brizide ver.", G.VERSION)
-    if G.DEBUG: print("D E B U G")
 
     logic.settings = config.load()
+    G.DEBUG = logic.settings["Dev"]["debug"] == "True"
+    if G.DEBUG: print("D E B U G")
+    if G.DEBUG: os.system('clear')
     sound.init()
     logic.game = game.Game(own)
 
