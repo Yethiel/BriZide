@@ -39,6 +39,10 @@ class Game:
         self.ships[ship_id] = objref
         return ship_id
 
+    def set_ship(self, ship_str):
+        logic.settings["Player0"]["ship"] = ship_str
+        return ship_str
+
     def get_ship(self, ship_id):
         """Get the ship object with the id (int)"""
         return self.ships[ship_id]

@@ -1,0 +1,23 @@
+[Main]
+Name:           Rapaetea                        
+Model:          //ships/rapaetea/rapaetea.blend     
+
+[Handling]
+
+TopSpeed:           220.0           
+TopThrust:          90.0            
+Thrust:             5.7             
+
+Grip:               0.5
+GripAir:            1.0
+
+SteerRate:          0.22
+SteerMax:           0.06            
+
+StableThreshold:    0.005
+StableStrength:     2.0
+
+HoverHeight:        5.9             
+HoverStrength:      280.0             
+HoverDamping:       3.0
+

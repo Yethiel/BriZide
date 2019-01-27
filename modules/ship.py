@@ -29,7 +29,6 @@ class Ship():
 
         # Assets
         self.model_path = ""
-        self.texture_path = ""
         self.ship_path = logic.expandPath(
             "//ships/"+identifier)
         self.inf_path = logic.expandPath(
@@ -83,6 +82,7 @@ class Ship():
         self.dir_z_pos = self.go.children["dir_z_pos"]
 
         self.init = False
+        self.init_mesh = False
 
         self.load(identifier)
 
@@ -103,8 +103,6 @@ class Ship():
                     self.name = str(inf[category][key])
                 elif key == "model":
                     self.model_path = str(inf[category][key])
-                elif key == "texture":
-                    self.texture_path = str(inf[category][key])
 
                 elif key == "topspeed": 
                     self.top_speed = float(inf[category][key])
@@ -154,6 +152,13 @@ class Ship():
         self.key_deactivate_stabilizer = getattr(
             events, c_stt["ship_deactivate_stabilizer"]
         )
+
+        logic.LibLoad(self.model_path, "Mesh")
+        self.go.setVisible(False, False)  # sets self invisible, not recursive
+        # replaces the physics mesh
+        self.go.replaceMesh(ship_name, False, True)
+        # replaces the display mesh
+        self.go.children["Mesh"].replaceMesh(ship_name, True, False)
 
         self.init = True
 
@@ -428,7 +433,7 @@ def setup():
     #TODO: Multiplayer
     player_id = logic.game.players[0]
 
-    identifier = logic.settings["Player{}".format(player_id)]["Ship"]
+    identifier = logic.settings["Player{}".format(player_id)]["ship"]
 
     ship = Ship(game_obj, identifier, player_id)
 

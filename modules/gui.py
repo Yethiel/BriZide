@@ -43,10 +43,10 @@ def setup():
         texts=[
             "Start Game", 
             "Start Editor", 
-            "Game Mode", 
-            "Level",
-            "Quit",
-            "Debug: Dump scenes"
+            "Select Game Mode", 
+            "Select Level",
+            "Select Ship",
+            "Quit"
         ], 
         position=[0.5, 5.0, 0],
         size=0.5,
@@ -55,11 +55,14 @@ def setup():
             start_editor,
             show_menu_mode, 
             show_menu_level,
-            end_game, 
-            dump_scenes
+            show_menu_ship,
+            end_game
         ],
         hidden=False
     )
+    if G.DEBUG:
+        menu.texts.append("Debug: Dump scenes")
+        menu.actions.append(dump_scenes)
 
     # Sub-menu: level selection
     menu_level = btk.Menu("menu_level", layout)
@@ -71,6 +74,18 @@ def setup():
         hidden=True
     )
     menu_level.set_active(logic.game.level_name)
+
+    # Sub-menu: ship selection
+    menu_level = btk.Menu("menu_ship", layout)
+    menu_level.populate(
+        texts=logic.game.ship_list,
+        position=[5.5, 5.0, 0],
+        size=0.5,
+        actions=[select_ship for x in range(len(logic.game.ship_list))],
+        hidden=True
+    )
+    menu_level.set_active(logic.game.level_name)
+
 
     # Sub-menu: game mode
     menu_mode = btk.Menu("menu_mode", layout)
@@ -133,6 +148,12 @@ def show_menu_level(widget):
     logic.ui["layout_main"].get_element("menu_level").focus()
 
 
+def show_menu_ship(widget):
+    logic.ui["layout_main"].get_element("menu_ship").show()
+    logic.ui["layout_main"].get_element("menu_main").unfocus()
+    logic.ui["layout_main"].get_element("menu_ship").focus()
+
+
 def show_menu_mode(widget):
     logic.ui["layout_main"].get_element("menu_mode").show()
     logic.ui["layout_main"].get_element("menu_main").unfocus()
@@ -145,6 +166,14 @@ def select_level(widget):
     logic.ui["layout_main"].get_element("menu_level").unfocus()
     logic.ui["layout_main"].get_element("menu_main").focus()
     logic.ui["layout_main"].get_element("menu_level").hide()
+
+
+def select_ship(widget):
+    logic.game.set_ship(widget.text)
+    logic.game.save_settings()
+    logic.ui["layout_main"].get_element("menu_ship").unfocus()
+    logic.ui["layout_main"].get_element("menu_main").focus()
+    logic.ui["layout_main"].get_element("menu_ship").hide()
 
 
 def select_mode(widget):

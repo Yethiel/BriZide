@@ -1,8 +1,6 @@
 [Main]
-Name:           Test                        
-
-Model:          //ships/test/test.blend     
-Texture:        //ships/test/test.png       
+Name:           Helios                        
+Model:          //ships/helios/helios.blend     
 
 [Handling]
 
