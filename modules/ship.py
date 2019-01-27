@@ -9,7 +9,6 @@ from modules import helpers, sound, global_constants as G
 from modules.helpers import clamp
 
 uim = logic.uim
-settigns = logic.settings
 kbd = logic.keyboard
 
 JUST_ACTIVATED = logic.KX_INPUT_JUST_ACTIVATED
@@ -83,6 +82,7 @@ class Ship():
 
         self.init = False
         self.init_mesh = False
+        self.sounds = {}
 
         self.load(identifier)
 
@@ -168,44 +168,44 @@ class Ship():
 
         if not "init_sound_engine" in self.go:
 
-            self.go["sound_engine_idle"] = sound.play("engine_idle")
-            self.go["sound_engine_idle"].relative = False
-            self.go["sound_engine_idle"].loop_count = -1
-            self.go["sound_engine_idle"].relative = False
-            self.go["sound_engine_idle"].distance_maximum = 64
+            self.sounds["engine_idle"] = sound.play("engine_idle")
+            self.sounds["engine_idle"].relative = False
+            self.sounds["engine_idle"].loop_count = -1
+            self.sounds["engine_idle"].relative = False
+            self.sounds["engine_idle"].distance_maximum = 64
 
-            self.go["sound_boost_low"] = sound.play("boost_low")
-            self.go["sound_boost_low"].relative = False
-            self.go["sound_boost_low"].volume = 0.0
-            self.go["sound_boost_low"].loop_count = -1
-            self.go["sound_boost_low"].relative = False
-            self.go["sound_boost_low"].distance_maximum = 64
+            self.sounds["boost_low"] = sound.play("boost_low")
+            self.sounds["boost_low"].relative = False
+            self.sounds["boost_low"].volume = 0.0
+            self.sounds["boost_low"].loop_count = -1
+            self.sounds["boost_low"].relative = False
+            self.sounds["boost_low"].distance_maximum = 64
 
-            self.go["sound_boost_high"] = sound.play("boost_high")
-            self.go["sound_boost_high"].relative = False
-            self.go["sound_boost_high"].volume = 0.0
-            self.go["sound_boost_high"].loop_count = -1
-            self.go["sound_boost_high"].relative = False
-            self.go["sound_boost_high"].distance_maximum = 64
+            self.sounds["boost_high"] = sound.play("boost_high")
+            self.sounds["boost_high"].relative = False
+            self.sounds["boost_high"].volume = 0.0
+            self.sounds["boost_high"].loop_count = -1
+            self.sounds["boost_high"].relative = False
+            self.sounds["boost_high"].distance_maximum = 64
 
-            self.go["sound_engine"] = sound.play("engine_loop")
-            self.go["sound_engine"].relative = False
-            self.go["sound_engine"].loop_count = -1
-            self.go["sound_engine"].relative = False
-            self.go["sound_engine"].distance_maximum = 64
+            self.sounds["engine"] = sound.play("engine_loop")
+            self.sounds["engine"].relative = False
+            self.sounds["engine"].loop_count = -1
+            self.sounds["engine"].relative = False
+            self.sounds["engine"].distance_maximum = 64
 
-            self.go["sound_engine_top"] = sound.play("engine_top")
-            self.go["sound_engine_top"].relative = False
-            self.go["sound_engine_top"].loop_count = -1
-            self.go["sound_engine_top"].relative = False
-            self.go["sound_engine_top"].distance_maximum = 64
+            self.sounds["engine_top"] = sound.play("engine_top")
+            self.sounds["engine_top"].relative = False
+            self.sounds["engine_top"].loop_count = -1
+            self.sounds["engine_top"].relative = False
+            self.sounds["engine_top"].distance_maximum = 64
 
-            self.go["sound_air"] = sound.play("wind")
-            self.go["sound_air"].loop_count = -1
-            self.go["sound_air"].volume = 0.0
-            self.go["sound_air"].relative = False
-            self.go["sound_air"].distance_maximum = 32
-            self.go["sound_air"].distance_reference = 0
+            self.sounds["air"] = sound.play("wind")
+            self.sounds["air"].loop_count = -1
+            self.sounds["air"].volume = 0.0
+            self.sounds["air"].relative = False
+            self.sounds["air"].distance_maximum = 32
+            self.sounds["air"].distance_reference = 0
 
 
             self.go["init_sound_engine"] = True
@@ -220,16 +220,16 @@ class Ship():
 
         logic.game.go["radial"] = clamp((self.current_velocity - (self.top_speed-10)) /  (self.top_speed+50) * 0.7, 0, 0.15)
 
-        self.go["sound_engine"].volume = clamp((self.current_thrust / self.top_thrust), 0, 2)
-        self.go["sound_engine_idle"].volume = clamp(1 - self.current_thrust / self.top_thrust, 0, 2)
-        self.go["sound_engine"].pitch = 1 + (.3 * self.current_velocity / self.top_speed)
-        self.go["sound_engine_top"].volume = clamp((self.current_velocity - self.top_speed) /  self.top_speed , 0, 2)
-        self.go["sound_air"].volume = clamp((abs(self.go.getLinearVelocity(True)[0] + (self.go.getLinearVelocity(True)[1]/2) + self.go.getLinearVelocity(True)[2]))/200, 0, 2)
+        self.sounds["engine"].volume = clamp((self.current_thrust / self.top_thrust), 0, 2)
+        self.sounds["engine_idle"].volume = clamp(1 - self.current_thrust / self.top_thrust, 0, 2)
+        self.sounds["engine"].pitch = 1 + (.3 * self.current_velocity / self.top_speed)
+        self.sounds["engine_top"].volume = clamp((self.current_velocity - self.top_speed) /  self.top_speed , 0, 2)
+        self.sounds["air"].volume = clamp((abs(self.go.getLinearVelocity(True)[0] + (self.go.getLinearVelocity(True)[1]/2) + self.go.getLinearVelocity(True)[2]))/200, 0, 2)
 
-        self.go["sound_engine_idle"].location = self.go.worldPosition
-        self.go["sound_engine_top"].location = self.go.worldPosition
-        self.go["sound_engine"].location = self.go.worldPosition
-        self.go["sound_air"].location = self.go.worldPosition
+        self.sounds["engine_idle"].location = self.go.worldPosition
+        self.sounds["engine_top"].location = self.go.worldPosition
+        self.sounds["engine"].location = self.go.worldPosition
+        self.sounds["air"].location = self.go.worldPosition
         
         if logic.uim.focus == "ship":
             self.controls()
@@ -237,8 +237,8 @@ class Ship():
         # Generates boost
         if abs(self.go.localLinearVelocity[0]) > 70:
 
-            smoke = logic.getCurrentScene().addObject("Smoke", self.go)
-            smoke.color[3] = sum([abs(c) for c in self.go.localLinearVelocity]) / self.top_speed
+            # smoke = logic.getCurrentScene().addObject("Smoke", self.go)
+            # smoke.color[3] = sum([abs(c) for c in self.go.localLinearVelocity]) / self.top_speed
             if self.current_boost < 500:
                 self.current_boost += abs(self.go.localLinearVelocity[0])/120
             else:
@@ -326,16 +326,16 @@ class Ship():
             if allow_boost:
                 self.go.applyForce((0, self.thrust * 18, 0), True)
                 self.current_boost -= 2.5
-            smoke = logic.getCurrentScene().addObject("Smoke", self.go)
+            # smoke = logic.getCurrentScene().addObject("Smoke", self.go)
 
-            self.go["sound_boost_low"].pitch = clamp(self.current_velocity / self.top_speed + 1, 1.0, 3)
-            self.go["sound_boost_high"].volume = 0.1
-            self.go["sound_boost_low"].volume = clamp(self.current_velocity / self.top_speed, 0, 0.65)
+            self.sounds["boost_low"].pitch = clamp(self.current_velocity / self.top_speed + 1, 1.0, 3)
+            self.sounds["boost_high"].volume = 0.1
+            self.sounds["boost_low"].volume = clamp(self.current_velocity / self.top_speed, 0, 0.65)
 
         else:
-            self.go["sound_boost_low"].volume = 0.0
-            self.go["sound_boost_low"].pitch = 1.0
-            self.go["sound_boost_high"].volume = 0.0
+            self.sounds["boost_low"].volume = 0.0
+            self.sounds["boost_low"].pitch = 1.0
+            self.sounds["boost_high"].volume = 0.0
 
 
         # Stabilizer
@@ -452,9 +452,7 @@ def setup():
 def main():
     """ Runs every logic tick """
 
-    ships = logic.game.ships
-    for ship_id in ships:
-        if ships[ship_id].init:
-            ships[ship_id].run()
+    if logic.game.ships[0].init:
+        logic.game.ships[0].run()
 
 

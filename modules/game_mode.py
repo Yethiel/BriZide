@@ -31,13 +31,13 @@ class Game_Mode:
         menu = btk.Menu("pause_menu", logic.ui[self.name])
         menu.populate(
             texts=[
-                "Restart", 
+                # "Restart", 
                 "Return to Menu"
             ], 
             position=[0.5, 5.0, 0],
             size=0.5,
             actions=[
-                self.restart,
+                # self.restart,
                 self.return_to_menu
             ]
         )
@@ -106,6 +106,7 @@ class Game_Mode:
 
 
     def restart(self, widget):
+        # Does not work!
         logic.device.stopAll()  # stops all sounds
         sce = logic.getCurrentScene()
         if G.DEBUG: print("Ending UI")

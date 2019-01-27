@@ -60,9 +60,6 @@ def setup():
         ],
         hidden=False
     )
-    if G.DEBUG:
-        menu.texts.append("Debug: Dump scenes")
-        menu.actions.append(dump_scenes)
 
     # Sub-menu: level selection
     menu_level = btk.Menu("menu_level", layout)
