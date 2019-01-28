@@ -1,6 +1,6 @@
 import os
 from bge import logic, events, render
-from modules import btk, components, sound, helpers, global_constants as G
+from modules import btk, cube, components, sound, helpers, global_constants as G
 from modules.game_mode import Game_Mode
 from random import randint
 
@@ -21,8 +21,11 @@ class Time_Trial_Mode(Game_Mode):
         # adds additional menu entries to the pause menu
         game = logic.game
         index_current_level = game.level_list.index(game.level_name)
-        
-        self.menu_texts = ["Start over [BACKSPACE]", "Next Level: {}".format(game.level_list[index_current_level+1])]#, "Restart Mode"]
+        if index_current_level+1 < len(game.level_list):
+            next_level_string = "Next Level: {}".format(game.level_list[index_current_level+1])
+        else:
+            next_level_string = "Start over with first level: {}".format(game.level_list[0])
+        self.menu_texts = ["Start over [BACKSPACE]", next_level_string]#, "Restart Mode"]
         self.menu_actions = [self.start_over, self.next_level]#, self.restart]
 
     def setup(self):
@@ -101,12 +104,14 @@ class Time_Trial_Mode(Game_Mode):
             next_level = game.level_list[0]
             widget.text = "Next level: {}".format(game.level_list[1])
         game.level.clear()
+        cube.clear()
         game.set_level(next_level)
         logic.game.save_settings()
         game.level.set_identifier(next_level)
         game.level.load()
         if G.DEBUG: game.level.print_info()     
         game.level.place()
+        cube.main()
         self.start_over(None)
 
     def setup_checkpoints(self):

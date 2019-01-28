@@ -4,7 +4,7 @@ a large cube of variable size (track base)
 """
 
 from bge import logic
-
+from modules import helpers
 
 
 def main():
@@ -13,7 +13,7 @@ def main():
     A cube size of 10 should result in a driveable area
     of 10x10 tiles per side of the cube.
     """
-    sce = logic.getCurrentScene()
+    sce = helpers.get_scene("Scene")
     own = logic.getCurrentController().owner
 
     settings = logic.settings
@@ -101,3 +101,12 @@ def main():
 
     # tell the components object that loading of this component is done.
     logic.components.mark_loaded("cube")
+
+def clear():
+    sce = helpers.get_scene("Scene")
+
+    for obj in sce.objects:
+        if "Cube" in obj.name:
+            obj.endObject()
+
+

@@ -20,6 +20,8 @@ Select options in the main menu with the arrow keys. Press `ENTER` to select a m
 + `S`: Drift
 + `1` - `3`: Change camera
 + `ESC`: Show menu
++ Time Trial
+    + `BACKSPACE`: Start over
 
 ### Editor
 

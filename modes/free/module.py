@@ -2,7 +2,7 @@ from bge import logic, render
 from modules import btk
 from modules.game_mode import Game_Mode
 
-required_components = ["blocks", "level"]
+required_components = ["blocks", "level", "cube", "ship"]
 
 
 class Free_Mode(Game_Mode):
