@@ -103,7 +103,7 @@ class Menu(Layout):
 
     def focus(self):
         self.focused = True
-        self.root["timer"] = 0.0
+        self.root["ui_timer"] = 0.0
 
     def unfocus(self):
         self.focused = False
@@ -123,12 +123,12 @@ class Menu(Layout):
         for i in range(len(self.elements)):
             self.elements[i].go.color = [0.3, 0.3, 0.2, 1.0]
             if i == self.active:
-                c = math.sin(self.root["timer"]*8) / 4
+                c = math.sin(self.root["ui_timer"]*8) / 4
                 self.elements[i].go.color = [0.75 + c, 0.75 + c, 0.65 + c, 1.0]
             self.elements[i].run()
 
     def controls(self):
-        if self.focused and self.root["timer"] > 0.1:  #logic.uim.focus == "menu"
+        if self.focused and self.root["ui_timer"] > 0.1:  #logic.uim.focus == "menu"
             if kbd.events[events.UPARROWKEY] == JUST_ACTIVATED:
                 self.previous()
                 sound.play("menu")

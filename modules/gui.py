@@ -139,7 +139,7 @@ def setup():
 
 
 def update_fade(widget):
-    widget.go.color[3] = clamp(logic.uim.go["ui_timer"], 0.0, 1.0)
+    widget.go.color[3] = clamp(logic.uim.go["timer"], 0.0, 1.0)
 
 
 def update_pulsate(widget):

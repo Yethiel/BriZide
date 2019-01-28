@@ -19,8 +19,8 @@ class Time_Trial_Mode(Game_Mode):
         self.best_time = {"player": "", "time": 999.0}
         self.final_time = 0.0
         # adds additional menu entries to the pause menu
-        self.menu_texts = ["Start over [BACKSPACE]", "Restart Mode"]
-        self.menu_actions = [self.start_over, self.restart]
+        self.menu_texts = ["Start over [BACKSPACE]"]#, "Restart Mode"]
+        self.menu_actions = [self.start_over]#, self.restart]
 
     def setup(self):
         """ Runs after loading is done """
@@ -83,13 +83,13 @@ class Time_Trial_Mode(Game_Mode):
         self.setup_checkpoints()
         self.get_times()
         logic.uim.set_focus("time_trial")
-        ship = logic.getCurrentScene().objects["Ship"]
+        ship = helpers.get_scene("Scene").objects["Ship"]
         ship.worldPosition = logic.game.level.get_start_pos()
         ship.worldOrientation = logic.game.level.get_start_orientation()
         ship.linearVelocity = [0, 0, 0]
     
     def setup_checkpoints(self):
-        sce = logic.getCurrentScene()
+        sce = helpers.get_scene("Scene")
         for obj in sce.objects:
             if "Block_Checkpoint" in obj.name:
                 obj["0"] = False

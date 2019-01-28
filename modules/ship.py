@@ -229,6 +229,9 @@ class Ship():
         
         if logic.uim.focus == "ship":
             self.controls()
+        else:
+            self.sounds["boost_high"].volume = 0
+            self.sounds["boost_low"].volume = 0
 
         # Generates boost
         if abs(self.go.localLinearVelocity[0]) > 70:
