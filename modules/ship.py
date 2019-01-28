@@ -27,7 +27,6 @@ class Ship():
         self.player_id = player_id
 
         # Assets
-        self.model_path = ""
         self.ship_path = logic.expandPath(
             "//ships/"+identifier)
         self.inf_path = logic.expandPath(
@@ -101,8 +100,6 @@ class Ship():
 
                 if key == "name":
                     self.name = str(inf[category][key])
-                elif key == "model":
-                    self.model_path = str(inf[category][key])
 
                 elif key == "topspeed": 
                     self.top_speed = float(inf[category][key])
@@ -153,7 +150,6 @@ class Ship():
             events, c_stt["ship_deactivate_stabilizer"]
         )
 
-        logic.LibLoad(self.model_path, "Mesh")
         self.go.setVisible(False, False)  # sets self invisible, not recursive
         # replaces the physics mesh
         self.go.replaceMesh(ship_name, False, True)

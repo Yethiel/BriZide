@@ -81,7 +81,7 @@ def setup():
         actions=[select_ship for x in range(len(logic.game.ship_list))],
         hidden=True
     )
-    menu_level.set_active(logic.game.level_name)
+    menu_level.set_active(logic.settings["Player0"]["ship"])
 
 
     # Sub-menu: game mode
