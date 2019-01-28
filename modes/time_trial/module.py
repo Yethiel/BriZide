@@ -18,13 +18,16 @@ class Time_Trial_Mode(Game_Mode):
         self.best_times = []
         self.best_time = {"player": "", "time": 999.0}
         self.final_time = 0.0
+        # adds additional menu entries to the pause menu
+        self.menu_texts = ["Start over [BACKSPACE]", "Restart Mode"]
+        self.menu_actions = [self.start_over, self.restart]
 
     def setup(self):
-        """ runs after loading is done """
-        super().setup()
+        """ Runs after loading is done """
+        super().setup()  # generates the UI layout and menu
         sce = logic.getCurrentScene()
         logic.game.set_music_dir("time_trial")
-        self.setup_checkpoints(sce)
+        self.setup_checkpoints()
         self.get_times()
 
         layout = logic.ui["time_trial"]
@@ -63,10 +66,35 @@ class Time_Trial_Mode(Game_Mode):
 
         self.countdown()
         self.checkpoints()
-        
-    def setup_checkpoints(self, sce):
+
+        if helpers.keystat("BACKSPACEKEY", "JUST_RELEASED"):
+            self.start_over(None)
+
+    def start_over(self, widget):
+        """ Callback for Start Over menu entry """
+        logic.ui[self.name].get_element("pause_menu").unfocus()
+        logic.ui[self.name].get_element("pause_menu").hide()
+        self.cp_data = []
+        self.cp_count = 0
+        self.cp_progress = {"0": 0}
+        self.final_time = 0.0
+        self.go["countdown"] = 4
+        self.go["CountdownTimer"] = 0.0
+        self.setup_checkpoints()
+        self.get_times()
+        logic.uim.set_focus("time_trial")
+        ship = logic.getCurrentScene().objects["Ship"]
+        ship.worldPosition = logic.game.level.get_start_pos()
+        ship.worldOrientation = logic.game.level.get_start_orientation()
+        ship.linearVelocity = [0, 0, 0]
+    
+    def setup_checkpoints(self):
+        sce = logic.getCurrentScene()
         for obj in sce.objects:
             if "Block_Checkpoint" in obj.name:
+                obj["0"] = False
+                obj.color = [1.0, 1.0, 1.0, 1]
+                obj.worldScale = [1.0, 1.0, 1.0]
                 self.cp_data.append(obj)
         self.cp_count = len(self.cp_data)
 
@@ -134,21 +162,19 @@ class Time_Trial_Mode(Game_Mode):
     def checkpoints(self):
         for cp in self.cp_data:
             for ship in logic.game.ships:
-
                 if logic.game.ships[ship].go.getDistanceTo(cp) <= trigger_distance:
-                    if not str(ship) in cp:
+                    if not cp["0"]:
                         cp[str(ship)] = True
                         sound.play("checkpoint")
                         if G.DEBUG: 
                             print("Ship", ship, "passed", self.cp_data.index(cp))
 
                         cp.color = [.05, .05, .0, 1]
-
                         cp.worldScale = [0.2, 0.2, 0.2]
 
                         amnt_passed = 0
                         for cp in self.cp_data:
-                            if str(ship) in cp:
+                            if cp["0"]:
                                 amnt_passed += 1
                         
                         if G.DEBUG: print(amnt_passed, "/", len(self.cp_data))

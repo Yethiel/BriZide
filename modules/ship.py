@@ -426,7 +426,6 @@ def setup():
 
     # for player in game.players:
 
-    #TODO: Multiplayer
     player_id = logic.game.players[0]
 
     identifier = logic.settings["Player{}".format(player_id)]["ship"]

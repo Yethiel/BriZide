@@ -18,6 +18,8 @@ class Game_Mode:
             name:       Name of the game mode. Needs to match folder name
         """
         self.name = name
+        self.menu_texts = []
+        self.menu_actions = []
         self.queue_id = logic.components.enqueue(components)
         self.components = components
         self.loaded = False
@@ -30,26 +32,22 @@ class Game_Mode:
         # Creates a pause menu and populates it with options
         menu = btk.Menu("pause_menu", logic.ui[self.name])
         menu.populate(
-            texts=[
-                # "Restart", 
-                "Return to Menu"
+            texts=self.menu_texts+[
+                "Return to Menu",
             ], 
             position=[0.5, 5.0, 0],
             size=0.5,
-            actions=[
-                # self.restart,
-                self.return_to_menu
+            actions=self.menu_actions+[
+                self.return_to_menu,
             ]
         )
         menu.hide()
         logic.uim.set_focus(self.name)
 
-
     def run(self):
         """ Runs every logic tick """
         
         if not self.loaded:
-            if G.DEBUG: print("Not loaded yet.")
             # Prepares the game mode by loading the queued components
             logic.components.load()
 
@@ -107,6 +105,7 @@ class Game_Mode:
 
     def restart(self, widget):
         # Does not work!
+        if G.DEBUG: print("Libs before restarting:", logic.LibList())
         logic.device.stopAll()  # stops all sounds
         sce = logic.getCurrentScene()
         if G.DEBUG: print("Ending UI")
@@ -118,6 +117,7 @@ class Game_Mode:
 
         for component in self.components[::-1]:
             logic.components.free(component)
+        if G.DEBUG: print("Libs after clearing mode components:", logic.LibList())
         if G.DEBUG: print("Ending controller object")
         self.go.endObject()
 
@@ -127,4 +127,5 @@ class Game_Mode:
         logic.game.clear()
         logic.uim.set_focus("menu")
         
+        if G.DEBUG: print("Libs after restarting:", logic.LibList())
         logic.uim.enqueue("game_start")
