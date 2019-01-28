@@ -1,7 +1,12 @@
 # todo
 
-- finish track editor
+- stop crashes - done!
+- finish track editor (almost)
 - finish level block designs
-- ship chooser
-- UI: thumbnails for ships and blocks
+    - ramps
+    - cube wall textures
+    - checkpoints and start block (direction has to be clear)
+- ship chooser - done!
+- UI: thumbnails for ships - done!
 - make levels
+- next level

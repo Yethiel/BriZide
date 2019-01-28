@@ -8,12 +8,7 @@ import pickle
 import configparser
 import mathutils
 from bge import logic
-from modules import global_constants as G
-
-
-gD = logic.globalDict
-
-settings = gD.get("settings")
+from modules import helpers, global_constants as G
 
 class Block():
     """Used for storing block data from the level files
@@ -139,7 +134,7 @@ class Level():
         Levels can be loaded in advance.
         """
 
-        sce = logic.getCurrentScene()
+        sce = helpers.get_scene("Scene")
         own = logic.getCurrentController().owner
 
         idx = 1000
@@ -157,10 +152,10 @@ class Level():
             self.valid = False
             return 0
 
-        # Load the Blend file
-        if os.path.isfile(self.blend_path):
-            logic.LibLoad(self.blend_path,"Scene")
-            print("{}: {}".format(own.name, "Loaded .blend file."))
+        # # Load the Blend file
+        # if os.path.isfile(self.blend_path) and self.blend_path not in logic.LibList():
+        #     logic.LibLoad(self.blend_path,"Scene")
+        #     print("{}: {}".format(own.name, "Loaded .blend file."))
         # Load the block file
         if os.path.isfile(self.blk_path):
             blk_file = pickle.load(open(self.blk_path, "rb"))
@@ -198,7 +193,7 @@ class Level():
         """The track editor uses this to save a level to files"""
         # Save all saveable blocks
 
-        sce = logic.getCurrentScene()
+        sce = helpers.get_scene("Scene")
         own = logic.getCurrentController().owner
 
         blocks = []
@@ -265,7 +260,7 @@ class Level():
         we can now actually load it into the 3D world.
         """
 
-        sce = logic.getCurrentScene()
+        sce = helpers.get_scene("Scene")
         own = logic.getCurrentController().owner
 
         for block in self.block_data:
@@ -285,6 +280,14 @@ class Level():
                 new_orientation[x] = block.orientation[x]
 
             new_block.worldOrientation = new_orientation.to_matrix()
+
+    def clear(self):
+        sce = helpers.get_scene("Scene")
+        self.block_data = []
+        for obj in sce.objects:
+            if "Block_" in obj.name:
+                obj["end"] = True
+                obj.endObject()
 
 def setup():
     """Executed by the level controller object in level.blend"""

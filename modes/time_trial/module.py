@@ -19,8 +19,11 @@ class Time_Trial_Mode(Game_Mode):
         self.best_time = {"player": "", "time": 999.0}
         self.final_time = 0.0
         # adds additional menu entries to the pause menu
-        self.menu_texts = ["Start over [BACKSPACE]"]#, "Restart Mode"]
-        self.menu_actions = [self.start_over]#, self.restart]
+        game = logic.game
+        index_current_level = game.level_list.index(game.level_name)
+        
+        self.menu_texts = ["Start over [BACKSPACE]", "Next Level: {}".format(game.level_list[index_current_level+1])]#, "Restart Mode"]
+        self.menu_actions = [self.start_over, self.next_level]#, self.restart]
 
     def setup(self):
         """ Runs after loading is done """
@@ -74,12 +77,6 @@ class Time_Trial_Mode(Game_Mode):
         """ Callback for Start Over menu entry """
         logic.ui[self.name].get_element("pause_menu").unfocus()
         logic.ui[self.name].get_element("pause_menu").hide()
-        self.cp_data = []
-        self.cp_count = 0
-        self.cp_progress = {"0": 0}
-        self.final_time = 0.0
-        self.go["countdown"] = 4
-        self.go["CountdownTimer"] = 0.0
         self.setup_checkpoints()
         self.get_times()
         logic.uim.set_focus("time_trial")
@@ -87,11 +84,38 @@ class Time_Trial_Mode(Game_Mode):
         ship.worldPosition = logic.game.level.get_start_pos()
         ship.worldOrientation = logic.game.level.get_start_orientation()
         ship.linearVelocity = [0, 0, 0]
-    
+        self.final_time = 0.0
+        self.go["countdown"] = 4
+        self.go["CountdownTimer"] = 0.0
+
+    def next_level(self, widget):
+        game = logic.game
+        index_current_level = game.level_list.index(game.level_name)
+        if index_current_level + 1 < len(game.level_list):
+            if index_current_level + 2 < len(game.level_list):
+                widget.text = "Next level: {}".format(game.level_list[index_current_level+2])
+            else:
+                widget.text = "Start over with first level: {}".format(game.level_list[0])
+            next_level = game.level_list[index_current_level+1]
+        else:
+            next_level = game.level_list[0]
+            widget.text = "Next level: {}".format(game.level_list[1])
+        game.level.clear()
+        game.set_level(next_level)
+        logic.game.save_settings()
+        game.level.set_identifier(next_level)
+        game.level.load()
+        if G.DEBUG: game.level.print_info()     
+        game.level.place()
+        self.start_over(None)
+
     def setup_checkpoints(self):
+        self.cp_count = 0
+        self.cp_progress = {"0": 0}
+        self.cp_data = []
         sce = helpers.get_scene("Scene")
         for obj in sce.objects:
-            if "Block_Checkpoint" in obj.name:
+            if "Block_Checkpoint" in obj.name and not "end" in obj:
                 obj["0"] = False
                 obj.color = [1.0, 1.0, 1.0, 1]
                 obj.worldScale = [1.0, 1.0, 1.0]
@@ -195,6 +219,7 @@ class Time_Trial_Mode(Game_Mode):
                             self.write_time()
 
                             sound.play("race_complete")
+
 
 def update_label_speed(widget):
     ship = logic.game.get_ship_by_player(0)
