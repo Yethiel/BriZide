@@ -25,8 +25,8 @@ def get_ships():
     for folder in os.listdir(G.PATH_SHIPS):
         if folder+".inf" in os.listdir(logic.expandPath(G.PATH_SHIPS+folder)):
             ships.append(folder)
+            print("LOADING", os.path.join(logic.expandPath(G.PATH_SHIPS+folder), folder) + ".blend")
             logic.LibLoad(os.path.join(logic.expandPath(G.PATH_SHIPS+folder), folder) + ".blend", "Mesh")
-
     return ships
 
 

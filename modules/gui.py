@@ -1,3 +1,4 @@
+import os
 import math
 from bge import logic
 from modules import btk
@@ -38,6 +39,13 @@ def setup():
     menu = btk.Menu("menu_main", layout)
     menu.focus()
 
+    # loads ship previews
+    for folder in os.listdir(G.PATH_SHIPS):
+        if folder+".inf" in os.listdir(logic.expandPath(G.PATH_SHIPS+folder)):
+            print("LOADING", os.path.join(logic.expandPath(G.PATH_SHIPS+folder), folder) + ".blend")
+            # logic.LibLoad(os.path.join(logic.expandPath(G.PATH_SHIPS+folder), folder) + ".blend", "Mesh")
+            logic.LibNew("ui_"+os.path.join(logic.expandPath(G.PATH_SHIPS+folder), folder) + ".blend", "Mesh", [folder])
+
     # Main menu
     menu.populate(
         texts=[
@@ -73,17 +81,25 @@ def setup():
     menu_level.set_active(logic.game.level_name)
 
     # Sub-menu: ship selection
-    menu_level = btk.Menu("menu_ship", layout)
-    menu_level.populate(
+    menu_ship = btk.Menu("menu_ship", layout)
+    menu_ship.populate(
         texts=logic.game.ship_list,
         position=[5.5, 5.0, 0],
         size=0.5,
         actions=[select_ship for x in range(len(logic.game.ship_list))],
         hidden=True
     )
-    menu_level.set_active(logic.settings["Player0"]["ship"])
-
-
+    menu_ship.set_active(logic.settings["Player0"]["ship"])
+    ship_preview = btk.Element(
+        layout, 
+        object="ui_ship_preview", 
+        position=[12,4.0,0], 
+        scale=[0.75,0.75,0.75], 
+        title="ui_ship_preview", 
+        update=update_ship_preview, 
+        hidden=False
+    )
+    ship_preview.go.applyRotation([-1.2, 0, 0])
     # Sub-menu: game mode
     menu_mode = btk.Menu("menu_mode", layout)
     menu_mode.populate(
@@ -137,6 +153,19 @@ def update_loading_bar(widget):
 
 def update_loading_label(widget):
     widget.text = logic.components.get_currently_loading()
+
+
+def update_ship_preview(widget):
+    selection = logic.ui["layout_main"].get_element("menu_ship").get_active()
+    if selection:
+        selected_ship = selection.text
+    else:
+        return
+    if not selected_ship in [m.name for m in widget.go.meshes]:
+        try:
+            widget.go.replaceMesh(selected_ship, True, False)
+        except:
+            pass
 
 
 def show_menu_level(widget):
