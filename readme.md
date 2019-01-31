@@ -1,6 +1,6 @@
 # BriZide
 
-BriZide is a free open-source racing game set in the distant future.
+BriZide is a racing game set in the distant future.
 Race anti-gravity ships around levels in a large cubic space station.
 
 ![](screenshot.jpg)
@@ -51,7 +51,9 @@ Select options in the main menu with the arrow keys. Press `ENTER` to select a m
 
 ## Download and Install
 
-Builds are available [**here**](https://files.re-volt.io/brizide/).
+Builds for GNU/Linux, macOS and Windows are available [**here**](https://files.re-volt.io/brizide/).
+
+### Development version
 
 Alternatively, you can clone this repo and run the game with Blender:
 
@@ -60,33 +62,27 @@ GNU/Linux:
 ```
 git clone https://github.com/Yethiel/BriZide.git
 cd BriZide
-# optional: git checkout dev
-blenderplayer main.blend
+blenderplayer brizide.blend
 ```
 
 Windows:
 
 1. [Download the game](https://github.com/Yethiel/BriZide/archive/master.zip) (optional: [development version](https://github.com/Yethiel/BriZide/archive/dev.zip))
 2. Unpack the zip file
-3. Open _main.blend_ with Blender and press `P`.
-
-**The game is not guaranteed to work in the current state.**
-Download Blender 2.79 (other versions might work as well) and launch the `main.blend` file.
-The source files for the launchers are provided (brizide_bin.blend and brizide_build.blend).
-Compiled launchers will be provided at a later point as they are quite large.
+3. Open _brizide.blend_ with Blender and press `P`.
 
 ## Modding
 Almost every aspect of this game can be modified.  
-Game modes, levels, ships and assets can all be found in the game's folder and easily modified with free software (Blender, Gimp, ...).
+Game modes, levels, ships and assets can all be found in the game's folder and easily modified with free software (Blender, Gimp, text editors, ...).
 
 A **custom game mode** can be added with just a few lines of code. Copy any game mode folder and start modifying it. You will be able to select it in the _Game Mode_ menu.
 
-**Levels** can be modified and built from scratch with the built-in level editor. You can also make the game load a regular .blend file as a level, too.
+**Levels** can be modified and built from scratch with the built-in level editor. Copy one of the existing levels and start modifying it with the editor.
 
-**Ships** will be selectable from the main menu soon, as well.
+**Ships** can be placed in the `ships` folder. They need a .blend file containing a mesh with the same name as the folder name and a .inf file with some information about speed and handling. Copy an existing ship and try modifying it.
 
 ## Implemented Features
-+ Bare-bones time trial mode
++ Time trial mode
 + Free mode
 + Basic level editor
 
@@ -95,7 +91,6 @@ A **custom game mode** can be added with just a few lines of code. Copy any game
 ### Audio
 **ZetaSphere**: Time Trial soundtrack  
 **Qvarcos**: Editor soundtrack  
-**PotatoFace**: Menu theme  
 **Pong Pearson**: Announcer voice
 
 ## Story
