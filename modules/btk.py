@@ -5,6 +5,7 @@ BTK: A GUI toolkit for the Blender Game Engine
 from bge import logic, events, render
 import math
 from modules import sound
+from modules.helpers import clamp
 
 kbd = logic.keyboard
 
@@ -80,18 +81,37 @@ class Menu(Layout):
         self.active = 0
         self.focused = focused
         self.parent.add_element(self)
+        self.size = 1.0
+
+    def set_element_color(self, element):
+        element.go.color[3] = 1 - abs(self.elements.index(self.get_active()) - self.elements.index(element)) / len(self.elements)
 
     def next(self):
         if self.active < len(self.elements)-1:
             self.active += 1
+            for e in self.elements:
+                e.go.worldPosition[1] += self.size
+                self.set_element_color(e)
         else: 
             self.active = 0
+            for e in self.elements:
+                e.go.worldPosition[1] += self.size
+                e.go.worldPosition[1] -= self.size * len(self.elements)
+                self.set_element_color(e)
 
     def previous(self):
         if self.active > 0:
             self.active -= 1
+            for e in self.elements:
+                e.go.worldPosition[1] -= self.size
+                self.set_element_color(e)
         else:
             self.active = len(self.elements) - 1
+            for e in self.elements:
+                e.go.worldPosition[1] -= self.size
+                e.go.worldPosition[1] += self.size * len(self.elements)
+                self.set_element_color(e)
+
 
     def get_active(self):
         return self.elements[self.active]
@@ -109,6 +129,7 @@ class Menu(Layout):
         self.focused = False
 
     def populate(self, texts=[], position=[0.0, 0.0, 0.0], size=1.0, actions=[], hidden=False):
+        self.size = size
         for i in range(len(texts)):
             text = texts[i]
             pos = position
@@ -116,12 +137,16 @@ class Menu(Layout):
             opt = Option(
                 self, text=text, position=pos, size=size, value=i, action=actions[i], hidden=hidden
             )
+        for e in self.elements:
+            self.set_element_color(e)
 
     def run(self):
         self.controls()
 
         for i in range(len(self.elements)):
-            self.elements[i].go.color = [0.3, 0.3, 0.2, 1.0]
+            self.elements[i].go.color[0] = 0.3
+            self.elements[i].go.color[1] = 0.3
+            self.elements[i].go.color[2] = 0.2
             if i == self.active:
                 c = math.sin(self.root["ui_timer"]*8) / 4
                 self.elements[i].go.color = [0.75 + c, 0.75 + c, 0.65 + c, 1.0]

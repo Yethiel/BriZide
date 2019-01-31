@@ -1,0 +1,22 @@
+from bge import logic, render
+from modules import global_constants as G
+
+def actuators():
+    cont = logic.getCurrentController()
+    act_bloom = cont.actuators["bloom"]
+    act_blur = cont.actuators["blur"]
+
+    if logic.settings["Video"]["blur"] == "True":
+        if G.DEBUG: print("Blur activated")
+        cont.activate(act_blur)
+        
+    if logic.settings["Video"]["bloom"] == "True":
+        if G.DEBUG: print("Bloom activated")
+        cont.activate(act_bloom)
+
+def apply_settings():
+    render.setFullScreen(logic.settings["Video"]["fullscreen"] == "True")
+    render.setWindowSize(
+        int(logic.settings["Video"]["width"]), 
+        int(logic.settings["Video"]["height"])
+    )

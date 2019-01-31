@@ -34,7 +34,7 @@ class Game_Mode:
         menu.populate(
             texts=self.menu_texts+[
                 "Return to Menu",
-            ], 
+            ],
             position=[0.5, 5.0, 0],
             size=0.5,
             actions=self.menu_actions+[
@@ -99,12 +99,15 @@ class Game_Mode:
         #     from modules import debug
         #     debug.dump_scenes()
 
-        # Workaround: BGE LibLoad-related crash
-        logic.restartGame()
+        # Workaround: BGE LibLoad-related(?) crash
+        logic.startGame("//main.blend")
 
 
     def restart(self, widget):
-        # Does not work!
+        """
+        Can theoreticall be used to restart the game mode
+        but it'll sometimes crash BGE.
+        """
         if G.DEBUG: print("Libs before restarting:", logic.LibList())
         logic.device.stopAll()  # stops all sounds
         sce = logic.getCurrentScene()

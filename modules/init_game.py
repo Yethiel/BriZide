@@ -3,7 +3,7 @@ This is the module called by the controller object in main.blend.
 """
 
 from bge import logic
-from modules import sound, gui, game, components, content, config, tests, global_constants as G
+from modules import sound, gui, game, components, content, config, tests, video, global_constants as G
 import os, sys
 
 cont = logic.getCurrentController()
@@ -16,6 +16,7 @@ def setup():
 
     logic.settings = config.load()
     G.DEBUG = logic.settings["Dev"]["debug"] == "True"
+    video.apply_settings()
     if G.DEBUG: print("D E B U G")
     if G.DEBUG: os.system('clear')
     sound.init()

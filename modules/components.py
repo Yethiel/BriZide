@@ -1,7 +1,7 @@
 """
 Loads BGE Libraries sequentially so that dependencies are met.
 """
-
+import os
 from modules import global_constants as G
 from bge import logic
 from time import sleep
@@ -76,8 +76,9 @@ class Components:
 
         if G.DEBUG: print("Loading immediate:", component)
 
-        blend_path = logic.expandPath("{}{}{}".format(
-            "//components/", component, extension))
+        # blend_path = logic.expandPath("{}{}{}".format(
+            # "//components/", component, extension))
+        blend_path = os.path.join("{}{}".format(component, extension))
 
         logic.LibLoad(blend_path, "Scene")
 
