@@ -71,6 +71,16 @@ Windows:
 2. Unpack the zip file
 3. Open _brizide.blend_ with Blender and press `P`.
 
+## Configuration
+
+The following settings can be set by editing the `config.ini` file:
+
+- Player name (for highscores)
+- Audio volume (master, music, effects)
+- Video effects (bloom, blur)
+- Fullscreen and resolution
+- Game end editor controls
+
 ## Modding
 Almost every aspect of this game can be modified.  
 Game modes, levels, ships and assets can all be found in the game's folder and easily modified with free software (Blender, Gimp, text editors, ...).
