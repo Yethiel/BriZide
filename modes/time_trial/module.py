@@ -66,6 +66,8 @@ class Time_Trial_Mode(Game_Mode):
         )
         checkpoint_bar.set_color([1, .743, 0.0, 0.75])
 
+        logic.game.ships[0].current_boost = 500
+
     def run(self):
         """ runs every logic tick """
         super().run()  # handles loading of components
@@ -78,6 +80,7 @@ class Time_Trial_Mode(Game_Mode):
 
     def start_over(self, widget):
         """ Callback for Start Over menu entry """
+        self.mode_done = False
         logic.ui[self.name].get_element("pause_menu").unfocus()
         logic.ui[self.name].get_element("pause_menu").hide()
         self.setup_checkpoints()
@@ -90,9 +93,11 @@ class Time_Trial_Mode(Game_Mode):
         self.final_time = 0.0
         self.go["countdown"] = 4
         self.go["CountdownTimer"] = 0.0
+        logic.game.ships[0].current_boost = 500
 
     def next_level(self, widget):
         game = logic.game
+        self.mode_done = False
         index_current_level = game.level_list.index(game.level_name)
         if index_current_level + 1 < len(game.level_list):
             if index_current_level + 2 < len(game.level_list):
@@ -210,11 +215,10 @@ class Time_Trial_Mode(Game_Mode):
                         
                         self.cp_progress[str(ship)] = amnt_passed
                         if amnt_passed == len(self.cp_data):
-                            logic.uim.set_focus("menu")
-
                             menu = logic.ui["time_trial"].get_element("pause_menu")
                             menu.show()
                             menu.focus()
+                            self.mode_done = True
                             logic.uim.set_focus("menu")
                             self.go["ui_timer"] = 0
 

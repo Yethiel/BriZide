@@ -24,6 +24,7 @@ class Game_Mode:
         self.components = components
         self.loaded = False
         self.go = game_obj
+        self.mode_done = False  # doesn't allow to exit pause menu
 
     def setup(self):
         """ Runs once all components have been loaded """
@@ -65,7 +66,7 @@ class Game_Mode:
                 menu.focus()
                 logic.uim.set_focus("menu")
                 logic.uim.go["ui_timer"] = 0
-            elif logic.uim.focus == "menu" and kbd.events[events.ESCKEY] == JUST_ACTIVATED:
+            elif not self.mode_done and logic.uim.focus == "menu" and kbd.events[events.ESCKEY] == JUST_ACTIVATED:
                 menu.hide()
                 menu.unfocus()
                 logic.uim.restore_focus()
