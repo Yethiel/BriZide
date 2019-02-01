@@ -112,8 +112,9 @@ def setup():
     menu_mode.set_active(logic.game.mode)
 
     # Misc. menu items
-    logo = btk.Element(layout, object="logo", title="logo", position=[0.5, 6, 0.2], scale=[2,2,1])
-    title = btk.Label(layout, text="B r i Z i d e", position=[3, 6.8, 0.2], size=0.6, update=update_fade)
+    logo = btk.Element(layout, object="logo", title="logo", position=[0.5, 6.5, 0.2], scale=[2,2,1])
+    backdrop = btk.Element(layout, object="ui_menu_backdrop", title="backdrop", position=[0, 0, -3], scale=[1,1,1])
+    title = btk.Label(layout, text="B r i Z i d e", position=[3, 7.3, 0.2], size=0.6, update=update_fade)
     title.set_color([1, 0.5, 0.0, 1.0])
 
     # Creates the loading screen

@@ -328,7 +328,7 @@ class Ship():
             # smoke = logic.getCurrentScene().addObject("Smoke", self.go)
 
             self.sounds["boost_low"].pitch = clamp(self.current_velocity / self.top_speed + 1, 1.0, 3)
-            self.sounds["boost_high"].volume = 0.1
+            self.sounds["boost_high"].volume = 0.25
             self.sounds["boost_low"].volume = clamp(self.current_velocity / self.top_speed, 0, 0.65)
 
         else:
