@@ -144,6 +144,7 @@ class Edit_Mode(Game_Mode):
                 # sets the cursor to the selected object
                 if keystat(key_select, 'JUST_ACTIVATED') and hit_obj != None:
                     cursor.worldPosition = hit_obj.worldPosition
+                    cursor.worldOrientation = hit_obj.worldOrientation
                     self.select_multiple(hit_obj)
                 # add object
                 if keystat('AKEY', 'JUST_RELEASED'):
@@ -155,6 +156,14 @@ class Edit_Mode(Game_Mode):
 
             # left control modifier
             if keystat('LEFTCTRLKEY', 'ACTIVE'):
+
+                # duplicate object
+                if keystat('DKEY', 'JUST_RELEASED'):
+                    if len(self.selection.keys()) > 0:
+                        for obj in self.selection:
+                            cursor.worldPosition = obj.worldPosition
+                            cursor.worldOrientation = obj.worldOrientation
+                            scene.addObject(obj.name, cursor)
 
                 # selects/deselects all blocks
                 blocks = [obj for obj in scene.objects if "Block_" in obj.name]
@@ -176,15 +185,19 @@ class Edit_Mode(Game_Mode):
             if hit_obj != None:
 
                 if "Cube" in hit_obj.name:
-                    scene.objects['live_cursor'].worldPosition = hit_obj.worldPosition
+                    scene.objects['live_cursor'].worldPosition = [int(x / 16) * 16 for x in sensor_mouse.hitPosition]
+                    for x in [0, 1, 2]:
+                        scene.objects['live_cursor'].worldPosition[x] += sensor_mouse.hitNormal[x] * 32
                 else:
                     scene.objects['live_cursor'].worldPosition = hit_obj.worldPosition
                     for x in [0, 1, 2]:
                         scene.objects['live_cursor'].worldPosition[x] += sensor_mouse.hitNormal[x] * 32
 
+
                 # sets the cursor to the selected object
                 if keystat(key_select, 'JUST_ACTIVATED'):
                     cursor.worldPosition = hit_obj.worldPosition
+                    cursor.worldOrientation = hit_obj.worldOrientation
                     self.select_single(hit_obj)
 
             # delete selection
@@ -231,10 +244,12 @@ class Edit_Mode(Game_Mode):
             if keystat('LEFTARROWKEY', 'JUST_RELEASED') or keystat('DOWNARROWKEY', 'JUST_RELEASED'):
                 for obj in self.selection:
                     obj.applyRotation([math.pi * a * .25 for a in self.axes], False)
+                cursor.applyRotation([math.pi * a * .25 for a in self.axes], False)
 
             elif keystat('RIGHTARROWKEY', 'JUST_RELEASED') or keystat('UPARROWKEY', 'JUST_RELEASED'):
                 for obj in self.selection:
                     obj.applyRotation([math.pi * -a * .25 for a in self.axes], False)
+                cursor.applyRotation([math.pi * -a * .25 for a in self.axes], False)
 
             elif keystat('BACKSPACEKEY', 'JUST_RELEASED'):
                 self.mode = SELECT
@@ -250,9 +265,10 @@ class Edit_Mode(Game_Mode):
             # places 3D cursor (block preview)
             hit_obj = sensor_mouse.hitObject
             if hit_obj != None:
-
-                if "Cube" in hit_obj.name:
-                    scene.objects['live_cursor'].worldPosition = hit_obj.worldPosition
+                if "Cube" in hit_obj.name and not "live_cursor" in hit_obj.name:
+                    scene.objects['live_cursor'].worldPosition = [int(x / 16) * 16 for x in sensor_mouse.hitPosition]
+                    for x in [0, 1, 2]:
+                        scene.objects['live_cursor'].worldPosition[x] += sensor_mouse.hitNormal[x] * 16
                 else:
                     scene.objects['live_cursor'].worldPosition = hit_obj.worldPosition
                     for x in [0, 1, 2]:
