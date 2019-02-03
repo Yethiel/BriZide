@@ -15,22 +15,35 @@ def load():
     else:
         # create an ini with the default configuration
         config["Game"] = {
-            "Name" : "Player",
-            "LevelDir" : "test",
+            "leveldir" : "skate_park",
             "Mode" : "time_trial",
+            "version": 0
         }
         config["Player0"] = {
             "name": "Player 0",
-            "Ship": "test"
+            "Ship": "helios"
         }
         config["Audio"] = {
             "Music" : 1.0,
-            "Master" : 1.0,
+            "Master" : 0.8,
             "Effects" : 1.0,
+        }
+        config["Video"] = {
+            "bloom" : "True",
+            "blur" : "True",
+            "fullscreen" : "False",
+            "width" : 1280,
+            "height" : 720,
+            "transparent_tiles" : "True",
+            "simple_cube" : "False",
         }
 
         config["Dev"] = {
-        "Debug" : "True"
+            "debug" : "False",
+        }
+
+        config["Editor"] = {
+            "cam_drag_amount" : 60,
         }
 
         config["Controls_Player1"] = {
@@ -38,33 +51,13 @@ def load():
             "ship_thrust_reverse" : "DOWNARROWKEY",
             "ship_steer_left" : "LEFTARROWKEY",
             "ship_steer_right" : "RIGHTARROWKEY",
-            "ship_activate_weapon" : "LEFTCTRLKEY",
-            "ship_deactivate_stabilizer" : "SPACEKEY",
-            "ship_absorb_weapon" : "LEFTSHIFTKEY",
+            "ship_boost" : "WKEY",
+            "ship_deactivate_stabilizer" : "SKEY",
             "ship_pause" : "ESCKEY",
         }
         config["Controls_Editor"] = {
-            "editor_left" : "LEFTARROWKEY",
-            "editor_right" : "RIGHTARROWKEY",
-            "editor_forward" : "UPARROWKEY",
-            "editor_backward" : "DOWNARROWKEY",
-
-            "editor_up" : "PAGEUPKEY",
-            "editor_down" : "PAGEDOWNKEY",
-
-            "editor_rotate_left" : "AKEY",
-            "editor_rotate_right" : "DKEY",
-            "editor_rotate_forward" : "WKEY",
-            "editor_rotate_backward" : "SKEY",
-            "editor_rotate_up" : "EKEY",
-            "editor_rotate_down" : "QKEY",
-
-            "editor_place" : "ENTERKEY",
-            "editor_delete" : "DELKEY",
-
-            "editor_next" : "PERIODKEY",
-            "editor_prev" : "COMMAKEY",
-
+            "editor_confirm" : "ENTERKEY",
+            "editor_discard" : "BACKSPACEKEY",
             "editor_1" : "ONEKEY",
             "editor_2" : "TWOKEY",
             "editor_3" : "THREEKEY",
@@ -74,7 +67,28 @@ def load():
             "editor_7" : "SEVENKEY",
             "editor_8" : "EIGHTKEY",
             "editor_9" : "NINEKEY",
-            "editor_10" : "ZEROKEY"
+            "editor_10" : "ZEROKEY",
+            "editor_up" : "WKEY",
+            "editor_down" : "SKEY",
+            "editor_left" : "AKEY",
+            "editor_right" : "DKEY",
+            "editor_forward" : "EKEY",
+            "editor_backward" : "QKEY",
+            "editor_rotate_cam" : "MIDDLEMOUSE",
+            "editor_next" : "PERIODKEY",
+            "editor_prev" : "COMMAKEY",
+            "editor_place" : "LEFTMOUSE",
+            "editor_delete" : "DELKEY",
+            "editor_select" : "LEFTMOUSE",
+            "editor_grab" : "GKEY",
+            "editor_rotate_backward" : "SKEY",
+            "editor_rotate_down" : "QKEY",
+            "editor_rotate_forward" : "WKEY",
+            "editor_rotate_left" : "AKEY",
+            "editor_rotate_right" : "DKEY",
+            "editor_rotate_up" : "EKEY",
+            "editor_rotate" : "RKEY",
+            "editor_deselect" : "BACKSPACEKEY",
         }
         # create a new config file and write to it
         with open(G.PATH_CONFIG_FILE, 'w') as configfile:
@@ -87,7 +101,7 @@ def load():
 
 def save():
     config = logic.settings
-    
+
     with open(G.PATH_CONFIG_FILE, 'w') as configfile:
         config.write(configfile)
         if G.DEBUG: print("Settings saved")
