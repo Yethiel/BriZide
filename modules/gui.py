@@ -50,21 +50,21 @@ def setup():
     # Main menu
     menu.populate(
         texts=[
-            "Start Game", 
+            "Start Game",
             "Select Level",
             "Select Ship",
-            "Select Game Mode", 
+            "Select Game Mode",
             "Start Editor",
             "Options",
             "Quit"
-        ], 
+        ],
         position=[0.5, 4.0, 0],
         size=0.5,
         actions=[
-            start_game, 
+            start_game,
             show_menu_level,
             show_menu_ship,
-            show_menu_mode, 
+            show_menu_mode,
             start_editor,
             show_menu_options,
             end_game
@@ -95,15 +95,15 @@ def setup():
     # ship preview model
     menu_ship.set_active(logic.settings["Player0"]["ship"])
     ship_preview = btk.Element(
-        layout, 
-        object="ui_ship_preview", 
-        position=[12,4.0,0], 
-        scale=[1.0,1.0,1.0], 
-        title="ui_ship_preview", 
-        update=update_ship_preview, 
+        layout,
+        object="ui_ship_preview",
+        position=[12,4.0,0],
+        scale=[1.0,1.0,1.0],
+        title="ui_ship_preview",
+        update=update_ship_preview,
         hidden=False
     )
-    
+
     # Sub-menu: game mode
     menu_mode = btk.Menu("menu_mode", layout)
     menu_mode.populate(
@@ -114,13 +114,15 @@ def setup():
         hidden=True
     )
     menu_mode.set_active(logic.game.mode)
-   
+
     # Sub-menu: game options
-    bool_options = [            
+    bool_options = [
            "{}: {}".format("Fullscreen", logic.settings["Video"]["fullscreen"]),
            "{}: {}".format("Detailed Level Cube", logic.settings["Video"]["detailed_cube"]),
            "{}: {}".format("Bloom", logic.settings["Video"]["bloom"]),
            "{}: {}".format("Blur", logic.settings["Video"]["blur"]),
+           "{}: {}".format("Lights", logic.settings["Video"]["lights"]),
+           "{}: {}".format("Extra Textures", logic.settings["Video"]["extra_textures"]),
     ]
     menu_options = btk.Menu("menu_options", layout)
     menu_options.populate(
@@ -142,19 +144,19 @@ def setup():
 
     # "Loading"
     loading = btk.Label(layout_loading, text="Loading", position=[6.5, 3, 0.3], size=0.6, hidden=True, update=update_pulsate)
-    
+
     # Displays the component that's being loaded
     loading_what = btk.Label(layout_loading, text="", position=[1, 1.15, 0.4], size=0.3, hidden=True, update=update_loading_label)
     loading_what.set_color([1, 1, 1, 1])
 
-    loading_bar = btk.ProgressBar(layout_loading, 
-        position=[0, 1, 0.3], 
-        hidden=True, 
-        min_scale=[0, .5, 1], 
-        max_scale=[16, .5, 1],  
+    loading_bar = btk.ProgressBar(layout_loading,
+        position=[0, 1, 0.3],
+        hidden=True,
+        min_scale=[0, .5, 1],
+        max_scale=[16, .5, 1],
         update=update_loading_bar
     )
-    
+
     # Loading screen backdrop
     loading_screen = btk.Element(layout_loading, object="loading_screen", title="loading_screen", position=[0, 0, 0.1], hidden=True)
 
@@ -230,12 +232,21 @@ def set_option(widget):
     if "Detailed Level Cube" in widget.text:
         logic.settings["Video"]["detailed_cube"] = config.setting_toggled(logic.settings["Video"]["detailed_cube"])
         widget.text = "{}: {}".format(widget.text.split(':')[0], logic.settings["Video"]["detailed_cube"])
+    if "Lights" in widget.text:
+        logic.settings["Video"]["lights"] = config.setting_toggled(logic.settings["Video"]["lights"])
+        widget.text = "{}: {}".format(widget.text.split(':')[0], logic.settings["Video"]["lights"])
+    if "Extra Textures" in widget.text:
+        logic.settings["Video"]["extra_textures"] = config.setting_toggled(logic.settings["Video"]["extra_textures"])
+        widget.text = "{}: {}".format(widget.text.split(':')[0], logic.settings["Video"]["extra_textures"])
     logic.game.save_settings()
-    video.apply_settings()
-
 
 def back(widget):
     menu_id = widget.parent.title
+
+    # to apply all gfx settings
+    if menu_id == "menu_options":
+        logic.restartGame()
+
     logic.ui["layout_main"].get_element(menu_id).unfocus()
     logic.ui["layout_main"].get_element("menu_main").focus()
     logic.ui["layout_main"].get_element(menu_id).hide()

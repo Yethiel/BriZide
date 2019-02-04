@@ -9,7 +9,7 @@ def actuators():
     if logic.settings["Video"]["blur"] == "True":
         if G.DEBUG: print("Blur activated")
         cont.activate(act_blur)
-        
+
     if logic.settings["Video"]["bloom"] == "True":
         if G.DEBUG: print("Bloom activated")
         cont.activate(act_bloom)
@@ -17,6 +17,8 @@ def actuators():
 def apply_settings():
     render.setFullScreen(logic.settings["Video"]["fullscreen"] == "True")
     render.setWindowSize(
-        int(logic.settings["Video"]["width"]), 
+        int(logic.settings["Video"]["width"]),
         int(logic.settings["Video"]["height"])
     )
+    render.setGLSLMaterialSetting('lights', logic.settings["Video"]["lights"] == "True")
+    render.setGLSLMaterialSetting('extra_textures', logic.settings["Video"]["extra_textures"] == "True")

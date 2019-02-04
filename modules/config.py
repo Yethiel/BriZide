@@ -29,12 +29,14 @@ def load():
             "Effects" : 1.0,
         }
         config["Video"] = {
-            "bloom" : "True",
-            "blur" : "True",
             "fullscreen" : "False",
             "width" : 1280,
             "height" : 720,
             "detailed_cube" : "False",
+            "lights" : "True",
+            "extra_textures" : "True",
+            "bloom" : "True",
+            "blur" : "True",
         }
 
         config["Dev"] = {

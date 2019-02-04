@@ -17,7 +17,7 @@ def add():
     """
 
     # get all blocks that are in this scene and add them to a list
-    for obj in sce.objects: 
+    for obj in sce.objects:
         if "Block_" in obj.name:
             # we need to use the name since this lib will be freed and the objects will be gone, leaving freed references
             logic.game.block_list.append(obj.name)
@@ -28,7 +28,7 @@ def add():
             print(logic.game.block_list)
 
     for obj in sce.objects:
-        if "Block" in obj.name:
+        if "Block" in obj.name or "LOD" in obj.name:
             obj.endObject()
 
 def main():
