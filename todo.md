@@ -3,7 +3,7 @@
 - make levels
 - finish track editor (almost)
 - finish level block designs
-    - ramps
+    - ramps - done!
     - cube wall textures
     - checkpoints and start block (direction has to be clear)
 
