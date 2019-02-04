@@ -92,6 +92,7 @@ def setup():
         actions=[back]+[select_ship for x in range(len(logic.game.ship_list))],
         hidden=True
     )
+    # ship preview model
     menu_ship.set_active(logic.settings["Player0"]["ship"])
     ship_preview = btk.Element(
         layout, 
@@ -102,6 +103,7 @@ def setup():
         update=update_ship_preview, 
         hidden=False
     )
+    
     # Sub-menu: game mode
     menu_mode = btk.Menu("menu_mode", layout)
     menu_mode.populate(
@@ -287,6 +289,7 @@ def end_game(widget):
     logic.device.stopAll()
     logic.music_device.stopAll()
     logic.endGame()
+
 
 def main():
     elements = logic.ui.copy().keys()
