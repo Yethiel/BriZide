@@ -1,5 +1,15 @@
 # BriZide
 
+## Contents
+
+- [Time Trial](#time-trial)
+- [Default Controls](#default-controls)
+    - [Editor](#editor)
+- [Download and Install](#download-and-install)
+- [Configuration](#configuration)
+- [Modding](#modding)
+- [Credits](#credits)
+
 BriZide is a racing game set in the distant future.
 Race anti-gravity ships around levels in a large cubic space station.
 
@@ -72,6 +82,8 @@ Windows:
 3. Open _brizide.blend_ with Blender and press `P`.
 
 ## Configuration
+
+Some settings can be set in the in-game options menu.
 
 The following settings can be set by editing the `config.ini` file:
 
