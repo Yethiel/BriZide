@@ -27,7 +27,7 @@ def main():
     big_cube.worldPosition = [(cube_size*tile_size)/2 - 16, (cube_size*tile_size)/2 - 16, (cube_size*tile_size)/2 - 16]
     big_cube.worldScale = [cube_size, cube_size, cube_size]
 
-    if logic.settings["Video"]["simple_cube"] == "True":
+    if logic.settings["Video"]["detailed_cube"] == "False":
         simple_cube = sce.addObject("CubeSimple", own, 0)
         simple_cube.worldPosition = [(cube_size*tile_size)/2 - 16, (cube_size*tile_size)/2 - 16, (cube_size*tile_size)/2 - 16]
         simple_cube.worldScale = [cube_size, cube_size, cube_size]

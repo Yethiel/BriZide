@@ -34,7 +34,7 @@ def load():
             "fullscreen" : "False",
             "width" : 1280,
             "height" : 720,
-            "simple_cube" : "False",
+            "detailed_cube" : "False",
         }
 
         config["Dev"] = {
@@ -105,3 +105,9 @@ def save():
         config.write(configfile)
         if G.DEBUG: print("Settings saved")
 
+
+def setting_toggled(str):
+    if str == "False":
+        return "True"
+    else:
+        return "False"

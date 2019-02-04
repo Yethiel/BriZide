@@ -4,7 +4,7 @@ from mathutils import Vector
 from bge import logic
 from modules import btk
 
-from modules import global_constants as G
+from modules import config, video, global_constants as G
 from modules.helpers import clamp
 
 class UIManager():
@@ -51,20 +51,22 @@ def setup():
     menu.populate(
         texts=[
             "Start Game", 
-            "Start Editor", 
-            "Select Game Mode", 
             "Select Level",
             "Select Ship",
+            "Select Game Mode", 
+            "Start Editor",
+            "Options",
             "Quit"
         ], 
         position=[0.5, 4.0, 0],
         size=0.5,
         actions=[
             start_game, 
-            start_editor,
-            show_menu_mode, 
             show_menu_level,
             show_menu_ship,
+            show_menu_mode, 
+            start_editor,
+            show_menu_options,
             end_game
         ],
         hidden=False
@@ -73,10 +75,10 @@ def setup():
     # Sub-menu: level selection
     menu_level = btk.Menu("menu_level", layout)
     menu_level.populate(
-        texts=logic.game.level_list,
-        position=[6.3, 5.0, 0],
+        texts=["< Back"]+logic.game.level_list,
+        position=[6.3, 6.0, 0],
         size=0.5,
-        actions=[select_level for x in range(len(logic.game.level_list))],
+        actions=[back]+[select_level for x in range(len(logic.game.level_list))],
         hidden=True
     )
     menu_level.set_active(logic.game.level_name)
@@ -84,10 +86,10 @@ def setup():
     # Sub-menu: ship selection
     menu_ship = btk.Menu("menu_ship", layout)
     menu_ship.populate(
-        texts=logic.game.ship_list,
-        position=[6.3, 5.0, 0],
+        texts=["< Back"]+logic.game.ship_list,
+        position=[6.3, 6.0, 0],
         size=0.5,
-        actions=[select_ship for x in range(len(logic.game.ship_list))],
+        actions=[back]+[select_ship for x in range(len(logic.game.ship_list))],
         hidden=True
     )
     menu_ship.set_active(logic.settings["Player0"]["ship"])
@@ -103,13 +105,29 @@ def setup():
     # Sub-menu: game mode
     menu_mode = btk.Menu("menu_mode", layout)
     menu_mode.populate(
-        texts=logic.game.mode_list,
-        position=[6.3, 5.0, 0],
+        texts=["< Back"]+logic.game.mode_list,
+        position=[6.3, 6.0, 0],
         size=0.5,
-        actions=[select_mode for x in range(len(logic.game.mode_list))],
+        actions=[back]+[select_mode for x in range(len(logic.game.mode_list))],
         hidden=True
     )
     menu_mode.set_active(logic.game.mode)
+   
+    # Sub-menu: game options
+    bool_options = [            
+           "{}: {}".format("Fullscreen", logic.settings["Video"]["fullscreen"]),
+           "{}: {}".format("Detailed Level Cube", logic.settings["Video"]["detailed_cube"]),
+           "{}: {}".format("Bloom", logic.settings["Video"]["bloom"]),
+           "{}: {}".format("Blur", logic.settings["Video"]["blur"]),
+    ]
+    menu_options = btk.Menu("menu_options", layout)
+    menu_options.populate(
+        texts=["< Back"]+bool_options,
+        position=[6.3, 6.0, 0],
+        size=0.5,
+        actions=[back]+[set_option for x in range(len(bool_options))],
+        hidden=True
+    )
 
     # Misc. menu items
     logo = btk.Element(layout, object="logo", title="logo", position=[0.5, 6.5, 0.2], scale=[2,2,1])
@@ -173,6 +191,12 @@ def update_ship_preview(widget):
             pass
 
 
+def show_menu_options(widget):
+    logic.ui["layout_main"].get_element("menu_options").show()
+    logic.ui["layout_main"].get_element("menu_main").unfocus()
+    logic.ui["layout_main"].get_element("menu_options").focus()
+
+
 def show_menu_level(widget):
     logic.ui["layout_main"].get_element("menu_level").show()
     logic.ui["layout_main"].get_element("menu_main").unfocus()
@@ -189,6 +213,30 @@ def show_menu_mode(widget):
     logic.ui["layout_main"].get_element("menu_mode").show()
     logic.ui["layout_main"].get_element("menu_main").unfocus()
     logic.ui["layout_main"].get_element("menu_mode").focus()
+
+
+def set_option(widget):
+    if "Bloom" in widget.text:
+        logic.settings["Video"]["bloom"] = config.setting_toggled(logic.settings["Video"]["bloom"])
+        widget.text = "{}: {}".format(widget.text.split(':')[0], logic.settings["Video"]["bloom"])
+    if "Blur" in widget.text:
+        logic.settings["Video"]["blur"] = config.setting_toggled(logic.settings["Video"]["blur"])
+        widget.text = "{}: {}".format(widget.text.split(':')[0], logic.settings["Video"]["blur"])
+    if "Fullscreen" in widget.text:
+        logic.settings["Video"]["fullscreen"] = config.setting_toggled(logic.settings["Video"]["fullscreen"])
+        widget.text = "{}: {}".format(widget.text.split(':')[0], logic.settings["Video"]["fullscreen"])
+    if "Detailed Level Cube" in widget.text:
+        logic.settings["Video"]["detailed_cube"] = config.setting_toggled(logic.settings["Video"]["detailed_cube"])
+        widget.text = "{}: {}".format(widget.text.split(':')[0], logic.settings["Video"]["detailed_cube"])
+    logic.game.save_settings()
+    video.apply_settings()
+
+
+def back(widget):
+    menu_id = widget.parent.title
+    logic.ui["layout_main"].get_element(menu_id).unfocus()
+    logic.ui["layout_main"].get_element("menu_main").focus()
+    logic.ui["layout_main"].get_element(menu_id).hide()
 
 
 def select_level(widget):
