@@ -34,7 +34,6 @@ def load():
             "fullscreen" : "False",
             "width" : 1280,
             "height" : 720,
-            "transparent_tiles" : "True",
             "simple_cube" : "False",
         }
 

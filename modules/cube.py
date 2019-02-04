@@ -5,7 +5,7 @@ a large cube of variable size (track base)
 
 from bge import logic
 from modules import helpers
-
+from mathutils import Matrix
 
 def main():
 
@@ -31,6 +31,7 @@ def main():
         simple_cube = sce.addObject("CubeSimple", own, 0)
         simple_cube.worldPosition = [(cube_size*tile_size)/2 - 16, (cube_size*tile_size)/2 - 16, (cube_size*tile_size)/2 - 16]
         simple_cube.worldScale = [cube_size, cube_size, cube_size]
+        simple_cube.meshes[0].transformUV(-1, Matrix.Identity(4)*cube_size)
         logic.components.mark_loaded("cube")
         return
 
@@ -47,7 +48,7 @@ def main():
                                      y * tile_size,
                                      0]
 
-                if logic.settings["Video"]["transparent_tiles"] == "True" and not y % 2:
+                if not y % 2:
                     sce.addObject("CubeWindow_Z-", own, 0)
                 else:
                     sce.addObject("CubeTile_Z-", own, 0)
@@ -58,7 +59,7 @@ def main():
                                      y * tile_size,
                                      (cube_size-1) * tile_size]
 
-                if logic.settings["Video"]["transparent_tiles"] == "True" and not y % 2:
+                if not y % 2:
                     sce.addObject("CubeWindow_Z+", own, 0)
                 else:
                     sce.addObject("CubeTile_Z+", own, 0)
@@ -69,7 +70,7 @@ def main():
                                      0,
                                      z * tile_size]
 
-                if logic.settings["Video"]["transparent_tiles"] == "True" and not y % 2:
+                if not y % 2:
                     sce.addObject("CubeWindow_Y-", own, 0)
                 else:
                     sce.addObject("CubeTile_Y-", own, 0)
@@ -80,7 +81,7 @@ def main():
                                      (cube_size-1) * tile_size,
                                      z * tile_size]
 
-                if logic.settings["Video"]["transparent_tiles"] == "True" and not y % 2:
+                if not y % 2:
                     sce.addObject("CubeWindow_Y+", own, 0)
                 else:
                     sce.addObject("CubeTile_Y+", own, 0)
@@ -91,7 +92,7 @@ def main():
                                      y * tile_size,
                                      z * tile_size]
 
-                if logic.settings["Video"]["transparent_tiles"] == "True" and not y % 2:
+                if not y % 2:
                     sce.addObject("CubeWindow_X-", own, 0)
                 else:
                     sce.addObject("CubeTile_X-", own, 0)
@@ -102,7 +103,7 @@ def main():
                                      y * tile_size ,
                                      z * tile_size]
 
-                if logic.settings["Video"]["transparent_tiles"] == "True" and not y % 2:
+                if not y % 2:
                     sce.addObject("CubeWindow_X+", own, 0)
                 else:
                     sce.addObject("CubeTile_X+", own, 0)
