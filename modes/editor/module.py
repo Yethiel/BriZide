@@ -54,12 +54,12 @@ class Edit_Mode(Game_Mode):
 
         # creates the UI
         layout = logic.ui['editor']
-        label_mode = btk.Label(layout, 
+        label_mode = btk.Label(layout,
             text='Mode:',
             position=[0.4, 0.4, 0],
             size=0.3,
             update=update_label_mode)
-        label_axes = btk.Label(layout, 
+        label_axes = btk.Label(layout,
             text='Axes:',
             position=[0.4, 0.7, 0],
             size=0.2,
@@ -108,10 +108,10 @@ class Edit_Mode(Game_Mode):
         if keystat(key_rotate_cam, 'JUST_ACTIVATED'):
             mouse.visible = False
             self.old_mouse_pos = logic.mouse.position
-            render.setMousePosition(int(winw / 2), int(winh / 2))     
+            render.setMousePosition(int(winw / 2), int(winh / 2))
 
         if keystat(key_rotate_cam, 'ACTIVE'):
-            render.setMousePosition(int(winw / 2), int(winh / 2))     
+            render.setMousePosition(int(winw / 2), int(winh / 2))
             mx = logic.mouse.position[0] - 0.5  # how much the mouse moved
             my = logic.mouse.position[1] - 0.5
             camera.applyRotation([0, 0.0, -mx], False)
@@ -119,7 +119,7 @@ class Edit_Mode(Game_Mode):
 
         if keystat(key_rotate_cam, 'JUST_RELEASED'):
             render.setMousePosition(
-                int(self.old_mouse_pos[0] * winw), 
+                int(self.old_mouse_pos[0] * winw),
                 int(self.old_mouse_pos[1] * winh))
             mouse.visible = True
 
@@ -177,7 +177,7 @@ class Edit_Mode(Game_Mode):
 
                 if keystat('SKEY', 'JUST_RELEASED'):
                     logic.game.level.save()
-                
+
                 return
 
             # selection
@@ -214,7 +214,7 @@ class Edit_Mode(Game_Mode):
 
             for obj in self.selection:
                 self.selection[obj].worldPosition = obj.worldPosition
-                
+
             if keystat('LEFTARROWKEY', 'JUST_RELEASED') or keystat('DOWNARROWKEY', 'JUST_RELEASED'):
                 for obj in self.selection:
                     obj.applyMovement([-a * 16 for a in self.axes], False)
@@ -229,7 +229,6 @@ class Edit_Mode(Game_Mode):
                 self.mode = SELECT
 
 
-
         elif self.mode == ROTATE:
             if keystat('XKEY', 'JUST_RELEASED'):
                 self.axes = [1, 0, 0]
@@ -237,26 +236,31 @@ class Edit_Mode(Game_Mode):
                 self.axes = [0, 1, 0]
             elif keystat('ZKEY', 'JUST_RELEASED'):
                 self.axes = [0, 0, 1]
-            
+
             for obj in self.selection:
                 self.selection[obj].worldOrientation = obj.worldOrientation
 
+            if keystat('LEFTSHIFTKEY', 'ACTIVE'):
+                amount = .0625
+            else:
+                amount = .25
+
             if keystat('LEFTARROWKEY', 'JUST_RELEASED') or keystat('DOWNARROWKEY', 'JUST_RELEASED'):
                 for obj in self.selection:
-                    obj.applyRotation([math.pi * a * .25 for a in self.axes], False)
-                cursor.applyRotation([math.pi * a * .25 for a in self.axes], False)
+                    obj.applyRotation([math.pi * a * amount for a in self.axes], False)
+                cursor.applyRotation([math.pi * a * amount for a in self.axes], False)
 
             elif keystat('RIGHTARROWKEY', 'JUST_RELEASED') or keystat('UPARROWKEY', 'JUST_RELEASED'):
                 for obj in self.selection:
-                    obj.applyRotation([math.pi * -a * .25 for a in self.axes], False)
-                cursor.applyRotation([math.pi * -a * .25 for a in self.axes], False)
+                    obj.applyRotation([math.pi * -a * amount for a in self.axes], False)
+                cursor.applyRotation([math.pi * -a * amount for a in self.axes], False)
 
             elif keystat('BACKSPACEKEY', 'JUST_RELEASED'):
                 self.mode = SELECT
 
             elif keystat('ENTERKEY', 'JUST_RELEASED'):
                 self.mode = SELECT
-        
+
         elif self.mode == ADD:
 
             scene.objects['live_cursor'].replaceMesh(self.menu_block.get_active().text)

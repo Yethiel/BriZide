@@ -17,8 +17,8 @@ def actuators():
 def apply_settings():
     render.setFullScreen(logic.settings["Video"]["fullscreen"] == "True")
     render.setWindowSize(
-        int(logic.settings["Video"]["width"]),
-        int(logic.settings["Video"]["height"])
+            int(logic.settings["Video"]["width"]),
+            int(logic.settings["Video"]["height"])
     )
     render.setGLSLMaterialSetting('lights', logic.settings["Video"]["lights"] == "True")
     render.setGLSLMaterialSetting('extra_textures', logic.settings["Video"]["extra_textures"] == "True")

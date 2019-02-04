@@ -206,7 +206,7 @@ class Level():
                 wo = obj.worldOrientation.to_euler()
 
                 block = {
-                    "type" : obj.meshes[0].name,
+                    "type" : obj.name.split('.')[0],
                     "position" : [obj.worldPosition.x,
                         obj.worldPosition.y,
                         obj.worldPosition.z],
