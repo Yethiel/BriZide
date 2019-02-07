@@ -114,6 +114,14 @@ def main():
 def clear():
     sce = helpers.get_scene("Scene")
 
+    level = logic.game.get_level()
+    cube_size = level.get_cube_size()
+
+    simple_cube = sce.objects["CubeSimple"]
+
+    if logic.settings["Video"]["detailed_cube"] == "False":
+        simple_cube.meshes[0].transformUV(-1, Matrix.Identity(4)*(1/cube_size))
+
     for obj in sce.objects:
         if "Cube" in obj.name:
             obj.endObject()
