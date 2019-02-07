@@ -15,7 +15,7 @@ def load():
     else:
         # create an ini with the default configuration
         config["Game"] = {
-            "leveldir" : "skate_park",
+            "leveldir" : "A01_training",
             "Mode" : "time_trial",
             "version": 0
         }

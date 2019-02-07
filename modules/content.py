@@ -16,7 +16,7 @@ def get_levels():
     for folder in os.listdir(G.PATH_LEVELS):
         if folder+".inf" in os.listdir(logic.expandPath(G.PATH_LEVELS+folder)):
             levels.append(folder)
-    return levels
+    return sorted(levels)
 
 
 def get_ships():
@@ -27,7 +27,7 @@ def get_ships():
             ships.append(folder)
             print("LOADING", os.path.join(logic.expandPath(G.PATH_SHIPS+folder), folder) + ".blend")
             logic.LibLoad(os.path.join(logic.expandPath(G.PATH_SHIPS+folder), folder) + ".blend", "Mesh")
-    return ships
+    return sorted(ships)
 
 
 def get_modes():
@@ -36,7 +36,7 @@ def get_modes():
     for folder in os.listdir(G.PATH_MODES):
         if os.path.isdir(logic.expandPath(G.PATH_MODES+folder)) and folder+".inf" in os.listdir(logic.expandPath(G.PATH_MODES+folder)):
             modes.append(folder)
-    return modes
+    return sorted(modes)
 
 
 def set_all():
