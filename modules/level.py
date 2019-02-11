@@ -265,21 +265,26 @@ class Level():
 
         for block in self.block_data:
 
-            new_block = sce.addObject(block.type)
+            new_block = None
+            try:
+                new_block = sce.addObject(block.type)
+            except:
+                print(block.type, "not found")
 
-            # Copy properties
-            for prop in block.properties:
-                new_block[prop] = block.properties[prop]
+            if new_block is not None:
+                # Copy properties
+                for prop in block.properties:
+                    new_block[prop] = block.properties[prop]
 
-            new_block.worldPosition = block.position # Set position
+                new_block.worldPosition = block.position # Set position
 
-            # Convert Orientation to matrix and apply it to the 3D object
-            new_orientation = mathutils.Euler((0, 0, 0), "XYZ")
+                # Convert Orientation to matrix and apply it to the 3D object
+                new_orientation = mathutils.Euler((0, 0, 0), "XYZ")
 
-            for x in [0, 1, 2]:
-                new_orientation[x] = block.orientation[x]
+                for x in [0, 1, 2]:
+                    new_orientation[x] = block.orientation[x]
 
-            new_block.worldOrientation = new_orientation.to_matrix()
+                new_block.worldOrientation = new_orientation.to_matrix()
 
     def clear(self):
         sce = helpers.get_scene("Scene")

@@ -215,13 +215,18 @@ class Edit_Mode(Game_Mode):
             for obj in self.selection:
                 self.selection[obj].worldPosition = obj.worldPosition
 
+            if keystat('LEFTSHIFTKEY', 'ACTIVE'):
+                amount = 2
+            else:
+                amount = 16
+
             if keystat('LEFTARROWKEY', 'JUST_RELEASED') or keystat('DOWNARROWKEY', 'JUST_RELEASED'):
                 for obj in self.selection:
-                    obj.applyMovement([-a * 16 for a in self.axes], False)
+                    obj.applyMovement([-a * amount for a in self.axes], False)
 
             elif keystat('RIGHTARROWKEY', 'JUST_RELEASED') or keystat('UPARROWKEY', 'JUST_RELEASED'):
                 for obj in self.selection:
-                    obj.applyMovement([a * 16 for a in self.axes], False)
+                    obj.applyMovement([a * amount for a in self.axes], False)
 
             if keystat('BACKSPACEKEY', 'JUST_RELEASED'):
                 self.mode = SELECT

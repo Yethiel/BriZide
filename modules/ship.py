@@ -64,6 +64,7 @@ class Ship():
         self.current_boost = 0.0
         self.current_velocity = 0.0
         self.on_ground = False
+        self.gravity = 150
 
         # Directional objects
         self.whl_fl = self.go.children["whl_fl"]
@@ -101,31 +102,31 @@ class Ship():
                 if key == "name":
                     self.name = str(inf[category][key])
 
-                elif key == "topspeed": 
+                elif key == "topspeed":
                     self.top_speed = float(inf[category][key])
-                elif key == "topthrust": 
+                elif key == "topthrust":
                     self.top_thrust = float(inf[category][key])
-                elif key == "thrust": 
+                elif key == "thrust":
                     self.thrust = float(inf[category][key])
-                elif key == "grip": 
+                elif key == "grip":
                     self.grip = float(inf[category][key])
-                elif key == "gripair": 
+                elif key == "gripair":
                     self.grip_air = float(inf[category][key])
-                elif key == "steerrate": 
+                elif key == "steerrate":
                     self.steer_rate = float(inf[category][key])
-                elif key == "steermax": 
+                elif key == "steermax":
                     self.steer_max = float(inf[category][key])
-                elif key == "stablethreshold": 
+                elif key == "stablethreshold":
                     self.stable_threshold = float(inf[category][key])
-                elif key == "stablestrength": 
+                elif key == "stablestrength":
                     self.stable_strength = float(inf[category][key])
-                elif key == "shield": 
+                elif key == "shield":
                     self.shield = float(inf[category][key])
-                elif key == "hoverheight": 
+                elif key == "hoverheight":
                     self.hover_height = float(inf[category][key])
-                elif key == "hoverstrength": 
+                elif key == "hoverstrength":
                     self.hover_strength = float(inf[category][key])
-                elif key == "hoverdamping": 
+                elif key == "hoverdamping":
                     self.hover_damping = float(inf[category][key])
 
         # Sets controls
@@ -226,7 +227,7 @@ class Ship():
         self.sounds["engine_top"].location = self.go.worldPosition
         self.sounds["engine"].location = self.go.worldPosition
         self.sounds["air"].location = self.go.worldPosition
-        
+
         if logic.uim.focus == "ship":
             self.controls()
         else:
@@ -269,7 +270,7 @@ class Ship():
                 self.go.alignAxisToVect(normalmed, 2, .2)
         else:
             self.on_ground = False
-            self.go.applyForce([0, 0, -150], True)
+            self.go.applyForce([0, 0, -self.gravity], True)
 
         # Ship behavior that does not necessarily depend on controls
         self.go.applyRotation((0,0, self.current_steer), True) #actual steering happens here
@@ -307,7 +308,7 @@ class Ship():
         # Sets the thrust
         if kbd.events[self.key_thrust] == ACTIVE:
             self.add_thrust(1)
-        
+
         if kbd.events[self.key_thrust_reverse] == ACTIVE:
             self.add_thrust(-1)
 
@@ -318,8 +319,8 @@ class Ship():
         # Boost
         if kbd.events[self.key_boost] == JUST_ACTIVATED:
             sound.play("boost_kick")
-        
-        
+
+
         if kbd.events[self.key_boost] == ACTIVE and self.current_boost > 10:
             allow_boost = max(self.go.getLinearVelocity(True)) < self.top_speed * 1.5
             if allow_boost:
@@ -353,14 +354,14 @@ class Ship():
 
         delta = logic.getLogicTicRate()
 
-        if self.go.localLinearVelocity[1] < 0 and kbd.events[self.key_thrust_reverse] == ACTIVE: 
+        if self.go.localLinearVelocity[1] < 0 and kbd.events[self.key_thrust_reverse] == ACTIVE:
             d *= -1 # inverse steering when going reverse
 
 
         # Smoothly center steering.
         if self.current_steer > 0: #currently steering left
             if d < 0: # player wants left
-                if abs(self.current_steer) <= self.steer_max: 
+                if abs(self.current_steer) <= self.steer_max:
                     self.current_steer += (1/delta * self.steer_rate * self.get_grip())* -d
 
             elif d > 0: # player wants right
@@ -374,11 +375,11 @@ class Ship():
                 self.center_steering()
                 pass
             elif d > 0: # player wants right
-                if abs(self.current_steer) <= self.steer_max: 
+                if abs(self.current_steer) <= self.steer_max:
                     self.current_steer += (1/delta * self.steer_rate * self.get_grip())* -d
 
         else:
-            if abs(self.current_steer) <= self.steer_max: 
+            if abs(self.current_steer) <= self.steer_max:
                 self.current_steer += (1/delta * self.steer_rate* self.get_grip())* -d
 
 
@@ -390,11 +391,11 @@ class Ship():
     def stabilize(self):
         if abs(self.go.localLinearVelocity[0]) >= self.stable_threshold:
             self.go.applyForce(
-                [-self.go.localLinearVelocity[0] * self.stable_strength * self.get_grip(),0,0], 
+                [-self.go.localLinearVelocity[0] * self.stable_strength * self.get_grip(),0,0],
                 True
             )
             self.go.applyForce(
-                [0,abs(self.go.localLinearVelocity[0]) * self.get_grip() / 2 ,0], 
+                [0,abs(self.go.localLinearVelocity[0]) * self.get_grip() / 2 ,0],
                 True
             )
 
@@ -434,6 +435,8 @@ def setup():
     identifier = logic.settings["Player{}".format(player_id)]["ship"]
 
     ship = Ship(game_obj, identifier, player_id)
+
+    ship.gravity = 0 if level.cube_size == 0 else 150
 
     logic.game.assign_ship_to_player(ship.id, player_id)
 

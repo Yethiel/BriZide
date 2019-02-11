@@ -23,15 +23,17 @@ def main():
     tile_size = 32
     cube_size = level.get_cube_size()
 
-    big_cube = sce.addObject("CubeCollision", own, 0)
-    big_cube.worldPosition = [(cube_size*tile_size)/2 - 16, (cube_size*tile_size)/2 - 16, (cube_size*tile_size)/2 - 16]
-    big_cube.worldScale = [cube_size, cube_size, cube_size]
+    if cube_size > 0:
+        big_cube = sce.addObject("CubeCollision", own, 0)
+        big_cube.worldPosition = [(cube_size*tile_size)/2 - 16, (cube_size*tile_size)/2 - 16, (cube_size*tile_size)/2 - 16]
+        big_cube.worldScale = [cube_size, cube_size, cube_size]
 
     if logic.settings["Video"]["detailed_cube"] == "False":
         simple_cube = sce.addObject("CubeSimple", own, 0)
         simple_cube.worldPosition = [(cube_size*tile_size)/2 - 16, (cube_size*tile_size)/2 - 16, (cube_size*tile_size)/2 - 16]
         simple_cube.worldScale = [cube_size, cube_size, cube_size]
-        simple_cube.meshes[0].transformUV(-1, Matrix.Identity(4)*cube_size)
+        if cube_size > 0:
+            simple_cube.meshes[0].transformUV(-1, Matrix.Identity(4)*cube_size)
         logic.components.mark_loaded("cube")
         return
 
@@ -119,7 +121,8 @@ def clear():
         level = logic.game.get_level()
         cube_size = level.get_cube_size()
         simple_cube = sce.objects["CubeSimple"]
-        simple_cube.meshes[0].transformUV(-1, Matrix.Identity(4)*(1/cube_size))
+        if cube_size != 0:
+            simple_cube.meshes[0].transformUV(-1, Matrix.Identity(4)*(1/cube_size))
 
     for obj in sce.objects:
         if "Cube" in obj.name:

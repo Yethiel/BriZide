@@ -44,24 +44,24 @@ class Time_Trial_Mode(Game_Mode):
         btk.Label(layout, text="", position=[0.52, 7.2, 0], size=0.2, update=update_label_best)
         btk.Label(layout, text="", position=[0.5, 6.5, 0], size=0.4, update=update_label_checkpoints)
 
-        btk.Label(layout, text="", position=[12, 0.5, 0], size=0.6, update=update_label_speed)    
+        btk.Label(layout, text="", position=[12, 0.5, 0], size=0.6, update=update_label_speed)
 
         boost_bar = btk.ProgressBar(
-            layout, 
-            title="boost", 
-            position=[0.5, 0.5, 0], 
-            min_scale=[0, .5, 1], 
-            max_scale=[4, .5, 1], 
+            layout,
+            title="boost",
+            position=[0.5, 0.5, 0],
+            min_scale=[0, .5, 1],
+            max_scale=[4, .5, 1],
             update=update_boost_bar
         )
         boost_bar.set_color([1, .743, 0.0, 0.75])
 
         checkpoint_bar = btk.ProgressBar(
-            layout, 
-            title="checkpoints_bar", 
-            position=[0.5, 6.45, -0.1], 
-            min_scale=[0, .4, 1], 
-            max_scale=[2.5, .4, 1], 
+            layout,
+            title="checkpoints_bar",
+            position=[0.5, 6.45, -0.1],
+            min_scale=[0, .4, 1],
+            max_scale=[2.5, .4, 1],
             update=update_checkpoint_bar
         )
         checkpoint_bar.set_color([1, .743, 0.0, 0.75])
@@ -93,6 +93,7 @@ class Time_Trial_Mode(Game_Mode):
         self.final_time = 0.0
         self.go["countdown"] = 4
         self.go["CountdownTimer"] = 0.0
+        logic.game.ships[0].gravity = 0 if logic.game.get_level().cube_size == 0 else 150
         logic.game.ships[0].current_boost = 500
 
     def next_level(self, widget):
@@ -114,7 +115,7 @@ class Time_Trial_Mode(Game_Mode):
         logic.game.save_settings()
         game.level.set_identifier(next_level)
         game.level.load()
-        if G.DEBUG: game.level.print_info()     
+        if G.DEBUG: game.level.print_info()
         game.level.place()
         cube.main()
         self.start_over(None)
@@ -135,12 +136,12 @@ class Time_Trial_Mode(Game_Mode):
     def get_times(self):
         # Gets the best times of all players
         for player in os.listdir(G.PATH_PROFILES):
-            if player == ".gitkeep": 
+            if player == ".gitkeep":
                 continue
             score_file = os.path.join(
-                G.PATH_PROFILES, 
-                player, 
-                "time_trial", 
+                G.PATH_PROFILES,
+                player,
+                "time_trial",
                 "{}.txt".format(logic.game.level_name)
             )
 
@@ -164,7 +165,7 @@ class Time_Trial_Mode(Game_Mode):
     def write_time(self):
         tt_file_path = os.path.join(
             logic.game.get_profile_dir("0"),
-            "time_trial", 
+            "time_trial",
             "{}.txt".format(logic.game.level_name)
         )
 
@@ -200,7 +201,7 @@ class Time_Trial_Mode(Game_Mode):
                     if not cp["0"]:
                         cp[str(ship)] = True
                         sound.play("checkpoint")
-                        if G.DEBUG: 
+                        if G.DEBUG:
                             print("Ship", ship, "passed", self.cp_data.index(cp))
 
                         cp.color = [.05, .05, .0, 1]
@@ -210,9 +211,9 @@ class Time_Trial_Mode(Game_Mode):
                         for cp in self.cp_data:
                             if cp["0"]:
                                 amnt_passed += 1
-                        
+
                         if G.DEBUG: print(amnt_passed, "/", len(self.cp_data))
-                        
+
                         self.cp_progress[str(ship)] = amnt_passed
                         if amnt_passed == len(self.cp_data):
                             menu = logic.ui["time_trial"].get_element("pause_menu")
@@ -275,7 +276,7 @@ def update_boost_bar(widget):
 def update_label_best(widget):
     tt = logic.time_trial
     widget.text  = "BEST: {} ({})".format(
-        helpers.time_string(tt.best_time["time"]), 
+        helpers.time_string(tt.best_time["time"]),
         tt.best_time["player"]
     )
 
