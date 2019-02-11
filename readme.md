@@ -77,7 +77,7 @@ blenderplayer brizide.blend
 
 Windows:
 
-1. [Download the game](https://github.com/Yethiel/BriZide/archive/master.zip) (optional: [development version](https://github.com/Yethiel/BriZide/archive/dev.zip))
+1. [Download the game](https://github.com/Yethiel/BriZide/archive/master.zip)
 2. Unpack the zip file
 3. Open _brizide.blend_ with Blender and press `P`.
 
@@ -94,7 +94,7 @@ The following settings can be set by editing the `config.ini` file:
 - Game end editor controls
 
 ## Modding
-Almost every aspect of this game can be modified.  
+Almost every aspect of this game can be modified.
 Game modes, levels, ships and assets can all be found in the game's folder and easily modified with free software (Blender, Gimp, text editors, ...).
 
 A **custom game mode** can be added with just a few lines of code. Copy any game mode folder and start modifying it. You will be able to select it in the _Game Mode_ menu.
@@ -111,8 +111,8 @@ A **custom game mode** can be added with just a few lines of code. Copy any game
 ## Credits
 
 ### Audio
-**ZetaSphere**: Time Trial soundtrack  
-**Qvarcos**: Editor soundtrack  
+**ZetaSphere**: Time Trial soundtrack
+**Qvarcos**: Editor soundtrack
 **Pong Pearson**: Announcer voice
 
 ## Story
