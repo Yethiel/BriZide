@@ -97,7 +97,7 @@ class Game:
         """Starts the game (tells the game mode to start and load all comps)"""
         if G.DEBUG: print("Starting game")
         logic.components.load_immediate(
-            "modes/" + self.mode + "/" + self.mode)
+            G.PATH_MODES + self.mode + "/" + self.mode)
 
     def clear(self):
         self.ships = {}           # dictionary of ships (id:ship)
