@@ -128,14 +128,16 @@ class Menu(Layout):
     def unfocus(self):
         self.focused = False
 
-    def populate(self, texts=[], position=[0.0, 0.0, 0.0], size=1.0, actions=[], hidden=False):
+    def populate(self, texts=[], position=[0.0, 0.0, 0.0], size=1.0, actions=[], updates=None, hidden=False):
         self.size = size
+        if updates is None:
+            updates = [None for x in range(len(texts))]
         for i in range(len(texts)):
             text = texts[i]
             pos = position
             pos[1] -= size
             opt = Option(
-                self, text=text, position=pos, size=size, value=i, action=actions[i], hidden=hidden
+                self, text=text, position=pos, size=size, value=i, action=actions[i], update=updates[i], hidden=hidden
             )
         for e in self.elements:
             self.set_element_color(e)

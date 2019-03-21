@@ -1,11 +1,15 @@
 import os
 import math
 from mathutils import Vector
-from bge import logic
-from modules import btk
+from bge import logic, events
+from modules import btk, sound
 
 from modules import config, video, global_constants as G
 from modules.helpers import clamp
+
+kbd = logic.keyboard
+JUST_ACTIVATED = logic.KX_INPUT_JUST_ACTIVATED
+
 
 class UIManager():
     def __init__(self):
@@ -50,6 +54,7 @@ def setup():
     # Main menu
     menu.populate(
         texts=[
+            "Enter Name" if logic.settings["Player0"]["name"] == "Player 0" else logic.settings["Player0"]["name"],
             "Start Game",
             "Select Level",
             "Select Ship",
@@ -61,6 +66,7 @@ def setup():
         position=[0.5, 4.0, 0],
         size=0.5,
         actions=[
+            enter_name,
             start_game,
             show_menu_level,
             show_menu_ship,
@@ -68,6 +74,16 @@ def setup():
             start_editor,
             show_menu_options,
             end_game
+        ],
+        updates=[
+            update_name,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None
         ],
         hidden=False
     )
@@ -239,6 +255,31 @@ def set_option(widget):
         logic.settings["Video"]["extra_textures"] = config.setting_toggled(logic.settings["Video"]["extra_textures"])
         widget.text = "{}: {}".format(widget.text.split(':')[0], logic.settings["Video"]["extra_textures"])
     logic.game.save_settings()
+
+
+def enter_name(widget):
+    logic.uim.go["ui_timer"] = 0.0
+    logic.ui["layout_main"].get_element("menu_main").unfocus()
+    logic.uim.go["log_keyboard"] = True
+    logic.uim.go["keyboard"] = ""
+    # logic.uim.set_focus("keyboard_input")
+
+
+def update_name(widget):
+    if logic.uim.go["log_keyboard"] == True:
+        widget.text = logic.uim.go["keyboard"] + ('|' if int(logic.uim.go["ui_timer"]*2) % 2 else "")
+        if kbd.events[events.ENTERKEY] == JUST_ACTIVATED and logic.uim.go["ui_timer"] > 0.1:
+            sound.play("select")
+            logic.uim.go["log_keyboard"] = False
+            player_name = logic.uim.go["keyboard"].strip()
+            widget.text = player_name
+            if player_name == "":
+                player_name = "Player 0"
+                widget.text = "Enter Name"
+            logic.settings["Player0"]["name"] = player_name
+            logic.game.save_settings()
+            logic.ui["layout_main"].get_element("menu_main").focus()
+
 
 def back(widget):
     menu_id = widget.parent.title
