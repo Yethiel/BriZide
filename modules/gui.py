@@ -87,7 +87,6 @@ def setup():
         ],
         hidden=False
     )
-
     # Sub-menu: level selection
     menu_level = btk.Menu("menu_level", layout)
     menu_level.populate(

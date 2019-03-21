@@ -16,7 +16,7 @@ class Time_Trial_Mode(Game_Mode):
         self.cp_count = 0
         self.cp_progress = {"0": 0}
         self.best_times = []
-        self.best_time = {"player": "", "time": 999.0}
+        self.best_time = {"player": "", "time": 9999.0}
         self.final_time = 0.0
         # adds additional menu entries to the pause menu
         game = logic.game
@@ -275,10 +275,13 @@ def update_boost_bar(widget):
 
 def update_label_best(widget):
     tt = logic.time_trial
-    widget.text  = "BEST: {} ({})".format(
-        helpers.time_string(tt.best_time["time"]),
-        tt.best_time["player"]
-    )
+    if tt.best_time["player"] == "":
+        widget.text = "NO BEST TIME YET"
+    else:
+        widget.text  = "BEST: {} ({})".format(
+            helpers.time_string(tt.best_time["time"]),
+            tt.best_time["player"]
+        )
 
 def init():
     """ Runs immediately after the scene loaded """

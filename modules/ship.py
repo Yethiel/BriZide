@@ -368,7 +368,6 @@ class Ship():
                 self.center_steering()
                 pass
 
-
         # Smoothly center steering.
         elif self.current_steer < 0: #currently steering right
             if d < 0: # player wants left
