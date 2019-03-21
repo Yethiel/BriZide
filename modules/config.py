@@ -1,4 +1,4 @@
-from bge import logic
+from bge import logic, render
 import configparser
 import os.path
 from modules import global_constants as G
@@ -7,13 +7,13 @@ own = logic.getCurrentController().owner
 
 def load():
     config = configparser.ConfigParser()
-    # Check if the config file is there. If so, load it.
+    # Checks if the config file is there. If so, load it.
     if os.path.isfile(G.PATH_CONFIG_FILE):
         config.read(G.PATH_CONFIG_FILE)
         if G.DEBUG: print(own, "Successfully loaded config file.")
 
     else:
-        # create an ini with the default configuration
+        # creates an ini with the default configuration
         config["Game"] = {
             "leveldir" : "A01_training",
             "Mode" : "time_trial",
@@ -91,7 +91,7 @@ def load():
             "editor_rotate" : "RKEY",
             "editor_deselect" : "BACKSPACEKEY",
         }
-        # create a new config file and write to it
+        # creates a new config file and write to it
         with open(G.PATH_CONFIG_FILE, 'w') as configfile:
             config.write(configfile)
         if G.DEBUG: print("Could not find config file. Created a file with defaults.")
@@ -101,6 +101,9 @@ def load():
 
 
 def save():
+    # print()
+    logic.settings["Video"]["width"] = str(render.getWindowWidth())
+    logic.settings["Video"]["height"] = str(render.getWindowHeight())
     config = logic.settings
 
     with open(G.PATH_CONFIG_FILE, 'w') as configfile:

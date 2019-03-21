@@ -262,7 +262,6 @@ def enter_name(widget):
     logic.ui["layout_main"].get_element("menu_main").unfocus()
     logic.uim.go["log_keyboard"] = True
     logic.uim.go["keyboard"] = ""
-    # logic.uim.set_focus("keyboard_input")
 
 
 def update_name(widget):
@@ -282,6 +281,7 @@ def update_name(widget):
 
 
 def back(widget):
+    logic.game.save_settings()
     menu_id = widget.parent.title
 
     # to apply all gfx settings
@@ -318,6 +318,7 @@ def select_mode(widget):
 
 
 def start_game(widget):
+    logic.game.save_settings()
     logic.ui["layout_main"].hide()
     logic.ui["loading_screen"].show()
     logic.ui["layout_main"].unfocus()
@@ -338,6 +339,7 @@ def dump_scenes(widget):
 
 
 def end_game(widget):
+    logic.game.save_settings()
     logic.device.stopAll()
     logic.music_device.stopAll()
     logic.endGame()
