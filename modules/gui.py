@@ -2,7 +2,7 @@ import os
 import math
 from mathutils import Vector
 from bge import logic, events
-from modules import btk, sound
+from modules import btk, sound, development
 
 from modules import config, video, global_constants as G
 from modules.helpers import clamp
@@ -51,6 +51,18 @@ def setup():
             # logic.LibLoad(os.path.join(logic.expandPath(G.PATH_SHIPS+folder), folder) + ".blend", "Mesh")
             logic.LibNew("ui_"+os.path.join(logic.expandPath(G.PATH_SHIPS+folder), folder) + ".blend", "Mesh", [folder])
 
+    # Debug menu
+    menu_debug = btk.Menu("menu_debug", layout)
+    menu_debug.populate(
+        texts=[
+            "Prepare for release and quit"
+        ],
+        position=[6.3, 6.0, 0],
+        size=0.5,
+        actions=[options_clean_files],
+        hidden=True
+        )
+
     # Main menu
     menu.populate(
         texts=[
@@ -62,7 +74,7 @@ def setup():
             "Start Editor",
             "Options",
             "Quit"
-        ],
+        ]+(["DEBUG"] if G.DEBUG else []),
         position=[0.5, 4.0, 0],
         size=0.5,
         actions=[
@@ -74,7 +86,7 @@ def setup():
             start_editor,
             show_menu_options,
             end_game
-        ],
+        ]+([show_menu_debug] if G.DEBUG else []),
         updates=[
             update_name,
             None,
@@ -84,9 +96,14 @@ def setup():
             None,
             None,
             None
-        ],
+        ]+([None] if G.DEBUG else []),
         hidden=False
     )
+
+    # Selects Start Game if a name has been entered
+    if logic.settings["Player0"]["name"] != "Player 0":
+        menu.active = 1
+
     # Sub-menu: level selection
     menu_level = btk.Menu("menu_level", layout)
     menu_level.populate(
@@ -234,6 +251,12 @@ def show_menu_mode(widget):
     logic.ui["layout_main"].get_element("menu_mode").focus()
 
 
+def show_menu_debug(widget):
+    logic.ui["layout_main"].get_element("menu_debug").show()
+    logic.ui["layout_main"].get_element("menu_main").unfocus()
+    logic.ui["layout_main"].get_element("menu_debug").focus()
+
+
 def set_option(widget):
     if "Bloom" in widget.text:
         logic.settings["Video"]["bloom"] = config.setting_toggled(logic.settings["Video"]["bloom"])
@@ -278,6 +301,10 @@ def update_name(widget):
             logic.game.save_settings()
             logic.ui["layout_main"].get_element("menu_main").focus()
 
+
+def options_clean_files(widget):
+    development.clean_files()
+    logic.endGame()
 
 def back(widget):
     logic.game.save_settings()

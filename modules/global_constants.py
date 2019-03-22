@@ -9,6 +9,7 @@ VERSION = 0
 REVISION = now.strftime("%Y-%m-%d %H:%M")
 
 ### CONTENT PATHS
+PATH_GAME = logic.expandPath("//")
 PATH_LEVELS = logic.expandPath("//levels/")
 PATH_SHIPS = logic.expandPath("//ships/")
 PATH_MODES = logic.expandPath("//modes/")
