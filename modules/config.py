@@ -37,6 +37,7 @@ def load():
             "extra_textures" : "True",
             "bloom" : "True",
             "blur" : "True",
+            "num_particles" : 30
         }
 
         config["Dev"] = {

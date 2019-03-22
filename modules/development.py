@@ -14,7 +14,6 @@ def clean_files(p=G.PATH_GAME):
             os.remove(curpath)
         elif os.path.isdir(curpath):
             clean_files(curpath)
-    print("Successfully cleaned files for release.")
 
 def dump_scenes():
     print("Scenes:")

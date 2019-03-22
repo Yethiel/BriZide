@@ -3,7 +3,7 @@ This is the module called by the controller object in main.blend.
 """
 
 from bge import logic
-from modules import sound, gui, game, components, content, config, tests, video, global_constants as G
+from modules import sound, gui, game, components, content, config, video, global_constants as G
 import os, sys
 
 cont = logic.getCurrentController()

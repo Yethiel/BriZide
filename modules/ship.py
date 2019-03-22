@@ -4,6 +4,7 @@ import os
 import aud
 import mathutils
 import configparser
+from random import randint
 
 from modules import helpers, sound, global_constants as G
 from modules.helpers import clamp
@@ -84,10 +85,14 @@ class Ship():
         self.init_mesh = False
         self.sounds = {}
 
+        self.particles = []
+        self.particles_used = []
+
         self.load(identifier)
 
     def load(self, ship_name):
         inf = configparser.ConfigParser()
+        scene = logic.getCurrentScene()
 
         if os.path.isfile(self.inf_path):
             inf.read(self.inf_path)
@@ -157,6 +162,10 @@ class Ship():
         # replaces the display mesh
         self.go.children["Mesh"].replaceMesh(ship_name, True, False)
 
+        for x in range(int(logic.settings["Video"]["num_particles"])):
+            self.particles.append(scene.addObject("particle_spark", self.go))
+        self.go.collisionCallbacks.append(self.on_collision_sparks)
+
         self.init = True
 
     def run(self):
@@ -210,6 +219,10 @@ class Ship():
 
         self.current_velocity = self.go.localLinearVelocity[1]
 
+        # Collision
+        if self.particles_used and self.particles_used[-1]["timer"] > 1.0:
+            self.particles.append(self.particles_used[-1])
+            self.particles_used = self.particles_used[:-1]
         self.go.childrenRecursive["flare"].worldScale = [self.current_thrust / self.top_thrust + .5 for x in range(3)]
 
         logic.device.listener_location = camera.worldPosition
@@ -419,6 +432,19 @@ class Ship():
         else:
             self.current_thrust += self.thrust * 1/delta * 60
 
+    def on_collision_sparks(self, obj, point, normal):
+        scene = logic.getCurrentScene()
+
+        if self.particles:
+            p = self.particles.pop()
+            p["timer"] = 0.7
+            p.worldPosition = point
+            for x in range(1):
+                normal[x] += randint(0, 10) * 0.1
+            normal[2] += randint(-10, 10) * 0.2
+            p.setLinearVelocity(normal * randint(-15, 10))
+            self.particles_used.append(p)
+        # print(obj, point, normal)
 
 def setup():
     """ Runs once after loading the component """
