@@ -5,8 +5,6 @@ Objects from the classes defined here will be saved in the gD.
 
 import os
 import json
-import pickle
-import configparser
 import mathutils
 from bge import logic
 from modules import helpers, global_constants as G
