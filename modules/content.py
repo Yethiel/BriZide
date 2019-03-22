@@ -13,9 +13,10 @@ from modules import global_constants as G
 def get_levels():
     """Returns a list of level folder names"""
     levels = []
-    for folder in os.listdir(G.PATH_LEVELS):
-        if folder+".inf" in os.listdir(logic.expandPath(G.PATH_LEVELS+folder)):
-            levels.append(folder)
+    for j in os.listdir(G.PATH_LEVELS):
+        if not os.path.isfile(logic.expandPath(G.PATH_LEVELS+j)):
+            continue
+        levels.append(j.split('.')[0])
     return sorted(levels)
 
 

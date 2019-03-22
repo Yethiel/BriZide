@@ -4,6 +4,7 @@ Objects from the classes defined here will be saved in the gD.
 """
 
 import os
+import json
 import pickle
 import configparser
 import mathutils
@@ -94,10 +95,7 @@ class Level():
     def set_identifier(self, identifier):
         self.identifier = identifier
         self.path = G.PATH_LEVELS + self.identifier + "/"
-
-        self.inf_path = "{}{}".format(os.path.join(self.path, self.identifier), G.EXTENSION_INF)
-        self.blk_path = "{}{}".format(os.path.join(self.path, self.identifier), G.EXTENSION_BLK)
-        self.blend_path = "{}{}".format(os.path.join(self.path, self.identifier), G.EXTENSION_BLD)
+        self.json_path = f"{G.PATH_LEVELS}{os.sep}{self.identifier}.json"
 
     def print_info(self):
         """Print debug information, mainly attributes"""
@@ -139,26 +137,8 @@ class Level():
 
         idx = 1000
 
-        # Load the information file
-        if os.path.isfile(self.inf_path):
-            inf_file = configparser.ConfigParser()
-            inf_file.read(self.inf_path)
-            if G.DEBUG: print("{}: {}".format(own.name,
-                "Loaded level information file."))
-        else:
-            if G.DEBUG: print("{}: {} ({})".format(own.name,
-                "Could not load level information file.",
-                self.inf_path))
-            self.valid = False
-            return 0
-
-        # # Load the Blend file
-        # if os.path.isfile(self.blend_path) and self.blend_path not in logic.LibList():
-        #     logic.LibLoad(self.blend_path,"Scene")
-        #     print("{}: {}".format(own.name, "Loaded .blend file."))
-        # Load the block file
-        if os.path.isfile(self.blk_path):
-            blk_file = pickle.load(open(self.blk_path, "rb"))
+        if os.path.isfile(self.json_path):
+            blk_file = json.load(open(self.json_path, "r"))
             for block in blk_file["blocks"]:
                 # Get start position from start object
                 if "Start" in block["type"]:
@@ -181,13 +161,13 @@ class Level():
                 # Append block to level block list
                 self.block_data.append(block_dat)
         else:
-            print("{}: {}".format(own.name, "No .blk file found."))
+            print("{}: {}".format(own.name, "No .json file found."))
             # self.valid = False
             # return 0
 
+        # Sets attributes
+        self.cube_size = int(blk_file["cube_size"])
 
-        # Set attributes
-        self.cube_size = int(inf_file["meta"]["cube_size"])
 
     def save(self):
         """The track editor uses this to save a level to files"""
@@ -223,35 +203,20 @@ class Level():
                 blocks.append(block)
 
         blk_file = {
+            "name": self.identifier,
+            "cube_size": self.cube_size,
             "version" : logic.settings["Game"]["Version"],
             "author" : logic.settings["Player0"]["Name"],
             "blocks" : blocks}
 
+        # with open(self.inf_path, 'w') as inffile:
+        with open(self.json_path, 'w') as outfile:
+            # inf.write(inffile)
+            json.dump(blk_file, outfile, sort_keys = False, indent = 4)
 
-        if not os.path.isdir(self.path):
-            os.mkdir(self.path)
-
-        # TODO(Yethiel): Make up own format
-        pickle.dump(blk_file, open(self.blk_path, "wb"))
-        print("Saved block file.")
-
-        # write .inf file
-        inf = configparser.ConfigParser()
-
-        inf["info"] = {
-            "name" : self.identifier
-        }
-
-        inf["meta"] = {
-            "cube_size" : self.cube_size
-        }
-
-
-        with open(self.inf_path, 'w') as inffile:
-            inf.write(inffile)
-
-        if G.DEBUG: print("{}: {}".format(own.name,
-            "Saved information file."))
+        print("Saved level file.")
+        # if G.DEBUG: print("{}: {}".format(own.name,
+        #     "Saved information file."))
 
 
     def place(self):

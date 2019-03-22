@@ -1,0 +1,414 @@
+{
+    "name": "D01_void",
+    "cube_size": 0,
+    "version": "0",
+    "author": "Yethiel",
+    "blocks": [
+        {
+            "type": "Block_0_32_32_16",
+            "position": [
+                384.0,
+                192.0,
+                144.0
+            ],
+            "orientation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_0_32_32_16",
+            "position": [
+                416.0,
+                192.0,
+                144.0
+            ],
+            "orientation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_0_32_32_16",
+            "position": [
+                384.0,
+                256.0,
+                144.0
+            ],
+            "orientation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_0_32_32_16",
+            "position": [
+                416.0,
+                256.0,
+                144.0
+            ],
+            "orientation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_0_32_32_16",
+            "position": [
+                384.0,
+                224.0,
+                144.0
+            ],
+            "orientation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_0_32_32_16",
+            "position": [
+                416.0,
+                224.0,
+                144.0
+            ],
+            "orientation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Start",
+            "position": [
+                400.0,
+                192.0,
+                154.0
+            ],
+            "orientation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Ramp_0_64_128_0",
+            "position": [
+                400.0,
+                272.0,
+                144.0
+            ],
+            "orientation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Ramp_0_64_128_0",
+            "position": [
+                400.0,
+                400.0,
+                144.0
+            ],
+            "orientation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Ramp_0_64_128_0",
+            "position": [
+                400.0,
+                528.0,
+                144.0
+            ],
+            "orientation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Twist_CCW_64_128_64",
+            "position": [
+                400.0,
+                624.0,
+                896.0
+            ],
+            "orientation": [
+                0.0,
+                -0.7853981852531433,
+                -1.5707963705062866
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Twist_CCW_64_128_64",
+            "position": [
+                272.0,
+                624.0,
+                896.0
+            ],
+            "orientation": [
+                0.0,
+                -0.0,
+                -1.5707963705062866
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Ramp_64_128_128",
+            "position": [
+                272.0,
+                1168.0,
+                144.0
+            ],
+            "orientation": [
+                -3.141592502593994,
+                1.509958451606508e-07,
+                -1.570796251296997
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Ramp_0_64_128_0",
+            "position": [
+                144.0,
+                768.0,
+                192.0
+            ],
+            "orientation": [
+                1.5707963705062866,
+                -0.785398542881012,
+                1.5707963705062866
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Ramp_64_128_128",
+            "position": [
+                400.0,
+                1040.0,
+                144.0
+            ],
+            "orientation": [
+                -0.0,
+                3.141592502593994,
+                -0.0
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Ramp_0_64_128_0",
+            "position": [
+                400.0,
+                656.0,
+                144.0
+            ],
+            "orientation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Ramp_0_64_128_0",
+            "position": [
+                144.0,
+                624.0,
+                640.0
+            ],
+            "orientation": [
+                1.5707963705062866,
+                7.357907338628538e-16,
+                1.570796251296997
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Ramp_0_64_128_0",
+            "position": [
+                144.0,
+                912.0,
+                144.0
+            ],
+            "orientation": [
+                -0.0,
+                1.570796251296997,
+                0.0
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Ramp_0_64_128_0",
+            "position": [
+                144.0,
+                624.0,
+                384.0
+            ],
+            "orientation": [
+                1.5707963705062866,
+                7.357907338628538e-16,
+                1.570796251296997
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Ramp_0_64_128_0",
+            "position": [
+                144.0,
+                624.0,
+                512.0
+            ],
+            "orientation": [
+                1.5707963705062866,
+                7.357907338628538e-16,
+                1.570796251296997
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Ramp_64_128_128",
+            "position": [
+                144.0,
+                624.0,
+                768.0
+            ],
+            "orientation": [
+                1.5707963705062866,
+                -0.0,
+                0.0
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Twist_CCW_64_128_64",
+            "position": [
+                400.0,
+                784.0,
+                144.0
+            ],
+            "orientation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Twist_CCW_64_128_64",
+            "position": [
+                400.0,
+                912.0,
+                144.0
+            ],
+            "orientation": [
+                0.0,
+                -0.7853981852531433,
+                0.0
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Ramp_0_64_128_0",
+            "position": [
+                656.0,
+                624.0,
+                896.0
+            ],
+            "orientation": [
+                -1.5707963705062866,
+                -1.570796251296997,
+                0.0
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Ramp_0_64_128_0",
+            "position": [
+                528.0,
+                624.0,
+                896.0
+            ],
+            "orientation": [
+                -1.5707963705062866,
+                -1.570796251296997,
+                0.0
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Checkpoint",
+            "position": [
+                176.0,
+                768.0,
+                192.0
+            ],
+            "orientation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Checkpoint",
+            "position": [
+                1680.0,
+                608.0,
+                1600.0
+            ],
+            "orientation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Checkpoint",
+            "position": [
+                1056.0,
+                608.0,
+                976.0
+            ],
+            "orientation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "properties": {}
+        },
+        {
+            "type": "Block_Checkpoint",
+            "position": [
+                1504.0,
+                608.0,
+                1232.0
+            ],
+            "orientation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "properties": {}
+        }
+    ]
+}
