@@ -6,10 +6,3 @@ def dprint(strlist):
 
 def test():
     pass
-
-def dump_scenes():
-	print("Scenes:")
-	for scene in logic.getSceneList():
-		print("    {}:".format(scene.name))
-		for obj in scene.objects:
-			print("        {}".format(obj.name))
