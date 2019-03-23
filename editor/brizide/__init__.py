@@ -21,6 +21,7 @@ bl_info = {"name": "BriZide", "category": "Game Engine"}
 def load_level(context):
     props = context.scene.brizide
     level_name = props.level
+    level_path = os.path.join(props.game_path, "levels")
     print(f"Loading {level_name}")
     with open(os.path.join(level_path, level_name), "r") as f:
         level = json.load(f)
@@ -83,6 +84,8 @@ def save_level(context):
 
 
 def load_blocklib():
+    props = bpy.context.scene.brizide
+    brizide_path = props.game_path
     scn = bpy.context.scene
     filepath = os.path.join(brizide_path, "components", "blocklib.blend")
     obj_name = "Block_"
@@ -104,7 +107,9 @@ def load_blocklib():
 
 def load_cube(cube_size):
     scn = bpy.context.scene
+    props = scn.brizide
     load_objs = []
+    brizide_path = props.game_path
     filepath = os.path.join(brizide_path, "components", "cube.blend")
     obj_name = "CubeSimple"
 
