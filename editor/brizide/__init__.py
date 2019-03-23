@@ -105,6 +105,15 @@ def load_blocklib():
     return load_objs
 
 
+def resize_cube(self, context):
+    print("Resizing cube")
+    if "CubeSimple" in context.scene.objects:
+        context.scene.objects["CubeSimple"].scale = [self.cube_size for x in range(3)]
+        context.scene.objects["CubeSimple"].location = [(self.cube_size*32)/2 - 16, (self.cube_size*32)/2 - 16, (self.cube_size*32)/2 - 16]
+    else:
+        load_cube(self.cube_size)
+
+
 def load_cube(cube_size):
     scn = bpy.context.scene
     props = scn.brizide
@@ -123,6 +132,7 @@ def load_cube(cube_size):
             bpy.data.scenes[0].objects.link(obj)
     # context.space_data.show_backface_culling = True
     
+
 class LoadBrizide(bpy.types.Operator):
     bl_idname = "brizide.load"
     bl_label = "Load"
@@ -246,7 +256,8 @@ class BriZideSceneProps(bpy.types.PropertyGroup):
     cube_size = IntProperty(
         name = "Cube Size",
         default = 60,
-        description = "Size of the level cube. 0 to disable"
+        description = "Size of the level cube. 0 to disable",
+        update = resize_cube
     )
     version = IntProperty(
         name = "Version",
@@ -265,8 +276,3 @@ def register():
     bpy.types.Scene.brizide = bpy.props.PointerProperty(
         type=BriZideSceneProps
     )
-#blocklib = load_blocklib()
-#level = load_level("B01_skate_park.json")
-#for obj in blocklib:
-#    bpy.data.objects.remove(obj, do_unlink=True)
-#load_cube(level["cube_size"])
