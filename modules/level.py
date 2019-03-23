@@ -55,9 +55,7 @@ class Block():
 
 
 class Level():
-    # TODO(Yethiel): Rework the start pos and orientation: RV-like Grid layout
-    """Used for loading and storing level data
-
+    """
     A level does not include anything related to the game modes.
     There is no information about laps or checkpoints.
     This is solely to set up the game world.
@@ -65,17 +63,6 @@ class Level():
     After the level has been placed, changes to the objects of this class
     will not do anything. All actions happen in the 3D world.
     Dynamic variables (laps, checkpoints, ...) depend on the game mode.
-
-    Attributes:
-        identifier: A string that represents the level, e.g. folder name
-        path: Path to the level folder
-        cube_size: Size of the cube that encloses the level
-        start_pos: Coordinate of the start position (x, y, z)
-        start_orientation: Orientation for the spawn position
-        block_data: List of block objects that the level includes
-        valid: True if everything loaded correctly
-        inf_path: path + .inf file name
-        blk_path: path + .blk file name
     """
     def __init__(self, identifier):
         """Init level objet with defaults"""
@@ -204,12 +191,11 @@ class Level():
             "name": self.identifier,
             "cube_size": self.cube_size,
             "version" : logic.settings["Game"]["Version"],
-            "author" : logic.settings["Player0"]["Name"],
-            "blocks" : blocks}
+            "author" : logic.settings["Player"]["Name"],
+            "blocks" : blocks
+        }
 
-        # with open(self.inf_path, 'w') as inffile:
         with open(self.json_path, 'w') as outfile:
-            # inf.write(inffile)
             json.dump(blk_file, outfile, sort_keys = False, indent = 4)
 
         print("Saved level file.")
