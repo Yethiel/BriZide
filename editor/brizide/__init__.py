@@ -194,6 +194,7 @@ class BriZidePanel(bpy.types.Panel):
         box.prop(props, "game_path", text="")
         if props.game_path == "":
             box.label("No directory specified", icon="INFO")
+            return
         elif os.path.isdir(props.game_path):
             if "brizide.blend" in os.listdir(props.game_path):
                 box.label(
@@ -207,6 +208,7 @@ class BriZidePanel(bpy.types.Panel):
                 )
         else:
             box.label("Not found", icon="ERROR")
+            return
             
         layout.separator()
 
