@@ -166,12 +166,6 @@ class Ship():
             self.particles.append(scene.addObject("particle_spark", self.go))
         self.go.collisionCallbacks.append(self.on_collision_sparks)
 
-        self.init = True
-
-    def run(self):
-
-        camera = logic.getCurrentScene().objects["Camera_Ship"]
-
         if not "init_sound_engine" in self.go:
 
             self.sounds["engine_idle"] = sound.play("engine_idle")
@@ -216,6 +210,12 @@ class Ship():
 
             self.go["init_sound_engine"] = True
             logic.device.distance_model = aud.AUD_DISTANCE_MODEL_LINEAR
+
+        self.init = True
+
+    def run(self):
+
+        camera = logic.getCurrentScene().objects["Camera_Ship"]
 
         self.current_velocity = self.go.localLinearVelocity[1]
 
@@ -290,24 +290,24 @@ class Ship():
 
 
         self.go["turn"] = self.current_steer
-        # # Catch OOB TODO: Fix
-        # level = logic.game.get_level()
-        # cube_size = level.get_cube_size()
-        # if cube_size > 0:
-        #     if self.go.worldPosition.z < -16:
-        #         self.go.worldPosition.z += 32
-        #     if self.go.worldPosition.z > cube_size * 32 - 16:
-        #         self.go.worldPosition.z += 32
+        # Catch OOB TODO: Fix
+        level = logic.game.get_level()
+        cube_size = level.get_cube_size()
+        if cube_size > 0:
+            if self.go.worldPosition.z < -16:
+                self.go.worldPosition.z += 32
+            if self.go.worldPosition.z > cube_size * 32 - 16:
+                self.go.worldPosition.z += 32
 
-        #     if self.go.worldPosition.y > cube_size * 32 - 16:
-        #         self.go.worldPosition.y -= 32
-        #     if self.go.worldPosition.y < -16:
-        #         self.go.worldPosition.y += 32
+            if self.go.worldPosition.y > cube_size * 32 - 16:
+                self.go.worldPosition.y -= 32
+            if self.go.worldPosition.y < -16:
+                self.go.worldPosition.y += 32
 
-        #     if self.go.worldPosition.x > cube_size * 32 - 16:
-        #         self.go.worldPosition.x -= 32
-        #     if self.go.worldPosition.x < -16:
-        #         self.go.worldPosition.x += 32
+            if self.go.worldPosition.x > cube_size * 32 - 16:
+                self.go.worldPosition.x -= 32
+            if self.go.worldPosition.x < -16:
+                self.go.worldPosition.x += 32
 
     def controls(self):
         """ Controls only work when the uim focus is set to 'ship' """
@@ -466,11 +466,7 @@ def setup():
     logic.game.assign_ship_to_player(ship.id, player_id)
 
     ship.go.worldPosition = level.get_start_pos()
-    ship_orientation = ship.go.worldOrientation.to_euler() # we need an euler matrix
-    start_orientation = level.get_start_orientation()
-    for x in [0, 1, 2]:
-        ship_orientation[x] = start_orientation[x]
-    ship.go.worldOrientation = ship_orientation.to_matrix()
+    ship.go.worldOrientation = mathutils.Matrix(level.get_start_orientation())
 
     logic.components.mark_loaded("ship")
 

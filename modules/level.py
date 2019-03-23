@@ -181,14 +181,14 @@ class Level():
             if "Block_" in obj.name:
 
                 # Save the start orientation as an euler matrix
-                wo = obj.worldOrientation.to_euler()
+                wo = obj.worldOrientation
 
                 block = {
                     "type" : obj.name.split('.')[0],
                     "position" : [obj.worldPosition.x,
                         obj.worldPosition.y,
                         obj.worldPosition.z],
-                    "orientation" : [wo[0], wo[1], wo[2]],
+                    "orientation" : [list(v) for v in wo],
                     "properties" : {}
                 }
 
@@ -242,12 +242,12 @@ class Level():
                 new_block.worldPosition = block.position # Set position
 
                 # Convert Orientation to matrix and apply it to the 3D object
-                new_orientation = mathutils.Euler((0, 0, 0), "XYZ")
+                # new_orientation = mathutils.Euler((0, 0, 0), "XYZ")
 
-                for x in [0, 1, 2]:
-                    new_orientation[x] = block.orientation[x]
+                # for x in [0, 1, 2]:
+                #     new_orientation[x] = block.orientation[x]
 
-                new_block.worldOrientation = new_orientation.to_matrix()
+                new_block.worldOrientation = mathutils.Matrix(block.orientation)
 
     def clear(self):
         sce = helpers.get_scene("Scene")
