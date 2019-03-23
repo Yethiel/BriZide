@@ -1,5 +1,4 @@
 from bge import logic
-
 from modules import helpers, global_constants as G
 
 

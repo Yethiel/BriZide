@@ -435,7 +435,7 @@ class Ship():
     def on_collision_sparks(self, obj, point, normal):
         scene = logic.getCurrentScene()
 
-        if self.particles:
+        if randint(0, 1) and self.particles:
             p = self.particles.pop()
             p["timer"] = 0.7
             p.worldPosition = point
