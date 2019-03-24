@@ -2,6 +2,8 @@ import os
 import bpy
 import json
 from mathutils import Matrix
+import time
+
 from bpy.props import (
     BoolProperty,
     # BoolVectorProperty,
@@ -139,11 +141,13 @@ class LoadBrizide(bpy.types.Operator):
     bl_description = "Load level"
 
     def execute(self, context):
+        time_start = time.time()
         blocklib = load_blocklib()
         level = load_level(context)
         for obj in blocklib:
            bpy.data.objects.remove(obj, do_unlink=True)
         load_cube(level["cube_size"])
+        print("Done loading in %.4f sec" % (time.time() - time_start))
 
         return {"FINISHED"}
 
