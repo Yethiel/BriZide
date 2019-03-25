@@ -35,8 +35,8 @@ def load():
             "detailed_cube" : "False",
             "lights" : "True",
             "extra_textures" : "True",
-            "bloom" : "True",
-            "blur" : "True",
+            "bloom" : "False",
+            "blur" : "False",
             "num_particles" : 30
         }
 
