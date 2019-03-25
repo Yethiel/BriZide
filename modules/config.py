@@ -19,7 +19,7 @@ def load():
             "Mode" : "time_trial",
             "version": 0
         }
-        config["Player0"] = {
+        config["Player"] = {
             "name": "Player 0",
             "Ship": "helios"
         }

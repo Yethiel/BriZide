@@ -40,7 +40,7 @@ class Game:
         return ship_id
 
     def set_ship(self, ship_str):
-        logic.settings["Player0"]["ship"] = ship_str
+        logic.settings["Player"]["ship"] = ship_str
         return ship_str
 
     def get_ship(self, ship_id):
@@ -91,7 +91,7 @@ class Game:
         return self.music_dir
 
     def get_profile_dir(self, player_id="0"):
-        return os.path.join(G.PATH_PROFILES, logic.settings["Player{}".format(player_id)]["Name"])
+        return os.path.join(G.PATH_PROFILES, logic.settings["Player"]["Name"])
 
     def start(self):
         """Starts the game (tells the game mode to start and load all comps)"""

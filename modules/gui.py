@@ -66,7 +66,7 @@ def setup():
     # Main menu
     menu.populate(
         texts=[
-            "Enter Name" if logic.settings["Player0"]["name"] == "Player 0" else logic.settings["Player0"]["name"],
+            "Enter Name" if logic.settings["Player"]["name"] == "Player 0" else logic.settings["Player"]["name"],
             "Start Game",
             "Select Level",
             "Select Ship",
@@ -101,7 +101,7 @@ def setup():
     )
 
     # Selects Start Game if a name has been entered
-    if logic.settings["Player0"]["name"] != "Player 0":
+    if logic.settings["Player"]["name"] != "Player 0":
         menu.active = 1
 
     # Sub-menu: level selection
@@ -125,7 +125,7 @@ def setup():
         hidden=True
     )
     # ship preview model
-    menu_ship.set_active(logic.settings["Player0"]["ship"])
+    menu_ship.set_active(logic.settings["Player"]["ship"])
     ship_preview = btk.Element(
         layout,
         object="ui_ship_preview",
@@ -302,7 +302,7 @@ def update_name(widget):
             if player_name == "":
                 player_name = "Player 0"
                 widget.text = "Enter Name"
-            logic.settings["Player0"]["name"] = player_name
+            logic.settings["Player"]["name"] = player_name
             logic.game.save_settings()
             logic.ui["layout_main"].get_element("menu_main").focus()
 

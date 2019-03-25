@@ -31,7 +31,7 @@ def setup():
     # gets available content
     content.set_all()
 
-    player_dir = os.path.join(G.PATH_PROFILES, logic.settings["Player0"]["Name"])
+    player_dir = os.path.join(G.PATH_PROFILES, logic.settings["Player"]["Name"])
     if not os.path.isdir(player_dir):
         os.makedirs(player_dir)
 

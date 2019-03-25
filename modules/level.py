@@ -80,7 +80,7 @@ class Level():
     def set_identifier(self, identifier):
         self.identifier = identifier
         self.path = G.PATH_LEVELS + self.identifier + "/"
-        self.json_path = f"{G.PATH_LEVELS}{os.sep}{self.identifier}.json"
+        self.json_path = "{}{}{}.json".format(G.PATH_LEVELS, os.sep, self.identifier)
 
     def print_info(self):
         """Print debug information, mainly attributes"""

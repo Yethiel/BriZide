@@ -457,7 +457,7 @@ def setup():
 
     player_id = logic.game.players[0]
 
-    identifier = logic.settings["Player{}".format(player_id)]["ship"]
+    identifier = logic.settings["Player"]["ship"]
 
     ship = Ship(game_obj, identifier, player_id)
 
