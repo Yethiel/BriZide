@@ -108,7 +108,7 @@ def setup():
     menu_level = btk.Menu("menu_level", layout)
     menu_level.populate(
         texts=["< Back"]+logic.game.level_list,
-        position=[6.3, 6.0, 0],
+        position=[0.5, 4.0, 0],
         size=0.5,
         actions=[back]+[select_level for x in range(len(logic.game.level_list))],
         hidden=True
@@ -119,7 +119,7 @@ def setup():
     menu_ship = btk.Menu("menu_ship", layout)
     menu_ship.populate(
         texts=["< Back"]+logic.game.ship_list,
-        position=[6.3, 6.0, 0],
+        position=[0.5, 4.0, 0],
         size=0.5,
         actions=[back]+[select_ship for x in range(len(logic.game.ship_list))],
         hidden=True
@@ -140,7 +140,7 @@ def setup():
     menu_mode = btk.Menu("menu_mode", layout)
     menu_mode.populate(
         texts=["< Back"]+logic.game.mode_list,
-        position=[6.3, 6.0, 0],
+        position=[0.5, 4.0, 0],
         size=0.5,
         actions=[back]+[select_mode for x in range(len(logic.game.mode_list))],
         hidden=True
@@ -159,7 +159,7 @@ def setup():
     menu_options = btk.Menu("menu_options", layout)
     menu_options.populate(
         texts=["< Back"]+bool_options,
-        position=[6.3, 6.0, 0],
+        position=[0.5, 4.0, 0],
         size=0.5,
         actions=[back]+[set_option for x in range(len(bool_options))],
         hidden=True
@@ -230,30 +230,35 @@ def update_ship_preview(widget):
 def show_menu_options(widget):
     logic.ui["layout_main"].get_element("menu_options").show()
     logic.ui["layout_main"].get_element("menu_main").unfocus()
+    logic.ui["layout_main"].get_element("menu_main").hide()
     logic.ui["layout_main"].get_element("menu_options").focus()
 
 
 def show_menu_level(widget):
     logic.ui["layout_main"].get_element("menu_level").show()
     logic.ui["layout_main"].get_element("menu_main").unfocus()
+    logic.ui["layout_main"].get_element("menu_main").hide()
     logic.ui["layout_main"].get_element("menu_level").focus()
 
 
 def show_menu_ship(widget):
     logic.ui["layout_main"].get_element("menu_ship").show()
     logic.ui["layout_main"].get_element("menu_main").unfocus()
+    logic.ui["layout_main"].get_element("menu_main").hide()
     logic.ui["layout_main"].get_element("menu_ship").focus()
 
 
 def show_menu_mode(widget):
     logic.ui["layout_main"].get_element("menu_mode").show()
     logic.ui["layout_main"].get_element("menu_main").unfocus()
+    logic.ui["layout_main"].get_element("menu_main").hide()
     logic.ui["layout_main"].get_element("menu_mode").focus()
 
 
 def show_menu_debug(widget):
     logic.ui["layout_main"].get_element("menu_debug").show()
     logic.ui["layout_main"].get_element("menu_main").unfocus()
+    logic.ui["layout_main"].get_element("menu_main").hide()
     logic.ui["layout_main"].get_element("menu_debug").focus()
 
 
@@ -316,6 +321,7 @@ def back(widget):
 
     logic.ui["layout_main"].get_element(menu_id).unfocus()
     logic.ui["layout_main"].get_element("menu_main").focus()
+    logic.ui["layout_main"].get_element("menu_main").show()
     logic.ui["layout_main"].get_element(menu_id).hide()
 
 
@@ -324,6 +330,7 @@ def select_level(widget):
     logic.game.save_settings()
     logic.ui["layout_main"].get_element("menu_level").unfocus()
     logic.ui["layout_main"].get_element("menu_main").focus()
+    logic.ui["layout_main"].get_element("menu_main").show()
     logic.ui["layout_main"].get_element("menu_level").hide()
 
 
@@ -332,6 +339,7 @@ def select_ship(widget):
     logic.game.save_settings()
     logic.ui["layout_main"].get_element("menu_ship").unfocus()
     logic.ui["layout_main"].get_element("menu_main").focus()
+    logic.ui["layout_main"].get_element("menu_main").show()
     logic.ui["layout_main"].get_element("menu_ship").hide()
 
 
@@ -340,6 +348,7 @@ def select_mode(widget):
     logic.game.save_settings()
     logic.ui["layout_main"].get_element("menu_mode").unfocus()
     logic.ui["layout_main"].get_element("menu_main").focus()
+    logic.ui["layout_main"].get_element("menu_main").show()
     logic.ui["layout_main"].get_element("menu_mode").hide()
 
 

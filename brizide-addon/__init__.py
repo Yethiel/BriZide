@@ -2,8 +2,6 @@ import os
 import bpy
 import json
 from mathutils import Matrix
-import time
-
 from bpy.props import (
     BoolProperty,
     # BoolVectorProperty,
@@ -19,6 +17,30 @@ from bpy.props import (
 )
 
 bl_info = {"name": "BriZide", "category": "Game Engine"}
+
+
+def enable_texture_mode():
+    """ Enables textured shading in the viewport """
+    for area in bpy.context.screen.areas:
+        if area.type == "VIEW_3D":
+            for space in area.spaces:
+                if space.type == "VIEW_3D":
+                    space.viewport_shade = "TEXTURED"
+    return
+
+
+def setup_blender():
+        bpy.context.scene.render.engine = "BLENDER_GAME"
+        bpy.data.worlds["World"].light_settings.use_environment_light = True
+        bpy.data.worlds["World"].light_settings.environment_energy = 2.0
+        bpy.context.scene.game_settings.material_mode = "GLSL"
+        bpy.context.scene.tool_settings.use_snap = True
+        bpy.context.space_data.clip_end = 10000.0
+        bpy.context.space_data.show_backface_culling = True
+        bpy.context.space_data.grid_scale = 32
+
+        enable_texture_mode()
+
 
 def load_level(context):
     props = context.scene.brizide
@@ -40,6 +62,7 @@ def load_level(context):
     
     return level
 
+
 def save_level(context):
     sce = bpy.context.scene
     blocks = []
@@ -48,6 +71,8 @@ def save_level(context):
     props = context.scene.brizide
 
     for obj in sce.objects:
+        if not obj.layers[0]:
+            continue
         if "Block_" in obj.name:
 
             # Save the start orientation as an euler matrix
@@ -61,6 +86,7 @@ def save_level(context):
                 "orientation" : [list(v) for v in wo],
                 "properties" : {}
             }
+
 
             # Copy properties set by the level editor into the dict
             # for prop in obj.getPropertyNames():
@@ -100,23 +126,27 @@ def load_blocklib():
         
         if obj is not None and not obj.name in scn.objects:
            o = scn.objects.link(obj)
-           # o.layers[1] = True
-           # o.layers[0] = False
+           o.layers[1] = True
+           o.layers[0] = False
            load_objs.append(obj)
     
     return load_objs
 
 
 def resize_cube(self, context):
-    print("Resizing cube")
     if "CubeSimple" in context.scene.objects:
         context.scene.objects["CubeSimple"].scale = [self.cube_size for x in range(3)]
         context.scene.objects["CubeSimple"].location = [(self.cube_size*32)/2 - 16, (self.cube_size*32)/2 - 16, (self.cube_size*32)/2 - 16]
+        bpy.data.materials["Floor"].texture_slots[0].scale = [self.cube_size for x in range(3)]
+        bpy.data.materials["Floor"].texture_slots[0].offset = [1.0 if self.cube_size % 2 else 0.5 for x in range(3)]
     else:
         load_cube(self.cube_size)
+        setup_blender()
 
 
 def load_cube(cube_size):
+    if "CubeSimple" in bpy.context.scene.objects:
+        return
     scn = bpy.context.scene
     props = scn.brizide
     load_objs = []
@@ -124,15 +154,25 @@ def load_cube(cube_size):
     filepath = os.path.join(brizide_path, "components", "cube.blend")
     obj_name = "CubeSimple"
 
-    with bpy.data.libraries.load(filepath, link=True) as (data_from, data_to):
+    with bpy.data.libraries.load(filepath, link=False) as (data_from, data_to):
         data_to.objects = [name for name in data_from.objects if name.startswith(obj_name)]
 
     for obj in data_to.objects:
         obj.scale = [cube_size for x in range(3)]
         obj.location = [(cube_size*32)/2 - 16, (cube_size*32)/2 - 16, (cube_size*32)/2 - 16]
+        bpy.data.materials["Floor"].texture_slots[0].offset = [1.0 if cube_size % 2 else 0.5 for x in range(3)]
+        bpy.data.materials["Floor"].texture_slots[0].scale = [cube_size for x in range(3)]
+        obj.hide_select = True
         if not obj.name in scn.objects:
             bpy.data.scenes[0].objects.link(obj)
-    # context.space_data.show_backface_culling = True
+
+
+def get_levels(self, context):
+    items = []
+    if self.game_path:
+        levels = os.listdir(os.path.join(self.game_path, "levels"))
+        items = [(levels[x], levels[x], "", x) for x in range(len(levels))]
+    return sorted(items)
     
 
 class LoadBrizide(bpy.types.Operator):
@@ -141,13 +181,12 @@ class LoadBrizide(bpy.types.Operator):
     bl_description = "Load level"
 
     def execute(self, context):
-        time_start = time.time()
         blocklib = load_blocklib()
         level = load_level(context)
-        for obj in blocklib:
-           bpy.data.objects.remove(obj, do_unlink=True)
+        # for obj in blocklib:
+        #    bpy.data.objects.remove(obj, do_unlink=True)
         load_cube(level["cube_size"])
-        print("Done loading in %.4f sec" % (time.time() - time_start))
+        setup_blender()
 
         return {"FINISHED"}
 
@@ -170,6 +209,11 @@ class GetBlocks(bpy.types.Operator):
 
     def execute(self, context):
         load_blocklib()
+        for ob in context.scene.objects:
+            if ob.layers[1]:
+                ob_dup = ob.copy()
+                bpy.data.scenes[0].objects.link(ob_dup)
+        setup_blender()
 
         return {"FINISHED"}
 
@@ -237,14 +281,6 @@ class BriZidePanel(bpy.types.Panel):
         layout.operator("brizide.get_blocks")
 
 
-def get_levels(self, context):
-    items = []
-    if self.game_path:
-        levels = os.listdir(os.path.join(self.game_path, "levels"))
-        items = [(levels[x], levels[x], "", x) for x in range(len(levels))]
-    return sorted(items)
-
-
 class BriZideSceneProps(bpy.types.PropertyGroup):
     game_path = StringProperty(
         name = "BriZide Path",
@@ -262,6 +298,7 @@ class BriZideSceneProps(bpy.types.PropertyGroup):
     cube_size = IntProperty(
         name = "Cube Size",
         default = 60,
+        min = 0,
         description = "Size of the level cube. 0 to disable",
         update = resize_cube
     )
@@ -275,7 +312,7 @@ class BriZideSceneProps(bpy.types.PropertyGroup):
         default = "",
         description = "Author of the Level"
     )
-    
+
 
 def register():
     bpy.utils.register_module(__name__)
