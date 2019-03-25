@@ -3,8 +3,10 @@ from bge import logic, events
 import os
 import aud
 import mathutils
+from mathutils import Vector
 import configparser
 from random import randint
+from math import sin
 
 from modules import helpers, sound, global_constants as G
 from modules.helpers import clamp
@@ -287,6 +289,10 @@ class Ship():
 
         # Ship behavior that does not necessarily depend on controls
         self.go.applyRotation((0,0, self.current_steer), True) #actual steering happens here
+
+        if self.on_ground:
+            self.go.children["Mesh"].localPosition.z = self.go.children["Mesh"].localPosition.z + (sin(self.go["Time"]*1.5) * 0.007)
+            self.go.children["Mesh"].localOrientation *= Vector([(sin(self.go["Time"]*1.7) * 0.02), -self.go["turn"] * 4 + (sin(self.go["Time"]*1.5) * 0.02), 0])
 
 
         self.go["turn"] = self.current_steer
