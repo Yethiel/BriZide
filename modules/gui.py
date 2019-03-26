@@ -71,7 +71,7 @@ def setup():
         texts=[
             "[< Back]",
             "Start Editor",
-            "Dump scenes to terminal"
+            "Dump scenes to terminal",
             "Prepare for release and quit"
         ],
         position=[0.5, 4.0, 0],
@@ -402,8 +402,7 @@ def start_editor(widget):
 
 
 def dump_scenes(widget):
-    from modules import debug
-    debug.dump_scenes()
+    development.dump_scenes()
 
 
 def end_game(widget):
