@@ -42,16 +42,16 @@ def setup():
     # Main menu layout
     layout = logic.ui["layout_main"] = btk.Layout("layout_main", logic.uim.go)
 
-    logic.ui["label_level"] = btk.Label(layout, "LEVEL: {}".format(logic.settings["Game"]["leveldir"]), position=[9, 8.5, 0], size=0.3)
+    logic.ui["label_level"] = btk.Label(layout, "LEVEL: {}".format(logic.settings["Game"]["leveldir"]), position=[8.55, 8.5, 0], size=0.3)
     logic.ui["label_level"].set_color((.5, .5, .5, 1.0))
 
-    logic.ui["label_ship"] = btk.Label(layout, "SHIP: {}".format(logic.settings["Player"]["ship"]), position=[9, 8.1, 0], size=0.3)
+    logic.ui["label_ship"] = btk.Label(layout, "SHIP: {}".format(logic.settings["Player"]["ship"]), position=[8.55, 8.1, 0], size=0.3)
     logic.ui["label_ship"].set_color((.5, .5, .5, 1.0))
 
-    logic.ui["label_mode"] = btk.Label(layout, "MODE: {}".format(logic.settings["Game"]["mode"]), position=[9, 7.7, 0], size=0.3)
+    logic.ui["label_mode"] = btk.Label(layout, "MODE: {}".format(logic.settings["Game"]["mode"]), position=[8.55, 7.7, 0], size=0.3)
     logic.ui["label_mode"].set_color((.5, .5, .5, 1.0))
 
-    logic.ui["label_best"] = btk.Label(layout, "BEST: ", position=[9, 7.3, 0], size=0.3)
+    logic.ui["label_best"] = btk.Label(layout, "BEST: ", position=[8.55, 7.3, 0], size=0.3)
     logic.ui["label_best"].set_color((.5, .5, .5, 1.0))
     update_best_time()
 
