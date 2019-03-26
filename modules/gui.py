@@ -2,7 +2,7 @@ import os
 import math
 from mathutils import Vector
 from bge import logic, events
-from modules import btk, sound, development
+from modules import btk, sound, development, helpers
 
 from modules import config, video, global_constants as G
 from modules.helpers import clamp
@@ -41,6 +41,20 @@ def setup():
 
     # Main menu layout
     layout = logic.ui["layout_main"] = btk.Layout("layout_main", logic.uim.go)
+
+    logic.ui["label_level"] = btk.Label(layout, "LEVEL: {}".format(logic.settings["Game"]["leveldir"]), position=[9, 8.5, 0], size=0.3)
+    logic.ui["label_level"].set_color((.5, .5, .5, 1.0))
+
+    logic.ui["label_ship"] = btk.Label(layout, "SHIP: {}".format(logic.settings["Player"]["ship"]), position=[9, 8.1, 0], size=0.3)
+    logic.ui["label_ship"].set_color((.5, .5, .5, 1.0))
+
+    logic.ui["label_mode"] = btk.Label(layout, "MODE: {}".format(logic.settings["Game"]["mode"]), position=[9, 7.7, 0], size=0.3)
+    logic.ui["label_mode"].set_color((.5, .5, .5, 1.0))
+
+    logic.ui["label_best"] = btk.Label(layout, "BEST: ", position=[9, 7.3, 0], size=0.3)
+    logic.ui["label_best"].set_color((.5, .5, .5, 1.0))
+    update_best_time()
+
     menu = btk.Menu("menu_main", layout)
     menu.focus()
 
@@ -55,7 +69,7 @@ def setup():
     menu_debug = btk.Menu("menu_debug", layout)
     menu_debug.populate(
         texts=[
-            "< Back",
+            "[< Back]",
             "Start Editor",
             "Dump scenes to terminal"
             "Prepare for release and quit"
@@ -107,7 +121,7 @@ def setup():
     # Sub-menu: level selection
     menu_level = btk.Menu("menu_level", layout)
     menu_level.populate(
-        texts=["< Back"]+logic.game.level_list,
+        texts=["[< Back]"]+logic.game.level_list,
         position=[0.5, 4.0, 0],
         size=0.5,
         actions=[back]+[select_level for x in range(len(logic.game.level_list))],
@@ -118,10 +132,10 @@ def setup():
     # Sub-menu: ship selection
     menu_ship = btk.Menu("menu_ship", layout)
     menu_ship.populate(
-        texts=["< Back"]+logic.game.ship_list,
+        texts=logic.game.ship_list,
         position=[0.5, 4.0, 0],
         size=0.5,
-        actions=[back]+[select_ship for x in range(len(logic.game.ship_list))],
+        actions=[select_ship for x in range(len(logic.game.ship_list))],
         hidden=True
     )
     # ship preview model
@@ -139,7 +153,7 @@ def setup():
     # Sub-menu: game mode
     menu_mode = btk.Menu("menu_mode", layout)
     menu_mode.populate(
-        texts=["< Back"]+logic.game.mode_list,
+        texts=["[< Back]"]+logic.game.mode_list,
         position=[0.5, 4.0, 0],
         size=0.5,
         actions=[back]+[select_mode for x in range(len(logic.game.mode_list))],
@@ -158,7 +172,7 @@ def setup():
     ]
     menu_options = btk.Menu("menu_options", layout)
     menu_options.populate(
-        texts=["< Back"]+bool_options,
+        texts=["[< Back]"]+bool_options,
         position=[0.5, 4.0, 0],
         size=0.5,
         actions=[back]+[set_option for x in range(len(bool_options))],
@@ -325,8 +339,24 @@ def back(widget):
     logic.ui["layout_main"].get_element(menu_id).hide()
 
 
+def update_best_time():
+    if logic.game.mode != "time_trial":
+        logic.ui["label_best"].text = ""
+        return
+    best_time = logic.game.get_best_time()
+    if best_time["player"] == "":
+        logic.ui["label_best"].text = "NO BEST TIME YET"
+    else:
+        logic.ui["label_best"].text  = "BEST: {} ({})".format(
+            helpers.time_string(best_time["time"]),
+            best_time["player"]
+        )
+
+
 def select_level(widget):
     logic.game.set_level(widget.text)
+    logic.ui["label_level"].text = "LEVEL: {}".format(widget.text)
+    update_best_time()
     logic.game.save_settings()
     logic.ui["layout_main"].get_element("menu_level").unfocus()
     logic.ui["layout_main"].get_element("menu_main").focus()
@@ -336,6 +366,7 @@ def select_level(widget):
 
 def select_ship(widget):
     logic.game.set_ship(widget.text)
+    logic.ui["label_ship"].text = "SHIP: {}".format(widget.text)
     logic.game.save_settings()
     logic.ui["layout_main"].get_element("menu_ship").unfocus()
     logic.ui["layout_main"].get_element("menu_main").focus()
@@ -345,6 +376,8 @@ def select_ship(widget):
 
 def select_mode(widget):
     logic.game.set_mode(widget.text)
+    logic.ui["label_mode"].text = "MODE: {}".format(widget.text)
+    update_best_time()
     logic.game.save_settings()
     logic.ui["layout_main"].get_element("menu_mode").unfocus()
     logic.ui["layout_main"].get_element("menu_main").focus()

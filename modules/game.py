@@ -109,3 +109,35 @@ class Game:
 
     def save_settings(self):
         config.save()
+
+    def get_best_time(self):
+        # Gets the best times of all players
+        best_times = []
+        best_time = {"player": "", "time": 9999.0}
+        for player in os.listdir(G.PATH_PROFILES):
+            if player == ".gitkeep":
+                continue
+            score_file = os.path.join(
+                G.PATH_PROFILES,
+                player,
+                "time_trial",
+                "{}.txt".format(self.level_name)
+            )
+
+            if os.path.isfile(score_file):
+                with open(score_file, "r") as f:
+                    for line in f:
+                        best_times.append(
+                            {"player": player,
+                             "time": float(line)}
+                        )
+            elif G.DEBUG:
+                print(
+                    "Times file does not exist for {} ({})".format(self.level_name, score_file)
+                )
+
+        # Gets the best time
+        for time in best_times:
+            if time["time"] < best_time["time"]:
+                best_time = time
+        return best_time
