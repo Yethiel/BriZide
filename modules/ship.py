@@ -209,7 +209,6 @@ class Ship():
             self.sounds["air"].distance_maximum = 32
             self.sounds["air"].distance_reference = 0
 
-
             self.go["init_sound_engine"] = True
             logic.device.distance_model = aud.AUD_DISTANCE_MODEL_LINEAR
 
@@ -229,7 +228,7 @@ class Ship():
         logic.device.listener_location = camera.worldPosition
         logic.device.listener_orientation = camera.worldOrientation.to_quaternion()
 
-        logic.game.go["radial"] = clamp((self.current_velocity - (self.top_speed-10)) /  (self.top_speed+50) * 0.7, 0, 0.15)
+        logic.game.go["radial"] = clamp((self.current_velocity - (self.top_speed-10)) /  (self.top_speed+50) * 0.7, 0, 0.1)
 
         self.sounds["engine"].volume = clamp((self.current_thrust / self.top_thrust), 0, 2)
         self.sounds["engine_idle"].volume = clamp(1 - self.current_thrust / self.top_thrust, 0, 2)
@@ -258,7 +257,6 @@ class Ship():
             else:
                 self.current_boost = 500
 
-
         if not ACTIVE in [kbd.events[self.key_thrust_reverse], kbd.events[self.key_thrust]]:
             self.center_thrust()
         if not ACTIVE in [kbd.events[self.key_steer_right], kbd.events[self.key_steer_left]]:
@@ -282,6 +280,9 @@ class Ship():
                 force = distance * self.hover_strength + cancel
                 self.go.applyForce([0, 0, force], True)
                 self.go.alignAxisToVect(normalmed, 2, .2)
+                if "Ramp" in obj.name:
+                    self.go.applyForce([0, -self.go.localLinearVelocity.y / 3, 0], True)
+
         else:
             self.on_ground = False
             self.go.applyForce([0, 0, -self.gravity], True)
@@ -291,16 +292,12 @@ class Ship():
 
         if self.on_ground:
             self.go.children["Mesh"].localPosition.z = sin(self.go["Time"]*1.5) * 0.007 + 1.5
-            self.go.children["Mesh"].localOrientation *= Vector([(sin(self.go["Time"]*1.7) * 0.02) + self.current_thrust * -0.0005, -self.go["turn"] * 4 + (sin(self.go["Time"]*1.5) * 0.02), 0])
+            self.go.children["Mesh"].localOrientation *= Vector([(sin(self.go["Time"]*1.7) * 0.02) + self.current_thrust * -0.0005, -self.current_steer * 4 + (sin(self.go["Time"]*1.5) * 0.02), 0])
         else:
             self.go.children["Mesh"].localPosition.z = 1.5
             self.go.children["Mesh"].localOrientation *= Vector([0, -self.go["turn"] * 4, 0])
 
-
-        self.go["turn"] = self.current_steer
-        # Catch OOB TODO: Fix
-        level = logic.game.get_level()
-        cube_size = level.get_cube_size()
+        cube_size = logic.game.get_level().get_cube_size()
         if cube_size > 0:
             if self.go.worldPosition.z < -16 or self.go.worldPosition.z > cube_size * 32:
                 self.go.worldPosition.z = clamp(self.go.worldPosition.z, 32, cube_size * 32 - 32)
@@ -310,6 +307,7 @@ class Ship():
 
             if self.go.worldPosition.x < -16 or self.go.worldPosition.x > cube_size * 32 - 16:
                 self.go.worldPosition.x = clamp(self.go.worldPosition.x, 32, cube_size * 32 - 32)
+
 
     def controls(self):
         """ Controls only work when the uim focus is set to 'ship' """
