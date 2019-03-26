@@ -302,20 +302,14 @@ class Ship():
         level = logic.game.get_level()
         cube_size = level.get_cube_size()
         if cube_size > 0:
-            if self.go.worldPosition.z < -16:
-                self.go.worldPosition.z += 32
-            if self.go.worldPosition.z > cube_size * 32 - 16:
-                self.go.worldPosition.z += 32
+            if self.go.worldPosition.z < -16 or self.go.worldPosition.z > cube_size * 32:
+                self.go.worldPosition.z = clamp(self.go.worldPosition.z, 32, cube_size * 32 - 32)
 
-            if self.go.worldPosition.y > cube_size * 32 - 16:
-                self.go.worldPosition.y -= 32
-            if self.go.worldPosition.y < -16:
-                self.go.worldPosition.y += 32
+            if self.go.worldPosition.y < -16 or self.go.worldPosition.y > cube_size * 32 - 16:
+                self.go.worldPosition.y = clamp(self.go.worldPosition.y, 32, cube_size * 32 - 32)
 
-            if self.go.worldPosition.x > cube_size * 32 - 16:
-                self.go.worldPosition.x -= 32
-            if self.go.worldPosition.x < -16:
-                self.go.worldPosition.x += 32
+            if self.go.worldPosition.x < -16 or self.go.worldPosition.x > cube_size * 32 - 16:
+                self.go.worldPosition.x = clamp(self.go.worldPosition.x, 32, cube_size * 32 - 32)
 
     def controls(self):
         """ Controls only work when the uim focus is set to 'ship' """
