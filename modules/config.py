@@ -21,7 +21,8 @@ def load():
         }
         config["Player"] = {
             "name": "Player 0",
-            "Ship": "helios"
+            "Ship": "helios",
+            "camera": 1
         }
         config["Audio"] = {
             "Music" : 1.0,

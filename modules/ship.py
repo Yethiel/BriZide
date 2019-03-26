@@ -212,6 +212,19 @@ class Ship():
             self.go["init_sound_engine"] = True
             logic.device.distance_model = aud.AUD_DISTANCE_MODEL_LINEAR
 
+            if logic.settings["Player"]["camera"] == '1':
+                logic.getCurrentScene().active_camera = logic.getCurrentScene().objects["Camera_Ship"]
+                self.go.children["Mesh"].visible = True
+
+            if logic.settings["Player"]["camera"] == '2':
+                logic.getCurrentScene().active_camera = logic.getCurrentScene().objects["camera_ship_hood"]
+                self.go.children["Mesh"].visible = True
+
+            if logic.settings["Player"]["camera"] == '3':
+                logic.getCurrentScene().active_camera = logic.getCurrentScene().objects["camera_ship_front"]
+                self.go.children["Mesh"].visible = False
+
+
         self.init = True
 
     def run(self):
@@ -308,6 +321,22 @@ class Ship():
             if self.go.worldPosition.x < -16 or self.go.worldPosition.x > cube_size * 32 - 16:
                 self.go.worldPosition.x = clamp(self.go.worldPosition.x, 32, cube_size * 32 - 32)
 
+        if kbd.events[events.ONEKEY] == JUST_ACTIVATED:
+            logic.getCurrentScene().active_camera = logic.getCurrentScene().objects["Camera_Ship"]
+            logic.settings["Player"]["camera"] = '1'
+            self.go.children["Mesh"].visible = True    
+            logic.game.save_settings()
+        elif kbd.events[events.TWOKEY] == JUST_ACTIVATED:
+            logic.getCurrentScene().active_camera = logic.getCurrentScene().objects["camera_ship_hood"]
+            logic.settings["Player"]["camera"] = '2'
+            self.go.children["Mesh"].visible = True    
+            logic.game.save_settings()
+        elif kbd.events[events.THREEKEY] == JUST_ACTIVATED:
+            logic.getCurrentScene().active_camera = logic.getCurrentScene().objects["camera_ship_front"]
+            logic.settings["Player"]["camera"] = '3'
+            self.go.children["Mesh"].visible = False    
+            logic.game.save_settings()
+
 
     def controls(self):
         """ Controls only work when the uim focus is set to 'ship' """
@@ -332,7 +361,6 @@ class Ship():
         # Boost
         if kbd.events[self.key_boost] == JUST_ACTIVATED:
             sound.play("boost_kick")
-
 
         if kbd.events[self.key_boost] == ACTIVE and self.current_boost > 10:
             self.go.childrenRecursive["flare"].worldScale = [2 for x in range(3)]
