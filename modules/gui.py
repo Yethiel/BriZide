@@ -119,12 +119,12 @@ def setup():
         menu.active = 1
 
     # Sub-menu: level selection
-    menu_level = btk.Menu("menu_level", layout)
+    menu_level = btk.Menu("menu_level", layout, select_callback=select_callback_level)
     menu_level.populate(
-        texts=["[< Back]"]+logic.game.level_list,
+        texts=logic.game.level_list,
         position=[0.5, 4.0, 0],
         size=0.5,
-        actions=[back]+[select_level for x in range(len(logic.game.level_list))],
+        actions=[select_level for x in range(len(logic.game.level_list))],
         hidden=True
     )
     menu_level.set_active(logic.game.level_name)
@@ -224,6 +224,13 @@ def update_loading_label(widget):
     widget.text = logic.components.get_currently_loading()
 
 
+def select_callback_level(widget):
+    selection = logic.ui["layout_main"].get_element("menu_level").get_active().text
+    logic.game.set_level(selection)
+    logic.ui["label_level"].text = "LEVEL: {}".format(selection)
+    update_best_time()
+
+
 def update_ship_preview(widget):
     widget.go.localPosition.z = widget.go.localPosition.z + (math.sin(logic.uim.go["timer"]*1.5) * 0.007)
     widget.go.localOrientation *= Vector([(math.sin(logic.uim.go["timer"]*1.7) * 0.02), (math.sin(logic.uim.go["timer"]*1.5) * 0.02), 0])
@@ -319,6 +326,7 @@ def update_name(widget):
             logic.settings["Player"]["name"] = player_name
             logic.game.save_settings()
             logic.ui["layout_main"].get_element("menu_main").focus()
+            update_best_time()
 
 
 def options_clean_files(widget):
@@ -351,6 +359,11 @@ def update_best_time():
             helpers.time_string(best_time["time"]),
             best_time["player"]
         )
+    if best_time["player"] == logic.settings["Player"]["name"]:
+        logic.ui["label_best"].set_color((.1, .9, .1, 1.0))
+    else:
+        logic.ui["label_best"].set_color((.9, .1, .1, 1.0))
+
 
 
 def select_level(widget):

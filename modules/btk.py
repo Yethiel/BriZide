@@ -66,7 +66,7 @@ class Layout:
 
 
 class Menu(Layout):
-    def __init__(self, title, parent, focused=False):
+    def __init__(self, title, parent, focused=False, select_callback=None):
         """ Creates a menu 
                 title:
                     String: Identifier of the Menu
@@ -82,6 +82,7 @@ class Menu(Layout):
         self.focused = focused
         self.parent.add_element(self)
         self.size = 1.0
+        self.select_callback = select_callback
 
     def set_element_color(self, element):
         element.go.color[3] = 1 - abs(self.elements.index(self.get_active()) - self.elements.index(element)) / len(self.elements)
@@ -159,9 +160,13 @@ class Menu(Layout):
             if kbd.events[events.UPARROWKEY] == JUST_ACTIVATED:
                 self.previous()
                 sound.play("menu")
+                if self.select_callback:
+                    self.select_callback(self)
             if kbd.events[events.DOWNARROWKEY] == JUST_ACTIVATED:
                 self.next()
                 sound.play("menu")
+                if self.select_callback:
+                    self.select_callback(self)
             if kbd.events[events.ENTERKEY] == JUST_ACTIVATED:
                 sound.play("select")
                 self.get_active().execute()
