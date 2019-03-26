@@ -57,11 +57,12 @@ def setup():
         texts=[
             "< Back",
             "Start Editor",
+            "Dump scenes to terminal"
             "Prepare for release and quit"
         ],
         position=[0.5, 4.0, 0],
         size=0.5,
-        actions=[back, start_editor, options_clean_files],
+        actions=[back, start_editor, dump_scenes, options_clean_files],
         hidden=True
     )
             
