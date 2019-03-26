@@ -225,7 +225,6 @@ class Ship():
         if self.particles_used and self.particles_used[-1]["timer"] > 1.0:
             self.particles.append(self.particles_used[-1])
             self.particles_used = self.particles_used[:-1]
-        self.go.childrenRecursive["flare"].worldScale = [self.current_thrust / self.top_thrust + .5 for x in range(3)]
 
         logic.device.listener_location = camera.worldPosition
         logic.device.listener_orientation = camera.worldOrientation.to_quaternion()
@@ -291,8 +290,11 @@ class Ship():
         self.go.applyRotation((0,0, self.current_steer), True) #actual steering happens here
 
         if self.on_ground:
-            self.go.children["Mesh"].localPosition.z = self.go.children["Mesh"].localPosition.z + (sin(self.go["Time"]*1.5) * 0.007)
-            self.go.children["Mesh"].localOrientation *= Vector([(sin(self.go["Time"]*1.7) * 0.02), -self.go["turn"] * 4 + (sin(self.go["Time"]*1.5) * 0.02), 0])
+            self.go.children["Mesh"].localPosition.z = sin(self.go["Time"]*1.5) * 0.007 + 1.5
+            self.go.children["Mesh"].localOrientation *= Vector([(sin(self.go["Time"]*1.7) * 0.02) + self.current_thrust * -0.0005, -self.go["turn"] * 4 + (sin(self.go["Time"]*1.5) * 0.02), 0])
+        else:
+            self.go.children["Mesh"].localPosition.z = 1.5
+            self.go.children["Mesh"].localOrientation *= Vector([0, -self.go["turn"] * 4, 0])
 
 
         self.go["turn"] = self.current_steer
@@ -341,6 +343,8 @@ class Ship():
 
 
         if kbd.events[self.key_boost] == ACTIVE and self.current_boost > 10:
+            self.go.childrenRecursive["flare"].worldScale = [2 for x in range(3)]
+
             allow_boost = max(self.go.getLinearVelocity(True)) < self.top_speed * 1.5
             if allow_boost:
                 self.go.applyForce((0, self.thrust * 18, 0), True)
@@ -352,6 +356,7 @@ class Ship():
             self.sounds["boost_low"].volume = clamp(self.current_velocity / self.top_speed, 0, 0.65)
 
         else:
+            self.go.childrenRecursive["flare"].worldScale = [self.current_thrust / self.top_thrust + .5 for x in range(3)]
             self.sounds["boost_low"].volume = 0.0
             self.sounds["boost_low"].pitch = 1.0
             self.sounds["boost_high"].volume = 0.0
@@ -434,8 +439,14 @@ class Ship():
         delta = logic.getLogicTicRate()
 
         if self.current_thrust > 0:
+            if self.current_thrust < self.thrust * 1/delta * 60:
+                self.current_thrust = 0 
+                return
             self.current_thrust -= self.thrust * 1/delta * 60
-        else:
+        elif self.current_thrust < 0:
+            if self.current_thrust > self.thrust * 1/delta * 60:
+                self.current_thrust = 0 
+                return
             self.current_thrust += self.thrust * 1/delta * 60
 
     def on_collision_sparks(self, obj, point, normal):
