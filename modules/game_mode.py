@@ -101,6 +101,7 @@ class Game_Mode:
         #     debug.dump_scenes()
 
         # Workaround: BGE LibLoad-related(?) crash
+        logic.game.save_settings()
         logic.startGame("//main.blend")
 
 
