@@ -55,14 +55,16 @@ def setup():
     menu_debug = btk.Menu("menu_debug", layout)
     menu_debug.populate(
         texts=[
+            "< Back",
+            "Start Editor",
             "Prepare for release and quit"
         ],
-        position=[6.3, 6.0, 0],
+        position=[0.5, 4.0, 0],
         size=0.5,
-        actions=[options_clean_files],
+        actions=[back, start_editor, options_clean_files],
         hidden=True
-        )
-
+    )
+            
     # Main menu
     menu.populate(
         texts=[
@@ -71,7 +73,6 @@ def setup():
             "Select Level",
             "Select Ship",
             "Select Game Mode",
-            "Start Editor",
             "Options",
             "Quit"
         ]+(["DEBUG"] if G.DEBUG else []),
@@ -83,13 +84,11 @@ def setup():
             show_menu_level,
             show_menu_ship,
             show_menu_mode,
-            start_editor,
             show_menu_options,
             end_game
         ]+([show_menu_debug] if G.DEBUG else []),
         updates=[
             update_name,
-            None,
             None,
             None,
             None,
@@ -129,7 +128,7 @@ def setup():
     ship_preview = btk.Element(
         layout,
         object="ui_ship_preview",
-        position=[12,4.0,0],
+        position=[13,4.0,0],
         scale=[1.0,1.0,1.0],
         title="ui_ship_preview",
         update=update_ship_preview,
