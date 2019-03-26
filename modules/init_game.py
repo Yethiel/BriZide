@@ -2,14 +2,18 @@
 This is the module called by the controller object in main.blend.
 """
 
-from bge import logic
-from modules import sound, gui, game, components, content, config, video, global_constants as G
-import os, sys
+from bge import logic, events, render
+from modules import sound, gui, game, components, content, config, video, sound, global_constants as G
+import os, sys, datetime
 
 cont = logic.getCurrentController()
 own = cont.owner
 sce = logic.getCurrentScene()
 
+kbd = logic.keyboard
+JUST_ACTIVATED = logic.KX_INPUT_JUST_ACTIVATED
+JUST_RELEASED = logic.KX_INPUT_JUST_RELEASED
+ACTIVE = logic.KX_INPUT_ACTIVE
 
 def setup():
     print("Brizide ver.", G.VERSION)
@@ -47,7 +51,12 @@ def main():
         So the UI puts a command in the queue which then gets
         executed here.
     """
+
     if logic.uim.queue:
         if logic.uim.queue[0] == "game_start":
             logic.game.start()
             logic.uim.queue.pop(0)
+
+    if kbd.events[events.F8KEY] == JUST_RELEASED:
+        sound.play("race_complete")
+        render.makeScreenshot(logic.expandPath("//screenshots/brizide-{date:%Y-%m-%d %H:%M:%S}".format( date=datetime.datetime.now() )))

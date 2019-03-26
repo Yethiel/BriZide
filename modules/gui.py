@@ -143,7 +143,7 @@ def setup():
     ship_preview = btk.Element(
         layout,
         object="ui_ship_preview",
-        position=[13,4.0,0],
+        position=[12.5, 4.0 ,0],
         scale=[1.0,1.0,1.0],
         title="ui_ship_preview",
         update=update_ship_preview,
