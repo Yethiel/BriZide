@@ -32,7 +32,7 @@ class Time_Trial_Mode(Game_Mode):
         """ Runs after loading is done """
         super().setup()  # generates the UI layout and menu
         sce = logic.getCurrentScene()
-        logic.game.set_music_dir("time_trial")
+        logic.game.set_music_dir("racing")
         self.setup_checkpoints()
         self.get_times()
 

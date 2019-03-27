@@ -1,0 +1,24 @@
+[Main]
+Name:           Black Coffee
+Model:          //ships/black_coffee/black_coffee.blend     
+
+[Handling]
+
+TopSpeed:           190.0           
+TopThrust:          110.0            
+Thrust:             9.0             
+
+Grip:               0.7
+GripAir:            1.2
+
+SteerRate:          0.23       
+SteerMax:           0.06            
+
+StableThreshold:    0.001           
+StableStrength:     2.8
+Shield:             100             
+
+HoverHeight:        5.5             
+HoverStrength:      370.0             
+HoverDamping:       3.2          
+

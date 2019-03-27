@@ -13,7 +13,7 @@ class Free_Mode(Game_Mode):
     def setup(self):
         """ runs after loading is done """
         super().setup()
-        logic.game.set_music_dir("time_trial")
+        logic.game.set_music_dir("racing")
         logic.uim.set_focus("ship")
 
     def run(self):

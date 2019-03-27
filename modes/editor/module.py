@@ -45,7 +45,7 @@ class Edit_Mode(Game_Mode):
         super().setup()
 
         scene = logic.getCurrentScene()
-        logic.game.set_music_dir('editor')
+        logic.game.set_music_dir('ambient')
 
         # sets the camera
         scene.active_camera = scene.objects['camera_editor']
