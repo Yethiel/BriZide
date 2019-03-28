@@ -30,6 +30,8 @@ class Game_Mode:
         """ Runs once all components have been loaded """
         logic.ui[self.name] = btk.Layout(self.name, logic.uim.go)
 
+        logic.will_crash = True
+
         # Creates a pause menu and populates it with options
         menu = btk.Menu("pause_menu", logic.ui[self.name])
         menu.populate(
@@ -74,26 +76,32 @@ class Game_Mode:
 
 
     def return_to_menu(self, widget):
-        # sce = logic.getCurrentScene()
+        sce = logic.getCurrentScene()
 
-        # logic.ui[self.name].hide()
-        # logic.ui[self.name].end()
-        # logic.ui.pop(self.name)
+        logic.ui[self.name].hide()
+        logic.ui[self.name].end()
+        logic.ui.pop(self.name)
 
-        # for component in self.components[::-1]:
-        #     logic.components.free(component)
-        # self.go.endObject()
+        for component in self.components[::-1]:
+            logic.components.free(component)
+        self.go.endObject()
 
-        # logic.components.free(self.name)
-        # logic.components.clear()
-        # logic.game.clear()
-        # logic.uim.set_focus("menu")
-        # logic.game.set_music_dir("menu")
+        logic.components.free(self.name)
+        logic.components.clear()
+        logic.game.clear()
+        logic.uim.set_focus("menu")
+        logic.game.set_music_dir("menu")
 
-        # logic.ui["layout_main"].get_element("menu_main").show()
-        # logic.ui["layout_main"].get_element("logo").show()
-        # logic.ui["layout_main"].get_element("B r i Z i d e").show()
-        # logic.ui["layout_main"].get_element("menu_main").focus()
+        logic.ui["layout_main"].get_element("menu_main").show()
+        logic.ui["layout_main"].get_element("logo").show()
+        logic.ui["layout_main"].get_element("B r i Z i d e").show()
+        logic.ui["layout_main"].get_element("menu_main").focus()
+        logic.ui["backdrop"].show()
+        logic.ui["ship_preview"].show()
+        logic.ui["label_level"].show()
+        logic.ui["label_ship"].show()
+        logic.ui["label_mode"].show()
+        logic.ui["label_best"].show()
 
 
         # if G.DEBUG:
@@ -101,8 +109,8 @@ class Game_Mode:
         #     debug.dump_scenes()
 
         # Workaround: BGE LibLoad-related(?) crash
-        logic.game.save_settings()
-        logic.startGame("//main.blend")
+        # logic.game.save_settings()
+        # logic.startGame("//main.blend")
 
 
     def restart(self, widget):

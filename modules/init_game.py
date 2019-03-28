@@ -18,6 +18,9 @@ ACTIVE = logic.KX_INPUT_ACTIVE
 def setup():
     print("Brizide ver.", G.VERSION)
 
+    # Whether video options can be applied without crashing (only works before loading a game mode)
+    logic.will_crash = False
+
     logic.settings = config.load()
     G.DEBUG = logic.settings["Dev"]["debug"] == "True"
     video.apply_settings()

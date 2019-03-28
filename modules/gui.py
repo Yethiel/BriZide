@@ -140,7 +140,7 @@ def setup():
     )
     # ship preview model
     menu_ship.set_active(logic.settings["Player"]["ship"])
-    ship_preview = btk.Element(
+    logic.ui["ship_preview"] = btk.Element(
         layout,
         object="ui_ship_preview",
         position=[12.5, 4.0 ,0],
@@ -181,7 +181,7 @@ def setup():
 
     # Misc. menu items
     logo = btk.Element(layout, object="logo", title="logo", position=[0.5, 6.5, 0.2], scale=[2,2,1])
-    backdrop = btk.Element(layout, object="ui_menu_backdrop", title="backdrop", position=[0, 0, -3], scale=[1,1,1])
+    logic.ui["backdrop"] = btk.Element(layout, object="ui_menu_backdrop", title="backdrop", position=[0, 0, -3], scale=[1,1,1])
     title = btk.Label(layout, text="B r i Z i d e", position=[3, 7.3, 0.2], size=0.6, update=update_fade)
     title.set_color([1, 0.5, 0.0, 1.0])
 
@@ -333,13 +333,13 @@ def options_clean_files(widget):
     development.clean_files()
     logic.endGame()
 
+
 def back(widget):
     logic.game.save_settings()
     menu_id = widget.parent.title
 
-    # to apply all gfx settings
-    if menu_id == "menu_options":
-        logic.restartGame()
+    if menu_id == "menu_options" and not logic.will_crash:
+        video.apply_settings()
 
     logic.ui["layout_main"].get_element(menu_id).unfocus()
     logic.ui["layout_main"].get_element("menu_main").focus()

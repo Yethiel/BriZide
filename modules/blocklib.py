@@ -16,13 +16,12 @@ def add():
     This will look up all objects in a blend file and append them to the block list.
     """
 
-    # get all blocks that are in this scene and add them to a list
+    # gets all blocks that are in this scene and add them to a list
     for obj in sce.objects:
         if "Block_" in obj.name:
-            # we need to use the name since this lib will be freed and the objects will be gone, leaving freed references
             logic.game.block_list.append(obj.name)
 
-    if len(logic.game.block_list) != 0: # if some blocks have been foudn
+    if len(logic.game.block_list) != 0: # if some blocks have been found
         if G.DEBUG:
             print("Successfully loaded block list.")
             print(logic.game.block_list)

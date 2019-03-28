@@ -331,13 +331,13 @@ class Ship():
         cube_size = logic.game.get_level().get_cube_size()
         if cube_size > 0:
             if self.go.worldPosition.z < -16 or self.go.worldPosition.z > cube_size * 32:
-                self.go.worldPosition.z = clamp(self.go.worldPosition.z, 32, cube_size * 32 - 32)
+                self.go.worldPosition.z = clamp(self.go.worldPosition.z, 16, cube_size * 32 - 16)
 
             if self.go.worldPosition.y < -16 or self.go.worldPosition.y > cube_size * 32 - 16:
-                self.go.worldPosition.y = clamp(self.go.worldPosition.y, 32, cube_size * 32 - 32)
+                self.go.worldPosition.y = clamp(self.go.worldPosition.y, 16, cube_size * 32 - 16)
 
             if self.go.worldPosition.x < -16 or self.go.worldPosition.x > cube_size * 32 - 16:
-                self.go.worldPosition.x = clamp(self.go.worldPosition.x, 32, cube_size * 32 - 32)
+                self.go.worldPosition.x = clamp(self.go.worldPosition.x, 16, cube_size * 32 - 16)
 
         if kbd.events[events.ONEKEY] == JUST_ACTIVATED:
             logic.getCurrentScene().active_camera = logic.getCurrentScene().objects["Camera_Ship"]
@@ -513,15 +513,10 @@ def setup():
     # for player in game.players:
 
     player_id = logic.game.players[0]
-
     identifier = logic.settings["Player"]["ship"]
-
     ship = Ship(game_obj, identifier, player_id)
-
     ship.gravity = 0 if level.cube_size == 0 else 150
-
     logic.game.assign_ship_to_player(ship.id, player_id)
-
     ship.go.worldPosition = level.get_start_pos()
     ship.go.worldOrientation = mathutils.Matrix(level.get_start_orientation())
 

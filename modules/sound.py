@@ -16,6 +16,7 @@ for wavpath in [logic.expandPath("//wavs/announcer/"), logic.expandPath("//wavs/
             logic.sounds[wav.replace('.wav','')] = aud.Factory.file(str(wavpath) + str(wav))
 if G.DEBUG: print("Sounds:", logic.sounds.keys())
 
+
 class EchoWrapper():
     def __init__(self, soundstring, feedback=6, delay=0.07, dry=1, wet=0.3,
                 loop=0, relative=False, distance_reference=0, distance_maximum=32):
@@ -55,6 +56,7 @@ class EchoWrapper():
         for snd in self.handles:
             snd.location = wposition
 
+
 def play(facname):
     if facname in logic.sounds.keys():
         if G.DEBUG: print("Playing sound:",facname)
@@ -64,6 +66,7 @@ def play(facname):
     else:
         if G.DEBUG: print("Sound not found:", facname)
         return None
+
 
 def init():
     logic.device.volume = float(logic.settings["Audio"]["master"])

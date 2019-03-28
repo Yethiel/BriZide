@@ -225,14 +225,7 @@ class Level():
                 for prop in block.properties:
                     new_block[prop] = block.properties[prop]
 
-                new_block.worldPosition = block.position # Set position
-
-                # Convert Orientation to matrix and apply it to the 3D object
-                # new_orientation = mathutils.Euler((0, 0, 0), "XYZ")
-
-                # for x in [0, 1, 2]:
-                #     new_orientation[x] = block.orientation[x]
-
+                new_block.worldPosition = block.position
                 new_block.worldOrientation = mathutils.Matrix(block.orientation)
 
     def clear(self):

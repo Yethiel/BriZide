@@ -1,11 +1,6 @@
 from bge import logic, events
 
 def clamp(value, minimum, maximum):
-    """ Clamps the given value
-    :param: value
-    :param: min
-    :param: max
-    """
     if value > maximum:
         return maximum
     elif value < minimum:
