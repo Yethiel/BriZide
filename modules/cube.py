@@ -33,7 +33,7 @@ def main():
         simple_cube.worldPosition = [(cube_size*tile_size)/2 - 16, (cube_size*tile_size)/2 - 16, (cube_size*tile_size)/2 - 16]
         simple_cube.worldScale = [cube_size, cube_size, cube_size]
         if cube_size > 0:
-            simple_cube.meshes[0].transformUV(-1, Matrix.Identity(4)*cube_size)
+            simple_cube.meshes[0].transformUV(-1, Matrix.Identity(4)*cube_size, 0)
         logic.components.mark_loaded("cube")
         return
 
@@ -122,7 +122,7 @@ def clear():
         cube_size = level.get_cube_size()
         simple_cube = sce.objects["CubeSimple"]
         if cube_size != 0:
-            simple_cube.meshes[0].transformUV(-1, Matrix.Identity(4)*(1/cube_size))
+            simple_cube.meshes[0].transformUV(-1, Matrix.Identity(4)*(1/cube_size), 0)
 
     for obj in sce.objects:
         if "Cube" in obj.name:

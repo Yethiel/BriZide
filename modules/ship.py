@@ -494,12 +494,12 @@ class Ship():
 
         if randint(0, 1) and self.particles:
             p = self.particles.pop()
-            p["timer"] = 0.7
+            p["timer"] = 0.6
             p.worldPosition = point
             for x in range(1):
                 normal[x] += randint(0, 10) * 0.1
             normal[2] += randint(-10, 10) * 0.2
-            p.setLinearVelocity(normal * randint(-15, 10))
+            p.setLinearVelocity(normal * randint(-15, 15))
             self.particles_used.append(p)
         # print(obj, point, normal)
 
