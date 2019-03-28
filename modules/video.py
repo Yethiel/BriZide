@@ -15,6 +15,11 @@ def actuators():
         cont.activate(act_bloom)
 
 def apply_settings():
+    if float(logic.settings["Video"]["motion_blur"]) > 0.0:
+        render.enableMotionBlur(float(logic.settings["Video"]["motion_blur"]))
+    else:
+        render.disableMotionBlur()
+    if G.DEBUG: print("Motion blur: {}".format(float(logic.settings["Video"]["motion_blur"])))
     render.setFullScreen(logic.settings["Video"]["fullscreen"] == "True")
     render.setWindowSize(
             int(logic.settings["Video"]["width"]),

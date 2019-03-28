@@ -22,3 +22,13 @@ HoverHeight:        5.5
 HoverStrength:      370.0             
 HoverDamping:       3.2          
 
+[Flare1]
+x:                  -0.972609
+y:                  -1.5767
+z:                  -0.092669
+
+[Flare2]
+x:                   0.972609
+y:                  -1.5767
+z:                  -0.092669
+

@@ -38,6 +38,7 @@ def load():
             "extra_textures" : "True",
             "bloom" : "False",
             "blur" : "False",
+            "motion_blur" : 0.0,
             "num_particles" : 30
         }
 

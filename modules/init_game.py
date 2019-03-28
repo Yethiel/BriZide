@@ -21,8 +21,12 @@ def setup():
     logic.settings = config.load()
     G.DEBUG = logic.settings["Dev"]["debug"] == "True"
     video.apply_settings()
-    if G.DEBUG: print("D E B U G")
-    if G.DEBUG: os.system('clear')
+    if G.DEBUG: 
+        os.system('clear')
+        print("D E B U G")
+        render.showProfile(True)
+        render.showProperties(True)
+        render.showFramerate(True)
     sound.init()
     logic.game = game.Game(own)
 

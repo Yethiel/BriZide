@@ -89,12 +89,13 @@ class Ship():
 
         self.particles = []
         self.particles_used = []
+        self.flares = []
 
         self.load(identifier)
 
     def load(self, ship_name):
         inf = configparser.ConfigParser()
-        scene = logic.getCurrentScene()
+        sce = logic.getCurrentScene()
 
         if os.path.isfile(self.inf_path):
             inf.read(self.inf_path)
@@ -104,6 +105,15 @@ class Ship():
                 "Could not find ship information file at {}".format(self.inf_path))
 
         for category in inf:
+            if "Flare" in category:
+                flare = sce.addObject("ship_flare", self.go)
+                flare.worldPosition = [
+                    self.go.worldPosition[0] + float(inf[category]["x"]),
+                    self.go.worldPosition[1] + float(inf[category]["y"]),
+                    self.go.worldPosition[2] + float(inf[category]["z"]),
+                ]
+                flare.setParent(self.go.children["Mesh"])
+                self.flares.append(flare)
             for key in inf[category]:
 
                 if key == "name":
@@ -136,6 +146,7 @@ class Ship():
                 elif key == "hoverdamping":
                     self.hover_damping = float(inf[category][key])
 
+
         # Sets controls
         c_stt = logic.settings["Controls_Player1"]
 
@@ -165,7 +176,7 @@ class Ship():
         self.go.children["Mesh"].replaceMesh(ship_name, True, False)
 
         for x in range(int(logic.settings["Video"]["num_particles"])):
-            self.particles.append(scene.addObject("particle_spark", self.go))
+            self.particles.append(sce.addObject("particle_spark", self.go))
         self.go.collisionCallbacks.append(self.on_collision_sparks)
 
         if not "init_sound_engine" in self.go:
@@ -213,23 +224,30 @@ class Ship():
             logic.device.distance_model = aud.AUD_DISTANCE_MODEL_LINEAR
 
             if logic.settings["Player"]["camera"] == '1':
-                logic.getCurrentScene().active_camera = logic.getCurrentScene().objects["Camera_Ship"]
+                sce.active_camera = sce.objects["Camera_Ship"]
                 self.go.children["Mesh"].visible = True
 
             if logic.settings["Player"]["camera"] == '2':
-                logic.getCurrentScene().active_camera = logic.getCurrentScene().objects["camera_ship_hood"]
+                sce.active_camera = sce.objects["camera_ship_hood"]
                 self.go.children["Mesh"].visible = True
 
             if logic.settings["Player"]["camera"] == '3':
-                logic.getCurrentScene().active_camera = logic.getCurrentScene().objects["camera_ship_front"]
+                sce.active_camera = sce.objects["camera_ship_front"]
                 self.go.children["Mesh"].visible = False
+
+            flare_nodes = [obj for obj in sce.objects if "node_flare" in obj.name]
+
+            for node in flare_nodes:
+                flare = sce.addObject("ship_flare", node)
+                flare.setParent(node)
 
 
         self.init = True
 
     def run(self):
 
-        camera = logic.getCurrentScene().objects["Camera_Ship"]
+        sce = logic.getCurrentScene()
+        camera = sce.objects["Camera_Ship"]
 
         self.current_velocity = self.go.localLinearVelocity[1]
 
@@ -363,7 +381,8 @@ class Ship():
             sound.play("boost_kick")
 
         if kbd.events[self.key_boost] == ACTIVE and self.current_boost > 10:
-            self.go.childrenRecursive["flare"].worldScale = [2 for x in range(3)]
+            for f in self.flares:
+                f.worldScale = [2 for x in range(3)]
 
             allow_boost = max(self.go.getLinearVelocity(True)) < self.top_speed * 1.5
             if allow_boost:
@@ -376,7 +395,8 @@ class Ship():
             self.sounds["boost_low"].volume = clamp(self.current_velocity / self.top_speed, 0, 0.65)
 
         else:
-            self.go.childrenRecursive["flare"].worldScale = [self.current_thrust / self.top_thrust + .5 for x in range(3)]
+            for f in self.flares:
+                f.worldScale = [self.current_thrust / self.top_thrust + .5 for x in range(3)]
             self.sounds["boost_low"].volume = 0.0
             self.sounds["boost_low"].pitch = 1.0
             self.sounds["boost_high"].volume = 0.0
