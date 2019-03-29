@@ -1,0 +1,27 @@
+[Main]
+Name:           Helios
+Model:          //ships/helios/helios.blend
+
+[Handling]
+TopSpeed:           200.0
+TopThrust:          90.0
+Thrust:             8.0
+
+Grip:               0.6
+GripAir:            1.0
+
+SteerRate:          0.23
+SteerMax:           0.06
+
+StableThreshold:    0.001
+StableStrength:     2.6
+Shield:             100
+
+HoverHeight:        5.4
+HoverStrength:      350.0
+HoverDamping:       3.4
+
+[Flare1]
+x:                  0.0
+y:                  -1.55737
+z:                  -0.016694
