@@ -2,7 +2,7 @@
 
 ## Default Controls
 
-Controls can be set in the config.ini file.
+Controls can be set in the [config.ini](./02-configuration.html#configini) file.
 
 Select options in the main menu with the arrow keys. Press `ENTER` to select a menu entry.
 

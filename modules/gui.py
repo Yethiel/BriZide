@@ -60,7 +60,7 @@ def setup():
 
     # loads ship previews
     for folder in os.listdir(G.PATH_SHIPS):
-        if folder+".inf" in os.listdir(logic.expandPath(G.PATH_SHIPS+folder)):
+        if folder+G.EXTENSION_INF in os.listdir(logic.expandPath(G.PATH_SHIPS+folder)):
             print("LOADING", os.path.join(logic.expandPath(G.PATH_SHIPS+folder), folder) + ".blend")
             # logic.LibLoad(os.path.join(logic.expandPath(G.PATH_SHIPS+folder), folder) + ".blend", "Mesh")
             logic.LibNew("ui_"+os.path.join(logic.expandPath(G.PATH_SHIPS+folder), folder) + ".blend", "Mesh", [folder])

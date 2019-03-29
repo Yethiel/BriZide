@@ -33,7 +33,7 @@ class Ship():
         self.ship_path = logic.expandPath(
             "//ships/"+identifier)
         self.inf_path = logic.expandPath(
-            "//ships/"+identifier+"/"+identifier+".inf")
+            "//ships/"+identifier+"/"+identifier+G.EXTENSION_INF)
 
         # Parameters
         self.top_speed = 1.0

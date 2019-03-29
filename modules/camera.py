@@ -9,3 +9,6 @@ def ship():
     ship = logic.getCurrentScene().objects["Ship"]
     own.fov = clamp(100 + ship.localLinearVelocity.length * 0.2, 100.0, 160.0)
     own.timeOffset = clamp(12 - ship.localLinearVelocity.length/60 * 3, 0.2, 15.0)
+
+def skybox():
+    pass
